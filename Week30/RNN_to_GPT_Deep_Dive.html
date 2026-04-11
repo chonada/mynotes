@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From RNN to GPT — The Deep Learning Sequence Revolution</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-deep: #0a0a0f;
+  --bg-card: #12121a;
+  --bg-elevated: #1a1a28;
+  --accent-primary: #6366f1;
+  --accent-secondary: #a78bfa;
+  --accent-warm: #f59e0b;
+  --accent-rose: #f43f5e;
+  --accent-emerald: #10b981;
+  --accent-cyan: #06b6d4;
+  --text-primary: #e8e8f0;
+  --text-secondary: #9595b0;
+  --text-dim: #5a5a78;
+  --border: rgba(99,102,241,0.15);
+  --glow: rgba(99,102,241,0.3);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ── Slide Container ── */
+.deck {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0.5s;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) transparent;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0s;
+}
+
+/* ── Typography ── */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 3.2rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h1.hero {
+  font-size: 4.5rem;
+  text-align: center;
+  background: linear-gradient(135deg, #fff, var(--accent-secondary), var(--accent-primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--accent-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.6rem;
+}
+
+p, li {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 58ch;
+}
+
+.slide p + p { margin-top: 0.8rem; }
+
+/* ── Math Blocks ── */
+.math-block {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 8px;
+  padding: 1.2rem 1.6rem;
+  margin: 1rem 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.05rem;
+  color: var(--accent-secondary);
+  line-height: 2;
+  overflow-x: auto;
+}
+
+.math-block .label {
+  display: block;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 0.4rem;
+}
+
+.math-inline {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent-secondary);
+  background: rgba(99,102,241,0.08);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+/* ── Layout Helpers ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 1rem;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.8rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.card h3 { margin-bottom: 0.5rem; }
+
+.card-accent {
+  border-top: 3px solid var(--accent-primary);
+}
+
+.card-warm { border-top-color: var(--accent-warm); }
+.card-rose { border-top-color: var(--accent-rose); }
+.card-emerald { border-top-color: var(--accent-emerald); }
+.card-cyan { border-top-color: var(--accent-cyan); }
+
+/* ── Tags & Chips ── */
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 4px;
+  margin-bottom: 0.6rem;
+}
+
+.tag-rnn { background: rgba(244,63,94,0.15); color: var(--accent-rose); }
+.tag-lstm { background: rgba(16,185,129,0.15); color: var(--accent-emerald); }
+.tag-gru { background: rgba(6,182,212,0.15); color: var(--accent-cyan); }
+.tag-transformer { background: rgba(245,158,11,0.15); color: var(--accent-warm); }
+.tag-math { background: rgba(99,102,241,0.15); color: var(--accent-primary); }
+
+/* ── Diagram Boxes ── */
+.diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.2rem 0;
+  flex-wrap: wrap;
+}
+
+.diagram .box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-width: 80px;
+}
+
+.diagram .arrow {
+  color: var(--accent-primary);
+  font-size: 1.4rem;
+}
+
+.diagram .box.highlight {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px var(--glow);
+  color: var(--accent-secondary);
+}
+
+/* ── Gate Visual ── */
+.gate-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.gate-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.gate-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.gate-icon.sigma { background: rgba(244,63,94,0.2); color: var(--accent-rose); }
+.gate-icon.tanh { background: rgba(6,182,212,0.2); color: var(--accent-cyan); }
+.gate-icon.mult { background: rgba(245,158,11,0.2); color: var(--accent-warm); }
+.gate-icon.plus { background: rgba(16,185,129,0.2); color: var(--accent-emerald); }
+
+/* ── Timeline ── */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin: 1.2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-rose), var(--accent-primary), var(--accent-warm), var(--accent-emerald));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.65rem;
+  top: 0.5rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  border: 2px solid var(--bg-deep);
+}
+
+.timeline-item .year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--accent-warm);
+  font-weight: 700;
+}
+
+.timeline-item .desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Bullet List ── */
+ul.concept-list {
+  list-style: none;
+  margin: 0.8rem 0;
+}
+
+ul.concept-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+ul.concept-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary);
+  font-weight: 700;
+}
+
+/* ── Comparison Table ── */
+.comp-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.comp-table th {
+  background: var(--bg-elevated);
+  color: var(--accent-secondary);
+  text-align: left;
+  padding: 0.7rem 1rem;
+  border-bottom: 2px solid var(--accent-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+.comp-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.comp-table tr:last-child td { border-bottom: none; }
+
+/* ── Navigation ── */
+.nav {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  z-index: 100;
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: blur(12px);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+}
+
+.nav button {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.nav button:hover {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.nav .counter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  min-width: 50px;
+  text-align: center;
+}
+
+/* ── Progress Bar ── */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-rose), var(--accent-primary), var(--accent-warm));
+  z-index: 100;
+  transition: width 0.4s ease;
+}
+
+/* ── Section Divider Slide ── */
+.slide.section-divider {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.section-divider .section-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 6rem;
+  font-weight: 900;
+  color: rgba(99,102,241,0.12);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.section-divider h2 {
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-divider p {
+  max-width: 40ch;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ── Subtle BG decoration ── */
+.slide::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99,102,241,0.04), transparent 70%);
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ── Emphasis ── */
+em.key { color: var(--accent-warm); font-style: normal; font-weight: 600; }
+em.rose { color: var(--accent-rose); font-style: normal; font-weight: 600; }
+em.green { color: var(--accent-emerald); font-style: normal; font-weight: 600; }
+em.cyan { color: var(--accent-cyan); font-style: normal; font-weight: 600; }
+em.primary { color: var(--accent-primary); font-style: normal; font-weight: 600; }
+
+.subtitle {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 300;
+  font-size: 1.3rem;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.author-line {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ── Scrollbar for overflow ── */
+.slide::-webkit-scrollbar { width: 4px; }
+.slide::-webkit-scrollbar-track { background: transparent; }
+.slide::-webkit-scrollbar-thumb { background: var(--accent-primary); border-radius: 4px; }
+
+/* ── Keyboard hint ── */
+.key-hint {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 2rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+  z-index: 100;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .slide { padding: 2rem 2rem; }
+  h1 { font-size: 2.2rem; }
+  h1.hero { font-size: 2.8rem; }
+  h2 { font-size: 1.8rem; }
+  .two-col, .three-col { grid-template-columns: 1fr; }
+  .math-block { font-size: 0.85rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="deck" id="deck">
+
+<!-- ═══════════════════ SLIDE 1: TITLE ═══════════════════ -->
+<div class="slide active" data-slide="1">
+  <div style="text-align:center;">
+    <div style="font-size:0.85rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent-primary);margin-bottom:1.5rem;">A Deep Dive into Sequential Deep Learning</div>
+    <h1 class="hero">From RNN to GPT</h1>
+    <p class="subtitle">Recurrent Neural Networks · LSTM · GRU · Attention · Transformers</p>
+    <p class="subtitle" style="font-size:1rem;margin-top:0.3rem;">The Mathematics, Intuition & Evolution of Sequence Models</p>
+    <div class="author-line" style="margin-top:3rem;">Jitendra · Senior AI Architect · 2026</div>
+    <div style="margin-top:2rem;">
+      <div class="diagram">
+        <div class="box" style="border-color:var(--accent-rose);">RNN</div>
+        <div class="arrow">→</div>
+        <div class="box" style="border-color:var(--accent-emerald);">LSTM</div>
+        <div class="arrow">→</div>
+        <div class="box" style="border-color:var(--accent-cyan);">GRU</div>
+        <div class="arrow">→</div>
+        <div class="box" style="border-color:var(--accent-warm);">Attention</div>
+        <div class="arrow">→</div>
+        <div class="box highlight">Transformer</div>
+        <div class="arrow">→</div>
+        <div class="box" style="border-color:var(--accent-secondary);box-shadow:0 0 20px rgba(167,139,250,0.3);">GPT</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 2: ROADMAP ═══════════════════ -->
+<div class="slide" data-slide="2">
+  <h3>Roadmap</h3>
+  <h2>What We Will Cover</h2>
+  <div class="three-col" style="margin-top:1.5rem;">
+    <div class="card card-accent" style="border-top-color:var(--accent-rose);">
+      <div class="tag tag-rnn">Part I</div>
+      <h3 style="color:var(--accent-rose);">Recurrent Neural Networks</h3>
+      <ul class="concept-list">
+        <li>The sequential data problem</li>
+        <li>RNN architecture & unfolding</li>
+        <li>Forward pass mathematics</li>
+        <li>Backpropagation Through Time</li>
+        <li>Vanishing & Exploding Gradients</li>
+      </ul>
+    </div>
+    <div class="card card-accent" style="border-top-color:var(--accent-emerald);">
+      <div class="tag tag-lstm">Part II</div>
+      <h3 style="color:var(--accent-emerald);">LSTM & GRU</h3>
+      <ul class="concept-list">
+        <li>LSTM cell architecture</li>
+        <li>Forget, Input, Output gates</li>
+        <li>Cell state highway</li>
+        <li>GRU simplification</li>
+        <li>LSTM vs GRU trade-offs</li>
+      </ul>
+    </div>
+    <div class="card card-accent" style="border-top-color:var(--accent-warm);">
+      <div class="tag tag-transformer">Part III</div>
+      <h3 style="color:var(--accent-warm);">Attention & Transformers</h3>
+      <ul class="concept-list">
+        <li>Attention mechanism</li>
+        <li>Self-attention & QKV</li>
+        <li>Multi-head attention</li>
+        <li>Transformer architecture</li>
+        <li>GPT & the LLM revolution</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 3: SECTION DIVIDER ═══════════════════ -->
+<div class="slide section-divider" data-slide="3">
+  <div class="section-number">I</div>
+  <h2>Recurrent Neural Networks</h2>
+  <p>Understanding the foundation of sequential deep learning — where memory meets computation</p>
+</div>
+
+<!-- ═══════════════════ SLIDE 4: THE PROBLEM ═══════════════════ -->
+<div class="slide" data-slide="4">
+  <div class="tag tag-rnn">The Problem</div>
+  <h2>Why Standard Neural Networks Fail at Sequences</h2>
+  <div class="two-col">
+    <div>
+      <p>Traditional feedforward neural networks assume that all inputs are <em class="key">independent</em> of each other. But real-world data is deeply sequential:</p>
+      <ul class="concept-list" style="margin-top:1rem;">
+        <li><em class="rose">Language:</em> "The cat sat on the ___" — the next word depends on all previous words</li>
+        <li><em class="rose">Time Series:</em> Stock prices depend on historical trends and momentum</li>
+        <li><em class="rose">Speech:</em> Phonemes only make sense in the context of surrounding sounds</li>
+        <li><em class="rose">Music:</em> Each note depends on the melody, rhythm, and harmony that preceded it</li>
+      </ul>
+      <p style="margin-top:1rem;">Feedforward networks have <em class="key">no memory</em> — they process each input in isolation. We need an architecture that can maintain an internal state across time steps.</p>
+    </div>
+    <div class="card card-accent card-rose">
+      <h3 style="color:var(--accent-rose);">Core Limitations of FFNNs</h3>
+      <ul class="concept-list">
+        <li><em class="key">Fixed input size</em> — cannot handle variable-length sequences</li>
+        <li><em class="key">No parameter sharing</em> — learns separate weights for each position</li>
+        <li><em class="key">No temporal dynamics</em> — ignores ordering of inputs entirely</li>
+        <li><em class="key">Combinatorial explosion</em> — representing all possible orderings is intractable</li>
+      </ul>
+      <div class="math-block" style="margin-top:1rem;">
+        <span class="label">Feedforward: Memoryless</span>
+        y = f(x) — output depends ONLY on current input
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 5: RNN CONCEPT ═══════════════════ -->
+<div class="slide" data-slide="5">
+  <div class="tag tag-rnn">Core Idea</div>
+  <h2>The Recurrent Neural Network</h2>
+  <div class="two-col">
+    <div>
+      <p>An RNN introduces a <em class="key">recurrence relation</em> — the output at each time step depends not only on the current input, but also on the <em class="rose">hidden state</em> from the previous time step.</p>
+      <p>This hidden state acts as the network's <em class="key">memory</em>, carrying a compressed summary of all inputs seen so far.</p>
+      <div class="math-block">
+        <span class="label">The Recurrence — The Heart of RNN</span>
+        hₜ = f(hₜ₋₁, xₜ)
+      </div>
+      <p>This single equation is revolutionary: the same function <span class="math-inline">f</span> is applied at every time step, with <em class="key">shared weights</em>. This gives RNNs three superpowers:</p>
+      <ul class="concept-list">
+        <li>Handle <em class="green">variable-length</em> sequences</li>
+        <li>Share parameters across time (<em class="green">fewer weights</em>)</li>
+        <li>Maintain <em class="green">temporal context</em></li>
+      </ul>
+    </div>
+    <div>
+      <div class="card card-accent" style="text-align:center;padding:2rem;">
+        <h3>Folded View</h3>
+        <div class="diagram" style="flex-direction:column;gap:1rem;">
+          <div class="box highlight" style="font-size:1.1rem;padding:1rem 2rem;">h — Hidden State</div>
+          <div style="display:flex;gap:3rem;align-items:center;">
+            <div>
+              <div class="arrow" style="transform:rotate(90deg);">→</div>
+              <div class="box" style="border-color:var(--accent-rose);">xₜ (Input)</div>
+            </div>
+            <div style="font-size:2rem;color:var(--accent-primary);">⟲</div>
+            <div>
+              <div class="arrow" style="transform:rotate(-90deg);">→</div>
+              <div class="box" style="border-color:var(--accent-emerald);">yₜ (Output)</div>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:1rem;font-size:0.85rem;color:var(--text-dim);">The loop symbol ⟲ represents the recurrence — the hidden state feeds back into itself</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 6: UNFOLDED RNN ═══════════════════ -->
+<div class="slide" data-slide="6">
+  <div class="tag tag-rnn">Architecture</div>
+  <h2>Unfolding the RNN Through Time</h2>
+  <p>When we "unfold" the recurrence loop, the RNN reveals itself as a chain of identical modules, each passing its hidden state to the next:</p>
+  <div class="diagram" style="margin:2rem 0;gap:0.3rem;">
+    <div style="text-align:center;">
+      <div class="box" style="border-color:var(--accent-rose);font-size:0.8rem;">x₁</div>
+      <div class="arrow" style="font-size:1rem;">↓</div>
+      <div class="box highlight">h₁</div>
+      <div class="arrow" style="font-size:1rem;">↓</div>
+      <div class="box" style="border-color:var(--accent-emerald);font-size:0.8rem;">y₁</div>
+    </div>
+    <div class="arrow">→</div>
+    <div style="text-align:center;">
+      <div class="box" style="border-color:var(--accent-rose);font-size:0.8rem;">x₂</div>
+      <div class="arrow" style="font-size:1rem;">↓</div>
+      <div class="box highlight">h₂</div>
+      <div class="arrow" style="font-size:1rem;">↓</div>
+      <div class="box" style="border-color:var(--accent-emerald);font-size:0.8rem;">y₂</div>
+    </div>
+    <div class="arrow">→</div>
+    <div style="text-align:center;">
+      <div class="box" style="border-color:var(--accent-rose);font-size:0.8rem;">x₃</div>
+      <div class="arrow" style="font-size:1rem;">↓</div>
+      <div class="box highlight">h₃</div>
+      <div class="arrow" style="font-size:1rem;">↓</div>
+      <div class="box" style="border-color:var(--accent-emerald);font-size:0.8rem;">y₃</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="arrow" style="color:var(--text-dim);">···</div>
+    <div class="arrow">→</div>
+    <div style="text-align:center;">
+      <div class="box" style="border-color:var(--accent-rose);font-size:0.8rem;">xₜ</div>
+      <div class="arrow" style="font-size:1rem;">↓</div>
+      <div class="box highlight">hₜ</div>
+      <div class="arrow" style="font-size:1rem;">↓</div>
+      <div class="box" style="border-color:var(--accent-emerald);font-size:0.8rem;">yₜ</div>
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="card card-accent">
+      <h3>Key Insight — Weight Sharing</h3>
+      <p>The <em class="key">same three weight matrices</em> are used at every single time step. This is what makes RNNs fundamentally different from feedforward networks — the number of parameters does not grow with sequence length.</p>
+    </div>
+    <div class="card card-accent card-warm">
+      <h3 style="color:var(--accent-warm);">Three Weight Matrices</h3>
+      <ul class="concept-list">
+        <li><span class="math-inline">Wₓₕ</span> — input-to-hidden weights</li>
+        <li><span class="math-inline">Wₕₕ</span> — hidden-to-hidden (recurrent) weights</li>
+        <li><span class="math-inline">Wₕᵧ</span> — hidden-to-output weights</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 7: FORWARD PASS ═══════════════════ -->
+<div class="slide" data-slide="7">
+  <div class="tag tag-math">Mathematics</div>
+  <h2>RNN Forward Pass — Full Equations</h2>
+  <p>At each time step <span class="math-inline">t</span>, the RNN computes two things: the new hidden state and the output.</p>
+  <div class="two-col" style="margin-top:1.5rem;">
+    <div>
+      <div class="math-block">
+        <span class="label">Step 1 — Hidden State Update</span>
+        hₜ = tanh(Wₓₕ · xₜ + Wₕₕ · hₜ₋₁ + bₕ)
+      </div>
+      <p style="margin-top:0.8rem;">This combines the <em class="rose">current input</em> <span class="math-inline">xₜ</span> with the <em class="primary">previous memory</em> <span class="math-inline">hₜ₋₁</span> through a non-linear activation. The <span class="math-inline">tanh</span> squashes values to the range [-1, +1], enabling the network to represent both positive and negative features.</p>
+      <div class="math-block" style="margin-top:1.5rem;">
+        <span class="label">Step 2 — Output Computation</span>
+        yₜ = softmax(Wₕᵧ · hₜ + bᵧ)
+      </div>
+      <p style="margin-top:0.8rem;">The output transforms the hidden state into a probability distribution over the output vocabulary (for classification) or a continuous value (for regression).</p>
+    </div>
+    <div>
+      <div class="card card-accent">
+        <h3>Dimensions</h3>
+        <table class="comp-table">
+          <tr><th>Symbol</th><th>Shape</th><th>Meaning</th></tr>
+          <tr><td><span class="math-inline">xₜ</span></td><td>d × 1</td><td>Input vector at time t</td></tr>
+          <tr><td><span class="math-inline">hₜ</span></td><td>n × 1</td><td>Hidden state at time t</td></tr>
+          <tr><td><span class="math-inline">yₜ</span></td><td>k × 1</td><td>Output at time t</td></tr>
+          <tr><td><span class="math-inline">Wₓₕ</span></td><td>n × d</td><td>Input weight matrix</td></tr>
+          <tr><td><span class="math-inline">Wₕₕ</span></td><td>n × n</td><td>Recurrent weight matrix</td></tr>
+          <tr><td><span class="math-inline">Wₕᵧ</span></td><td>k × n</td><td>Output weight matrix</td></tr>
+        </table>
+        <p style="margin-top:0.5rem;font-size:0.85rem;">where d = input dimension, n = hidden units, k = output classes</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 8: HIDDEN STATE DEEP DIVE ═══════════════════ -->
+<div class="slide" data-slide="8">
+  <div class="tag tag-math">Deep Dive</div>
+  <h2>The Hidden State — RNN's Memory</h2>
+  <div class="two-col">
+    <div>
+      <p>The hidden state <span class="math-inline">hₜ</span> is the most important concept in RNNs. Let us expand it recursively to understand what it truly encodes:</p>
+      <div class="math-block">
+        <span class="label">Recursive Expansion</span>
+        h₁ = tanh(Wₓₕ·x₁ + Wₕₕ·h₀ + b)<br>
+        h₂ = tanh(Wₓₕ·x₂ + Wₕₕ·h₁ + b)<br>
+           = tanh(Wₓₕ·x₂ + Wₕₕ·tanh(Wₓₕ·x₁ + Wₕₕ·h₀ + b) + b)<br>
+        h₃ = tanh(Wₓₕ·x₃ + Wₕₕ·h₂ + b)<br>
+           = tanh(Wₓₕ·x₃ + Wₕₕ·tanh(Wₓₕ·x₂ + Wₕₕ·tanh(...) + b) + b)
+      </div>
+      <p style="margin-top:1rem;">Each hidden state is a <em class="key">deeply nested composition</em> of all previous inputs. The information from <span class="math-inline">x₁</span> must survive through multiple layers of <span class="math-inline">tanh</span> and matrix multiplication to influence <span class="math-inline">hₜ</span>.</p>
+    </div>
+    <div>
+      <div class="card card-accent card-rose">
+        <h3 style="color:var(--accent-rose);">Critical Insight</h3>
+        <p>The hidden state is a <em class="key">lossy compression</em> of the entire input history. It is a fixed-size vector (n dimensions) that must somehow encode an arbitrary-length sequence.</p>
+        <p style="margin-top:0.5rem;">This is both the power and the fundamental limitation of RNNs — the <em class="rose">information bottleneck</em> means that information from early time steps gets progressively overwritten.</p>
+      </div>
+      <div class="card card-accent card-warm" style="margin-top:1rem;">
+        <h3 style="color:var(--accent-warm);">Why tanh?</h3>
+        <ul class="concept-list">
+          <li><em class="key">Zero-centered:</em> outputs in [-1, +1], enabling both positive and negative activations</li>
+          <li><em class="key">Bounded:</em> prevents hidden states from exploding to infinity</li>
+          <li><em class="key">Differentiable:</em> required for gradient-based learning</li>
+          <li>Derivative: tanh′(x) = 1 − tanh²(x), maximum of 1 at x=0</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 9: LOSS FUNCTION ═══════════════════ -->
+<div class="slide" data-slide="9">
+  <div class="tag tag-math">Training</div>
+  <h2>RNN Loss Function</h2>
+  <div class="two-col">
+    <div>
+      <p>The total loss across a sequence of length <span class="math-inline">T</span> is the sum of losses at each individual time step:</p>
+      <div class="math-block">
+        <span class="label">Total Sequence Loss</span>
+        L = Σₜ₌₁ᵀ Lₜ(yₜ, ŷₜ)
+      </div>
+      <p>For classification tasks using cross-entropy:</p>
+      <div class="math-block">
+        <span class="label">Cross-Entropy at Time t</span>
+        Lₜ = −Σⱼ ŷₜⱼ · log(yₜⱼ)
+      </div>
+      <p style="margin-top:1rem;">The goal of training is to find weight matrices <span class="math-inline">Wₓₕ, Wₕₕ, Wₕᵧ</span> that minimize this total loss across all time steps and all training sequences.</p>
+    </div>
+    <div>
+      <div class="card card-accent">
+        <h3>RNN Output Modes</h3>
+        <ul class="concept-list">
+          <li><em class="key">Many-to-Many:</em> output at every time step (e.g., POS tagging — compute loss at each t)</li>
+          <li><em class="key">Many-to-One:</em> output only at the final step (e.g., sentiment analysis — loss only at T)</li>
+          <li><em class="key">One-to-Many:</em> single input, sequence output (e.g., image captioning)</li>
+          <li><em class="key">Seq-to-Seq:</em> encoder–decoder, combining many-to-one with one-to-many</li>
+        </ul>
+      </div>
+      <div class="math-block" style="margin-top:1rem;">
+        <span class="label">Training Objective</span>
+        θ* = argmin_θ  Σᵢ₌₁ᴺ L⁽ⁱ⁾(θ)<br>
+        where θ = {Wₓₕ, Wₕₕ, Wₕᵧ, bₕ, bᵧ}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 10: BPTT ═══════════════════ -->
+<div class="slide" data-slide="10">
+  <div class="tag tag-math">Core Algorithm</div>
+  <h2>Backpropagation Through Time (BPTT)</h2>
+  <p>BPTT is the algorithm used to compute gradients in RNNs. It is standard backpropagation applied to the <em class="key">unfolded</em> computational graph.</p>
+  <div class="two-col" style="margin-top:1.2rem;">
+    <div>
+      <div class="math-block">
+        <span class="label">Gradient of Loss w.r.t. Wₕₕ</span>
+        ∂L/∂Wₕₕ = Σₜ₌₁ᵀ ∂Lₜ/∂Wₕₕ
+      </div>
+      <p style="margin-top:0.8rem;">Each <span class="math-inline">∂Lₜ/∂Wₕₕ</span> requires the chain rule applied backwards through all preceding time steps:</p>
+      <div class="math-block">
+        <span class="label">Chain Rule Expansion</span>
+        ∂Lₜ/∂Wₕₕ = Σₖ₌₁ᵗ (∂Lₜ/∂yₜ) · (∂yₜ/∂hₜ) · (∂hₜ/∂hₖ) · (∂hₖ/∂Wₕₕ)
+      </div>
+      <p style="margin-top:0.8rem;">The critical term is <span class="math-inline">∂hₜ/∂hₖ</span> — the gradient flowing from time <em class="key">t</em> all the way back to time <em class="key">k</em>.</p>
+    </div>
+    <div>
+      <div class="card card-accent card-rose">
+        <h3 style="color:var(--accent-rose);">The Dangerous Product</h3>
+        <div class="math-block">
+          <span class="label">Gradient Through Time</span>
+          ∂hₜ/∂hₖ = Πⱼ₌ₖ₊₁ᵗ ∂hⱼ/∂hⱼ₋₁<br><br>
+          where each factor:<br>
+          ∂hⱼ/∂hⱼ₋₁ = diag(tanh′(zⱼ)) · Wₕₕ
+        </div>
+        <p style="margin-top:0.8rem;">This is a <em class="rose">product of (t−k) matrices</em>. When this product is computed over many time steps, disaster strikes — leading us to the vanishing gradient problem.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 11: VANISHING GRADIENT ═══════════════════ -->
+<div class="slide" data-slide="11">
+  <div class="tag tag-rnn">Critical Problem</div>
+  <h2>The Vanishing Gradient Problem</h2>
+  <div class="two-col">
+    <div>
+      <p>Consider the gradient product term from BPTT:</p>
+      <div class="math-block">
+        ∂hₜ/∂hₖ = Πⱼ₌ₖ₊₁ᵗ diag(tanh′(zⱼ)) · Wₕₕ
+      </div>
+      <p style="margin-top:0.8rem;">Since <span class="math-inline">tanh′(x) ∈ (0, 1]</span> and is maximum only at x = 0, the diagonal matrix has entries strictly less than 1 for most values.</p>
+      <p>If the largest eigenvalue of <span class="math-inline">Wₕₕ</span> is less than 1, then:</p>
+      <div class="math-block">
+        <span class="label">Exponential Decay</span>
+        ‖∂hₜ/∂hₖ‖ ≤ (γ)ᵗ⁻ᵏ    where γ < 1<br><br>
+        As (t − k) → ∞,  gradient → 0 exponentially
+      </div>
+      <p style="margin-top:0.8rem;">The gradient signal from distant past time steps <em class="rose">vanishes to zero</em>, making it impossible for the network to learn long-range dependencies.</p>
+    </div>
+    <div>
+      <div class="card card-accent card-rose">
+        <h3 style="color:var(--accent-rose);">Practical Impact</h3>
+        <p>In practice, vanilla RNNs can only learn dependencies spanning roughly <em class="key">5–10 time steps</em>. Beyond that, gradients are effectively zero.</p>
+        <p style="margin-top:0.5rem;">Example: In the sentence "The <em class="key">cat</em>, which had been sitting on the warm windowsill all morning watching birds, finally <em class="rose">stretched</em>." — an RNN cannot learn that "stretched" depends on "cat" because they are too far apart.</p>
+      </div>
+      <div class="card card-accent card-warm" style="margin-top:1rem;">
+        <h3 style="color:var(--accent-warm);">Exploding Gradient (the flip side)</h3>
+        <p>If the largest eigenvalue of <span class="math-inline">Wₕₕ</span> is greater than 1, gradients <em class="key">explode</em> exponentially. This is easier to handle — we simply clip gradients:</p>
+        <div class="math-block" style="margin-top:0.5rem;">
+          <span class="label">Gradient Clipping</span>
+          if ‖g‖ > threshold:<br>
+              g ← (threshold / ‖g‖) · g
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 12: EIGENVALUE ANALYSIS ═══════════════════ -->
+<div class="slide" data-slide="12">
+  <div class="tag tag-math">Mathematical Analysis</div>
+  <h2>Eigenvalue Analysis of Gradient Flow</h2>
+  <div class="two-col">
+    <div>
+      <p>The fate of gradients in an RNN is governed by the <em class="key">spectral properties</em> of the recurrent weight matrix <span class="math-inline">Wₕₕ</span>.</p>
+      <p>Let <span class="math-inline">λ₁, λ₂, ..., λₙ</span> be the eigenvalues of <span class="math-inline">Wₕₕ</span>, with <span class="math-inline">λₘₐₓ</span> being the largest eigenvalue by absolute value (the spectral radius).</p>
+      <div class="math-block">
+        <span class="label">Spectral Radius</span>
+        ρ(Wₕₕ) = max|λᵢ|
+      </div>
+      <div class="math-block" style="margin-top:1rem;">
+        <span class="label">Three Regimes</span>
+        ρ(Wₕₕ) < 1  →  Vanishing gradients (forgetting)<br>
+        ρ(Wₕₕ) = 1  →  Stable gradients (ideal but fragile)<br>
+        ρ(Wₕₕ) > 1  →  Exploding gradients (instability)
+      </div>
+    </div>
+    <div>
+      <div class="card card-accent">
+        <h3>Bengio et al. (1994) — Formal Proof</h3>
+        <p>In their seminal paper, Bengio, Simard, and Frasconi proved that for any RNN with bounded activation functions, the gradient of the loss with respect to early hidden states <em class="key">decays exponentially</em> with the number of time steps. Specifically:</p>
+        <div class="math-block" style="margin-top:0.5rem;">
+          ‖∂Lₜ/∂hₖ‖ ≤ ηᵗ⁻ᵏ<br><br>
+          where η = ‖Wₕₕ‖ · sup|φ′| < 1<br>
+          for most practical configurations
+        </div>
+        <p style="margin-top:0.5rem;">This is not just a numerical nuisance — it is a <em class="rose">fundamental impossibility</em> for standard RNNs to capture long-range dependencies through gradient-based learning.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 13: SECTION DIVIDER LSTM ═══════════════════ -->
+<div class="slide section-divider" data-slide="13">
+  <div class="section-number">II</div>
+  <h2>Long Short-Term Memory</h2>
+  <p>Hochreiter & Schmidhuber's 1997 breakthrough — engineering a memory cell that can learn what to remember and what to forget</p>
+</div>
+
+<!-- ═══════════════════ SLIDE 14: LSTM MOTIVATION ═══════════════════ -->
+<div class="slide" data-slide="14">
+  <div class="tag tag-lstm">Motivation</div>
+  <h2>Why LSTM? The Design Philosophy</h2>
+  <div class="two-col">
+    <div>
+      <p>The vanishing gradient problem tells us that information flowing through repeated multiplication by <span class="math-inline">Wₕₕ</span> and <span class="math-inline">tanh</span> cannot survive over long distances.</p>
+      <p style="margin-top:0.8rem;">The LSTM solution is elegant: create a separate <em class="key">cell state</em> <span class="math-inline">Cₜ</span> that acts as a <em class="green">conveyor belt</em> of information. Instead of multiplying at every step, information flows via <em class="key">addition</em>.</p>
+      <div class="math-block">
+        <span class="label">The Key Innovation</span>
+        RNN:  hₜ = tanh(W·[hₜ₋₁, xₜ])      ← multiplicative<br>
+        LSTM: Cₜ = fₜ ⊙ Cₜ₋₁ + iₜ ⊙ C̃ₜ    ← additive!
+      </div>
+      <p style="margin-top:0.8rem;">The LSTM uses three <em class="key">gates</em> — differentiable mechanisms that learn to control what information to store, update, and output.</p>
+    </div>
+    <div>
+      <div class="card card-accent card-emerald">
+        <h3 style="color:var(--accent-emerald);">Three Gates, One Cell State</h3>
+        <div class="gate-flow">
+          <div class="gate-row">
+            <div class="gate-icon sigma">f</div>
+            <div><em class="key">Forget Gate</em> — decides what to remove from cell state</div>
+          </div>
+          <div class="gate-row">
+            <div class="gate-icon sigma">i</div>
+            <div><em class="key">Input Gate</em> — decides what new information to store</div>
+          </div>
+          <div class="gate-row">
+            <div class="gate-icon sigma">o</div>
+            <div><em class="key">Output Gate</em> — decides what to output from cell state</div>
+          </div>
+          <div class="gate-row">
+            <div class="gate-icon plus">C</div>
+            <div><em class="green">Cell State</em> — the long-term memory highway</div>
+          </div>
+        </div>
+        <p style="margin-top:0.5rem;font-size:0.9rem;">All gates use the <em class="key">sigmoid function σ</em>, outputting values in [0,1] — a "soft switch" between 0 (block) and 1 (pass through).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 15: FORGET GATE ═══════════════════ -->
+<div class="slide" data-slide="15">
+  <div class="tag tag-lstm">Gate 1 of 3</div>
+  <h2>The Forget Gate</h2>
+  <div class="two-col">
+    <div>
+      <p>The forget gate examines the previous hidden state <span class="math-inline">hₜ₋₁</span> and current input <span class="math-inline">xₜ</span> and decides, for each element of the cell state, how much to <em class="rose">retain</em>.</p>
+      <div class="math-block">
+        <span class="label">Forget Gate Equation</span>
+        fₜ = σ(W_f · [hₜ₋₁, xₜ] + b_f)
+      </div>
+      <p style="margin-top:1rem;">The output <span class="math-inline">fₜ</span> is a vector of values between 0 and 1:</p>
+      <ul class="concept-list">
+        <li><span class="math-inline">fₜ = 0</span> → completely <em class="rose">forget</em> this cell state dimension</li>
+        <li><span class="math-inline">fₜ = 1</span> → completely <em class="green">retain</em> this cell state dimension</li>
+        <li><span class="math-inline">fₜ = 0.7</span> → retain 70% of this dimension's value</li>
+      </ul>
+      <p style="margin-top:1rem;"><em class="key">Notation:</em> <span class="math-inline">[hₜ₋₁, xₜ]</span> denotes concatenation of the two vectors. If <span class="math-inline">hₜ₋₁ ∈ ℝⁿ</span> and <span class="math-inline">xₜ ∈ ℝᵈ</span>, then the concatenation is in <span class="math-inline">ℝⁿ⁺ᵈ</span>.</p>
+    </div>
+    <div>
+      <div class="card card-accent card-rose">
+        <h3 style="color:var(--accent-rose);">Intuitive Example</h3>
+        <p>Consider a language model tracking the subject of a sentence. When it encounters a new subject ("The <em class="key">dog</em> ... then the <em class="rose">bird</em>"), the forget gate for the "subject" dimensions should output values near 0 — erasing the old subject ("dog") to make room for the new one ("bird").</p>
+        <p style="margin-top:0.5rem;">Meanwhile, dimensions tracking other features (like tense or mood) might have forget gate values near 1, retaining that information.</p>
+      </div>
+      <div class="card card-accent" style="margin-top:1rem;">
+        <h3>Dimensions of W_f</h3>
+        <div class="math-block">
+          W_f ∈ ℝⁿˣ⁽ⁿ⁺ᵈ⁾<br>
+          b_f ∈ ℝⁿ<br>
+          fₜ  ∈ ℝⁿ  (same size as cell state)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 16: INPUT GATE ═══════════════════ -->
+<div class="slide" data-slide="16">
+  <div class="tag tag-lstm">Gate 2 of 3</div>
+  <h2>The Input Gate & Candidate Cell State</h2>
+  <div class="two-col">
+    <div>
+      <p>The input gate has two parts: deciding <em class="key">what to update</em> and creating <em class="key">new candidate values</em>.</p>
+      <div class="math-block">
+        <span class="label">Input Gate — What to Update</span>
+        iₜ = σ(W_i · [hₜ₋₁, xₜ] + b_i)
+      </div>
+      <div class="math-block" style="margin-top:1rem;">
+        <span class="label">Candidate Cell State — New Values</span>
+        C̃ₜ = tanh(W_C · [hₜ₋₁, xₜ] + b_C)
+      </div>
+      <p style="margin-top:1rem;">The input gate <span class="math-inline">iₜ</span> (sigmoid, values in [0,1]) controls <em class="key">which dimensions</em> to update. The candidate <span class="math-inline">C̃ₜ</span> (tanh, values in [-1,1]) contains the <em class="key">proposed new values</em>.</p>
+      <p>Together, <span class="math-inline">iₜ ⊙ C̃ₜ</span> creates a scaled version of the new information, where ⊙ denotes element-wise (Hadamard) product.</p>
+    </div>
+    <div>
+      <div class="card card-accent card-emerald">
+        <h3 style="color:var(--accent-emerald);">Why Two Separate Components?</h3>
+        <p>This two-step design provides independent control over:</p>
+        <ul class="concept-list">
+          <li><em class="key">What</em> to write — the candidate <span class="math-inline">C̃ₜ</span> proposes new values using tanh (can be positive or negative)</li>
+          <li><em class="key">How much</em> to write — the input gate <span class="math-inline">iₜ</span> scales each dimension independently via sigmoid</li>
+        </ul>
+        <p style="margin-top:0.5rem;">This separation allows the LSTM to add a tiny adjustment to one dimension while making a large update to another — fine-grained memory control.</p>
+      </div>
+      <div class="math-block" style="margin-top:1rem;">
+        <span class="label">Dimensions</span>
+        W_i ∈ ℝⁿˣ⁽ⁿ⁺ᵈ⁾,  b_i ∈ ℝⁿ,  iₜ ∈ ℝⁿ<br>
+        W_C ∈ ℝⁿˣ⁽ⁿ⁺ᵈ⁾,  b_C ∈ ℝⁿ,  C̃ₜ ∈ ℝⁿ
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 17: CELL STATE UPDATE ═══════════════════ -->
+<div class="slide" data-slide="17">
+  <div class="tag tag-lstm">The Heart of LSTM</div>
+  <h2>Cell State Update — The Memory Highway</h2>
+  <p>Now we combine the forget gate and input gate to update the cell state. This is the single most important equation in the LSTM:</p>
+  <div class="math-block" style="font-size:1.15rem;text-align:center;padding:1.5rem 2rem;">
+    <span class="label">Cell State Update (The Core Equation)</span>
+    Cₜ = fₜ ⊙ Cₜ₋₁  +  iₜ ⊙ C̃ₜ
+  </div>
+  <div class="two-col" style="margin-top:1rem;">
+    <div class="card card-accent card-rose">
+      <h3 style="color:var(--accent-rose);">fₜ ⊙ Cₜ₋₁ — Selective Forgetting</h3>
+      <p>Element-wise multiply old cell state by forget gate. Each dimension is independently scaled between 0 (completely erased) and 1 (perfectly preserved). This is how the LSTM <em class="rose">discards</em> outdated information.</p>
+    </div>
+    <div class="card card-accent card-emerald">
+      <h3 style="color:var(--accent-emerald);">iₜ ⊙ C̃ₜ — Selective Writing</h3>
+      <p>Element-wise multiply candidate values by input gate. Only selected dimensions receive new information. This is how the LSTM <em class="green">stores</em> new relevant information.</p>
+    </div>
+  </div>
+  <div class="card card-accent" style="margin-top:1.2rem;">
+    <h3>Why This Solves the Vanishing Gradient</h3>
+    <p>The gradient through the cell state is: <span class="math-inline">∂Cₜ/∂Cₜ₋₁ = fₜ</span> (a diagonal matrix). When the forget gate is near 1, the gradient flows through <em class="key">undiminished</em> — no matrix multiplication by Wₕₕ, no tanh squashing. The cell state acts as a <em class="key">gradient highway</em>, allowing error signals to travel hundreds of time steps without vanishing. This additive structure is directly analogous to ResNet skip connections.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 18: OUTPUT GATE ═══════════════════ -->
+<div class="slide" data-slide="18">
+  <div class="tag tag-lstm">Gate 3 of 3</div>
+  <h2>The Output Gate</h2>
+  <div class="two-col">
+    <div>
+      <p>The output gate controls how much of the cell state is <em class="key">exposed</em> as the hidden state output <span class="math-inline">hₜ</span>.</p>
+      <div class="math-block">
+        <span class="label">Output Gate</span>
+        oₜ = σ(W_o · [hₜ₋₁, xₜ] + b_o)
+      </div>
+      <div class="math-block" style="margin-top:1rem;">
+        <span class="label">Hidden State Output</span>
+        hₜ = oₜ ⊙ tanh(Cₜ)
+      </div>
+      <p style="margin-top:1rem;">The cell state <span class="math-inline">Cₜ</span> is first passed through tanh (to normalize values to [-1,1]), then filtered by the output gate. This means the LSTM can store information in its cell state <em class="key">without outputting it</em> — true long-term memory that is not always visible.</p>
+    </div>
+    <div>
+      <div class="card card-accent">
+        <h3>Complete LSTM — All Four Equations</h3>
+        <div class="math-block" style="line-height:2.2;">
+          <span class="label">The Full LSTM Cell</span>
+          fₜ = σ(W_f · [hₜ₋₁, xₜ] + b_f)       ← Forget<br>
+          iₜ = σ(W_i · [hₜ₋₁, xₜ] + b_i)       ← Input<br>
+          C̃ₜ = tanh(W_C · [hₜ₋₁, xₜ] + b_C)    ← Candidate<br>
+          Cₜ = fₜ ⊙ Cₜ₋₁ + iₜ ⊙ C̃ₜ             ← Cell Update<br>
+          oₜ = σ(W_o · [hₜ₋₁, xₜ] + b_o)       ← Output<br>
+          hₜ = oₜ ⊙ tanh(Cₜ)                    ← Hidden State
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 19: LSTM PARAMETER COUNT ═══════════════════ -->
+<div class="slide" data-slide="19">
+  <div class="tag tag-lstm">Practical Considerations</div>
+  <h2>LSTM Parameters & Computational Cost</h2>
+  <div class="two-col">
+    <div>
+      <p>An LSTM has <em class="key">four</em> sets of weight matrices (one per gate + candidate), each of size <span class="math-inline">n × (n + d)</span>, plus biases:</p>
+      <div class="math-block">
+        <span class="label">Total Parameters</span>
+        Parameters = 4 × [n × (n + d) + n]<br>
+                   = 4n² + 4nd + 4n<br>
+                   = 4n(n + d + 1)
+      </div>
+      <p style="margin-top:1rem;">Compared to a vanilla RNN with <span class="math-inline">n² + nd + n</span> parameters for the recurrent part, an LSTM has roughly <em class="key">4× more parameters</em>. This is the price of gated memory control.</p>
+      <div class="math-block" style="margin-top:1rem;">
+        <span class="label">Example: n=512, d=300</span>
+        RNN:  512(512+300+1) = 416,256<br>
+        LSTM: 4×512(512+300+1) = 1,665,024
+      </div>
+    </div>
+    <div>
+      <div class="card card-accent card-warm">
+        <h3 style="color:var(--accent-warm);">LSTM Gradient Flow Analysis</h3>
+        <p>The gradient of the loss w.r.t. cell state at time k:</p>
+        <div class="math-block" style="margin-top:0.5rem;">
+          ∂Cₜ/∂Cₖ = Πⱼ₌ₖ₊₁ᵗ fⱼ
+        </div>
+        <p style="margin-top:0.5rem;">When forget gates are near 1, this product stays close to 1 even for large (t−k). When the network learns that information should be forgotten, forget gates drop toward 0. This gives the LSTM <em class="key">learned control</em> over its own gradient flow — something vanilla RNNs cannot do.</p>
+      </div>
+      <div class="card card-accent card-emerald" style="margin-top:1rem;">
+        <h3 style="color:var(--accent-emerald);">Peephole Connections</h3>
+        <p>A variant (Gers & Schmidhuber, 2000) adds cell state to gate inputs: <span class="math-inline">fₜ = σ(W_f·[Cₜ₋₁, hₜ₋₁, xₜ] + b_f)</span>. This lets gates "peek" at the cell state for finer control.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 20: SECTION DIVIDER GRU ═══════════════════ -->
+<div class="slide section-divider" data-slide="20">
+  <div class="section-number">III</div>
+  <h2>Gated Recurrent Unit</h2>
+  <p>Cho et al. (2014) — A streamlined alternative that achieves similar performance with fewer parameters</p>
+</div>
+
+<!-- ═══════════════════ SLIDE 21: GRU ARCHITECTURE ═══════════════════ -->
+<div class="slide" data-slide="21">
+  <div class="tag tag-gru">Architecture</div>
+  <h2>GRU — Elegant Simplification</h2>
+  <div class="two-col">
+    <div>
+      <p>The GRU merges the cell state and hidden state into a single state <span class="math-inline">hₜ</span>, and reduces three gates to <em class="cyan">two</em>:</p>
+      <div class="gate-flow" style="margin:1.5rem 0;">
+        <div class="gate-row">
+          <div class="gate-icon sigma" style="background:rgba(6,182,212,0.2);color:var(--accent-cyan);">z</div>
+          <div><em class="cyan">Update Gate zₜ</em> — combines forget + input gate functionality. Decides how much past to keep vs how much new to add.</div>
+        </div>
+        <div class="gate-row">
+          <div class="gate-icon sigma" style="background:rgba(244,63,94,0.2);color:var(--accent-rose);">r</div>
+          <div><em class="rose">Reset Gate rₜ</em> — controls how much past state to expose when computing the candidate. Can "reset" to act like a fresh network.</div>
+        </div>
+      </div>
+      <p>By merging cell state and hidden state, the GRU has <em class="key">~25% fewer parameters</em> than LSTM while maintaining comparable performance on most tasks.</p>
+    </div>
+    <div>
+      <div class="card card-accent card-cyan">
+        <h3 style="color:var(--accent-cyan);">Key Design Difference</h3>
+        <p>The LSTM has separate mechanisms for forgetting old info and adding new info (<span class="math-inline">fₜ</span> and <span class="math-inline">iₜ</span>). The GRU <em class="key">couples</em> them:</p>
+        <div class="math-block" style="margin-top:0.5rem;">
+          <span class="label">Coupled Gates</span>
+          Keep = zₜ<br>
+          Update = (1 − zₜ)<br><br>
+          If you keep 70%, you update 30%.<br>
+          They MUST sum to 1.
+        </div>
+        <p style="margin-top:0.5rem;">In LSTM, <span class="math-inline">fₜ</span> and <span class="math-inline">iₜ</span> are independent — you could keep 90% AND add 80%, causing the cell state to grow unboundedly. GRU's coupling enforces a natural conservation law.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 22: GRU MATH ═══════════════════ -->
+<div class="slide" data-slide="22">
+  <div class="tag tag-math">Mathematics</div>
+  <h2>GRU — Complete Mathematical Formulation</h2>
+  <div class="two-col">
+    <div>
+      <div class="math-block">
+        <span class="label">Step 1 — Update Gate</span>
+        zₜ = σ(W_z · [hₜ₋₁, xₜ] + b_z)
+      </div>
+      <div class="math-block" style="margin-top:1rem;">
+        <span class="label">Step 2 — Reset Gate</span>
+        rₜ = σ(W_r · [hₜ₋₁, xₜ] + b_r)
+      </div>
+      <div class="math-block" style="margin-top:1rem;">
+        <span class="label">Step 3 — Candidate Hidden State</span>
+        h̃ₜ = tanh(W · [rₜ ⊙ hₜ₋₁, xₜ] + b)
+      </div>
+      <div class="math-block" style="margin-top:1rem;">
+        <span class="label">Step 4 — Final Hidden State</span>
+        hₜ = zₜ ⊙ hₜ₋₁ + (1 − zₜ) ⊙ h̃ₜ
+      </div>
+    </div>
+    <div>
+      <div class="card card-accent">
+        <h3>Understanding Each Step</h3>
+        <p><em class="cyan">Update gate zₜ:</em> High values mean "keep the old hidden state" (remember). Low values mean "use the new candidate" (update).</p>
+        <p style="margin-top:0.5rem;"><em class="rose">Reset gate rₜ:</em> When near 0, it <em class="key">zeroes out</em> the previous hidden state in the candidate computation, forcing the network to ignore past context. When near 1, the full past state is available.</p>
+        <p style="margin-top:0.5rem;"><em class="key">Candidate h̃ₜ:</em> A proposed new state, computed with the reset-filtered past. The reset gate allows the GRU to "start fresh" when it encounters new, unrelated content.</p>
+        <p style="margin-top:0.5rem;"><em class="primary">Final interpolation:</em> A smooth blend between old state and candidate, controlled by <span class="math-inline">zₜ</span>. This is a <em class="key">linear interpolation</em>, which provides clean gradient flow.</p>
+      </div>
+      <div class="math-block" style="margin-top:1rem;">
+        <span class="label">GRU Parameter Count</span>
+        3 × [n × (n + d) + n] = 3n(n + d + 1)<br>
+        ~75% of LSTM parameters
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 23: LSTM vs GRU ═══════════════════ -->
+<div class="slide" data-slide="23">
+  <div class="tag tag-gru">Comparison</div>
+  <h2>LSTM vs GRU — Head to Head</h2>
+  <table class="comp-table">
+    <tr>
+      <th>Aspect</th>
+      <th style="color:var(--accent-emerald);">LSTM</th>
+      <th style="color:var(--accent-cyan);">GRU</th>
+    </tr>
+    <tr>
+      <td><strong>Year Introduced</strong></td>
+      <td>1997 (Hochreiter & Schmidhuber)</td>
+      <td>2014 (Cho et al.)</td>
+    </tr>
+    <tr>
+      <td><strong>States</strong></td>
+      <td>Two: Cell state Cₜ + Hidden state hₜ</td>
+      <td>One: Hidden state hₜ only</td>
+    </tr>
+    <tr>
+      <td><strong>Gates</strong></td>
+      <td>Three: Forget, Input, Output</td>
+      <td>Two: Update, Reset</td>
+    </tr>
+    <tr>
+      <td><strong>Parameters (n=512, d=300)</strong></td>
+      <td>~1.66M (4n(n+d+1))</td>
+      <td>~1.25M (3n(n+d+1))</td>
+    </tr>
+    <tr>
+      <td><strong>Memory Control</strong></td>
+      <td>Independent forget/input (can grow unbounded)</td>
+      <td>Coupled update (conservation: zₜ + (1−zₜ) = 1)</td>
+    </tr>
+    <tr>
+      <td><strong>Output Control</strong></td>
+      <td>Explicit output gate filters cell state</td>
+      <td>No explicit output gate; full state exposed</td>
+    </tr>
+    <tr>
+      <td><strong>Training Speed</strong></td>
+      <td>Slower (more computation per step)</td>
+      <td>Faster (fewer matrix multiplications)</td>
+    </tr>
+    <tr>
+      <td><strong>Performance</strong></td>
+      <td>Better on complex tasks with long dependencies</td>
+      <td>Comparable; sometimes better on smaller datasets</td>
+    </tr>
+    <tr>
+      <td><strong>Best For</strong></td>
+      <td>NLP, machine translation, complex sequences</td>
+      <td>Smaller datasets, real-time systems, edge devices</td>
+    </tr>
+  </table>
+  <div class="card card-accent" style="margin-top:1rem;">
+    <p><em class="key">Empirical verdict (Greff et al., 2016; Jozefowicz et al., 2015):</em> No consistent winner. LSTM has a slight edge on tasks requiring very long memory; GRU trains faster and generalizes better with less data. Practically, try both and validate.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 24: BIDIRECTIONAL ═══════════════════ -->
+<div class="slide" data-slide="24">
+  <div class="tag tag-rnn">Advanced Architecture</div>
+  <h2>Bidirectional RNNs / LSTMs</h2>
+  <div class="two-col">
+    <div>
+      <p>Standard RNNs process sequences left-to-right, meaning each hidden state only encodes <em class="key">past context</em>. But for many tasks, <em class="rose">future context</em> matters too.</p>
+      <p style="margin-top:0.8rem;">Example: "He said the bank of the <em class="key">___</em> was eroding." — is it a river bank or a financial bank? The word after the blank determines the meaning.</p>
+      <div class="math-block">
+        <span class="label">Bidirectional Hidden States</span>
+        h⃗ₜ = f(W⃗ · [h⃗ₜ₋₁, xₜ])    ← Forward<br>
+        h⃖ₜ = f(W⃖ · [h⃖ₜ₊₁, xₜ])    ← Backward<br><br>
+        hₜ = [h⃗ₜ ; h⃖ₜ]             ← Concatenation
+      </div>
+      <p style="margin-top:0.8rem;">The final hidden state at each position captures <em class="key">both past and future context</em>, effectively doubling the representational power.</p>
+    </div>
+    <div>
+      <div class="diagram" style="flex-direction:column;gap:1.5rem;">
+        <div style="display:flex;gap:0.5rem;align-items:center;">
+          <span style="font-size:0.8rem;color:var(--accent-emerald);width:60px;">Forward:</span>
+          <div class="box" style="font-size:0.8rem;">h⃗₁</div>
+          <div class="arrow" style="font-size:1rem;">→</div>
+          <div class="box" style="font-size:0.8rem;">h⃗₂</div>
+          <div class="arrow" style="font-size:1rem;">→</div>
+          <div class="box" style="font-size:0.8rem;">h⃗₃</div>
+          <div class="arrow" style="font-size:1rem;">→</div>
+          <div class="box" style="font-size:0.8rem;">h⃗₄</div>
+        </div>
+        <div style="display:flex;gap:0.5rem;align-items:center;">
+          <span style="font-size:0.8rem;color:var(--accent-rose);width:60px;">Backward:</span>
+          <div class="box" style="font-size:0.8rem;">h⃖₁</div>
+          <div class="arrow" style="font-size:1rem;">←</div>
+          <div class="box" style="font-size:0.8rem;">h⃖₂</div>
+          <div class="arrow" style="font-size:1rem;">←</div>
+          <div class="box" style="font-size:0.8rem;">h⃖₃</div>
+          <div class="arrow" style="font-size:1rem;">←</div>
+          <div class="box" style="font-size:0.8rem;">h⃖₄</div>
+        </div>
+      </div>
+      <div class="card card-accent" style="margin-top:1.5rem;">
+        <h3>Trade-offs</h3>
+        <ul class="concept-list">
+          <li><em class="green">Advantage:</em> Full context at every position</li>
+          <li><em class="green">Advantage:</em> Significantly better for classification, NER, POS tagging</li>
+          <li><em class="rose">Limitation:</em> Cannot be used for autoregressive generation (future tokens are unavailable)</li>
+          <li><em class="rose">Limitation:</em> 2× parameters and compute of unidirectional</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 25: SEQ2SEQ ═══════════════════ -->
+<div class="slide" data-slide="25">
+  <div class="tag tag-lstm">Application Architecture</div>
+  <h2>Sequence-to-Sequence (Encoder–Decoder)</h2>
+  <div class="two-col">
+    <div>
+      <p>Sutskever et al. (2014) introduced the Seq2Seq framework for mapping an input sequence to an output sequence of <em class="key">different length</em>. This unlocked machine translation, summarization, and dialogue.</p>
+      <div class="diagram" style="flex-direction:column;gap:1rem;margin:1.5rem 0;">
+        <div style="display:flex;align-items:center;gap:0.4rem;">
+          <span style="font-size:0.8rem;color:var(--accent-rose);width:70px;">Encoder:</span>
+          <div class="box" style="font-size:0.75rem;">x₁</div>
+          <div class="arrow" style="font-size:0.9rem;">→</div>
+          <div class="box" style="font-size:0.75rem;">x₂</div>
+          <div class="arrow" style="font-size:0.9rem;">→</div>
+          <div class="box" style="font-size:0.75rem;">x₃</div>
+          <div class="arrow" style="font-size:0.9rem;">→</div>
+          <div class="box highlight" style="font-size:0.85rem;padding:0.6rem 1rem;">Context c</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.4rem;">
+          <span style="font-size:0.8rem;color:var(--accent-emerald);width:70px;">Decoder:</span>
+          <div class="box highlight" style="font-size:0.85rem;padding:0.6rem 1rem;">Context c</div>
+          <div class="arrow" style="font-size:0.9rem;">→</div>
+          <div class="box" style="font-size:0.75rem;">y₁</div>
+          <div class="arrow" style="font-size:0.9rem;">→</div>
+          <div class="box" style="font-size:0.75rem;">y₂</div>
+          <div class="arrow" style="font-size:0.9rem;">→</div>
+          <div class="box" style="font-size:0.75rem;">y₃</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card card-accent card-rose">
+        <h3 style="color:var(--accent-rose);">The Bottleneck Problem</h3>
+        <p>The entire input sequence is compressed into a single fixed-size vector <span class="math-inline">c = hₜ</span> (the encoder's final hidden state). For long sequences, this is a <em class="rose">severe information bottleneck</em>.</p>
+        <div class="math-block" style="margin-top:0.5rem;">
+          c = encoder(x₁, x₂, ..., xₜ) ∈ ℝⁿ<br>
+          y₁, y₂, ..., yₛ = decoder(c)
+        </div>
+        <p style="margin-top:0.5rem;">A 50-word English sentence and a 200-word paragraph both get squeezed into the same n-dimensional vector. Performance degrades sharply for long inputs.</p>
+        <p style="margin-top:0.5rem;"><em class="key">This bottleneck directly motivated the invention of the attention mechanism.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 26: SECTION DIVIDER ═══════════════════ -->
+<div class="slide section-divider" data-slide="26">
+  <div class="section-number">IV</div>
+  <h2>The Attention Revolution</h2>
+  <p>Bahdanau et al. (2015) — "Don't compress everything into one vector. Let the decoder look back at the entire input."</p>
+</div>
+
+<!-- ═══════════════════ SLIDE 27: ATTENTION ═══════════════════ -->
+<div class="slide" data-slide="27">
+  <div class="tag tag-transformer">Breakthrough</div>
+  <h2>The Attention Mechanism</h2>
+  <div class="two-col">
+    <div>
+      <p>Instead of forcing the decoder to rely on a single context vector, attention allows the decoder to <em class="key">dynamically focus</em> on different parts of the input at each output step.</p>
+      <div class="math-block">
+        <span class="label">Attention Score (Alignment)</span>
+        eₜⱼ = score(sₜ₋₁, hⱼ)
+      </div>
+      <div class="math-block" style="margin-top:0.8rem;">
+        <span class="label">Attention Weights (Softmax)</span>
+        αₜⱼ = exp(eₜⱼ) / Σₖ exp(eₜₖ)
+      </div>
+      <div class="math-block" style="margin-top:0.8rem;">
+        <span class="label">Context Vector (Weighted Sum)</span>
+        cₜ = Σⱼ αₜⱼ · hⱼ
+      </div>
+      <p style="margin-top:0.8rem;">The context vector <span class="math-inline">cₜ</span> is a <em class="key">different weighted combination</em> of encoder states for each decoder step — the network learns to "attend" to relevant input positions.</p>
+    </div>
+    <div>
+      <div class="card card-accent card-warm">
+        <h3 style="color:var(--accent-warm);">Score Functions</h3>
+        <div class="math-block" style="line-height:2.2;">
+          <span class="label">Common Scoring Methods</span>
+          Dot:        score(s, h) = sᵀh<br>
+          General:    score(s, h) = sᵀWₐh<br>
+          Additive:   score(s, h) = vₐᵀ tanh(Wₐ[s;h])<br>
+          Scaled Dot: score(s, h) = sᵀh / √dₖ
+        </div>
+      </div>
+      <div class="card card-accent" style="margin-top:1rem;">
+        <h3>Why Attention Changes Everything</h3>
+        <ul class="concept-list">
+          <li>Eliminates the <em class="rose">bottleneck</em> — decoder accesses all encoder states</li>
+          <li>Provides <em class="green">interpretability</em> — attention weights show where the model is "looking"</li>
+          <li>Creates <em class="key">shortcuts</em> for gradient flow</li>
+          <li>Handles <em class="primary">variable alignment</em> between input and output</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 28: SELF ATTENTION ═══════════════════ -->
+<div class="slide" data-slide="28">
+  <div class="tag tag-transformer">Key Innovation</div>
+  <h2>Self-Attention — Attending to Yourself</h2>
+  <div class="two-col">
+    <div>
+      <p>Self-attention (Vaswani et al., 2017) is the core idea behind Transformers. Instead of attending to a separate encoder, each position in a sequence attends to <em class="key">all other positions in the same sequence</em>.</p>
+      <p style="margin-top:0.8rem;">Each input token is transformed into three vectors:</p>
+      <div class="math-block">
+        <span class="label">Query, Key, Value Projections</span>
+        Qᵢ = xᵢ · W_Q    (what am I looking for?)<br>
+        Kᵢ = xᵢ · W_K    (what do I contain?)<br>
+        Vᵢ = xᵢ · W_V    (what do I provide?)
+      </div>
+      <div class="math-block" style="margin-top:1rem;">
+        <span class="label">Scaled Dot-Product Self-Attention</span>
+        Attention(Q, K, V) = softmax(QKᵀ / √dₖ) · V
+      </div>
+    </div>
+    <div>
+      <div class="card card-accent card-warm">
+        <h3 style="color:var(--accent-warm);">The QKV Analogy</h3>
+        <p>Think of a <em class="key">library search</em>:</p>
+        <ul class="concept-list">
+          <li><em class="primary">Query Q</em> = your search question</li>
+          <li><em class="primary">Key K</em> = index cards on each book</li>
+          <li><em class="primary">Value V</em> = the actual book content</li>
+        </ul>
+        <p style="margin-top:0.5rem;">You compare your query against all keys (dot product), normalize the scores (softmax), then retrieve a weighted combination of values.</p>
+      </div>
+      <div class="card card-accent" style="margin-top:1rem;">
+        <h3>Why √dₖ Scaling?</h3>
+        <p>Without scaling, for large <span class="math-inline">dₖ</span>, the dot products grow large, pushing softmax into regions where gradients are extremely small. Dividing by <span class="math-inline">√dₖ</span> keeps the variance of the dot products at 1, maintaining healthy gradients.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 29: MULTI-HEAD ═══════════════════ -->
+<div class="slide" data-slide="29">
+  <div class="tag tag-transformer">Architecture Detail</div>
+  <h2>Multi-Head Attention</h2>
+  <div class="two-col">
+    <div>
+      <p>A single attention head can only focus on one type of relationship. Multi-head attention runs <em class="key">h parallel attention heads</em>, each with different learned projections, allowing the model to jointly attend to information from different representation subspaces:</p>
+      <div class="math-block">
+        <span class="label">Multi-Head Attention</span>
+        headi = Attention(QW_Qⁱ, KW_Kⁱ, VW_Vⁱ)<br><br>
+        MultiHead(Q,K,V) = Concat(head₁,...,headₕ)W_O
+      </div>
+      <p style="margin-top:0.8rem;">Each head operates on a <em class="key">reduced dimension</em>: if model dimension is <span class="math-inline">d_model = 512</span> and <span class="math-inline">h = 8</span> heads, each head works with <span class="math-inline">dₖ = d_model/h = 64</span> dimensions.</p>
+    </div>
+    <div>
+      <div class="card card-accent">
+        <h3>What Different Heads Learn</h3>
+        <p>Research shows that different heads specialize in different linguistic phenomena:</p>
+        <ul class="concept-list">
+          <li>Head 1 might attend to <em class="key">syntactic dependencies</em> (subject-verb)</li>
+          <li>Head 2 might track <em class="key">positional proximity</em> (nearby words)</li>
+          <li>Head 3 might capture <em class="key">semantic similarity</em></li>
+          <li>Head 4 might handle <em class="key">coreference</em> (pronouns to antecedents)</li>
+        </ul>
+        <p style="margin-top:0.5rem;">The final linear projection <span class="math-inline">W_O</span> learns to combine these diverse perspectives into a unified representation.</p>
+      </div>
+      <div class="math-block" style="margin-top:1rem;">
+        <span class="label">Dimensions</span>
+        W_Qⁱ, W_Kⁱ ∈ ℝ^(d_model × dₖ)<br>
+        W_Vⁱ ∈ ℝ^(d_model × dᵥ)<br>
+        W_O ∈ ℝ^(h·dᵥ × d_model)
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 30: SECTION DIVIDER ═══════════════════ -->
+<div class="slide section-divider" data-slide="30">
+  <div class="section-number">V</div>
+  <h2>The Transformer</h2>
+  <p>"Attention Is All You Need" — Vaswani et al. (2017). The architecture that changed everything.</p>
+</div>
+
+<!-- ═══════════════════ SLIDE 31: TRANSFORMER ARCHITECTURE ═══════════════════ -->
+<div class="slide" data-slide="31">
+  <div class="tag tag-transformer">Architecture</div>
+  <h2>The Transformer — No Recurrence At All</h2>
+  <div class="two-col">
+    <div>
+      <p>The Transformer's radical insight: <em class="rose">discard recurrence entirely</em>. Process the whole sequence at once using only attention and feedforward layers.</p>
+      <div class="card card-accent" style="margin-top:1rem;">
+        <h3>Encoder Block (×N)</h3>
+        <div class="math-block" style="line-height:2.2;">
+          x' = LayerNorm(x + MultiHeadAttn(x,x,x))<br>
+          output = LayerNorm(x' + FFN(x'))
+        </div>
+      </div>
+      <div class="card card-accent card-warm" style="margin-top:1rem;">
+        <h3 style="color:var(--accent-warm);">Decoder Block (×N)</h3>
+        <div class="math-block" style="line-height:2.2;">
+          x' = LayerNorm(x + MaskedMultiHeadAttn(x,x,x))<br>
+          x'' = LayerNorm(x' + MultiHeadAttn(x',enc,enc))<br>
+          output = LayerNorm(x'' + FFN(x''))
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card card-accent card-emerald">
+        <h3 style="color:var(--accent-emerald);">Why Transformers Win</h3>
+        <ul class="concept-list">
+          <li><em class="key">Parallelization:</em> No sequential dependency — all positions computed simultaneously. Training on GPUs is orders of magnitude faster.</li>
+          <li><em class="key">Global context:</em> Every position directly attends to every other position. No information loss over distance.</li>
+          <li><em class="key">Constant path length:</em> Signal travels from any position to any other in O(1) layers, vs O(n) for RNNs.</li>
+          <li><em class="key">Scalability:</em> Can be scaled to billions of parameters effectively.</li>
+        </ul>
+      </div>
+      <div class="card card-accent" style="margin-top:1rem;">
+        <h3>Feed-Forward Network (FFN)</h3>
+        <div class="math-block">
+          FFN(x) = max(0, xW₁ + b₁)W₂ + b₂<br>
+          (Two linear layers with ReLU activation)
+        </div>
+        <p style="margin-top:0.3rem;font-size:0.85rem;">Typically d_ff = 4 × d_model (e.g., 2048 for d_model=512)</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 32: POSITIONAL ENCODING ═══════════════════ -->
+<div class="slide" data-slide="32">
+  <div class="tag tag-transformer">Essential Component</div>
+  <h2>Positional Encoding</h2>
+  <div class="two-col">
+    <div>
+      <p>Since Transformers have no recurrence or convolution, they have <em class="rose">no inherent notion of token order</em>. Without positional information, "dog bites man" and "man bites dog" would be identical to the model.</p>
+      <p style="margin-top:0.8rem;">The original Transformer uses sinusoidal positional encodings, added directly to the input embeddings:</p>
+      <div class="math-block">
+        <span class="label">Sinusoidal Positional Encoding</span>
+        PE(pos, 2i) = sin(pos / 10000^(2i/d_model))<br>
+        PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))
+      </div>
+      <p style="margin-top:0.8rem;">Each dimension <span class="math-inline">i</span> corresponds to a sinusoid with a different frequency, creating a unique "fingerprint" for each position.</p>
+    </div>
+    <div>
+      <div class="card card-accent card-warm">
+        <h3 style="color:var(--accent-warm);">Why Sinusoids?</h3>
+        <ul class="concept-list">
+          <li><em class="key">Unique positions:</em> Each position gets a distinct encoding</li>
+          <li><em class="key">Relative positions:</em> PE(pos+k) can be expressed as a linear function of PE(pos), letting the model easily learn relative distances</li>
+          <li><em class="key">Extrapolation:</em> Can generalize to sequence lengths not seen during training</li>
+          <li><em class="key">Bounded:</em> Values stay in [-1, 1] regardless of sequence length</li>
+        </ul>
+      </div>
+      <div class="card card-accent" style="margin-top:1rem;">
+        <h3>Modern Alternatives</h3>
+        <ul class="concept-list">
+          <li><em class="key">Learned embeddings</em> — trainable position vectors (BERT, GPT)</li>
+          <li><em class="key">RoPE</em> — Rotary Position Embedding (LLaMA, used in most modern LLMs)</li>
+          <li><em class="key">ALiBi</em> — Attention with Linear Biases (BLOOM)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 33: RESIDUALS & LAYER NORM ═══════════════════ -->
+<div class="slide" data-slide="33">
+  <div class="tag tag-transformer">Training Stability</div>
+  <h2>Residual Connections & Layer Normalization</h2>
+  <div class="two-col">
+    <div>
+      <p>Two critical components that make deep Transformers trainable:</p>
+      <div class="math-block">
+        <span class="label">Residual Connection (Skip Connection)</span>
+        output = x + SubLayer(x)
+      </div>
+      <p style="margin-top:0.8rem;">Residual connections create <em class="key">gradient highways</em> — identical in spirit to why the LSTM cell state works. The gradient can flow directly through the addition, bypassing potentially problematic sublayers.</p>
+      <div class="math-block" style="margin-top:1.2rem;">
+        <span class="label">Layer Normalization</span>
+        LayerNorm(x) = γ ⊙ (x − μ) / (σ + ε) + β<br><br>
+        where μ = mean(x), σ = std(x)<br>
+        γ, β are learned scale and shift parameters
+      </div>
+      <p style="margin-top:0.8rem;">Layer norm stabilizes the distribution of activations, preventing internal covariate shift and enabling much deeper networks.</p>
+    </div>
+    <div>
+      <div class="card card-accent">
+        <h3>Pre-Norm vs Post-Norm</h3>
+        <p><em class="key">Post-Norm</em> (original Transformer):</p>
+        <div class="math-block" style="margin-top:0.3rem;">
+          output = LayerNorm(x + SubLayer(x))
+        </div>
+        <p style="margin-top:0.5rem;"><em class="key">Pre-Norm</em> (GPT-2, modern LLMs):</p>
+        <div class="math-block" style="margin-top:0.3rem;">
+          output = x + SubLayer(LayerNorm(x))
+        </div>
+        <p style="margin-top:0.5rem;">Pre-norm is now standard because it provides more stable training at scale — the residual path is never normalized, ensuring clean gradient flow.</p>
+      </div>
+      <div class="card card-accent card-emerald" style="margin-top:1rem;">
+        <h3 style="color:var(--accent-emerald);">The Pattern Repeats</h3>
+        <p>Notice the recurring theme: from LSTM cell states to ResNet skip connections to Transformer residuals — the solution to training deep networks always involves <em class="key">additive shortcuts</em> for gradient flow.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 34: RNN vs TRANSFORMER ═══════════════════ -->
+<div class="slide" data-slide="34">
+  <div class="tag tag-transformer">Comparison</div>
+  <h2>RNN vs Transformer — Fundamental Trade-offs</h2>
+  <table class="comp-table">
+    <tr>
+      <th>Property</th>
+      <th style="color:var(--accent-rose);">RNN / LSTM / GRU</th>
+      <th style="color:var(--accent-warm);">Transformer</th>
+    </tr>
+    <tr>
+      <td><strong>Computation per layer</strong></td>
+      <td>O(n · d²) — sequential, n steps</td>
+      <td>O(n² · d) — parallel, all at once</td>
+    </tr>
+    <tr>
+      <td><strong>Sequential operations</strong></td>
+      <td>O(n) — must process step by step</td>
+      <td>O(1) — fully parallelizable</td>
+    </tr>
+    <tr>
+      <td><strong>Max path length</strong></td>
+      <td>O(n) — info must traverse entire chain</td>
+      <td>O(1) — direct attention anywhere</td>
+    </tr>
+    <tr>
+      <td><strong>Memory of long sequences</strong></td>
+      <td>Degrades exponentially (vanishing gradient)</td>
+      <td>Direct access to all positions (attention)</td>
+    </tr>
+    <tr>
+      <td><strong>Training efficiency</strong></td>
+      <td>Slow — inherently sequential</td>
+      <td>Fast — massive GPU parallelism</td>
+    </tr>
+    <tr>
+      <td><strong>Inference for generation</strong></td>
+      <td>Efficient — O(1) per token with cached state</td>
+      <td>Expensive — attention grows with sequence length</td>
+    </tr>
+    <tr>
+      <td><strong>Inductive bias</strong></td>
+      <td>Strong locality bias (nearby tokens interact more)</td>
+      <td>Minimal — must learn all structure from data</td>
+    </tr>
+    <tr>
+      <td><strong>Data efficiency</strong></td>
+      <td>Better with small data (due to inductive bias)</td>
+      <td>Needs large data to learn positional patterns</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ═══════════════════ SLIDE 35: FROM TRANSFORMER TO GPT ═══════════════════ -->
+<div class="slide" data-slide="35">
+  <div class="tag tag-transformer">Evolution</div>
+  <h2>From Transformers to GPT — The Decoder-Only Revolution</h2>
+  <div class="two-col">
+    <div>
+      <p>The original Transformer used both encoder and decoder stacks. Subsequent work explored three variants:</p>
+      <div class="card card-accent card-rose" style="margin-top:1rem;">
+        <h3 style="color:var(--accent-rose);">Encoder-Only (BERT, 2018)</h3>
+        <p>Uses only the encoder stack with <em class="key">bidirectional</em> self-attention. Trained via Masked Language Modeling (predict masked tokens). Excels at understanding tasks: classification, NER, QA.</p>
+      </div>
+      <div class="card card-accent card-warm" style="margin-top:0.8rem;">
+        <h3 style="color:var(--accent-warm);">Encoder-Decoder (T5, BART)</h3>
+        <p>Full architecture. Encoder bidirectional, decoder causal. Best for sequence-to-sequence tasks: translation, summarization.</p>
+      </div>
+      <div class="card card-accent card-emerald" style="margin-top:0.8rem;">
+        <h3 style="color:var(--accent-emerald);">Decoder-Only (GPT, 2018)</h3>
+        <p>Uses only the decoder with <em class="key">causal (masked)</em> self-attention. Trained via next-token prediction. Emerged as the dominant paradigm for generative AI.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card card-accent">
+        <h3>GPT's Causal Masking</h3>
+        <p>In GPT, each token can only attend to tokens <em class="key">before and including itself</em> — never to future tokens. This is enforced by masking future positions with −∞ before softmax:</p>
+        <div class="math-block" style="margin-top:0.5rem;">
+          <span class="label">Causal Attention Mask</span>
+          Maskᵢⱼ = { 0 if j ≤ i, −∞ if j > i }<br><br>
+          Attention = softmax((QKᵀ + Mask) / √dₖ) · V
+        </div>
+        <p style="margin-top:0.5rem;">This makes GPT <em class="key">autoregressive</em> — it can generate text one token at a time, each conditioned on all previous tokens.</p>
+      </div>
+      <div class="card card-accent" style="margin-top:1rem;">
+        <h3>GPT Training Objective</h3>
+        <div class="math-block">
+          <span class="label">Causal Language Modeling</span>
+          L = −Σᵢ log P(xᵢ | x₁, x₂, ..., xᵢ₋₁; θ)
+        </div>
+        <p style="margin-top:0.3rem;font-size:0.85rem;">Maximize the probability of each token given all preceding tokens.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 36: GPT SCALING ═══════════════════ -->
+<div class="slide" data-slide="36">
+  <div class="tag tag-transformer">Scaling</div>
+  <h2>The GPT Family — Scaling Laws in Action</h2>
+  <div class="two-col">
+    <div>
+      <table class="comp-table">
+        <tr><th>Model</th><th>Year</th><th>Parameters</th><th>Key Innovation</th></tr>
+        <tr><td>GPT-1</td><td>2018</td><td>117M</td><td>Generative pre-training + fine-tuning</td></tr>
+        <tr><td>GPT-2</td><td>2019</td><td>1.5B</td><td>Zero-shot task transfer via prompting</td></tr>
+        <tr><td>GPT-3</td><td>2020</td><td>175B</td><td>In-context learning, few-shot abilities</td></tr>
+        <tr><td>GPT-4</td><td>2023</td><td>~1.8T*</td><td>Multimodal, reasoning, RLHF</td></tr>
+      </table>
+      <p style="margin-top:1rem;font-size:0.85rem;">*GPT-4 parameter count is estimated; OpenAI has not officially disclosed it.</p>
+      <div class="card card-accent" style="margin-top:1rem;">
+        <h3>Kaplan Scaling Laws</h3>
+        <div class="math-block">
+          L(N) ∝ N^(-0.076)<br>
+          L(D) ∝ D^(-0.095)<br>
+          L(C) ∝ C^(-0.050)
+        </div>
+        <p style="margin-top:0.3rem;font-size:0.85rem;">Loss decreases as a power law with parameters (N), data (D), and compute (C). More of everything = better performance, smoothly and predictably.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card card-accent card-warm">
+        <h3 style="color:var(--accent-warm);">Emergent Abilities</h3>
+        <p>As models scale, qualitatively new capabilities <em class="key">emerge</em> that were absent in smaller models:</p>
+        <ul class="concept-list">
+          <li><em class="key">Few-shot learning</em> — learn tasks from a few examples in the prompt</li>
+          <li><em class="key">Chain-of-thought reasoning</em> — step-by-step logical deduction</li>
+          <li><em class="key">Code generation</em> — writing functional programs</li>
+          <li><em class="key">Instruction following</em> — understanding and executing complex directives</li>
+        </ul>
+      </div>
+      <div class="card card-accent card-emerald" style="margin-top:1rem;">
+        <h3 style="color:var(--accent-emerald);">RLHF — Alignment</h3>
+        <p>Reinforcement Learning from Human Feedback aligns the model's outputs with human values and preferences. This is what transforms a raw language model (GPT-3) into a helpful assistant (ChatGPT).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 37: EVOLUTION TIMELINE ═══════════════════ -->
+<div class="slide" data-slide="37">
+  <div class="tag tag-transformer">Historical Arc</div>
+  <h2>The Complete Evolution — 1986 to Present</h2>
+  <div class="two-col">
+    <div>
+      <div class="timeline">
+        <div class="timeline-item"><span class="year">1986</span> <span class="desc">Rumelhart — Backpropagation for neural networks</span></div>
+        <div class="timeline-item"><span class="year">1990</span> <span class="desc">Elman — Simple Recurrent Networks (SRN)</span></div>
+        <div class="timeline-item"><span class="year">1994</span> <span class="desc">Bengio — Proves vanishing gradient problem</span></div>
+        <div class="timeline-item"><span class="year">1997</span> <span class="desc">Hochreiter & Schmidhuber — LSTM</span></div>
+        <div class="timeline-item"><span class="year">2000</span> <span class="desc">Gers — Forget gate added to LSTM</span></div>
+        <div class="timeline-item"><span class="year">2014</span> <span class="desc">Cho et al. — GRU; Sutskever — Seq2Seq</span></div>
+        <div class="timeline-item"><span class="year">2015</span> <span class="desc">Bahdanau — Attention mechanism</span></div>
+        <div class="timeline-item"><span class="year">2017</span> <span class="desc">Vaswani et al. — Transformer ("Attention Is All You Need")</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="timeline">
+        <div class="timeline-item"><span class="year">2018</span> <span class="desc">Radford — GPT-1; Devlin — BERT</span></div>
+        <div class="timeline-item"><span class="year">2019</span> <span class="desc">GPT-2 — "Too dangerous to release"</span></div>
+        <div class="timeline-item"><span class="year">2020</span> <span class="desc">GPT-3 — 175B parameters, in-context learning</span></div>
+        <div class="timeline-item"><span class="year">2022</span> <span class="desc">ChatGPT — RLHF makes AI conversational</span></div>
+        <div class="timeline-item"><span class="year">2023</span> <span class="desc">GPT-4, Claude, LLaMA — Multimodal, open-source LLMs</span></div>
+        <div class="timeline-item"><span class="year">2024</span> <span class="desc">Reasoning models (o1), Mixture-of-Experts at scale</span></div>
+        <div class="timeline-item"><span class="year">2025</span> <span class="desc">Agentic AI, tool use, multi-modal reasoning</span></div>
+        <div class="timeline-item"><span class="year">2026</span> <span class="desc">Long-context models, state-space hybrids (Mamba), efficient attention</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 38: KEY TAKEAWAYS ═══════════════════ -->
+<div class="slide" data-slide="38">
+  <div class="tag tag-math">Synthesis</div>
+  <h2>Key Mathematical Takeaways</h2>
+  <div class="three-col">
+    <div class="card card-accent card-rose">
+      <h3 style="color:var(--accent-rose);">The Gradient Problem</h3>
+      <div class="math-block" style="font-size:0.85rem;">
+        ∂hₜ/∂hₖ = Πⱼ diag(tanh′) · Wₕₕ
+      </div>
+      <p style="font-size:0.9rem;">Products of matrices with spectral radius ≠ 1 cause gradients to vanish or explode. This is the fundamental limitation of vanilla RNNs and the problem that LSTM/GRU, residual connections, and attention all solve in different ways.</p>
+    </div>
+    <div class="card card-accent card-emerald">
+      <h3 style="color:var(--accent-emerald);">The Gating Solution</h3>
+      <div class="math-block" style="font-size:0.85rem;">
+        Cₜ = fₜ ⊙ Cₜ₋₁ + iₜ ⊙ C̃ₜ
+      </div>
+      <p style="font-size:0.9rem;">Additive cell state updates with learned gates create gradient highways. The gradient through the cell state is simply the product of forget gates — which can be trained to stay near 1 for long-term memory.</p>
+    </div>
+    <div class="card card-accent card-warm">
+      <h3 style="color:var(--accent-warm);">The Attention Solution</h3>
+      <div class="math-block" style="font-size:0.85rem;">
+        Attn = softmax(QKᵀ/√dₖ)V
+      </div>
+      <p style="font-size:0.9rem;">Direct, content-based access to all positions eliminates sequential bottlenecks entirely. O(1) path length for any pair of positions. Combined with residual connections, enables training 100+ layer networks.</p>
+    </div>
+  </div>
+  <div class="card card-accent" style="margin-top:1.5rem;text-align:center;">
+    <p style="font-size:1.1rem;max-width:none;color:var(--text-primary);">The thread connecting RNN → LSTM → GRU → Attention → Transformer → GPT is a single idea: <em class="key">create shorter, more direct paths for information and gradients to flow</em>. Every major architecture innovation in sequence modeling can be understood as an engineering response to this principle.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 39: MODERN LANDSCAPE ═══════════════════ -->
+<div class="slide" data-slide="39">
+  <div class="tag tag-transformer">Current State</div>
+  <h2>The Modern Landscape — Beyond Vanilla Transformers</h2>
+  <div class="two-col">
+    <div>
+      <div class="card card-accent card-cyan">
+        <h3 style="color:var(--accent-cyan);">Efficient Attention Variants</h3>
+        <p>Standard attention is O(n²) in sequence length. Modern approaches reduce this:</p>
+        <ul class="concept-list">
+          <li><em class="key">Flash Attention</em> — hardware-aware exact attention (O(n²) but 2-4× faster via tiling)</li>
+          <li><em class="key">Sparse Attention</em> — attend only to subset of positions</li>
+          <li><em class="key">Linear Attention</em> — kernel approximations, O(n) complexity</li>
+          <li><em class="key">Ring Attention</em> — distribute long sequences across devices</li>
+        </ul>
+      </div>
+      <div class="card card-accent card-emerald" style="margin-top:1rem;">
+        <h3 style="color:var(--accent-emerald);">State Space Models (SSMs)</h3>
+        <p>Mamba and similar SSMs bring back the recurrent paradigm with O(n) complexity and no attention. They use structured state matrices to maintain long-range memory — a fascinating full-circle return to sequential processing, but with the mathematical elegance to avoid vanishing gradients.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card card-accent card-warm">
+        <h3 style="color:var(--accent-warm);">Key Innovations in Modern LLMs</h3>
+        <ul class="concept-list">
+          <li><em class="key">RoPE:</em> Rotary Positional Embeddings — encode position through rotation in complex space</li>
+          <li><em class="key">GQA:</em> Grouped Query Attention — share KV heads to reduce memory</li>
+          <li><em class="key">MoE:</em> Mixture of Experts — activate only subset of parameters per token</li>
+          <li><em class="key">SwiGLU:</em> Improved activation function for FFN layers</li>
+          <li><em class="key">RMSNorm:</em> Simpler, faster normalization</li>
+          <li><em class="key">KV Cache:</em> Cache key-value pairs for efficient autoregressive generation</li>
+        </ul>
+      </div>
+      <div class="card card-accent" style="margin-top:1rem;">
+        <h3>The Hybrid Future</h3>
+        <p>The latest architectures (Jamba, Griffin, RWKV) combine Transformer layers with SSM layers, leveraging the strengths of both paradigms — attention for complex reasoning, recurrence for efficient long-context processing.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SLIDE 40: CLOSING ═══════════════════ -->
+<div class="slide section-divider" data-slide="40">
+  <div class="section-number" style="color:rgba(99,102,241,0.15);">∎</div>
+  <h2 style="font-size:2.8rem;">Thank You</h2>
+  <p style="margin-top:1rem;">From the simple recurrence <span class="math-inline">hₜ = f(hₜ₋₁, xₜ)</span> to models with trillions of parameters — the mathematics of memory, attention, and scale have reshaped artificial intelligence.</p>
+  <div style="margin-top:2rem;">
+    <div class="diagram">
+      <div class="box" style="border-color:var(--accent-rose);opacity:0.6;">1990 · RNN</div>
+      <div class="arrow">→</div>
+      <div class="box" style="border-color:var(--accent-emerald);opacity:0.7;">1997 · LSTM</div>
+      <div class="arrow">→</div>
+      <div class="box" style="border-color:var(--accent-cyan);opacity:0.8;">2014 · GRU</div>
+      <div class="arrow">→</div>
+      <div class="box" style="border-color:var(--accent-warm);opacity:0.9;">2017 · Transformer</div>
+      <div class="arrow">→</div>
+      <div class="box highlight" style="font-size:1rem;padding:0.8rem 1.5rem;">2026 · You are here</div>
+    </div>
+  </div>
+  <div class="author-line" style="margin-top:3rem;">Jitendra · Senior AI Architect</div>
+</div>
+
+</div><!-- end deck -->
+
+<!-- Navigation -->
+<div class="nav">
+  <button id="prevBtn" onclick="navigate(-1)">◂</button>
+  <span class="counter" id="counter">1 / 40</span>
+  <button id="nextBtn" onclick="navigate(1)">▸</button>
+</div>
+<div class="key-hint">← → arrow keys to navigate</div>
+
+<script>
+let current = 1;
+const total = document.querySelectorAll('.slide').length;
+
+function showSlide(n) {
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  const target = document.querySelector(`[data-slide="${n}"]`);
+  if (target) {
+    target.classList.add('active');
+    target.scrollTop = 0;
+  }
+  document.getElementById('counter').textContent = `${n} / ${total}`;
+  document.getElementById('progress').style.width = `${(n / total) * 100}%`;
+}
+
+function navigate(dir) {
+  current = Math.max(1, Math.min(total, current + dir));
+  showSlide(current);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); navigate(1); }
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); navigate(-1); }
+  if (e.key === 'Home') { e.preventDefault(); current = 1; showSlide(current); }
+  if (e.key === 'End') { e.preventDefault(); current = total; showSlide(current); }
+});
+
+// Touch support
+let touchStartX = 0;
+document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+document.addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].screenX;
+  if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
+});
+
+showSlide(1);
+</script>
+</body>
+</html>

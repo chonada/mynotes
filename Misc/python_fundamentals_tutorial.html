@@ -1,0 +1,3013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Fundamentals - Interactive Tutorial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .progress-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+
+        .timer {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .navigation {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .nav-btn {
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            font-size: 14px;
+            text-align: center;
+            position: relative;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn.completed::after {
+            content: '✓';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #4ecdc4;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .section {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            border-radius: 2px;
+        }
+
+        .code-editor {
+            background: #2d3748;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            color: #e2e8f0;
+            border: 1px solid #4a5568;
+            position: relative;
+        }
+
+        .code-editor::before {
+            content: 'Python Code';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background: #2d3748;
+            padding: 0 10px;
+            font-size: 12px;
+            color: #a0aec0;
+        }
+
+        .code-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 100px;
+            outline: none;
+        }
+
+        .run-button {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+
+        .run-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .output {
+            background: #1a202c;
+            color: #68d391;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid #4ecdc4;
+            min-height: 50px;
+        }
+
+        .concept-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .concept-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .example-box {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #4ecdc4;
+        }
+
+        .quiz-container {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .quiz-question {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2d3436;
+            font-weight: bold;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-option {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            border-color: #4ecdc4;
+            background: #f0fffe;
+        }
+
+        .quiz-option.selected {
+            border-color: #4ecdc4;
+            background: #e6fffa;
+        }
+
+        .quiz-option.correct {
+            border-color: #48bb78;
+            background: #f0fff4;
+        }
+
+        .quiz-option.incorrect {
+            border-color: #f56565;
+            background: #fed7d7;
+        }
+
+        .interactive-demo {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .demo-button {
+            background: #4ecdc4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .demo-button:hover {
+            background: #44a08d;
+            transform: translateY(-1px);
+        }
+
+        .file-demo {
+            background: #f8f9fa;
+            border: 1px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .control-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .control-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .control-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .control-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .hands-on-section {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            color: #333;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .difficulty-easy { background: #d4edda; color: #155724; }
+        .difficulty-medium { background: #fff3cd; color: #856404; }
+        .difficulty-hard { background: #f8d7da; color: #721c24; }
+
+        .mini-project {
+            background: linear-gradient(135deg, #fd79a8, #e84393);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .navigation {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .control-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="timer" id="timer">3:00:00</div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Python Fundamentals</h1>
+            <p>Master Python Programming for AI & Data Science</p>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p style="color: white; margin-top: 10px;">Progress: <span id="progressText">0/12</span> sections completed</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn active" data-section="intro">Introduction</button>
+            <button class="nav-btn" data-section="control-structures">Control Structures</button>
+            <button class="nav-btn" data-section="file-handling">File Handling</button>
+            <button class="nav-btn" data-section="comprehensions">Comprehensions</button>
+            <button class="nav-btn" data-section="oop">Object-Oriented Programming</button>
+            <button class="nav-btn" data-section="error-handling">Error Handling</button>
+            <button class="nav-btn" data-section="libraries">Python Libraries</button>
+            <button class="nav-btn" data-section="debugging">Debugging</button>
+            <button class="nav-btn" data-section="best-practices">Best Practices</button>
+            <button class="nav-btn" data-section="hands-on">Hands-On Exercises</button>
+            <button class="nav-btn" data-section="mini-project">Mini Project</button>
+            <button class="nav-btn" data-section="recap">Recap & Resources</button>
+        </div>
+
+        <!-- Introduction Section -->
+        <div class="section active" id="intro">
+            <h2>Welcome to Python Fundamentals</h2>
+            
+            <div class="concept-box">
+                <h3>Why Python for AI & Data Science?</h3>
+                <p>Python has become the lingua franca of artificial intelligence and data science due to its simplicity, readability, and powerful ecosystem of libraries. From automating mundane tasks to building sophisticated machine learning models, Python empowers developers to focus on solving problems rather than wrestling with syntax.</p>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Python's Role in Modern Technology</h3>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li>🤖 <strong>AI & Machine Learning:</strong> TensorFlow, PyTorch, scikit-learn</li>
+                    <li>📊 <strong>Data Science:</strong> Pandas, NumPy, Matplotlib</li>
+                    <li>🌐 <strong>Web Development:</strong> Django, Flask, FastAPI</li>
+                    <li>⚡ <strong>Automation:</strong> Scripting, DevOps, Testing</li>
+                    <li>🔬 <strong>Scientific Computing:</strong> SciPy, Jupyter Notebooks</li>
+                </ul>
+            </div>
+
+            <div class="quiz-container">
+                <div class="quiz-question">What makes Python particularly suitable for AI and data science?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">It's the fastest programming language</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, true)">Simple syntax and rich ecosystem of specialized libraries</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">It only works for data science applications</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">It doesn't require any learning</div>
+                </div>
+                <div id="quiz-feedback"></div>
+            </div>
+
+            <div class="code-editor">
+                <textarea class="code-input" placeholder="Try your first Python code here:
+print('Hello, Python World!')
+name = 'AI Enthusiast'
+print(f'Welcome {name} to Python programming!')"></textarea>
+                <button class="run-button" onclick="runCode(this)">Run Code</button>
+                <button class="run-button" onclick="clearCode(this)" style="background: #e74c3c;">Clear</button>
+                <div class="output" id="output-intro"></div>
+            </div>
+        </div>
+
+        <!-- Control Structures Section -->
+        <div class="section" id="control-structures">
+            <h2>Control Structures</h2>
+            
+            <div class="concept-box">
+                <h3>Decision Making & Loops</h3>
+                <p>Control structures are the foundation of programming logic. They allow your programs to make decisions, repeat actions, and respond to different conditions dynamically.</p>
+            </div>
+
+            <div class="example-box">
+                <h4>if-elif-else Statements</h4>
+                <p>Perfect for implementing grading systems, user authentication, or any scenario requiring multiple condition checks.</p>
+            </div>
+
+            <div class="code-editor">
+                <textarea class="code-input">
+# Student Grading System
+def calculate_grade(score):
+    if score >= 90:
+        return 'A'
+    elif score >= 80:
+        return 'B'
+    elif score >= 70:
+        return 'C'
+    elif score >= 60:
+        return 'D'
+    else:
+        return 'F'
+
+# Test with different scores
+scores = [95, 87, 73, 62, 45]
+for score in scores:
+    grade = calculate_grade(score)
+    print(f"Score: {score} → Grade: {grade}")
+
+# Loop examples
+print("\nLoop Examples:")
+# For loop with range
+for i in range(1, 6):
+    print(f"Iteration {i}")
+
+# While loop
+count = 0
+while count < 3:
+    print(f"Count: {count}")
+    count += 1
+                </textarea>
+                <button class="run-button" onclick="runCode(this)">Run Code</button>
+                <div class="output"></div>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Real-World Application: Report Generation Automation</h3>
+                <p>Imagine automating monthly report generation based on different conditions:</p>
+                <div class="demo-controls">
+                    <button class="demo-button" onclick="demonstrateReportGeneration()">Generate Sample Report</button>
+                    <button class="demo-button" onclick="demonstrateLoopAutomation()">Show Loop Automation</button>
+                </div>
+                <div id="demo-output-control"></div>
+            </div>
+
+            <div class="quiz-container">
+                <div class="quiz-question">When should you use a while loop instead of a for loop?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">When you know exactly how many iterations you need</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, true)">When the number of iterations depends on a changing condition</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">While loops are always better than for loops</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">When working with lists</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- File Handling Section -->
+        <div class="section" id="file-handling">
+            <h2>File Handling</h2>
+            
+            <div class="concept-box">
+                <h3>Reading, Writing, and Managing Files</h3>
+                <p>File handling is crucial for data persistence, configuration management, and processing large datasets. Python provides elegant ways to work with files safely and efficiently.</p>
+            </div>
+
+            <div class="example-box">
+                <h4>The 'with' Statement - Your Safety Net</h4>
+                <p>Always use the 'with' statement for file operations. It automatically handles file closing and error management, preventing resource leaks and data corruption.</p>
+            </div>
+
+            <div class="code-editor">
+                <textarea class="code-input">
+# File Writing Example
+def create_log_file():
+    # Writing to a file
+    with open('activity_log.txt', 'w') as file:
+        file.write("System Started\n")
+        file.write("User Login: admin@company.com\n")
+        file.write("Data Processing Initiated\n")
+    print("Log file created successfully!")
+
+# File Reading Example
+def read_log_file():
+    try:
+        with open('activity_log.txt', 'r') as file:
+            content = file.read()
+            print("Log file contents:")
+            print(content)
+    except FileNotFoundError:
+        print("Log file not found. Create it first!")
+
+# File Appending Example
+def append_to_log():
+    with open('activity_log.txt', 'a') as file:
+        file.write("New activity logged\n")
+        file.write("System backup completed\n")
+    print("New entries added to log!")
+
+# Configuration file example
+def create_config():
+    config_data = """
+# Application Configuration
+database_host=localhost
+database_port=5432
+debug_mode=True
+max_connections=100
+"""
+    with open('app_config.txt', 'w') as file:
+        file.write(config_data)
+    print("Configuration file created!")
+
+# Run the examples
+create_log_file()
+read_log_file()
+append_to_log()
+read_log_file()
+create_config()
+                </textarea>
+                <button class="run-button" onclick="runCode(this)">Run Code</button>
+                <div class="output"></div>
+            </div>
+
+            <div class="file-demo">
+                <h4>Interactive File Operations</h4>
+                <p>Click the buttons below to simulate different file operations:</p>
+                <div class="demo-controls">
+                    <button class="demo-button" onclick="simulateFileWrite()">Create File</button>
+                    <button class="demo-button" onclick="simulateFileRead()">Read File</button>
+                    <button class="demo-button" onclick="simulateFileAppend()">Append to File</button>
+                    <button class="demo-button" onclick="simulateFileError()">Handle Error</button>
+                </div>
+                <div id="file-demo-output"></div>
+            </div>
+
+            <div class="quiz-container">
+                <div class="quiz-question">What happens if you don't properly close a file in Python?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">Nothing, Python handles it automatically</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, true)">Resource leaks and potential data corruption</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">The program will crash immediately</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">Files become permanently locked</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comprehensions Section -->
+        <div class="section" id="comprehensions">
+            <h2>List & Dictionary Comprehensions</h2>
+            
+            <div class="concept-box">
+                <h3>Elegant and Efficient Data Processing</h3>
+                <p>Comprehensions are Python's way of writing concise, readable code for creating lists, dictionaries, and sets. They often replace multiple lines of loop code with a single, expressive line.</p>
+            </div>
+
+            <div class="code-editor">
+                <textarea class="code-input">
+# Basic List Comprehension
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Traditional way
+even_numbers_traditional = []
+for num in numbers:
+    if num % 2 == 0:
+        even_numbers_traditional.append(num)
+
+# Comprehension way
+even_numbers = [num for num in numbers if num % 2 == 0]
+
+print("Traditional approach:", even_numbers_traditional)
+print("Comprehension approach:", even_numbers)
+
+# Advanced List Comprehensions
+squared_evens = [num**2 for num in numbers if num % 2 == 0]
+print("Squared even numbers:", squared_evens)
+
+# Nested comprehension for matrix operations
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+flattened = [item for row in matrix for item in row]
+print("Flattened matrix:", flattened)
+
+# Dictionary Comprehensions
+words = ['hello', 'world', 'python', 'programming']
+
+# Word lengths
+word_lengths = {word: len(word) for word in words}
+print("Word lengths:", word_lengths)
+
+# Word frequency counter simulation
+text = "python is great python is powerful python is fun"
+word_freq = {word: text.split().count(word) for word in set(text.split())}
+print("Word frequencies:", word_freq)
+
+# Advanced: Filtering dictionary
+filtered_words = {word: length for word, length in word_lengths.items() if length > 5}
+print("Words longer than 5 characters:", filtered_words)
+
+# Set comprehension
+unique_lengths = {len(word) for word in words}
+print("Unique word lengths:", unique_lengths)
+                </textarea>
+                <button class="run-button" onclick="runCode(this)">Run Code</button>
+                <div class="output"></div>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Data Processing with Comprehensions</h3>
+                <p>See how comprehensions make data processing elegant and efficient:</p>
+                <div class="demo-controls">
+                    <button class="demo-button" onclick="demonstrateDataFiltering()">Data Filtering</button>
+                    <button class="demo-button" onclick="demonstrateDataTransformation()">Data Transformation</button>
+                    <button class="demo-button" onclick="demonstrateNestedProcessing()">Nested Processing</button>
+                </div>
+                <div id="demo-output-comprehensions"></div>
+            </div>
+
+            <div class="quiz-container">
+                <div class="quiz-question">What's the main advantage of using comprehensions over traditional loops?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">They're always faster in execution</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, true)">More readable, concise, and often more efficient</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">They use less memory</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">They can handle larger datasets</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Object-Oriented Programming Section -->
+        <div class="section" id="oop">
+            <h2>Object-Oriented Programming</h2>
+            
+            <div class="concept-box">
+                <h3>Building Modular and Reusable Code</h3>
+                <p>OOP allows you to model real-world entities as objects with properties (attributes) and behaviors (methods). This paradigm promotes code reusability, modularity, and easier maintenance.</p>
+            </div>
+
+            <div class="code-editor">
+                <textarea class="code-input">
+# Basic Class Definition
+class Car:
+    # Class variable (shared by all instances)
+    wheels = 4
+    
+    def __init__(self, make, model, year, color):
+        # Instance variables (unique to each object)
+        self.make = make
+        self.model = model
+        self.year = year
+        self.color = color
+        self.speed = 0
+        self.engine_on = False
+    
+    def start_engine(self):
+        """Start the car engine"""
+        self.engine_on = True
+        print(f"{self.make} {self.model} engine started!")
+    
+    def accelerate(self, amount):
+        """Increase car speed"""
+        if self.engine_on:
+            self.speed += amount
+            print(f"Accelerating... Current speed: {self.speed} mph")
+        else:
+            print("Please start the engine first!")
+    
+    def brake(self, amount):
+        """Decrease car speed"""
+        self.speed = max(0, self.speed - amount)
+        print(f"Braking... Current speed: {self.speed} mph")
+    
+    def __str__(self):
+        """String representation of the car"""
+        return f"{self.year} {self.color} {self.make} {self.model}"
+
+# Creating car objects
+my_car = Car("Toyota", "Prius", 2022, "Blue")
+friend_car = Car("Honda", "Civic", 2021, "Red")
+
+print("My car:", my_car)
+print("Friend's car:", friend_car)
+
+# Using car methods
+my_car.start_engine()
+my_car.accelerate(30)
+my_car.accelerate(20)
+my_car.brake(15)
+
+print(f"My car's current speed: {my_car.speed} mph")
+
+# Inheritance Example
+class ElectricCar(Car):
+    def __init__(self, make, model, year, color, battery_capacity):
+        super().__init__(make, model, year, color)  # Call parent constructor
+        self.battery_capacity = battery_capacity
+        self.charge_level = 100
+    
+    def charge(self, amount):
+        """Charge the electric car"""
+        self.charge_level = min(100, self.charge_level + amount)
+        print(f"Charging... Battery level: {self.charge_level}%")
+    
+    def start_engine(self):
+        """Override parent method for electric cars"""
+        self.engine_on = True
+        print(f"{self.make} {self.model} electric motor activated silently!")
+
+# Polymorphism in action
+tesla = ElectricCar("Tesla", "Model 3", 2023, "White", "75 kWh")
+print("Electric car:", tesla)
+
+# Same method name, different behavior
+tesla.start_engine()  # Uses overridden method
+my_car.start_engine()  # Uses original method
+
+tesla.charge(10)
+tesla.accelerate(25)
+
+# Demonstrating encapsulation with private attributes
+class BankAccount:
+    def __init__(self, account_number, initial_balance=0):
+        self.account_number = account_number
+        self.__balance = initial_balance  # Private attribute
+    
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print(f"Deposited ${amount}. New balance: ${self.__balance}")
+        else:
+            print("Deposit amount must be positive!")
+    
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+            print(f"Withdrew ${amount}. New balance: ${self.__balance}")
+        else:
+            print("Invalid withdrawal amount!")
+    
+    def get_balance(self):
+        return self.__balance
+
+# Encapsulation example
+account = BankAccount("12345", 1000)
+account.deposit(500)
+account.withdraw(200)
+print(f"Current balance: ${account.get_balance()}")
+
+# This would cause an error: print(account.__balance)
+# But this works: print(account.get_balance())
+                </textarea>
+                <button class="run-button" onclick="runCode(this)">Run Code</button>
+                <div class="output"></div>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>OOP in Action: Building a Simple Game</h3>
+                <div class="demo-controls">
+                    <button class="demo-button" onclick="demonstrateOOPGame()">Create Game Characters</button>
+                    <button class="demo-button" onclick="demonstrateInheritance()">Show Inheritance</button>
+                    <button class="demo-button" onclick="demonstratePolymorphism()">Demonstrate Polymorphism</button>
+                </div>
+                <div id="demo-output-oop"></div>
+            </div>
+
+            <div class="quiz-container">
+                <div class="quiz-question">What is the main benefit of encapsulation in OOP?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">It makes code run faster</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, true)">It hides internal implementation and protects data integrity</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">It reduces memory usage</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">It allows multiple inheritance</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Handling Section -->
+        <div class="section" id="error-handling">
+            <h2>Error Handling</h2>
+            
+            <div class="concept-box">
+                <h3>Building Robust Applications</h3>
+                <p>Error handling is crucial for production code. It helps your applications gracefully handle unexpected situations and provide meaningful feedback to users.</p>
+            </div>
+
+            <div class="code-editor">
+                <textarea class="code-input">
+# Basic Error Handling
+def safe_divide(a, b):
+    try:
+        result = a / b
+        return result
+    except ZeroDivisionError:
+        print("Error: Cannot divide by zero!")
+        return None
+    except TypeError:
+        print("Error: Please provide numbers only!")
+        return None
+
+print("Safe division examples:")
+print(f"10 / 2 = {safe_divide(10, 2)}")
+print(f"10 / 0 = {safe_divide(10, 0)}")
+print(f"10 / 'a' = {safe_divide(10, 'a')}")
+
+# File handling with error management
+def read_file_safely(filename):
+    try:
+        with open(filename, 'r') as file:
+            content = file.read()
+            return content
+    except FileNotFoundError:
+        print(f"Error: File '{filename}' not found!")
+        return None
+    except PermissionError:
+        print(f"Error: Permission denied to read '{filename}'!")
+        return None
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return None
+
+# Multiple exception handling
+def process_data(data_list):
+    results = []
+    for item in data_list:
+        try:
+            # Try to convert to float and calculate square root
+            number = float(item)
+            if number < 0:
+                raise ValueError("Cannot calculate square root of negative number")
+            result = number ** 0.5
+            results.append(result)
+        except ValueError as e:
+            print(f"Value error with '{item}': {e}")
+            results.append(None)
+        except Exception as e:
+            print(f"Unexpected error with '{item}': {e}")
+            results.append(None)
+    return results
+
+# Test data processing
+test_data = ['4', '9', '-1', 'hello', '16', '25']
+print("\nProcessing test data:")
+processed = process_data(test_data)
+print("Results:", processed)
+
+# Using finally block
+def file_processing_demo(filename):
+    file_handle = None
+    try:
+        print(f"Attempting to open {filename}")
+        file_handle = open(filename, 'w')
+        file_handle.write("Sample data for demonstration")
+        print("File written successfully")
+    except Exception as e:
+        print(f"Error during file operation: {e}")
+    finally:
+        # This always executes
+        if file_handle:
+            file_handle.close()
+            print("File handle closed")
+        print("Cleanup completed")
+
+file_processing_demo('demo.txt')
+
+# Custom exceptions
+class InsufficientFundsError(Exception):
+    """Custom exception for insufficient funds"""
+    def __init__(self, balance, amount):
+        self.balance = balance
+        self.amount = amount
+        super().__init__(f"Insufficient funds: ${balance} available, ${amount} requested")
+
+class BankAccount:
+    def __init__(self, balance=0):
+        self.balance = balance
+    
+    def withdraw(self, amount):
+        try:
+            if amount > self.balance:
+                raise InsufficientFundsError(self.balance, amount)
+            self.balance -= amount
+            print(f"Withdrew ${amount}. New balance: ${self.balance}")
+        except InsufficientFundsError as e:
+            print(f"Transaction failed: {e}")
+
+# Test custom exception
+account = BankAccount(100)
+account.withdraw(50)   # This works
+account.withdraw(100)  # This raises our custom exception
+                </textarea>
+                <button class="run-button" onclick="runCode(this)">Run Code</button>
+                <div class="output"></div>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Error Handling Scenarios</h3>
+                <div class="demo-controls">
+                    <button class="demo-button" onclick="demonstrateErrorTypes()">Common Error Types</button>
+                    <button class="demo-button" onclick="demonstrateErrorRecovery()">Error Recovery</button>
+                    <button class="demo-button" onclick="demonstrateLogging()">Error Logging</button>
+                </div>
+                <div id="demo-output-errors"></div>
+            </div>
+        </div>
+
+        <!-- Python Libraries Section -->
+        <div class="section" id="libraries">
+            <h2>Python Libraries for Data Science</h2>
+            
+            <div class="concept-box">
+                <h3>NumPy, Pandas, and Matplotlib</h3>
+                <p>These three libraries form the foundation of Python's data science ecosystem. NumPy for numerical computing, Pandas for data manipulation, and Matplotlib for visualization.</p>
+            </div>
+
+            <div class="code-editor">
+                <textarea class="code-input">
+# Note: In a real environment, you'd need to install these libraries
+# For demonstration, we'll show the syntax and explain the concepts
+
+# NumPy - Numerical Python
+print("=== NumPy Examples ===")
+print("NumPy provides powerful array operations and mathematical functions")
+
+# Simulated NumPy operations (actual syntax)
+numpy_example = """
+import numpy as np
+
+# Create arrays
+arr = np.array([1, 2, 3, 4, 5])
+matrix = np.array([[1, 2], [3, 4]])
+
+# Mathematical operations
+squared = arr ** 2
+mean_value = np.mean(arr)
+matrix_transpose = matrix.T
+
+# Random data generation
+random_data = np.random.normal(0, 1, 1000)  # 1000 random numbers
+"""
+print("Sample NumPy code:")
+print(numpy_example)
+
+# Pandas - Data Analysis
+print("\n=== Pandas Examples ===")
+print("Pandas excels at data manipulation and analysis")
+
+pandas_example = """
+import pandas as pd
+
+# Create DataFrame (like Excel spreadsheet)
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [25, 30, 35],
+    'Salary': [50000, 60000, 70000]
+}
+df = pd.DataFrame(data)
+
+# Data operations
+filtered = df[df['Age'] > 28]
+grouped = df.groupby('Age').mean()
+df['Bonus'] = df['Salary'] * 0.1
+
+# Reading/writing files
+df.to_csv('employees.csv')
+new_df = pd.read_csv('employees.csv')
+"""
+print("Sample Pandas code:")
+print(pandas_example)
+
+# Matplotlib - Data Visualization
+print("\n=== Matplotlib Examples ===")
+print("Matplotlib creates professional-quality plots and charts")
+
+matplotlib_example = """
+import matplotlib.pyplot as plt
+
+# Line plot
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+plt.plot(x, y, marker='o')
+plt.title('Sample Line Plot')
+plt.xlabel('X Values')
+plt.ylabel('Y Values')
+plt.show()
+
+# Bar chart
+categories = ['A', 'B', 'C']
+values = [10, 15, 12]
+plt.bar(categories, values)
+plt.title('Bar Chart Example')
+plt.show()
+"""
+print("Sample Matplotlib code:")
+print(matplotlib_example)
+
+# Practical example without imports
+print("\n=== Practical Data Science Workflow ===")
+
+# Simulate data science workflow
+def simulate_data_analysis():
+    # Simulated dataset
+    sales_data = [
+        {'product': 'Laptop', 'price': 1200, 'quantity': 5},
+        {'product': 'Mouse', 'price': 25, 'quantity': 20},
+        {'product': 'Keyboard', 'price': 75, 'quantity': 15},
+        {'product': 'Monitor', 'price': 300, 'quantity': 8},
+    ]
+    
+    print("Original Data:")
+    for item in sales_data:
+        print(f"  {item}")
+    
+    # Calculate total revenue (like pandas operations)
+    total_revenue = sum(item['price'] * item['quantity'] for item in sales_data)
+    print(f"\nTotal Revenue: ${total_revenue}")
+    
+    # Find best-selling product by revenue
+    revenues = [(item['product'], item['price'] * item['quantity']) for item in sales_data]
+    best_seller = max(revenues, key=lambda x: x[1])
+    print(f"Best Seller: {best_seller[0]} (${best_seller[1]} revenue)")
+    
+    # Average price analysis
+    avg_price = sum(item['price'] for item in sales_data) / len(sales_data)
+    print(f"Average Price: ${avg_price:.2f}")
+
+simulate_data_analysis()
+
+# Real-world application example
+print("\n=== Real-World Application: Data Cleaning ===")
+
+def clean_survey_data():
+    """Simulate data cleaning process"""
+    # Raw survey data with issues
+    raw_responses = [
+        "25",      # Valid age
+        "thirty",  # Text instead of number
+        "",        # Missing data
+        "150",     # Unrealistic age
+        "35",      # Valid age
+        "unknown", # Invalid response
+        "42"       # Valid age
+    ]
+    
+    cleaned_ages = []
+    issues_found = []
+    
+    for i, response in enumerate(raw_responses):
+        if not response:  # Empty response
+            issues_found.append(f"Row {i+1}: Missing data")
+        elif not response.isdigit():  # Non-numeric
+            issues_found.append(f"Row {i+1}: Non-numeric value '{response}'")
+        elif int(response) > 120:  # Unrealistic age
+            issues_found.append(f"Row {i+1}: Unrealistic age {response}")
+        else:
+            cleaned_ages.append(int(response))
+    
+    print("Data Cleaning Results:")
+    print(f"Original responses: {len(raw_responses)}")
+    print(f"Valid ages: {cleaned_ages}")
+    print(f"Issues found: {len(issues_found)}")
+    for issue in issues_found:
+        print(f"  - {issue}")
+
+clean_survey_data()
+                </textarea>
+                <button class="run-button" onclick="runCode(this)">Run Code</button>
+                <div class="output"></div>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Data Science Library Applications</h3>
+                <div class="demo-controls">
+                    <button class="demo-button" onclick="demonstrateNumPyUsage()">NumPy Operations</button>
+                    <button class="demo-button" onclick="demonstratePandasUsage()">Pandas Analysis</button>
+                    <button class="demo-button" onclick="demonstrateMatplotlib()">Matplotlib Visualization</button>
+                </div>
+                <div id="demo-output-libraries"></div>
+            </div>
+        </div>
+
+        <!-- Debugging Section -->
+        <div class="section" id="debugging">
+            <h2>Debugging Techniques</h2>
+            
+            <div class="concept-box">
+                <h3>Finding and Fixing Code Issues</h3>
+                <p>Debugging is an essential skill for any programmer. Learn systematic approaches to identify, isolate, and resolve issues in your code.</p>
+            </div>
+
+            <div class="code-editor">
+                <textarea class="code-input">
+# Debugging Techniques and Best Practices
+
+# 1. Print Statement Debugging
+def buggy_function(numbers):
+    """Function with intentional bugs for demonstration"""
+    print(f"DEBUG: Input received: {numbers}")
+    print(f"DEBUG: Input type: {type(numbers)}")
+    
+    total = 0
+    for i, num in enumerate(numbers):
+        print(f"DEBUG: Processing item {i}: {num} (type: {type(num)})")
+        try:
+            total += int(num)
+            print(f"DEBUG: Running total: {total}")
+        except ValueError:
+            print(f"DEBUG: Could not convert '{num}' to integer")
+    
+    return total
+
+# Test with problematic data
+test_data = [1, '2', 3.5, 'four', 5]
+result = buggy_function(test_data)
+print(f"Final result: {result}")
+
+# 2. Using assert statements for debugging
+def calculate_average(numbers):
+    """Calculate average with debugging assertions"""
+    assert isinstance(numbers, list), f"Expected list, got {type(numbers)}"
+    assert len(numbers) > 0, "List cannot be empty"
+    
+    total = sum(numbers)
+    count = len(numbers)
+    
+    assert count > 0, "Count should be positive"
+    
+    average = total / count
+    
+    # Post-condition check
+    assert isinstance(average, (int, float)), "Average should be numeric"
+    
+    return average
+
+# Test assertion debugging
+try:
+    avg1 = calculate_average([1, 2, 3, 4, 5])
+    print(f"Average: {avg1}")
+    
+    # This will trigger an assertion
+    avg2 = calculate_average([])
+except AssertionError as e:
+    print(f"Assertion failed: {e}")
+
+# 3. Systematic debugging approach
+def debug_complex_function():
+    """Demonstrate systematic debugging"""
+    data = {'a': [1, 2, 3], 'b': [4, 5, 6], 'c': [7, 8, 9]}
+    
+    print("=== Debugging Complex Function ===")
+    print("Step 1: Verify input data")
+    print(f"Data keys: {list(data.keys())}")
+    print(f"Data values: {list(data.values())}")
+    
+    print("\nStep 2: Process each key-value pair")
+    results = {}
+    
+    for key, values in data.items():
+        print(f"\nProcessing key '{key}':")
+        print(f"  Values: {values}")
+        print(f"  Length: {len(values)}")
+        
+        # Calculate sum with intermediate checks
+        current_sum = 0
+        for i, value in enumerate(values):
+            print(f"  Adding {value} (index {i})")
+            current_sum += value
+            print(f"  Current sum: {current_sum}")
+        
+        results[key] = current_sum
+        print(f"  Final sum for '{key}': {current_sum}")
+    
+    print(f"\nStep 3: Final results")
+    print(f"Results: {results}")
+    return results
+
+debug_complex_function()
+
+# 4. Error logging and tracking
+import datetime
+
+class DebugLogger:
+    def __init__(self):
+        self.logs = []
+    
+    def log(self, level, message):
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log_entry = f"[{timestamp}] {level}: {message}"
+        self.logs.append(log_entry)
+        print(log_entry)
+    
+    def info(self, message):
+        self.log("INFO", message)
+    
+    def warning(self, message):
+        self.log("WARNING", message)
+    
+    def error(self, message):
+        self.log("ERROR", message)
+    
+    def get_logs(self):
+        return self.logs
+
+# Using the debug logger
+logger = DebugLogger()
+
+def process_user_data(user_data):
+    logger.info("Starting user data processing")
+    
+    if not isinstance(user_data, dict):
+        logger.error(f"Expected dict, got {type(user_data)}")
+        return None
+    
+    required_fields = ['name', 'email', 'age']
+    for field in required_fields:
+        if field not in user_data:
+            logger.warning(f"Missing required field: {field}")
+        else:
+            logger.info(f"Found field '{field}': {user_data[field]}")
+    
+    logger.info("User data processing completed")
+    return True
+
+# Test the logger
+test_user = {'name': 'John', 'email': 'john@example.com'}
+process_user_data(test_user)
+
+print("\n=== Debug Log Summary ===")
+for log in logger.get_logs():
+    print(log)
+
+# 5. Common debugging strategies
+print("\n=== Common Debugging Strategies ===")
+debugging_tips = [
+    "1. Read error messages carefully - they often tell you exactly what's wrong",
+    "2. Use print statements to trace variable values",
+    "3. Check your assumptions with assert statements",
+    "4. Isolate the problem by testing smaller parts of your code",
+    "5. Use meaningful variable names and comments",
+    "6. Test edge cases (empty lists, None values, etc.)",
+    "7. Use IDE debuggers for step-by-step execution",
+    "8. Keep a log of common errors and their solutions"
+]
+
+for tip in debugging_tips:
+    print(tip)
+                </textarea>
+                <button class="run-button" onclick="runCode(this)">Run Code</button>
+                <div class="output"></div>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Interactive Debugging Practice</h3>
+                <div class="demo-controls">
+                    <button class="demo-button" onclick="simulateDebuggingScenario()">Debug Scenario</button>
+                    <button class="demo-button" onclick="showDebuggingTools()">Debugging Tools</button>
+                    <button class="demo-button" onclick="demonstrateErrorTracing()">Error Tracing</button>
+                </div>
+                <div id="demo-output-debugging"></div>
+            </div>
+        </div>
+
+        <!-- Best Practices Section -->
+        <div class="section" id="best-practices">
+            <h2>Python Best Practices</h2>
+            
+            <div class="concept-box">
+                <h3>Writing Professional Python Code</h3>
+                <p>Following best practices makes your code more readable, maintainable, and collaborative. These guidelines help you write Python code that other developers (including your future self) will appreciate.</p>
+            </div>
+
+            <div class="code-editor">
+                <textarea class="code-input">
+# Python Best Practices Demonstration
+
+# 1. Meaningful Variable Names
+# Bad examples
+x = 50000  # What does this represent?
+d = ['John', 'Jane', 'Bob']  # What kind of data?
+f = True  # What flag?
+
+# Good examples
+annual_salary = 50000
+employee_names = ['John', 'Jane', 'Bob']
+is_email_verified = True
+
+print("=== Meaningful Names ===")
+print(f"Annual salary: ${annual_salary:,}")
+print(f"Employees: {', '.join(employee_names)}")
+print(f"Email verified: {is_email_verified}")
+
+# 2. Proper Function Documentation
+def calculate_compound_interest(principal, rate, time, compound_frequency=1):
+    """
+    Calculate compound interest.
+    
+    Args:
+        principal (float): Initial amount of money
+        rate (float): Annual interest rate (as decimal, e.g., 0.05 for 5%)
+        time (int): Number of years
+        compound_frequency (int): How many times interest compounds per year
+    
+    Returns:
+        float: Final amount after compound interest
+    
+    Example:
+        >>> calculate_compound_interest(1000, 0.05, 2, 4)
+        1104.49
+    """
+    amount = principal * (1 + rate/compound_frequency) ** (compound_frequency * time)
+    return round(amount, 2)
+
+# Test the function
+initial_investment = 1000
+interest_rate = 0.05  # 5%
+years = 3
+final_amount = calculate_compound_interest(initial_investment, interest_rate, years, 4)
+print(f"\n=== Investment Calculation ===")
+print(f"Initial: ${initial_investment}")
+print(f"After {years} years at {interest_rate*100}%: ${final_amount}")
+
+# 3. Error Handling Best Practices
+def safe_file_reader(filename, default_content=""):
+    """
+    Safely read a file with proper error handling.
+    
+    Args:
+        filename (str): Path to the file
+        default_content (str): Content to return if file reading fails
+    
+    Returns:
+        str: File content or default content
+    """
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            return file.read()
+    except FileNotFoundError:
+        print(f"Warning: File '{filename}' not found. Using default content.")
+        return default_content
+    except PermissionError:
+        print(f"Error: Permission denied for file '{filename}'.")
+        return default_content
+    except UnicodeDecodeError:
+        print(f"Error: Cannot decode file '{filename}'. Check encoding.")
+        return default_content
+    except Exception as e:
+        print(f"Unexpected error reading '{filename}': {e}")
+        return default_content
+
+# 4. Code Organization and Structure
+class UserManager:
+    """Manage user operations with proper encapsulation."""
+    
+    def __init__(self):
+        self._users = {}  # Private attribute
+        self._next_id = 1
+    
+    def add_user(self, name, email):
+        """Add a new user to the system."""
+        if not self._is_valid_email(email):
+            raise ValueError(f"Invalid email format: {email}")
+        
+        user_id = self._next_id
+        self._users[user_id] = {
+            'name': name,
+            'email': email,
+            'created_at': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }
+        self._next_id += 1
+        return user_id
+    
+    def get_user(self, user_id):
+        """Retrieve user information by ID."""
+        return self._users.get(user_id, None)
+    
+    def list_users(self):
+        """Return a list of all users."""
+        return list(self._users.values())
+    
+    def _is_valid_email(self, email):
+        """Private method to validate email format."""
+        return '@' in email and '.' in email.split('@')[1]
+
+# 5. Using Constants and Configuration
+# Constants should be in UPPER_CASE
+MAX_LOGIN_ATTEMPTS = 3
+DEFAULT_PASSWORD_LENGTH = 12
+SUPPORTED_FILE_FORMATS = ['.txt', '.csv', '.json']
+
+# Configuration dictionary
+APP_CONFIG = {
+    'debug_mode': True,
+    'max_file_size': 1024 * 1024,  # 1MB
+    'allowed_extensions': SUPPORTED_FILE_FORMATS,
+    'session_timeout': 30 * 60  # 30 minutes in seconds
+}
+
+print(f"\n=== Configuration ===")
+print(f"Max login attempts: {MAX_LOGIN_ATTEMPTS}")
+print(f"Debug mode: {APP_CONFIG['debug_mode']}")
+print(f"Supported formats: {', '.join(SUPPORTED_FILE_FORMATS)}")
+
+# 6. List Comprehensions vs Loops (Performance and Readability)
+# Performance comparison example
+large_numbers = list(range(1000))
+
+# Using list comprehension (Pythonic)
+even_squares = [x**2 for x in large_numbers if x % 2 == 0]
+
+# Using traditional loop (less Pythonic)
+even_squares_loop = []
+for x in large_numbers:
+    if x % 2 == 0:
+        even_squares_loop.append(x**2)
+
+print(f"\n=== Code Style Comparison ===")
+print(f"Comprehension result length: {len(even_squares)}")
+print(f"Loop result length: {len(even_squares_loop)}")
+print(f"Results are equal: {even_squares == even_squares_loop}")
+
+# 7. Proper Import Organization
+print(f"\n=== Import Best Practices ===")
+import_examples = """
+# Standard library imports first
+import os
+import sys
+import datetime
+
+# Third-party imports second
+import requests
+import pandas as pd
+import numpy as np
+
+# Local application imports last
+from myapp import models
+from myapp.utils import helpers
+"""
+print("Proper import organization:")
+print(import_examples)
+
+# 8. Code Comments and Documentation
+def process_sales_data(sales_records):
+    \"\"\"
+    Process sales records and generate summary statistics.
+    
+    This function takes raw sales data and performs several operations:
+    1. Validates data format
+    2. Calculates total revenue
+    3. Identifies best-selling products
+    4. Generates summary report
+    \"\"\"
+    # Validate input data format
+    if not isinstance(sales_records, list):
+        raise TypeError("Sales records must be a list")
+    
+    # Initialize tracking variables
+    total_revenue = 0
+    product_sales = {}
+    
+    # Process each sales record
+    for record in sales_records:
+        # Extract record information
+        product = record.get('product', 'Unknown')
+        quantity = record.get('quantity', 0)
+        price = record.get('price', 0)
+        
+        # Calculate revenue for this record
+        record_revenue = quantity * price
+        total_revenue += record_revenue
+        
+        # Track product sales
+        if product in product_sales:
+            product_sales[product] += quantity
+        else:
+            product_sales[product] = quantity
+    
+    # Generate summary report
+    summary = {
+        'total_revenue': total_revenue,
+        'products_sold': len(product_sales),
+        'top_product': max(product_sales, key=product_sales.get) if product_sales else None
+    }
+    
+    return summary
+
+# Test the documented function
+sample_sales = [
+    {'product': 'Laptop', 'quantity': 2, 'price': 1200},
+    {'product': 'Mouse', 'quantity': 5, 'price': 25},
+    {'product': 'Laptop', 'quantity': 1, 'price': 1200},
+]
+
+sales_summary = process_sales_data(sample_sales)
+print(f"\n=== Sales Summary ===")
+for key, value in sales_summary.items():
+    print(f"{key.replace('_', ' ').title()}: {value}")
+
+# 9. Code Formatting Guidelines
+print(f"\n=== Formatting Guidelines ===")
+formatting_tips = [
+    "• Use 4 spaces for indentation (not tabs)",
+    "• Limit lines to 79 characters",
+    "• Use blank lines to separate logical sections",
+    "• Put spaces around operators: x = y + z",
+    "• Use lowercase with underscores for variables: user_name",
+    "• Use CamelCase for classes: UserManager",
+    "• Use UPPER_CASE for constants: MAX_ATTEMPTS"
+]
+
+for tip in formatting_tips:
+    print(tip)
+                </textarea>
+                <button class="run-button" onclick="runCode(this)">Run Code</button>
+                <div class="output"></div>
+            </div>
+
+            <div class="quiz-container">
+                <div class="quiz-question">Which of these is a Python best practice for variable naming?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">Use single letters like 'x' and 'y' for everything</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, true)">Use descriptive names like 'user_email' and 'total_price'</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">Use abbreviations to save typing</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">Variable names don't matter as long as code works</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hands-On Exercises Section -->
+        <div class="section" id="hands-on">
+            <h2>Hands-On Exercises</h2>
+            
+            <div class="hands-on-section">
+                <h3>Practice What You've Learned</h3>
+                <p>Complete these exercises to reinforce your Python fundamentals knowledge. Each exercise builds on the concepts we've covered.</p>
+            </div>
+
+            <div class="project-card">
+                <div class="difficulty-badge difficulty-easy">Easy</div>
+                <h4>Exercise 1: Student Grade Calculator</h4>
+                <p>Create a function that calculates letter grades based on numerical scores using if-elif-else statements.</p>
+                <div class="code-editor">
+                    <textarea class="code-input" placeholder="# Create a function called calculate_grade(score)
+# Use if-elif-else to return letter grades:
+# 90+ = A, 80-89 = B, 70-79 = C, 60-69 = D, below 60 = F
+
+def calculate_grade(score):
+    # Your code here
+    pass
+
+# Test your function
+test_scores = [95, 87, 73, 62, 45]
+for score in test_scores:
+    print(f'Score {score}: Grade {calculate_grade(score)}')"></textarea>
+                    <button class="run-button" onclick="runCode(this)">Run Code</button>
+                    <div class="output"></div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="difficulty-badge difficulty-easy">Easy</div>
+                <h4>Exercise 2: File Operations</h4>
+                <p>Practice file handling by creating a simple log system.</p>
+                <div class="code-editor">
+                    <textarea class="code-input"># Exercise: Create a logging system
+def write_log(message, log_type="INFO"):
+    """Write a log message to a file with timestamp"""
+    import datetime
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_entry = f"[{timestamp}] {log_type}: {message}\n"
+    
+    try:
+        with open('system.log', 'a') as log_file:
+            log_file.write(log_entry)
+        print(f"Logged: {log_entry.strip()}")
+    except Exception as e:
+        print(f"Error writing to log: {e}")
+
+def read_logs():
+    """Read and display all log entries"""
+    try:
+        with open('system.log', 'r') as log_file:
+            logs = log_file.read()
+            if logs:
+                print("Log contents:")
+                print(logs)
+            else:
+                print("Log file is empty")
+    except FileNotFoundError:
+        print("No log file found. Write some logs first!")
+
+# Test the logging system
+write_log("System started", "INFO")
+write_log("User logged in", "INFO")
+write_log("Database connection failed", "ERROR")
+write_log("Backup completed", "SUCCESS")
+
+read_logs()</textarea>
+                    <button class="run-button" onclick="runCode(this)">Run Code</button>
+                    <div class="output"></div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="difficulty-badge difficulty-medium">Medium</div>
+                <h4>Exercise 3: Data Processing with Comprehensions</h4>
+                <p>Use list and dictionary comprehensions to process survey data efficiently.</p>
+                <div class="code-editor">
+                    <textarea class="code-input"># Exercise: Process survey data using comprehensions
+survey_data = [
+    {'name': 'Alice', 'age': 25, 'satisfaction': 8, 'department': 'Engineering'},
+    {'name': 'Bob', 'age': 30, 'satisfaction': 6, 'department': 'Sales'},
+    {'name': 'Charlie', 'age': 35, 'satisfaction': 9, 'department': 'Engineering'},
+    {'name': 'Diana', 'age': 28, 'satisfaction': 7, 'department': 'Marketing'},
+    {'name': 'Eve', 'age': 32, 'satisfaction': 5, 'department': 'Sales'},
+]
+
+# 1. Create a list of names of highly satisfied employees (satisfaction >= 8)
+highly_satisfied = [person['name'] for person in survey_data if person['satisfaction'] >= 8]
+print("Highly satisfied employees:", highly_satisfied)
+
+# 2. Create a dictionary mapping names to satisfaction scores
+name_satisfaction = {person['name']: person['satisfaction'] for person in survey_data}
+print("Name to satisfaction mapping:", name_satisfaction)
+
+# 3. Calculate average age by department using comprehensions
+departments = list(set(person['department'] for person in survey_data))
+print("Departments:", departments)
+
+dept_avg_age = {
+    dept: sum(person['age'] for person in survey_data if person['department'] == dept) / 
+          len([person for person in survey_data if person['department'] == dept])
+    for dept in departments
+}
+print("Average age by department:", dept_avg_age)
+
+# 4. Find employees over 30 in Engineering department
+eng_over_30 = [
+    person['name'] for person in survey_data 
+    if person['age'] > 30 and person['department'] == 'Engineering'
+]
+print("Engineering employees over 30:", eng_over_30)
+
+# 5. Create satisfaction categories
+satisfaction_categories = {
+    person['name']: 'High' if person['satisfaction'] >= 8 
+                   else 'Medium' if person['satisfaction'] >= 6 
+                   else 'Low'
+    for person in survey_data
+}
+print("Satisfaction categories:", satisfaction_categories)</textarea>
+                    <button class="run-button" onclick="runCode(this)">Run Code</button>
+                    <div class="output"></div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="difficulty-badge difficulty-medium">Medium</div>
+                <h4>Exercise 4: Object-Oriented Programming</h4>
+                <p>Create a library management system using OOP principles.</p>
+                <div class="code-editor">
+                    <textarea class="code-input"># Exercise: Library Management System
+class Book:
+    def __init__(self, title, author, isbn, copies=1):
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+        self.total_copies = copies
+        self.available_copies = copies
+        self.borrowed_by = []
+    
+    def __str__(self):
+        return f"'{self.title}' by {self.author} (ISBN: {self.isbn})"
+    
+    def is_available(self):
+        return self.available_copies > 0
+
+class Library:
+    def __init__(self, name):
+        self.name = name
+        self.books = {}
+        self.members = set()
+    
+    def add_book(self, book):
+        """Add a book to the library"""
+        if book.isbn in self.books:
+            # Increase copies of existing book
+            self.books[book.isbn].total_copies += book.total_copies
+            self.books[book.isbn].available_copies += book.available_copies
+        else:
+            self.books[book.isbn] = book
+        print(f"Added book: {book}")
+    
+    def register_member(self, member_name):
+        """Register a new library member"""
+        self.members.add(member_name)
+        print(f"Registered member: {member_name}")
+    
+    def borrow_book(self, isbn, member_name):
+        """Borrow a book"""
+        if member_name not in self.members:
+            print(f"Error: {member_name} is not a registered member")
+            return False
+        
+        if isbn not in self.books:
+            print(f"Error: Book with ISBN {isbn} not found")
+            return False
+        
+        book = self.books[isbn]
+        if not book.is_available():
+            print(f"Error: No copies of '{book.title}' available")
+            return False
+        
+        book.available_copies -= 1
+        book.borrowed_by.append(member_name)
+        print(f"{member_name} borrowed '{book.title}'")
+        return True
+    
+    def return_book(self, isbn, member_name):
+        """Return a borrowed book"""
+        if isbn not in self.books:
+            print(f"Error: Book with ISBN {isbn} not found")
+            return False
+        
+        book = self.books[isbn]
+        if member_name not in book.borrowed_by:
+            print(f"Error: {member_name} hasn't borrowed this book")
+            return False
+        
+        book.available_copies += 1
+        book.borrowed_by.remove(member_name)
+        print(f"{member_name} returned '{book.title}'")
+        return True
+    
+    def list_available_books(self):
+        """List all available books"""
+        print(f"\nAvailable books at {self.name}:")
+        for book in self.books.values():
+            if book.is_available():
+                print(f"  {book} - {book.available_copies} copies available")
+    
+    def get_member_books(self, member_name):
+        """Get books borrowed by a member"""
+        borrowed_books = []
+        for book in self.books.values():
+            if member_name in book.borrowed_by:
+                borrowed_books.append(book.title)
+        return borrowed_books
+
+# Test the library system
+library = Library("City Public Library")
+
+# Add books
+book1 = Book("Python Programming", "John Smith", "978-1234567890", 3)
+book2 = Book("Data Science Handbook", "Jane Doe", "978-0987654321", 2)
+book3 = Book("Machine Learning Basics", "Bob Johnson", "978-1122334455", 1)
+
+library.add_book(book1)
+library.add_book(book2)
+library.add_book(book3)
+
+# Register members
+library.register_member("Alice")
+library.register_member("Bob")
+library.register_member("Charlie")
+
+# Borrow books
+library.borrow_book("978-1234567890", "Alice")
+library.borrow_book("978-1234567890", "Bob")
+library.borrow_book("978-0987654321", "Alice")
+library.borrow_book("978-1122334455", "Charlie")
+
+# Try to borrow unavailable book
+library.borrow_book("978-1122334455", "Bob")
+
+# List available books
+library.list_available_books()
+
+# Check what Alice borrowed
+alice_books = library.get_member_books("Alice")
+print(f"\nAlice has borrowed: {alice_books}")
+
+# Return a book
+library.return_book("978-1234567890", "Alice")
+library.list_available_books()</textarea>
+                    <button class="run-button" onclick="runCode(this)">Run Code</button>
+                    <div class="output"></div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="difficulty-badge difficulty-hard">Hard</div>
+                <h4>Exercise 5: Data Analysis Tool</h4>
+                <p>Create a comprehensive data analysis tool that combines all concepts.</p>
+                <div class="code-editor">
+                    <textarea class="code-input"># Exercise: Comprehensive Data Analysis Tool
+import datetime
+import json
+
+class DataAnalyzer:
+    """A comprehensive tool for analyzing datasets"""
+    
+    def __init__(self, name="Data Analyzer"):
+        self.name = name
+        self.datasets = {}
+        self.analysis_history = []
+        self.log_entries = []
+    
+    def log(self, message, level="INFO"):
+        """Log operations with timestamp"""
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log_entry = f"[{timestamp}] {level}: {message}"
+        self.log_entries.append(log_entry)
+        print(log_entry)
+    
+    def load_dataset(self, name, data):
+        """Load a dataset for analysis"""
+        try:
+            if not isinstance(data, list):
+                raise ValueError("Dataset must be a list of records")
+            
+            self.datasets[name] = data
+            self.log(f"Loaded dataset '{name}' with {len(data)} records")
+            return True
+        except Exception as e:
+            self.log(f"Error loading dataset '{name}': {e}", "ERROR")
+            return False
+    
+    def get_basic_stats(self, dataset_name, numeric_field):
+        """Calculate basic statistics for a numeric field"""
+        try:
+            if dataset_name not in self.datasets:
+                raise ValueError(f"Dataset '{dataset_name}' not found")
+            
+            data = self.datasets[dataset_name]
+            values = [record[numeric_field] for record in data if numeric_field in record]
+            
+            if not values:
+                raise ValueError(f"No valid values found for field '{numeric_field}'")
+            
+            stats = {
+                'count': len(values),
+                'sum': sum(values),
+                'mean': sum(values) / len(values),
+                'min': min(values),
+                'max': max(values),
+                'range': max(values) - min(values)
+            }
+            
+            # Calculate median
+            sorted_values = sorted(values)
+            n = len(sorted_values)
+            if n % 2 == 0:
+                stats['median'] = (sorted_values[n//2-1] + sorted_values[n//2]) / 2
+            else:
+                stats['median'] = sorted_values[n//2]
+            
+            self.analysis_history.append({
+                'operation': 'basic_stats',
+                'dataset': dataset_name,
+                'field': numeric_field,
+                'timestamp': datetime.datetime.now().isoformat(),
+                'results': stats
+            })
+            
+            self.log(f"Calculated basic stats for '{numeric_field}' in '{dataset_name}'")
+            return stats
+            
+        except Exception as e:
+            self.log(f"Error calculating stats: {e}", "ERROR")
+            return None
+    
+    def group_by_field(self, dataset_name, group_field, agg_field=None, operation='count'):
+        """Group data by a field and perform aggregation"""
+        try:
+            if dataset_name not in self.datasets:
+                raise ValueError(f"Dataset '{dataset_name}' not found")
+            
+            data = self.datasets[dataset_name]
+            groups = {}
+            
+            for record in data:
+                if group_field not in record:
+                    continue
+                
+                group_value = record[group_field]
+                if group_value not in groups:
+                    groups[group_value] = []
+                groups[group_value].append(record)
+            
+            # Perform aggregation
+            results = {}
+            for group_value, group_records in groups.items():
+                if operation == 'count':
+                    results[group_value] = len(group_records)
+                elif operation == 'sum' and agg_field:
+                    values = [r[agg_field] for r in group_records if agg_field in r]
+                    results[group_value] = sum(values)
+                elif operation == 'average' and agg_field:
+                    values = [r[agg_field] for r in group_records if agg_field in r]
+                    results[group_value] = sum(values) / len(values) if values else 0
+            
+            self.analysis_history.append({
+                'operation': 'group_by',
+                'dataset': dataset_name,
+                'group_field': group_field,
+                'agg_field': agg_field,
+                'operation_type': operation,
+                'timestamp': datetime.datetime.now().isoformat(),
+                'results': results
+            })
+            
+            self.log(f"Grouped '{dataset_name}' by '{group_field}' with {operation}")
+            return results
+            
+        except Exception as e:
+            self.log(f"Error in group_by operation: {e}", "ERROR")
+            return None
+    
+    def filter_data(self, dataset_name, conditions):
+        """Filter dataset based on conditions"""
+        try:
+            if dataset_name not in self.datasets:
+                raise ValueError(f"Dataset '{dataset_name}' not found")
+            
+            data = self.datasets[dataset_name]
+            filtered_data = []
+            
+            for record in data:
+                include_record = True
+                for field, condition in conditions.items():
+                    if field not in record:
+                        include_record = False
+                        break
+                    
+                    value = record[field]
+                    if 'min' in condition and value < condition['min']:
+                        include_record = False
+                        break
+                    if 'max' in condition and value > condition['max']:
+                        include_record = False
+                        break
+                    if 'equals' in condition and value != condition['equals']:
+                        include_record = False
+                        break
+                    if 'contains' in condition and condition['contains'] not in str(value):
+                        include_record = False
+                        break
+                
+                if include_record:
+                    filtered_data.append(record)
+            
+            self.log(f"Filtered '{dataset_name}': {len(filtered_data)} records match conditions")
+            return filtered_data
+            
+        except Exception as e:
+            self.log(f"Error filtering data: {e}", "ERROR")
+            return None
+    
+    def export_analysis_report(self, filename="analysis_report.txt"):
+        """Export analysis history to a file"""
+        try:
+            with open(filename, 'w') as file:
+                file.write(f"Data Analysis Report - {self.name}\n")
+                file.write("=" * 50 + "\n\n")
+                
+                file.write("Datasets Loaded:\n")
+                for name, data in self.datasets.items():
+                    file.write(f"  - {name}: {len(data)} records\n")
+                file.write("\n")
+                
+                file.write("Analysis History:\n")
+                for i, analysis in enumerate(self.analysis_history, 1):
+                    file.write(f"{i}. {analysis['operation'].title()} Operation\n")
+                    file.write(f"   Dataset: {analysis['dataset']}\n")
+                    file.write(f"   Timestamp: {analysis['timestamp']}\n")
+                    if 'results' in analysis:
+                        file.write(f"   Results: {analysis['results']}\n")
+                    file.write("\n")
+                
+                file.write("System Logs:\n")
+                for log_entry in self.log_entries:
+                    file.write(f"{log_entry}\n")
+            
+            self.log(f"Analysis report exported to '{filename}'")
+            return True
+            
+        except Exception as e:
+            self.log(f"Error exporting report: {e}", "ERROR")
+            return False
+
+# Test the Data Analyzer
+analyzer = DataAnalyzer("Sales Data Analyzer")
+
+# Sample sales data
+sales_data = [
+    {'product': 'Laptop', 'category': 'Electronics', 'price': 1200, 'quantity': 2, 'region': 'North'},
+    {'product': 'Mouse', 'category': 'Electronics', 'price': 25, 'quantity': 10, 'region': 'South'},
+    {'product': 'Book', 'category': 'Education', 'price': 15, 'quantity': 5, 'region': 'North'},
+    {'product': 'Desk', 'category': 'Furniture', 'price': 300, 'quantity': 1, 'region': 'East'},
+    {'product': 'Chair', 'category': 'Furniture', 'price': 150, 'quantity': 3, 'region': 'West'},
+    {'product': 'Tablet', 'category': 'Electronics', 'price': 500, 'quantity': 4, 'region': 'South'},
+]
+
+# Load and analyze the data
+analyzer.load_dataset("sales_2024", sales_data)
+
+# Basic statistics
+price_stats = analyzer.get_basic_stats("sales_2024", "price")
+print(f"\nPrice Statistics: {price_stats}")
+
+quantity_stats = analyzer.get_basic_stats("sales_2024", "quantity")
+print(f"Quantity Statistics: {quantity_stats}")
+
+# Group by analysis
+category_counts = analyzer.group_by_field("sales_2024", "category")
+print(f"\nProducts by Category: {category_counts}")
+
+region_revenue = analyzer.group_by_field("sales_2024", "region", "price", "sum")
+print(f"Revenue by Region: {region_revenue}")
+
+# Filter expensive items
+expensive_items = analyzer.filter_data("sales_2024", {"price": {"min": 100}})
+print(f"\nExpensive items (>$100): {len(expensive_items)} items")
+for item in expensive_items:
+    print(f"  {item['product']}: ${item['price']}")
+
+# Export report
+analyzer.export_analysis_report("sales_analysis_report.txt")
+print("\nAnalysis complete! Check the report file for detailed results.")</textarea>
+                    <button class="run-button" onclick="runCode(this)">Run Code</button>
+                    <div class="output"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mini Project Section -->
+        <div class="section" id="mini-project">
+            <h2>Mini Project: Task Management System</h2>
+            
+            <div class="mini-project">
+                <h3>Build a Complete Task Tracker Application</h3>
+                <p>Apply everything you've learned to create a comprehensive task management system with file persistence, user management, and data analysis features.</p>
+            </div>
+
+            <div class="project-card">
+                <h4>Project Requirements</h4>
+                <ul>
+                    <li><strong>Task Management:</strong> Create, update, delete, and list tasks</li>
+                    <li><strong>User System:</strong> Multiple users with their own task lists</li>
+                    <li><strong>Categories:</strong> Organize tasks by categories (Work, Personal, etc.)</li>
+                    <li><strong>Priority Levels:</strong> High, Medium, Low priority tasks</li>
+                    <li><strong>Due Dates:</strong> Set and track task deadlines</li>
+                    <li><strong>File Persistence:</strong> Save and load data from files</li>
+                    <li><strong>Reporting:</strong> Generate productivity reports</li>
+                    <li><strong>Error Handling:</strong> Robust error management</li>
+                </ul>
+            </div>
+
+            <div class="code-editor">
+                <textarea class="code-input"># Mini Project: Complete Task Management System
+import datetime
+import json
+import os
+
+class Task:
+    """Represents a single task with all its properties"""
+    
+    def __init__(self, task_id, title, description="", category="General", 
+                 priority="Medium", due_date=None, created_by="Unknown"):
+        self.task_id = task_id
+        self.title = title
+        self.description = description
+        self.category = category
+        self.priority = priority
+        self.due_date = due_date
+        self.created_by = created_by
+        self.created_at = datetime.datetime.now()
+        self.completed = False
+        self.completed_at = None
+    
+    def mark_complete(self):
+        """Mark task as completed"""
+        self.completed = True
+        self.completed_at = datetime.datetime.now()
+    
+    def mark_incomplete(self):
+        """Mark task as incomplete"""
+        self.completed = False
+        self.completed_at = None
+    
+    def is_overdue(self):
+        """Check if task is overdue"""
+        if not self.due_date or self.completed:
+            return False
+        return datetime.datetime.now() > self.due_date
+    
+    def days_until_due(self):
+        """Calculate days until due date"""
+        if not self.due_date:
+            return None
+        delta = self.due_date - datetime.datetime.now()
+        return delta.days
+    
+    def to_dict(self):
+        """Convert task to dictionary for JSON serialization"""
+        return {
+            'task_id': self.task_id,
+            'title': self.title,
+            'description': self.description,
+            'category': self.category,
+            'priority': self.priority,
+            'due_date': self.due_date.isoformat() if self.due_date else None,
+            'created_by': self.created_by,
+            'created_at': self.created_at.isoformat(),
+            'completed': self.completed,
+            'completed_at': self.completed_at.isoformat() if self.completed_at else None
+        }
+    
+    @classmethod
+    def from_dict(cls, data):
+        """Create task from dictionary"""
+        task = cls(
+            data['task_id'], data['title'], data['description'],
+            data['category'], data['priority'], None, data['created_by']
+        )
+        
+        # Parse dates
+        task.created_at = datetime.datetime.fromisoformat(data['created_at'])
+        if data['due_date']:
+            task.due_date = datetime.datetime.fromisoformat(data['due_date'])
+        if data['completed_at']:
+            task.completed_at = datetime.datetime.fromisoformat(data['completed_at'])
+        
+        task.completed = data['completed']
+        return task
+    
+    def __str__(self):
+        status = "✓" if self.completed else "○"
+        priority_symbols = {"High": "🔴", "Medium": "🟡", "Low": "🟢"}
+        priority_icon = priority_symbols.get(self.priority, "⚪")
+        
+        due_info = ""
+        if self.due_date and not self.completed:
+            days = self.days_until_due()
+            if days < 0:
+                due_info = f" (OVERDUE by {abs(days)} days)"
+            elif days == 0:
+                due_info = " (DUE TODAY)"
+            elif days <= 3:
+                due_info = f" (Due in {days} days)"
+        
+        return f"{status} {priority_icon} [{self.category}] {self.title}{due_info}"
+
+class TaskManager:
+    """Main task management system"""
+    
+    def __init__(self, data_file="tasks.json"):
+        self.data_file = data_file
+        self.tasks = {}
+        self.users = set()
+        self.current_user = None
+        self.next_task_id = 1
+        self.load_data()
+    
+    def load_data(self):
+        """Load tasks and users from file"""
+        try:
+            if os.path.exists(self.data_file):
+                with open(self.data_file, 'r') as file:
+                    data = json.load(file)
+                    
+                    # Load tasks
+                    for task_data in data.get('tasks', []):
+                        task = Task.from_dict(task_data)
+                        self.tasks[task.task_id] = task
+                        self.next_task_id = max(self.next_task_id, task.task_id + 1)
+                    
+                    # Load users
+                    self.users = set(data.get('users', []))
+                    
+                print(f"Loaded {len(self.tasks)} tasks and {len(self.users)} users")
+            else:
+                print("No existing data file found. Starting fresh.")
+        except Exception as e:
+            print(f"Error loading data: {e}")
+    
+    def save_data(self):
+        """Save tasks and users to file"""
+        try:
+            data = {
+                'tasks': [task.to_dict() for task in self.tasks.values()],
+                'users': list(self.users)
+            }
+            
+            with open(self.data_file, 'w') as file:
+                json.dump(data, file, indent=2)
+            print(f"Data saved to {self.data_file}")
+        except Exception as e:
+            print(f"Error saving data: {e}")
+    
+    def register_user(self, username):
+        """Register a new user"""
+        if username in self.users:
+            print(f"User '{username}' already exists")
+            return False
+        
+        self.users.add(username)
+        print(f"User '{username}' registered successfully")
+        return True
+    
+    def login(self, username):
+        """Login as a user"""
+        if username not in self.users:
+            print(f"User '{username}' not found. Please register first.")
+            return False
+        
+        self.current_user = username
+        print(f"Logged in as '{username}'")
+        return True
+    
+    def create_task(self, title, description="", category="General", 
+                   priority="Medium", due_date=None):
+        """Create a new task"""
+        if not self.current_user:
+            print("Please log in first")
+            return None
+        
+        task = Task(
+            self.next_task_id, title, description, category, 
+            priority, due_date, self.current_user
+        )
+        
+        self.tasks[task.task_id] = task
+        self.next_task_id += 1
+        
+        print(f"Task '{title}' created with ID {task.task_id}")
+        return task.task_id
+    
+    def get_user_tasks(self, username=None, include_completed=True):
+        """Get tasks for a specific user"""
+        if username is None:
+            username = self.current_user
+        
+        if username is None:
+            return []
+        
+        user_tasks = [
+            task for task in self.tasks.values() 
+            if task.created_by == username and (include_completed or not task.completed)
+        ]
+        
+        return sorted(user_tasks, key=lambda t: (t.completed, t.due_date or datetime.datetime.max))
+    
+    def complete_task(self, task_id):
+        """Mark a task as complete"""
+        if task_id not in self.tasks:
+            print(f"Task {task_id} not found")
+            return False
+        
+        task = self.tasks[task_id]
+        if task.created_by != self.current_user:
+            print("You can only complete your own tasks")
+            return False
+        
+        task.mark_complete()
+        print(f"Task '{task.title}' marked as complete")
+        return True
+    
+    def delete_task(self, task_id):
+        """Delete a task"""
+        if task_id not in self.tasks:
+            print(f"Task {task_id} not found")
+            return False
+        
+        task = self.tasks[task_id]
+        if task.created_by != self.current_user:
+            print("You can only delete your own tasks")
+            return False
+        
+        title = task.title
+        del self.tasks[task_id]
+        print(f"Task '{title}' deleted")
+        return True
+    
+    def list_tasks(self, category=None, priority=None, show_completed=True):
+        """List tasks with optional filtering"""
+        tasks = self.get_user_tasks(include_completed=show_completed)
+        
+        if category:
+            tasks = [t for t in tasks if t.category.lower() == category.lower()]
+        
+        if priority:
+            tasks = [t for t in tasks if t.priority.lower() == priority.lower()]
+        
+        if not tasks:
+            print("No tasks found")
+            return
+        
+        print(f"\nTasks for {self.current_user}:")
+        print("-" * 50)
+        
+        for task in tasks:
+            print(f"ID {task.task_id}: {task}")
+            if task.description:
+                print(f"    Description: {task.description}")
+        
+        print(f"\nTotal: {len(tasks)} tasks")
+    
+    def generate_productivity_report(self):
+        """Generate a productivity report for current user"""
+        if not self.current_user:
+            print("Please log in first")
+            return
+        
+        tasks = self.get_user_tasks()
+        
+        if not tasks:
+            print("No tasks found for productivity report")
+            return
+        
+        # Calculate statistics
+        total_tasks = len(tasks)
+        completed_tasks = len([t for t in tasks if t.completed])
+        pending_tasks = total_tasks - completed_tasks
+        overdue_tasks = len([t for t in tasks if t.is_overdue()])
+        
+        # Category breakdown
+        categories = {}
+        for task in tasks:
+            cat = task.category
+            if cat not in categories:
+                categories[cat] = {'total': 0, 'completed': 0}
+            categories[cat]['total'] += 1
+            if task.completed:
+                categories[cat]['completed'] += 1
+        
+        # Priority breakdown
+        priorities = {}
+        for task in tasks:
+            pri = task.priority
+            if pri not in priorities:
+                priorities[pri] = {'total': 0, 'completed': 0}
+            priorities[pri]['total'] += 1
+            if task.completed:
+                priorities[pri]['completed'] += 1
+        
+        # Generate report
+        print(f"\n=== Productivity Report for {self.current_user} ===")
+        print(f"Total Tasks: {total_tasks}")
+        print(f"Completed: {completed_tasks} ({completed_tasks/total_tasks*100:.1f}%)")
+        print(f"Pending: {pending_tasks}")
+        print(f"Overdue: {overdue_tasks}")
+        
+        print(f"\nBy Category:")
+        for cat, stats in categories.items():
+            completion_rate = stats['completed']/stats['total']*100 if stats['total'] > 0 else 0
+            print(f"  {cat}: {stats['completed']}/{stats['total']} ({completion_rate:.1f}%)")
+        
+        print(f"\nBy Priority:")
+        for pri, stats in priorities.items():
+            completion_rate = stats['completed']/stats['total']*100 if stats['total'] > 0 else 0
+            print(f"  {pri}: {stats['completed']}/{stats['total']} ({completion_rate:.1f}%)")
+
+# Demonstration of the Task Management System
+print("=== Task Management System Demo ===")
+
+# Create task manager
+tm = TaskManager("demo_tasks.json")
+
+# Register users
+tm.register_user("alice")
+tm.register_user("bob")
+
+# Login as Alice
+tm.login("alice")
+
+# Create some tasks for Alice
+due_tomorrow = datetime.datetime.now() + datetime.timedelta(days=1)
+due_next_week = datetime.datetime.now() + datetime.timedelta(days=7)
+
+tm.create_task("Complete Python project", "Finish the task management system", 
+               "Work", "High", due_tomorrow)
+tm.create_task("Buy groceries", "Milk, bread, eggs", "Personal", "Medium")
+tm.create_task("Read Python book", "Continue learning Python", "Education", "Low", due_next_week)
+tm.create_task("Exercise", "30 minute jog", "Health", "Medium")
+
+# List Alice's tasks
+tm.list_tasks()
+
+# Complete a task
+tm.complete_task(1)
+tm.complete_task(4)
+
+# List only pending tasks
+print("\n=== Pending Tasks ===")
+tm.list_tasks(show_completed=False)
+
+# Generate productivity report
+tm.generate_productivity_report()
+
+# Login as Bob and create tasks
+tm.login("bob")
+tm.create_task("Team meeting", "Weekly standup", "Work", "High")
+tm.create_task("Code review", "Review Alice's code", "Work", "Medium")
+
+# List Bob's tasks
+tm.list_tasks()
+
+# Save data
+tm.save_data()
+
+print("\n=== Demo Complete ===")
+print("The task management system demonstrates:")
+print("✓ Object-oriented programming with classes")
+print("✓ File handling with JSON persistence")
+print("✓ Error handling and validation")
+print("✓ Date and time manipulation")
+print("✓ Data filtering and reporting")
+print("✓ User management and authentication")
+print("✓ Comprehensive data analysis")</textarea>
+                    <button class="run-button" onclick="runCode(this)">Run Code</button>
+                    <div class="output"></div>
+                </div>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Project Extension Ideas</h3>
+                <ul>
+                    <li><strong>Email Notifications:</strong> Send reminders for due tasks</li>
+                    <li><strong>Task Dependencies:</strong> Link tasks that depend on others</li>
+                    <li><strong>Team Collaboration:</strong> Share tasks between users</li>
+                    <li><strong>Time Tracking:</strong> Track time spent on tasks</li>
+                    <li><strong>Data Visualization:</strong> Create charts for productivity metrics</li>
+                    <li><strong>Web Interface:</strong> Build a web-based UI using Flask</li>
+                    <li><strong>Database Integration:</strong> Use SQLite instead of JSON files</li>
+                    <li><strong>Mobile App:</strong> Create a mobile version using Kivy</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Recap & Resources Section -->
+        <div class="section" id="recap">
+            <h2>Session Recap & Resources</h2>
+            
+            <div class="concept-box">
+                <h3>What You've Accomplished</h3>
+                <p>Congratulations! You've mastered the fundamental concepts of Python programming that are essential for AI and data science applications.</p>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Key Concepts Mastered</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <div class="example-box">
+                        <h4>Control Structures</h4>
+                        <p>✓ if-elif-else statements<br>✓ for and while loops<br>✓ Conditional logic</p>
+                    </div>
+                    <div class="example-box">
+                        <h4>File Handling</h4>
+                        <p>✓ Reading and writing files<br>✓ Using 'with' statements<br>✓ Error-safe file operations</p>
+                    </div>
+                    <div class="example-box">
+                        <h4>Comprehensions</h4>
+                        <p>✓ List comprehensions<br>✓ Dictionary comprehensions<br>✓ Efficient data processing</p>
+                    </div>
+                    <div class="example-box">
+                        <h4>Object-Oriented Programming</h4>
+                        <p>✓ Classes and objects<br>✓ Inheritance and polymorphism<br>✓ Encapsulation principles</p>
+                    </div>
+                    <div class="example-box">
+                        <h4>Error Handling</h4>
+                        <p>✓ try-except blocks<br>✓ Custom exceptions<br>✓ Robust error management</p>
+                    </div>
+                    <div class="example-box">
+                        <h4>Professional Practices</h4>
+                        <p>✓ Code documentation<br>✓ Debugging techniques<br>✓ Best practices and standards</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-container">
+                <div class="quiz-question">Final Assessment: Which Python concept is most important for building scalable applications?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">Using the fastest algorithms only</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, true)">Combining OOP, error handling, and best practices</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">Writing the shortest code possible</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">Avoiding object-oriented programming</div>
+                </div>
+            </div>
+
+            <div class="hands-on-section">
+                <h3>Additional Learning Resources</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div class="project-card">
+                        <h4>Official Documentation</h4>
+                        <p><strong>Python.org:</strong> Comprehensive official documentation</p>
+                        <p><strong>PEP 8:</strong> Official style guide for Python code</p>
+                        <p><strong>Python Tutorial:</strong> Official beginner's guide</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Practice Platforms</h4>
+                        <p><strong>LeetCode:</strong> Algorithm and data structure problems</p>
+                        <p><strong>HackerRank:</strong> Python-specific challenges</p>
+                        <p><strong>Codewars:</strong> Programming kata and challenges</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Data Science Libraries</h4>
+                        <p><strong>NumPy:</strong> Numerical computing</p>
+                        <p><strong>Pandas:</strong> Data manipulation and analysis</p>
+                        <p><strong>Matplotlib/Seaborn:</strong> Data visualization</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Advanced Topics</h4>
+                        <p><strong>Asyncio:</strong> Asynchronous programming</p>
+                        <p><strong>Flask/Django:</strong> Web development</p>
+                        <p><strong>Scikit-learn:</strong> Machine learning</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mini-project">
+                <h3>Your Next Steps</h3>
+                <ol style="font-size: 1.1em; line-height: 1.8;">
+                    <li><strong>Practice Daily:</strong> Solve at least one Python problem each day</li>
+                    <li><strong>Build Projects:</strong> Apply concepts to real-world problems</li>
+                    <li><strong>Read Code:</strong> Study well-written Python code on GitHub</li>
+                    <li><strong>Join Community:</strong> Participate in Python forums and communities</li>
+                    <li><strong>Learn Libraries:</strong> Explore data science and ML libraries</li>
+                    <li><strong>Contribute:</strong> Contribute to open-source Python projects</li>
+                </ol>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Session Completion Certificate</h3>
+                <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white; margin: 20px 0;">
+                    <h4 style="font-size: 1.8em; margin-bottom: 15px;">Certificate of Completion</h4>
+                    <p style="font-size: 1.2em;">Python Fundamentals for AI & Data Science</p>
+                    <p style="margin: 20px 0;">You have successfully completed a comprehensive 3-hour session covering:</p>
+                    <p style="font-weight: bold;">Control Structures • File Handling • Comprehensions<br>Object-Oriented Programming • Error Handling • Best Practices</p>
+                    <p style="margin-top: 20px; font-style: italic;">You are now ready to apply Python skills to real-world AI and data science projects!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-buttons">
+            <button class="control-btn" id="prevBtn" onclick="previousSection()">← Previous</button>
+            <button class="control-btn" id="nextBtn" onclick="nextSection()">Next →</button>
+            <button class="control-btn" onclick="resetTutorial()" style="background: #e74c3c;">Reset Tutorial</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSection = 0;
+        let completedSections = new Set();
+        let totalTime = 3 * 60 * 60; // 3 hours in seconds
+        let timeRemaining = totalTime;
+
+        const sections = ['intro', 'control-structures', 'file-handling', 'comprehensions', 'oop', 'error-handling', 'libraries', 'debugging', 'best-practices', 'hands-on', 'mini-project', 'recap'];
+
+        // Timer functionality
+        function updateTimer() {
+            const hours = Math.floor(timeRemaining / 3600);
+            const minutes = Math.floor((timeRemaining % 3600) / 60);
+            const seconds = timeRemaining % 60;
+            
+            document.getElementById('timer').textContent = 
+                `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeRemaining > 0) {
+                timeRemaining--;
+            }
+        }
+
+        setInterval(updateTimer, 1000);
+
+        // Progress tracking
+        function updateProgress() {
+            const progress = (completedSections.size / sections.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `${completedSections.size}/${sections.length}`;
+        }
+
+        // Section navigation
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionName).classList.add('active');
+            
+            // Add active class to corresponding nav button
+            const navBtn = document.querySelector(`[data-section="${sectionName}"]`);
+            if (navBtn) {
+                navBtn.classList.add('active');
+                navBtn.classList.add('completed');
+            }
+            
+            // Update current section index
+            currentSection = sections.indexOf(sectionName);
+            
+            // Mark section as completed
+            completedSections.add(sectionName);
+            updateProgress();
+            
+            // Update navigation buttons
+            updateNavigationButtons();
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.disabled = currentSection === 0;
+            nextBtn.disabled = currentSection === sections.length - 1;
+        }
+
+        function nextSection() {
+            if (currentSection < sections.length - 1) {
+                showSection(sections[currentSection + 1]);
+            }
+        }
+
+        function previousSection() {
+            if (currentSection > 0) {
+                showSection(sections[currentSection - 1]);
+            }
+        }
+
+        // Nav button click handlers
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                showSection(btn.dataset.section);
+            });
+        });
+
+        // Code execution simulation
+        function runCode(button) {
+            const codeEditor = button.parentElement;
+            const textarea = codeEditor.querySelector('.code-input');
+            const output = codeEditor.querySelector('.output');
+            
+            const code = textarea.value;
+            
+            // Simulate code execution
+            output.innerHTML = '<div style="color: #68d391;">Running Python code...</div>';
+            
+            setTimeout(() => {
+                try {
+                    // This is a simulation - in a real environment, you'd use a Python interpreter
+                    output.innerHTML = `<div style="color: #68d391;">Code executed successfully!</div>
+                                      <div style="color: #e2e8f0; margin-top: 10px;">Note: This is a simulation. In a real Python environment, your code would execute here.</div>
+                                      <div style="color: #a0aec0; margin-top: 10px; font-size: 12px;">Lines of code: ${code.split('\n').length}</div>`;
+                } catch (error) {
+                    output.innerHTML = `<div style="color: #f56565;">Error: ${error.message}</div>`;
+                }
+            }, 1000);
+        }
+
+        function clearCode(button) {
+            const codeEditor = button.parentElement;
+            const textarea = codeEditor.querySelector('.code-input');
+            const output = codeEditor.querySelector('.output');
+            
+            textarea.value = '';
+            output.innerHTML = '';
+        }
+
+        // Quiz functionality
+        function selectQuizOption(option, isCorrect) {
+            // Remove previous selections
+            option.parentElement.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            // Mark selected option
+            option.classList.add('selected');
+            
+            setTimeout(() => {
+                if (isCorrect) {
+                    option.classList.add('correct');
+                    showQuizFeedback('Correct! Excellent understanding! 🎉', true, option);
+                } else {
+                    option.classList.add('incorrect');
+                    showQuizFeedback('Not quite right. Review the concept and try again! 🤔', false, option);
+                }
+            }, 500);
+        }
+
+        function showQuizFeedback(message, isCorrect, option) {
+            let feedback = option.parentElement.nextElementSibling;
+            if (!feedback || !feedback.id || !feedback.id.includes('feedback')) {
+                feedback = document.createElement('div');
+                feedback.id = 'quiz-feedback';
+                option.parentElement.parentElement.appendChild(feedback);
+            }
+            feedback.innerHTML = `<p style="color: ${isCorrect ? 'green' : 'red'}; font-weight: bold; margin-top: 15px; padding: 10px; background: ${isCorrect ? '#f0fff4' : '#fed7d7'}; border-radius: 8px;">${message}</p>`;
+        }
+
+        // Demo functions
+        function demonstrateReportGeneration() {
+            const output = document.getElementById('demo-output-control');
+            output.innerHTML = `
+                <div class="example-box">
+                    <h4>Automated Report Generation</h4>
+                    <p><strong>Scenario:</strong> Monthly sales report automation</p>
+                    <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; overflow-x: auto;">
+if sales_total > 100000:
+    report_type = "Excellent Performance"
+    bonus_eligible = True
+elif sales_total > 75000:
+    report_type = "Good Performance"
+    bonus_eligible = True
+else:
+    report_type = "Needs Improvement"
+    bonus_eligible = False
+
+print(f"Report: {report_type}")
+print(f"Bonus Eligible: {bonus_eligible}")
+                    </pre>
+                </div>
+            `;
+        }
+
+        function demonstrateLoopAutomation() {
+            const output = document.getElementById('demo-output-control');
+            output.innerHTML = `
+                <div class="example-box">
+                    <h4>Loop Automation Example</h4>
+                    <p><strong>Scenario:</strong> Processing multiple files automatically</p>
+                    <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; overflow-x: auto;">
+files = ['report1.csv', 'report2.csv', 'report3.csv']
+
+for filename in files:
+    print(f"Processing {filename}...")
+    # Process file logic here
+    print(f"✓ {filename} processed successfully")
+
+print("All files processed!")
+                    </pre>
+                </div>
+            `;
+        }
+
+        // File demo functions
+        function simulateFileWrite() {
+            const output = document.getElementById('file-demo-output');
+            output.innerHTML = `
+                <div class="example-box">
+                    <h4>File Created Successfully!</h4>
+                    <p>📄 Created: <code>user_data.txt</code></p>
+                    <p>📝 Content: User information and settings</p>
+                    <p>✅ Status: Write operation completed</p>
+                </div>
+            `;
+        }
+
+        function simulateFileRead() {
+            const output = document.getElementById('file-demo-output');
+            output.innerHTML = `
+                <div class="example-box">
+                    <h4>File Read Successfully!</h4>
+                    <p>📖 Reading: <code>user_data.txt</code></p>
+                    <p>📊 Content loaded: 1,247 characters</p>
+                    <p>✅ Status: Read operation completed</p>
+                </div>
+            `;
+        }
+
+        function simulateFileAppend() {
+            const output = document.getElementById('file-demo-output');
+            output.innerHTML = `
+                <div class="example-box">
+                    <h4>Data Appended Successfully!</h4>
+                    <p>➕ Appended to: <code>user_data.txt</code></p>
+                    <p>📝 New content: Timestamp and user activity</p>
+                    <p>✅ Status: Append operation completed</p>
+                </div>
+            `;
+        }
+
+        function simulateFileError() {
+            const output = document.getElementById('file-demo-output');
+            output.innerHTML = `
+                <div class="example-box">
+                    <h4>Error Handled Gracefully!</h4>
+                    <p>❌ Error: <code>FileNotFoundError</code></p>
+                    <p>🛡️ Caught by: try-except block</p>
+                    <p>🔄 Action: Created new file automatically</p>
+                    <p>✅ Status: Error recovered successfully</p>
+                </div>
+            `;
+        }
+
+        // Additional demo functions for other sections
+        function demonstrateDataFiltering() {
+            const output = document.getElementById('demo-output-comprehensions');
+            output.innerHTML = `
+                <div class="example-box">
+                    <h4>Data Filtering with Comprehensions</h4>
+                    <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+# Traditional approach (5 lines)
+high_scores = []
+for student in students:
+    if student.score >= 85:
+        high_scores.append(student.name)
+
+# Comprehension approach (1 line)
+high_scores = [s.name for s in students if s.score >= 85]
+                    </pre>
+                    <p>✨ <strong>Result:</strong> 80% less code, same functionality!</p>
+                </div>
+            `;
+        }
+
+        function demonstrateDataTransformation() {
+            const output = document.getElementById('demo-output-comprehensions');
+            output.innerHTML = `
+                <div class="example-box">
+                    <h4>Data Transformation Example</h4>
+                    <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+# Convert temperatures from Celsius to Fahrenheit
+celsius_temps = [0, 20, 30, 37, 100]
+fahrenheit = [c * 9/5 + 32 for c in celsius_temps]
+
+# Result: [32.0, 68.0, 86.0, 98.6, 212.0]
+                    </pre>
+                    <p>🌡️ <strong>Use case:</strong> Weather data processing, unit conversions</p>
+                </div>
+            `;
+        }
+
+        function demonstrateNestedProcessing() {
+            const output = document.getElementById('demo-output-comprehensions');
+            output.innerHTML = `
+                <div class="example-box">
+                    <h4>Nested Data Processing</h4>
+                    <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+# Flatten a 2D matrix
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+flattened = [item for row in matrix for item in row]
+
+# Result: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                    </pre>
+                    <p>🔢 <strong>Application:</strong> Image processing, data science operations</p>
+                </div>
+            `;
+        }
+
+        // Reset tutorial
+        function resetTutorial() {
+            if (confirm('Are you sure you want to reset the tutorial? This will clear your progress.')) {
+                completedSections.clear();
+                currentSection = 0;
+                timeRemaining = totalTime;
+                updateProgress();
+                showSection('intro');
+                
+                // Reset nav buttons
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.classList.remove('completed');
+                });
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                previousSection();
+            } else if (e.key === 'ArrowRight') {
+                nextSection();
+            }
+        });
+
+        // Initialize
+        updateNavigationButtons();
+        updateProgress();
+    </script>
+</body>
+</html>

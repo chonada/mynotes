@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Regression: Comprehensive Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .presentation {
+            width: 100%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            padding: 60px;
+            min-height: 600px;
+            animation: fadeIn 0.5s;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #764ba2;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+        }
+
+        p, li {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        .formula {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            border-radius: 5px;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .example-box {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #667eea;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: #f8f9fa;
+            border-top: 2px solid #ddd;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            font-size: 1.2em;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #667eea;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.4em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .icon {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <h1>📊 Linear Regression</h1>
+            <p class="subtitle">A Comprehensive Deep Dive</p>
+            <div style="text-align: center; margin-top: 80px;">
+                <div class="icon">📈</div>
+                <p style="font-size: 1.5em; color: #667eea; margin-top: 40px;">Understanding Assumptions, Applications & Cost Functions</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: What is Linear Regression -->
+        <div class="slide">
+            <h2>What is Linear Regression?</h2>
+            <p>Linear regression is a fundamental statistical method used to model the relationship between a dependent variable (Y) and one or more independent variables (X).</p>
+            
+            <div class="formula">
+                Y = β₀ + β₁X₁ + β₂X₂ + ... + βₙXₙ + ε
+            </div>
+            
+            <h3>Key Components:</h3>
+            <ul>
+                <li><span class="highlight">Y</span>: Dependent variable (what we're predicting)</li>
+                <li><span class="highlight">β₀</span>: Intercept (value of Y when all X = 0)</li>
+                <li><span class="highlight">β₁, β₂, ..., βₙ</span>: Coefficients (slopes)</li>
+                <li><span class="highlight">X₁, X₂, ..., Xₙ</span>: Independent variables (predictors)</li>
+                <li><span class="highlight">ε</span>: Error term (residual)</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3: Types of Linear Regression -->
+        <div class="slide">
+            <h2>Types of Linear Regression</h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Simple Linear Regression</h3>
+                    <div class="formula">Y = β₀ + β₁X + ε</div>
+                    <p>Models relationship between <strong>one</strong> independent variable and the dependent variable.</p>
+                    <p><strong>Example:</strong> Predicting house price based on square footage.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Multiple Linear Regression</h3>
+                    <div class="formula">Y = β₀ + β₁X₁ + β₂X₂ + ... + ε</div>
+                    <p>Models relationship between <strong>multiple</strong> independent variables and the dependent variable.</p>
+                    <p><strong>Example:</strong> Predicting house price based on square footage, location, and age.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Assumptions - Part 1 -->
+        <div class="slide">
+            <h2>Key Assumptions of Linear Regression (1/2)</h2>
+            
+            <h3>1. Linearity</h3>
+            <p>The relationship between independent and dependent variables must be linear.</p>
+            <div class="example-box">
+                <strong>Check:</strong> Use scatter plots or residual plots. If the relationship curves, consider polynomial regression or transformations.
+            </div>
+
+            <h3>2. Independence</h3>
+            <p>Observations must be independent of each other. No observation should influence another.</p>
+            <div class="example-box">
+                <strong>Violation Example:</strong> Time series data where today's value depends on yesterday's value (autocorrelation).
+            </div>
+
+            <h3>3. Homoscedasticity</h3>
+            <p>The variance of residuals should be constant across all levels of independent variables.</p>
+            <div class="example-box">
+                <strong>Check:</strong> Plot residuals vs. fitted values. The spread should be uniform, not funnel-shaped.
+            </div>
+        </div>
+
+        <!-- Slide 5: Assumptions - Part 2 -->
+        <div class="slide">
+            <h2>Key Assumptions of Linear Regression (2/2)</h2>
+            
+            <h3>4. Normality of Residuals</h3>
+            <p>Residuals (errors) should follow a normal distribution with mean zero.</p>
+            <div class="example-box">
+                <strong>Check:</strong> Use Q-Q plots or Shapiro-Wilk test. For large samples, this assumption is less critical due to Central Limit Theorem.
+            </div>
+
+            <h3>5. No Multicollinearity</h3>
+            <p>Independent variables should not be highly correlated with each other.</p>
+            <div class="example-box">
+                <strong>Check:</strong> Calculate Variance Inflation Factor (VIF). VIF > 10 indicates problematic multicollinearity.
+                <br><strong>Impact:</strong> Makes it difficult to determine the individual effect of each variable.
+            </div>
+
+            <h3>6. No Autocorrelation</h3>
+            <p>Residuals should not be correlated with each other (particularly important for time series).</p>
+            <div class="example-box">
+                <strong>Check:</strong> Use Durbin-Watson test. Values around 2 indicate no autocorrelation.
+            </div>
+        </div>
+
+        <!-- Slide 6: Real-World Use Cases - Business -->
+        <div class="slide">
+            <h2>Real-World Use Cases: Business & Finance</h2>
+            
+            <h3>1. Sales Forecasting</h3>
+            <p><strong>Problem:</strong> Predict future sales based on advertising spend, season, and economic indicators.</p>
+            <div class="example-box">
+                Sales = β₀ + β₁(TV_Ads) + β₂(Online_Ads) + β₃(Season) + ε
+            </div>
+
+            <h3>2. Stock Price Prediction</h3>
+            <p><strong>Problem:</strong> Estimate stock returns based on market indices, company fundamentals, and sector performance.</p>
+
+            <h3>3. Risk Assessment</h3>
+            <p><strong>Problem:</strong> Determine credit risk scores based on income, debt ratio, credit history, and employment status.</p>
+
+            <h3>4. Price Optimization</h3>
+            <p><strong>Problem:</strong> Find optimal pricing by analyzing relationship between price points and demand volume.</p>
+        </div>
+
+        <!-- Slide 7: Real-World Use Cases - Healthcare & Science -->
+        <div class="slide">
+            <h2>Real-World Use Cases: Healthcare & Science</h2>
+            
+            <h3>1. Medical Diagnosis & Prognosis</h3>
+            <p><strong>Problem:</strong> Predict patient outcomes based on age, BMI, blood pressure, cholesterol levels, and genetic markers.</p>
+            <div class="example-box">
+                <strong>Example:</strong> Predicting diabetes risk or hospital readmission rates.
+            </div>
+
+            <h3>2. Drug Dosage Optimization</h3>
+            <p><strong>Problem:</strong> Determine appropriate medication dosage based on patient weight, age, kidney function, and other medications.</p>
+
+            <h3>3. Climate Modeling</h3>
+            <p><strong>Problem:</strong> Predict temperature changes based on CO₂ levels, solar activity, and ocean temperatures.</p>
+
+            <h3>4. Agricultural Yield Prediction</h3>
+            <p><strong>Problem:</strong> Forecast crop yields based on rainfall, temperature, soil quality, and fertilizer usage.</p>
+        </div>
+
+        <!-- Slide 8: Real-World Use Cases - Technology & Marketing -->
+        <div class="slide">
+            <h2>Real-World Use Cases: Technology & Marketing</h2>
+            
+            <h3>1. Real Estate Valuation</h3>
+            <p><strong>Problem:</strong> Estimate property prices based on location, size, age, amenities, and neighborhood characteristics.</p>
+            <div class="formula">
+                Price = β₀ + β₁(SqFt) + β₂(Bedrooms) + β₃(Location_Score) + β₄(Age) + ε
+            </div>
+
+            <h3>2. Customer Lifetime Value (CLV)</h3>
+            <p><strong>Problem:</strong> Predict customer value based on purchase frequency, average order value, and engagement metrics.</p>
+
+            <h3>3. Traffic Prediction</h3>
+            <p><strong>Problem:</strong> Forecast website traffic or road congestion based on time, day, weather, and special events.</p>
+
+            <h3>4. Energy Consumption Forecasting</h3>
+            <p><strong>Problem:</strong> Predict electricity demand based on temperature, time of day, season, and industrial activity.</p>
+        </div>
+
+        <!-- Slide 9: Cost Function - Introduction -->
+        <div class="slide">
+            <h2>Cost Function: The Foundation</h2>
+            
+            <p>The cost function (also called loss function) measures how well our linear regression model fits the data. It quantifies the difference between predicted and actual values.</p>
+
+            <h3>Why Do We Need a Cost Function?</h3>
+            <ul>
+                <li>To measure model performance objectively</li>
+                <li>To guide the optimization process (finding best β values)</li>
+                <li>To compare different models</li>
+                <li>To detect overfitting or underfitting</li>
+            </ul>
+
+            <div class="example-box">
+                <strong>Goal:</strong> Minimize the cost function to find the best-fitting line that makes the most accurate predictions.
+            </div>
+        </div>
+
+        <!-- Slide 10: Mean Squared Error (MSE) -->
+        <div class="slide">
+            <h2>Mean Squared Error (MSE)</h2>
+            
+            <p>The most commonly used cost function for linear regression.</p>
+
+            <div class="formula">
+                MSE = (1/n) Σ(yᵢ - ŷᵢ)²
+                <br><br>
+                Where:<br>
+                • n = number of observations<br>
+                • yᵢ = actual value<br>
+                • ŷᵢ = predicted value<br>
+                • (yᵢ - ŷᵢ) = residual/error
+            </div>
+
+            <h3>Key Characteristics:</h3>
+            <ul>
+                <li><strong>Squares errors:</strong> Penalizes large errors more heavily (quadratic)</li>
+                <li><strong>Always positive:</strong> Squaring eliminates negative values</li>
+                <li><strong>Differentiable:</strong> Easy to optimize using gradient descent</li>
+                <li><strong>Sensitive to outliers:</strong> Large errors get squared, having disproportionate impact</li>
+            </ul>
+        </div>
+
+        <!-- Slide 11: Other Cost Functions -->
+        <div class="slide">
+            <h2>Alternative Cost Functions</h2>
+            
+            <h3>1. Mean Absolute Error (MAE)</h3>
+            <div class="formula">MAE = (1/n) Σ|yᵢ - ŷᵢ|</div>
+            <p><strong>Advantage:</strong> Less sensitive to outliers than MSE</p>
+            <p><strong>Disadvantage:</strong> Not differentiable at zero (harder to optimize)</p>
+
+            <h3>2. Root Mean Squared Error (RMSE)</h3>
+            <div class="formula">RMSE = √[(1/n) Σ(yᵢ - ŷᵢ)²]</div>
+            <p><strong>Advantage:</strong> Same units as the dependent variable, easier to interpret</p>
+
+            <h3>3. R² (Coefficient of Determination)</h3>
+            <div class="formula">R² = 1 - (SS_res / SS_tot)</div>
+            <p><strong>Interpretation:</strong> Proportion of variance explained by the model (0 to 1)</p>
+            <p><strong>R² = 0.85</strong> means 85% of variance is explained by the model</p>
+        </div>
+
+        <!-- Slide 12: Gradient Descent -->
+        <div class="slide">
+            <h2>Optimization: Gradient Descent</h2>
+            
+            <p>Gradient descent is an iterative optimization algorithm used to minimize the cost function by finding the optimal coefficients (β values).</p>
+
+            <h3>How It Works:</h3>
+            <ol>
+                <li>Initialize coefficients with random values</li>
+                <li>Calculate the cost function</li>
+                <li>Compute the gradient (partial derivatives)</li>
+                <li>Update coefficients in the direction that reduces cost</li>
+                <li>Repeat until convergence</li>
+            </ol>
+
+            <div class="formula">
+                βⱼ = βⱼ - α * (∂J/∂βⱼ)
+                <br><br>
+                Where:<br>
+                • α = learning rate (step size)<br>
+                • ∂J/∂βⱼ = partial derivative of cost function
+            </div>
+
+            <div class="example-box">
+                <strong>Learning Rate:</strong> Too large → overshooting; Too small → slow convergence
+            </div>
+        </div>
+
+        <!-- Slide 13: Model Evaluation Metrics -->
+        <div class="slide">
+            <h2>Evaluating Model Performance</h2>
+            
+            <h3>1. Training vs. Testing Error</h3>
+            <p>Always split data into training and testing sets to evaluate generalization.</p>
+            <div class="example-box">
+                <strong>Overfitting:</strong> Low training error, high testing error<br>
+                <strong>Underfitting:</strong> High training error, high testing error
+            </div>
+
+            <h3>2. Adjusted R²</h3>
+            <p>Penalizes adding unnecessary variables to the model.</p>
+
+            <h3>3. Residual Analysis</h3>
+            <ul>
+                <li>Plot residuals vs. fitted values (check homoscedasticity)</li>
+                <li>Q-Q plot (check normality)</li>
+                <li>Residuals vs. time (check independence)</li>
+            </ul>
+
+            <h3>4. Cross-Validation</h3>
+            <p>K-fold cross-validation provides robust performance estimates by testing on multiple data splits.</p>
+        </div>
+
+        <!-- Slide 14: Practical Tips -->
+        <div class="slide">
+            <h2>Practical Implementation Tips</h2>
+            
+            <h3>Data Preparation</h3>
+            <ul>
+                <li><strong>Feature Scaling:</strong> Normalize or standardize features for faster convergence</li>
+                <li><strong>Handle Missing Data:</strong> Impute or remove carefully</li>
+                <li><strong>Encode Categorical Variables:</strong> Use one-hot encoding or label encoding</li>
+                <li><strong>Outlier Detection:</strong> Identify and handle outliers appropriately</li>
+            </ul>
+
+            <h3>Model Improvement</h3>
+            <ul>
+                <li><strong>Feature Engineering:</strong> Create interaction terms or polynomial features</li>
+                <li><strong>Regularization:</strong> Use Ridge (L2) or Lasso (L1) to prevent overfitting</li>
+                <li><strong>Feature Selection:</strong> Remove irrelevant or redundant features</li>
+                <li><strong>Transform Variables:</strong> Log, square root, or Box-Cox transformations</li>
+            </ul>
+        </div>
+
+        <!-- Slide 15: Summary -->
+        <div class="slide">
+            <h2>Summary</h2>
+            
+            <h3>Key Takeaways:</h3>
+            <ul>
+                <li>Linear regression models linear relationships between variables</li>
+                <li>Six critical assumptions must be validated for reliable results</li>
+                <li>Applications span business, healthcare, science, and technology</li>
+                <li>MSE is the primary cost function, measuring prediction accuracy</li>
+                <li>Gradient descent optimizes coefficients by minimizing cost</li>
+                <li>Proper evaluation prevents overfitting and ensures generalization</li>
+            </ul>
+
+            <div class="example-box" style="margin-top: 40px; text-align: center;">
+                <h3>Remember:</h3>
+                <p style="font-size: 1.3em;">"All models are wrong, but some are useful."<br>— George Box</p>
+            </div>
+
+            <p style="text-align: center; margin-top: 40px; font-size: 1.3em; color: #667eea;">
+                <strong>Linear regression is a powerful tool when assumptions are met and data is properly prepared!</strong>
+            </p>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">15</span>
+            </span>
+            <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        
+        document.getElementById('totalSlides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = currentSlide;
+            
+            prevBtn.disabled = currentSlide === 1;
+            nextBtn.disabled = currentSlide === totalSlides;
+        }
+        
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+        
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

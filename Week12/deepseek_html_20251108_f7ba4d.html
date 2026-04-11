@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced ML Paradigms Tutorial</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .tab.active {
+            color: var(--secondary);
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 1.5rem 0 0.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .card.danger {
+            border-left-color: var(--danger);
+        }
+        
+        .card.warning {
+            border-left-color: var(--warning);
+        }
+        
+        .card.success {
+            border-left-color: var(--success);
+        }
+        
+        .paradigm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .paradigm-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .paradigm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .paradigm-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .case-study {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .constraint-list {
+            list-style-type: none;
+        }
+        
+        .constraint-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .constraint-list li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .interactive-quiz {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .quiz-question {
+            margin-bottom: 1.5rem;
+        }
+        
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .quiz-option {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .quiz-option:hover {
+            background-color: #f0f8ff;
+            border-color: var(--secondary);
+        }
+        
+        .quiz-option.selected {
+            background-color: #e1f0fa;
+            border-color: var(--secondary);
+        }
+        
+        .quiz-result {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .quiz-result.correct {
+            background-color: #e8f7ef;
+            border: 1px solid var(--success);
+            color: #155724;
+        }
+        
+        .quiz-result.incorrect {
+            background-color: #fdeaea;
+            border: 1px solid var(--danger);
+            color: #721c24;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            color: #6c757d;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 768px) {
+            .paradigm-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                text-align: center;
+                border-bottom: 1px solid #eee;
+                border-left: 3px solid transparent;
+            }
+            
+            .tab.active {
+                border-left: 3px solid var(--secondary);
+                border-bottom: 1px solid #eee;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Machine Learning Paradigms</h1>
+            <p class="subtitle">An advanced tutorial on strategic approaches to machine learning, including supervised, self-supervised, transfer, few-shot, and federated learning</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="nav-tabs">
+            <div class="tab active" data-tab="overview">Overview</div>
+            <div class="tab" data-tab="paradigms">Learning Paradigms</div>
+            <div class="tab" data-tab="constraints">Constraints & Decisions</div>
+            <div class="tab" data-tab="case-studies">Case Studies</div>
+            <div class="tab" data-tab="pitfalls">Common Pitfalls</div>
+            <div class="tab" data-tab="quiz">Interactive Quiz</div>
+        </div>
+        
+        <div class="tab-content active" id="overview">
+            <h2>Why Strategy Matters in Machine Learning</h2>
+            <p>Choosing the right machine learning paradigm is crucial for project success. The approach you select impacts data requirements, development time, model accuracy, and trustworthiness of the system.</p>
+            
+            <div class="card">
+                <h3>Resource Efficiency</h3>
+                <p>The right ML strategy saves significant time and money by aligning with your project constraints and objectives.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Success Rate</h3>
+                <p>Strategic paradigm selection dramatically increases the likelihood of achieving your project goals within constraints.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Impact Areas</h3>
+                <p>Your ML paradigm choice affects multiple dimensions of your project:</p>
+                <ul class="constraint-list">
+                    <li>Data collection and labeling requirements</li>
+                    <li>Computational resources needed</li>
+                    <li>Model training and iteration time</li>
+                    <li>Privacy and security considerations</li>
+                    <li>Model performance and generalization</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="paradigms">
+            <h2>Learning Paradigms in AI</h2>
+            <p>Different approaches to how AI models learn from data, each with unique strengths and applications.</p>
+            
+            <div class="paradigm-grid">
+                <div class="paradigm-card">
+                    <div class="paradigm-icon">📊</div>
+                    <h3>Supervised Learning</h3>
+                    <p>Learns from labeled data where inputs are mapped to known outputs. Ideal when you have high-quality labeled datasets.</p>
+                    <p><strong>Best for:</strong> Classification, regression tasks with ample labeled data</p>
+                </div>
+                
+                <div class="paradigm-card">
+                    <div class="paradigm-icon">🔍</div>
+                    <h3>Self-Supervised Learning</h3>
+                    <p>Generates its own labels from raw data by creating pretext tasks. Excellent for leveraging unlabeled data.</p>
+                    <p><strong>Best for:</strong> Scenarios with abundant unlabeled data but limited labels</p>
+                </div>
+                
+                <div class="paradigm-card">
+                    <div class="paradigm-icon">🔄</div>
+                    <h3>Transfer Learning</h3>
+                    <p>Uses knowledge from pre-trained models adapted to new tasks. Dramatically reduces data and compute requirements.</p>
+                    <p><strong>Best for:</strong> Domain adaptation, limited data scenarios</p>
+                </div>
+                
+                <div class="paradigm-card">
+                    <div class="paradigm-icon">🎯</div>
+                    <h3>Few-shot / One-shot Learning</h3>
+                    <p>Learns from very few examples by leveraging prior knowledge or meta-learning techniques.</p>
+                    <p><strong>Best for:</strong> Rapid prototyping, low-data environments</p>
+                </div>
+                
+                <div class="paradigm-card">
+                    <div class="paradigm-icon">🔒</div>
+                    <h3>Federated Learning</h3>
+                    <p>Trains models across multiple devices without sharing raw data. Preserves privacy while enabling collaborative learning.</p>
+                    <p><strong>Best for:</strong> Privacy-sensitive applications, edge computing</p>
+                </div>
+            </div>
+            
+            <h3>Paradigm Comparison</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Paradigm</th>
+                        <th>Data Needs</th>
+                        <th>Compute Needs</th>
+                        <th>Privacy Level</th>
+                        <th>Best Use Cases</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Supervised</td>
+                        <td>High (labeled)</td>
+                        <td>Medium-High</td>
+                        <td>Medium</td>
+                        <td>Traditional classification, regression</td>
+                    </tr>
+                    <tr>
+                        <td>Self-Supervised</td>
+                        <td>High (unlabeled)</td>
+                        <td>High</td>
+                        <td>Medium</td>
+                        <td>Pre-training, representation learning</td>
+                    </tr>
+                    <tr>
+                        <td>Transfer Learning</td>
+                        <td>Low-Medium</td>
+                        <td>Low-Medium</td>
+                        <td>Medium</td>
+                        <td>Domain adaptation, limited data</td>
+                    </tr>
+                    <tr>
+                        <td>Few-shot</td>
+                        <td>Very Low</td>
+                        <td>Medium</td>
+                        <td>Medium</td>
+                        <td>Rapid prototyping, niche domains</td>
+                    </tr>
+                    <tr>
+                        <td>Federated</td>
+                        <td>Distributed</td>
+                        <td>Distributed</td>
+                        <td>High</td>
+                        <td>Healthcare, finance, mobile apps</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="tab-content" id="constraints">
+            <h2>Constraints That Shape ML Decisions</h2>
+            <p>Successful ML projects carefully consider these constraints when selecting a learning approach.</p>
+            
+            <div class="card">
+                <h3>Label Availability</h3>
+                <p>Do you have access to labeled data? If not, consider self-supervised, few-shot, or transfer learning approaches.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Data Location</h3>
+                <p>Is your data centralized or distributed? Federated learning excels with distributed, privacy-sensitive data.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Inference Speed</h3>
+                <p>Do you need real-time predictions? This affects model complexity and architecture choices.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Transfer Potential</h3>
+                <p>Can you leverage pre-trained models? Transfer learning can dramatically accelerate development.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Domain Shift</h3>
+                <p>Will your model operate in a different domain than it was trained on? Consider domain adaptation techniques.</p>
+            </div>
+            
+            <h3>Decision Framework</h3>
+            <p>Use this framework to guide your paradigm selection:</p>
+            <ol>
+                <li><strong>Assess Constraints:</strong> Evaluate data, compute, privacy, and timeline constraints</li>
+                <li><strong>Identify Options:</strong> List suitable paradigms based on constraints</li>
+                <li><strong>Compare Trade-offs:</strong> Weigh pros and cons of each approach</li>
+                <li><strong>Prototype:</strong> Test top candidates with small experiments</li>
+                <li><strong>Implement & Iterate:</strong> Deploy the chosen approach and refine based on results</li>
+            </ol>
+        </div>
+        
+        <div class="tab-content" id="case-studies">
+            <h2>Real-World Case Studies</h2>
+            
+            <div class="case-study">
+                <h3>Case 1: Rural Health Assistant</h3>
+                <p><strong>Scenario:</strong> Mobile health assistant for rural users that categorizes symptoms as mild, moderate, or severe.</p>
+                <p><strong>Constraints:</strong> Low data availability, strict privacy requirements, basic mobile devices.</p>
+                <p><strong>Solution:</strong> Combination of transfer learning (using existing medical models) and federated learning (keeping data on devices).</p>
+                <p><strong>Outcome:</strong> Privacy-preserving symptom classification with minimal data requirements.</p>
+            </div>
+            
+            <div class="case-study">
+                <h3>Case 2: Multilingual News Classifier</h3>
+                <p><strong>Scenario:</strong> System to classify news by topic and detect bias across 12 languages before elections.</p>
+                <p><strong>Constraints:</strong> Limited training data, tight deadlines, need for language neutrality.</p>
+                <p><strong>Solution:</strong> Few-shot learning approach that works with minimal examples per language.</p>
+                <p><strong>Outcome:</strong> Rapid deployment of a multilingual classification system with minimal data requirements.</p>
+            </div>
+            
+            <div class="case-study">
+                <h3>Case 3: Smart Image Detection on IoT Devices</h3>
+                <p><strong>Scenario:</strong> Wildlife or farm cameras detecting events like pests or animals — all offline.</p>
+                <p><strong>Constraints:</strong> Limited processing power, no internet, unlabeled images.</p>
+                <p><strong>Solution:</strong> Self-supervised learning to leverage unlabeled images, combined with lightweight model architecture.</p>
+                <p><strong>Outcome:</strong> Offline smart detection system that learns from unlabeled data with minimal compute requirements.</p>
+            </div>
+            
+            <h3>Industry Applications</h3>
+            <div class="card success">
+                <h3>Google Gboard with Federated Learning</h3>
+                <p>On-device word prediction that trains locally on user typing data, improving suggestions without sharing keystrokes. Ideal for decentralized data with strict privacy requirements.</p>
+            </div>
+            
+            <div class="card success">
+                <h3>Medical Imaging with Transfer Learning</h3>
+                <p>Healthcare startups using pre-trained models (ResNet, EfficientNet) fine-tuned with 500-1000 medical scans. Dramatically reduces labeling costs and speeds up deployment.</p>
+            </div>
+            
+            <div class="card success">
+                <h3>E-commerce with Domain Adaptation</h3>
+                <p>Adapting review models across regions (U.S. to UK, India) by keeping core functionality while adjusting for cultural and language nuances. Efficient for global e-commerce.</p>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="pitfalls">
+            <h2>Common Pitfalls in ML Paradigm Selection</h2>
+            <p>Avoid these common mistakes when choosing machine learning approaches.</p>
+            
+            <div class="card danger">
+                <h3>Overusing Few-shot Learning</h3>
+                <p>Few-shot learning fails with imbalanced or noisy data and isn't a one-size-fits-all solution for low-data scenarios.</p>
+                <p><strong>Solution:</strong> Validate few-shot approaches with proper evaluation metrics and consider alternatives when data distribution is problematic.</p>
+            </div>
+            
+            <div class="card warning">
+                <h3>Misusing Transfer Learning</h3>
+                <p>Using pre-trained models from unrelated domains can lead to negative transfer, where performance actually decreases.</p>
+                <p><strong>Solution:</strong> Carefully select source domains that are relevant to your target task and validate transfer effectiveness.</p>
+            </div>
+            
+            <div class="card warning">
+                <h3>Misunderstanding Federated Learning</h3>
+                <p>Overlooking security risks and performance limitations of federated setups, including communication overhead and synchronization delays.</p>
+                <p><strong>Solution:</strong> Implement proper security measures and account for communication costs in project timelines.</p>
+            </div>
+            
+            <div class="card danger">
+                <h3>Ignoring Constraints</h3>
+                <p>Failing to consider data availability, compute resources, and privacy/legal boundaries leads to project failures.</p>
+                <p><strong>Solution:</strong> Conduct thorough constraint analysis before paradigm selection and validate assumptions with small experiments.</p>
+            </div>
+            
+            <h3>Best Practices for Paradigm Selection</h3>
+            <ul class="constraint-list">
+                <li>Evaluate your use case, data, and constraints carefully</li>
+                <li>Test assumptions with small experiments before full rollout</li>
+                <li>Combine paradigms to balance strengths and weaknesses</li>
+                <li>Focus on practical needs rather than trending techniques</li>
+                <li>Understand the limits of each paradigm before implementation</li>
+            </ul>
+        </div>
+        
+        <div class="tab-content" id="quiz">
+            <h2>Interactive Quiz: ML Paradigm Selection</h2>
+            <p>Test your understanding of when to use different machine learning paradigms.</p>
+            
+            <div class="interactive-quiz">
+                <div class="quiz-question">
+                    <h3>Question 1: Healthcare App with Privacy Constraints</h3>
+                    <p>You're building a mobile app that predicts health risks based on user data. Privacy is critical, and you cannot centralize user data. Which approach is most suitable?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-correct="true">Federated Learning</div>
+                        <div class="quiz-option">Supervised Learning</div>
+                        <div class="quiz-option">Self-Supervised Learning</div>
+                        <div class="quiz-option">Transfer Learning</div>
+                    </div>
+                    <div class="quiz-result correct">
+                        <strong>Correct!</strong> Federated learning trains models across devices without sharing raw data, making it ideal for privacy-sensitive applications like healthcare.
+                    </div>
+                    <div class="quiz-result incorrect">
+                        <strong>Incorrect.</strong> Federated learning is specifically designed for scenarios where data privacy is critical and data cannot be centralized.
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h3>Question 2: Limited Labeled Data Scenario</h3>
+                    <p>You need to build a classifier for a niche domain with only 50 labeled examples available. Which approach would likely work best?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option">Supervised Learning</div>
+                        <div class="quiz-option" data-correct="true">Few-shot Learning</div>
+                        <div class="quiz-option">Federated Learning</div>
+                        <div class="quiz-option">Self-Supervised Learning</div>
+                    </div>
+                    <div class="quiz-result correct">
+                        <strong>Correct!</strong> Few-shot learning is specifically designed to work with very limited labeled examples by leveraging prior knowledge.
+                    </div>
+                    <div class="quiz-result incorrect">
+                        <strong>Incorrect.</strong> With only 50 examples, traditional supervised learning would likely underperform. Few-shot learning is designed for such low-data scenarios.
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h3>Question 3: Leveraging Existing Models</h3>
+                    <p>You're building an image classification system for medical diagnosis. You have limited medical images but access to large general image datasets. Which approach can help?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option">Federated Learning</div>
+                        <div class="quiz-option">Self-Supervised Learning</div>
+                        <div class="quiz-option" data-correct="true">Transfer Learning</div>
+                        <div class="quiz-option">Few-shot Learning</div>
+                    </div>
+                    <div class="quiz-result correct">
+                        <strong>Correct!</strong> Transfer learning allows you to leverage models pre-trained on large datasets (like ImageNet) and fine-tune them for your specific medical task.
+                    </div>
+                    <div class="quiz-result incorrect">
+                        <strong>Incorrect.</strong> Transfer learning is ideal when you can leverage knowledge from pre-trained models on related domains to compensate for limited task-specific data.
+                    </div>
+                </div>
+                
+                <button class="btn" id="check-answers">Check Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Machine Learning Paradigms Tutorial | Based on "Week 12: Paradigms of Machine Learning - II"</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Quiz functionality
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options in this question
+                const question = option.closest('.quiz-question');
+                question.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                option.classList.add('selected');
+            });
+        });
+        
+        document.getElementById('check-answers').addEventListener('click', () => {
+            document.querySelectorAll('.quiz-question').forEach(question => {
+                const selectedOption = question.querySelector('.quiz-option.selected');
+                const correctOption = question.querySelector('.quiz-option[data-correct="true"]');
+                
+                // Hide all results first
+                question.querySelectorAll('.quiz-result').forEach(result => {
+                    result.style.display = 'none';
+                });
+                
+                if (selectedOption) {
+                    if (selectedOption === correctOption) {
+                        question.querySelector('.quiz-result.correct').style.display = 'block';
+                    } else {
+                        question.querySelector('.quiz-result.incorrect').style.display = 'block';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+Kevin P Murphy - Chapter 14.5
+
+Machine Learning by Tom Mitchell

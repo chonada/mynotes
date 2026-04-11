@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Paradigms Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .quiz-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .progress-container {
+            background: #34495e;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: #ecf0f1;
+            border-radius: 5px;
+            flex-grow: 1;
+            margin: 0 15px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: #3498db;
+            width: 5%;
+            transition: width 0.5s ease;
+        }
+        
+        .quiz-content {
+            padding: 30px;
+        }
+        
+        .question-container {
+            margin-bottom: 25px;
+        }
+        
+        .question-number {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        
+        .question-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .option {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option:hover {
+            background: #f5f9ff;
+            border-color: #3498db;
+        }
+        
+        .option.selected {
+            background: #e1f0fa;
+            border-color: #3498db;
+        }
+        
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+        
+        .option-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #ecf0f1;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .selected .option-letter {
+            background: #3498db;
+            color: white;
+        }
+        
+        .correct .option-letter {
+            background: #28a745;
+            color: white;
+        }
+        
+        .incorrect .option-letter {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        #prev-btn {
+            background: #95a5a6;
+            color: white;
+        }
+        
+        #prev-btn:hover:not(:disabled) {
+            background: #7f8c8d;
+        }
+        
+        #next-btn {
+            background: #3498db;
+            color: white;
+        }
+        
+        #next-btn:hover:not(:disabled) {
+            background: #2980b9;
+        }
+        
+        #submit-btn {
+            background: #2ecc71;
+            color: white;
+            display: none;
+        }
+        
+        #submit-btn:hover {
+            background: #27ae60;
+        }
+        
+        button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+        
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            display: none;
+        }
+        
+        .results-container {
+            text-align: center;
+            padding: 40px 20px;
+            display: none;
+        }
+        
+        .score-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: #3498db;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .score-text {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .score-value {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        
+        .results-message {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .results-details {
+            margin: 25px 0;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .restart-btn {
+            background: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+        
+        .restart-btn:hover {
+            background: #c0392b;
+        }
+        
+        @media (max-width: 768px) {
+            .quiz-container {
+                border-radius: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .progress-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .progress-bar {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <header>
+            <h1>Machine Learning Paradigms Quiz</h1>
+            <p class="subtitle">Test your knowledge of ML approaches and when to use them</p>
+        </header>
+        
+        <div class="progress-container">
+            <div class="progress-text">Question <span id="current-question">1</span> of 20</div>
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar"></div>
+            </div>
+            <div class="score-text">Score: <span id="current-score">0</span></div>
+        </div>
+        
+        <div class="quiz-content">
+            <div id="question-container">
+                <div class="question-container">
+                    <div class="question-number">Question 1</div>
+                    <div class="question-text" id="question-text"></div>
+                    <div class="options-container" id="options-container"></div>
+                </div>
+                
+                <div class="explanation" id="explanation">
+                    <strong>Explanation:</strong> <span id="explanation-text"></span>
+                </div>
+                
+                <div class="navigation">
+                    <button id="prev-btn" disabled>Previous</button>
+                    <button id="next-btn">Next Question</button>
+                    <button id="submit-btn">Submit Quiz</button>
+                </div>
+            </div>
+            
+            <div class="results-container" id="results-container">
+                <div class="score-circle">
+                    <div class="score-text">Your Score</div>
+                    <div class="score-value" id="final-score">0</div>
+                </div>
+                
+                <div class="results-message" id="results-message"></div>
+                
+                <div class="results-details" id="results-details"></div>
+                
+                <button class="restart-btn" id="restart-btn">Take Quiz Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz questions data
+        const quizData = [
+            {
+                question: "Which machine learning paradigm is characterized by training on labeled datasets?",
+                options: [
+                    "Supervised Learning",
+                    "Unsupervised Learning",
+                    "Reinforcement Learning",
+                    "Self-Supervised Learning"
+                ],
+                correct: 0,
+                explanation: "Supervised learning uses labeled datasets where each training example is paired with an output label. The model learns to map inputs to the correct outputs."
+            },
+            {
+                question: "What is the primary advantage of using Transfer Learning?",
+                options: [
+                    "It requires no data at all",
+                    "It eliminates the need for model evaluation",
+                    "It leverages pre-trained models to reduce training time and data requirements",
+                    "It works only with image data"
+                ],
+                correct: 2,
+                explanation: "Transfer learning allows leveraging knowledge from pre-trained models, significantly reducing the amount of data and computational resources needed for new tasks."
+            },
+            {
+                question: "In which scenario would Federated Learning be most appropriate?",
+                options: [
+                    "When you have a large centralized dataset",
+                    "When data privacy is critical and cannot be centralized",
+                    "When you need the fastest possible training time",
+                    "When working with text data exclusively"
+                ],
+                correct: 1,
+                explanation: "Federated learning trains models across multiple decentralized devices without sharing raw data, making it ideal for privacy-sensitive applications like healthcare or finance."
+            },
+            {
+                question: "What distinguishes Self-Supervised Learning from Supervised Learning?",
+                options: [
+                    "Self-supervised learning doesn't use any data",
+                    "Self-supervised learning generates its own labels from unlabeled data",
+                    "Self-supervised learning requires more labeled data",
+                    "Self-supervised learning is only for reinforcement tasks"
+                ],
+                correct: 1,
+                explanation: "Self-supervised learning creates pretext tasks to generate labels from unlabeled data, allowing models to learn useful representations without human annotation."
+            },
+            {
+                question: "Which paradigm would be most suitable for a scenario with only 5-10 examples per class?",
+                options: [
+                    "Traditional Supervised Learning",
+                    "Few-shot Learning",
+                    "Federated Learning",
+                    "Unsupervised Learning"
+                ],
+                correct: 1,
+                explanation: "Few-shot learning is specifically designed to work with very limited labeled examples, often by leveraging meta-learning or prior knowledge."
+            },
+            {
+                question: "What is a common pitfall when using Few-shot Learning?",
+                options: [
+                    "It requires too much computational power",
+                    "It performs poorly with imbalanced or noisy data",
+                    "It always needs internet connection",
+                    "It only works with image data"
+                ],
+                correct: 1,
+                explanation: "Few-shot learning struggles with imbalanced datasets or noisy labels because it has limited examples to learn robust patterns from."
+            },
+            {
+                question: "In Transfer Learning, what does 'negative transfer' refer to?",
+                options: [
+                    "Transferring models to negative examples",
+                    "When the source and target domains are too dissimilar, hurting performance",
+                    "Transferring models to different hardware",
+                    "Using negative examples in training"
+                ],
+                correct: 1,
+                explanation: "Negative transfer occurs when knowledge from the source domain is not applicable or even detrimental to the target domain, leading to worse performance."
+            },
+            {
+                question: "Which of these is NOT a key consideration when choosing an ML paradigm?",
+                options: [
+                    "Availability of labeled data",
+                    "Privacy requirements",
+                    "Compute resources",
+                    "Programming language popularity"
+                ],
+                correct: 3,
+                explanation: "While programming language can be a practical consideration, the core factors in paradigm selection are data availability, privacy needs, computational resources, and project constraints."
+            },
+            {
+                question: "What is the main challenge with Federated Learning?",
+                options: [
+                    "It requires all data to be centralized",
+                    "Communication overhead and synchronization across devices",
+                    "It only works with small models",
+                    "It cannot be used for deep learning"
+                ],
+                correct: 1,
+                explanation: "Federated learning faces challenges with communication costs, device heterogeneity, and synchronization delays when aggregating updates from multiple devices."
+            },
+            {
+                question: "Which paradigm would be best for training a model on user typing data without compromising privacy?",
+                options: [
+                    "Centralized Supervised Learning",
+                    "Transfer Learning",
+                    "Federated Learning",
+                    "Reinforcement Learning"
+                ],
+                correct: 2,
+                explanation: "Federated learning is ideal for privacy-sensitive applications like keyboard prediction, as it trains on-device without sharing raw user data."
+            },
+            {
+                question: "What is a 'pretext task' in Self-Supervised Learning?",
+                options: [
+                    "A task that comes before the main learning objective",
+                    "A task designed to generate labels from unlabeled data",
+                    "A task for testing model performance",
+                    "Both A and B"
+                ],
+                correct: 3,
+                explanation: "A pretext task is an auxiliary task designed to generate supervisory signals from unlabeled data, helping the model learn useful representations."
+            },
+            {
+                question: "Which technique would help adapt a US-based product review model for the UK market?",
+                options: [
+                    "Federated Learning",
+                    "Domain Adaptation",
+                    "Few-shot Learning",
+                    "Self-Supervised Learning"
+                ],
+                correct: 1,
+                explanation: "Domain adaptation techniques help models trained on one domain (e.g., US reviews) perform well on a related but different domain (e.g., UK reviews)."
+            },
+            {
+                question: "What is a key advantage of Self-Supervised Learning over Supervised Learning?",
+                options: [
+                    "It requires no data preprocessing",
+                    "It can leverage abundant unlabeled data",
+                    "It always achieves higher accuracy",
+                    "It trains faster on small datasets"
+                ],
+                correct: 1,
+                explanation: "Self-supervised learning can utilize vast amounts of unlabeled data, which is often more readily available than expensive labeled datasets."
+            },
+            {
+                question: "In which scenario would One-shot Learning be most appropriate?",
+                options: [
+                    "When you have millions of labeled examples",
+                    "When you need to recognize new classes from a single example",
+                    "When data privacy is not important",
+                    "When working exclusively with numerical data"
+                ],
+                correct: 1,
+                explanation: "One-shot learning is designed for situations where you need to recognize or classify new categories based on just one or a few examples."
+            },
+            {
+                question: "What is a common limitation of Transfer Learning?",
+                options: [
+                    "It only works with image data",
+                    "Source and target domains must be somewhat related for effective transfer",
+                    "It requires more data than training from scratch",
+                    "It cannot be used with deep learning models"
+                ],
+                correct: 1,
+                explanation: "Transfer learning works best when the source and target domains share some underlying patterns or features. If they're too dissimilar, negative transfer may occur."
+            },
+            {
+                question: "Which paradigm is Google's Gboard using for its predictive text feature?",
+                options: [
+                    "Centralized Supervised Learning",
+                    "Federated Learning",
+                    "Reinforcement Learning",
+                    "Unsupervised Learning"
+                ],
+                correct: 1,
+                explanation: "Google's Gboard uses federated learning to improve word predictions by training on user typing data directly on devices without sending sensitive data to servers."
+            },
+            {
+                question: "What does 'domain shift' refer to in machine learning?",
+                options: [
+                    "Changing programming languages mid-project",
+                    "The difference between training and deployment environments",
+                    "Shifting model parameters during training",
+                    "Moving data between storage locations"
+                ],
+                correct: 1,
+                explanation: "Domain shift occurs when the data distribution at deployment differs from the training data distribution, which can degrade model performance."
+            },
+            {
+                question: "Which approach would be most data-efficient for a medical imaging startup with limited labeled scans?",
+                options: [
+                    "Training a model from scratch with their small dataset",
+                    "Using Transfer Learning with models pre-trained on ImageNet",
+                    "Implementing Federated Learning across hospitals",
+                    "Using Unsupervised Learning exclusively"
+                ],
+                correct: 1,
+                explanation: "Transfer learning with models pre-trained on large datasets like ImageNet allows medical imaging startups to achieve good performance with limited labeled data."
+            },
+            {
+                question: "What is a key difference between Few-shot and Zero-shot Learning?",
+                options: [
+                    "Few-shot uses a few examples, Zero-shot uses none",
+                    "Few-shot is faster than Zero-shot",
+                    "Zero-shot requires more computational resources",
+                    "Few-shot only works with images"
+                ],
+                correct: 0,
+                explanation: "Few-shot learning uses a small number of examples per class, while zero-shot learning aims to recognize classes without any training examples, often using semantic descriptions."
+            },
+            {
+                question: "Which of these is a best practice when selecting ML paradigms?",
+                options: [
+                    "Always choose the most recently published method",
+                    "Select based on project constraints and requirements",
+                    "Use the same paradigm for all projects",
+                    "Ignore data privacy concerns for better performance"
+                ],
+                correct: 1,
+                explanation: "The best practice is to carefully evaluate project constraints—data availability, privacy needs, computational resources—before selecting the most appropriate paradigm."
+            }
+        ];
+
+        // DOM elements
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const explanation = document.getElementById('explanation');
+        const explanationText = document.getElementById('explanation-text');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const currentQuestionEl = document.getElementById('current-question');
+        const progressBar = document.getElementById('progress-bar');
+        const currentScoreEl = document.getElementById('current-score');
+        const questionContainer = document.getElementById('question-container');
+        const resultsContainer = document.getElementById('results-container');
+        const finalScoreEl = document.getElementById('final-score');
+        const resultsMessage = document.getElementById('results-message');
+        const resultsDetails = document.getElementById('results-details');
+        const restartBtn = document.getElementById('restart-btn');
+
+        // Quiz state
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let answeredQuestions = new Set();
+
+        // Initialize quiz
+        function initQuiz() {
+            showQuestion();
+            updateProgress();
+        }
+
+        // Display current question
+        function showQuestion() {
+            const question = quizData[currentQuestion];
+            questionText.textContent = question.question;
+            
+            optionsContainer.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.classList.add('option');
+                if (userAnswers[currentQuestion] === index) {
+                    optionElement.classList.add('selected');
+                }
+                
+                optionElement.innerHTML = `
+                    <span class="option-letter">${String.fromCharCode(65 + index)}</span>
+                    <span class="option-text">${option}</span>
+                `;
+                
+                optionElement.addEventListener('click', () => selectOption(index));
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            
+            if (currentQuestion === quizData.length - 1) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'inline-block';
+            } else {
+                nextBtn.style.display = 'inline-block';
+                submitBtn.style.display = 'none';
+            }
+            
+            // Show/hide explanation
+            if (answeredQuestions.has(currentQuestion)) {
+                showExplanation();
+            } else {
+                explanation.style.display = 'none';
+            }
+            
+            currentQuestionEl.textContent = currentQuestion + 1;
+        }
+
+        // Select an option
+        function selectOption(optionIndex) {
+            userAnswers[currentQuestion] = optionIndex;
+            
+            // Update UI
+            const options = document.querySelectorAll('.option');
+            options.forEach((option, index) => {
+                option.classList.remove('selected');
+                if (index === optionIndex) {
+                    option.classList.add('selected');
+                }
+            });
+            
+            // Check if answer is correct and update score
+            const isCorrect = optionIndex === quizData[currentQuestion].correct;
+            if (isCorrect && !answeredQuestions.has(currentQuestion)) {
+                score++;
+                currentScoreEl.textContent = score;
+            } else if (!isCorrect && answeredQuestions.has(currentQuestion)) {
+                // If changing from correct to incorrect answer
+                score--;
+                currentScoreEl.textContent = score;
+            }
+            
+            answeredQuestions.add(currentQuestion);
+            showExplanation();
+        }
+
+        // Show explanation for current question
+        function showExplanation() {
+            const question = quizData[currentQuestion];
+            explanationText.textContent = question.explanation;
+            explanation.style.display = 'block';
+            
+            // Highlight correct/incorrect answers
+            const options = document.querySelectorAll('.option');
+            options.forEach((option, index) => {
+                option.classList.remove('correct', 'incorrect');
+                
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === userAnswers[currentQuestion] && index !== question.correct) {
+                    option.classList.add('incorrect');
+                }
+            });
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Navigate to next question
+        function nextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+                updateProgress();
+            }
+        }
+
+        // Navigate to previous question
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+                updateProgress();
+            }
+        }
+
+        // Show quiz results
+        function showResults() {
+            questionContainer.style.display = 'none';
+            resultsContainer.style.display = 'block';
+            
+            const percentage = Math.round((score / quizData.length) * 100);
+            finalScoreEl.textContent = `${score}/${quizData.length}`;
+            
+            // Set results message based on score
+            if (percentage >= 90) {
+                resultsMessage.textContent = "Outstanding! You're an ML Paradigms Expert!";
+            } else if (percentage >= 75) {
+                resultsMessage.textContent = "Great Job! You have a solid understanding of ML paradigms.";
+            } else if (percentage >= 60) {
+                resultsMessage.textContent = "Good effort! You have a basic understanding but there's room to grow.";
+            } else {
+                resultsMessage.textContent = "Keep learning! Review the paradigms and try again.";
+            }
+            
+            // Show question review
+            let detailsHTML = "<h3>Question Review:</h3><ul>";
+            quizData.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === question.correct;
+                
+                detailsHTML += `
+                    <li style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                        <div><strong>Q${index + 1}:</strong> ${question.question}</div>
+                        <div style="color: ${isCorrect ? '#28a745' : '#dc3545'}; margin-top: 5px;">
+                            Your answer: ${userAnswer !== null ? question.options[userAnswer] : 'Not answered'} 
+                            ${isCorrect ? '✓' : '✗'}
+                        </div>
+                        ${!isCorrect ? `<div style="color: #28a745; margin-top: 5px;">Correct answer: ${question.options[question.correct]}</div>` : ''}
+                    </li>
+                `;
+            });
+            detailsHTML += "</ul>";
+            resultsDetails.innerHTML = detailsHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers.fill(null);
+            answeredQuestions.clear();
+            
+            currentScoreEl.textContent = '0';
+            questionContainer.style.display = 'block';
+            resultsContainer.style.display = 'none';
+            
+            showQuestion();
+            updateProgress();
+        }
+
+        // Event listeners
+        prevBtn.addEventListener('click', prevQuestion);
+        nextBtn.addEventListener('click', nextQuestion);
+        submitBtn.addEventListener('click', showResults);
+        restartBtn.addEventListener('click', restartQuiz);
+
+        // Initialize the quiz
+        initQuiz();
+    </script>
+</body>
+</html>
