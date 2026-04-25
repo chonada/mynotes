@@ -1,0 +1,6294 @@
+WEBVTT
+
+1
+00:01:00.180 --> 00:01:01.220
+Jitendra K: Sorry.
+
+2
+00:01:03.190 --> 00:01:04.260
+Jitendra K: Hi, everyone.
+
+3
+00:01:04.870 --> 00:01:07.899
+Jitendra K: Good evening, good afternoon, and Happy New Year to everyone.
+
+4
+00:01:08.260 --> 00:01:13.229
+Jitendra K: I hope you have a great, Already on vacation.
+
+5
+00:01:15.610 --> 00:01:20.740
+Jitendra K: So, before we start, can we have a quick audio check if my voice is audible to everyone, and my screen is visible as well?
+
+6
+00:01:26.110 --> 00:01:27.590
+Jitendra K: Alright, thank you, folks.
+
+7
+00:01:31.540 --> 00:01:37.170
+Jitendra K: Okay, so… Let me quickly set up the agenda for today's tutorial. What are the…
+
+8
+00:01:37.730 --> 00:01:41.480
+Jitendra K: Tutorials looks like, and what are the content that we are going to cover.
+
+9
+00:01:41.670 --> 00:01:45.999
+Jitendra K: So, we are going to start with Dimension reduction technique.
+
+10
+00:01:47.530 --> 00:01:54.229
+Jitendra K: So, I hope you might have attended the tutorials over LMS, and you have some idea about dimension reduction technique.
+
+11
+00:01:54.550 --> 00:02:02.450
+Jitendra K: And, you might have came across various techniques. So, there are predominantly two types of technique that we are going to talk about in dimension reduction.
+
+12
+00:02:02.640 --> 00:02:06.350
+Jitendra K: The first technique is called linear method. Let me write it down.
+
+13
+00:02:07.970 --> 00:02:10.519
+Jitendra K: So we are talking about dimension reduction technique.
+
+14
+00:02:10.900 --> 00:02:19.680
+Jitendra K: And in dimension reduction technique, We'll start with… the linear…
+
+15
+00:02:24.920 --> 00:02:26.840
+Jitendra K: And a non-linear method.
+
+16
+00:02:31.370 --> 00:02:36.899
+Jitendra K: Now, in machine learning, there are different types of method, and each method will have their own pros and cons.
+
+17
+00:02:37.040 --> 00:02:41.730
+Jitendra K: So we'll talk about some… Sorry, my throat is slightly…
+
+18
+00:02:42.570 --> 00:02:50.529
+Jitendra K: Unwell. So, basically, we'll start with the PCA technique as our first and the primary technique that we are going to cover today.
+
+19
+00:02:51.020 --> 00:02:52.850
+Jitendra K: As a part of a linear method.
+
+20
+00:02:53.130 --> 00:02:59.169
+Jitendra K: Then we will look into the second technique called LDA, which is called Latent or Linear Discriminate Analysis.
+
+21
+00:03:01.040 --> 00:03:17.270
+Jitendra K: Which is a very useful technique for topic modeling when you're dealing with any topic modeling use cases. In NLP, you will use LDA for reducing the corpus size and creating the features on your topic by using coherent scores.
+
+22
+00:03:18.460 --> 00:03:24.970
+Jitendra K: There's something called SVD, Which is called singular value decomposition.
+
+23
+00:03:25.900 --> 00:03:29.889
+Jitendra K: That is essentially a part of your NLP as well. We will talk about that.
+
+24
+00:03:31.430 --> 00:03:34.289
+Jitendra K: And then, we will talk about something called NMF.
+
+25
+00:03:39.530 --> 00:03:43.650
+Jitendra K: which is called… Non-negative metrics factorization.
+
+26
+00:03:47.890 --> 00:03:52.409
+Jitendra K: Now, when we talk about these techniques, so these techniques are basically
+
+27
+00:03:56.920 --> 00:04:00.829
+Jitendra K: serving, two different purposes. So, as I mentioned, we are…
+
+28
+00:04:01.030 --> 00:04:05.580
+Jitendra K: We are talking about projection of our data in a nonlinear scale versus linear scale.
+
+29
+00:04:05.750 --> 00:04:10.850
+Jitendra K: So when we're projecting our data in a non-layer scale, we consider something
+
+30
+00:04:11.960 --> 00:04:15.590
+Jitendra K: One technique which is very important, which is called TSNE.
+
+31
+00:04:17.660 --> 00:04:22.170
+Jitendra K: So we'll talk about T distributions, stochastic neighbor embedding models.
+
+32
+00:04:22.480 --> 00:04:24.789
+Jitendra K: We'll also talk about something called UMAP,
+
+33
+00:04:29.630 --> 00:04:33.859
+Jitendra K: Which is called Uniform Manifold approximational Projection.
+
+34
+00:04:34.090 --> 00:04:39.400
+Jitendra K: And then there's something called… kernel… PCA.
+
+35
+00:04:40.190 --> 00:04:44.079
+Jitendra K: Which is a nonlinear form of a PC itself, which is called KPCA.
+
+36
+00:04:45.030 --> 00:04:52.310
+Jitendra K: So we'll talk about this technique in a very detailed manner. I will first try to give you the brief why we required
+
+37
+00:04:52.580 --> 00:05:00.500
+Jitendra K: dimension reduction, and what is the need of PCA, how PCA solves this whole Issue of dimension reduction.
+
+38
+00:05:01.610 --> 00:05:04.879
+Jitendra K: Now, before delving into the NE Technique.
+
+39
+00:05:05.060 --> 00:05:07.770
+Jitendra K: Why we need dimension reduction, first of all.
+
+40
+00:05:08.360 --> 00:05:12.359
+Jitendra K: So, as you know that, when we talk about any data modeling.
+
+41
+00:05:12.970 --> 00:05:18.919
+Jitendra K: So the first and foremost thing that you are going to do is to select the right features. You might have a lot of features in your…
+
+42
+00:05:19.320 --> 00:05:21.570
+Jitendra K: In your approach, and then…
+
+43
+00:05:21.930 --> 00:05:24.030
+Jitendra K: You are going to project your…
+
+44
+00:05:24.130 --> 00:05:27.080
+Jitendra K: Main features, just to ensure that
+
+45
+00:05:27.190 --> 00:05:32.409
+Jitendra K: The variance explained by the feature should be more aligned with your algorithmic approach.
+
+46
+00:05:32.860 --> 00:05:37.430
+Jitendra K: And that's the reason you are going to utilize Dimension reduction technique.
+
+47
+00:05:37.920 --> 00:05:43.980
+Jitendra K: Now, As I mentioned, dimension reduction techniques serve different purposes.
+
+48
+00:05:44.600 --> 00:05:51.189
+Jitendra K: The first and the foremost purposes of dimension reduction technique is to remove the curse of dimensionality from the data.
+
+49
+00:05:51.370 --> 00:05:54.209
+Jitendra K: Now, what is curse of dimensionality in the data point?
+
+50
+00:05:55.270 --> 00:06:08.900
+Jitendra K: So, curves of dimensionality is a phrase which has been used in machine learning terminologies, where you're going to have too many data points, and hence the volume and the velocity of the data has been on the higher side.
+
+51
+00:06:09.230 --> 00:06:16.799
+Jitendra K: So PCA is a kind of a dispensable tool, or indispensable tool, for visualization and dimension reduction for data science.
+
+52
+00:06:17.200 --> 00:06:21.599
+Jitendra K: So the idea is, of PCA, or any dimension reduction technique.
+
+53
+00:06:22.150 --> 00:06:26.280
+Jitendra K: Is to ensure that the problem that you're facing with the curse of dimensionality
+
+54
+00:06:26.410 --> 00:06:30.000
+Jitendra K: When a data has too many features or dimensions to begin with.
+
+55
+00:06:30.150 --> 00:06:36.589
+Jitendra K: As the number of dimension increases, your data sparseness or spreadness of your data also increases.
+
+56
+00:06:37.030 --> 00:06:42.829
+Jitendra K: So when your data spreadness increase, it is very hard to find patterns or relationships
+
+57
+00:06:43.060 --> 00:06:45.599
+Jitendra K: Or even, you're learning from the noise.
+
+58
+00:06:45.780 --> 00:06:48.999
+Jitendra K: Right? You don't have much confidence about your features.
+
+59
+00:06:49.100 --> 00:06:58.360
+Jitendra K: So it's as simple as garbage in and garbage out model. Whatever you're thinking that this should be my feature set, you're just incorporating in your model.
+
+60
+00:06:58.730 --> 00:07:06.010
+Jitendra K: So your model will have a higher tendency to learn from the noise as well. Because real-world data, if you look into any real-world problems.
+
+61
+00:07:06.330 --> 00:07:07.360
+Jitendra K: you will…
+
+62
+00:07:08.150 --> 00:07:14.819
+Jitendra K: Sooner or later, we'll found that the real-world data is always have great amount of noise in it.
+
+63
+00:07:15.360 --> 00:07:18.630
+Jitendra K: Right? So it is very hard to find patterns on relationship.
+
+64
+00:07:18.910 --> 00:07:23.800
+Jitendra K: Because you're adding more noise and getting added, added to the data.
+
+65
+00:07:24.030 --> 00:07:29.129
+Jitendra K: So, algorithms become very slow and less accurate when you're having this kind of impacts.
+
+66
+00:07:29.390 --> 00:07:31.380
+Jitendra K: So let's say if I'm dealing with
+
+67
+00:07:31.630 --> 00:07:38.329
+Jitendra K: some simple problems, like predicting the house price. So I'm trying to determine the price of a house.
+
+68
+00:07:40.660 --> 00:07:44.480
+Jitendra K: And let's say, hypothetically, I've got 3 features to work on.
+
+69
+00:07:44.780 --> 00:07:48.199
+Jitendra K: So the three features that I'm using to determine the price of a house…
+
+70
+00:07:48.940 --> 00:07:51.990
+Jitendra K: Is the size of the house in square feet.
+
+71
+00:07:54.830 --> 00:07:56.670
+Jitendra K: The number of bedrooms?
+
+72
+00:08:06.670 --> 00:08:10.059
+Jitendra K: And the location, which is my geographical parameter.
+
+73
+00:08:10.820 --> 00:08:11.610
+Jitendra K: Right?
+
+74
+00:08:11.770 --> 00:08:19.069
+Jitendra K: Now… We start looking into very… I mean, we are beginning with very big
+
+75
+00:08:19.190 --> 00:08:21.879
+Jitendra K: Amount of data set, but with a limited feature.
+
+76
+00:08:22.080 --> 00:08:26.260
+Jitendra K: Right? We have seen that California housing data set have these many features.
+
+77
+00:08:26.480 --> 00:08:31.560
+Jitendra K: But how will you determine that these features are sufficient enough to predict the house of a price?
+
+78
+00:08:31.830 --> 00:08:36.710
+Jitendra K: So first, you will create a model, and you will say that I'm going to start with experimentation.
+
+79
+00:08:37.400 --> 00:08:40.060
+Jitendra K: And my first experimentation will yield.
+
+80
+00:08:41.090 --> 00:08:44.360
+Jitendra K: certain values of RMSEs, R-square.
+
+81
+00:08:47.650 --> 00:08:50.770
+Jitendra K: And you will see the outcome from that model.
+
+82
+00:08:51.470 --> 00:08:54.450
+Jitendra K: So, you're going to change your approach.
+
+83
+00:08:54.810 --> 00:08:58.080
+Jitendra K: And you're going to add more amount of features.
+
+84
+00:08:58.640 --> 00:09:04.110
+Jitendra K: So you would like to make more accurate prediction. You're likely to get more accurate prediction because you're writing more features.
+
+85
+00:09:04.510 --> 00:09:09.829
+Jitendra K: But what happens if you're using some of the redundant features, like wall color?
+
+86
+00:09:14.250 --> 00:09:16.340
+Jitendra K: Or maybe the curtain types.
+
+87
+00:09:23.150 --> 00:09:25.460
+Jitendra K: Or maybe the shape of a doorknob.
+
+88
+00:09:25.610 --> 00:09:34.830
+Jitendra K: the brand of kitchen sink, the type of floor tiles, garden light color, etc, etc. So these features are not very useful, right? Because…
+
+89
+00:09:35.200 --> 00:09:40.919
+Jitendra K: Even if you are adding this feature, you can create one feature out of it, the quality of your house.
+
+90
+00:09:42.760 --> 00:09:49.730
+Jitendra K: You can come… you can still consider this feature, but you can convert this feature into one feature. You can say the quality of construction.
+
+91
+00:09:50.270 --> 00:09:53.839
+Jitendra K: And that feature itself is sufficient to determine
+
+92
+00:09:53.960 --> 00:09:55.919
+Jitendra K: The price range of your house.
+
+93
+00:09:56.110 --> 00:09:59.710
+Jitendra K: But if you're feeding individual feature on a same scale.
+
+94
+00:10:00.110 --> 00:10:02.780
+Jitendra K: It will try to nullify these impacts.
+
+95
+00:10:04.220 --> 00:10:05.899
+Jitendra K: Which you're seeing on your model.
+
+96
+00:10:06.520 --> 00:10:09.120
+Jitendra K: And to avoid that, you have to reduce dimension.
+
+97
+00:10:10.660 --> 00:10:16.480
+Jitendra K: So, the idea is, what happens when you're adding more features? It is harder for your model
+
+98
+00:10:16.810 --> 00:10:18.500
+Jitendra K: To find useful pattern.
+
+99
+00:10:18.970 --> 00:10:24.770
+Jitendra K: Right? So basically, we have talked about several models, including Logitech, DCN3,
+
+100
+00:10:24.930 --> 00:10:29.690
+Jitendra K: We talked about random forest, right? So all these models are data-hungry, I agree.
+
+101
+00:10:30.090 --> 00:10:35.170
+Jitendra K: But what if, if you are using some of the features which are not even worth to train the model?
+
+102
+00:10:36.520 --> 00:10:47.930
+Jitendra K: Right? So it is very hard for a model to find useful patterns. The model will get slower as well to… I mean, in terms of time complexity and space complexity, the model will generate
+
+103
+00:10:48.140 --> 00:10:49.490
+Jitendra K: the worst result.
+
+104
+00:10:51.500 --> 00:10:54.079
+Jitendra K: And to prevent the curse of dimensionality.
+
+105
+00:10:54.360 --> 00:10:59.870
+Jitendra K: you're going to create a feature selection and feature extraction. So these are the two important techniques.
+
+106
+00:11:00.190 --> 00:11:06.450
+Jitendra K: So when we are talking about curves of dimensionality, C of R, sorry, C of D.
+
+107
+00:11:07.590 --> 00:11:09.440
+Jitendra K: You have to follow two approaches.
+
+108
+00:11:09.710 --> 00:11:11.689
+Jitendra K: One is called Feature Selection.
+
+109
+00:11:12.930 --> 00:11:15.269
+Jitendra K: The second one is called feature extraction.
+
+110
+00:11:16.010 --> 00:11:18.190
+Jitendra K: Now, when you say feature extraction.
+
+111
+00:11:18.570 --> 00:11:21.790
+Jitendra K: This is where you are going to use dimension reduction.
+
+112
+00:11:28.590 --> 00:11:33.079
+Jitendra K: Now, we will talk about the first technique, Which is called PCA.
+
+113
+00:11:34.650 --> 00:11:43.419
+Jitendra K: Now, as you know, PCA stands for Principal Component Analysis. Now, when I say Principal Component Analysis, it is an important technique
+
+114
+00:11:43.900 --> 00:11:48.329
+Jitendra K: That will allow you to project your data into an orthogonal matrix.
+
+115
+00:11:49.050 --> 00:11:55.570
+Jitendra K: Now, when I say orthogonally projection of your data, what is… Exactly, we are doing.
+
+116
+00:11:56.120 --> 00:12:01.359
+Jitendra K: So basically, when you're projecting your data on a high-dimensional space, Something like this.
+
+117
+00:12:04.390 --> 00:12:07.890
+Jitendra K: You're bound to generate two important insights.
+
+118
+00:12:08.480 --> 00:12:15.790
+Jitendra K: One is, you can explain the variance of your data in the direction of the Maximum coverage.
+
+119
+00:12:16.860 --> 00:12:26.820
+Jitendra K: And that will become your PC1. So when you're explaining your variance of your data, so this is the variance of the data, this is your spreadness of your data. So if you take this point to this point.
+
+120
+00:12:27.210 --> 00:12:29.950
+Jitendra K: This is where I can able to explain my maximum.
+
+121
+00:12:30.720 --> 00:12:37.890
+Jitendra K: spreadness of my data. If I'm going to create a perfect bell-shaped curve, something like this, I will get…
+
+122
+00:12:38.390 --> 00:12:42.309
+Jitendra K: The maximum spreadness covered within this axis.
+
+123
+00:12:43.300 --> 00:12:47.750
+Jitendra K: And when I'm covering the maximum spreadness across this axis.
+
+124
+00:12:48.240 --> 00:12:50.830
+Jitendra K: I will say that I'm explaining my sigma.
+
+125
+00:12:52.590 --> 00:12:54.150
+Jitendra K: or sigma squared.
+
+126
+00:12:57.200 --> 00:13:03.780
+Jitendra K: So what PCA will be able to do is, it is trying to find a direction of maximum variance.
+
+127
+00:13:05.850 --> 00:13:08.959
+Jitendra K: So PCS stands for Principal Component Analysis.
+
+128
+00:13:09.240 --> 00:13:15.270
+Jitendra K: And it is an unsupervised learning algorithm. Remember this point? This is an unsupervised learning algorithm.
+
+129
+00:13:15.810 --> 00:13:19.349
+Jitendra K: So, try to understand your data without labels.
+
+130
+00:13:21.110 --> 00:13:25.200
+Jitendra K: And then, the idea of PCA is to project
+
+131
+00:13:26.910 --> 00:13:31.570
+Jitendra K: the data points into principal component. It can be many.
+
+132
+00:13:31.690 --> 00:13:33.929
+Jitendra K: It can go up to any extent.
+
+133
+00:13:34.590 --> 00:13:38.140
+Jitendra K: You can have P3, you can have P4, so on and so forth.
+
+134
+00:13:39.340 --> 00:13:42.590
+Jitendra K: But what I'm going to do is, I would like to select
+
+135
+00:13:42.900 --> 00:13:45.830
+Jitendra K: The combination of those principal components.
+
+136
+00:13:46.050 --> 00:13:51.589
+Jitendra K: That can able to explain me the variance up to an extent. Let's say 90%.
+
+137
+00:13:56.140 --> 00:14:00.690
+Jitendra K: Now, the important property of principal component are they are orthogonal in nature.
+
+138
+00:14:01.120 --> 00:14:07.410
+Jitendra K: That means PC1 and PC2 are orthogonal in nature. So if you are going to find PC1,
+
+139
+00:14:07.700 --> 00:14:09.190
+Jitendra K: in one direction.
+
+140
+00:14:10.000 --> 00:14:17.339
+Jitendra K: the PC2 will be 90 degree, or orthogonal to PC1. That is a property of orthogonal vectors.
+
+141
+00:14:18.030 --> 00:14:20.589
+Jitendra K: So, PCA is a very powerful technique.
+
+142
+00:14:21.120 --> 00:14:25.839
+Jitendra K: For reducing the dimension of the data, while preserving the essential information.
+
+143
+00:14:26.340 --> 00:14:31.490
+Jitendra K: So, ultimately, the goal of this algorithm Or so-called approach.
+
+144
+00:14:31.820 --> 00:14:36.780
+Jitendra K: To find the best principal component that captures the maximum variance.
+
+145
+00:14:36.940 --> 00:14:39.259
+Jitendra K: And how it is capturing the maximum variance?
+
+146
+00:14:39.530 --> 00:14:44.419
+Jitendra K: by projecting, The data point in a high-dimensional space.
+
+147
+00:14:44.630 --> 00:14:50.729
+Jitendra K: And finding the direction of maximum variance. That will reduce the square distance of these
+
+148
+00:14:51.320 --> 00:14:58.230
+Jitendra K: If you see here, I'm projecting these data points, so I would like to reduce the square distance of these red dots
+
+149
+00:14:58.560 --> 00:15:00.450
+Jitendra K: In that direction of the line.
+
+150
+00:15:00.670 --> 00:15:03.700
+Jitendra K: So, if I'm making this distance to be zero.
+
+151
+00:15:03.870 --> 00:15:07.189
+Jitendra K: That is the best possible approach.
+
+152
+00:15:09.290 --> 00:15:13.810
+Jitendra K: And ultimately, I'm trying to minimize the R-square errors, or residual errors.
+
+153
+00:15:13.910 --> 00:15:15.220
+Jitendra K: In this direction.
+
+154
+00:15:15.480 --> 00:15:19.890
+Jitendra K: So, given a data set, with M observation.
+
+155
+00:15:20.410 --> 00:15:23.080
+Jitendra K: let's say AM data points, or AM features.
+
+156
+00:15:23.320 --> 00:15:25.889
+Jitendra K: I'm reducing this to N features.
+
+157
+00:15:27.720 --> 00:15:33.490
+Jitendra K: And M can be less than, or sorry, is always greater than N.
+
+158
+00:15:36.120 --> 00:15:42.450
+Jitendra K: And the explanation of this I can fit it with a lens of variance explanation, I can say that.
+
+159
+00:15:42.570 --> 00:15:46.909
+Jitendra K: If my AM features are explaining 100% of my data points.
+
+160
+00:15:48.280 --> 00:15:51.000
+Jitendra K: So, N can be likely to be less…
+
+161
+00:15:51.100 --> 00:15:53.940
+Jitendra K: Or much, much less than this.
+
+162
+00:15:55.950 --> 00:15:56.780
+Jitendra K: Value.
+
+163
+00:15:59.280 --> 00:16:00.790
+Jitendra K: Now, the question is…
+
+164
+00:16:01.010 --> 00:16:06.419
+Jitendra K: how will we find PCA? What is the math technique to find PCA? So I think
+
+165
+00:16:06.580 --> 00:16:08.470
+Jitendra K: Concept is clear to everyone.
+
+166
+00:16:08.650 --> 00:16:11.030
+Jitendra K: how we are going to employ PCA,
+
+167
+00:16:11.690 --> 00:16:13.609
+Jitendra K: What is the concept of PCA?
+
+168
+00:16:14.020 --> 00:16:17.220
+Jitendra K: The concept of PCA is to calculate
+
+169
+00:16:17.370 --> 00:16:22.600
+Jitendra K: the M observation… to represent the M observation, and find N features.
+
+170
+00:16:24.130 --> 00:16:30.389
+Jitendra K: Right? So it is essentially a dimension reduction technique, and the goal of PC is to capture the maximum variance.
+
+171
+00:16:32.300 --> 00:16:33.110
+Jitendra K: Right?
+
+172
+00:16:33.440 --> 00:16:43.590
+Jitendra K: Now… You can also assume that what PCA does is… PCA… It's a two-step process.
+
+173
+00:16:44.920 --> 00:16:46.719
+Jitendra K: So basically what it does is…
+
+174
+00:16:47.500 --> 00:16:52.479
+Jitendra K: PCA is trying to understand your data. Which part of your data is more important?
+
+175
+00:16:55.460 --> 00:17:00.630
+Jitendra K: And then, mathematically quantify the amount of information embedded within that data.
+
+176
+00:17:02.670 --> 00:17:07.949
+Jitendra K: Right? First, it try to understand which part of your data is important.
+
+177
+00:17:08.400 --> 00:17:10.900
+Jitendra K: By projecting and rotating this vector.
+
+178
+00:17:11.800 --> 00:17:15.629
+Jitendra K: So, if I have to show you one GIF, let me show you one GIF.
+
+179
+00:17:17.760 --> 00:17:19.419
+Jitendra K: Where are you available to get?
+
+180
+00:17:20.030 --> 00:17:21.769
+Jitendra K: the idea of PCA.
+
+181
+00:17:35.910 --> 00:17:41.719
+Jitendra K: So this is how the PCA will work. You can see here, I'm creating an orthogonal matrix.
+
+182
+00:17:41.960 --> 00:17:46.669
+Jitendra K: Considering a sum of our distances from this line, along this axis.
+
+183
+00:17:46.940 --> 00:17:53.050
+Jitendra K: And then rotating this axis to find the maximum variance explanation across this line.
+
+184
+00:17:53.710 --> 00:17:59.840
+Jitendra K: And that is what PCA does for you, mathematically, or I would say, conceptually.
+
+185
+00:18:01.070 --> 00:18:06.939
+Jitendra K: So PC is a technique where you're going to find the orthogonal projection of your data points.
+
+186
+00:18:07.140 --> 00:18:13.579
+Jitendra K: And try to find a Xs which will able to explain the maximum variance across the line.
+
+187
+00:18:19.060 --> 00:18:21.720
+Jitendra K: Right? So this is what PCA does for you.
+
+188
+00:18:22.150 --> 00:18:26.310
+Jitendra K: Now, the question is how PCA works internally.
+
+189
+00:18:27.210 --> 00:18:35.350
+Jitendra K: So when we talk about reduction… reducing the data sparsity, or dimensional, or creating features which are more important.
+
+190
+00:18:35.450 --> 00:18:40.639
+Jitendra K: What are the important considerations that we should look forward to understand?
+
+191
+00:18:41.120 --> 00:18:43.100
+Jitendra K: the PCA technique.
+
+192
+00:18:43.520 --> 00:18:45.909
+Jitendra K: So, PCA is a 5-step technique.
+
+193
+00:18:46.170 --> 00:18:49.659
+Jitendra K: So the steps in PCA comprise of 5 major steps.
+
+194
+00:19:00.610 --> 00:19:05.239
+Jitendra K: So the first step is… We are going to standardize your data.
+
+195
+00:19:06.020 --> 00:19:08.430
+Jitendra K: That means you are going to scale your data.
+
+196
+00:19:09.230 --> 00:19:15.400
+Jitendra K: That means you're going to normalize your data. When you're normalizing your data at a scale, your mean…
+
+197
+00:19:16.050 --> 00:19:18.210
+Jitendra K: Of your data point will become zero.
+
+198
+00:19:18.460 --> 00:19:20.650
+Jitendra K: And standard deviation will become 1.
+
+199
+00:19:21.950 --> 00:19:26.350
+Jitendra K: Right, so you can use scaling technique to convert your data points into a similar scale.
+
+200
+00:19:27.240 --> 00:19:31.629
+Jitendra K: Second and the most important aspect is we are going to use some linear algebra technique.
+
+201
+00:19:32.920 --> 00:19:36.900
+Jitendra K: So the first technique that we're going to use is called covariance matrix.
+
+202
+00:19:45.330 --> 00:19:54.520
+Jitendra K: Third technique you are going to employ is calculating the eigenvalues and eigenvectors.
+
+203
+00:19:59.060 --> 00:20:03.410
+Jitendra K: Fourth is, you're going to select the principal component.
+
+204
+00:20:04.410 --> 00:20:06.890
+Jitendra K: Which will explain the maximum variance.
+
+205
+00:20:10.390 --> 00:20:14.859
+Jitendra K: Fifth is… We're going to project.
+
+206
+00:20:16.710 --> 00:20:18.569
+Jitendra K: the orthogonal vectors.
+
+207
+00:20:20.050 --> 00:20:21.430
+Jitendra K: To find more.
+
+208
+00:20:22.380 --> 00:20:23.380
+Jitendra K: Solution.
+
+209
+00:20:27.540 --> 00:20:31.229
+Jitendra K: So these are the five steps that we are going to utilize inside PCA.
+
+210
+00:20:31.740 --> 00:20:37.939
+Jitendra K: Now, let me explain what these techniques is all about. When you're computing the covariance of a matrix.
+
+211
+00:20:38.520 --> 00:20:42.589
+Jitendra K: So this will capture how feature varies together, covariance.
+
+212
+00:20:43.170 --> 00:20:44.420
+Jitendra K: Togetherness.
+
+213
+00:20:45.600 --> 00:20:54.240
+Jitendra K: When you're computing the eigenvalues and eigenvectors, eigenvalues represent the direction of the greatest variance. The vector is a directional
+
+214
+00:20:54.820 --> 00:21:06.490
+Jitendra K: And having a magnitude as well. So eigenvector represents a direction of the greatest variance, and eigenvalue will tell you how much variance each eigenvalues explain… sorry, eigenvectors explain.
+
+215
+00:21:06.790 --> 00:21:09.609
+Jitendra K: That means it is giving you the value of that.
+
+216
+00:21:10.800 --> 00:21:12.340
+Jitendra K: variance explanation.
+
+217
+00:21:14.160 --> 00:21:19.770
+Jitendra K: We are going to talk about, the seed parameter of PCA, which is called K.
+
+218
+00:21:20.320 --> 00:21:22.669
+Jitendra K: Sorry. So, which is called K.
+
+219
+00:21:23.510 --> 00:21:29.759
+Jitendra K: I'm going to use this parameter to identify how many principal components that we would like to choose.
+
+220
+00:21:31.860 --> 00:21:33.330
+Jitendra K: So we'll talk about this.
+
+221
+00:21:33.570 --> 00:21:41.089
+Jitendra K: And the projection, as I mentioned, projecting the original data onto a new feature subspace, Formed by the eigenvectors.
+
+222
+00:21:41.220 --> 00:21:45.449
+Jitendra K: Or projecting the origin data points onto a new principal component axis.
+
+223
+00:21:47.500 --> 00:21:52.539
+Jitendra K: Now, let's try to understand what is covariance and correlation.
+
+224
+00:21:53.240 --> 00:22:00.379
+Jitendra K: So this is very important, because if you do not understand covariance versus correlation, you will not be able to understand PCA.
+
+225
+00:22:01.060 --> 00:22:05.300
+Jitendra K: Now… If I have to explain you in a very simple term.
+
+226
+00:22:09.500 --> 00:22:16.020
+Jitendra K: covariance… the formulas, I will write down the formulas, and then probably…
+
+227
+00:22:18.620 --> 00:22:21.560
+Jitendra K: So this is the formula for covariance and
+
+228
+00:22:23.150 --> 00:22:25.040
+Jitendra K: This is the formula for covariance.
+
+229
+00:22:25.540 --> 00:22:28.300
+Jitendra K: Now, when we talk about covariance.
+
+230
+00:22:28.950 --> 00:22:31.850
+Jitendra K: you can see, I'm talking about
+
+231
+00:22:32.140 --> 00:22:37.589
+Jitendra K: How strong the relation… Sorry, what are the… Direction of relationship.
+
+232
+00:22:37.790 --> 00:22:39.649
+Jitendra K: So here, I'm talking about a direction.
+
+233
+00:22:40.090 --> 00:22:46.799
+Jitendra K: So, covariance will not tell you how strong the relationship is. It will still give you some sort of intuition.
+
+234
+00:22:46.950 --> 00:22:48.660
+Jitendra K: What is the direction of?
+
+235
+00:22:48.800 --> 00:22:52.460
+Jitendra K: relationship. Is it positive, negative, zero?
+
+236
+00:22:53.350 --> 00:23:03.109
+Jitendra K: So if covariance is positive, That means one quantity acts… If it is decreasing.
+
+237
+00:23:03.610 --> 00:23:06.900
+Jitendra K: the dependent quantity Y will also decrease.
+
+238
+00:23:08.600 --> 00:23:12.740
+Jitendra K: If it is increasing, It will increase.
+
+239
+00:23:13.850 --> 00:23:17.279
+Jitendra K: Which is positively correlated. Let's say, age and height.
+
+240
+00:23:18.010 --> 00:23:22.639
+Jitendra K: The covariance between age and height for normal human beings are positive.
+
+241
+00:23:24.010 --> 00:23:25.790
+Jitendra K: Negative correlation.
+
+242
+00:23:29.180 --> 00:23:33.360
+Jitendra K: If X is decreasing, Y will increase.
+
+243
+00:23:35.970 --> 00:23:39.039
+Jitendra K: Number of sugar intake versus obesity level.
+
+244
+00:23:39.880 --> 00:23:43.500
+Jitendra K: If you're increasing the sh… sorry, number of,
+
+245
+00:23:44.770 --> 00:23:50.750
+Jitendra K: Healthy hours that you're spending on exercise will decrease the chances of getting diabetes, or…
+
+246
+00:23:51.320 --> 00:23:55.299
+Jitendra K: the, the unaided diseases, right? If you're taking
+
+247
+00:23:56.770 --> 00:24:01.620
+Jitendra K: Medicines on time, you will reduce the amount of risk of diseases.
+
+248
+00:24:02.390 --> 00:24:06.100
+Jitendra K: If you're decreasing the weight, you will reduce the risk of heart attack.
+
+249
+00:24:07.190 --> 00:24:11.490
+Jitendra K: Right? So these are covariants, which are negatively correlated. One quantity.
+
+250
+00:24:12.050 --> 00:24:15.550
+Jitendra K: Will increase, and the dependent quantity will decrease.
+
+251
+00:24:18.550 --> 00:24:23.939
+Jitendra K: There's covariance of 0 also exists, so if a covariance is zero, or close to 0,
+
+252
+00:24:24.120 --> 00:24:27.489
+Jitendra K: That means there's no linear relationship between X and Y.
+
+253
+00:24:29.120 --> 00:24:31.139
+Jitendra K: There's no relationship at all.
+
+254
+00:24:31.520 --> 00:24:37.340
+Jitendra K: So I can completely ignore that these two quantities are… Not even linear.
+
+255
+00:24:40.570 --> 00:24:43.910
+Jitendra K: It could be, like, salary of a person versus age.
+
+256
+00:24:44.800 --> 00:24:46.709
+Jitendra K: There's no dependency, right?
+
+257
+00:24:47.540 --> 00:24:51.850
+Jitendra K: Even YouTubers are getting more salary than our data scientists.
+
+258
+00:24:53.620 --> 00:24:57.420
+Jitendra K: So there is no such correlation exists, or covariance exist.
+
+259
+00:24:57.860 --> 00:25:01.070
+Jitendra K: So this is what covariance does.
+
+260
+00:25:01.630 --> 00:25:04.080
+Jitendra K: Now, when you talk about correlation.
+
+261
+00:25:06.220 --> 00:25:09.470
+Jitendra K: So, correlation talks about the strength of relationship.
+
+262
+00:25:10.150 --> 00:25:15.009
+Jitendra K: So, in a nutshell, There's a formula called Pearson Correlation coefficient.
+
+263
+00:25:16.310 --> 00:25:22.239
+Jitendra K: And that formula… Uses the calculation of covariance
+
+264
+00:25:22.500 --> 00:25:26.139
+Jitendra K: That is the strength of relationship, or I would say direction of relationship.
+
+265
+00:25:26.260 --> 00:25:32.700
+Jitendra K: Magnitude of relationship into consideration by taking a ratio of their respective sigmas.
+
+266
+00:25:33.430 --> 00:25:35.250
+Jitendra K: And that is called correlation.
+
+267
+00:25:37.390 --> 00:25:42.049
+Jitendra K: Now, you can assume correlation, As a strength, a slope.
+
+268
+00:25:45.210 --> 00:25:51.309
+Jitendra K: Right? So, correlation talks about The strength of relationship.
+
+269
+00:25:54.280 --> 00:25:59.149
+Jitendra K: Now, when I say strength of relationship, it can be positive, but in which range?
+
+270
+00:25:59.440 --> 00:26:02.130
+Jitendra K: Is it 0.5, 0.6?
+
+271
+00:26:02.940 --> 00:26:04.850
+Jitendra K: 0.7, 0.8.
+
+272
+00:26:05.220 --> 00:26:08.660
+Jitendra K: highly correlated. We have seen a lot of heat maps.
+
+273
+00:26:09.000 --> 00:26:11.129
+Jitendra K: Where we're calculating the correlation.
+
+274
+00:26:11.910 --> 00:26:15.439
+Jitendra K: Now, when you say correlation between the two variables, we are looking for an impact.
+
+275
+00:26:16.570 --> 00:26:21.609
+Jitendra K: Let's say, if you're acquiring a skill, what is the impact on your salaries?
+
+276
+00:26:24.090 --> 00:26:32.430
+Jitendra K: Right? If you are becoming good in DSA, data structures and algorithm, or system design, or machine learning, or full stack, or…
+
+277
+00:26:32.910 --> 00:26:35.790
+Jitendra K: AI, or Gen AI, or agentic AI,
+
+278
+00:26:35.960 --> 00:26:40.619
+Jitendra K: So, it depends, right? What kind of skills you are having, what is the experience you're having.
+
+279
+00:26:42.310 --> 00:26:46.029
+Jitendra K: Even the college pressures, are getting…
+
+280
+00:26:46.390 --> 00:26:49.310
+Jitendra K: CR packages these days, because of their skills.
+
+281
+00:26:50.120 --> 00:26:50.940
+Jitendra K: Right?
+
+282
+00:26:51.310 --> 00:26:56.450
+Jitendra K: So the idea is the correlation will be able to identify the magnitude of relationship.
+
+283
+00:26:59.670 --> 00:27:03.360
+Jitendra K: So, magnitude of relationship will determine Bye.
+
+284
+00:27:03.650 --> 00:27:09.499
+Jitendra K: Utilizing the strength of relationship in a scale of 0 to 1, which is a probabilical scale.
+
+285
+00:27:11.620 --> 00:27:17.260
+Jitendra K: So this is what we are going to do with the help of PCA. So we'll try to find it out.
+
+286
+00:27:17.490 --> 00:27:21.769
+Jitendra K: these things with the help of PCA. PCA will be able to give us
+
+287
+00:27:22.080 --> 00:27:28.479
+Jitendra K: A kind of a mathematical framework to understand And compute a covariance.
+
+288
+00:27:28.660 --> 00:27:31.240
+Jitendra K: And it captures how the feature varies together.
+
+289
+00:27:32.650 --> 00:27:46.370
+Jitendra K: And it is decomposing those calculations by computing the eigenvalues and eigenvectors. So eigenvectors represent the direction of the greatest variance, and eigenvalues tell you how much the variance each eigenvectors explain.
+
+290
+00:27:46.740 --> 00:27:50.390
+Jitendra K: And accordingly, you will select the direction of principal component.
+
+291
+00:27:58.830 --> 00:28:04.070
+Jitendra K: Is it clear to everyone? Is the mathematical foundations clear to everyone?
+
+292
+00:28:28.360 --> 00:28:29.300
+Jitendra K: Alright?
+
+293
+00:28:29.770 --> 00:28:41.529
+Jitendra K: So… let me take a deep dive into the eigenvectors and eigenvalues. So, first try to understand what is… why we are calculating eigenvalues and eigenvectors. And what are we trying to solve?
+
+294
+00:28:42.740 --> 00:28:45.899
+Jitendra K: So, if I have to talk about mathematics.
+
+295
+00:28:48.500 --> 00:28:52.150
+Jitendra K: So you must have done something in your 11th class.
+
+296
+00:28:53.360 --> 00:29:00.130
+Jitendra K: Okay, so gaining some… Queries, we don't need to memorize the formula.
+
+297
+00:29:02.280 --> 00:29:05.919
+Jitendra K: Yes, you needed to, you needed to…
+
+298
+00:29:06.060 --> 00:29:08.639
+Jitendra K: Maximize the formula, or memorize the formula.
+
+299
+00:29:09.160 --> 00:29:13.450
+Jitendra K: You just need to understand the concept, and apply the concept using Python.
+
+300
+00:29:13.810 --> 00:29:18.319
+Jitendra K: So the package is already built in, so we will use that package to create PCA.
+
+301
+00:29:18.550 --> 00:29:22.529
+Jitendra K: But if you have to explain to your interviewer, your…
+
+302
+00:29:23.220 --> 00:29:26.379
+Jitendra K: Project managers in a drawing board, whiteboard.
+
+303
+00:29:26.550 --> 00:29:30.880
+Jitendra K: So these concepts will be useful, right? Because you should know what PCA does.
+
+304
+00:29:32.460 --> 00:29:35.459
+Jitendra K: So basically, the mathematical derivation of PCA
+
+305
+00:29:35.820 --> 00:29:39.840
+Jitendra K: Need a strong foundation on eigenvalues and eigenvectors.
+
+306
+00:29:47.800 --> 00:29:50.249
+Jitendra K: Now, what is these two terms?
+
+307
+00:29:54.810 --> 00:29:57.390
+Jitendra K: One looks scalar to me, one looks vector to me.
+
+308
+00:29:58.310 --> 00:30:04.539
+Jitendra K: So basically, we are trying to project this concept with the help of a square matrix.
+
+309
+00:30:04.920 --> 00:30:09.450
+Jitendra K: A square matrix will have… N cross N.
+
+310
+00:30:10.680 --> 00:30:15.529
+Jitendra K: data points. That means your rows and columns will be the same. If you're having two rows.
+
+311
+00:30:16.220 --> 00:30:19.720
+Jitendra K: It will have two columns. Two rows, two columns. Two across two.
+
+312
+00:30:20.520 --> 00:30:21.830
+Jitendra K: 4 rows…
+
+313
+00:30:26.330 --> 00:30:28.230
+Jitendra K: 4 column. 4 cross 4.
+
+314
+00:30:28.460 --> 00:30:30.780
+Jitendra K: It's gonna be 6 cross 6, 8 cross 8.
+
+315
+00:30:31.310 --> 00:30:38.500
+Jitendra K: So, this is where you're going to use square metrics, right? Now, for a square matrix, let's assume that it is A.
+
+316
+00:30:43.240 --> 00:30:46.789
+Jitendra K: an eigenvalue which is V.
+
+317
+00:30:47.430 --> 00:30:53.210
+Jitendra K: an eigen… Sorry, eigenvector and eigenvalue, which is V and lambda.
+
+318
+00:30:53.560 --> 00:31:05.299
+Jitendra K: should satisfy this equation. A is equal to… or AV, is equals to… lambda times V.
+
+319
+00:31:09.140 --> 00:31:11.259
+Jitendra K: Now, this is your equation of…
+
+320
+00:31:18.630 --> 00:31:20.239
+Jitendra K: Identity metrics.
+
+321
+00:31:23.550 --> 00:31:27.430
+Jitendra K: Now, this means that when I'm at text A, transform.
+
+322
+00:31:27.870 --> 00:31:33.740
+Jitendra K: using vector V, The result, B, is scaled by lambda.
+
+323
+00:31:34.600 --> 00:31:36.799
+Jitendra K: The direction of V does not change.
+
+324
+00:31:38.030 --> 00:31:41.180
+Jitendra K: But a magnitude is a multiplicative nature.
+
+325
+00:31:42.590 --> 00:31:50.520
+Jitendra K: So, that means… Eigenvalues and eigenvectors R…
+
+326
+00:31:52.350 --> 00:31:55.080
+Jitendra K: Typically are two components of each other.
+
+327
+00:31:59.780 --> 00:32:01.060
+Jitendra K: Now, let's say…
+
+328
+00:32:16.280 --> 00:32:18.439
+Jitendra K: Let me show you the demo for that.
+
+329
+00:32:36.500 --> 00:32:38.930
+Jitendra K: Okay, let me run this in TXX.
+
+330
+00:33:56.790 --> 00:34:00.740
+Jitendra K: Okay, anyways, let me quickly switch between this.
+
+331
+00:34:04.430 --> 00:34:07.759
+Jitendra K: Okay, so let's assume that you have got some data points.
+
+332
+00:34:07.910 --> 00:34:12.909
+Jitendra K: So imagine that you are working on a two-dimensional data, right? So you have got a data point which is…
+
+333
+00:34:14.929 --> 00:34:16.959
+Jitendra K: in x-axis and Y axis.
+
+334
+00:34:17.460 --> 00:34:18.230
+Jitendra K: Right?
+
+335
+00:34:19.710 --> 00:34:25.379
+Jitendra K: So these data points could be, let's say, any range. I'm just using a random data points.
+
+336
+00:34:25.600 --> 00:34:27.309
+Jitendra K: So these are your data points.
+
+337
+00:34:28.000 --> 00:34:30.589
+Jitendra K: And this data point belongs to a certain scale.
+
+338
+00:34:32.620 --> 00:34:34.000
+Jitendra K: on x-axis.
+
+339
+00:34:34.219 --> 00:34:37.949
+Jitendra K: And some… Values on y-axis.
+
+340
+00:34:39.940 --> 00:34:46.320
+Jitendra K: Now… If I have to find out a correlation between X and Y, Right?
+
+341
+00:34:46.620 --> 00:34:53.059
+Jitendra K: So the key thing that I would like to explore is… I would like to find it out
+
+342
+00:34:56.330 --> 00:34:57.920
+Jitendra K: the data mean.
+
+343
+00:34:58.400 --> 00:35:05.469
+Jitendra K: somewhere in the mid. So I will say I have a data mean, that means the median value, the mean value of my data points.
+
+344
+00:35:05.890 --> 00:35:12.339
+Jitendra K: And after centering the data, I will try to calculate the covariance metrics that will capture
+
+345
+00:35:12.710 --> 00:35:14.800
+Jitendra K: The relationship between this dimension.
+
+346
+00:35:16.170 --> 00:35:24.210
+Jitendra K: So, for our data point, mathematically, what I'm trying to do is… I would like to represent… my equation…
+
+347
+00:35:29.620 --> 00:35:34.910
+Jitendra K: V… which is equals to lambda V.
+
+348
+00:35:36.080 --> 00:35:45.830
+Jitendra K: as determinant of… A minus… Lambda identity matrix.
+
+349
+00:35:46.270 --> 00:35:47.800
+Jitendra K: Which is equals to zero.
+
+350
+00:35:49.470 --> 00:35:53.700
+Jitendra K: So, if I'm going to find out the projection, or a variance across.
+
+351
+00:35:55.080 --> 00:36:00.229
+Jitendra K: PCI, or I would say I can change this to PC1.
+
+352
+00:36:00.520 --> 00:36:06.480
+Jitendra K: But let it be I. This will be directly proportional to the Magnitude of my strength.
+
+353
+00:36:09.800 --> 00:36:11.880
+Jitendra K: So this is the variance explanation.
+
+354
+00:36:12.220 --> 00:36:14.710
+Jitendra K: If I'm looking for a standard deviation.
+
+355
+00:36:15.740 --> 00:36:21.910
+Jitendra K: This will be directly proportional to… X times… V05.
+
+356
+00:36:25.570 --> 00:36:34.260
+Jitendra K: Now, the idea is very simple. So, when you're… using the principal component Along these lines.
+
+357
+00:36:34.700 --> 00:36:36.889
+Jitendra K: You're trying to find too many solutions.
+
+358
+00:36:37.190 --> 00:36:41.540
+Jitendra K: So it's like a linear regression you're running, right? Where you're trying to find a best fit line.
+
+359
+00:36:41.850 --> 00:36:49.469
+Jitendra K: This will also run like a linear regression, where you're trying to find infinite money solution by rotating this plane across these projections.
+
+360
+00:36:49.810 --> 00:36:53.150
+Jitendra K: But a plane, where you're getting the errors.
+
+361
+00:36:54.270 --> 00:36:59.159
+Jitendra K: Because remember, there is no label data associated with this, so there's no right and wrong answer.
+
+362
+00:36:59.320 --> 00:37:04.310
+Jitendra K: But here, I'm talking about the various variants explanation across the line.
+
+363
+00:37:04.910 --> 00:37:06.180
+Jitendra K: data points.
+
+364
+00:37:06.570 --> 00:37:12.970
+Jitendra K: So that kind of explanation will be done by subtracting the mean from each feature.
+
+365
+00:37:13.120 --> 00:37:16.380
+Jitendra K: And measure how much feature varies together.
+
+366
+00:37:17.650 --> 00:37:20.590
+Jitendra K: So the features are varies… varying together.
+
+367
+00:37:22.080 --> 00:37:25.019
+Jitendra K: That means they are highly correlated in nature.
+
+368
+00:37:25.970 --> 00:37:31.359
+Jitendra K: So I would like to find out the eigenvalues and eigenvectors, and sort by eigenvalue magnitude.
+
+369
+00:37:31.750 --> 00:37:36.629
+Jitendra K: So I would say the latest eigenvalue will be the most variance explained by the model.
+
+370
+00:37:37.030 --> 00:37:42.020
+Jitendra K: And that eigenvalue I will consider to be… the principal component.
+
+371
+00:37:46.260 --> 00:37:47.050
+Jitendra K: Right?
+
+372
+00:37:47.290 --> 00:37:52.700
+Jitendra K: So remember, let's say if I'm going to solve this equation, I have a matrix A,
+
+373
+00:37:53.640 --> 00:37:57.360
+Jitendra K: Which comprise of 4 data points. Let's make it very simple.
+
+374
+00:37:58.670 --> 00:38:04.080
+Jitendra K: I've got… 4, 2… 2, 3.
+
+375
+00:38:04.900 --> 00:38:07.560
+Jitendra K: Which is 2 cross 2 square matrix.
+
+376
+00:38:07.950 --> 00:38:21.689
+Jitendra K: If I'm taking a determinant of this matrix, Or determinant of… A minus… lambda… identity metrics.
+
+377
+00:38:22.180 --> 00:38:24.450
+Jitendra K: It will be represented by a zero.
+
+378
+00:38:24.750 --> 00:38:32.229
+Jitendra K: So I will say 4 minus lambda, Into 3 minus lambda.
+
+379
+00:38:33.300 --> 00:38:35.280
+Jitendra K: Which is this diagonal matrix.
+
+380
+00:38:36.760 --> 00:38:40.870
+Jitendra K: minus 4… Will be equal to 0.
+
+381
+00:38:41.710 --> 00:38:44.630
+Jitendra K: So if I'm solving this equation, I will get two solutions.
+
+382
+00:38:51.010 --> 00:38:53.350
+Jitendra K: And these two solutions could be lambda 1,
+
+383
+00:38:54.440 --> 00:38:57.889
+Jitendra K: Some… some value, 5.56, let's say.
+
+384
+00:38:58.150 --> 00:39:02.140
+Jitendra K: And lambda 2, which is 1.444.
+
+385
+00:39:02.390 --> 00:39:04.960
+Jitendra K: So these two things that I'm getting.
+
+386
+00:39:05.320 --> 00:39:08.170
+Jitendra K: It's nothing but my principal component solution.
+
+387
+00:39:09.070 --> 00:39:12.660
+Jitendra K: So I can see that PC1 captured the most of the variants.
+
+388
+00:39:12.790 --> 00:39:16.060
+Jitendra K: And I will keep this as a first principle component.
+
+389
+00:39:16.580 --> 00:39:24.059
+Jitendra K: So by keeping the vectors, or eigenvector with the largest eigenvalue, you preserve the most information while reducing the dimension of your data.
+
+390
+00:39:24.390 --> 00:39:28.890
+Jitendra K: And that is what you are going to solve with the help of principal component analysis.
+
+391
+00:39:29.570 --> 00:39:36.150
+Jitendra K: Now, principal component analysis is a five-step process. The first step is… You're going to find out
+
+392
+00:39:39.350 --> 00:39:44.240
+Jitendra K: The covariance in step number 2 after scaling the features.
+
+393
+00:39:44.960 --> 00:39:50.389
+Jitendra K: You are going to decompose your covariance matrix into eigenvalues and eigenvectors.
+
+394
+00:39:51.800 --> 00:39:55.709
+Jitendra K: And you're going to pick up the maximum value of eigen.
+
+395
+00:39:56.540 --> 00:40:00.790
+Jitendra K: Which can explain the maximum direction of your variance automatically.
+
+396
+00:40:01.540 --> 00:40:05.709
+Jitendra K: And that is what we are going to do with the help of principal component analysis.
+
+397
+00:40:06.360 --> 00:40:13.229
+Jitendra K: And we will select the value which will able to maximize the variance across the direction of the projection.
+
+398
+00:40:15.200 --> 00:40:20.779
+Jitendra K: So, is it clear to everyone now what Principal Component does in a nutshell?
+
+399
+00:40:21.210 --> 00:40:25.920
+Jitendra K: What is the use of principal component, and how it is working?
+
+400
+00:40:29.680 --> 00:40:34.880
+Jitendra K: We will revisit the step, the five steps that we have chosen with an example.
+
+401
+00:40:35.170 --> 00:40:40.959
+Jitendra K: But is it clear to everyone, the concept-wise, like, what are we going to do inside PC?
+
+402
+00:40:43.930 --> 00:40:46.320
+Jitendra K: What are eigenvalues and eigenvectors?
+
+403
+00:40:52.110 --> 00:40:56.520
+Jitendra K: So how will you choose only the n highest? Okay, so we'll talk about that part.
+
+404
+00:40:56.800 --> 00:41:00.719
+Jitendra K: So once we say that, I have got… 5 principal components.
+
+405
+00:41:01.820 --> 00:41:07.320
+Jitendra K: If I'm saying I've got 5 principal components, PC1, PC2.
+
+406
+00:41:08.600 --> 00:41:15.570
+Jitendra K: I would like to find out the cumulative Impact… on variants.
+
+407
+00:41:16.910 --> 00:41:18.870
+Jitendra K: Right? So let's say you're getting…
+
+408
+00:41:18.990 --> 00:41:21.559
+Jitendra K: five principal components. Hypothetically, I'm saying.
+
+409
+00:41:22.870 --> 00:41:29.080
+Jitendra K: So, you're trying to solve… Some problem, and you've got 5 principal components.
+
+410
+00:41:30.570 --> 00:41:36.439
+Jitendra K: So these five principal components will last like this. First principal component able to explain 90% of your variance.
+
+411
+00:41:37.170 --> 00:41:40.920
+Jitendra K: Second is able to explain, let's say, 7%.
+
+412
+00:41:42.840 --> 00:41:45.360
+Jitendra K: Third is able to explain 1%.
+
+413
+00:41:46.020 --> 00:41:50.149
+Jitendra K: 4 is able to explain this, okay, let it be 2%.
+
+414
+00:41:50.590 --> 00:41:52.559
+Jitendra K: This is becoming 99.
+
+415
+00:41:53.200 --> 00:41:56.340
+Jitendra K: then I will say 0.7.
+
+416
+00:41:56.630 --> 00:42:05.250
+Jitendra K: and 0.3. But together, If you're calculating these data points, You will get 100%.
+
+417
+00:42:05.370 --> 00:42:07.480
+Jitendra K: Variance explained by the algorithm.
+
+418
+00:42:08.900 --> 00:42:13.619
+Jitendra K: 100%, right? Because if you're adding all the principal component, you're saying that
+
+419
+00:42:13.840 --> 00:42:20.479
+Jitendra K: My algorithm will be able to explain all the principal component together, if I'm adding all the principal component together.
+
+420
+00:42:20.760 --> 00:42:27.339
+Jitendra K: My algorithm or my data point will be able to explain 100% of my variance in my data, which is pretty natural, right?
+
+421
+00:42:28.080 --> 00:42:31.050
+Jitendra K: Now… Now, this is where the…
+
+422
+00:42:32.710 --> 00:42:37.240
+Jitendra K: Yeah, this is what I'm trying to explain. We'll, we'll see with an example.
+
+423
+00:42:37.580 --> 00:42:43.710
+Jitendra K: So now, the question is, Shall I consider 97% of our variance?
+
+424
+00:42:45.780 --> 00:42:51.489
+Jitendra K: If I'm considering 97% of the variance, how many data points I'm left to… I'm keeping?
+
+425
+00:42:51.620 --> 00:42:52.940
+Jitendra K: As a leftover.
+
+426
+00:42:54.760 --> 00:42:57.100
+Jitendra K: So, can I say that I'm reducing
+
+427
+00:42:57.490 --> 00:43:00.729
+Jitendra K: My data point with 3 principal components.
+
+428
+00:43:01.120 --> 00:43:07.980
+Jitendra K: Maybe I can represent this data component by saying that I'm reducing 30% of my data points.
+
+429
+00:43:11.180 --> 00:43:16.019
+Jitendra K: Or maybe 20% of my data points. That depends, we'll see how to interpret this outcome.
+
+430
+00:43:16.380 --> 00:43:18.020
+Jitendra K: How many data points we have.
+
+431
+00:43:19.110 --> 00:43:21.020
+Jitendra K: Removing from the original.
+
+432
+00:43:21.750 --> 00:43:27.739
+Jitendra K: So if my 70% of my data is able to explain 97% of the variance.
+
+433
+00:43:28.390 --> 00:43:29.679
+Jitendra K: That is what I need.
+
+434
+00:43:29.960 --> 00:43:35.239
+Jitendra K: So I should not focus on the remaining 30% of my data, and I will reduce the data points
+
+435
+00:43:35.500 --> 00:43:41.269
+Jitendra K: By saying that, I'm good with 70% of my data, which explains 97% of the variance.
+
+436
+00:43:44.050 --> 00:43:48.899
+Jitendra K: Right? So I will remove these 30 data points, 30% data points from the equation.
+
+437
+00:43:49.080 --> 00:43:50.229
+Jitendra K: on my model.
+
+438
+00:43:50.670 --> 00:43:53.870
+Jitendra K: So I'm reducing my data by 30%.
+
+439
+00:43:54.340 --> 00:44:02.010
+Jitendra K: And… without losing too much quality on the explanation of the variance part. 3% degradation is okay.
+
+440
+00:44:05.860 --> 00:44:12.270
+Jitendra K: Now, the question is, what are the steps that we require to understand how PCA works internally?
+
+441
+00:44:13.790 --> 00:44:24.699
+Jitendra K: No, 30% sample reduced from only one feature, right? Yes. So here we are talking about togetherness, but it will not explain which feature has been reduced. That's why it is unsupervised.
+
+442
+00:44:25.560 --> 00:44:28.659
+Jitendra K: But were you able to find out a way to explain this?
+
+443
+00:44:29.090 --> 00:44:30.399
+Jitendra K: At a feature level.
+
+444
+00:44:33.570 --> 00:44:39.260
+Jitendra K: So the step number one that we are taking is… Standardization.
+
+445
+00:44:41.160 --> 00:44:43.090
+Jitendra K: So when I say standard variation.
+
+446
+00:44:43.590 --> 00:44:46.700
+Jitendra K: The best technique that you're going to use is a Zscaler.
+
+447
+00:44:47.570 --> 00:44:49.630
+Jitendra K: So I would say I would like to find out
+
+448
+00:44:50.190 --> 00:44:53.470
+Jitendra K: The exact transformation of my data point
+
+449
+00:44:54.230 --> 00:44:59.220
+Jitendra K: By understanding the deviation away from the mean, Divide by sigma.
+
+450
+00:45:00.050 --> 00:45:05.990
+Jitendra K: So, I'm trying to create a different feature, which may have different unit and scale.
+
+451
+00:45:06.360 --> 00:45:14.659
+Jitendra K: For example, salary versus age. Salary can go up to any number. Age can go up to 100 for normal human being.
+
+452
+00:45:15.730 --> 00:45:20.339
+Jitendra K: Right? So this is the mean of my data point, and the standard deviation.
+
+453
+00:45:20.710 --> 00:45:23.469
+Jitendra K: So if I'm getting a mean independent features.
+
+454
+00:45:23.690 --> 00:45:34.030
+Jitendra K: and the standard deviation of independent feature, I would like to make sure that my… all the features are following in the same scale. That means their scale are diff… not… should not be different.
+
+455
+00:45:35.170 --> 00:45:37.660
+Jitendra K: Step number two that I'm going to do is…
+
+456
+00:45:42.280 --> 00:45:44.749
+Jitendra K: I would like to calculate the covariance.
+
+457
+00:45:44.880 --> 00:45:48.200
+Jitendra K: So, covariance talks about togetherness of the features.
+
+458
+00:45:48.700 --> 00:45:51.880
+Jitendra K: So when I say covariance of X1 with X2,
+
+459
+00:45:53.470 --> 00:46:01.450
+Jitendra K: X1 with X2. Similarly, I will find a covariance between X2 and X3.
+
+460
+00:46:05.080 --> 00:46:11.860
+Jitendra K: Or maybe if I'm having… data points, I can able to project them in this scale.
+
+461
+00:46:12.000 --> 00:46:14.269
+Jitendra K: The covariance of X1 and X2
+
+462
+00:46:14.760 --> 00:46:19.079
+Jitendra K: Will we break down into this formula? I will say, this is nothing but.
+
+463
+00:46:19.950 --> 00:46:26.970
+Jitendra K: This is X1 minus… X1 prime.
+
+464
+00:46:29.770 --> 00:46:34.890
+Jitendra K: multiply by X2 minus… X2 prime.
+
+465
+00:46:36.570 --> 00:46:38.670
+Jitendra K: Divide by N minus 1.
+
+466
+00:46:40.970 --> 00:46:46.750
+Jitendra K: And this… integration will from… will be from i is equal to 1, 2, and…
+
+467
+00:46:48.620 --> 00:46:54.999
+Jitendra K: So where X prime and X2' are the mean value of the features. So here we are talking about individual features.
+
+468
+00:46:55.890 --> 00:46:58.890
+Jitendra K: And their togetherness by multiplicative factors.
+
+469
+00:46:59.320 --> 00:47:05.119
+Jitendra K: And n is the number of data points. The value of covariance can be positive, negative, or zero as well.
+
+470
+00:47:05.390 --> 00:47:10.219
+Jitendra K: If you're getting a positive number, you will get a direction of this covariance.
+
+471
+00:47:14.140 --> 00:47:15.520
+Jitendra K: into 3.
+
+472
+00:47:18.240 --> 00:47:19.710
+Jitendra K: possible values.
+
+473
+00:47:20.630 --> 00:47:22.779
+Jitendra K: Step number 3 would be…
+
+474
+00:47:26.170 --> 00:47:27.540
+Jitendra K: to decompose.
+
+475
+00:47:28.480 --> 00:47:32.410
+Jitendra K: So you're going to say that I would like to find a direction of maximum variance.
+
+476
+00:47:32.790 --> 00:47:34.359
+Jitendra K: Which is my PC one.
+
+477
+00:47:34.710 --> 00:47:41.370
+Jitendra K: So these directions came from, or come from, eigenvectors of the covariance matrix.
+
+478
+00:47:41.790 --> 00:47:45.870
+Jitendra K: And their importance will be measured by eigenvalues.
+
+479
+00:47:46.140 --> 00:47:50.569
+Jitendra K: So you have to decompose these metrics by projecting them into
+
+480
+00:47:52.730 --> 00:47:56.470
+Jitendra K: A linear algebra equation, which is… A of X.
+
+481
+00:47:59.180 --> 00:48:00.810
+Jitendra K: Which is lambda of X.
+
+482
+00:48:01.740 --> 00:48:03.919
+Jitendra K: So, where A acts on X.
+
+483
+00:48:06.400 --> 00:48:11.290
+Jitendra K: on shrinking, You are using a factor called lambda.
+
+484
+00:48:12.190 --> 00:48:14.689
+Jitendra K: So the direction of X remains unchanged.
+
+485
+00:48:15.300 --> 00:48:17.810
+Jitendra K: But the magnitude will change by lambda.
+
+486
+00:48:19.880 --> 00:48:21.939
+Jitendra K: Now, what you are going to do after this?
+
+487
+00:48:22.480 --> 00:48:24.239
+Jitendra K: You are going to calculate.
+
+488
+00:48:24.740 --> 00:48:27.300
+Jitendra K: The direction of maximum variance.
+
+489
+00:48:28.650 --> 00:48:31.109
+Jitendra K: And that is what you need from PC.
+
+490
+00:48:31.440 --> 00:48:32.800
+Jitendra K: Principal component.
+
+491
+00:48:33.160 --> 00:48:38.250
+Jitendra K: So when you're calculating the direction of maximum variance, explained by a principal component.
+
+492
+00:48:38.890 --> 00:48:43.760
+Jitendra K: So you can see in this diagram, I'm having two features, let's say radius and area.
+
+493
+00:48:44.310 --> 00:48:51.649
+Jitendra K: Which is represented by a black axis. So PCA identified two new directions, PC1 and PC2.
+
+494
+00:48:52.390 --> 00:48:54.930
+Jitendra K: Using area and radius as the two features.
+
+495
+00:48:55.160 --> 00:48:58.750
+Jitendra K: So these two new axes are rotated version of the original one.
+
+496
+00:48:59.130 --> 00:49:02.250
+Jitendra K: PC1, which capture the maximum variance of the data.
+
+497
+00:49:03.520 --> 00:49:08.620
+Jitendra K: That means it holds the maximum information, while PC to capture the remaining variants.
+
+498
+00:49:09.280 --> 00:49:11.320
+Jitendra K: And it is for perpendicular to PC1.
+
+499
+00:49:11.580 --> 00:49:13.550
+Jitendra K: So the spreadness of the data.
+
+500
+00:49:14.690 --> 00:49:18.019
+Jitendra K: And the strength of the data points available to.
+
+501
+00:49:18.130 --> 00:49:19.639
+Jitendra K: Get from this.
+
+502
+00:49:19.790 --> 00:49:21.000
+Jitendra K: whole equation.
+
+503
+00:49:23.670 --> 00:49:25.630
+Jitendra K: Is this clear to everyone?
+
+504
+00:49:34.910 --> 00:49:43.130
+Jitendra K: Another question is, do we need to calculate eigenvalues and eigenvectors inside the algorithm, or should we use some libraries to do it?
+
+505
+00:49:43.510 --> 00:49:49.029
+Jitendra K: Do we need to interpret the outcome of PC… PCA? The answer is yes, you need to interpret the outcome.
+
+506
+00:49:49.360 --> 00:49:52.649
+Jitendra K: But you need not to worry too much about the calculation.
+
+507
+00:49:53.650 --> 00:49:55.399
+Jitendra K: You should understand the concept.
+
+508
+00:49:56.330 --> 00:49:58.179
+Jitendra K: So it's a five-step process.
+
+509
+00:49:59.050 --> 00:50:06.130
+Jitendra K: Predominantly, I would say, You're working only with… covariance.
+
+510
+00:50:06.860 --> 00:50:11.180
+Jitendra K: And decomposing the covariance matrix into eigenvalues and eigenvectors. That's it.
+
+511
+00:50:11.790 --> 00:50:13.349
+Jitendra K: That is what PCA does.
+
+512
+00:50:13.840 --> 00:50:17.310
+Jitendra K: And finally, you're projecting it on a scale.
+
+513
+00:50:17.470 --> 00:50:19.000
+Jitendra K: To explain the variance.
+
+514
+00:50:19.500 --> 00:50:27.200
+Jitendra K: Now, we'll see how to use… The… the technique…
+
+515
+00:50:33.140 --> 00:50:37.229
+Jitendra K: And I've explained the PCA libraries that we required from Scikit-learn.
+
+516
+00:50:37.960 --> 00:50:39.990
+Jitendra K: And I will use open source data.
+
+517
+00:50:40.620 --> 00:50:42.099
+Jitendra K: To deal with it.
+
+518
+00:50:45.350 --> 00:50:48.460
+Jitendra K: And we will use this data point from Scikit-learn itself.
+
+519
+00:50:48.710 --> 00:50:51.219
+Jitendra K: Let me go back to my code interpreter.
+
+520
+00:51:18.720 --> 00:51:25.360
+Jitendra K: Alright, so first let me explain what are the libraries that you required. So when I say libraries that you require to deal with PCA,
+
+521
+00:51:25.700 --> 00:51:30.660
+Jitendra K: So, you need to work on… scikit-learn decomposition package.
+
+522
+00:51:31.320 --> 00:51:39.700
+Jitendra K: So, if I'm using PCA, I need to install scikit-learn, And then, user decomposition.
+
+523
+00:51:43.030 --> 00:51:46.380
+Jitendra K: class where I'm going to import a PCA module.
+
+524
+00:51:47.140 --> 00:51:50.960
+Jitendra K: So this is what the PCA module, emerged from.
+
+525
+00:51:52.130 --> 00:51:54.910
+Jitendra K: Okay, decomposition.
+
+526
+00:52:09.930 --> 00:52:12.549
+Jitendra K: So this is my PCA plus.
+
+527
+00:52:13.250 --> 00:52:19.370
+Jitendra K: Now, I would like to install, or so-called, I would like to import some more packages. I will use NumPy.
+
+528
+00:52:20.780 --> 00:52:22.610
+Jitendra K: I will use Pandas…
+
+529
+00:52:28.030 --> 00:52:34.450
+Jitendra K: I will also use, I will show you the example, several examples.
+
+530
+00:52:34.940 --> 00:52:38.509
+Jitendra K: with iris, wine, and the breast cancer data set.
+
+531
+00:52:38.710 --> 00:52:46.360
+Jitendra K: And for scaling the data, we are going to use standard scaler, ZAT scalers, ZAT transformation. For that, I required standard scalar package.
+
+532
+00:52:46.740 --> 00:52:50.349
+Jitendra K: for projecting my data points, I need
+
+533
+00:52:50.870 --> 00:52:56.540
+Jitendra K: SNSC bond, so that I can show you the principal components in a pictorial representation.
+
+534
+00:52:57.230 --> 00:52:58.989
+Jitendra K: Let me set up the style.
+
+535
+00:52:59.090 --> 00:53:05.860
+Jitendra K: of visuals… Okay, matplot is needed.
+
+536
+00:53:18.860 --> 00:53:22.880
+Jitendra K: Okay, so the example one that I'm going to use is, Iris Datasite.
+
+537
+00:53:23.540 --> 00:53:27.610
+Jitendra K: So let me first… Import the data.
+
+538
+00:53:27.920 --> 00:53:32.000
+Jitendra K: So I'm going to load the Iris dataset from… Hi, this…
+
+539
+00:53:32.620 --> 00:53:35.380
+Jitendra K: load iris function, which is a part of scikit-learn.
+
+540
+00:53:36.500 --> 00:53:41.560
+Jitendra K: And I'm going to utilize… The three target variables.
+
+541
+00:53:41.850 --> 00:53:46.490
+Jitendra K: the flower species, and all the four features that I'm having.
+
+542
+00:53:46.720 --> 00:53:51.429
+Jitendra K: So I will name my features as feature underscore name, target variables as target underscore name.
+
+543
+00:53:53.680 --> 00:53:58.049
+Jitendra K: So, I would like to go step by step. First, let me show you the original data.
+
+544
+00:53:59.400 --> 00:54:03.820
+Jitendra K: The original data comprises of 150 data points with 4 features.
+
+545
+00:54:04.160 --> 00:54:10.610
+Jitendra K: And all four features are nearly on the same scale, centimeters. So I think scaling is not a concern here.
+
+546
+00:54:10.770 --> 00:54:14.159
+Jitendra K: But I will double-check if I have to incorporate a scaler.
+
+547
+00:54:14.570 --> 00:54:21.520
+Jitendra K: Using transformation, will that be… creating any… proposition here.
+
+548
+00:54:22.000 --> 00:54:26.489
+Jitendra K: So first, let me perform the first step to standardize my data.
+
+549
+00:54:28.190 --> 00:54:34.810
+Jitendra K: So, for standardizing the data, I would like to calculate the mean and the standard deviation, so that I can able to fit these two values.
+
+550
+00:54:35.500 --> 00:54:44.130
+Jitendra K: And try to find out the mean and, sorry, to try to find out the standard derivation of my four features, across 4 features.
+
+551
+00:54:44.870 --> 00:54:47.610
+Jitendra K: Now, once I have done this.
+
+552
+00:54:50.780 --> 00:54:52.809
+Jitendra K: You will be amazed to know.
+
+553
+00:54:53.160 --> 00:54:54.890
+Jitendra K: In order to do anything else.
+
+554
+00:54:55.740 --> 00:54:58.340
+Jitendra K: All you need to do is, you just need to pass on.
+
+555
+00:54:58.660 --> 00:55:03.150
+Jitendra K: The number of principal components that you required. And this is also, you can fine-tune.
+
+556
+00:55:05.520 --> 00:55:08.030
+Jitendra K: But looking into the variance explanation.
+
+557
+00:55:09.330 --> 00:55:13.700
+Jitendra K: So I'm saying, I would like to find out the two principal components.
+
+558
+00:55:14.250 --> 00:55:21.049
+Jitendra K: By fitting my transform data, which is, like, scaled, into a PC algorithm.
+
+559
+00:55:22.420 --> 00:55:24.740
+Jitendra K: And you can see that, in this code.
+
+560
+00:55:24.900 --> 00:55:28.870
+Jitendra K: I'm just printing the output by just one line.
+
+561
+00:55:30.990 --> 00:55:39.849
+Jitendra K: So here, I'm not doing anything about eigenvalues, eigenvectors, decomposition. I'm not calculating any covariance correlation either.
+
+562
+00:55:40.270 --> 00:55:43.510
+Jitendra K: I'm simply using algorithm to do this trick for me.
+
+563
+00:55:44.370 --> 00:55:47.829
+Jitendra K: So my algorithm… We'll run this analysis.
+
+564
+00:55:48.410 --> 00:55:50.300
+Jitendra K: And it will generate an output.
+
+565
+00:55:52.440 --> 00:56:00.799
+Jitendra K: So I'm not… Bothering too much about scalars, vectors, covariance, correlation.
+
+566
+00:56:01.580 --> 00:56:07.340
+Jitendra K: Neither to explain, Anything. But yes, I would like to explain the variance.
+
+567
+00:56:07.600 --> 00:56:13.230
+Jitendra K: I would like to find out which principal component It's giving me the maximum
+
+568
+00:56:14.190 --> 00:56:18.679
+Jitendra K: variance explanation, so that I can able to make it.
+
+569
+00:56:20.970 --> 00:56:23.459
+Jitendra K: as a fitment criteria. Now, you can see that
+
+570
+00:56:23.750 --> 00:56:31.850
+Jitendra K: I'm getting only two principal components. So the first principal component is able to explain 73% of the variance.
+
+571
+00:56:32.920 --> 00:56:39.220
+Jitendra K: The second principal component, which is orthogonal to it, is able to explain 23% of the variance.
+
+572
+00:56:39.580 --> 00:56:45.539
+Jitendra K: If I have to talk about cumulative variance explained by PC1 plus PC2, it is 96%.
+
+573
+00:56:46.390 --> 00:56:48.510
+Jitendra K: And this is what my eigenvalues are.
+
+574
+00:56:50.530 --> 00:56:51.350
+Jitendra K: Right?
+
+575
+00:56:51.690 --> 00:56:55.139
+Jitendra K: Now, if I… imagine if I'm going to convert this into 5,
+
+576
+00:57:28.200 --> 00:57:31.000
+Jitendra K: I think I have to check…
+
+577
+00:57:48.270 --> 00:57:52.869
+Jitendra K: Okay, I've got only 4 features, so that's a reason cannot be 5.
+
+578
+00:57:54.770 --> 00:57:55.630
+Jitendra K: this…
+
+579
+00:58:19.610 --> 00:58:28.520
+Jitendra K: Okay, so this is what I'm getting. So you can see that the total features, the four features, is able to explain 100% of the variance. That is what I would like to talk to… talk about now.
+
+580
+00:58:29.130 --> 00:58:29.940
+Jitendra K: Nope.
+
+581
+00:58:30.240 --> 00:58:35.810
+Jitendra K: With all four features, I'm able to explain 100% of the variance.
+
+582
+00:58:36.970 --> 00:58:41.740
+Jitendra K: Now, the important question is… If I let go, two features.
+
+583
+00:58:42.940 --> 00:58:48.970
+Jitendra K: How much… data points, or how many features I'm reducing.
+
+584
+00:58:51.000 --> 00:58:53.090
+Jitendra K: How many features I'm reducing, guys?
+
+585
+00:58:53.910 --> 00:58:56.079
+Jitendra K: Out of 4 if I eliminate 2.
+
+586
+00:58:57.330 --> 00:58:58.520
+Jitendra K: 50%?
+
+587
+00:59:00.340 --> 00:59:06.299
+Jitendra K: So, if I'm letting go 50% of my data points, which is two features.
+
+588
+00:59:06.820 --> 00:59:09.870
+Jitendra K: What is the impact on variance explanation?
+
+589
+00:59:12.140 --> 00:59:14.350
+Jitendra K: Let me convert back to 2.
+
+590
+00:59:20.010 --> 00:59:24.190
+Jitendra K: Very small, very minimal, 95.81 minus 100.
+
+591
+00:59:26.630 --> 00:59:36.039
+Jitendra K: And I say… 9500 minus… 4%, near about 4%.
+
+592
+00:59:36.820 --> 00:59:44.720
+Jitendra K: So, 50% of my data… Additional data points is able to explain only 4% of the variance.
+
+593
+00:59:47.510 --> 00:59:51.869
+Jitendra K: So, they're… Judicious is enough to make sure that
+
+594
+00:59:52.130 --> 00:59:59.229
+Jitendra K: If I'm going to eliminate 50% of my data point by hampering 4% of the variance explanation, is it a good approach?
+
+595
+01:00:04.620 --> 01:00:05.450
+Jitendra K: Right?
+
+596
+01:00:06.140 --> 01:00:08.390
+Jitendra K: It is a good approach, because…
+
+597
+01:00:08.680 --> 01:00:13.159
+Jitendra K: I'm reducing the unnecessary data points to be a part of my algorithm.
+
+598
+01:00:19.370 --> 01:00:21.950
+Jitendra K: And that is what PCA does for you.
+
+599
+01:00:27.930 --> 01:00:30.400
+Jitendra K: Now, how to read these eigenvectors?
+
+600
+01:00:31.100 --> 01:00:33.239
+Jitendra K: Can you see the eigenvectors here?
+
+601
+01:00:33.490 --> 01:00:34.959
+Jitendra K: Now, how to read this?
+
+602
+01:00:38.620 --> 01:00:42.999
+Jitendra K: Now, if I have to explain to you how to read this eigenvector, you'll see that
+
+603
+01:00:43.680 --> 01:00:46.620
+Jitendra K: I'm getting two principal components.
+
+604
+01:00:48.070 --> 01:00:56.990
+Jitendra K: Which is… I mean, which is depending upon All four features.
+
+605
+01:00:57.970 --> 01:01:01.949
+Jitendra K: So here, I'm not… I'm considering all four features, right, into equation.
+
+606
+01:01:02.570 --> 01:01:04.640
+Jitendra K: So think of this like a recipe.
+
+607
+01:01:09.020 --> 01:01:09.820
+Jitendra K: Right?
+
+608
+01:01:10.100 --> 01:01:14.819
+Jitendra K: So… If I have to give you the interpretation.
+
+609
+01:01:16.630 --> 01:01:22.529
+Jitendra K: I would say the magnitude 0.58, which is the maximum.
+
+610
+01:01:23.300 --> 01:01:29.020
+Jitendra K: Versus… the negative magnitude that I'm getting, is a range.
+
+611
+01:01:29.860 --> 01:01:35.789
+Jitendra K: And you can see the positive and negative sign, which is talking about the relationship in terms of correlation.
+
+612
+01:01:36.310 --> 01:01:37.890
+Jitendra K: Oh, sorry, covariance.
+
+613
+01:01:38.200 --> 01:01:41.080
+Jitendra K: Whether a feature and PC move together or opposite.
+
+614
+01:01:41.840 --> 01:01:47.239
+Jitendra K: So, PC1 talks about the overall size, overall component, all feature contributing.
+
+615
+01:01:47.700 --> 01:01:50.909
+Jitendra K: And, the most contributing feature is here, paddle.
+
+616
+01:01:51.590 --> 01:01:52.300
+Jitendra K: Length.
+
+617
+01:01:54.070 --> 01:01:55.340
+Jitendra K: PC2?
+
+618
+01:01:55.630 --> 01:01:58.319
+Jitendra K: depends upon… Sepal width.
+
+619
+01:02:02.490 --> 01:02:07.830
+Jitendra K: So this component tells you that flower, predicting the flower species.
+
+620
+01:02:07.970 --> 01:02:13.520
+Jitendra K: vary most in the overall size of PC1, and secondary in the sepal proportion of PC2.
+
+621
+01:02:13.690 --> 01:02:17.200
+Jitendra K: That's why PCA works so well for separating iris species.
+
+622
+01:02:19.770 --> 01:02:23.749
+Jitendra K: So here, the important thing that you have to understand here is…
+
+623
+01:02:24.330 --> 01:02:27.619
+Jitendra K: You will be able to understand the explanation of the variance.
+
+624
+01:02:28.720 --> 01:02:34.310
+Jitendra K: As… along with… The eigenvalues associated with that.
+
+625
+01:02:35.530 --> 01:02:40.669
+Jitendra K: And you can see the direction automatically comes with a magnitude, or so-called.
+
+626
+01:02:41.350 --> 01:02:46.050
+Jitendra K: mathematical symbol as plus-minus. There's no zero, so there's no question about
+
+627
+01:02:46.780 --> 01:02:51.380
+Jitendra K: covariance to be 0. Here we are talking about only one important stuff, which is…
+
+628
+01:02:51.640 --> 01:02:54.650
+Jitendra K: Is the strength of relationship as positive or negative?
+
+629
+01:02:55.720 --> 01:02:57.699
+Jitendra K: Is a direction, not a strength.
+
+630
+01:02:57.890 --> 01:03:00.640
+Jitendra K: And if the direction is positive, what is the strength?
+
+631
+01:03:03.380 --> 01:03:06.890
+Jitendra K: So, PC2 explained 22.9% of the variance.
+
+632
+01:03:07.790 --> 01:03:14.659
+Jitendra K: And the most important… Factor, which has been considered by the algorithm is sepal width.
+
+633
+01:03:15.700 --> 01:03:17.249
+Jitendra K: And then sepull length.
+
+634
+01:03:18.070 --> 01:03:24.390
+Jitendra K: PC1 explains 73% of the variance, where you are going to consider paddle length and paddle width.
+
+635
+01:03:25.150 --> 01:03:26.960
+Jitendra K: Now, can I even think of…
+
+636
+01:03:28.700 --> 01:03:32.019
+Jitendra K: I can even think of, considering only two features.
+
+637
+01:03:38.160 --> 01:03:39.840
+Jitendra K: And then create an algorithm.
+
+638
+01:03:40.310 --> 01:03:44.039
+Jitendra K: But when I'm combining this… With the remaining…
+
+639
+01:03:45.110 --> 01:03:47.639
+Jitendra K: I will reduce the number of rows.
+
+640
+01:03:48.320 --> 01:03:49.869
+Jitendra K: Rather than columns.
+
+641
+01:03:51.310 --> 01:03:56.400
+Jitendra K: Because I'm ultimately considering all four features together.
+
+642
+01:03:56.660 --> 01:03:58.859
+Jitendra K: I'm going to reduce my data points.
+
+643
+01:04:03.120 --> 01:04:06.550
+Jitendra K: Right? That is what I'm going to do, with PC1 and PC2.
+
+644
+01:04:07.320 --> 01:04:08.270
+Jitendra K: Together.
+
+645
+01:04:09.700 --> 01:04:15.189
+Jitendra K: Now, let me quickly go back to the original code. Yeah, so we are considering all four features.
+
+646
+01:04:16.170 --> 01:04:17.819
+Jitendra K: And we'll reduce the rows.
+
+647
+01:04:23.220 --> 01:04:29.649
+Jitendra K: So once we have this, Components… PC1 and PC2.
+
+648
+01:04:29.900 --> 01:04:31.650
+Jitendra K: I would like to show you the DF.
+
+649
+01:04:39.290 --> 01:04:40.659
+Jitendra K: So this is my DF.
+
+650
+01:04:42.660 --> 01:04:45.590
+Jitendra K: I would like to show you the visualization as well.
+
+651
+01:04:55.380 --> 01:04:57.020
+Jitendra K: So this is the visualization.
+
+652
+01:04:57.540 --> 01:04:59.810
+Jitendra K: So you can see that I got original data.
+
+653
+01:05:01.010 --> 01:05:03.760
+Jitendra K: And this is the transform data. Data frame.
+
+654
+01:05:07.490 --> 01:05:10.529
+Jitendra K: So this is the PC1 variants.
+
+655
+01:05:11.150 --> 01:05:15.260
+Jitendra K: So here, I'm considering… Limited features.
+
+656
+01:05:20.890 --> 01:05:27.060
+Jitendra K: you can see the data points is reducing. There's a lot of data points here, which is… not present.
+
+657
+01:05:27.460 --> 01:05:29.939
+Jitendra K: A lot of orange dots is also gone.
+
+658
+01:05:30.410 --> 01:05:32.249
+Jitendra K: Some greens are still there.
+
+659
+01:05:32.380 --> 01:05:34.300
+Jitendra K: But they are transform features.
+
+660
+01:05:34.460 --> 01:05:36.950
+Jitendra K: This is my original data, and this is my transformed data.
+
+661
+01:05:39.800 --> 01:05:40.610
+Jitendra K: Right?
+
+662
+01:05:40.810 --> 01:05:43.280
+Jitendra K: Now I can able to create an algorithm
+
+663
+01:05:43.740 --> 01:05:51.059
+Jitendra K: Which will use the two principal component with a 50% reduction of my data points, and still it will give a good answer.
+
+664
+01:05:55.430 --> 01:05:58.659
+Jitendra K: Right? So that is what dimension reduction does for us.
+
+665
+01:05:59.010 --> 01:06:00.830
+Jitendra K: We'll take one more example.
+
+666
+01:06:01.390 --> 01:06:03.430
+Jitendra K: Now, in this example.
+
+667
+01:06:08.090 --> 01:06:10.700
+Jitendra K: I will use a wine dataset.
+
+668
+01:06:12.130 --> 01:06:14.510
+Jitendra K: So, I will use a wine dataset.
+
+669
+01:06:15.150 --> 01:06:21.080
+Jitendra K: And then… use this data
+
+670
+01:06:24.640 --> 01:06:26.040
+Jitendra K: to project.
+
+671
+01:06:30.020 --> 01:06:36.409
+Jitendra K: So I'm going to use a wine data set, which is… Having all the… Quality aspect of the wine.
+
+672
+01:06:36.930 --> 01:06:46.100
+Jitendra K: Including the ingredients, and decomposition of… alcohol, ashes… And other chemicals.
+
+673
+01:06:46.450 --> 01:06:49.640
+Jitendra K: And then we have a target variable, which is 1 to 10.
+
+674
+01:06:50.330 --> 01:06:57.110
+Jitendra K: Now, I would like to use, again, the same fundamental. I would like to plot my PCA, PC1, PC2, and PC3.
+
+675
+01:06:57.270 --> 01:07:00.980
+Jitendra K: And try to see how much explanation will be done by each component.
+
+676
+01:07:02.720 --> 01:07:04.670
+Jitendra K: This is what my outcome looks like.
+
+677
+01:07:05.500 --> 01:07:08.500
+Jitendra K: So this is my wine data projection in two dimensions.
+
+678
+01:07:09.300 --> 01:07:14.690
+Jitendra K: Which is the transform data, so PC1 and PC2, I'm projecting orthogonally.
+
+679
+01:07:14.890 --> 01:07:20.090
+Jitendra K: And together, they explain 66% of the variance, 636.53.
+
+680
+01:07:20.810 --> 01:07:27.490
+Jitendra K: And these are the correlation with the… My input data.
+
+681
+01:07:32.240 --> 01:07:37.700
+Jitendra K: Now, the question is… Here, I'm considering 3 PCA.
+
+682
+01:07:39.100 --> 01:07:45.170
+Jitendra K: Right? Or 2 PCA. If I'm considering 3 PCA, or 2 PCA, what is the…
+
+683
+01:07:45.940 --> 01:07:48.469
+Jitendra K: How should I decide what should I do?
+
+684
+01:07:49.490 --> 01:07:55.820
+Jitendra K: Generally speaking, You can go up to 90% of the variance.
+
+685
+01:07:56.320 --> 01:07:57.920
+Jitendra K: But you have to check…
+
+686
+01:07:58.060 --> 01:08:04.029
+Jitendra K: If I'm going to say 90% of the variance, how many data points are I getting rid of?
+
+687
+01:08:05.310 --> 01:08:07.529
+Jitendra K: So that proportion you should maintain.
+
+688
+01:08:08.280 --> 01:08:12.370
+Jitendra K: And depending upon that proportion, you can take a call, whether I should go with
+
+689
+01:08:12.980 --> 01:08:18.009
+Jitendra K: PC1, PC2, plus PC3, or PC1 plus PC2, or PC1 alone.
+
+690
+01:08:20.000 --> 01:08:27.840
+Jitendra K: So, that is where you have to… Perform some bit of… data understanding.
+
+691
+01:08:28.109 --> 01:08:32.160
+Jitendra K: Before selecting the number of features, or number of principal component.
+
+692
+01:08:33.229 --> 01:08:40.800
+Jitendra K: So that is where you are going to utilize PCA for reducing your dimension, but to what extent you should reduce.
+
+693
+01:08:41.170 --> 01:08:44.330
+Jitendra K: That will be decided by your business problems.
+
+694
+01:08:45.750 --> 01:08:51.410
+Jitendra K: Right? The general rule of thumb, you can experiment with it. You can experiment with K.
+
+695
+01:08:52.800 --> 01:09:04.780
+Jitendra K: So you can create two or three models with three principal components, 2 principal component, or 1 principal component, and try to see what is the impact of… on your model when you're selecting these
+
+696
+01:09:05.350 --> 01:09:06.420
+Jitendra K: approaches.
+
+697
+01:09:06.850 --> 01:09:09.400
+Jitendra K: That way, you can be able to get a clear answer.
+
+698
+01:09:09.700 --> 01:09:12.049
+Jitendra K: How many principal components should I use?
+
+699
+01:09:18.279 --> 01:09:27.479
+Jitendra K: Let me share this notebook with you guys. So, I want everybody to run and recreate this notebook in your system, and let me know if there's any question on the coding part.
+
+700
+01:09:27.810 --> 01:09:31.159
+Jitendra K: I think, conceptually, this is clear to everyone.
+
+701
+01:09:31.790 --> 01:09:38.650
+Jitendra K: I want everybody to be aligned with the coding as well. If you are facing any issue with code understanding, let me know.
+
+702
+01:09:44.960 --> 01:09:47.279
+Jitendra K: So I'm sharing this notebook.
+
+703
+01:09:50.700 --> 01:09:54.819
+Jitendra K: This is a simple code that we have run, just with two examples.
+
+704
+01:09:55.540 --> 01:10:02.149
+Jitendra K: And then, you will see what are the stuff that you require to explain principal component analysis.
+
+705
+01:10:05.280 --> 01:10:08.649
+Jitendra K: Just try to run this, get familiar with the code.
+
+706
+01:10:08.990 --> 01:10:13.340
+Jitendra K: With the function that we have just written, and then let me know if there's any question.
+
+707
+01:10:14.860 --> 01:10:19.709
+Jitendra K: So, the training dataset is reduced. Where do we store?
+
+708
+01:10:20.730 --> 01:10:24.780
+Jitendra K: the final data set. We will consider this as an updated data frames.
+
+709
+01:10:25.890 --> 01:10:28.429
+Jitendra K: And we will pass this data frame to your algorithm.
+
+710
+01:10:31.980 --> 01:10:35.879
+Jitendra K: So you'll see that I've got data frame 1 and update data frame 2.
+
+711
+01:10:36.080 --> 01:10:38.259
+Jitendra K: I will pass data frame 2 to the algorithm.
+
+712
+01:10:45.200 --> 01:10:50.090
+Jitendra K: Yeah, standard scaler is trying to make your features into a same scale.
+
+713
+01:10:50.480 --> 01:10:54.090
+Jitendra K: Let's say I've got two features. The first feature is age.
+
+714
+01:10:57.950 --> 01:10:59.909
+Jitendra K: Second feature is the…
+
+715
+01:11:03.310 --> 01:11:04.180
+Jitendra K: Heart.
+
+716
+01:11:08.460 --> 01:11:12.110
+Jitendra K: So I can measure the height in centimeters and age in years.
+
+717
+01:11:13.380 --> 01:11:18.019
+Jitendra K: So, assuming that for a normal human being, it can be 1-200,
+
+718
+01:11:18.830 --> 01:11:21.770
+Jitendra K: But the height can go up to any range.
+
+719
+01:11:23.010 --> 01:11:25.789
+Jitendra K: 6, 7… 6, 8.
+
+720
+01:11:27.100 --> 01:11:27.960
+Jitendra K: Bye.
+
+721
+01:11:28.420 --> 01:11:29.250
+Jitendra K: Right?
+
+722
+01:11:29.580 --> 01:11:33.309
+Jitendra K: This is the two different ranges, so I have to find it out.
+
+723
+01:11:33.450 --> 01:11:38.240
+Jitendra K: and convert this into a same scale. Because, if I'm choosing my algorithm.
+
+724
+01:11:38.630 --> 01:11:43.030
+Jitendra K: the scale that I'm going to use… Will be same.
+
+725
+01:11:43.570 --> 01:11:46.540
+Jitendra K: when I'm projecting my data points on X and Y axis.
+
+726
+01:11:47.220 --> 01:11:48.020
+Jitendra K: Right?
+
+727
+01:11:48.150 --> 01:11:50.260
+Jitendra K: So I need to transform this data.
+
+728
+01:11:51.000 --> 01:11:54.440
+Jitendra K: Using that transformation.
+
+729
+01:11:54.730 --> 01:11:57.330
+Jitendra K: Which is nothing but X minus mu.
+
+730
+01:11:58.190 --> 01:11:59.480
+Jitendra K: Divided with sigma.
+
+731
+01:12:00.550 --> 01:12:02.600
+Jitendra K: Yes, normalization. Yes.
+
+732
+01:12:06.570 --> 01:12:08.680
+Jitendra K: You're performing a simple normalization.
+
+733
+01:12:29.140 --> 01:12:36.070
+Jitendra K: Alright, so if the concept is clear, what else you have learned from PCA in your PropSear tutorials?
+
+734
+01:12:37.660 --> 01:12:38.799
+Jitendra K: What else?
+
+735
+01:12:39.180 --> 01:12:42.429
+Jitendra K: you came across. What are the other concepts that you came across?
+
+736
+01:12:53.920 --> 01:12:57.569
+Jitendra K: Have you guys, looked into the lectures yet, or…
+
+737
+01:13:00.690 --> 01:13:03.750
+Jitendra K: So what are the other topics which have been covered?
+
+738
+01:13:11.330 --> 01:13:13.379
+Jitendra K: The discourse, okay, great.
+
+739
+01:13:18.040 --> 01:13:19.020
+Jitendra K: Okay.
+
+740
+01:13:20.900 --> 01:13:22.100
+Jitendra K: Okay, great.
+
+741
+01:13:59.880 --> 01:14:00.950
+Jitendra K: Okay, great.
+
+742
+01:14:01.070 --> 01:14:09.149
+Jitendra K: So we'll take one more example to understand PCA, and this time I'm going to use medical data, which is the breast cancer data set that we have.
+
+743
+01:14:09.560 --> 01:14:11.849
+Jitendra K: And, with that data.
+
+744
+01:14:12.720 --> 01:14:19.009
+Jitendra K: Week 19 lectures, part 1 and Part 2. Yes, this is part 1 and Part 2. So this is part one.
+
+745
+01:14:19.570 --> 01:14:28.839
+Jitendra K: So we'll take another example of a medical diagnostic data site, and this time I'm going to use 30 features with 569 samples.
+
+746
+01:14:29.200 --> 01:14:33.539
+Jitendra K: And the goal is to complete the pipeline from raw data to insights and generating.
+
+747
+01:14:33.840 --> 01:14:39.050
+Jitendra K: insight from the data. And we are going to use a breast cancer data set from UCI Urban.
+
+748
+01:14:39.240 --> 01:14:41.449
+Jitendra K: And that data set will help us, too.
+
+749
+01:14:41.550 --> 01:14:47.880
+Jitendra K: do… And create a model with more… precise features.
+
+750
+01:14:48.370 --> 01:14:54.610
+Jitendra K: So, I will start with… the problem formulation, so we'll start with the EDA.
+
+751
+01:14:56.460 --> 01:15:00.469
+Jitendra K: So first, let me do a data exploration. I will load the data.
+
+752
+01:15:01.380 --> 01:15:03.220
+Jitendra K: I will try to see…
+
+753
+01:15:06.230 --> 01:15:14.329
+Jitendra K: the shape and the size of the data points. So I've got 569 samples, 30 features, 2 classes, maligant and benign.
+
+754
+01:15:14.760 --> 01:15:22.129
+Jitendra K: And I've got, 62% of non-cancerous, 37% as cancerous.
+
+755
+01:15:22.550 --> 01:15:28.780
+Jitendra K: So, mean, I've got 10 features, standard deviation of 10 features, and I've got these
+
+756
+01:15:29.570 --> 01:15:33.160
+Jitendra K: 5-point summary of my features, so I've got these features.
+
+757
+01:15:33.700 --> 01:15:38.870
+Jitendra K: So you can see, along with these features, I've got, the distribution.
+
+758
+01:15:39.480 --> 01:15:42.999
+Jitendra K: The mean, standard deviation, minimum, and the maximum, 5-point summary.
+
+759
+01:15:43.680 --> 01:15:47.840
+Jitendra K: I've got, basic statistics, basically.
+
+760
+01:15:48.330 --> 01:15:57.720
+Jitendra K: So, if I have to look into the deep statistics, I have to cover outliers as well. Now, this is where you will understand whether PCA is sensitive to outliers or not.
+
+761
+01:15:58.150 --> 01:16:00.520
+Jitendra K: A PCA is sensitive to outliers.
+
+762
+01:16:01.380 --> 01:16:02.689
+Jitendra K: I will tell you why.
+
+763
+01:16:04.740 --> 01:16:10.309
+Jitendra K: So here, I'm not getting any missing values, the duplicate rows is zero. All data is numeric.
+
+764
+01:16:10.880 --> 01:16:16.969
+Jitendra K: Let's see the KD distribution and histogram of kernel density estimation plots.
+
+765
+01:16:17.540 --> 01:16:19.989
+Jitendra K: So, this is also showing me…
+
+766
+01:16:20.230 --> 01:16:23.190
+Jitendra K: That there are certain outliers.
+
+767
+01:16:23.490 --> 01:16:27.019
+Jitendra K: And this is the overlap between the class, by the way, for each feature.
+
+768
+01:16:27.420 --> 01:16:32.890
+Jitendra K: So, every feature looks like a normal distributed curse, but a cartic.
+
+769
+01:16:33.440 --> 01:16:35.219
+Jitendra K: They are mostly left curtic.
+
+770
+01:16:36.600 --> 01:16:38.750
+Jitendra K: And I would like to see…
+
+771
+01:16:39.060 --> 01:16:44.110
+Jitendra K: how many outliers are present, and the technique that I'm using is IQ, or interquartile range.
+
+772
+01:16:44.550 --> 01:16:50.480
+Jitendra K: So I've got certain percentage of outliers in area, radius, parameters.
+
+773
+01:16:51.070 --> 01:16:54.970
+Jitendra K: And, fractal, dimensional, etc. So I've got…
+
+774
+01:16:56.000 --> 01:17:00.920
+Jitendra K: Somewhere around 5-6% of the outliers present in 20-some…
+
+775
+01:17:01.250 --> 01:17:09.310
+Jitendra K: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11… 11 features, right? So these are, like, this is what I'm seeing from my data points.
+
+776
+01:17:09.680 --> 01:17:16.089
+Jitendra K: Now, this is important to… explain the impact of outliers on PCA.
+
+777
+01:17:17.730 --> 01:17:19.929
+Jitendra K: Now, if you're not treating your outliers.
+
+778
+01:17:21.090 --> 01:17:23.780
+Jitendra K: There are two ways that you can treat your outliers.
+
+779
+01:17:24.160 --> 01:17:25.940
+Jitendra K: One is, you can remove them.
+
+780
+01:17:26.050 --> 01:17:28.179
+Jitendra K: Or secondly, you can normalize them.
+
+781
+01:17:28.810 --> 01:17:33.359
+Jitendra K: If you're removing the outliers, That is a good approach, but you are losing the data.
+
+782
+01:17:33.750 --> 01:17:35.739
+Jitendra K: You're shifting your distribution.
+
+783
+01:17:35.920 --> 01:17:38.230
+Jitendra K: You're shifting the tendency of the data.
+
+784
+01:17:39.230 --> 01:17:43.409
+Jitendra K: But if you're treating the outliers, you're manipulating your data.
+
+785
+01:17:44.170 --> 01:17:51.260
+Jitendra K: So… If you're using, or… if you're not doing anything, Neither treating, neither removing.
+
+786
+01:17:51.490 --> 01:17:53.839
+Jitendra K: That will definitely have an impact on.
+
+787
+01:17:53.960 --> 01:17:56.149
+Jitendra K: Principal Component Selection.
+
+788
+01:17:57.900 --> 01:18:00.609
+Jitendra K: Can I say that these outliers are the noise?
+
+789
+01:18:01.360 --> 01:18:04.939
+Jitendra K: The answer is yes, I can say that. These outliers are noise.
+
+790
+01:18:05.460 --> 01:18:09.850
+Jitendra K: Are they fabricated data points? At least for this case study, it is not.
+
+791
+01:18:09.980 --> 01:18:11.929
+Jitendra K: Because this case study came from.
+
+792
+01:18:12.660 --> 01:18:17.109
+Jitendra K: a very good reputated source. I would say the data is not fabricated.
+
+793
+01:18:17.500 --> 01:18:20.079
+Jitendra K: The data is trustworthy, readings are good.
+
+794
+01:18:20.400 --> 01:18:22.160
+Jitendra K: With their actual patients.
+
+795
+01:18:23.000 --> 01:18:27.999
+Jitendra K: But… I have limited data points. 369 is nothing.
+
+796
+01:18:28.520 --> 01:18:32.679
+Jitendra K: And that's the reason the scale and the dispersion in this data is high.
+
+797
+01:18:33.430 --> 01:18:37.820
+Jitendra K: But if I'm adding more data points to it, it will try to becoming more normal.
+
+798
+01:18:38.060 --> 01:18:41.540
+Jitendra K: That's the only way that I can think of those data points.
+
+799
+01:18:42.420 --> 01:18:47.590
+Jitendra K: Now, the question is, this data point is limited, and we have
+
+800
+01:18:47.740 --> 01:18:50.530
+Jitendra K: We can see that her tosses are also high.
+
+801
+01:18:51.360 --> 01:18:57.400
+Jitendra K: If I'm applying a PCA on this, will I get a misinterpretation of PCA?
+
+802
+01:19:00.520 --> 01:19:02.079
+Jitendra K: Now, again, it depends.
+
+803
+01:19:03.270 --> 01:19:09.999
+Jitendra K: Right, if you are projecting your data point into high dimensions, certainly this will have a greater impact.
+
+804
+01:19:10.360 --> 01:19:13.289
+Jitendra K: Because your PCA model will also learn from the noise.
+
+805
+01:19:14.510 --> 01:19:20.799
+Jitendra K: But how much impact it creates that you will be able to understand only by running these algorithms?
+
+806
+01:19:21.340 --> 01:19:26.989
+Jitendra K: So let's try to perform the correlation analysis first. So I would like to see the correlation
+
+807
+01:19:27.170 --> 01:19:31.670
+Jitendra K: Of the target predictor, With all the features.
+
+808
+01:19:32.250 --> 01:19:34.720
+Jitendra K: So I would like to run a correlation heat map.
+
+809
+01:19:34.890 --> 01:19:38.010
+Jitendra K: And here, I'm creating a simple Python functions.
+
+810
+01:19:38.310 --> 01:19:43.909
+Jitendra K: That we're able to find out the highest pair of prorated feature, which is more than 90%.
+
+811
+01:19:44.430 --> 01:19:47.129
+Jitendra K: And I would like to show this correlation.
+
+812
+01:19:47.610 --> 01:19:52.900
+Jitendra K: In this, in this, heat map.
+
+813
+01:19:53.560 --> 01:19:58.070
+Jitendra K: Now, the idea is I would like to find out a multi-collinearity between the features.
+
+814
+01:19:58.300 --> 01:20:11.089
+Jitendra K: So I can say some of the features, including… parameter area… Smoothness… Mean Compactness, concavity. Some of them are…
+
+815
+01:20:11.410 --> 01:20:13.540
+Jitendra K: highly correlated.
+
+816
+01:20:15.570 --> 01:20:22.170
+Jitendra K: Now, this multicolinear feature Can impact the model, for sure.
+
+817
+01:20:23.330 --> 01:20:31.220
+Jitendra K: But there's no harm in running the first experimentation with all features. Instead of reducing by correlation.
+
+818
+01:20:31.700 --> 01:20:34.200
+Jitendra K: I will try to reduce this by PCA.
+
+819
+01:20:34.440 --> 01:20:39.680
+Jitendra K: There are two ways that you can reduce the features. One by studying the correlation multicollinearity.
+
+820
+01:20:40.060 --> 01:20:45.189
+Jitendra K: You say that I would like to clean my data by removing the multicollinearity, and for that, you can run
+
+821
+01:20:45.610 --> 01:20:48.900
+Jitendra K: I think we have discussed, about,
+
+822
+01:20:50.000 --> 01:20:56.250
+Jitendra K: When we're discussing linear regression, we have used certain methods to reduce The multicolinear feature.
+
+823
+01:20:56.750 --> 01:20:59.919
+Jitendra K: Right? So we'll use a similar technique to reduce.
+
+824
+01:21:00.060 --> 01:21:03.830
+Jitendra K: Second way is, you can run PCA, which will automatically
+
+825
+01:21:04.070 --> 01:21:08.779
+Jitendra K: Consider the correlation aspect of your data, along with covariance.
+
+826
+01:21:10.530 --> 01:21:15.590
+Jitendra K: Right? So that's why… Reducing your features manually.
+
+827
+01:21:15.890 --> 01:21:21.230
+Jitendra K: versus reducing your feature by PCA are the two different aspects.
+
+828
+01:21:22.420 --> 01:21:25.830
+Jitendra K: When you're reducing your features, you never know.
+
+829
+01:21:26.360 --> 01:21:31.879
+Jitendra K: which feature… let's say if I'm giving you this… word symmetry.
+
+830
+01:21:32.440 --> 01:21:37.069
+Jitendra K: Versus mean compactness. This is almost 75% collinear.
+
+831
+01:21:38.220 --> 01:21:42.400
+Jitendra K: Or, I would say, this point, right? Mean compactness.
+
+832
+01:21:43.560 --> 01:21:45.850
+Jitendra K: Versus mean smoothness.
+
+833
+01:21:46.490 --> 01:21:51.039
+Jitendra K: This is somewhere around 75%, 75% to 100% in between that range.
+
+834
+01:21:52.230 --> 01:21:56.520
+Jitendra K: So, I cannot say very clearly whether I should reduce
+
+835
+01:21:56.930 --> 01:22:01.749
+Jitendra K: Worse concave point versus worse radius, which one should I reduce and why?
+
+836
+01:22:02.010 --> 01:22:08.389
+Jitendra K: And for that, I have to run… the… additive models.
+
+837
+01:22:08.640 --> 01:22:11.549
+Jitendra K: Multiple additive models to reduce my dimension.
+
+838
+01:22:12.330 --> 01:22:18.859
+Jitendra K: But this is what PCA does for you. Instead of looking into the labels, It look for correlation and…
+
+839
+01:22:19.410 --> 01:22:20.930
+Jitendra K: Ovariance together.
+
+840
+01:22:21.910 --> 01:22:24.640
+Jitendra K: And then, it will be able to perform the analysis.
+
+841
+01:22:24.780 --> 01:22:27.600
+Jitendra K: Combinedly, on your features.
+
+842
+01:22:29.770 --> 01:22:31.850
+Jitendra K: So let me do that. So I've got…
+
+843
+01:22:32.400 --> 01:22:38.279
+Jitendra K: Correlation analysis done, so I know some features are redundant, some of them are multi-collinear.
+
+844
+01:22:38.470 --> 01:22:40.650
+Jitendra K: Now, I would like to perform feature scaling.
+
+845
+01:22:41.640 --> 01:22:43.919
+Jitendra K: And I would like to transform my data.
+
+846
+01:22:44.680 --> 01:22:50.360
+Jitendra K: So when I'm transforming my data, I've got this…
+
+847
+01:22:50.930 --> 01:22:56.099
+Jitendra K: So I'm transforming my data with… Mean and standard deviation.
+
+848
+01:22:56.830 --> 01:23:02.110
+Jitendra K: And then I would like to perform and fit PCA on the top of it. When I'm fitting the PCA,
+
+849
+01:23:04.430 --> 01:23:07.750
+Jitendra K: Again… I would like to find it out.
+
+850
+01:23:08.390 --> 01:23:12.260
+Jitendra K: What is the projection of each principal component to explain the variance.
+
+851
+01:23:12.800 --> 01:23:16.859
+Jitendra K: So I will run this analysis… And I've got 10 PCA.
+
+852
+01:23:18.690 --> 01:23:21.860
+Jitendra K: Now, this is important when you're calculating
+
+853
+01:23:22.230 --> 01:23:25.289
+Jitendra K: This principal component, you can create a graph.
+
+854
+01:23:26.630 --> 01:23:28.950
+Jitendra K: So here you can see that I'm creating a graph.
+
+855
+01:23:29.860 --> 01:23:37.050
+Jitendra K: So even I go with 30 print components, because I've got 30 features in this algorithm. So I can go up to maximum of 30 BCA.
+
+856
+01:23:37.750 --> 01:23:45.349
+Jitendra K: So, I would like to define… a threshold By which… I can able to consider
+
+857
+01:23:46.120 --> 01:23:52.220
+Jitendra K: the factor in which my… together, I mean, the combined effect of PCA,
+
+858
+01:23:52.440 --> 01:23:55.329
+Jitendra K: on the variance explanation. I can see that
+
+859
+01:23:55.670 --> 01:24:02.190
+Jitendra K: I'm using certain formulas. One of the criteria that I'm using is Kesser criteria. I will talk about this part.
+
+860
+01:24:02.620 --> 01:24:09.030
+Jitendra K: But I can also see a visual inspection by saying that the cumulative variance explained by the VCA
+
+861
+01:24:09.680 --> 01:24:12.370
+Jitendra K: Is hitting some threshold at 10.
+
+862
+01:24:13.710 --> 01:24:18.599
+Jitendra K: I still see that with 5, it'll also start saturating.
+
+863
+01:24:19.770 --> 01:24:23.779
+Jitendra K: So I can consider two thresholds 95% and 90%.
+
+864
+01:24:24.630 --> 01:24:30.740
+Jitendra K: So, with 90%, I'm reducing my data by… 25 features.
+
+865
+01:24:31.760 --> 01:24:35.970
+Jitendra K: And width… 10 PC, I'm reducing my data by 1 3rd.
+
+866
+01:24:36.720 --> 01:24:38.010
+Jitendra K: Sorry, two-thirds.
+
+867
+01:24:38.980 --> 01:24:45.029
+Jitendra K: That is what… I can able to see and interpret with the help of these diagrams.
+
+868
+01:24:48.370 --> 01:24:51.799
+Jitendra K: Now I would like to interpret the outcome.
+
+869
+01:24:52.770 --> 01:24:58.570
+Jitendra K: and C… the cluster space of one PCA, so let me quickly do that.
+
+870
+01:25:00.910 --> 01:25:04.729
+Jitendra K: So, I would like to show you the clusters, how overlapping are they?
+
+871
+01:25:06.020 --> 01:25:07.619
+Jitendra K: In terms of projection.
+
+872
+01:25:21.300 --> 01:25:24.780
+Jitendra K: Yeah, so this is what my… Class separation looks like.
+
+873
+01:25:25.420 --> 01:25:29.610
+Jitendra K: So if I look into the first 10 PCA, you can see that these are the
+
+874
+01:25:30.540 --> 01:25:32.780
+Jitendra K: important feature that I'm considering.
+
+875
+01:25:34.090 --> 01:25:35.849
+Jitendra K: And if I'm looking into the…
+
+876
+01:25:36.260 --> 01:25:41.929
+Jitendra K: you can see that PC1 plus PC2, right? PC1 versus PC3.
+
+877
+01:25:42.310 --> 01:25:47.539
+Jitendra K: So you can see that, how nicely it is able to separate the classes.
+
+878
+01:25:49.830 --> 01:25:52.309
+Jitendra K: That is also considered as a combination.
+
+879
+01:25:52.910 --> 01:25:55.509
+Jitendra K: Right? Which PCA should I use, and why?
+
+880
+01:25:55.680 --> 01:25:59.439
+Jitendra K: So these combinations should also be a part of your analysis.
+
+881
+01:25:59.550 --> 01:26:06.570
+Jitendra K: Now, when you're dueling with class separation, you're looking for separating your classes with a maximum margin.
+
+882
+01:26:07.540 --> 01:26:08.350
+Jitendra K: Right?
+
+883
+01:26:08.520 --> 01:26:15.590
+Jitendra K: And, by doing this, you have to run several experimentation. One way to do, look into the accuracy.
+
+884
+01:26:15.920 --> 01:26:20.669
+Jitendra K: So if I'm looking into the accuracy of my class, or an algorithm that I'm going to use.
+
+885
+01:26:20.840 --> 01:26:27.839
+Jitendra K: I would like to fit in multiple PCA combination, and try to see which combination is giving me the better accuracy.
+
+886
+01:26:29.310 --> 01:26:34.919
+Jitendra K: One thing… one criteria that you're using is a variance. That means you have a variance explanation.
+
+887
+01:26:35.320 --> 01:26:39.099
+Jitendra K: The second criteria that you are going to use is the spreadness, or
+
+888
+01:26:39.630 --> 01:26:46.040
+Jitendra K: Or, I would say, the boundary in which the class has been separated, right? The margin at which the class has been separated.
+
+889
+01:26:46.290 --> 01:26:51.649
+Jitendra K: So with these two criteria, you can select a PCA, or Principal Component, together.
+
+890
+01:26:54.240 --> 01:26:56.290
+Jitendra K: So, let me explain the code.
+
+891
+01:27:04.990 --> 01:27:06.309
+Jitendra K: So we start with…
+
+892
+01:27:09.410 --> 01:27:12.919
+Jitendra K: So we start with the usual import of the libraries.
+
+893
+01:27:14.350 --> 01:27:20.599
+Jitendra K: Then I'd like to enable the data upload, so I'm loading the data from this line, ninth line.
+
+894
+01:27:20.870 --> 01:27:25.980
+Jitendra K: I'm splitting my target and the features, so this data point comprised of 30 features.
+
+895
+01:27:26.210 --> 01:27:28.319
+Jitendra K: With two classes.
+
+896
+01:27:29.400 --> 01:27:36.749
+Jitendra K: Then I would like to inspect my data, try to identify their five-point summary, Some basic statistics.
+
+897
+01:27:37.190 --> 01:27:44.269
+Jitendra K: Then I would like to deep dive into the distribution analysis, so I'm using the feature, each feature, and plotting it.
+
+898
+01:27:44.640 --> 01:27:47.530
+Jitendra K: In the form of a KD kernel density estimation.
+
+899
+01:27:47.780 --> 01:27:49.809
+Jitendra K: To understand the outliers.
+
+900
+01:27:51.700 --> 01:27:56.259
+Jitendra K: And I'm… I'm using a similar plot, for both classes.
+
+901
+01:27:57.030 --> 01:28:05.949
+Jitendra K: And I would like to comment on the distribution criteria of my class. So I can see some of our… some of them are unimodal, some of them are bimodal.
+
+902
+01:28:07.280 --> 01:28:13.180
+Jitendra K: Right, so I've got multiple distributions across my class, or so-called features.
+
+903
+01:28:13.790 --> 01:28:15.800
+Jitendra K: Now, finally, what I'm going to do is…
+
+904
+01:28:21.710 --> 01:28:24.869
+Jitendra K: Now, what I'm going to do is, I would like to also…
+
+905
+01:28:38.290 --> 01:28:40.560
+Jitendra K: Yeah, so I would like to also go for…
+
+906
+01:28:42.480 --> 01:28:48.729
+Jitendra K: The correlation analysis, just to understand the impact of Multicollinearity among the features.
+
+907
+01:28:49.110 --> 01:28:52.920
+Jitendra K: So I'm done doing this analysis for identifying the multicollinearity.
+
+908
+01:28:53.190 --> 01:28:55.650
+Jitendra K: Once I identify the multicolinearity.
+
+909
+01:28:57.520 --> 01:29:01.309
+Jitendra K: Then I would like to look into the feature scaling, which is my first step.
+
+910
+01:29:02.160 --> 01:29:08.930
+Jitendra K: So once I've done the first step, then I would like to decompose my features into eigenvalues and eigenvectors.
+
+911
+01:29:09.090 --> 01:29:12.500
+Jitendra K: And then try to project this on a…
+
+912
+01:29:14.510 --> 01:29:18.139
+Jitendra K: graphs, so that I can be able to comment on the saturation lines.
+
+913
+01:29:19.160 --> 01:29:24.219
+Jitendra K: Right, so I can see that with PC 10, I mean, with 10 principal component.
+
+914
+01:29:24.370 --> 01:29:26.060
+Jitendra K: I will be able to explain.
+
+915
+01:29:26.480 --> 01:29:28.490
+Jitendra K: 90% of the variance.
+
+916
+01:29:28.810 --> 01:29:33.350
+Jitendra K: And I would like to go with it. Now here, I'm doing bit experimentation.
+
+917
+01:29:33.670 --> 01:29:41.540
+Jitendra K: By saying that, PC1 explained 44%, PC2 explained 19%, PC3 Explain 9.4%.
+
+918
+01:29:41.680 --> 01:29:45.829
+Jitendra K: Now, if I'm going to combine PC1 plus PC2 plus PC3,
+
+919
+01:29:46.030 --> 01:29:48.820
+Jitendra K: What is the impact on my overall outcome?
+
+920
+01:29:49.370 --> 01:29:51.010
+Jitendra K: And that is what I'm running.
+
+921
+01:29:52.930 --> 01:29:54.979
+Jitendra K: As a part of this experimentation.
+
+922
+01:29:56.740 --> 01:29:58.110
+Jitendra K: So I can see that.
+
+923
+01:29:58.590 --> 01:30:07.909
+Jitendra K: Within cooperation of… 10 principal component, I'm getting almost 95% accuracy. Slightly less, 94.
+
+924
+01:30:09.020 --> 01:30:14.179
+Jitendra K: With the 5 principal component, I'm getting almost, 94.5.
+
+925
+01:30:15.550 --> 01:30:19.369
+Jitendra K: Right? So there's a half percent that I'm losing in terms of accuracy.
+
+926
+01:30:19.570 --> 01:30:23.889
+Jitendra K: And I'm reducing almost half of my features, 5 to 10.
+
+927
+01:30:25.030 --> 01:30:31.030
+Jitendra K: Right? So, imagine that your business threshold says that I need 95% and above.
+
+928
+01:30:31.340 --> 01:30:34.220
+Jitendra K: So you can use… 10th VCA.
+
+929
+01:30:34.480 --> 01:30:38.650
+Jitendra K: If your business is doing, asking you to go with
+
+930
+01:30:39.030 --> 01:30:43.880
+Jitendra K: Anything ranges from 90 to 95, then you can go for 5 plus 1 component.
+
+931
+01:30:44.140 --> 01:30:46.590
+Jitendra K: Right? Now, when you're retraining your model.
+
+932
+01:30:47.350 --> 01:30:49.189
+Jitendra K: With a new set of features.
+
+933
+01:30:49.420 --> 01:30:52.550
+Jitendra K: It will reduce your data, and your algorithm will run faster.
+
+934
+01:30:57.760 --> 01:31:00.399
+Jitendra K: Right? And that is how the Edge devices work.
+
+935
+01:31:01.740 --> 01:31:06.979
+Jitendra K: This is how the Edge devices work. So, if you're using Edge devices, like Google Lens, or…
+
+936
+01:31:07.180 --> 01:31:15.180
+Jitendra K: If you're tracking your… Google Map via mobile, they are using heavily Dimension reduction technique.
+
+937
+01:31:15.920 --> 01:31:17.359
+Jitendra K: To solve the problem.
+
+938
+01:31:17.760 --> 01:31:20.779
+Jitendra K: Because your edge device, your mobile device.
+
+939
+01:31:20.960 --> 01:31:23.429
+Jitendra K: Well, how many… how much RAM you will have.
+
+940
+01:31:23.910 --> 01:31:25.990
+Jitendra K: Maximum to maximum 16 GB.
+
+941
+01:31:27.110 --> 01:31:29.289
+Jitendra K: Some of them are using 4GB RAMs.
+
+942
+01:31:30.070 --> 01:31:33.169
+Jitendra K: So, it does not impact anything.
+
+943
+01:31:34.840 --> 01:31:36.540
+Jitendra K: on the edge devices.
+
+944
+01:31:37.380 --> 01:31:43.679
+Jitendra K: So… But yes, this can be used for event production-ready codes, right?
+
+945
+01:31:43.970 --> 01:31:48.639
+Jitendra K: So when you have limited infra, you have limited servers, you have limited…
+
+946
+01:31:50.510 --> 01:31:57.309
+Jitendra K: cloud infrastructure, then you go with feature reduction technique, always. You have to go with feature reduction.
+
+947
+01:31:58.180 --> 01:32:01.560
+Jitendra K: And by virtue of feature reduction, you can achieve better results.
+
+948
+01:32:02.130 --> 01:32:07.560
+Jitendra K: And you can explain to business that I'm achieving Better result with this much.
+
+949
+01:32:09.310 --> 01:32:10.670
+Jitendra K: limitation.
+
+950
+01:32:10.950 --> 01:32:16.889
+Jitendra K: If I get a proper server, a proper infra, then my algorithm will automatically do a better job.
+
+951
+01:32:17.130 --> 01:32:20.130
+Jitendra K: If you don't… Have money to invest on server.
+
+952
+01:32:20.330 --> 01:32:22.810
+Jitendra K: And this is my limitation in terms of output.
+
+953
+01:32:25.030 --> 01:32:29.899
+Jitendra K: Right? So this is what you can do to prove your experimentation, to prove your point.
+
+954
+01:32:31.460 --> 01:32:36.679
+Jitendra K: So, anything that you would like to ask, I will share this… Notebook as well.
+
+955
+01:32:37.470 --> 01:32:38.510
+Jitendra K: So that…
+
+956
+01:32:45.490 --> 01:32:47.780
+Jitendra K: So, anything that you would like to ask?
+
+957
+01:33:06.900 --> 01:33:09.580
+Jitendra K: So I hope, PC is clear to everyone.
+
+958
+01:33:11.450 --> 01:33:13.950
+Jitendra K: How are you interpreting the correlation graph?
+
+959
+01:33:15.960 --> 01:33:18.960
+Jitendra K: Correlation graph, concept does not change, right?
+
+960
+01:33:19.060 --> 01:33:27.590
+Jitendra K: So, when we are using correlation, We are using… The same fundamental concept of… scale.
+
+961
+01:33:28.170 --> 01:33:33.359
+Jitendra K: Minus being… minus 1 being the least correlation, and plus 1 being the highest correlation.
+
+962
+01:33:33.670 --> 01:33:38.339
+Jitendra K: 0 being the, no correlation, right? So when I say minus 1,
+
+963
+01:33:38.720 --> 01:33:46.070
+Jitendra K: That means you will get a blue line like this. So this is minusly correlated, that means… parameter, And…
+
+964
+01:33:48.530 --> 01:33:56.850
+Jitendra K: Parameter, and the second… Okay, so this is the worst radius versus…
+
+965
+01:33:57.150 --> 01:34:00.320
+Jitendra K: The smoothness error. This is negatively correlated.
+
+966
+01:34:00.510 --> 01:34:06.840
+Jitendra K: If I talk about a positively correlated, I can see these thick graphs, thick… squares.
+
+967
+01:34:07.300 --> 01:34:13.420
+Jitendra K: This is even higher correlated from the intensity. I can print this number inside this.
+
+968
+01:34:14.010 --> 01:34:18.700
+Jitendra K: So I can say that concave point versus mean concave points.
+
+969
+01:34:18.830 --> 01:34:20.569
+Jitendra K: Which is the mean value of this.
+
+970
+01:34:20.790 --> 01:34:22.360
+Jitendra K: is highly correlated.
+
+971
+01:34:22.990 --> 01:34:25.420
+Jitendra K: Right, so why am I considering two data points?
+
+972
+01:34:25.530 --> 01:34:28.769
+Jitendra K: Mean value of the data point versus the same data points.
+
+973
+01:34:29.280 --> 01:34:31.720
+Jitendra K: Right, so this is highly correlated.
+
+974
+01:34:32.200 --> 01:34:34.490
+Jitendra K: I can see this is also highly correlated.
+
+975
+01:34:35.230 --> 01:34:38.910
+Jitendra K: Worse compactiveness, and the worst fractional dimension.
+
+976
+01:34:39.860 --> 01:34:44.460
+Jitendra K: So this is the scale of intensity. Higher the intensity, higher the correlation.
+
+977
+01:34:44.660 --> 01:34:50.379
+Jitendra K: And the correlation of the variable with itself is 1. You can see the most highest intensity.
+
+978
+01:34:50.840 --> 01:34:53.120
+Jitendra K: Is AD error versus 80 error.
+
+979
+01:34:53.250 --> 01:34:56.530
+Jitendra K: This is the… Correlation of the variable.
+
+980
+01:34:58.040 --> 01:34:59.490
+Jitendra K: acts with itself.
+
+981
+01:34:59.750 --> 01:35:00.709
+Jitendra K: Which is one.
+
+982
+01:35:04.730 --> 01:35:06.400
+Jitendra K: This is how you should interpret.
+
+983
+01:35:10.720 --> 01:35:15.710
+Jitendra K: Yeah, so I'm not talking about any correlation when you're running the PCA. You can see that
+
+984
+01:35:16.610 --> 01:35:19.910
+Jitendra K: I'm not talking about any correlation metrics here.
+
+985
+01:35:21.140 --> 01:35:22.990
+Jitendra K: I'm talking about only variants.
+
+986
+01:35:24.810 --> 01:35:27.460
+Jitendra K: So PCA will do it for me, automatically.
+
+987
+01:35:29.970 --> 01:35:30.850
+Jitendra K: Yes.
+
+988
+01:35:40.840 --> 01:35:45.149
+Jitendra K: Alright guys, so I think we can take a break of 20 minutes.
+
+989
+01:35:45.250 --> 01:35:53.049
+Jitendra K: So once we come back, then we will… Talk about, the other technique.
+
+990
+01:35:53.570 --> 01:35:59.990
+Jitendra K: That is, LDA. We'll start with LDA.
+
+991
+01:36:00.260 --> 01:36:02.160
+Jitendra K: Linear discriminate analysis.
+
+992
+01:36:02.400 --> 01:36:07.239
+Jitendra K: And then I will talk about how LDA works, what is the difference between LDA versus PCA.
+
+993
+01:36:07.700 --> 01:36:13.340
+Jitendra K: So, let's… Let's have a quick break of 20 minutes, and then we can start.
+
+994
+02:09:10.590 --> 02:09:13.739
+Jitendra K: Hey guys, I hope you're back, and we have a quick confirmation?
+
+995
+02:09:19.530 --> 02:09:22.169
+Jitendra K: Thank you for the confirmation. So…
+
+996
+02:09:28.440 --> 02:09:33.309
+Jitendra K: Okay, so I think, you have got the PCA notebooks, so…
+
+997
+02:09:33.610 --> 02:09:39.479
+Jitendra K: Now, we will start with a new topic. So, PCA is an unsupervised technique. Now, we will talk about one
+
+998
+02:09:39.970 --> 02:09:42.420
+Jitendra K: important technique called LDA.
+
+999
+02:09:42.620 --> 02:09:44.939
+Jitendra K: Which is called Linear Discriminatory analysis.
+
+1000
+02:09:45.610 --> 02:09:49.689
+Jitendra K: And we'll talk about LDA from the supervised perspective.
+
+1001
+02:09:49.980 --> 02:09:57.029
+Jitendra K: So when I talk about LDA, as one of the algorithms that we are going to use for dimension reduction.
+
+1002
+02:09:57.240 --> 02:10:03.350
+Jitendra K: We are going to utilize, LDA along with labels, so it is called supervised learning technique.
+
+1003
+02:10:03.710 --> 02:10:09.410
+Jitendra K: But it is useful for dimension reduction. So I will talk about what is the difference between LDA, so that you should not
+
+1004
+02:10:09.610 --> 02:10:14.209
+Jitendra K: Have any confusion in terms of understanding and interpreting the outcome from both the algorithm.
+
+1005
+02:10:14.580 --> 02:10:15.580
+Jitendra K: Now…
+
+1006
+02:10:17.390 --> 02:10:25.100
+Jitendra K: Now, you remember, like, when we talk about PCA, the goal is to find a principal component, and the principal component definition is…
+
+1007
+02:10:25.780 --> 02:10:39.760
+Jitendra K: the component along the axis that capture the most variance in the data set. That means we are reducing the dimension and preserving the vital information from the features. So we are preserving the features which are important to consider.
+
+1008
+02:10:39.910 --> 02:10:43.839
+Jitendra K: Which will be able to explain the cumulative variance across the principal component.
+
+1009
+02:10:44.130 --> 02:10:49.550
+Jitendra K: Second is, the LDA. Here, we are trying to project
+
+1010
+02:10:49.770 --> 02:10:59.600
+Jitendra K: the maximum distance between the class. That means we would like to separate the class with a maximum Separation.
+
+1011
+02:11:00.100 --> 02:11:03.040
+Jitendra K: And that is the ultimate objective of LDA.
+
+1012
+02:11:04.260 --> 02:11:09.739
+Jitendra K: Now, let me explain what is LDA and why LDA is, kind of one more effective technique.
+
+1013
+02:11:09.960 --> 02:11:13.049
+Jitendra K: That we are going to utilize for dimension reduction.
+
+1014
+02:11:13.370 --> 02:11:21.270
+Jitendra K: Now… If I have to talk about the differences, let me quickly show you the differences.
+
+1015
+02:11:45.970 --> 02:11:50.829
+Jitendra K: Okay, so when we talk about LDA, So, LDA is this algorithm.
+
+1016
+02:11:51.170 --> 02:11:58.140
+Jitendra K: So the idea is, we are not going to project anything now. We are going to say that I have two classes, along with the labels.
+
+1017
+02:11:58.300 --> 02:12:06.619
+Jitendra K: And that's the reason we are using labels, to separate the classes. We will say this is my class 1, and this is my class 2. So this is C1, this is C2.
+
+1018
+02:12:06.910 --> 02:12:12.680
+Jitendra K: And depending upon these two classes, I'm trying to project my data points
+
+1019
+02:12:12.880 --> 02:12:16.049
+Jitendra K: on x-axis. This is a distribution of Class 1.
+
+1020
+02:12:16.400 --> 02:12:18.380
+Jitendra K: This is a distribution of Class 2.
+
+1021
+02:12:18.630 --> 02:12:27.059
+Jitendra K: Now, if I compare the mean deviation, or I would say, the centric point from the class projection.
+
+1022
+02:12:27.470 --> 02:12:31.130
+Jitendra K: Along with the Class 2, the difference should be maximum.
+
+1023
+02:12:33.040 --> 02:12:38.060
+Jitendra K: Now… why… how LDA works, let me explain this with the help of an example.
+
+1024
+02:12:38.440 --> 02:12:45.690
+Jitendra K: So imagine that you have a dataset where you would like to classify an email as a spam or a spam.
+
+1025
+02:12:46.070 --> 02:12:52.640
+Jitendra K: Right? That means not spam. So you would like to classify the outcome into spam versus Normal email.
+
+1026
+02:12:52.990 --> 02:12:59.139
+Jitendra K: So, LDA would allow you to analyze the features like word frequency.
+
+1027
+02:12:59.410 --> 02:13:04.939
+Jitendra K: the sender information to find a linear combination as a weighted some of these features.
+
+1028
+02:13:05.070 --> 02:13:11.220
+Jitendra K: And the best parameter that separates a spam versus a ham From the legitimate ones.
+
+1029
+02:13:11.370 --> 02:13:13.230
+Jitendra K: That is weirdian boundary.
+
+1030
+02:13:13.430 --> 02:13:18.470
+Jitendra K: So, LDA is trying to project And try to generalize.
+
+1031
+02:13:18.580 --> 02:13:25.070
+Jitendra K: The outcome by maximizing the ratio between the variance instead of variance explanation.
+
+1032
+02:13:25.300 --> 02:13:28.069
+Jitendra K: So here we are talking about a ratio of the variance.
+
+1033
+02:13:28.200 --> 02:13:32.080
+Jitendra K: And in the previous algorithm that we have learned, we are talking about the variance itself.
+
+1034
+02:13:34.140 --> 02:13:36.799
+Jitendra K: Now, if the ratio of the variance is high.
+
+1035
+02:13:37.040 --> 02:13:39.469
+Jitendra K: That means the separation is maximum.
+
+1036
+02:13:39.860 --> 02:13:41.400
+Jitendra K: So, LDA use…
+
+1037
+02:13:41.540 --> 02:13:48.549
+Jitendra K: This technique, and it projects the input data into a lower dimension space, while preserving the class
+
+1038
+02:13:48.710 --> 02:13:51.040
+Jitendra K: Property as much as possible.
+
+1039
+02:13:51.270 --> 02:13:55.509
+Jitendra K: And then it applies the rule to compute the mean vectors.
+
+1040
+02:13:55.660 --> 02:14:03.690
+Jitendra K: So the idea is… Again, what LDA does is, it will, again, calculate
+
+1041
+02:14:04.010 --> 02:14:06.959
+Jitendra K: The mean vector for each class in your data.
+
+1042
+02:14:07.420 --> 02:14:12.730
+Jitendra K: And represent the center of each class in the feature space, which is this… these two data points.
+
+1043
+02:14:12.970 --> 02:14:17.539
+Jitendra K: And then, it will calculate within the class…
+
+1044
+02:14:17.690 --> 02:14:21.009
+Jitendra K: Separation, or within the class, cater matrix.
+
+1045
+02:14:21.700 --> 02:14:26.710
+Jitendra K: So, within the class, scatter matrix has been represented by S of W.
+
+1046
+02:14:27.360 --> 02:14:30.979
+Jitendra K: So this parameter, S of W, is an integral part of LDA.
+
+1047
+02:14:31.360 --> 02:14:36.140
+Jitendra K: So, this parameter is called, within the class, scattered metrics.
+
+1048
+02:14:36.310 --> 02:14:43.469
+Jitendra K: So it measures the variance of the data point within each class. That means, within this class, how much variance has been explained by.
+
+1049
+02:14:43.630 --> 02:14:45.490
+Jitendra K: This particular projection alone.
+
+1050
+02:14:46.440 --> 02:14:51.340
+Jitendra K: And then you will have S of B. The second parameter is S of B.
+
+1051
+02:14:51.780 --> 02:14:58.520
+Jitendra K: Which will measure, between the classes, how much the mean of different classes differ from each other.
+
+1052
+02:14:59.000 --> 02:15:12.790
+Jitendra K: And then we'll calculate the eigenvectors and eigenvalue using these two metrics. And the eigenvector again represents the direction of maximum variance. Eigenvalue represent the amount of variance explained by each eigenvector.
+
+1053
+02:15:13.470 --> 02:15:17.670
+Jitendra K: And then we'll select the top K value for it.
+
+1054
+02:15:18.630 --> 02:15:28.180
+Jitendra K: So this is how we are going to use labels, and this label will help us to learn from the data, because we are passing the labels here, right? When you're saying that
+
+1055
+02:15:28.320 --> 02:15:30.470
+Jitendra K: Okay, now let me explain again.
+
+1056
+02:15:30.930 --> 02:15:33.229
+Jitendra K: Now, imagine that you're trying to solve
+
+1057
+02:15:35.150 --> 02:15:38.860
+Jitendra K: a binary classification problem. So let's say you're creating
+
+1058
+02:15:39.160 --> 02:15:48.879
+Jitendra K: a Gmail spam detection algorithm. So whatever email which has been lined up into a folder, you would like to categorize that as spam or ham.
+
+1059
+02:15:50.190 --> 02:15:55.429
+Jitendra K: So, spam means… He will say 1, and HAM means he will say 0.
+
+1060
+02:15:55.780 --> 02:16:02.470
+Jitendra K: Now, remember that you are creating certain features from historical data, so these are your features. Let's say your features are…
+
+1061
+02:16:03.920 --> 02:16:05.020
+Jitendra K: Keywords.
+
+1062
+02:16:05.680 --> 02:16:07.310
+Jitendra K: So you will use keywords.
+
+1063
+02:16:08.170 --> 02:16:12.080
+Jitendra K: Such… such as offers… lottery…
+
+1064
+02:16:15.490 --> 02:16:16.760
+Jitendra K: Payments…
+
+1065
+02:16:21.510 --> 02:16:28.039
+Jitendra K: Et cetera, et cetera. So these are all keywords you are trying to look into. The subject line you are trying to look forward.
+
+1066
+02:16:28.220 --> 02:16:32.399
+Jitendra K: So we would like to summarize the subject line. Let's say the subject line talks about
+
+1067
+02:16:32.639 --> 02:16:38.489
+Jitendra K: Transfer this amount to my account, you win a lottery, etc, etc.
+
+1068
+02:16:38.740 --> 02:16:41.110
+Jitendra K: Then you will look for the domain.
+
+1069
+02:16:42.610 --> 02:16:48.439
+Jitendra K: From which domain the email appear? Is it from Gmail account, somebody else's email account?
+
+1070
+02:16:48.600 --> 02:16:52.609
+Jitendra K: Yahoo, Hotmail, etc, etc.
+
+1071
+02:16:55.690 --> 02:16:59.570
+Jitendra K: Then you will look for the IP, from which country it has been appeared.
+
+1072
+02:17:01.740 --> 02:17:03.270
+Jitendra K: What's the geography?
+
+1073
+02:17:06.230 --> 02:17:11.689
+Jitendra K: Whether this email domain is in blacklist, or wide domain.
+
+1074
+02:17:13.840 --> 02:17:18.219
+Jitendra K: Then you will look into the… any URL which is a part of the…
+
+1075
+02:17:18.510 --> 02:17:21.969
+Jitendra K: email, topic, we will look for a URL.
+
+1076
+02:17:26.010 --> 02:17:39.599
+Jitendra K: Right? So all this thing you will look forward, and then you will create a spam versus ham detection algorithm, and depending upon that, you will be able to train your algorithm. Now, here, I'm not passing any historical data to train.
+
+1077
+02:17:39.900 --> 02:17:42.829
+Jitendra K: I'm simply saying that I have got a bunch of…
+
+1078
+02:17:43.200 --> 02:17:50.139
+Jitendra K: data points, and then I would like to find out which data points out of these features is important to my algorithm.
+
+1079
+02:17:50.830 --> 02:17:53.269
+Jitendra K: So here, I'm finding the covariance.
+
+1080
+02:17:54.139 --> 02:17:55.629
+Jitendra K: and correlation.
+
+1081
+02:17:56.650 --> 02:17:59.049
+Jitendra K: And then I try to explain the variance.
+
+1082
+02:18:00.320 --> 02:18:02.330
+Jitendra K: Of overall data points.
+
+1083
+02:18:03.670 --> 02:18:07.100
+Jitendra K: So here, I'm not separating the data points into classes.
+
+1084
+02:18:07.590 --> 02:18:12.310
+Jitendra K: But here, I'm separating the data point into classes by saying this is my class 1,
+
+1085
+02:18:12.670 --> 02:18:14.169
+Jitendra K: This is my Class 2.
+
+1086
+02:18:14.730 --> 02:18:20.670
+Jitendra K: So, run the two distribution analysis… Try to project them.
+
+1087
+02:18:21.850 --> 02:18:28.400
+Jitendra K: and find out the maximum separation between the class. So here I can see that if I'm projecting horizontally.
+
+1088
+02:18:28.930 --> 02:18:34.289
+Jitendra K: Versus vertically, so this is my horizontal projection. I can see the real distribution.
+
+1089
+02:18:34.469 --> 02:18:41.570
+Jitendra K: What I'm… what I'm… but if I'm projecting it vertically, I can see that they are overlapping. That's why it is bad projection.
+
+1090
+02:18:42.059 --> 02:18:46.390
+Jitendra K: Right? Because I cannot see any discrimination between the two classes.
+
+1091
+02:18:46.620 --> 02:18:49.410
+Jitendra K: I want to see something like this.
+
+1092
+02:18:49.520 --> 02:18:51.709
+Jitendra K: That should separate the two classes.
+
+1093
+02:18:51.980 --> 02:18:55.510
+Jitendra K: So the idea is… of idea of LDA is very simple.
+
+1094
+02:18:55.719 --> 02:19:00.519
+Jitendra K: The idea of LDA is you are going to utilize and apply
+
+1095
+02:19:00.930 --> 02:19:09.899
+Jitendra K: this particular algorithm to reduce the dimension of subsequent analysis. So, basically, what you're trying to do is, you're trying to identify
+
+1096
+02:19:11.969 --> 02:19:13.990
+Jitendra K: What defined the Class 1?
+
+1097
+02:19:14.379 --> 02:19:17.570
+Jitendra K: And what are the differentiators for Class 2, along with labels?
+
+1098
+02:19:18.370 --> 02:19:23.430
+Jitendra K: So, some of the advantages of using LDA is LDA will reduce the dimension of the data set.
+
+1099
+02:19:23.549 --> 02:19:30.090
+Jitendra K: while preserving the class discriminatory information. This is very useful for visualization.
+
+1100
+02:19:30.450 --> 02:19:35.960
+Jitendra K: Second is, LDA will help you to find the optimal linear separation between the class.
+
+1101
+02:19:36.680 --> 02:19:43.230
+Jitendra K: And that makes this algorithm most powerful for classification purposes. So that's… that's the reason I told you earlier.
+
+1102
+02:19:43.360 --> 02:19:49.990
+Jitendra K: that we will talk about something called topic modeling in an LPE. So an LPE will talk about topic modeling.
+
+1103
+02:19:50.140 --> 02:19:56.560
+Jitendra K: And, the idea of topic modeling is to… let's say if you have a bunch of sentences or a bunch of
+
+1104
+02:19:56.890 --> 02:19:58.050
+Jitendra K: document.
+
+1105
+02:19:58.930 --> 02:20:04.819
+Jitendra K: Then you would like to… Perform the analysis on the topics, right?
+
+1106
+02:20:04.920 --> 02:20:09.450
+Jitendra K: So, LDA is one of the algorithms that will help you to identify the topic from that.
+
+1107
+02:20:10.200 --> 02:20:11.729
+Jitendra K: And it is a great technique.
+
+1108
+02:20:12.070 --> 02:20:14.660
+Jitendra K: We'll discuss in depth there as well.
+
+1109
+02:20:14.800 --> 02:20:20.789
+Jitendra K: But I just want to give you, the depiction that LDA is also useful for dimension reduction.
+
+1110
+02:20:21.130 --> 02:20:27.930
+Jitendra K: So, it is very useful for classification tasks, and LDA perform well when you have a decent amount of label data.
+
+1111
+02:20:28.140 --> 02:20:31.100
+Jitendra K: Specifically when your data follow a Gaussian distribution.
+
+1112
+02:20:31.720 --> 02:20:40.639
+Jitendra K: Now, the disadvantage of using LDA is, the LDA will assume certain things. So, LDA assumes that the features are normally distributed within the class.
+
+1113
+02:20:41.070 --> 02:20:47.040
+Jitendra K: And in practice, it may or may not be the case. So, it is also sensitive to outliers.
+
+1114
+02:20:47.280 --> 02:20:50.830
+Jitendra K: Which can affect the estimation of the class means and covariance.
+
+1115
+02:20:51.010 --> 02:20:56.920
+Jitendra K: And LD assume that the decision boundaries between the class are linear, which is not the case for complex dataset.
+
+1116
+02:20:57.150 --> 02:21:02.540
+Jitendra K: So that is the… some pros and cons of using LDA, but overall.
+
+1117
+02:21:03.270 --> 02:21:10.959
+Jitendra K: if I have to compare LDA versus PCA, PCA is more popular as compared to LDA, and the reason being is
+
+1118
+02:21:11.310 --> 02:21:14.040
+Jitendra K: this is nonlinear.
+
+1119
+02:21:14.760 --> 02:21:17.280
+Jitendra K: That means it is assuming to be linear.
+
+1120
+02:21:17.550 --> 02:21:29.370
+Jitendra K: And, this technique will… able to perform dimension reduction by maximizing the variance of the data. Therefore, in most cases, feature standardization is necessary before applying PCA.
+
+1121
+02:21:29.540 --> 02:21:34.710
+Jitendra K: LDA perform, basically, dimension reduction by maximizing the class separation.
+
+1122
+02:21:35.010 --> 02:21:45.200
+Jitendra K: Of classified data set. Therefore, feature standardization is an optional. So, that is the whole idea of using LDA versus PCA. Now, which one should I use when?
+
+1123
+02:21:45.400 --> 02:21:49.400
+Jitendra K: Now, we'll see with an example.
+
+1124
+02:21:49.840 --> 02:22:05.969
+Jitendra K: Like, how LDA will help us to differentiate a boundary, and how to explain the cumulative variance by using LDA, similar to PCA, what we have done. It will also be a very similar, interpretation that we are going to yield from LDA.
+
+1125
+02:22:06.130 --> 02:22:08.060
+Jitendra K: So the idea is very simple.
+
+1126
+02:22:09.220 --> 02:22:14.840
+Jitendra K: So, when I'm using LDA, so…
+
+1127
+02:22:17.070 --> 02:22:21.079
+Jitendra K: So the idea is to look for better class separation.
+
+1128
+02:22:21.440 --> 02:22:29.509
+Jitendra K: When I'm using PCA, I would like to look for maximum variance acceleration. So if your interview is asking, can you explain me the difference between LD and PCA?
+
+1129
+02:22:29.620 --> 02:22:38.960
+Jitendra K: The first and the foremost point that you should say is LDA is a supervised learning algorithm, because I would like to learn and project the class separation as my objective.
+
+1130
+02:22:39.170 --> 02:22:45.900
+Jitendra K: PCA is an unsupervised learning algorithm. Here, I would like to find a direction of maximum variance and the strength of
+
+1131
+02:22:46.060 --> 02:22:52.420
+Jitendra K: Relationship by finding the eigenvectors… sorry, eigenvalues from covariance metrics.
+
+1132
+02:22:52.650 --> 02:23:06.629
+Jitendra K: And that is the difference between PCA and LDA. Now, which one is more useful? That depends upon the problem statement, right? So, if you're starting with any… without any label data, you don't have any choice, but you have to apply PCA for that.
+
+1133
+02:23:06.630 --> 02:23:15.159
+Jitendra K: If you have a decent labeled data, there's no harm in trying LDA, right? If you have a very good data set, very labeled data set.
+
+1134
+02:23:15.320 --> 02:23:18.350
+Jitendra K: And you have done a very thorough analysis on your data.
+
+1135
+02:23:18.960 --> 02:23:23.200
+Jitendra K: And he would like to… Try.
+
+1136
+02:23:24.920 --> 02:23:40.639
+Jitendra K: maybe two different techniques, there's no harm in trying that, right? You can try PC and LDA, and then you will see which algorithm is more fit for my data. So the data will talk about that, right? Let the data speak, so instead of you decide which technique should I use and why.
+
+1137
+02:23:40.730 --> 02:23:53.230
+Jitendra K: So that's… that's the way that you should implement, but as I mentioned from my industrial experiences, 90% of the time, you're going to use PCA. So this is one of the important algorithms that we have discussed already.
+
+1138
+02:23:53.310 --> 02:24:03.030
+Jitendra K: Now, LDA can be useful for NLP task. You can use an NLP-based task. I can use this technique for topic modeling.
+
+1139
+02:24:03.660 --> 02:24:05.570
+Jitendra K: recommendation systems.
+
+1140
+02:24:08.270 --> 02:24:24.510
+Jitendra K: And also for classification purpose, sentiment classification. We will see this technique will be useful for all this NLP-based task, because there we are talking about more feature space. Now, remember, when we talk about NLP-based model, the feature space
+
+1141
+02:24:24.640 --> 02:24:29.760
+Jitendra K: Can grow up to 1,000 to 100,000 of data points.
+
+1142
+02:24:30.940 --> 02:24:38.950
+Jitendra K: Right? So this is the kind of feature space that we are talking about when we are dealing with an LP-based model. Here, we are even talking about not even more than 50
+
+1143
+02:24:39.130 --> 02:24:41.640
+Jitendra K: 100 features, right? So…
+
+1144
+02:24:41.950 --> 02:24:50.259
+Jitendra K: We are talking about a simple 30 feature, 15 features, but in an LP, you will see that your feature space will be increased by this much percentage.
+
+1145
+02:24:50.810 --> 02:24:59.530
+Jitendra K: So, to ensure that, we will have a proper model into consideration. We have to try different approaches.
+
+1146
+02:25:10.570 --> 02:25:15.619
+Jitendra K: Alright, now what we can do is, I will talk about how to use LDA now.
+
+1147
+02:25:15.870 --> 02:25:18.780
+Jitendra K: And, we will use LDA along with
+
+1148
+02:25:19.360 --> 02:25:22.510
+Jitendra K: interpretation, similar to what we have done in PCA.
+
+1149
+02:25:22.770 --> 02:25:27.699
+Jitendra K: I will try to compare… Ld algorithm, and then…
+
+1150
+02:25:28.230 --> 02:25:30.260
+Jitendra K: We will see how these two algorithms
+
+1151
+02:25:30.480 --> 02:25:33.179
+Jitendra K: Can be utilized for the purpose of?
+
+1152
+02:25:34.280 --> 02:25:35.840
+Jitendra K: dimension reduction.
+
+1153
+02:25:36.100 --> 02:25:37.110
+Jitendra K: But…
+
+1154
+02:25:37.310 --> 02:25:48.349
+Jitendra K: One thing before that, so basically, the concept will remain the same. The eigenvalue eigenvector concept will remain the same. Behind the scene, it will also convert everything into a
+
+1155
+02:25:48.650 --> 02:25:50.549
+Jitendra K: A linear combination of array.
+
+1156
+02:25:50.660 --> 02:25:55.259
+Jitendra K: And then we are going to split that into eigenvectors and eigenvalues.
+
+1157
+02:25:55.470 --> 02:25:57.540
+Jitendra K: So, first, let me explain.
+
+1158
+02:25:58.440 --> 02:25:59.919
+Jitendra K: With the help of a data.
+
+1159
+02:26:00.130 --> 02:26:02.309
+Jitendra K: And then we'll take some example.
+
+1160
+02:26:07.480 --> 02:26:10.209
+Jitendra K: So let me quickly open my notebook.
+
+1161
+02:26:59.990 --> 02:27:07.260
+Jitendra K: So, for LDA, I'm going to use scikit-learn Discriminate Analysis, For PC, I'm using decomposition.
+
+1162
+02:27:07.570 --> 02:27:11.840
+Jitendra K: So here, you can see that I have a… Different class.
+
+1163
+02:27:11.970 --> 02:27:14.379
+Jitendra K: A different module to import a package.
+
+1164
+02:27:14.620 --> 02:27:21.339
+Jitendra K: For LD, I'm going to use discriminate analysis. For LD, I'm going to use… for PC, I'm going to use decomposition class.
+
+1165
+02:27:21.810 --> 02:27:27.570
+Jitendra K: So, that is the only difference that we are going to have from the package perspective. Remaining things, standard scaler.
+
+1166
+02:27:27.870 --> 02:27:39.310
+Jitendra K: your training test split function, cross validation score, random forest from ensemble, support vector machine from SVM, and all the underlying cost objective will remain unchanged.
+
+1167
+02:27:39.950 --> 02:27:45.309
+Jitendra K: The only change here we are making is, from scikit-learn, I'm going to import two different classes.
+
+1168
+02:27:45.600 --> 02:27:46.900
+Jitendra K: Let me run this.
+
+1169
+02:27:53.280 --> 02:27:56.060
+Jitendra K: Let me set up the style of print.
+
+1170
+02:27:57.030 --> 02:27:59.190
+Jitendra K: So I'm going to start with this.
+
+1171
+02:28:19.770 --> 02:28:23.660
+Jitendra K: Okay, so I'm going to show you the code for LDA, how LDA works.
+
+1172
+02:28:24.130 --> 02:28:33.680
+Jitendra K: So this is the code for LDA, so I've got manual LDA. So I'm having a manual LDA implementation here. Let me explain what is a mathematical
+
+1173
+02:28:34.230 --> 02:28:35.869
+Jitendra K: A thing behind the scene.
+
+1174
+02:28:37.500 --> 02:28:40.720
+Jitendra K: So, first and the foremost thing, when we are talking about LDA,
+
+1175
+02:28:44.920 --> 02:28:48.910
+Jitendra K: So, the first and foremost thing is the objective of LDA.
+
+1176
+02:28:53.520 --> 02:28:59.170
+Jitendra K: is to maximize… the class separation.
+
+1177
+02:29:01.800 --> 02:29:04.409
+Jitendra K: When I talk about objective of PCA,
+
+1178
+02:29:05.930 --> 02:29:13.179
+Jitendra K: The objective of PCA is to… Maximize… The variance in the data.
+
+1179
+02:29:15.180 --> 02:29:16.020
+Jitendra K: Right?
+
+1180
+02:29:16.150 --> 02:29:20.050
+Jitendra K: And here, I'm talking about finding the direction of maximum spreadness.
+
+1181
+02:29:20.340 --> 02:29:25.040
+Jitendra K: But here, I'm talking about finding the direction that separates a class optimally.
+
+1182
+02:29:25.670 --> 02:29:27.689
+Jitendra K: So, mathematically, I can say that…
+
+1183
+02:29:28.330 --> 02:29:35.460
+Jitendra K: In LDA, I would like to maximize… the cost function JW.
+
+1184
+02:29:38.980 --> 02:29:41.620
+Jitendra K: Okay, I can see there's a question.
+
+1185
+02:29:44.630 --> 02:29:49.080
+Jitendra K: Okay, sure, yeah, I will create… I will separate this worksheet.
+
+1186
+02:29:55.230 --> 02:29:57.459
+Jitendra K: Yeah, I will separate this worksheet.
+
+1187
+02:29:57.690 --> 02:30:03.170
+Jitendra K: So my objective is to find maximum value of G , which is my cost function.
+
+1188
+02:30:03.750 --> 02:30:17.700
+Jitendra K: Now, the objective of your LDA is to… create… a weight training… on… scattered…
+
+1189
+02:30:17.830 --> 02:30:21.359
+Jitendra K: Distance between the classes, that should be maximum.
+
+1190
+02:30:21.940 --> 02:30:23.139
+Jitendra K: Which is one weight.
+
+1191
+02:30:23.990 --> 02:30:33.809
+Jitendra K: Divide by… W of T… scattered… metrics… within the class.
+
+1192
+02:30:34.990 --> 02:30:38.499
+Jitendra K: So if these two things are becoming maximum.
+
+1193
+02:30:38.670 --> 02:30:41.410
+Jitendra K: The ratio will always be coming maximum.
+
+1194
+02:30:41.770 --> 02:30:44.390
+Jitendra K: So, we are going to compute the class mean.
+
+1195
+02:30:44.880 --> 02:30:47.199
+Jitendra K: Compute within the class scattered.
+
+1196
+02:30:47.900 --> 02:30:49.970
+Jitendra K: And try to solve this.
+
+1197
+02:30:50.170 --> 02:31:07.010
+Jitendra K: algorithm by fitting SP… into… W… Equals to lambda times of… So… W. So this is here.
+
+1198
+02:31:08.690 --> 02:31:10.580
+Jitendra K: Metrics that you're trying to solve.
+
+1199
+02:31:11.510 --> 02:31:15.950
+Jitendra K: So basically, the idea is very simple. I'm going to implement this with the help of…
+
+1200
+02:31:16.770 --> 02:31:19.859
+Jitendra K: this example. Let me separate this notebook.
+
+1201
+02:32:23.770 --> 02:32:26.059
+Jitendra K: Okay, so this is what I'm doing here.
+
+1202
+02:32:26.570 --> 02:32:30.370
+Jitendra K: So here you can see that I'm… Creating a class.
+
+1203
+02:32:30.660 --> 02:32:31.840
+Jitendra K: from the scratch.
+
+1204
+02:32:34.480 --> 02:32:37.660
+Jitendra K: And I'm creating an array of
+
+1205
+02:32:39.420 --> 02:32:42.450
+Jitendra K: The parameter, which is my input feature, and the output variable.
+
+1206
+02:32:42.770 --> 02:32:44.769
+Jitendra K: Which is nothing but number of classes.
+
+1207
+02:32:45.490 --> 02:32:49.319
+Jitendra K: So, now the idea is, I would like to find it out.
+
+1208
+02:32:52.810 --> 02:32:54.140
+Jitendra K: these values.
+
+1209
+02:32:55.390 --> 02:32:58.530
+Jitendra K: Right? So I would like to say that, I would like to find out.
+
+1210
+02:32:58.990 --> 02:33:03.770
+Jitendra K: These values computing within the scattered matrix, and between the class.
+
+1211
+02:33:04.270 --> 02:33:09.070
+Jitendra K: And then, try to solve this with the help of… The linear algebra function.
+
+1212
+02:33:09.460 --> 02:33:14.069
+Jitendra K: And that is what my LDA will do for you. So this equation is very simple.
+
+1213
+02:33:14.300 --> 02:33:15.880
+Jitendra K: You're trying to solve…
+
+1214
+02:33:20.110 --> 02:33:24.419
+Jitendra K: and maximize… J of W.
+
+1215
+02:33:25.500 --> 02:33:32.900
+Jitendra K: by projecting this into this space, W of T, multiply by a solve P.
+
+1216
+02:33:34.250 --> 02:33:35.300
+Jitendra K: W.
+
+1217
+02:33:35.450 --> 02:33:38.489
+Jitendra K: Or… W of T.
+
+1218
+02:33:39.550 --> 02:33:40.660
+Jitendra K: As soft.
+
+1219
+02:33:40.980 --> 02:33:42.040
+Jitendra K: W.
+
+1220
+02:33:42.490 --> 02:33:43.150
+Jitendra K: W.
+
+1221
+02:33:43.730 --> 02:33:49.169
+Jitendra K: And this will give you… the maximum separation.
+
+1222
+02:33:50.390 --> 02:33:51.820
+Jitendra K: Between the class.
+
+1223
+02:34:01.560 --> 02:34:06.499
+Jitendra K: Alright, so, again, we will use…
+
+1224
+02:34:07.410 --> 02:34:10.620
+Jitendra K: I'll, I would say Python packages will…
+
+1225
+02:34:10.750 --> 02:34:14.409
+Jitendra K: So this is a first-time implementation, that's the reason I've tried to implement this.
+
+1226
+02:34:14.820 --> 02:34:17.369
+Jitendra K: Now, I will apply both technique.
+
+1227
+02:34:19.010 --> 02:34:20.609
+Jitendra K: LD and PCA.
+
+1228
+02:34:20.980 --> 02:34:25.720
+Jitendra K: And then try to see the calculation which has been conducted by the model.
+
+1229
+02:34:25.980 --> 02:34:29.239
+Jitendra K: And then I will compare the classification performance.
+
+1230
+02:34:29.580 --> 02:34:34.379
+Jitendra K: So try to see which algorithm is better. Not this dataset I'm talking about only.
+
+1231
+02:34:34.710 --> 02:34:39.089
+Jitendra K: So I would like to apply the same data set, iris data flowers.
+
+1232
+02:34:39.300 --> 02:34:42.099
+Jitendra K: And then computing these metrics.
+
+1233
+02:34:42.310 --> 02:34:44.489
+Jitendra K: And try to solve this problem.
+
+1234
+02:34:45.180 --> 02:34:49.930
+Jitendra K: So… These are my output. I will come back to this output.
+
+1235
+02:34:50.080 --> 02:34:53.299
+Jitendra K: First, let me compare the classification performance.
+
+1236
+02:35:00.470 --> 02:35:03.439
+Jitendra K: So let me compare the classification performance.
+
+1237
+02:35:09.900 --> 02:35:12.070
+Jitendra K: Okay, so I've got two output.
+
+1238
+02:35:12.960 --> 02:35:14.460
+Jitendra K: In fact, 3 output.
+
+1239
+02:35:15.010 --> 02:35:16.950
+Jitendra K: And this is the accuracy of the model.
+
+1240
+02:35:17.500 --> 02:35:20.329
+Jitendra K: So I can see LDA, two-dimensional.
+
+1241
+02:35:20.480 --> 02:35:24.120
+Jitendra K: Original, without any…
+
+1242
+02:35:28.920 --> 02:35:32.900
+Jitendra K: Sorry, without applying any technique, which is my original dataset.
+
+1243
+02:35:33.150 --> 02:35:35.040
+Jitendra K: And the third is with PCA.
+
+1244
+02:35:35.440 --> 02:35:40.980
+Jitendra K: So you can see that LDA is outperforming, this technique at this point of time.
+
+1245
+02:35:41.120 --> 02:35:44.980
+Jitendra K: So when I'm comparing the performance, LD is giving a better result.
+
+1246
+02:35:45.270 --> 02:35:51.219
+Jitendra K: But it may be applicable only for one type of dealer site, and that could be the reason I'm getting it.
+
+1247
+02:35:52.130 --> 02:35:54.319
+Jitendra K: Now, coming back to the previous plots.
+
+1248
+02:35:54.940 --> 02:36:02.870
+Jitendra K: Now, here you can see that, when I'm applying the… PCNLIA.
+
+1249
+02:36:05.240 --> 02:36:07.690
+Jitendra K: So here, I'm… I'm talking about the…
+
+1250
+02:36:10.460 --> 02:36:15.830
+Jitendra K: components. That means, how many components can able to separate the classes.
+
+1251
+02:36:16.250 --> 02:36:23.820
+Jitendra K: But here, I'm talking about a ratio, the ratio between your… I saw…
+
+1252
+02:36:24.060 --> 02:36:27.220
+Jitendra K: B, between the classes, and within the classes.
+
+1253
+02:36:27.320 --> 02:36:33.500
+Jitendra K: Right? So, that is what I'm trying to do as a part of my average intraday distances.
+
+1254
+02:36:33.790 --> 02:36:36.750
+Jitendra K: So that is the difference between the two interpretation.
+
+1255
+02:36:36.910 --> 02:36:41.110
+Jitendra K: Now, how will you benchmark that when I'm using
+
+1256
+02:36:42.410 --> 02:36:48.269
+Jitendra K: the LDA, how many principal components are needed? Or, sorry, how many components are needed?
+
+1257
+02:36:48.620 --> 02:36:55.660
+Jitendra K: So, the idea is… Here, you also, you will get eigenvalues, because you're solving a matrix.
+
+1258
+02:36:56.110 --> 02:36:59.009
+Jitendra K: So the matrix will yield eigenvalues automatically.
+
+1259
+02:36:59.390 --> 02:37:08.459
+Jitendra K: So when I'm talking about eigenvalues, I will also talk about the variance explained by these eigenvalues, but I will not call this as a principal component.
+
+1260
+02:37:08.700 --> 02:37:12.419
+Jitendra K: But rather, I will say that this is a ratio of the classes.
+
+1261
+02:37:12.740 --> 02:37:17.099
+Jitendra K: In terms of within the distance versus between the distances.
+
+1262
+02:37:17.450 --> 02:37:19.309
+Jitendra K: And if I'm going to have…
+
+1263
+02:37:20.920 --> 02:37:23.150
+Jitendra K: If I'm going to maintain both ratio.
+
+1264
+02:37:23.590 --> 02:37:25.810
+Jitendra K: Let me, let's say I've got this class.
+
+1265
+02:37:29.820 --> 02:37:31.440
+Jitendra K: Versus this class.
+
+1266
+02:37:34.550 --> 02:37:36.749
+Jitendra K: And this is my centroid of the class.
+
+1267
+02:37:37.850 --> 02:37:41.240
+Jitendra K: If I'm maintaining a distance between the two classes.
+
+1268
+02:37:41.650 --> 02:37:46.129
+Jitendra K: with a maximum variance, I can say that One way is to.
+
+1269
+02:37:46.380 --> 02:37:48.270
+Jitendra K: Finder intra-distances.
+
+1270
+02:37:48.760 --> 02:37:51.210
+Jitendra K: Between the classes, from all data points.
+
+1271
+02:37:52.330 --> 02:38:01.440
+Jitendra K: And here, I'm also finding the intra-distances, but when I'm talking about within the distances, that is what I would like to maximize. And the ratio
+
+1272
+02:38:12.920 --> 02:38:16.920
+Jitendra K: If it is to be maximized, Which is my cost function.
+
+1273
+02:38:17.350 --> 02:38:19.810
+Jitendra K: Then both values should be high.
+
+1274
+02:38:21.140 --> 02:38:24.060
+Jitendra K: Right? So that is what I would like to talk about.
+
+1275
+02:38:24.440 --> 02:38:27.849
+Jitendra K: And that is how you will see that we are getting
+
+1276
+02:38:31.930 --> 02:38:33.580
+Jitendra K: The outcome is a ratio.
+
+1277
+02:38:34.570 --> 02:38:41.530
+Jitendra K: Rather than… the principal component. So, here I'm talking about a ratio.
+
+1278
+02:38:48.880 --> 02:38:53.840
+Jitendra K: Now, I will apply, maybe,
+
+1279
+02:38:54.210 --> 02:38:56.789
+Jitendra K: One more, I would like to solve one more problem.
+
+1280
+02:38:57.150 --> 02:38:59.300
+Jitendra K: With the help of LDA.
+
+1281
+02:38:59.910 --> 02:39:01.230
+Jitendra K: And,
+
+1282
+02:39:02.720 --> 02:39:08.749
+Jitendra K: Maybe this time, I would like to utilize some more complex data sets, which is having more features.
+
+1283
+02:39:08.980 --> 02:39:14.329
+Jitendra K: And then we'll see, if this algorithm's still proven to be efficient.
+
+1284
+02:39:14.570 --> 02:39:20.310
+Jitendra K: Or not. And then, depending upon The comparative analytics on both.
+
+1285
+02:39:20.600 --> 02:39:26.199
+Jitendra K: we will be able to see which one is better. But I would definitely say that PCA is better.
+
+1286
+02:39:28.470 --> 02:39:34.100
+Jitendra K: for this use case, it is fitting, LD is fitting very well, but however, in general.
+
+1287
+02:39:34.460 --> 02:39:39.239
+Jitendra K: Since PCA is the most advanced algorithm, because PCA will give you a liberty.
+
+1288
+02:39:39.590 --> 02:39:50.689
+Jitendra K: When you're dealing with any machine learning problem statement, when you're solving any real-world problems, you often have limited labels to train the model. Here, in this example, the labels are good.
+
+1289
+02:39:50.860 --> 02:39:52.860
+Jitendra K: And that's the reason the solutions are overfed.
+
+1290
+02:39:53.020 --> 02:39:58.489
+Jitendra K: Right? But in real world, let's say you start with any projects in real time.
+
+1291
+02:39:58.720 --> 02:40:02.290
+Jitendra K: So, the life cycle of the project goes like this. So, you have to start with…
+
+1292
+02:40:03.470 --> 02:40:08.219
+Jitendra K: data understanding. So, first and foremost thing, what you are going to do is you're going to understand your data.
+
+1293
+02:40:08.870 --> 02:40:12.400
+Jitendra K: And you're going to do this data understanding.
+
+1294
+02:40:12.970 --> 02:40:14.630
+Jitendra K: Or data exploration.
+
+1295
+02:40:23.700 --> 02:40:25.440
+Jitendra K: with multiple teams.
+
+1296
+02:40:26.280 --> 02:40:32.040
+Jitendra K: So, it's very natural that when you're dealing with multiple teams, everybody will have their own definition of data.
+
+1297
+02:40:32.160 --> 02:40:38.850
+Jitendra K: Until and unless you're working in some top-notch organizations, where they're maintaining the dictionaries, they are
+
+1298
+02:40:39.170 --> 02:40:42.550
+Jitendra K: Commenting everything in a code. They are talking about
+
+1299
+02:40:42.970 --> 02:40:51.049
+Jitendra K: spreadsheet about the… of the data warehouses, right? Where they're very clear about everything, including column, references, tables.
+
+1300
+02:40:51.510 --> 02:40:57.439
+Jitendra K: But 90% of the organization does not have that kind of liberty, right? When they are
+
+1301
+02:40:57.680 --> 02:41:02.250
+Jitendra K: Utilizing the data warehouses. So, data might be having a lot of noise.
+
+1302
+02:41:02.400 --> 02:41:04.920
+Jitendra K: So remember that there would be noise in your data.
+
+1303
+02:41:05.980 --> 02:41:15.749
+Jitendra K: errors in your data, right? So with that, you have to start experimentation. So once you explore your data, the second and the most important aspect that you are going to do is
+
+1304
+02:41:16.370 --> 02:41:20.700
+Jitendra K: You are going to create a problem statement based upon your hypothesis.
+
+1305
+02:41:21.040 --> 02:41:25.140
+Jitendra K: So you will say that this is my hypothesis that I'm going to test on my data points.
+
+1306
+02:41:26.480 --> 02:41:30.679
+Jitendra K: Once you perform the hypothesis testing, then you move on to the ED exercise.
+
+1307
+02:41:31.360 --> 02:41:34.730
+Jitendra K: Which is your exploratory data analytics.
+
+1308
+02:41:35.090 --> 02:41:41.179
+Jitendra K: Now, in the ADA cycle, you will came to know a lot of things Including your data quality.
+
+1309
+02:41:42.300 --> 02:41:45.600
+Jitendra K: Including your outliers' impact.
+
+1310
+02:41:47.360 --> 02:41:49.770
+Jitendra K: Including your missing values.
+
+1311
+02:41:54.280 --> 02:41:58.759
+Jitendra K: Including your, lineage, data lineage aspects.
+
+1312
+02:42:01.750 --> 02:42:05.499
+Jitendra K: Right? So, all these points will be very important.
+
+1313
+02:42:05.770 --> 02:42:09.780
+Jitendra K: To make sure that you have a thorough understanding of your data. If you do not have.
+
+1314
+02:42:09.980 --> 02:42:12.400
+Jitendra K: Enough information about your data quality.
+
+1315
+02:42:13.080 --> 02:42:15.020
+Jitendra K: The impact of outliers.
+
+1316
+02:42:15.670 --> 02:42:19.229
+Jitendra K: The missing value treatment, the linear data linear aspects.
+
+1317
+02:42:19.690 --> 02:42:23.360
+Jitendra K: Then, your business will assume that we are providing everything.
+
+1318
+02:42:23.700 --> 02:42:25.860
+Jitendra K: To you, as a data scientist.
+
+1319
+02:42:26.490 --> 02:42:28.289
+Jitendra K: But you're not able to deliver.
+
+1320
+02:42:29.210 --> 02:42:32.800
+Jitendra K: So make sure that your EDA will talk loud.
+
+1321
+02:42:33.990 --> 02:42:36.630
+Jitendra K: You should have enough evidence to prove
+
+1322
+02:42:36.900 --> 02:42:41.449
+Jitendra K: That there are a lot of discrepancies in your data, which need to be overcome.
+
+1323
+02:42:42.060 --> 02:42:46.379
+Jitendra K: Otherwise, you're just creating a black box model without any purpose.
+
+1324
+02:42:48.160 --> 02:42:52.410
+Jitendra K: So make sure you do a very thorough EDA on all these aspects.
+
+1325
+02:42:52.730 --> 02:42:55.840
+Jitendra K: After that, once you perform the EDA,
+
+1326
+02:42:56.050 --> 02:42:59.089
+Jitendra K: Now you formulate a treatment plan.
+
+1327
+02:43:02.530 --> 02:43:06.669
+Jitendra K: Now, this treatment plan… We'll talk about these impacts.
+
+1328
+02:43:07.300 --> 02:43:13.070
+Jitendra K: So, in a data-linear aspect, We'll talk about… dimension reduction.
+
+1329
+02:43:15.200 --> 02:43:16.800
+Jitendra K: As one of the techniques.
+
+1330
+02:43:17.480 --> 02:43:24.400
+Jitendra K: Right? So in dimension reduction, we are thinking of two processes, supervise, unsupervised.
+
+1331
+02:43:30.060 --> 02:43:34.240
+Jitendra K: Right? So 99% of the time, you will go into unsupervised route.
+
+1332
+02:43:34.660 --> 02:43:39.280
+Jitendra K: And then you will use PCA technique, right? So once you perform a dimension reduction.
+
+1333
+02:43:39.540 --> 02:43:45.360
+Jitendra K: Then you start with the modeling technique, so your model will… we created…
+
+1334
+02:43:45.690 --> 02:43:49.450
+Jitendra K: Then the inference pipeline will be… created…
+
+1335
+02:43:50.630 --> 02:43:54.379
+Jitendra K: And so on and so forth. And then, this will become a whole…
+
+1336
+02:43:55.110 --> 02:44:00.609
+Jitendra K: MLOps pipeline, right? So you will continue to experiment, continue to explore more features.
+
+1337
+02:44:00.890 --> 02:44:04.179
+Jitendra K: So the whole idea of this exercise is to register the features.
+
+1338
+02:44:05.340 --> 02:44:08.640
+Jitendra K: So your features will be stored in the feature store.
+
+1339
+02:44:10.890 --> 02:44:12.540
+Jitendra K: And these features…
+
+1340
+02:44:15.680 --> 02:44:18.319
+Jitendra K: Can be a golden source of data for you.
+
+1341
+02:44:19.260 --> 02:44:23.850
+Jitendra K: Right? So, as you move, as you move, further.
+
+1342
+02:44:24.120 --> 02:44:34.390
+Jitendra K: You may require to retrain your algorithm as well, with new features, new data points, updated data points as well. So you will still try to calibrate your model with these.
+
+1343
+02:44:34.490 --> 02:44:41.439
+Jitendra K: whole experimentation pipeline. Because you have to follow the same process to register a new feature in this golden set of features.
+
+1344
+02:44:41.950 --> 02:44:44.970
+Jitendra K: Right? So you have to follow the same process again and again.
+
+1345
+02:44:45.290 --> 02:44:49.339
+Jitendra K: If you deploy a model, this process will always be creative.
+
+1346
+02:44:49.690 --> 02:44:56.620
+Jitendra K: You may not discover an old feature, but you may say that this old feature is no longer needed.
+
+1347
+02:44:57.390 --> 02:45:01.650
+Jitendra K: And that answer will be given by… these models.
+
+1348
+02:45:01.810 --> 02:45:06.629
+Jitendra K: So you may be… you may be using… PCA to begin with.
+
+1349
+02:45:06.910 --> 02:45:09.910
+Jitendra K: But at the end, you may end up into using LDA.
+
+1350
+02:45:12.110 --> 02:45:18.140
+Jitendra K: When you're rerunning your algorithm for retraining purpose, because you already have labeled data by the time.
+
+1351
+02:45:18.800 --> 02:45:21.960
+Jitendra K: So that's the only advantage, I would say.
+
+1352
+02:45:22.100 --> 02:45:29.769
+Jitendra K: that you are going to have with the supervised learning approach. So, with sufficient label, you can switch your approach
+
+1353
+02:45:29.940 --> 02:45:36.290
+Jitendra K: And then make… Your objective, instead of explaining the variance of the data.
+
+1354
+02:45:36.560 --> 02:45:40.020
+Jitendra K: Now your objective is accuracy of the algorithm.
+
+1355
+02:45:42.300 --> 02:45:49.050
+Jitendra K: So here you're… you are… you're… you're, you might be…
+
+1356
+02:45:49.860 --> 02:45:54.140
+Jitendra K: Hunting in the dark, when you're experimenting with the models.
+
+1357
+02:45:54.260 --> 02:46:08.139
+Jitendra K: But with better understanding of the labels, better understanding on the algorithm, better understanding of the approach, you can go with supervised as well, as the model progress. So this is the complete life cycle of the ML model, so…
+
+1358
+02:46:08.530 --> 02:46:15.459
+Jitendra K: So, you may have to consider both algorithms in future, right? That's why it is important to learn both.
+
+1359
+02:46:15.670 --> 02:46:17.610
+Jitendra K: So the idea is very simple.
+
+1360
+02:46:18.960 --> 02:46:21.279
+Jitendra K: With an amount of labels.
+
+1361
+02:46:21.460 --> 02:46:28.759
+Jitendra K: With the amount of force correction that you are making in your algorithm selection criterias, you may try to use
+
+1362
+02:46:28.880 --> 02:46:30.530
+Jitendra K: Two different approaches.
+
+1363
+02:46:30.710 --> 02:46:35.829
+Jitendra K: And it depends upon which particular, I would say.
+
+1364
+02:46:36.280 --> 02:46:41.950
+Jitendra K: process you are into. And depending upon the process you wear, choose different approaches.
+
+1365
+02:46:46.360 --> 02:46:51.060
+Jitendra K: Alright, so I will explain… With another dataset.
+
+1366
+02:46:51.460 --> 02:46:53.190
+Jitendra K: Let me use that.
+
+1367
+02:46:54.140 --> 02:46:57.139
+Jitendra K: So I'm going to use a wine dataset for this.
+
+1368
+02:47:33.620 --> 02:47:36.049
+Jitendra K: Let me quickly put up there…
+
+1369
+02:47:51.370 --> 02:47:53.890
+Jitendra K: So, this dataset comprise of 13 features.
+
+1370
+02:47:54.720 --> 02:48:01.729
+Jitendra K: Okay, now this is important. Now, when you consider PCA versus LDA, I'm getting the output into this form.
+
+1371
+02:48:02.040 --> 02:48:06.720
+Jitendra K: So here I'm saying that I've got two different explanations on the variance.
+
+1372
+02:48:07.260 --> 02:48:15.249
+Jitendra K: So, if I look into the PCA versus LDA, PCA1 is able to explain 55%,
+
+1373
+02:48:15.830 --> 02:48:20.480
+Jitendra K: LDA means, the eigenvector 1 is able to explain 100%.
+
+1374
+02:48:21.130 --> 02:48:28.210
+Jitendra K: Now, this is the… this is what the run-through of PC looked like. So, PC1, PC2, PC3, PC4, PC5.
+
+1375
+02:48:28.320 --> 02:48:38.989
+Jitendra K: So I've got, 44 plus 19, 64 plus 9, 73 plus 6, 79% of the explanation done by… 80% has been done by 4.
+
+1376
+02:48:39.180 --> 02:48:40.150
+Jitendra K: features.
+
+1377
+02:48:40.300 --> 02:48:41.720
+Jitendra K: a 4PC one.
+
+1378
+02:48:42.220 --> 02:48:43.970
+Jitendra K: Now I'm looking for…
+
+1379
+02:48:47.830 --> 02:48:51.889
+Jitendra K: The combination… now, if you look into these two things.
+
+1380
+02:48:52.320 --> 02:48:55.329
+Jitendra K: So here in this graph, I'm talking about
+
+1381
+02:48:55.610 --> 02:49:00.309
+Jitendra K: PC1 alone. So PC1… sorry, PC1 and PC2 alone.
+
+1382
+02:49:00.580 --> 02:49:06.209
+Jitendra K: So these two cumulatively explain near about 56% to 57% of the variance.
+
+1383
+02:49:06.610 --> 02:49:08.639
+Jitendra K: Now, if you look closely into this.
+
+1384
+02:49:09.750 --> 02:49:12.989
+Jitendra K: There's some ambiguity in my data labeling.
+
+1385
+02:49:13.520 --> 02:49:32.579
+Jitendra K: That means I'm not… I'm least bothered about the separation between the classes. But here, if you look into the output, LDA is clearly showing that I am concentrating on the separation between the classes as well, as one of my important criteria. And here, I'm talking about LD1 and LD2. Together, they are able to explain 100% of my variance.
+
+1386
+02:49:33.200 --> 02:49:42.310
+Jitendra K: So, the idea is… If I'm considering PC1 and PC2, Or LDA1 versus LDA2.
+
+1387
+02:49:42.860 --> 02:49:45.169
+Jitendra K: What is the amount of variance I can be able to explain?
+
+1388
+02:49:45.740 --> 02:49:49.519
+Jitendra K: Explain with the reduction of data points. Now, this is important.
+
+1389
+02:49:51.230 --> 02:49:58.610
+Jitendra K: Now, in the one point, I'm talking about LD1 and LD2 with 100% of the data points.
+
+1390
+02:49:59.560 --> 02:50:03.870
+Jitendra K: Right? But in PCA, I'm preserving only…
+
+1391
+02:50:04.470 --> 02:50:10.629
+Jitendra K: few, I would say 70% of my data point, and removing the remaining 30% from the equation.
+
+1392
+02:50:11.330 --> 02:50:20.080
+Jitendra K: And, this is what the actual accuracy looks like when I'm comparing the Principal component along this projection.
+
+1393
+02:50:20.400 --> 02:50:30.310
+Jitendra K: Now, the question is, if I'm going to use LDA, Am I really… Reducing my dimension.
+
+1394
+02:50:31.020 --> 02:50:34.900
+Jitendra K: Or… I'm just focusing on class separation.
+
+1395
+02:50:36.920 --> 02:50:39.680
+Jitendra K: So the answer is, I'm focusing on class separation.
+
+1396
+02:50:42.360 --> 02:50:47.919
+Jitendra K: Right? So at times, you will see that LDA will hardly reduce your data points.
+
+1397
+02:50:49.690 --> 02:50:52.099
+Jitendra K: Because the objective of LDA is to…
+
+1398
+02:50:52.240 --> 02:50:55.010
+Jitendra K: Make sure that you have a maximum separation.
+
+1399
+02:50:56.390 --> 02:50:59.500
+Jitendra K: And that's why I told you earlier that LDA
+
+1400
+02:50:59.760 --> 02:51:02.240
+Jitendra K: Can or cannot reduce your data points.
+
+1401
+02:51:07.790 --> 02:51:12.860
+Jitendra K: So one way you should look into the output of LDAs, We should also look for…
+
+1402
+02:51:13.300 --> 02:51:18.510
+Jitendra K: the amount of data reduction both techniques has produced.
+
+1403
+02:51:18.970 --> 02:51:23.180
+Jitendra K: And then select the best technique, that explain…
+
+1404
+02:51:23.390 --> 02:51:27.789
+Jitendra K: The variance up to an acceptable… acceptance level.
+
+1405
+02:51:28.120 --> 02:51:32.060
+Jitendra K: And that is how you can able to trade off between the two algorithms.
+
+1406
+02:51:38.000 --> 02:51:40.790
+Jitendra K: Alright, so let me share this code with you.
+
+1407
+02:51:41.350 --> 02:51:44.310
+Jitendra K: And I want everybody to look into this code.
+
+1408
+02:51:44.610 --> 02:51:48.940
+Jitendra K: And then, maybe if you have any difficulty in understanding.
+
+1409
+02:51:49.130 --> 02:51:51.370
+Jitendra K: Please let me know, I will re-explain this.
+
+1410
+02:51:51.730 --> 02:51:53.899
+Jitendra K: But let me share this code with you.
+
+1411
+02:51:59.700 --> 02:52:05.869
+Jitendra K: So basically, I have to explain one last part, which is the Fisher ratios, right? So Fisher ratios is…
+
+1412
+02:52:06.260 --> 02:52:12.590
+Jitendra K: Is also… a part of an LDA output. So, let me re-explain what is feature ratio.
+
+1413
+02:52:12.860 --> 02:52:17.409
+Jitendra K: So when I say Fisher ratio, as I mentioned, it's the ratio between your SB and SW.
+
+1414
+02:52:18.160 --> 02:52:19.720
+Jitendra K: Between the classes?
+
+1415
+02:52:19.870 --> 02:52:22.680
+Jitendra K: And, within the classes.
+
+1416
+02:52:23.370 --> 02:52:26.889
+Jitendra K: So, that is the ratio. So, basically, Fisher ratio.
+
+1417
+02:52:31.070 --> 02:52:35.150
+Jitendra K: Simply, FR.
+
+1418
+02:52:35.290 --> 02:52:40.540
+Jitendra K: Official ratio is nothing but… It's a ratio between the classes.
+
+1419
+02:52:40.660 --> 02:52:41.760
+Jitendra K: Variance?
+
+1420
+02:52:42.760 --> 02:52:50.320
+Jitendra K: Between the class variants, Divide by… Within the class variance.
+
+1421
+02:52:55.250 --> 02:52:59.459
+Jitendra K: Now, more precisely, I can say this is the objective of your LDA.
+
+1422
+02:53:00.620 --> 02:53:04.360
+Jitendra K: Which is… Mu1 minus mu2.
+
+1423
+02:53:04.590 --> 02:53:07.719
+Jitendra K: Mean difference between the centroid of the two classes.
+
+1424
+02:53:08.100 --> 02:53:10.550
+Jitendra K: Square magnitude of the distance, divided by…
+
+1425
+02:53:10.860 --> 02:53:13.779
+Jitendra K: Sigma 1 squared plus sigma 2 squared.
+
+1426
+02:53:18.440 --> 02:53:21.400
+Jitendra K: The thing of Fisher ratio as, like, how far
+
+1427
+02:53:21.780 --> 02:53:24.360
+Jitendra K: Apart are the class centroids are.
+
+1428
+02:53:24.540 --> 02:53:26.770
+Jitendra K: And how spreaded out the class are.
+
+1429
+02:53:27.490 --> 02:53:29.409
+Jitendra K: So, if I'm getting the range.
+
+1430
+02:53:30.830 --> 02:53:36.029
+Jitendra K: In a… I will get a range in… somewhere in between 0 to 10, 0 to 20.
+
+1431
+02:53:36.370 --> 02:53:38.700
+Jitendra K: So I would say, if the ratio is…
+
+1432
+02:53:42.850 --> 02:53:48.050
+Jitendra K: this afar is… less than 1.
+
+1433
+02:53:48.900 --> 02:53:50.830
+Jitendra K: That means the poor separation.
+
+1434
+02:53:53.220 --> 02:53:58.439
+Jitendra K: If I far, It's between 1 to 5.
+
+1435
+02:53:58.580 --> 02:54:01.470
+Jitendra K: I would say it's a moderate separate class.
+
+1436
+02:54:01.640 --> 02:54:03.970
+Jitendra K: And if FR is greater than 5,
+
+1437
+02:54:04.770 --> 02:54:09.140
+Jitendra K: which is a group classification. Now remember, that is what I'm talking about.
+
+1438
+02:54:09.300 --> 02:54:14.479
+Jitendra K: So your objective of LDA is to separate that class and maintain this Fisher ratio.
+
+1439
+02:54:14.780 --> 02:54:17.250
+Jitendra K: No other objective is there for LDA.
+
+1440
+02:54:17.640 --> 02:54:22.490
+Jitendra K: And that means they will compromise… On the data reduction part.
+
+1441
+02:54:30.050 --> 02:54:33.960
+Jitendra K: But in PCA, your main objective is to explain the variance.
+
+1442
+02:54:36.800 --> 02:54:38.579
+Jitendra K: And automatically it will.
+
+1443
+02:54:40.660 --> 02:54:46.159
+Jitendra K: use decomposition By eigenvector and eigenvalues.
+
+1444
+02:54:48.700 --> 02:54:49.620
+Jitendra K: 2?
+
+1445
+02:54:50.550 --> 02:54:51.700
+Jitendra K: find D.
+
+1446
+02:54:54.760 --> 02:54:57.909
+Jitendra K: Minimum data point that can explain maximum variance.
+
+1447
+02:54:59.430 --> 02:55:03.490
+Jitendra K: Right? So that's why… These two algorithms differs.
+
+1448
+02:55:04.980 --> 02:55:07.660
+Jitendra K: Now, the second and the most important aspect is…
+
+1449
+02:55:08.160 --> 02:55:10.430
+Jitendra K: The class ratio that you're considering.
+
+1450
+02:55:12.070 --> 02:55:13.479
+Jitendra K: C1 and C2.
+
+1451
+02:55:14.160 --> 02:55:20.590
+Jitendra K: There's a high chance that these two classes may be biased as well. One class will be majority, second class will be minority.
+
+1452
+02:55:21.640 --> 02:55:24.000
+Jitendra K: In those scenarios, LDA will fail.
+
+1453
+02:55:25.940 --> 02:55:29.849
+Jitendra K: Now, idea will not be useful in those scenarios, when your class is biased.
+
+1454
+02:55:30.970 --> 02:55:35.419
+Jitendra K: You have majority of the class, data point belongs to C1.
+
+1455
+02:55:36.060 --> 02:55:41.509
+Jitendra K: And the minority of the data point belongs to C2. In those cases, LDA will drastically fail.
+
+1456
+02:55:43.670 --> 02:55:44.470
+Jitendra K: Right?
+
+1457
+02:55:44.660 --> 02:55:50.460
+Jitendra K: And that's the reason, as I mentioned, PCA is something which you are going to use 90% of our time.
+
+1458
+02:55:51.030 --> 02:55:52.310
+Jitendra K: For that purpose.
+
+1459
+02:55:54.550 --> 02:56:01.410
+Jitendra K: So make sure… You should not run LDA if you don't have a proper
+
+1460
+02:56:01.830 --> 02:56:11.979
+Jitendra K: class balance, if you're not maintaining a class balance. Plus, You are having… insufficient labels to train LDA.
+
+1461
+02:56:13.910 --> 02:56:16.390
+Jitendra K: What is the minimum data point that you required?
+
+1462
+02:56:17.040 --> 02:56:21.779
+Jitendra K: I would say as many as possible, but at least you should have thousand and above.
+
+1463
+02:56:25.650 --> 02:56:27.769
+Jitendra K: 500 data points for each class.
+
+1464
+02:56:30.430 --> 02:56:31.989
+Jitendra K: To maintain this ratio.
+
+1465
+02:56:32.920 --> 02:56:39.419
+Jitendra K: So with these ambiguities, you have to still rely on something, and that's where the PCA is always automatically becoming a
+
+1466
+02:56:40.060 --> 02:56:42.550
+Jitendra K: Favorite choice for many data scientists.
+
+1467
+02:56:42.960 --> 02:56:49.169
+Jitendra K: Right? Because these algorithms will be impacted Poorly by class labels.
+
+1468
+02:56:49.410 --> 02:56:57.259
+Jitendra K: Biceness, noise, Scalability. Scalability is not an issue with LDA. Scalability is an issue with PCA.
+
+1469
+02:56:57.830 --> 02:57:01.540
+Jitendra K: The last but not the least, Here?
+
+1470
+02:57:01.800 --> 02:57:04.610
+Jitendra K: Maybe…
+
+1471
+02:57:05.010 --> 02:57:09.229
+Jitendra K: Okay, let me put it into this manner. So let's say you have two classes, C1 and C2.
+
+1472
+02:57:10.780 --> 02:57:12.830
+Jitendra K: Which is having common features.
+
+1473
+02:57:13.550 --> 02:57:15.749
+Jitendra K: Right? That is what you're trying to differentiate.
+
+1474
+02:57:16.110 --> 02:57:20.459
+Jitendra K: So, both classes are using F1, F2, F3, all same features, right?
+
+1475
+02:57:26.850 --> 02:57:32.149
+Jitendra K: But there are higher chances that your class distribution will change for a new upcoming data.
+
+1476
+02:57:32.320 --> 02:57:34.929
+Jitendra K: So we have one feature, migrate following.
+
+1477
+02:57:35.100 --> 02:57:40.360
+Jitendra K: Linear or normal distribution, it convert…
+
+1478
+02:57:41.120 --> 02:57:44.610
+Jitendra K: Maybe, due to your data point, it becomes poison distribution.
+
+1479
+02:57:46.540 --> 02:57:57.640
+Jitendra K: all of a sudden. So, with a distribution changes, Your class ratio will also… become… impacted.
+
+1480
+02:57:58.120 --> 02:58:01.769
+Jitendra K: So make sure that you understand all these things before fitting.
+
+1481
+02:58:02.130 --> 02:58:07.420
+Jitendra K: these data points. That's why… LDA is… better useful for…
+
+1482
+02:58:07.700 --> 02:58:14.359
+Jitendra K: an LP-based task, where we are not talking about distributions and criteria. Here, we are talking about the frequency of the words.
+
+1483
+02:58:17.660 --> 02:58:20.420
+Jitendra K: Term frequency, etc.
+
+1484
+02:58:20.830 --> 02:58:21.670
+Jitendra K: Right?
+
+1485
+02:58:21.850 --> 02:58:25.950
+Jitendra K: So, that is where LDA can be very, very useful for that purpose.
+
+1486
+02:58:28.980 --> 02:58:31.360
+Jitendra K: When you have to experiment, don't try LDA.
+
+1487
+02:58:32.330 --> 02:58:34.610
+Jitendra K: That is the simplest answer that I can give.
+
+1488
+02:58:37.450 --> 02:58:50.119
+Jitendra K: Right? When you're confident about your label, you have very thorough understanding about the class distribution, you have very, I would say, foolproof understanding on your class label, then you can go for LDA.
+
+1489
+02:58:51.140 --> 02:58:58.360
+Jitendra K: But when you're experimenting… experimenting with the model, when you're performing EDA, When you're trying to reduce
+
+1490
+02:58:58.640 --> 02:59:01.290
+Jitendra K: Generally, about the dimensions.
+
+1491
+02:59:01.710 --> 02:59:03.090
+Jitendra K: Don't try LDA.
+
+1492
+02:59:10.620 --> 02:59:15.710
+Jitendra K: Alright, so… any question before… We can…
+
+1493
+03:00:28.330 --> 03:00:32.969
+Jitendra K: Okay, sure. So, for sure part I will re-explain in the next class.
+
+1494
+03:00:33.240 --> 03:00:37.229
+Jitendra K: In the next tutorial, we will anyway going to cover 2 or 3 more algorithms.
+
+1495
+03:00:37.490 --> 03:00:41.670
+Jitendra K: One is SVD, We'll also talk about,
+
+1496
+03:00:43.130 --> 03:00:48.470
+Jitendra K: Few more algorithms, let me… See my menu.
+
+1497
+03:00:49.350 --> 03:00:57.510
+Jitendra K: Yeah, so we'll talk about NMFs, norm metric factorization, we'll talk about TSNE, UMAP and kernel PCA.
+
+1498
+03:00:58.070 --> 03:01:02.930
+Jitendra K: So, we will talk 1, 2, 3, 4, 5 more algorithms.
+
+1499
+03:01:09.320 --> 03:01:12.629
+Jitendra K: Now, I will talk about, these algorithms for…
+
+1500
+03:01:12.910 --> 03:01:15.520
+Jitendra K: This is one of the favorite algorithms for Google Map.
+
+1501
+03:01:16.210 --> 03:01:19.630
+Jitendra K: TSNE… And this is for image analytics.
+
+1502
+03:01:20.340 --> 03:01:23.030
+Jitendra K: We'll see what are these algorithms are.
+
+1503
+03:01:26.880 --> 03:01:30.399
+Jitendra K: Alright, so I think this is pretty much what we have, guys, for today.
+
+1504
+03:01:30.740 --> 03:01:35.149
+Jitendra K: And, I hope, you enjoy the session.
+
+1505
+03:01:44.090 --> 03:01:49.169
+Jitendra K: Any question, any concern before we can wind up? It's the first class for 2026.
+
+1506
+03:01:49.930 --> 03:01:52.329
+Jitendra K: Yeah, I will share the notes as well.
+
+1507
+03:02:52.800 --> 03:02:56.609
+Jitendra K: Okay, so Sashank, I think I've got access to your notebooks.
+
+1508
+03:02:56.890 --> 03:03:04.529
+Jitendra K: And I can see that you're using SVM for doing this analysis, and then… You are looking from the…
+
+1509
+03:03:05.300 --> 03:03:10.940
+Jitendra K: different click rates and the skills which the gamer have.
+
+1510
+03:03:11.340 --> 03:03:14.660
+Jitendra K: And then you're creating several session variables.
+
+1511
+03:03:15.070 --> 03:03:22.129
+Jitendra K: to understand… the skills of the gamer, right? That is your problem statement.
+
+1512
+03:03:25.430 --> 03:03:28.989
+Jitendra K: Those mainly learn as VM, and… yes, okay, understood.
+
+1513
+03:03:29.360 --> 03:03:32.570
+Jitendra K: Yeah, so I'm… yeah, I think this is a good data set.
+
+1514
+03:03:32.920 --> 03:03:34.230
+Jitendra K: That you're using.
+
+1515
+03:03:38.350 --> 03:03:43.820
+Jitendra K: So, yeah, I just want to show to everyone that what Shashank is trying to explain.
+
+1516
+03:03:44.260 --> 03:03:47.359
+Jitendra K: So this is what, Shashanka shared as a notebook.
+
+1517
+03:03:47.620 --> 03:03:52.760
+Jitendra K: So you have created a model which will be able to… Benchmark the gamers.
+
+1518
+03:03:53.450 --> 03:03:55.660
+Jitendra K: Based upon their strength of…
+
+1519
+03:03:57.090 --> 03:04:02.239
+Jitendra K: basically, their skills, right? So every gamer will have their own skills.
+
+1520
+03:04:03.000 --> 03:04:07.250
+Jitendra K: Yes, so I think, If you're creating…
+
+1521
+03:04:15.950 --> 03:04:21.490
+Jitendra K: Yeah, if you're creating a model with, kernels, or SVM, That is good.
+
+1522
+03:04:21.670 --> 03:04:23.699
+Jitendra K: But, I just want to…
+
+1523
+03:04:24.170 --> 03:04:30.159
+Jitendra K: know, like, what is the objective of creating this model? So, let's say if your objective is to get
+
+1524
+03:04:31.500 --> 03:04:36.590
+Jitendra K: control over… The gaming console, or a designing part.
+
+1525
+03:04:36.720 --> 03:04:38.360
+Jitendra K: So what are you trying to solve?
+
+1526
+03:04:38.920 --> 03:04:40.899
+Jitendra K: If we're trying to solve, let's say.
+
+1527
+03:04:41.930 --> 03:04:44.309
+Jitendra K: You would like to improve the experience of the gamer.
+
+1528
+03:04:44.930 --> 03:04:45.740
+Jitendra K: Right?
+
+1529
+03:04:45.880 --> 03:04:49.899
+Jitendra K: Or you are using this historical data.
+
+1530
+03:04:50.580 --> 03:04:55.210
+Jitendra K: To understand their declaration as advanced, medium, or…
+
+1531
+03:04:56.050 --> 03:04:59.859
+Jitendra K: new gamers. Is that what you're trying to do?
+
+1532
+03:05:06.840 --> 03:05:11.560
+Jitendra K: If the f- if it is, you would like to categorize.
+
+1533
+03:05:12.480 --> 03:05:14.170
+Jitendra K: Okay, so…
+
+1534
+03:05:16.140 --> 03:05:22.599
+Jitendra K: This is mainly a gamer analytics, also include Judge and SQL, hard for them. Okay, okay, great.
+
+1535
+03:05:22.950 --> 03:05:29.600
+Jitendra K: Yes, I think that makes sense. So, if you are… Judging a new gaming skills.
+
+1536
+03:05:30.300 --> 03:05:34.829
+Jitendra K: And, on the fly, you are increasing the hardship.
+
+1537
+03:05:35.380 --> 03:05:41.020
+Jitendra K: Depending upon advance versus… New user, yeah, like Chess.
+
+1538
+03:05:41.120 --> 03:05:41.900
+Jitendra K: Like…
+
+1539
+03:05:42.100 --> 03:05:52.299
+Jitendra K: there's a platform called LiveChess.com, right? Where you have to declare whether you already know whether you're a light gamer, or whether you're a new buyer.
+
+1540
+03:05:52.490 --> 03:06:01.189
+Jitendra K: And accordingly, they will select your partner, the opponent, right? And then they will assign by scanning the skills of other opponent, and then…
+
+1541
+03:06:01.310 --> 03:06:03.489
+Jitendra K: You can challenge him, and then…
+
+1542
+03:06:03.770 --> 03:06:07.220
+Jitendra K: Depending upon your declaration, you will be able to match it.
+
+1543
+03:06:07.340 --> 03:06:09.829
+Jitendra K: But when it comes to gaming industry.
+
+1544
+03:06:10.130 --> 03:06:15.279
+Jitendra K: Yes, so if you would like to create dynamic hurdles.
+
+1545
+03:06:15.770 --> 03:06:22.040
+Jitendra K: Based upon the assessment level, based upon the screen time, based upon the level of expertise that they are performing.
+
+1546
+03:06:22.530 --> 03:06:25.549
+Jitendra K: Yes, you can use this technique.
+
+1547
+03:06:25.900 --> 03:06:28.199
+Jitendra K: To identify and create more hurdles.
+
+1548
+03:06:29.060 --> 03:06:36.639
+Jitendra K: So… I think that was original concept of Mario Bros. and other gaming consoles.
+
+1549
+03:06:36.760 --> 03:06:43.489
+Jitendra K: Where they are using all parameters to infer what is the skill of the gaming, whether they are able to clear it or not on time.
+
+1550
+03:06:44.940 --> 03:06:49.179
+Jitendra K: So the same concept you're applying here, when, when you're using
+
+1551
+03:06:49.610 --> 03:06:53.480
+Jitendra K: Kernels, or maybe a support vector machine to identify.
+
+1552
+03:06:53.950 --> 03:07:00.669
+Jitendra K: the playtime versus skill time, and even the purchases versus the session. So you are converting this into a three-class problem.
+
+1553
+03:07:01.340 --> 03:07:08.950
+Jitendra K: Just fine. Yeah, I think you're in the right direction, so I will say… This is, great, so…
+
+1554
+03:07:10.100 --> 03:07:13.530
+Jitendra K: Yeah, so I think, you can…
+
+1555
+03:07:13.830 --> 03:07:16.680
+Jitendra K: Definitely use this example for solving.
+
+1556
+03:07:17.640 --> 03:07:22.470
+Jitendra K: Your domain agnostic problems, and but my session is,
+
+1557
+03:07:23.620 --> 03:07:30.800
+Jitendra K: Just do not stuck with linear kernels or nonlinear kernel, but just start ECentry as well, or random forest.
+
+1558
+03:07:31.030 --> 03:07:35.340
+Jitendra K: Because you will find and discover more patterns from the tree-based method.
+
+1559
+03:07:35.530 --> 03:07:40.109
+Jitendra K: you will be able to see the condition very clearly. Like, on which condition the game
+
+1560
+03:07:40.510 --> 03:07:43.150
+Jitendra K: Or the approach of the gamer changes.
+
+1561
+03:07:44.270 --> 03:07:49.220
+Jitendra K: So you can able to see… The conditional statement very clearly.
+
+1562
+03:07:49.520 --> 03:07:52.489
+Jitendra K: And that is where you will be able to get more insights.
+
+1563
+03:07:52.820 --> 03:07:57.599
+Jitendra K: Like, if you would like to recommend something to your business that
+
+1564
+03:07:57.820 --> 03:08:00.100
+Jitendra K: hey, I would like to improve
+
+1565
+03:08:00.480 --> 03:08:06.680
+Jitendra K: this console based upon this condition. So I would definitely suggest to use Random Forest, or even XZBoost.
+
+1566
+03:08:07.050 --> 03:08:14.929
+Jitendra K: So that you can able to get, maximum data point, decision-making points. Here, support actor machine looks like slightly a black box.
+
+1567
+03:08:15.200 --> 03:08:23.259
+Jitendra K: Because it performed exceptionally well, just by understanding the pattern in the data, but it will not able to explain much
+
+1568
+03:08:24.130 --> 03:08:28.260
+Jitendra K: So, when you need explanation, just try with tree-based methods.
+
+1569
+03:08:35.420 --> 03:08:36.110
+Jitendra K: Yep.
+
+1570
+03:08:37.100 --> 03:08:47.740
+Jitendra K: So thank you guys, and really appreciate your patience for attending this class. And there would be a survey after this. Please fill the survey form, and then I think we are done for today.
+
+1571
+03:08:48.180 --> 03:08:53.160
+Jitendra K: In the next tutorial, we'll continue our discussion on dimension reduction.
+
+1572
+03:08:53.380 --> 03:08:57.949
+Jitendra K: And we'll take some more examples, some 5-6 more techniques to elaborate.
+
+1573
+03:08:58.240 --> 03:09:02.099
+Jitendra K: So thank you, and have a pleasant evening ahead, and we'll meet in the next cohort. Thank you.
+

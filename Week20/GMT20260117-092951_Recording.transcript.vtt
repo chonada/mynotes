@@ -1,0 +1,5522 @@
+WEBVTT
+
+1
+00:00:47.920 --> 00:00:50.210
+Jitendra K: Hey guys, good morning, good afternoon.
+
+2
+00:00:52.110 --> 00:00:57.860
+Jitendra K: And welcome to another module. So, before we start, can we have a quick audio check, if my voice is audible to everyone?
+
+3
+00:00:58.640 --> 00:01:00.500
+Jitendra K: And my screen is visible as well.
+
+4
+00:01:10.450 --> 00:01:15.710
+Jitendra K: Okay, thank you for the confirmation, so I can see a few hands up, thumbs up.
+
+5
+00:01:16.100 --> 00:01:24.810
+Jitendra K: Alright, so just a quick recap, what we have learned so far is, we have talked about dimension reduction techniques. So the first technique that we have learned is PCA.
+
+6
+00:01:25.250 --> 00:01:31.160
+Jitendra K: And as I mentioned, PCA is going to be your primary technique, that you're going to utilize for dimension reduction.
+
+7
+00:01:31.380 --> 00:01:38.429
+Jitendra K: However, there are different other techniques that we are going to explore in this session, but just a quick recap what PCA does.
+
+8
+00:01:38.620 --> 00:01:55.760
+Jitendra K: So, we understand that PCA is a dimension reduction technique where you're going to project your data in the direction of maximum variance explanation, and this is where you're going to transform high-dimensional data into a lower dimension representation, and you're trying to preserve the maximum amount of variance.
+
+9
+00:01:56.570 --> 00:02:06.059
+Jitendra K: So I've created one, I mean, I have one comprehensive guide that I will share with you, so that you can revisit the mathematical insight, the practical implications of building the PCA.
+
+10
+00:02:06.630 --> 00:02:13.680
+Jitendra K: So, if you have to revisit what PCA does is, PCA comes under unsupervised learning technique, or transformation technique.
+
+11
+00:02:14.120 --> 00:02:22.040
+Jitendra K: So the idea is to identify the orthogonal projection, and the orthogonal direction is nothing but our principal component.
+
+12
+00:02:23.460 --> 00:02:30.350
+Jitendra K: And in a high-dimension data space, we would like to utilize the explanation of variance, and we would like to project that
+
+13
+00:02:30.470 --> 00:02:35.949
+Jitendra K: original data, Onto a new coordinate system defined by these principal components.
+
+14
+00:02:36.180 --> 00:02:43.079
+Jitendra K: So, mathematically, we are trying to find a set of orthogonal vectors that forms a new basis for data space.
+
+15
+00:02:44.070 --> 00:02:51.050
+Jitendra K: Right? And the purpose of this technique is to reduce the number of features while preserving the maximum information.
+
+16
+00:02:51.440 --> 00:02:59.510
+Jitendra K: Making data more manageable for visualization, modeling, and we have seen that. How did we deal about this PCA technique?
+
+17
+00:03:00.060 --> 00:03:01.569
+Jitendra K: So, just a quick recap.
+
+18
+00:03:02.510 --> 00:03:08.909
+Jitendra K: some of the important strategies that… why we are using PCA. So, PCA comes with many fundamentals.
+
+19
+00:03:09.210 --> 00:03:21.450
+Jitendra K: So, one of the important aspects when we say why to use PCA, so some of the common techniques you will find in image compression algorithm when you're dealing with computer vision or CNN models.
+
+20
+00:03:21.550 --> 00:03:25.940
+Jitendra K: So there, we will use PCA, where we have to reduce the pixel data.
+
+21
+00:03:26.310 --> 00:03:32.979
+Jitendra K: And dimension of pixel data to make it more… Aligned with our algorithms.
+
+22
+00:03:33.480 --> 00:03:43.219
+Jitendra K: We will also use PCA for various factors which impact the financial risk, and let's say I have tons of data points.
+
+23
+00:03:43.510 --> 00:03:44.820
+Jitendra K: And I would like to predict
+
+24
+00:03:44.990 --> 00:03:50.950
+Jitendra K: something, or forecast something. In that scenario, I would like to reduce the features. And for that purpose, I will use PC.
+
+25
+00:03:51.620 --> 00:03:53.660
+Jitendra K: I will also use PCA for…
+
+26
+00:03:54.200 --> 00:03:59.679
+Jitendra K: vector reduction in terms of document processing. That means I would like to utilize Word
+
+27
+00:04:00.540 --> 00:04:04.510
+Jitendra K: Representation, or representation of a word in the form of a vector.
+
+28
+00:04:04.690 --> 00:04:08.340
+Jitendra K: And I would like to reduce those vector dimensions by using PCA.
+
+29
+00:04:08.860 --> 00:04:12.199
+Jitendra K: I will also utilize some pre-processed ML data.
+
+30
+00:04:12.450 --> 00:04:16.969
+Jitendra K: maybe I have… I do not want to share whole data with someone.
+
+31
+00:04:17.470 --> 00:04:25.619
+Jitendra K: Maybe just because of the property nature, because of the sensitivity of the data points. So I would like to use PCA technique.
+
+32
+00:04:25.890 --> 00:04:31.730
+Jitendra K: Just to utilize those, output from PCA model and share that data with anybody.
+
+33
+00:04:32.430 --> 00:04:40.830
+Jitendra K: So the idea of PCA is very simple. The geometrical interpretation of PCA is very simple. It's a three-step process, where you're going to project your data
+
+34
+00:04:41.180 --> 00:04:46.819
+Jitendra K: Into high dimension, identifying a direction of… using eigenvectors and eigenvalues.
+
+35
+00:04:46.940 --> 00:05:01.630
+Jitendra K: Eigenvalues will capture the maximum variance explained by the features or principal component, and eigenvector will capture the direction of maximum variance. And we will use orthogonal projection and rotate the coordinates.
+
+36
+00:05:02.140 --> 00:05:04.439
+Jitendra K: Try to align our objective.
+
+37
+00:05:05.230 --> 00:05:12.030
+Jitendra K: Using… correlation and causation, right? And then we will be able to utilize the PCA.
+
+38
+00:05:12.240 --> 00:05:17.750
+Jitendra K: to find it out, the data points. Typically, if I have to say what is before and after.
+
+39
+00:05:18.130 --> 00:05:21.639
+Jitendra K: You will see this kind of projection, which is happening before and after.
+
+40
+00:05:22.860 --> 00:05:27.930
+Jitendra K: So, what we have done… We have created… Metrics.
+
+41
+00:05:28.270 --> 00:05:35.570
+Jitendra K: which is called covariance and correlation. So, covariance is a terminology that we are using between two features.
+
+42
+00:05:35.880 --> 00:05:42.410
+Jitendra K: that measure their joint variability. That means how the two variables Are impacted by each other.
+
+43
+00:05:42.820 --> 00:05:47.810
+Jitendra K: So, positive covariance indicate that one feature is increased, the other tends to decrease.
+
+44
+00:05:48.030 --> 00:05:49.270
+Jitendra K: or increase.
+
+45
+00:05:49.650 --> 00:05:52.999
+Jitendra K: A negative covient suggests that an inverse relationship, where
+
+46
+00:05:53.340 --> 00:05:56.989
+Jitendra K: One variable will increase, another will decrease, or vice versa.
+
+47
+00:05:57.240 --> 00:06:03.200
+Jitendra K: And a covariance of 0 means there is no feature dependencies between the two orthogonal vectors.
+
+48
+00:06:03.570 --> 00:06:10.480
+Jitendra K: So we have seen how to utilize and split eigenvalues and eigenvectors, and then computing those values.
+
+49
+00:06:10.660 --> 00:06:15.670
+Jitendra K: So I've given some examples which will help you to understand this numerically, where you can able to see
+
+50
+00:06:16.190 --> 00:06:23.769
+Jitendra K: Very simple examples, and then you will be able to find it out and understand this with more intuitively.
+
+51
+00:06:24.170 --> 00:06:35.649
+Jitendra K: So… so these are the steps. Now, coming back to the eigenvalues and eigenvector decomposition, so we have seen that the characteristic equation that we are using to represent our
+
+52
+00:06:36.800 --> 00:06:38.250
+Jitendra K: search space.
+
+53
+00:06:38.660 --> 00:06:51.279
+Jitendra K: is C minus lambda I, which is an identity equation, which is a covariance matrix, sorry, determinants of this identity matrix is nothing but we are using to represent this as a characteristic equation.
+
+54
+00:06:51.630 --> 00:06:57.940
+Jitendra K: Now, when you're trying to solve this characteristic equation, you are going to utilize the two forms.
+
+55
+00:06:58.270 --> 00:07:00.539
+Jitendra K: You're going to project your lambda.
+
+56
+00:07:01.170 --> 00:07:02.730
+Jitendra K: Lambda 1 and lambda 2.
+
+57
+00:07:03.160 --> 00:07:23.149
+Jitendra K: Essentially, because it's a square term, so we are going to use two… we are going to get two solutions. So we are going to find out these two solutions, lambda1 and lambda 2, and we will say lambda 1 is my first eigen, lambda 2 is my second eigenvectors, or eigenvalues, right? And then, based upon these eigenvalues, I will be able to understand
+
+58
+00:07:23.430 --> 00:07:30.569
+Jitendra K: the total variance explained by each. So I will say the first variance explained by lambda 1 is this much percentage.
+
+59
+00:07:30.700 --> 00:07:34.030
+Jitendra K: lambda 2 is this much. I can have multiple solutions, but…
+
+60
+00:07:34.350 --> 00:07:40.509
+Jitendra K: I can able to find out the combination, which will be able to explain the maximum variance along a direction of projection.
+
+61
+00:07:40.930 --> 00:07:50.979
+Jitendra K: So, now I've already explained how to calculate that, how to utilize the libraries and raw feature scaling to perform the PCA.
+
+62
+00:07:51.820 --> 00:07:56.119
+Jitendra K: We've already talked about, like, how to utilize
+
+63
+00:07:56.220 --> 00:08:04.380
+Jitendra K: the explainability of the PCA, using different sort of plotting and different sort of, solutions.
+
+64
+00:08:05.090 --> 00:08:16.000
+Jitendra K: Now, we will talk about the second algorithm today. In fact, we have two or three algorithms to cover today, so we will talk… I will talk about those algorithms, so let me go back to my whiteboard.
+
+65
+00:08:20.460 --> 00:08:22.370
+Jitendra K: So, dimension reduction technique.
+
+66
+00:08:22.890 --> 00:08:28.870
+Jitendra K: is not just ticked to PCA, however, PCA is something which you are going to use more often.
+
+67
+00:08:29.230 --> 00:08:37.169
+Jitendra K: But there are mother, I mean, the PCA I would consider to be one of the main algorithms, but there are other algorithms that we are going to learn as well.
+
+68
+00:08:37.490 --> 00:08:40.999
+Jitendra K: So, some of the algorithms that we're going to talk about in today's tutorial
+
+69
+00:08:55.300 --> 00:09:00.200
+Jitendra K: Include… the ice here.
+
+70
+00:09:01.780 --> 00:09:03.970
+Jitendra K: So we'll talk about ICA technique.
+
+71
+00:09:05.470 --> 00:09:09.249
+Jitendra K: Which is called Independent Component Analytics, or Analysis.
+
+72
+00:09:09.600 --> 00:09:11.610
+Jitendra K: We'll also talk about SVDs.
+
+73
+00:09:12.100 --> 00:09:14.069
+Jitendra K: singular value decomposition.
+
+74
+00:09:15.650 --> 00:09:17.400
+Jitendra K: We'll talk about NMF.
+
+75
+00:09:17.730 --> 00:09:20.139
+Jitendra K: Non-metrics factorization technique.
+
+76
+00:09:26.300 --> 00:09:32.819
+Jitendra K: We'll also talk about something called nonlinear methods. These are all linear methods, so… As you know that
+
+77
+00:09:33.390 --> 00:09:37.140
+Jitendra K: Any dimension reduction will comprise of two methods.
+
+78
+00:09:37.240 --> 00:09:42.329
+Jitendra K: or two… Forms, linear and nonlinear.
+
+79
+00:09:50.430 --> 00:09:53.190
+Jitendra K: So, in the nonlinear form, we will talk about TSNE.
+
+80
+00:09:54.120 --> 00:09:58.290
+Jitendra K: It is called T-Distributed Stochastic Neighbor Embittings.
+
+81
+00:10:05.150 --> 00:10:15.290
+Jitendra K: UMAP… Which is called as… Uniform manifold approximation and projection.
+
+82
+00:10:16.390 --> 00:10:22.530
+Jitendra K: Then the last, we will talk about autoencoders. So, this is something I would like to cover in deep learning.
+
+83
+00:10:23.790 --> 00:10:27.890
+Jitendra K: But I will give you the gist of auto… borders.
+
+84
+00:10:28.020 --> 00:10:31.049
+Jitendra K: At an autoencoder does. So this is a deep learning topic.
+
+85
+00:10:38.100 --> 00:10:42.859
+Jitendra K: We will also call some more technique RFE, recursive feature elimination.
+
+86
+00:10:43.190 --> 00:10:48.330
+Jitendra K: And this is one of the techniques that you are going to use in regression, where you are going to eliminate the features.
+
+87
+00:10:48.850 --> 00:10:50.870
+Jitendra K: You already know about Lasso.
+
+88
+00:10:51.980 --> 00:10:54.120
+Jitendra K: Which is also our reduction technique.
+
+89
+00:10:54.790 --> 00:11:02.460
+Jitendra K: Chi-square test… Which is a feature engineering technique. So when you say chi-square test, off.
+
+90
+00:11:03.600 --> 00:11:06.540
+Jitendra K: Hypothesis, we are using categorical variables.
+
+91
+00:11:13.460 --> 00:11:17.990
+Jitendra K: And you already have seen Random Forest, which is also a dimension reduction technique.
+
+92
+00:11:19.760 --> 00:11:20.580
+Jitendra K: Right?
+
+93
+00:11:22.000 --> 00:11:25.330
+Jitendra K: So, we will learn… This technique today.
+
+94
+00:11:29.280 --> 00:11:34.460
+Jitendra K: So we'll start with… the first technique called TSME.
+
+95
+00:11:34.970 --> 00:11:39.999
+Jitendra K: Which is… abbreviated as T-Distributed Stochastic Neighbor Ambiting.
+
+96
+00:11:41.860 --> 00:11:45.350
+Jitendra K: So… If I have to talk about TSNA,
+
+97
+00:11:46.100 --> 00:11:48.380
+Jitendra K: It's a nonlinear dimension reduction technique.
+
+98
+00:11:48.710 --> 00:11:55.520
+Jitendra K: The purpose of this technique is for creating a visualization of high-dimension data in a 2D or a 3D space.
+
+99
+00:11:56.210 --> 00:12:03.520
+Jitendra K: So what it does is, it is trying to preserve the local structure of the data, and try to project that data
+
+100
+00:12:03.780 --> 00:12:07.300
+Jitendra K: by creating a cluster. It is going to create a cluster.
+
+101
+00:12:07.650 --> 00:12:14.129
+Jitendra K: Now, some of the important points that I would like you to understand from this algorithm, which is called TSNE,
+
+102
+00:12:14.900 --> 00:12:23.130
+Jitendra K: First and the foremost thing is why we are using it, right? When we have… already have PCA, and when we already have SVDs.
+
+103
+00:12:23.500 --> 00:12:28.800
+Jitendra K: Now, what is the purpose in which situation should I use? Well, let's try to understand that first.
+
+104
+00:12:29.340 --> 00:12:31.040
+Jitendra K: So when I say TSNE,
+
+105
+00:12:35.610 --> 00:12:42.060
+Jitendra K: So TSNE has been used to visualize… to visualize your data. That's the only purpose of TSNE.
+
+106
+00:12:42.450 --> 00:12:49.340
+Jitendra K: So, the idea of… This technique is to form a cluster of similar data points.
+
+107
+00:12:50.970 --> 00:12:54.780
+Jitendra K: So it is a statistical method for visualizing the high dimension data.
+
+108
+00:12:55.060 --> 00:12:57.809
+Jitendra K: So remember, when you're using…
+
+109
+00:12:58.460 --> 00:13:06.110
+Jitendra K: Some interpretation when we are using some complex data sets, which we might have to consider.
+
+110
+00:13:06.350 --> 00:13:13.590
+Jitendra K: So, PCA works on a… pretty well on linear data, while TCNA or TSNE does not have any restriction.
+
+111
+00:13:13.770 --> 00:13:19.690
+Jitendra K: whether data is linear, nonlinear, TSNE performs well. So this is one of the visualizations.
+
+112
+00:13:20.000 --> 00:13:26.770
+Jitendra K: That I'm using from Amnest. So, you know Amnest dataset comprises of 10 classes. Each color represents one class.
+
+113
+00:13:27.210 --> 00:13:34.279
+Jitendra K: So you can see that, I can able to utilize TSNE algorithm for projecting my clusters.
+
+114
+00:13:35.100 --> 00:13:38.910
+Jitendra K: Right? I can able to say that this is what my cluster size looks like.
+
+115
+00:13:39.240 --> 00:13:46.710
+Jitendra K: So the core idea behind TSNE is to map high-dimension data points to a lower dimension space, typically 2 or 3 dimensions.
+
+116
+00:13:47.560 --> 00:13:52.450
+Jitendra K: And what this algorithm is trying to do is, it is trying to preserve the local relationship between the points.
+
+117
+00:13:53.320 --> 00:13:58.059
+Jitendra K: And, how it is doing internally, it is using distance approximation.
+
+118
+00:13:58.280 --> 00:14:04.999
+Jitendra K: By projecting the data based upon the criteria of neighbor… nearest neighbors.
+
+119
+00:14:06.090 --> 00:14:11.080
+Jitendra K: So the geometric intuition of… TCNA is very simple.
+
+120
+00:14:11.810 --> 00:14:16.629
+Jitendra K: So what it does is, it is trying to compute… it is trying to compute
+
+121
+00:14:19.780 --> 00:14:23.390
+Jitendra K: It is trying to compute the…
+
+122
+00:14:24.230 --> 00:14:26.689
+Jitendra K: Approximation between the two data points.
+
+123
+00:14:26.810 --> 00:14:30.810
+Jitendra K: So, basically, what it does is, it is trying to compute the distance between the two points.
+
+124
+00:14:31.290 --> 00:14:39.109
+Jitendra K: And, instead of simply relying on distance calculation, TSNE use probabilistical approach.
+
+125
+00:14:39.890 --> 00:14:45.150
+Jitendra K: So what it does is, for each data point, let's say I have X1, X2, so on and so forth.
+
+126
+00:14:45.300 --> 00:14:52.280
+Jitendra K: A Gaussian distribution is plotted around it, with a mean of zero. As you know, a Gaussian distribution will have a mean of zero.
+
+127
+00:14:52.500 --> 00:14:56.659
+Jitendra K: And a standard deviation is determined based upon a density of the nearest point.
+
+128
+00:14:57.320 --> 00:15:03.070
+Jitendra K: Now, you can see here, the x-axis is considered to be a distance from reference point.
+
+129
+00:15:03.450 --> 00:15:06.460
+Jitendra K: Now, each data point, or each point in the dataset.
+
+130
+00:15:06.670 --> 00:15:16.909
+Jitendra K: will be calculated by this algorithm, based upon this approximation. So I would like to approximate my data point by saying that I would like to find out the densities
+
+131
+00:15:18.400 --> 00:15:20.490
+Jitendra K: Based upon this approximation.
+
+132
+00:15:20.830 --> 00:15:29.649
+Jitendra K: And then try to use this data point to collaborate together, or I would say club together, based upon the distribution criteria.
+
+133
+00:15:32.480 --> 00:15:38.290
+Jitendra K: So once we perform this, the second stage would be ensuring that I would like to calculate
+
+134
+00:15:38.470 --> 00:15:44.350
+Jitendra K: Or recalculate the relative Distances between the data points.
+
+135
+00:15:44.890 --> 00:15:49.249
+Jitendra K: So, if I have to explain a simple mathematical
+
+136
+00:15:49.360 --> 00:15:52.979
+Jitendra K: Formula, with the help of simple formula.
+
+137
+00:15:53.380 --> 00:15:55.899
+Jitendra K: So, I'm calculating an Euclidean distance.
+
+138
+00:15:56.930 --> 00:16:01.489
+Jitendra K: Which will, in turn, calculate the probability between the two points, which is probability of
+
+139
+00:16:02.130 --> 00:16:03.829
+Jitendra K: I and J to be similar.
+
+140
+00:16:04.540 --> 00:16:07.420
+Jitendra K: And this will be your Gaussian equation.
+
+141
+00:16:07.580 --> 00:16:08.680
+Jitendra K: which follow.
+
+142
+00:16:09.450 --> 00:16:10.629
+Jitendra K: this form.
+
+143
+00:16:11.330 --> 00:16:14.820
+Jitendra K: minus of… XI.
+
+144
+00:16:16.010 --> 00:16:17.669
+Jitendra K: minus XJ.
+
+145
+00:16:19.920 --> 00:16:21.280
+Jitendra K: all square.
+
+146
+00:16:21.800 --> 00:16:24.470
+Jitendra K: Divide by 2 sigma.
+
+147
+00:16:24.610 --> 00:16:26.690
+Jitendra K: I… Square.
+
+148
+00:16:27.420 --> 00:16:39.409
+Jitendra K: And this will be… a ratio of… exponential of… minus Xi.
+
+149
+00:16:40.360 --> 00:16:42.390
+Jitendra K: minus XC.
+
+150
+00:16:44.630 --> 00:16:45.970
+Jitendra K: all square.
+
+151
+00:16:46.300 --> 00:16:48.310
+Jitendra K: Divided by 2 sigma.
+
+152
+00:16:49.140 --> 00:16:50.410
+Jitendra K: A square.
+
+153
+00:16:51.200 --> 00:16:57.639
+Jitendra K: So, this is what my equation looks like. Now, let me explain this equation. So, here I'm using
+
+154
+00:16:57.750 --> 00:17:00.640
+Jitendra K: a dot method, which denotes the Euclidean norms.
+
+155
+00:17:01.200 --> 00:17:04.779
+Jitendra K: And sigma variants of the data that is centered at that point.
+
+156
+00:17:05.200 --> 00:17:09.079
+Jitendra K: Now, we are trying to calculate the distance between the point I and J,
+
+157
+00:17:09.450 --> 00:17:12.239
+Jitendra K: Try to see the variance explanation.
+
+158
+00:17:12.520 --> 00:17:20.790
+Jitendra K: And the probability determination based upon this variance explanation. The idea is very simple. We are trying to form a cluster
+
+159
+00:17:21.130 --> 00:17:26.840
+Jitendra K: of… Similar data points by using this data… sorry, by this algorithm.
+
+160
+00:17:27.280 --> 00:17:33.330
+Jitendra K: Now, let me write down the pseudocode to explain this better. So, this is the pseudocode for your TSNE algorithm.
+
+161
+00:17:33.770 --> 00:17:40.500
+Jitendra K: Now, what this pseudocode does… So if I have to explain you in a very simple term…
+
+162
+00:17:41.110 --> 00:17:51.940
+Jitendra K: So, this pseudocode… is… trying to utilize computation pairwise affinities. And there's a factor called perplexity.
+
+163
+00:17:52.480 --> 00:17:58.619
+Jitendra K: Right? In this equation. Now, let me explain these two parameters, why we require
+
+164
+00:17:59.070 --> 00:18:02.500
+Jitendra K: This particular two forms to consider.
+
+165
+00:18:03.170 --> 00:18:09.660
+Jitendra K: Now, as I mentioned, When you're trying to calculate, Any…
+
+166
+00:18:10.590 --> 00:18:14.990
+Jitendra K: distance-based criterias, right? So let's say if, in this equation.
+
+167
+00:18:15.240 --> 00:18:18.869
+Jitendra K: I'm trying to calculate the approximation between the two data points.
+
+168
+00:18:20.260 --> 00:18:21.080
+Jitendra K: Right?
+
+169
+00:18:21.240 --> 00:18:23.360
+Jitendra K: So basically, I have got two factors.
+
+170
+00:18:23.750 --> 00:18:24.950
+Jitendra K: Perplexity?
+
+171
+00:18:25.380 --> 00:18:31.870
+Jitendra K: and the… The second parameter that I'm using is the, affinity.
+
+172
+00:18:32.000 --> 00:18:35.260
+Jitendra K: Right? So I'm using perplexity and the affinity as the two criteria.
+
+173
+00:18:35.630 --> 00:18:39.930
+Jitendra K: Now, perplexity is related to entropy or a probabilical distribution.
+
+174
+00:18:40.990 --> 00:18:47.810
+Jitendra K: So, the idea is, let's say, if I have to… Think of perplexity
+
+175
+00:18:48.040 --> 00:18:53.720
+Jitendra K: I'm just answering this question, how many neighbors should each data point pay attention to?
+
+176
+00:18:56.530 --> 00:19:00.619
+Jitendra K: So the step one that we are taking is to compute the pairwise affinities.
+
+177
+00:19:01.210 --> 00:19:06.050
+Jitendra K: And for each data point, we need to find the right bandwidth for the Gaussian kernel.
+
+178
+00:19:07.240 --> 00:19:12.649
+Jitendra K: Right? And then, what we are using is, we are using typical values.
+
+179
+00:19:13.220 --> 00:19:19.159
+Jitendra K: To loop through, maybe 5 to 10. And then, from that particular value.
+
+180
+00:19:19.520 --> 00:19:24.139
+Jitendra K: We would like to create a batch of data into a small, medium, or large dataset.
+
+181
+00:19:24.920 --> 00:19:27.259
+Jitendra K: So if my perplexity is low.
+
+182
+00:19:27.420 --> 00:19:34.460
+Jitendra K: I will create too many fragmented data. If it is high, I will be able to exceed the data guidelines.
+
+183
+00:19:34.870 --> 00:19:39.460
+Jitendra K: So the idea is, I'm just using this algorithm as a binary search.
+
+184
+00:19:39.710 --> 00:19:47.790
+Jitendra K: To find out the variants that achieve exactly the specified perplexity for each data point, in terms of probabilical distribution.
+
+185
+00:19:48.390 --> 00:19:51.090
+Jitendra K: And that is what this algorithm does, in a nutshell.
+
+186
+00:19:51.410 --> 00:20:00.539
+Jitendra K: Now, as I mentioned, what is the use of this algorithm? So, the only purpose of this algorithm, where you're able to use this, you can able to project your data.
+
+187
+00:20:00.690 --> 00:20:05.530
+Jitendra K: And see, and you can even apply it, and then we can be able to see.
+
+188
+00:20:05.770 --> 00:20:09.020
+Jitendra K: The… how the data dimension has been reduced.
+
+189
+00:20:11.690 --> 00:20:17.329
+Jitendra K: So we'll take some example to understand this problem, and I'm going to use a mine dataset.
+
+190
+00:20:17.680 --> 00:20:19.440
+Jitendra K: That we have used earlier.
+
+191
+00:20:19.950 --> 00:20:21.870
+Jitendra K: Let me go back to my pool app.
+
+192
+00:20:40.560 --> 00:20:45.389
+Jitendra K: So we'll import… The packages first.
+
+193
+00:21:14.720 --> 00:21:19.389
+Jitendra K: I'm going to use a package called Plotly, I hope you're aware about this package.
+
+194
+00:21:19.830 --> 00:21:25.899
+Jitendra K: And… I'm going to use… Polygraph objects as well.
+
+195
+00:21:28.660 --> 00:21:30.699
+Jitendra K: Let me generate some data points.
+
+196
+00:21:32.800 --> 00:21:34.379
+Jitendra K: In a random fashion.
+
+197
+00:21:37.490 --> 00:21:38.610
+Jitendra K: Okay…
+
+198
+00:21:51.090 --> 00:21:52.739
+Jitendra K: This is my data points.
+
+199
+00:21:53.700 --> 00:22:02.019
+Jitendra K: Now, we basically generate, some four-pillar in a three-dimensional space, right? So, objective with this dataset is to first see how TSNE embed
+
+200
+00:22:02.600 --> 00:22:05.440
+Jitendra K: This data set into a two-dimensional space.
+
+201
+00:22:07.090 --> 00:22:15.880
+Jitendra K: Right? Now we proceed to… now we'll proceed to apply the method with the scikit-learn and organize a new dataset to make it two-dimensional. So this is a three-dimensional set.
+
+202
+00:22:16.310 --> 00:22:17.930
+Jitendra K: I would like to flip.
+
+203
+00:22:18.900 --> 00:22:24.890
+Jitendra K: these data points… to a two-dimensional space. So let's see how… Walk.
+
+204
+00:22:39.180 --> 00:22:42.060
+Jitendra K: Now, here I'm passing two important parameters.
+
+205
+00:22:42.440 --> 00:22:45.349
+Jitendra K: One is a perplexity, and then a number of components.
+
+206
+00:22:46.130 --> 00:22:50.759
+Jitendra K: So, the idea is, I'm passing the number of components to be number of.
+
+207
+00:22:53.480 --> 00:22:55.569
+Jitendra K: Compute cluster that are required.
+
+208
+00:23:11.420 --> 00:23:13.010
+Jitendra K: Let it be complete.
+
+209
+00:23:23.930 --> 00:23:30.499
+Jitendra K: Okay, so… Now, here I'm… okay, let me explain the code again. So, here I'm creating the TSNE model.
+
+210
+00:23:31.140 --> 00:23:32.830
+Jitendra K: And applying…
+
+211
+00:23:33.090 --> 00:23:39.229
+Jitendra K: the, reduction technique, and here I'm saying that I would like to reduce the data tool to two-dimensional.
+
+212
+00:23:39.660 --> 00:23:41.020
+Jitendra K: visualization.
+
+213
+00:23:41.170 --> 00:23:46.009
+Jitendra K: And I'm creating the learning rate to be auto. That means it will automatically calculate the learning rate.
+
+214
+00:23:46.140 --> 00:23:50.929
+Jitendra K: And, the learning rate will be determined based upon this formula.
+
+215
+00:23:51.120 --> 00:23:58.180
+Jitendra K: The formula for learning rate would be… Maximum of… Number of data points.
+
+216
+00:23:58.600 --> 00:24:01.539
+Jitendra K: Divided by 12, comma 15.
+
+217
+00:24:01.690 --> 00:24:08.059
+Jitendra K: Now, I need the sample size of my data, and I'm using 12 metrics to illustrate.
+
+218
+00:24:08.490 --> 00:24:10.980
+Jitendra K: The initialization scheme I'm using is random.
+
+219
+00:24:11.190 --> 00:24:20.399
+Jitendra K: So basically, I'm using a random initialization of point in a two-dimensional space. Alternatively, I can replace this with a PC as well, which is fine.
+
+220
+00:24:20.960 --> 00:24:29.299
+Jitendra K: Now, I'm considering the perplexity as one of the factors. Now, this factor will say that each data point consider at least minimum of 770.
+
+221
+00:24:29.430 --> 00:24:34.379
+Jitendra K: neighbors… Which is quite high, assuming it is a large data set.
+
+222
+00:24:35.830 --> 00:24:44.959
+Jitendra K: I'm using 1000 optimization iteration to fit my method. That means I'm going to run 1000 iteration before I've found a solution.
+
+223
+00:24:45.790 --> 00:24:49.279
+Jitendra K: Now, as you can see on my screen, I'm fitting this transformation.
+
+224
+00:24:49.780 --> 00:24:53.179
+Jitendra K: Using Plotly, and then generating the output.
+
+225
+00:24:53.370 --> 00:24:55.100
+Jitendra K: Now, this is the plotly output.
+
+226
+00:24:56.260 --> 00:24:58.130
+Jitendra K: I can see my data points.
+
+227
+00:25:04.060 --> 00:25:08.089
+Jitendra K: So it looks like a four-cluster, which is a four pillar that we have used, right?
+
+228
+00:25:08.270 --> 00:25:15.950
+Jitendra K: So you can able to utilize TSNE package for doing all this kind of data understanding. You can able to
+
+229
+00:25:16.390 --> 00:25:21.729
+Jitendra K: utilize, Plotly Studio, and then try to visualize your data, right?
+
+230
+00:25:21.970 --> 00:25:26.640
+Jitendra K: Now, the question is… Where we are going to do all this complex analysis.
+
+231
+00:25:26.800 --> 00:25:32.529
+Jitendra K: So there are different times when you have to perform such analysis. One of the analysis that you can be able to utilize
+
+232
+00:25:32.830 --> 00:25:40.140
+Jitendra K: This is in your healthcare data points. Maybe you would like to consider certain cancer cells and stuff.
+
+233
+00:25:40.420 --> 00:25:42.229
+Jitendra K: We can be able to project this data.
+
+234
+00:25:42.540 --> 00:25:43.790
+Jitendra K: Second is…
+
+235
+00:25:44.070 --> 00:25:54.699
+Jitendra K: If your dimension of your data is very high, and you would like to find out all the possible solution, all the possible data points which are similar in nature, and then you're trying to create a cluster on the top of it.
+
+236
+00:25:55.010 --> 00:25:58.640
+Jitendra K: In those scenarios, we'll use this technique to formulate.
+
+237
+00:26:00.780 --> 00:26:11.639
+Jitendra K: Now, what we are going to do next is, I will use a conventional data point instead of generating random data point. I would like to create a conventional data point. So, for that, let me download one file.
+
+238
+00:26:45.300 --> 00:26:52.480
+Jitendra K: Perplexity is a factor, or you can say it's a… hyperparameter of TSNE.
+
+239
+00:26:52.820 --> 00:26:54.160
+Jitendra K: Where we else…
+
+240
+00:26:54.860 --> 00:27:02.569
+Jitendra K: trying to align a minimum data point togetherness. So we are saying that based upon a distribution, which is Gaussian, that we are assuming.
+
+241
+00:27:02.740 --> 00:27:09.310
+Jitendra K: I would like to identify at least 70 minimum data points which are together, or similar in nature.
+
+242
+00:27:09.680 --> 00:27:10.890
+Jitendra K: In one cluster.
+
+243
+00:27:13.320 --> 00:27:17.360
+Jitendra K: So that is what we are trying to achieve, so it's a hyperparameter of this algorithm.
+
+244
+00:27:21.050 --> 00:27:23.969
+Jitendra K: So let me quickly download this dataset.
+
+245
+00:27:25.170 --> 00:27:26.950
+Jitendra K: Maybe I have to create a file.
+
+246
+00:27:47.760 --> 00:27:49.130
+Jitendra K: Let me put it here.
+
+247
+00:29:15.120 --> 00:29:17.380
+Jitendra K: Okay, so there are a lot of…
+
+248
+00:29:18.490 --> 00:29:20.380
+Jitendra K: Changes that we need to make.
+
+249
+00:29:21.530 --> 00:29:27.290
+Jitendra K: Text to column… Let me use coma.
+
+250
+00:29:53.620 --> 00:29:59.049
+Jitendra K: Okay, so I have caught… these data points…
+
+251
+00:30:09.330 --> 00:30:12.179
+Jitendra K: Let me quickly load this again.
+
+252
+00:30:28.530 --> 00:30:30.269
+Jitendra K: Okay, this works fine.
+
+253
+00:30:31.350 --> 00:30:38.540
+Jitendra K: Now, we are going to try and embit this data in a high-dimensional space, so… Again, I will use…
+
+254
+00:30:38.740 --> 00:30:40.389
+Jitendra K: poor dimension projection.
+
+255
+00:30:40.610 --> 00:30:43.989
+Jitendra K: So I will say number of components will be 2, learning data auto.
+
+256
+00:30:44.720 --> 00:30:51.560
+Jitendra K: The factor that I'm considering minimum data points is 70, and I'm going to run this algorithm on 1200 iteration.
+
+257
+00:30:52.090 --> 00:30:55.079
+Jitendra K: And then fitting this on a plotly.
+
+258
+00:31:19.880 --> 00:31:25.490
+Jitendra K: Okay, so this looks like a newsline map, but yes… This is the data points.
+
+259
+00:31:27.190 --> 00:31:33.540
+Jitendra K: How is Plotly different to Matplot? Yeah, that's a good question. So, Plotly is more advanced as compared to Matplot.
+
+260
+00:31:33.790 --> 00:31:39.660
+Jitendra K: So, Plotly will allow you to use JavaScripts. You can see JavaScript, plotly.js.
+
+261
+00:31:40.460 --> 00:31:43.669
+Jitendra K: And, if you're using Plotly, you can do wonders.
+
+262
+00:31:44.230 --> 00:31:49.560
+Jitendra K: You do not require Tableau and Power BI to understand your data.
+
+263
+00:31:49.910 --> 00:31:54.040
+Jitendra K: You can use Plotly, and Plotly will give you everything that you required.
+
+264
+00:31:54.380 --> 00:32:00.379
+Jitendra K: So I will highly recommend you to start using Plotly, and join this Or maybe download this.
+
+265
+00:32:00.800 --> 00:32:08.459
+Jitendra K: Right? And then download Plotly Studio or Demo Enterprise, and then try to work on these nice visuals.
+
+266
+00:32:09.190 --> 00:32:15.989
+Jitendra K: And one way that you will be able to get, recognition in your project is by plotting your data.
+
+267
+00:32:16.570 --> 00:32:22.809
+Jitendra K: So, if you are getting a good EDA graphs when you start the machine learning or data scientist.
+
+268
+00:32:23.010 --> 00:32:28.010
+Jitendra K: That is very essential for an organization to see how nicely you can be able to show the data.
+
+269
+00:32:29.630 --> 00:32:37.390
+Jitendra K: So, if you're showing the data to your stakeholders who are non-tech, right, with a minimal effort, without requiring Tableau and Power BI,
+
+270
+00:32:37.790 --> 00:32:41.940
+Jitendra K: This is one of the great faculty that you can be able to utilize, which is quick and fast.
+
+271
+00:32:42.240 --> 00:32:58.329
+Jitendra K: Otherwise, there are different ways that you can project your data into Tableau and Power BI or Click Server, or maybe if you're using some of the Visual Studios, that is fine. But this is one of the quick and dirtiest ways that you can be able to use your solution.
+
+272
+00:32:59.720 --> 00:33:03.900
+Jitendra K: Alright, now we'll project this data into three-dimensional search space.
+
+273
+00:33:07.080 --> 00:33:07.920
+Jitendra K: Yep.
+
+274
+00:33:08.530 --> 00:33:11.759
+Jitendra K: Yes, you can write, these,
+
+275
+00:33:11.920 --> 00:33:13.580
+Jitendra K: With a minimal line of code.
+
+276
+00:33:14.350 --> 00:33:18.129
+Jitendra K: So if I have to project this into a three-dimensional space with the same factor.
+
+277
+00:33:19.240 --> 00:33:23.119
+Jitendra K: Just, I'm changing this parameter, number of component, to be 3.
+
+278
+00:33:23.650 --> 00:33:25.170
+Jitendra K: So, available to that.
+
+279
+00:33:27.280 --> 00:33:30.719
+Jitendra K: I will show you this diagram, where I can able to…
+
+280
+00:33:31.080 --> 00:33:34.240
+Jitendra K: Get all the data points in a dense cluster form.
+
+281
+00:34:21.739 --> 00:34:24.600
+Jitendra K: So this is the output that we are getting.
+
+282
+00:34:24.880 --> 00:34:25.989
+Jitendra K: again…
+
+283
+00:34:29.719 --> 00:34:31.269
+Jitendra K: It's a three-dimensional map.
+
+284
+00:34:31.440 --> 00:34:33.079
+Jitendra K: So, we have 3Xs.
+
+285
+00:34:33.270 --> 00:34:37.699
+Jitendra K: And I think, I don't know why it is not giving me…
+
+286
+00:34:38.790 --> 00:34:44.210
+Jitendra K: the express to utilize the space. But anyway, this is what we are getting.
+
+287
+00:34:44.530 --> 00:34:52.919
+Jitendra K: Now, one way that you can be able to see is your data projection. You can be able to see the scales at which your variables are…
+
+288
+00:34:53.090 --> 00:34:55.110
+Jitendra K: So-called features have been aligned.
+
+289
+00:34:55.520 --> 00:34:56.300
+Jitendra K: Right?
+
+290
+00:34:56.449 --> 00:35:06.739
+Jitendra K: You can able to use this scaling factor to understand the outliers. You can able to say, I would like to select only the data points which are coscentric from this axis to this axis.
+
+291
+00:35:07.220 --> 00:35:12.869
+Jitendra K: I would like to find out a dense region to operate on my data points.
+
+292
+00:35:13.420 --> 00:35:17.559
+Jitendra K: And you can do much more than that, right? So imagine that you're working on
+
+293
+00:35:17.790 --> 00:35:21.420
+Jitendra K: Creating a satellite image projection on…
+
+294
+00:35:21.700 --> 00:35:28.860
+Jitendra K: Your data points, or you're creating a projection of Object detection using satellite images.
+
+295
+00:35:29.290 --> 00:35:37.710
+Jitendra K: So you can be able to do all this analysis with an image pixel, and then try to identify the density of traffic and stuff, right?
+
+296
+00:35:38.370 --> 00:35:41.259
+Jitendra K: Google, Google Map use,
+
+297
+00:35:42.350 --> 00:35:46.590
+Jitendra K: App server data to project the traffic density
+
+298
+00:35:46.810 --> 00:35:52.430
+Jitendra K: But now they are using satellite images, as well to project it at some location.
+
+299
+00:35:52.670 --> 00:35:57.420
+Jitendra K: Right now, they are using mobile devices to track vasal density, how the…
+
+300
+00:35:58.090 --> 00:36:02.039
+Jitendra K: Let's say the two different mobiles are moving in the same lane.
+
+301
+00:36:02.230 --> 00:36:06.409
+Jitendra K: And then they project the timeline to traverse, right?
+
+302
+00:36:07.000 --> 00:36:12.110
+Jitendra K: But, they're also clubbing the data points from satellite images to make it more accurate.
+
+303
+00:36:12.530 --> 00:36:29.099
+Jitendra K: Now, the idea is, what I'm saying, trying to say is, you can able to take an informed decision with the help of this projection, data projection. And you can able to use TSNE for that purpose. So the idea of TSNE is very, very simple. It will be able to give you the projection of your data points.
+
+304
+00:36:29.370 --> 00:36:38.170
+Jitendra K: And based upon this projection, you can decide, how should I utilize my data points to form later density or a cluster of similar
+
+305
+00:36:39.120 --> 00:36:40.409
+Jitendra K: Group of data.
+
+306
+00:36:40.730 --> 00:36:43.590
+Jitendra K: Right? So that is what TSNE objective is.
+
+307
+00:36:43.980 --> 00:36:45.560
+Jitendra K: Now,
+
+308
+00:36:45.740 --> 00:36:50.259
+Jitendra K: Are you really going to use this algorithm? The answer is no. You're not going to use too much.
+
+309
+00:36:50.920 --> 00:37:00.600
+Jitendra K: In fact, you will use mostly PC and SVDs for your objective functions.
+
+310
+00:37:00.880 --> 00:37:03.390
+Jitendra K: But at times, when you have,
+
+311
+00:37:03.540 --> 00:37:08.179
+Jitendra K: Image data, or you have very high dimensions image data, you would like to utilize.
+
+312
+00:37:08.520 --> 00:37:12.040
+Jitendra K: The projection of these images… Using TSME.
+
+313
+00:37:12.790 --> 00:37:19.310
+Jitendra K: So, you will be able to see the cluster formulation of your image, or your…
+
+314
+00:37:19.540 --> 00:37:23.580
+Jitendra K: Of your data point, visualization with the help of TSNE Graph.
+
+315
+00:37:24.140 --> 00:37:32.060
+Jitendra K: Now, when we… when we talk about what are these… this algorithm help us to do, so TCNA TSNE reveals
+
+316
+00:37:32.210 --> 00:37:38.939
+Jitendra K: the cluster and the local structure, pretty effectively. How the distance between the cluster or a relative position of the cluster in a plot.
+
+317
+00:37:39.110 --> 00:37:41.020
+Jitendra K: Have some meaningful interpretation.
+
+318
+00:37:41.630 --> 00:37:51.400
+Jitendra K: You will be able to see that, there are some crucial hyperparameter. The perplexity is 1, so it roughly corresponds to the number of effective nearest neighbors.
+
+319
+00:37:51.790 --> 00:37:59.209
+Jitendra K: So the size of this parameter is going to be utilized for experimentation, so typically the range that we are going to use.
+
+320
+00:37:59.500 --> 00:38:04.270
+Jitendra K: It could be low, could be high, between 5 to 70, or 5 to 80.
+
+321
+00:38:05.260 --> 00:38:13.900
+Jitendra K: So, TSNE also starts with random initialization. So, that means, at times, it is very difficult when you reproduce these outputs.
+
+322
+00:38:14.250 --> 00:38:21.990
+Jitendra K: So, generalization that we are going to fall is, we are going to use, I mean, this factor random initialization as a seed parameter.
+
+323
+00:38:22.700 --> 00:38:24.540
+Jitendra K: And then we are using scaling.
+
+324
+00:38:24.750 --> 00:38:29.040
+Jitendra K: Or normalizing the data to create different scales.
+
+325
+00:38:29.310 --> 00:38:36.710
+Jitendra K: And then try to identify the impact of dimensionality or curse of dimensionality on that algorithm.
+
+326
+00:38:36.860 --> 00:38:42.949
+Jitendra K: And then we are using optimization, using learning rate. So beyond perplexity, we have other parameter called learning rate.
+
+327
+00:38:43.100 --> 00:38:47.439
+Jitendra K: And also the number of iterations, which impact the results. So a high learning rate.
+
+328
+00:38:47.910 --> 00:38:51.110
+Jitendra K: That means you will have too high or too low
+
+329
+00:38:51.390 --> 00:38:54.940
+Jitendra K: If it is too high or too low, that can lose… leads to poor embedding.
+
+330
+00:38:55.500 --> 00:39:03.009
+Jitendra K: Now, this is an embedding model. Now, what is the purpose of embedding models? Embedding model means you can save the outcome.
+
+331
+00:39:03.130 --> 00:39:09.130
+Jitendra K: You can say that I would like to go with this cluster, and I will save this embedding.
+
+332
+00:39:09.450 --> 00:39:13.889
+Jitendra K: So I will say that I would like to… I have reduced my data, I would like to use
+
+333
+00:39:14.040 --> 00:39:17.050
+Jitendra K: this embedding, which is a pixel data set.
+
+334
+00:39:17.350 --> 00:39:19.649
+Jitendra K: And then, I will share this embedding with…
+
+335
+00:39:19.780 --> 00:39:24.810
+Jitendra K: Someone in my team, and he will utilize these embedding as an input.
+
+336
+00:39:24.990 --> 00:39:33.230
+Jitendra K: instead of focusing on data, he will use my embedding as an input. So all the thoroughness has been conducted by me and my team.
+
+337
+00:39:33.360 --> 00:39:40.050
+Jitendra K: And I'm sharing the data, I'm bidding with the other team, and he will use algorithm to produce a result on the top of it.
+
+338
+00:39:40.320 --> 00:39:46.169
+Jitendra K: So that way, You can able to handshake with different departments and different teams.
+
+339
+00:39:46.590 --> 00:39:51.369
+Jitendra K: Now, some of the disadvantage of using this algorithm is it is computationally expensive.
+
+340
+00:39:53.020 --> 00:39:55.549
+Jitendra K: And it is very sensitive to hyperparameter.
+
+341
+00:39:55.910 --> 00:39:59.580
+Jitendra K: Or it can stuck with local minima, many local minima.
+
+342
+00:39:59.770 --> 00:40:05.330
+Jitendra K: And the interpretation you can see, is pretty challenging. So I can see that this looks like a one cluster to me.
+
+343
+00:40:05.790 --> 00:40:16.990
+Jitendra K: But, if I have to look into more convincingly, or maybe if I increase the number of cluster size, it may create multiple clusters. So, very sensitive to hyperparameter.
+
+344
+00:40:17.300 --> 00:40:20.630
+Jitendra K: And that is where interpretation is challenging in this algorithm.
+
+345
+00:40:20.880 --> 00:40:26.120
+Jitendra K: And that's the reason people are not… or data scientists are not preferring this algorithm for doing some meaningful
+
+346
+00:40:26.550 --> 00:40:28.540
+Jitendra K: Reduction of the data.
+
+347
+00:40:30.840 --> 00:40:49.059
+Jitendra K: All right, now we'll talk about a second algorithm for today, which is called Independent Component Analysis, or ICA. Now, let me explain what is ICA is all about, and is it very similar to PCA? Here, we are talking about not principal, not single, but we are calling independent component analytics.
+
+348
+00:40:49.330 --> 00:40:53.599
+Jitendra K: Or independent com- component analysis.
+
+349
+00:40:56.480 --> 00:40:59.360
+Jitendra K: So the idea of… ICAA.
+
+350
+00:40:59.740 --> 00:41:02.690
+Jitendra K: Or independent component analysis, very simple.
+
+351
+00:41:03.120 --> 00:41:05.220
+Jitendra K: So, to amplify your data.
+
+352
+00:41:05.650 --> 00:41:07.820
+Jitendra K: So it amplifies your data understanding.
+
+353
+00:41:08.360 --> 00:41:11.850
+Jitendra K: So basically, It is one of the…
+
+354
+00:41:12.720 --> 00:41:16.460
+Jitendra K: One of the algorithms that is using unsupervised method.
+
+355
+00:41:17.010 --> 00:41:23.690
+Jitendra K: So… This particular technique, ICA, has been originated from signal processing.
+
+356
+00:41:24.870 --> 00:41:33.250
+Jitendra K: So the idea of ICA is very simple. The method comes from signal processing, where we are trying to separate a multivariate signal into an additive subcomponent.
+
+357
+00:41:34.190 --> 00:41:35.790
+Jitendra K: So, imagine that
+
+358
+00:41:35.900 --> 00:41:42.350
+Jitendra K: You have some independent signals or variables, and these signals can represent as a sinusoidal curves, or single curves.
+
+359
+00:41:42.860 --> 00:41:47.590
+Jitendra K: With the first signal located at the top, and second signal located at the bottom.
+
+360
+00:41:48.590 --> 00:41:53.680
+Jitendra K: As a result of this measurement, we do not receive a data, With a signal itself.
+
+361
+00:41:53.930 --> 00:42:04.250
+Jitendra K: Right? So the objective of ICA is to recover the original unknown signal by separating the mixed data. So it has ultimately helped to reconstruct the data points.
+
+362
+00:42:04.960 --> 00:42:08.169
+Jitendra K: For each dimension, which are mutually independent in nature.
+
+363
+00:42:10.110 --> 00:42:18.159
+Jitendra K: Now, if I have to consider the difference between IC and PCA, You might be probability… probably…
+
+364
+00:42:18.900 --> 00:42:22.610
+Jitendra K: understand that ICA in some way related to PCA.
+
+365
+00:42:23.230 --> 00:42:27.280
+Jitendra K: But this assumption is not so wrong. The idea originated
+
+366
+00:42:28.680 --> 00:42:31.619
+Jitendra K: Both conceptually, as well as pictorically.
+
+367
+00:42:32.080 --> 00:42:36.869
+Jitendra K: So, basically what PCA does is, PCA will utilize…
+
+368
+00:42:37.510 --> 00:42:43.819
+Jitendra K: The maximum variance using eigenvalues and eigenvectors, and we convert them into principal component.
+
+369
+00:42:44.390 --> 00:42:49.870
+Jitendra K: So, PCA will be very good for identifying the principal direction of relationship.
+
+370
+00:42:50.430 --> 00:42:53.129
+Jitendra K: However, when we talk about ICA,
+
+371
+00:42:53.730 --> 00:42:55.839
+Jitendra K: The problem that we're trying to solve
+
+372
+00:42:56.830 --> 00:43:01.239
+Jitendra K: Here, is by focusing on independent component instead of main component.
+
+373
+00:43:02.600 --> 00:43:08.700
+Jitendra K: So basically, the idea is, we are trying to utilize ICA 2…
+
+374
+00:43:08.930 --> 00:43:12.999
+Jitendra K: understand the data. And the goal of this algorithm
+
+375
+00:43:13.730 --> 00:43:17.770
+Jitendra K: Is to make sure that you have a clear understanding of your data.
+
+376
+00:43:19.250 --> 00:43:23.739
+Jitendra K: Now, let me explain the steps that we require to perform ICA.
+
+377
+00:43:24.310 --> 00:43:26.460
+Jitendra K: So, ICA is a three-step process.
+
+378
+00:43:27.460 --> 00:43:29.559
+Jitendra K: Let me explain what are the three steps.
+
+379
+00:43:31.930 --> 00:43:36.370
+Jitendra K: So So first, understand what is the goal of this algorithm.
+
+380
+00:43:36.890 --> 00:43:41.020
+Jitendra K: So the goal of this algorithm, ICA, is to perform.
+
+381
+00:43:41.130 --> 00:43:48.300
+Jitendra K: Multiplication of the vector X… with a vector A, or a matrix A.
+
+382
+00:43:48.630 --> 00:43:53.670
+Jitendra K: Where I will say the matrix A comprise of three constituted parts.
+
+383
+00:43:54.600 --> 00:43:55.420
+Jitendra K: Right?
+
+384
+00:43:55.630 --> 00:43:59.610
+Jitendra K: So, what this algorithm does is, in the first tab.
+
+385
+00:44:00.200 --> 00:44:02.759
+Jitendra K: It is trying to find the angle.
+
+386
+00:44:03.180 --> 00:44:04.630
+Jitendra K: or projection.
+
+387
+00:44:05.020 --> 00:44:06.430
+Jitendra K: Which is theta here.
+
+388
+00:44:07.230 --> 00:44:09.220
+Jitendra K: With a maximum variance.
+
+389
+00:44:10.020 --> 00:44:15.629
+Jitendra K: It is trying to rotate the plane and estimating U of transpose.
+
+390
+00:44:16.320 --> 00:44:19.910
+Jitendra K: It is rotating this… data metrics.
+
+391
+00:44:20.970 --> 00:44:25.219
+Jitendra K: So the first component of the algorithm involved the use of…
+
+392
+00:44:25.500 --> 00:44:27.999
+Jitendra K: user data, which is U of T,
+
+393
+00:44:28.360 --> 00:44:31.969
+Jitendra K: Which is the basis of first… Factor called theta.
+
+394
+00:44:32.130 --> 00:44:33.900
+Jitendra K: It is trying to interpret theta.
+
+395
+00:44:34.190 --> 00:44:35.659
+Jitendra K: So the angle theta…
+
+396
+00:44:36.110 --> 00:44:43.749
+Jitendra K: can be derived from the primary direction of the data. It is very simpler, very analogous to PCA. So you're rotating
+
+397
+00:44:43.940 --> 00:44:51.989
+Jitendra K: you're playing… in PC as well, to find a direction of maximum variance. And the projection that you're getting
+
+398
+00:44:52.830 --> 00:44:54.460
+Jitendra K: It's your principal component.
+
+399
+00:44:54.600 --> 00:45:00.239
+Jitendra K: A similar idea has been used here. So instead of finding the principal component, I'm trying to find out a plane.
+
+400
+00:45:00.900 --> 00:45:04.620
+Jitendra K: And the direction of that plane, which will be able to explain the maximum variance.
+
+401
+00:45:05.100 --> 00:45:09.460
+Jitendra K: The second step that I'm taking is to… Scale.
+
+402
+00:45:10.290 --> 00:45:15.110
+Jitendra K: The second component involves stretching the figure. So here you can see that I'm stretching the figure.
+
+403
+00:45:15.660 --> 00:45:19.460
+Jitendra K: Which is achieved through sigma. So I'm using a sigma.
+
+404
+00:45:19.850 --> 00:45:26.949
+Jitendra K: Inverse, And this step will help me to employ the variance of sigma 1 and sigma 2,
+
+405
+00:45:27.080 --> 00:45:32.829
+Jitendra K: from the same data. A similar step has been used in PCA as well, where we are projecting the two
+
+406
+00:45:32.950 --> 00:45:34.070
+Jitendra K: component.
+
+407
+00:45:34.400 --> 00:45:37.690
+Jitendra K: Which are orthogonal in nature. Here, also, we are doing the same thing.
+
+408
+00:45:39.050 --> 00:45:41.460
+Jitendra K: But here, we're talking about access.
+
+409
+00:45:41.750 --> 00:45:43.390
+Jitendra K: We're talking about a plane.
+
+410
+00:45:44.160 --> 00:45:49.510
+Jitendra K: The third step is to… Find the final component.
+
+411
+00:45:49.770 --> 00:45:55.010
+Jitendra K: which distinguish the current algorithm from PCA. So the idea is to rotate
+
+412
+00:45:56.130 --> 00:45:59.510
+Jitendra K: These signals of the data around the angle called phi.
+
+413
+00:45:59.940 --> 00:46:06.519
+Jitendra K: And this step will aim to rebuild the original dimension of the signal using independent and cut tossis assumption.
+
+414
+00:46:07.090 --> 00:46:13.839
+Jitendra K: So what it does is, in a very simple term, ICA, Will help you, too.
+
+415
+00:46:16.330 --> 00:46:21.519
+Jitendra K: perform, Or IC can only separate linear mixed sources further.
+
+416
+00:46:22.500 --> 00:46:29.650
+Jitendra K: Right? So the idea of ICA is very simple. ICA is an unsupervised learning algorithm, and the main idea is to
+
+417
+00:46:30.020 --> 00:46:35.540
+Jitendra K: Separate, Given measurement of linear combination back into their original signal.
+
+418
+00:46:35.680 --> 00:46:39.590
+Jitendra K: So it's a reconstruction algorithm. It is a three-step process.
+
+419
+00:46:41.050 --> 00:46:44.400
+Jitendra K: Right? So, where we are going to use ICA?
+
+420
+00:46:44.970 --> 00:46:50.139
+Jitendra K: So, ICA you can use in signal analytics, or voice analytics.
+
+421
+00:46:50.710 --> 00:46:54.209
+Jitendra K: Right? Let's say if I have a voiceover data, and I would like to perform.
+
+422
+00:46:54.460 --> 00:46:57.560
+Jitendra K: analytics on the top of it. So I can use ICA for that.
+
+423
+00:46:57.710 --> 00:46:59.680
+Jitendra K: I would like to show you an example.
+
+424
+00:47:00.330 --> 00:47:09.509
+Jitendra K: Where we're going to use some voice data, or some random voice data, similar to voice data, we will construct and then try to apply IC on the top of it.
+
+425
+00:47:09.980 --> 00:47:11.480
+Jitendra K: So let me explain this.
+
+426
+00:47:24.670 --> 00:47:26.730
+Jitendra K: Let me go back to my notebook.
+
+427
+00:48:08.480 --> 00:48:12.220
+Jitendra K: I will explain the code in a while. Let's just try to run this.
+
+428
+00:48:54.890 --> 00:49:04.029
+Jitendra K: Okay, so here I've got… assume it's like a two-voice signal, right? I've got two amplitudes. One is in cost form, one is in sign form.
+
+429
+00:49:04.320 --> 00:49:05.090
+Jitendra K: Right?
+
+430
+00:49:05.240 --> 00:49:10.119
+Jitendra K: So basically, I have got to, you can consider it to be…
+
+431
+00:49:13.350 --> 00:49:18.029
+Jitendra K: A voice signal, right, with some distortion. So there's some distortion in the voice.
+
+432
+00:49:18.410 --> 00:49:21.389
+Jitendra K: Now, these are my linearly mixed signal.
+
+433
+00:49:21.530 --> 00:49:26.519
+Jitendra K: So, the purpose is, I would like to identify the original signal from the linearly mixed signals.
+
+434
+00:49:27.230 --> 00:49:29.119
+Jitendra K: Right? With different amplitude.
+
+435
+00:49:29.950 --> 00:49:34.920
+Jitendra K: So I'm using ICA, Independent Component Analysis.
+
+436
+00:49:35.410 --> 00:49:41.429
+Jitendra K: Try to project my data points into an amplitude-based or frequency-based analysis.
+
+437
+00:49:41.650 --> 00:49:47.829
+Jitendra K: And then, try to identify the two independent signals based upon that.
+
+438
+00:49:48.300 --> 00:49:49.120
+Jitendra K: Right?
+
+439
+00:49:49.280 --> 00:50:05.220
+Jitendra K: So the idea is very simple. Let's say if I'm giving you two waveforms, or a mixed waveform, right, which is a superimposition of the two waveforms, and your objective is to convert them into a single component.
+
+440
+00:50:05.510 --> 00:50:06.479
+Jitendra K: like this.
+
+441
+00:50:06.600 --> 00:50:08.450
+Jitendra K: So that is what we are trying to do.
+
+442
+00:50:08.620 --> 00:50:12.509
+Jitendra K: So let me go back to the code. What does code talk about?
+
+443
+00:50:12.880 --> 00:50:14.770
+Jitendra K: Let me go back to my code.
+
+444
+00:50:35.670 --> 00:50:41.769
+Jitendra K: Alright, so we start with some random data. So, what I did is I just used fast ICA technique.
+
+445
+00:50:42.090 --> 00:50:44.599
+Jitendra K: Which is, again, coming from…
+
+446
+00:50:45.010 --> 00:50:50.450
+Jitendra K: the scikit-learn. Yeah, this is similar to Fourier transformation, but Fourier transformation, purposely different.
+
+447
+00:50:50.840 --> 00:50:55.480
+Jitendra K: When you're applying a Fourier transformation, you're trying to synthesize a signal.
+
+448
+00:50:55.710 --> 00:50:59.829
+Jitendra K: Or converting a signal, right? But here, we're not converting the signal.
+
+449
+00:51:00.170 --> 00:51:05.770
+Jitendra K: We are into frequency to… I think, you are using frequency as a wavelength.
+
+450
+00:51:06.240 --> 00:51:14.010
+Jitendra K: and maybe you're changing that signal to a different form, right? So when you're performing a Fourier transformation.
+
+451
+00:51:14.440 --> 00:51:19.120
+Jitendra K: You're trying to use, the transformation.
+
+452
+00:51:19.590 --> 00:51:23.050
+Jitendra K: But here, we're not talking about any transformation. We'd rather use
+
+453
+00:51:23.310 --> 00:51:26.830
+Jitendra K: The signals, which is in a wavelength format.
+
+454
+00:51:26.940 --> 00:51:32.299
+Jitendra K: And try to separate them, or decompose that signals into two different individual identities.
+
+455
+00:51:32.850 --> 00:51:34.719
+Jitendra K: So, how we are doing that?
+
+456
+00:51:35.300 --> 00:51:38.429
+Jitendra K: So the first step is, we are using FastICA.
+
+457
+00:51:39.190 --> 00:51:46.309
+Jitendra K: So… The purpose of FastICA is to use a statistical method from scikit-learn.
+
+458
+00:51:46.750 --> 00:51:52.720
+Jitendra K: And then we are creating the two independent signals. The first signal is a sinusoidal, the second one is…
+
+459
+00:51:52.940 --> 00:51:54.060
+Jitendra K: cosign.
+
+460
+00:51:54.200 --> 00:51:58.299
+Jitendra K: with a different amplitude, and I'm using a time vector from 1 to 1000.
+
+461
+00:51:58.740 --> 00:52:05.709
+Jitendra K: Which is a range function. And I'm using these formulas to generate the wavelength, right? Some typical, mix…
+
+462
+00:52:06.130 --> 00:52:08.189
+Jitendra K: So I'm creating a two-panel plot.
+
+463
+00:52:08.530 --> 00:52:12.299
+Jitendra K: Showing the original signal in blue and green… sorry, blue and red.
+
+464
+00:52:12.630 --> 00:52:16.760
+Jitendra K: Then I'm mixing the two signals, it's like I'm adding the noise.
+
+465
+00:52:17.750 --> 00:52:22.950
+Jitendra K: So when I'm mixing the signal, I'm just doing this conversion, some random conversion.
+
+466
+00:52:23.500 --> 00:52:31.060
+Jitendra K: And then I'm applying the… PCA, or fast IC… sorry, ICA, To separate the components.
+
+467
+00:52:31.870 --> 00:52:37.470
+Jitendra K: So, here I'm saying that I would like to use a metrics as a source to create observation.
+
+468
+00:52:37.730 --> 00:52:44.580
+Jitendra K: And, ICA component to separate those mixed signals. And then I would like to utilize some visualization technique
+
+469
+00:52:44.840 --> 00:52:46.080
+Jitendra K: To find it out.
+
+470
+00:52:46.410 --> 00:52:52.459
+Jitendra K: Now, here, I'm saying that problem that we are trying to solve is, we have two independent sources of data.
+
+471
+00:52:53.300 --> 00:52:57.740
+Jitendra K: Right? Or two signals, mixed by a known linear combination.
+
+472
+00:52:58.420 --> 00:53:00.620
+Jitendra K: So, we are using ICA.
+
+473
+00:53:01.040 --> 00:53:05.639
+Jitendra K: Which will able to recover those signals, which may have different amplitude.
+
+474
+00:53:05.990 --> 00:53:10.860
+Jitendra K: And recovered signal will be generated by…
+
+475
+00:53:12.050 --> 00:53:17.430
+Jitendra K: Taking this transformation, log of cosine hypertangent function.
+
+476
+00:53:18.270 --> 00:53:26.020
+Jitendra K: So this function… Is… Basically, try to use negative entropy as a factor.
+
+477
+00:53:26.350 --> 00:53:34.860
+Jitendra K: to understand the independence of the two-way form within the central limit theorem. So I will not go into that detail, because I believe these
+
+478
+00:53:35.120 --> 00:53:39.829
+Jitendra K: Algorithms are not of very great use. It will confuse you, rather.
+
+479
+00:53:40.450 --> 00:53:46.909
+Jitendra K: So the idea is just to cover this. So the idea of this, using this function, is to transform.
+
+480
+00:53:48.530 --> 00:53:56.889
+Jitendra K: So some of the real-world applications that you can use ICAs for is, you can use for audio processing. You can separate speaker in a room, or…
+
+481
+00:53:57.010 --> 00:54:05.489
+Jitendra K: you can able to identify, ICA, and then try to convert this into Some algorithmic form of…
+
+482
+00:54:06.870 --> 00:54:14.339
+Jitendra K: differentiating the noise versus the primary speaker, and I think smart headphones are using such sort of algorithms.
+
+483
+00:54:14.680 --> 00:54:20.479
+Jitendra K: You can also use biometric… biomedical ECG, or EEGs, or MEGs.
+
+484
+00:54:20.630 --> 00:54:23.879
+Jitendra K: Which we're able to separate brain waves with different sources.
+
+485
+00:54:24.270 --> 00:54:28.990
+Jitendra K: You can also use this technique for financial analysis.
+
+486
+00:54:29.940 --> 00:54:34.910
+Jitendra K: Because in market data, you will have too many parameters, which are random in nature.
+
+487
+00:54:35.470 --> 00:54:40.930
+Jitendra K: So you'll be able to find out which macroeconomic factor is impacting your time series.
+
+488
+00:54:41.330 --> 00:54:46.880
+Jitendra K: Or indexes in terms of volatility, etc. And you can use this algorithm for that purpose.
+
+489
+00:54:47.520 --> 00:54:52.119
+Jitendra K: The final thing that you can use this algorithm is for, noise removal and image processing.
+
+490
+00:54:55.010 --> 00:55:03.380
+Jitendra K: The independent signal could have been a linear combined in multiple ways, so based upon the result signal we have, we might end up with different initial component, right? Yes.
+
+491
+00:55:03.580 --> 00:55:06.249
+Jitendra K: So that is why I'm using the factors.
+
+492
+00:55:07.610 --> 00:55:08.810
+Jitendra K: for amplitude.
+
+493
+00:55:09.200 --> 00:55:13.410
+Jitendra K: But you can… See these factors, maybe changing.
+
+494
+00:55:13.670 --> 00:55:20.369
+Jitendra K: more distortion, more noise, etc, right? But I'm just keeping it simple. I'm just trying to use the two…
+
+495
+00:55:21.970 --> 00:55:27.639
+Jitendra K: I mean, this is our value of pi, and this is half pi I'm using, just to rotate it.
+
+496
+00:55:27.980 --> 00:55:33.190
+Jitendra K: And this is what I'm getting… Sorry, this is what I'm getting in the… output.
+
+497
+00:55:33.470 --> 00:55:37.540
+Jitendra K: So I'm just delaying the signal by… That amplitude.
+
+498
+00:55:40.520 --> 00:55:45.189
+Jitendra K: But the property will remain the same. But in real-world scenario, you might have two different signals.
+
+499
+00:55:50.020 --> 00:55:53.410
+Jitendra K: Yes, so if you're using… ICA,
+
+500
+00:55:53.670 --> 00:55:58.239
+Jitendra K: And you have a mixed signal, which is coming from different sources.
+
+501
+00:55:58.400 --> 00:56:00.070
+Jitendra K: You'll get two waveform.
+
+502
+00:56:00.910 --> 00:56:07.800
+Jitendra K: Which is a linear combination of these two signals. We are separating this two waveforms into single component.
+
+503
+00:56:08.330 --> 00:56:09.840
+Jitendra K: Or individual component.
+
+504
+00:56:11.350 --> 00:56:13.930
+Jitendra K: So that is what ICA is used for.
+
+505
+00:56:14.590 --> 00:56:18.890
+Jitendra K: So, in a nutshell, if… If you have to use ICA,
+
+506
+00:56:19.790 --> 00:56:26.489
+Jitendra K: In financial analytics, let's say, maybe you are creating forecasting models in finance.
+
+507
+00:56:27.330 --> 00:56:35.030
+Jitendra K: So, when you're dealing with forecasting in finance, or stock prices, There are different variations.
+
+508
+00:56:35.680 --> 00:56:44.170
+Jitendra K: In terms of… The signal that you're getting from primary market data.
+
+509
+00:56:44.810 --> 00:56:49.130
+Jitendra K: And those shocks that you are going to analyze will have different
+
+510
+00:56:49.890 --> 00:57:01.810
+Jitendra K: Inferences from multiple factors, including macroeconomic, including uncertainties, including Closing price… Right? Including,
+
+511
+00:57:02.610 --> 00:57:07.510
+Jitendra K: the market variability, etc. So what you're going to do is, you would like to remove those impact.
+
+512
+00:57:08.670 --> 00:57:11.030
+Jitendra K: And then consider only the
+
+513
+00:57:12.170 --> 00:57:17.740
+Jitendra K: maybe one factor that you would like to analyze, right, for that purpose. And then you can be able to forecast it.
+
+514
+00:57:17.860 --> 00:57:19.249
+Jitendra K: With a high precision.
+
+515
+00:57:19.970 --> 00:57:22.909
+Jitendra K: So that way, you can be able to use ICA4.
+
+516
+00:57:23.780 --> 00:57:28.240
+Jitendra K: But otherwise, I don't think so in machine learning, until and unless you're using audio.
+
+517
+00:57:28.440 --> 00:57:31.510
+Jitendra K: And this is… this algorithm will serve any purpose.
+
+518
+00:57:37.310 --> 00:57:41.549
+Jitendra K: Alright, so we talked about ICA, we talked about TSNE,
+
+519
+00:57:41.800 --> 00:57:46.080
+Jitendra K: So, now we will talk about the third technique, which is called UMAP.
+
+520
+00:57:47.090 --> 00:57:48.770
+Jitendra K: Now, again, UMAP…
+
+521
+00:57:54.730 --> 00:57:59.100
+Jitendra K: is a plotting technique, or is this a visualization technique, similar to TSCNA?
+
+522
+00:57:59.620 --> 00:58:06.589
+Jitendra K: So if I were to talk about UMAP, which is Uniform Manifold Approximation Projection, the key idea of UMAP
+
+523
+00:58:07.430 --> 00:58:11.840
+Jitendra K: is to… Project your data
+
+524
+00:58:12.400 --> 00:58:18.470
+Jitendra K: In a high dimension space, to get some significant attention, or to get some significant insights.
+
+525
+00:58:19.360 --> 00:58:24.010
+Jitendra K: So, UMAP is a technique, or a concept.
+
+526
+00:58:24.550 --> 00:58:27.740
+Jitendra K: Which is utilizing fuzzy typological analysis.
+
+527
+00:58:28.050 --> 00:58:31.759
+Jitendra K: A fuzzy topological representation of high dimension data.
+
+528
+00:58:33.030 --> 00:58:36.460
+Jitendra K: And then, what it does is, it optimizes the…
+
+529
+00:58:37.030 --> 00:58:44.890
+Jitendra K: Data, low dimension data, representation to a closest possible form using typological structure or topological structure.
+
+530
+00:58:45.170 --> 00:58:48.950
+Jitendra K: That means your algorithm will preserve global and local feature both.
+
+531
+00:58:49.430 --> 00:58:55.780
+Jitendra K: So the idea of UMAP is to preserve both local and global structure in the data when mapping it to a low-dimension space.
+
+532
+00:58:56.390 --> 00:59:04.309
+Jitendra K: So, you may provide several parameters that can be adjusted to control the trade-off between preserving these local versus global parameters.
+
+533
+00:59:04.560 --> 00:59:09.430
+Jitendra K: That means UMAP is more scalable as compared to TSME.
+
+534
+00:59:11.250 --> 00:59:12.890
+Jitendra K: So this is fast as well.
+
+535
+00:59:13.600 --> 00:59:16.950
+Jitendra K: Now… We will see some examples.
+
+536
+00:59:17.230 --> 00:59:21.900
+Jitendra K: how UMAP works, and how to visualize the UMAP output.
+
+537
+00:59:22.250 --> 00:59:30.699
+Jitendra K: You will see this example. So first, let me explain what are the things that you require to install when you're dealing with UMAP.
+
+538
+00:59:31.280 --> 00:59:40.710
+Jitendra K: So, when you're running any UMAP algorithm, you have to install this package called UMapLearn. This will give you an access to all the toolkits available in this class.
+
+539
+00:59:41.490 --> 00:59:43.690
+Jitendra K: And, you just install it.
+
+540
+00:59:43.920 --> 00:59:49.519
+Jitendra K: And this is… ready-to-go package that you'll be able to use.
+
+541
+00:59:49.860 --> 00:59:54.430
+Jitendra K: So once I install this, I will generate some data points randomly again.
+
+542
+00:59:58.700 --> 01:00:00.630
+Jitendra K: I will create 100 data points.
+
+543
+01:00:01.730 --> 01:00:08.760
+Jitendra K: Then I will create UMAP object parameter, And, try to…
+
+544
+01:00:09.460 --> 01:00:14.390
+Jitendra K: Use 5 clusters with a distance of 0.3.
+
+545
+01:00:16.830 --> 01:00:20.439
+Jitendra K: Okay, UMF is not defined, second…
+
+546
+01:01:28.660 --> 01:01:31.290
+Jitendra K: Okay, so now I'm fitting the transformation.
+
+547
+01:01:37.320 --> 01:01:39.520
+Jitendra K: Then I will show you the output.
+
+548
+01:01:48.820 --> 01:01:52.990
+Jitendra K: Okay, now… This is a very simple code that we have developed.
+
+549
+01:01:53.100 --> 01:01:55.070
+Jitendra K: So, the idea is very simple.
+
+550
+01:01:55.490 --> 01:01:57.840
+Jitendra K: UMAP will allow you to perform
+
+551
+01:01:58.180 --> 01:02:02.880
+Jitendra K: Again, you will be able to visualize your data into high-dimension vectors, right?
+
+552
+01:02:03.110 --> 01:02:12.990
+Jitendra K: So the purpose of UMAP Is to project your data into high dimension vectors, or high-dimension search space.
+
+553
+01:02:13.500 --> 01:02:19.520
+Jitendra K: So… The only difference between TSNE and UMAP is, UMAP is much faster.
+
+554
+01:02:20.310 --> 01:02:24.540
+Jitendra K: So, the idea of UMAP is… To ensure that…
+
+555
+01:02:24.950 --> 01:02:28.970
+Jitendra K: You're going to utilize lower dimension manifold
+
+556
+01:02:29.970 --> 01:02:32.520
+Jitendra K: And, try to fit your data.
+
+557
+01:02:32.890 --> 01:02:40.160
+Jitendra K: Into this format, which is fuzzy typological or topological analysis, which represent a fuzzy, spatial, or a sim…
+
+558
+01:02:40.560 --> 01:02:43.020
+Jitendra K: Our continuous probiotical site.
+
+559
+01:02:43.280 --> 01:02:47.829
+Jitendra K: And then, here I'm using a point A and point B projection.
+
+560
+01:02:49.800 --> 01:02:55.390
+Jitendra K: With a minimum distance of 0.3. So this is… this is… I'm considering it to be a fuzzy map parameter.
+
+561
+01:02:55.840 --> 01:03:02.070
+Jitendra K: So the idea is very simple. In the Phase 1, you will apply, The nearest neighbor?
+
+562
+01:03:02.260 --> 01:03:06.339
+Jitendra K: So here, I'm saying that I would like to find out minimum of 5 possible nearest neighbors.
+
+563
+01:03:07.140 --> 01:03:13.640
+Jitendra K: So, computer distance to all other points, select the 5 closest proximity data points, store the nearest neighbor.
+
+564
+01:03:13.870 --> 01:03:15.789
+Jitendra K: Indexes and distances.
+
+565
+01:03:16.260 --> 01:03:22.690
+Jitendra K: And then, adapt… This to create more dense and sparse region.
+
+566
+01:03:22.980 --> 01:03:26.690
+Jitendra K: So here I can see that I'm getting some dense, some sparse fission.
+
+567
+01:03:28.070 --> 01:03:32.879
+Jitendra K: So I will ensure local and global consistency both in the same plot.
+
+568
+01:03:34.690 --> 01:03:37.380
+Jitendra K: And that makes… that makes this algorithm…
+
+569
+01:03:38.280 --> 01:03:41.179
+Jitendra K: more effective as compared to TSNE.
+
+570
+01:03:41.970 --> 01:03:46.910
+Jitendra K: Right? So in TSN, you can see that I cannot able to maintain the global,
+
+571
+01:03:47.110 --> 01:03:52.019
+Jitendra K: distances, but here I can maintain the global distances with more proximity parameters.
+
+572
+01:03:52.750 --> 01:03:59.389
+Jitendra K: So that's the only difference between TSNE and UMAP, and the purpose of UMAP, if I have to talk about
+
+573
+01:04:00.240 --> 01:04:04.619
+Jitendra K: The differences, and which algorithm should I use and why?
+
+574
+01:04:05.100 --> 01:04:09.420
+Jitendra K: So I would say that, when you say UMAP, it is much, much faster.
+
+575
+01:04:10.240 --> 01:04:14.009
+Jitendra K: PCA is very fast, but UMAP is faster than TACNE.
+
+576
+01:04:14.120 --> 01:04:15.469
+Jitendra K: TSN is slow.
+
+577
+01:04:16.310 --> 01:04:19.039
+Jitendra K: The scalability factor for UMAP
+
+578
+01:04:19.180 --> 01:04:26.560
+Jitendra K: Let's say if I'm using 100K samples, or millions of samples, then I can use this algorithm more appropriately.
+
+579
+01:04:27.410 --> 01:04:32.910
+Jitendra K: It will be able to explain the global structuring and the local structuring by balancing between the two.
+
+580
+01:04:33.520 --> 01:04:37.410
+Jitendra K: But in PCA, I may lack on local structuring.
+
+581
+01:04:37.640 --> 01:04:40.520
+Jitendra K: But global structure has been explained pretty well by PCA.
+
+582
+01:04:41.370 --> 01:04:48.610
+Jitendra K: Similarly, TSNE will help me to explain local structure pretty well, but global structure, I cannot be able to explain much.
+
+583
+01:04:49.900 --> 01:04:52.720
+Jitendra K: But with UMAP, I can be able to explain both.
+
+584
+01:04:53.850 --> 01:05:01.930
+Jitendra K: I can able to… make a very, transformation… a good transformation using UMAP,
+
+585
+01:05:02.510 --> 01:05:07.470
+Jitendra K: And, very similar to PCA, but this transformation is lacking in TSNE.
+
+586
+01:05:08.500 --> 01:05:12.699
+Jitendra K: Right? Now the question is, where should I use this algorithm?
+
+587
+01:05:12.890 --> 01:05:18.799
+Jitendra K: Now, what is the purpose of UMAP, and what is the purpose of TSNE, right?
+
+588
+01:05:19.400 --> 01:05:27.109
+Jitendra K: So if I have to just compare the purpose of PCA versus UMAP versus TSNE.
+
+589
+01:05:29.630 --> 01:05:33.390
+Jitendra K: Global means high dimension, local means low dimension. No.
+
+590
+01:05:33.710 --> 01:05:38.520
+Jitendra K: Global means, distance proximity is high.
+
+591
+01:05:40.540 --> 01:05:45.069
+Jitendra K: So that means I can say that the separation between the two data points is between the cluster.
+
+592
+01:05:45.590 --> 01:05:52.420
+Jitendra K: So, when I have to say the cluster size, I can see here I'm getting two clusters, or many clusters. This is my dense cluster.
+
+593
+01:05:52.950 --> 01:05:54.969
+Jitendra K: This is my another dense cluster.
+
+594
+01:05:57.060 --> 01:05:58.860
+Jitendra K: Right? This is another cluster.
+
+595
+01:06:00.300 --> 01:06:03.909
+Jitendra K: So, I will say that globally means I'm talking within this scope.
+
+596
+01:06:05.460 --> 01:06:10.729
+Jitendra K: So if I'm creating a distance proximity between the two clusters, it will maintain that ratio.
+
+597
+01:06:13.740 --> 01:06:19.129
+Jitendra K: Right? And the local cluster, if I'm talking about, that means the distance, intra-distance between the data points.
+
+598
+01:06:19.850 --> 01:06:24.200
+Jitendra K: That I'm making within the algorithm. So it is working on both criterias.
+
+599
+01:06:27.130 --> 01:06:33.419
+Jitendra K: All right, now what is the purpose of using, PCA versus UMAP versus TSNE?
+
+600
+01:06:33.910 --> 01:06:35.280
+Jitendra K: So I would say…
+
+601
+01:06:38.320 --> 01:06:44.080
+Jitendra K: TSNE and UMAP are the new technique, and they are coming under nonlinear transformation scenarios.
+
+602
+01:06:44.370 --> 01:06:49.789
+Jitendra K: So, TSN has been developed in the year 2008, UMAP has been developed in 2018.
+
+603
+01:06:50.300 --> 01:06:53.610
+Jitendra K: And PCA, believe it has been developed in 1901.
+
+604
+01:06:53.990 --> 01:06:55.819
+Jitendra K: It's a 100-year-old technique.
+
+605
+01:06:56.620 --> 01:07:01.560
+Jitendra K: So, the idea is… The idea is very simple.
+
+606
+01:07:03.420 --> 01:07:04.680
+Jitendra K: PCA,
+
+607
+01:07:05.170 --> 01:07:15.029
+Jitendra K: will preserve overall shape, distance between the far point and their linear relationship in terms of correlation, variance, explanation that we have already seen in PCA.
+
+608
+01:07:15.680 --> 01:07:18.060
+Jitendra K: So, when to use PCA? When you have…
+
+609
+01:07:20.490 --> 01:07:23.929
+Jitendra K: Would like to generate feature engineering insight, noise reduction.
+
+610
+01:07:24.330 --> 01:07:26.160
+Jitendra K: And you would like to reduce the data.
+
+611
+01:07:26.690 --> 01:07:34.220
+Jitendra K: But PCA will not be very useful when you are using non-linear data, like images, voice, videos.
+
+612
+01:07:34.860 --> 01:07:35.980
+Jitendra K: It will fail.
+
+613
+01:07:37.100 --> 01:07:40.270
+Jitendra K: In those scenarios, you have to go with nonlinear.
+
+614
+01:07:42.520 --> 01:07:46.799
+Jitendra K: algorithms, including UMAP and TSME.
+
+615
+01:07:47.340 --> 01:07:53.530
+Jitendra K: So when you're trying to visualize high-damage data by preserving the local neighbors, the solution…
+
+616
+01:07:53.690 --> 01:08:01.300
+Jitendra K: That you should use is either TSNE or UMAP. But as I mentioned, TSNE is… memory agnostic.
+
+617
+01:08:01.510 --> 01:08:03.720
+Jitendra K: It may take time to converge.
+
+618
+01:08:04.640 --> 01:08:06.939
+Jitendra K: And you can get a faster solution with UMAP.
+
+619
+01:08:08.110 --> 01:08:11.819
+Jitendra K: Right, so UMAP is performing a very similar sort of analysis.
+
+620
+01:08:12.590 --> 01:08:14.890
+Jitendra K: Very similar type of projection.
+
+621
+01:08:15.100 --> 01:08:18.230
+Jitendra K: On your data points, but with a high speed.
+
+622
+01:08:19.560 --> 01:08:27.439
+Jitendra K: Right? So, the idea is, when you're dealing with any voice frequency data or image base, analysis…
+
+623
+01:08:28.300 --> 01:08:30.760
+Jitendra K: You can use these techniques.
+
+624
+01:08:31.430 --> 01:08:33.910
+Jitendra K: Otherwise, these techniques are of no use.
+
+625
+01:08:35.920 --> 01:08:40.130
+Jitendra K: When we're talking about CNN, there also I will talk about.
+
+626
+01:08:40.290 --> 01:08:42.340
+Jitendra K: UMAP and TSME.
+
+627
+01:08:42.630 --> 01:08:47.840
+Jitendra K: But we will… Hardly use those techniques there as well, because they have their own
+
+628
+01:08:48.229 --> 01:08:51.119
+Jitendra K: Other techniques, some other deep learning advanced technique.
+
+629
+01:08:53.260 --> 01:08:56.359
+Jitendra K: But in the old school, when the deep learning was not there.
+
+630
+01:08:57.560 --> 01:09:01.399
+Jitendra K: Data scientists are using UMAP and TSNE for doing this analysis.
+
+631
+01:09:04.029 --> 01:09:09.009
+Jitendra K: And for that, these TSNE and UMAP has been replaced with auto-encoders.
+
+632
+01:09:09.930 --> 01:09:14.919
+Jitendra K: We'll talk about our autoencoders, which is the most important algorithm for deep learning.
+
+633
+01:09:16.590 --> 01:09:21.150
+Jitendra K: And I will talk about autoencoders in terms of only
+
+634
+01:09:22.210 --> 01:09:26.430
+Jitendra K: Our autoencoder can do a lot of things, by the way, so it's a framework, right?
+
+635
+01:09:26.670 --> 01:09:32.140
+Jitendra K: But I will specifically talk about autoencoder only in terms of Dimension.
+
+636
+01:09:32.439 --> 01:09:33.510
+Jitendra K: reduction.
+
+637
+01:09:34.490 --> 01:09:41.109
+Jitendra K: So, first and the foremost thing is, what is autoencoders? Why we use autoencoders, and what is the purpose of autoencoders?
+
+638
+01:09:41.840 --> 01:09:44.890
+Jitendra K: So basically, autoencoders is a neural network.
+
+639
+01:09:46.620 --> 01:09:49.250
+Jitendra K: And the purpose of neural network is to learn the pattern.
+
+640
+01:09:50.750 --> 01:09:53.859
+Jitendra K: Right? If I have to show you the architecture of autoencoders.
+
+641
+01:09:58.560 --> 01:10:00.609
+Jitendra K: Let me show you the architecture.
+
+642
+01:10:06.870 --> 01:10:10.019
+Jitendra K: So, this is the architecture of autoencoders.
+
+643
+01:10:26.690 --> 01:10:29.520
+Jitendra K: Okay, this does not look quite that great.
+
+644
+01:10:37.990 --> 01:10:42.709
+Jitendra K: Yes, this is what your autoencoder does. So, here you can see that I've got 3 layers.
+
+645
+01:10:43.510 --> 01:10:49.840
+Jitendra K: We'll explain this during deep learning, but I just want to give it a conceptual overview of autoencoders.
+
+646
+01:10:50.440 --> 01:10:54.519
+Jitendra K: Now, autoencoders… We have two important blocks.
+
+647
+01:10:54.900 --> 01:10:56.400
+Jitendra K: Encoder and decoder.
+
+648
+01:10:57.740 --> 01:11:01.820
+Jitendra K: The purpose of encoder is to represent your input data
+
+649
+01:11:03.640 --> 01:11:07.890
+Jitendra K: as a pixel, right? Let's assume that I'm passing these data points.
+
+650
+01:11:08.060 --> 01:11:10.649
+Jitendra K: An image of a number, which is 4.
+
+651
+01:11:11.640 --> 01:11:15.139
+Jitendra K: And then, I would like to reduce some features.
+
+652
+01:11:15.400 --> 01:11:18.530
+Jitendra K: So you can see the quality of image has been retoriated.
+
+653
+01:11:19.470 --> 01:11:26.679
+Jitendra K: Now, I further… de-amplify my signal by reducing more features, so this is my final input.
+
+654
+01:11:27.460 --> 01:11:34.630
+Jitendra K: Now, the first layer that this autoencoder will use is the encoder layer, where I'm using the compressed data
+
+655
+01:11:35.200 --> 01:11:44.349
+Jitendra K: To ensure that it will have a learnable parameter from this image, which is a much, much reduced image as compared to my input, original input image.
+
+656
+01:11:46.210 --> 01:11:57.129
+Jitendra K: So my autoencoder will utilize this compressed low dimension data, or low dimension inputs, to generate… the features.
+
+657
+01:11:57.270 --> 01:12:00.800
+Jitendra K: The features like shape, Aegis?
+
+658
+01:12:02.190 --> 01:12:11.009
+Jitendra K: The geometry, etc. So to learn from those features, right? Like, how 4 can be written. 4 can be written in multiple manners, right? If I'm passing multiple images.
+
+659
+01:12:11.340 --> 01:12:15.440
+Jitendra K: It will be able to understand that 4 can be written in multiple ways, right?
+
+660
+01:12:15.880 --> 01:12:21.370
+Jitendra K: And then, it will be able to remember those features, spatial features, in a compressed format.
+
+661
+01:12:22.050 --> 01:12:28.300
+Jitendra K: And then, use these latent features To reconstruct a new image.
+
+662
+01:12:29.280 --> 01:12:31.800
+Jitendra K: Which is very similar to my input image.
+
+663
+01:12:34.150 --> 01:12:39.049
+Jitendra K: So the idea of autoencoder is very simple, right? When you're using autoencoders.
+
+664
+01:12:40.270 --> 01:12:46.430
+Jitendra K: So, the purpose of autoencoder is to create a neural network that has been trained in an unsupervised way.
+
+665
+01:12:47.170 --> 01:12:49.630
+Jitendra K: And the idea is to copy input to output.
+
+666
+01:12:50.910 --> 01:12:54.760
+Jitendra K: So it is having two important blocks, encoder and decoder.
+
+667
+01:12:55.700 --> 01:13:05.309
+Jitendra K: So, encoderModel takes the parameter input and compress this data, To a low latent space.
+
+668
+01:13:05.430 --> 01:13:06.770
+Jitendra K: And a decoder.
+
+669
+01:13:07.070 --> 01:13:12.570
+Jitendra K: We'll take this data and try to reconstruct the original image. It's like a compression and a decompression.
+
+670
+01:13:16.230 --> 01:13:17.090
+Jitendra K: Right?
+
+671
+01:13:17.460 --> 01:13:24.419
+Jitendra K: So, throughout the training phase, the goal of the network is to be able to learn how to reconstruct your input data.
+
+672
+01:13:27.320 --> 01:13:30.439
+Jitendra K: while preserving… These latent space.
+
+673
+01:13:35.730 --> 01:13:42.900
+Jitendra K: Right, so the idea of autoencoder is to ensure that you will be able to utilize The benefit of
+
+674
+01:13:43.060 --> 01:13:47.910
+Jitendra K: Neural networks to learn the pattern of reconstruction of the image.
+
+675
+01:13:49.580 --> 01:13:57.339
+Jitendra K: Now, the most important point is, when we are doing this analysis, We are compressing and decompressing.
+
+676
+01:13:57.950 --> 01:14:01.790
+Jitendra K: Right, here we are compressing the data points, and then here we are decompressing it.
+
+677
+01:14:02.630 --> 01:14:05.919
+Jitendra K: Now, the idea is… How will the algorithm know?
+
+678
+01:14:06.630 --> 01:14:09.070
+Jitendra K: That these latent features are important.
+
+679
+01:14:16.220 --> 01:14:20.600
+Jitendra K: Right? That is the whole idea of using this neural network.
+
+680
+01:14:21.220 --> 01:14:28.770
+Jitendra K: So if your algorithm knows that these features are important to be considered, because he has to recon… sorry, reconstruct the same image.
+
+681
+01:14:29.000 --> 01:14:30.349
+Jitendra K: And a decoder layer.
+
+682
+01:14:31.250 --> 01:14:39.220
+Jitendra K: And that sequence… Or that mechanism which, encoder autoencoder takes.
+
+683
+01:14:39.970 --> 01:14:42.279
+Jitendra K: It's called denoising factors.
+
+684
+01:14:43.990 --> 01:14:44.800
+Jitendra K: Right?
+
+685
+01:14:45.240 --> 01:14:50.490
+Jitendra K: So basically, what it does is, it is trying to utilize the training parameter
+
+686
+01:14:51.020 --> 01:14:54.299
+Jitendra K: And then, remove the noise from the data.
+
+687
+01:14:59.450 --> 01:15:03.270
+Jitendra K: Right? And then use the data points to reconstruct the image.
+
+688
+01:15:05.750 --> 01:15:08.260
+Jitendra K: So we'll take some example to learn this.
+
+689
+01:15:08.520 --> 01:15:09.730
+Jitendra K: analysis.
+
+690
+01:15:10.510 --> 01:15:13.039
+Jitendra K: And, I would like to talk about
+
+691
+01:15:15.200 --> 01:15:23.690
+Jitendra K: autoencoders in the deep learning in much more detail, but let's try to use one data point called Fashion Amnest data point.
+
+692
+01:15:23.970 --> 01:15:26.939
+Jitendra K: Now, let me show you what is fashion analyst data points.
+
+693
+01:15:35.030 --> 01:15:36.470
+Jitendra K: Let me go back.
+
+694
+01:15:38.670 --> 01:15:40.780
+Jitendra K: So, in the Fashion Amnest data site.
+
+695
+01:15:49.520 --> 01:15:59.830
+Jitendra K: Yeah, you will get these kind of images from e-commerce website. So, I've got a bunch of images for pullovers, trousers, coat, ankle boots.
+
+696
+01:16:00.260 --> 01:16:01.780
+Jitendra K: T-shirts, etc.
+
+697
+01:16:02.070 --> 01:16:04.609
+Jitendra K: And, there are different,
+
+698
+01:16:05.900 --> 01:16:10.430
+Jitendra K: Factors that has been used by… The…
+
+699
+01:16:12.620 --> 01:16:19.610
+Jitendra K: TensorFlow community to construct these data points. So it's a… I think it's a 10-class problem. You have got 10 classes.
+
+700
+01:16:20.460 --> 01:16:24.539
+Jitendra K: So we'll use this dataset and use autoencoder. The idea is…
+
+701
+01:16:26.020 --> 01:16:29.650
+Jitendra K: I will not able to ex… I will not try to explain you
+
+702
+01:16:30.170 --> 01:16:31.860
+Jitendra K: The deep learning part of it.
+
+703
+01:16:32.430 --> 01:16:35.200
+Jitendra K: But, I will simply show you
+
+704
+01:16:38.740 --> 01:16:41.669
+Jitendra K: Do you… how to use autoencoder Library?
+
+705
+01:16:42.000 --> 01:16:46.800
+Jitendra K: And, try to utilize This library for solving.
+
+706
+01:16:49.000 --> 01:16:51.099
+Jitendra K: this whole analysis.
+
+707
+01:16:51.800 --> 01:16:56.099
+Jitendra K: Right, so we will use this, hi, this is…
+
+708
+01:16:56.740 --> 01:16:59.510
+Jitendra K: From fashion analyst data points, right?
+
+709
+01:17:00.090 --> 01:17:03.740
+Jitendra K: So, let me quickly import my data points.
+
+710
+01:17:04.610 --> 01:17:08.239
+Jitendra K: Now, here I'm going to use TensorFlow, so don't worry too much about TensorFlow.
+
+711
+01:17:11.200 --> 01:17:17.910
+Jitendra K: We will explain this into more detail. KRAS is also there. But the idea is, I'm going to use these libraries for…
+
+712
+01:17:18.140 --> 01:17:22.630
+Jitendra K: Getting the data, and performing… creating a neural networks on the top of it.
+
+713
+01:17:23.710 --> 01:17:30.730
+Jitendra K: Now, let me quickly see which version I'm using, and… Okay, so I'm using 2.19.
+
+714
+01:17:32.540 --> 01:17:34.370
+Jitendra K: Now, I would like to load my data.
+
+715
+01:17:35.110 --> 01:17:37.489
+Jitendra K: And visualize the sample data points.
+
+716
+01:17:45.180 --> 01:17:48.160
+Jitendra K: So I've got these classes, and this is my data points.
+
+717
+01:17:49.180 --> 01:17:51.239
+Jitendra K: So I'm going to use these data points.
+
+718
+01:17:51.350 --> 01:17:53.070
+Jitendra K: 10 class data points.
+
+719
+01:17:53.300 --> 01:17:56.620
+Jitendra K: Now, I would like to build a basic dense autoencoder.
+
+720
+01:17:58.180 --> 01:18:04.410
+Jitendra K: So, as I mentioned, don't worry too much about the code at this point of time, you start to understand the concept. So remember.
+
+721
+01:18:04.710 --> 01:18:08.140
+Jitendra K: The idea is to reduce this pixel density.
+
+722
+01:18:08.650 --> 01:18:12.579
+Jitendra K: the pixel… you can see it's all black and white, BGV scale data.
+
+723
+01:18:13.030 --> 01:18:24.889
+Jitendra K: blue, sorry, grayscale data. This is called grayscale data. When you say black and white images, it's the grayscale data. Now, in this grayscale data, you can only be able to identify the shapes. There's no color.
+
+724
+01:18:25.600 --> 01:18:30.290
+Jitendra K: Right? So, I can see that… how the coat looks like, how the shirt looks like. Sometimes.
+
+725
+01:18:30.420 --> 01:18:34.029
+Jitendra K: You will see a lot of false positives in identifying the coat versus a shirt.
+
+726
+01:18:34.540 --> 01:18:38.289
+Jitendra K: Now, here I can see some more colored shirts, some trousers.
+
+727
+01:18:38.920 --> 01:18:43.990
+Jitendra K: Right? Different sort of trousers, right? So I can be able to identify this looks like a trouser.
+
+728
+01:18:44.660 --> 01:18:51.709
+Jitendra K: This looks like a dress… This looks like a boot, this looks like a sandal, sneaker, etc.
+
+729
+01:18:52.120 --> 01:18:58.240
+Jitendra K: Ankle would have… some soul on it, right? So the algorithm will learn from these.
+
+730
+01:18:58.630 --> 01:19:00.029
+Jitendra K: the special features.
+
+731
+01:19:01.390 --> 01:19:05.129
+Jitendra K: Right? Spatial features means not spatial, spatial features.
+
+732
+01:19:05.780 --> 01:19:08.260
+Jitendra K: So it will learn from these latent features.
+
+733
+01:19:08.460 --> 01:19:13.169
+Jitendra K: To understand the shape, texture, And the geometry of this…
+
+734
+01:19:13.630 --> 01:19:16.769
+Jitendra K: What do you call, of these objects?
+
+735
+01:19:18.690 --> 01:19:24.359
+Jitendra K: Now, I would like to build a dense autoencoder, which will preserve the meaning of these latent features.
+
+736
+01:19:25.800 --> 01:19:30.980
+Jitendra K: So I'm just creating… the… Auto-encoder architecture.
+
+737
+01:19:33.570 --> 01:19:36.759
+Jitendra K: And I'm keeping the number of trainable parameters, etc.
+
+738
+01:19:37.670 --> 01:19:43.809
+Jitendra K: But I will not explain what exactly this neural network does, because we haven't discussed anything about neural network yet.
+
+739
+01:19:44.860 --> 01:19:47.669
+Jitendra K: And you can see that my algorithm is start visualizing
+
+740
+01:19:48.190 --> 01:19:52.260
+Jitendra K: And taking a objective into consideration.
+
+741
+01:19:52.380 --> 01:19:55.419
+Jitendra K: This is a training of my neural network, which has been started.
+
+742
+01:20:49.490 --> 01:20:51.599
+Jitendra K: It will run for 30 epoch.
+
+743
+01:20:51.870 --> 01:20:53.080
+Jitendra K: Let's see…
+
+744
+01:21:00.600 --> 01:21:04.409
+Jitendra K: So this is how you are going to see how the neural network has been trained.
+
+745
+01:21:04.760 --> 01:21:13.880
+Jitendra K: And we will use TensorFlow and KRAS in the upcoming tutorials to train the neural network. Similar… you will see similar sort of training in neural network.
+
+746
+01:21:15.450 --> 01:21:22.350
+Jitendra K: But, here we are learning autoencoders, which is… Nothing but a compression technique.
+
+747
+01:21:27.950 --> 01:21:34.889
+Jitendra K: So the first thing that I'm doing is to pass on these data points to my algorithm, the deep neural network algorithm.
+
+748
+01:21:35.310 --> 01:21:41.430
+Jitendra K: And the algorithm will work on… Reducing my data points.
+
+749
+01:21:41.720 --> 01:21:45.340
+Jitendra K: By understanding the important parameters.
+
+750
+01:21:45.600 --> 01:21:51.810
+Jitendra K: Including shape, size, background data, right? Pixel geometries.
+
+751
+01:21:52.450 --> 01:21:57.339
+Jitendra K: Maybe I would like to find it out, let's say I have to differentiate between
+
+752
+01:21:57.970 --> 01:22:00.380
+Jitendra K: This dress, and this dress.
+
+753
+01:22:00.670 --> 01:22:02.850
+Jitendra K: Trouser pullover versus shirt.
+
+754
+01:22:03.470 --> 01:22:05.929
+Jitendra K: Pullover may have,
+
+755
+01:22:06.330 --> 01:22:13.179
+Jitendra K: Does not have any color, so you can see some pixels are missing. Some pixels look like a round neck.
+
+756
+01:22:13.800 --> 01:22:19.430
+Jitendra K: So the algorithm will be able to understand all those things, right? So it is not learned in a form
+
+757
+01:22:19.540 --> 01:22:20.990
+Jitendra K: As we human does.
+
+758
+01:22:21.580 --> 01:22:27.809
+Jitendra K: But it will use this pixel data to create a difference. He will say that these two images look similar.
+
+759
+01:22:28.050 --> 01:22:31.039
+Jitendra K: But I would like to learn the difference between the two images.
+
+760
+01:22:31.500 --> 01:22:34.300
+Jitendra K: Because it is marked as two different classes.
+
+761
+01:22:35.110 --> 01:22:38.030
+Jitendra K: So it will create the latent features which are similar
+
+762
+01:22:38.130 --> 01:22:43.719
+Jitendra K: on multiple images. So let's say I've got one shot, second shot. One pullover, second pullover.
+
+763
+01:22:44.300 --> 01:22:48.859
+Jitendra K: So, to be able to identify that, if I have to identify shirt… two similar shirts.
+
+764
+01:22:49.260 --> 01:22:52.080
+Jitendra K: What are the features that I should use?
+
+765
+01:22:52.220 --> 01:22:55.699
+Jitendra K: to understand that this is a shirt. Maybe shirt can be…
+
+766
+01:22:56.430 --> 01:23:02.959
+Jitendra K: At times we'll have these designs. Some of them are plain shirts, some pullover is also plain.
+
+767
+01:23:03.180 --> 01:23:11.340
+Jitendra K: So sometimes algorithm will confuse between these two. It will say that this looks like two simple… sorry, two similar images.
+
+768
+01:23:12.040 --> 01:23:15.539
+Jitendra K: So, that is called false positive, but we would like to reduce it.
+
+769
+01:23:15.800 --> 01:23:18.199
+Jitendra K: So the training has been complete.
+
+770
+01:23:18.840 --> 01:23:24.210
+Jitendra K: Now, I would like to evaluate the reconstruction quality of my data points.
+
+771
+01:23:26.010 --> 01:23:31.709
+Jitendra K: So I would like to see what is the… False positives.
+
+772
+01:23:33.160 --> 01:23:35.299
+Jitendra K: So I'm getting all these factors…
+
+773
+01:23:37.180 --> 01:23:42.160
+Jitendra K: So, this is what I'm getting. So, this is the input image.
+
+774
+01:23:42.570 --> 01:23:45.010
+Jitendra K: And these are the reduce images.
+
+775
+01:23:46.380 --> 01:23:47.240
+Jitendra K: Right?
+
+776
+01:23:47.530 --> 01:23:51.390
+Jitendra K: And then, individual class, I'm getting individual errors.
+
+777
+01:23:53.040 --> 01:23:57.619
+Jitendra K: So the idea is, I would like to reduce the dimension of my data.
+
+778
+01:23:58.070 --> 01:24:06.250
+Jitendra K: And I would like to keep only the important features into consideration, which will help me to reconstruct this class with the validation data.
+
+779
+01:24:06.740 --> 01:24:11.750
+Jitendra K: So that is what… Autoencoders will do.
+
+780
+01:24:12.590 --> 01:24:16.030
+Jitendra K: Right? So autoencoders, the purpose is to compress
+
+781
+01:24:16.690 --> 01:24:19.680
+Jitendra K: The image, or you can say it's the features.
+
+782
+01:24:20.150 --> 01:24:25.759
+Jitendra K: And then, at the decoder layer, I would like to reconstruct with the limited features.
+
+783
+01:24:26.310 --> 01:24:35.909
+Jitendra K: I would like to check… maybe… How… This autoencoder use this.
+
+784
+01:24:36.070 --> 01:24:37.360
+Jitendra K: image data.
+
+785
+01:24:39.050 --> 01:24:40.290
+Jitendra K: to consider.
+
+786
+01:24:40.650 --> 01:24:46.130
+Jitendra K: And I would like to visualize that. What are the different… factor it takes…
+
+787
+01:24:47.170 --> 01:24:51.039
+Jitendra K: How the similarity between the two data points has been considered.
+
+788
+01:24:53.290 --> 01:24:58.210
+Jitendra K: And then, I would like to see, by representing this into a two-dimensional plane.
+
+789
+01:25:04.180 --> 01:25:07.389
+Jitendra K: So, let me explain what we are trying to achieve.
+
+790
+01:25:08.040 --> 01:25:16.610
+Jitendra K: So, indeed, in any image analytics project, and maybe in upcoming tutorial, we'll talk more about image analytics, text analytics.
+
+791
+01:25:17.040 --> 01:25:19.220
+Jitendra K: But in any deep learning project.
+
+792
+01:25:20.350 --> 01:25:23.349
+Jitendra K: Let's say where you're working on image analytics, right?
+
+793
+01:25:24.470 --> 01:25:27.009
+Jitendra K: You will have a bunch of images as an input.
+
+794
+01:25:30.330 --> 01:25:36.629
+Jitendra K: And these images will be classified into classes, C1, C2, similarly to Amnest dataset.
+
+795
+01:25:36.900 --> 01:25:39.790
+Jitendra K: of Fashion Amnest data set, so we have got 10 classes.
+
+796
+01:25:40.250 --> 01:25:43.029
+Jitendra K: So, you will have multiple classes.
+
+797
+01:25:44.120 --> 01:25:46.970
+Jitendra K: Each classes will have multiple images.
+
+798
+01:25:48.540 --> 01:25:51.480
+Jitendra K: Let's say I've got 20 images for this.
+
+799
+01:25:52.930 --> 01:25:54.470
+Jitendra K: 20 image for this.
+
+800
+01:25:54.970 --> 01:26:02.030
+Jitendra K: 25 image for this. Sometimes it can be imbalanced, sometimes it can be balanced, depending upon how you curate your data.
+
+801
+01:26:05.690 --> 01:26:12.250
+Jitendra K: Right? With these image dataset, You're going to first… train your model.
+
+802
+01:26:14.430 --> 01:26:18.139
+Jitendra K: Which is CNN, convolution neural network.
+
+803
+01:26:19.090 --> 01:26:25.480
+Jitendra K: And then, you will… Pass on the bunch of examples, To this algorithm.
+
+804
+01:26:26.270 --> 01:26:27.509
+Jitendra K: And it will predict.
+
+805
+01:26:28.470 --> 01:26:31.059
+Jitendra K: The output in a similar fashion.
+
+806
+01:26:31.950 --> 01:26:35.610
+Jitendra K: But these images will be of high resolution.
+
+807
+01:26:36.230 --> 01:26:40.200
+Jitendra K: So, high resolution image is good for human, but for machine.
+
+808
+01:26:40.590 --> 01:26:42.299
+Jitendra K: It does not make much sense.
+
+809
+01:26:43.140 --> 01:26:46.779
+Jitendra K: Right? For human, we need to have… look into bright images.
+
+810
+01:26:47.740 --> 01:26:52.350
+Jitendra K: more detailed images, then only we will be able to understand, who's the…
+
+811
+01:26:52.660 --> 01:27:00.960
+Jitendra K: person, context, etc. But machine does not require that kind of high-dimensional data points to pass on.
+
+812
+01:27:02.770 --> 01:27:07.340
+Jitendra K: And specifically, neural networks. Neural networks can work on few features.
+
+813
+01:27:07.770 --> 01:27:16.680
+Jitendra K: If I'm just… Even drawing like this, and asking neural network, maybe, And asking, what is this?
+
+814
+01:27:18.120 --> 01:27:22.149
+Jitendra K: He was able to give me that this looks like an ankle boot, because of the shape.
+
+815
+01:27:23.420 --> 01:27:27.559
+Jitendra K: Right? So this is how… Machine has been trained.
+
+816
+01:27:28.530 --> 01:27:31.349
+Jitendra K: But as a human, I may not be able to identify this.
+
+817
+01:27:32.080 --> 01:27:36.129
+Jitendra K: Right? So, the idea of… Using CNN,
+
+818
+01:27:36.510 --> 01:27:39.240
+Jitendra K: Is to reduce this latent space.
+
+819
+01:27:39.350 --> 01:27:44.349
+Jitendra K: Oh, sorry, autoencoders to reduce this latent space, which we are using as a trainable parameters.
+
+820
+01:27:45.130 --> 01:27:49.950
+Jitendra K: Now, if I'm going to use some compression technique, compression technique.
+
+821
+01:27:53.930 --> 01:27:59.460
+Jitendra K: is… not… Pit.
+
+822
+01:27:59.570 --> 01:28:01.100
+Jitendra K: for image analytics.
+
+823
+01:28:01.280 --> 01:28:03.679
+Jitendra K: Because when you're performing a compression.
+
+824
+01:28:04.680 --> 01:28:08.230
+Jitendra K: You're not giving sufficient exposure to the algorithm.
+
+825
+01:28:08.590 --> 01:28:13.120
+Jitendra K: to understand the latent space. You're just reducing the pixels randomly.
+
+826
+01:28:13.640 --> 01:28:18.909
+Jitendra K: But when you're using autoencoders, You're still reducing your image quality.
+
+827
+01:28:19.040 --> 01:28:24.780
+Jitendra K: you're reducing or denoising your image quality, or you can say, I'm reducing the latent space.
+
+828
+01:28:25.500 --> 01:28:28.460
+Jitendra K: But, with a more curated option.
+
+829
+01:28:29.620 --> 01:28:31.550
+Jitendra K: Right? So I'm testing…
+
+830
+01:28:33.090 --> 01:28:40.210
+Jitendra K: Before creating any compression, I'm testing this model by saying that I would like to consider these pixels.
+
+831
+01:28:40.980 --> 01:28:43.630
+Jitendra K: And these pixels will help me to recreate
+
+832
+01:28:44.760 --> 01:28:46.590
+Jitendra K: This image at a decoder layer.
+
+833
+01:28:47.050 --> 01:28:49.020
+Jitendra K: So I'm performing a validation.
+
+834
+01:28:50.170 --> 01:28:51.210
+Jitendra K: Beforehand.
+
+835
+01:28:51.890 --> 01:28:55.180
+Jitendra K: And that's the power of… autoencoders.
+
+836
+01:28:56.050 --> 01:29:00.480
+Jitendra K: Right, so the idea of autoencoders is… Very simple.
+
+837
+01:29:00.830 --> 01:29:04.860
+Jitendra K: You are going to use autoencoders for the purpose of…
+
+838
+01:29:05.060 --> 01:29:10.039
+Jitendra K: Reducing the latent space, or latent representation of the features.
+
+839
+01:29:10.670 --> 01:29:14.919
+Jitendra K: And this algorithm will help you to work on majority of the cases.
+
+840
+01:29:15.300 --> 01:29:16.450
+Jitendra K: in deep learning.
+
+841
+01:29:22.790 --> 01:29:23.640
+Jitendra K: Right?
+
+842
+01:29:23.820 --> 01:29:28.350
+Jitendra K: So, autoencoders… is a technique.
+
+843
+01:29:28.910 --> 01:29:32.459
+Jitendra K: Where you are going to train your neural network to minimize the error.
+
+844
+01:29:33.000 --> 01:29:39.039
+Jitendra K: errors like MSE or MAE, where you are going to understand latent speech reconstruction.
+
+845
+01:29:39.170 --> 01:29:42.910
+Jitendra K: And then try to use… those,
+
+846
+01:29:43.710 --> 01:29:46.860
+Jitendra K: I'm meeting features to represent your search space.
+
+847
+01:29:47.150 --> 01:29:48.720
+Jitendra K: And that's the whole idea of…
+
+848
+01:29:48.830 --> 01:29:55.679
+Jitendra K: autoencoders. Now, when I represent the same data of images using PC and TSNE, you can see that there are different clusters.
+
+849
+01:29:59.630 --> 01:30:01.890
+Jitendra K: Right? Of the pixel geometry.
+
+850
+01:30:04.850 --> 01:30:09.519
+Jitendra K: So, how the pixel geometry has been defined for this image? It uses a scale.
+
+851
+01:30:10.270 --> 01:30:12.000
+Jitendra K: A simple two-dimensional scale.
+
+852
+01:30:13.440 --> 01:30:18.980
+Jitendra K: And it used these dots in the pixel to understand which dot is white, which dot is.
+
+853
+01:30:22.810 --> 01:30:25.689
+Jitendra K: And then it will be able to understand the intensity of other dots.
+
+854
+01:30:26.270 --> 01:30:27.520
+Jitendra K: On a grayscale.
+
+855
+01:30:27.900 --> 01:30:29.190
+Jitendra K: Between 0 to 1.
+
+856
+01:30:29.540 --> 01:30:32.049
+Jitendra K: 1 being black, 0 means white.
+
+857
+01:30:32.870 --> 01:30:38.680
+Jitendra K: So to be able to understand the intensity of these pixels, and try to reconstruct the image from this grid.
+
+858
+01:30:39.190 --> 01:30:42.430
+Jitendra K: 0 crossed 28, or 28 cross 28.
+
+859
+01:30:44.470 --> 01:30:48.159
+Jitendra K: Which is 256 pixels per image.
+
+860
+01:30:49.040 --> 01:30:51.650
+Jitendra K: And then use this pixel to reconstruct.
+
+861
+01:30:51.820 --> 01:30:52.680
+Jitendra K: Europe?
+
+862
+01:30:54.360 --> 01:30:56.400
+Jitendra K: Image at our decoder layer.
+
+863
+01:30:57.150 --> 01:31:00.300
+Jitendra K: So that is how Auto Encoder works in a nutshell.
+
+864
+01:31:00.940 --> 01:31:03.130
+Jitendra K: But as I mentioned, I haven't talked about…
+
+865
+01:31:03.610 --> 01:31:07.140
+Jitendra K: the deep learning, so I will not talk about how the
+
+866
+01:31:07.660 --> 01:31:19.650
+Jitendra K: autoencoder works with the mathematical functions, right? So the idea of autoencoder is clear to everyone? I believe, yes. If not, please ask questions. Is it clear to everyone, like, how autoencoder works?
+
+867
+01:31:19.930 --> 01:31:22.059
+Jitendra K: What is the purpose of autoencoders?
+
+868
+01:31:23.540 --> 01:31:29.210
+Jitendra K: And why we consider autoencoder as a… Dimension reduction technique.
+
+869
+01:31:36.120 --> 01:31:37.649
+Jitendra K: Is it clear to everyone?
+
+870
+01:31:48.960 --> 01:31:52.239
+Jitendra K: Alright, how about the others? Is it clear to everyone?
+
+871
+01:31:53.810 --> 01:31:58.939
+Jitendra K: Before we move on to SVD, Singular value decomposition.
+
+872
+01:32:02.190 --> 01:32:03.120
+Jitendra K: Alright.
+
+873
+01:32:04.820 --> 01:32:10.419
+Jitendra K: So we will use another technique now, which is called singular value decomposition.
+
+874
+01:32:11.390 --> 01:32:16.450
+Jitendra K: Now, singular value decomposition is another technique, or effective technique.
+
+875
+01:32:16.790 --> 01:32:22.079
+Jitendra K: That we are going to use heavily in… Sorry, in NLP world.
+
+876
+01:32:22.730 --> 01:32:24.880
+Jitendra K: And it's based upon linear algebra.
+
+877
+01:32:26.010 --> 01:32:34.859
+Jitendra K: So, SVD is another powerful technique that will be utilized for the purpose of dimension reduction in text analytics.
+
+878
+01:32:37.000 --> 01:32:44.210
+Jitendra K: So let me explain, what SVD does and, how linear algebra operates inside SVD.
+
+879
+01:32:44.710 --> 01:32:48.939
+Jitendra K: So, SVD, as I mentioned, is a dimension reduction technique.
+
+880
+01:32:51.840 --> 01:32:52.690
+Jitendra K: Right?
+
+881
+01:32:53.310 --> 01:32:57.680
+Jitendra K: So, the idea of SVD Is to decompose.
+
+882
+01:32:59.780 --> 01:33:04.369
+Jitendra K: So we have already seen the eigenvalue decomposition in PCA.
+
+883
+01:33:04.860 --> 01:33:11.210
+Jitendra K: But unlike eigenvalue decomposition, where your metrics you would like to decompose has been a square matrix.
+
+884
+01:33:12.050 --> 01:33:15.749
+Jitendra K: SVD will allow you to decompose even a rectangular matrix.
+
+885
+01:33:16.600 --> 01:33:23.699
+Jitendra K: A matrix which is having a different number of rows and columns is called rectangular matrix, while a square matrix have
+
+886
+01:33:24.240 --> 01:33:28.660
+Jitendra K: Similar rows and similar columns. 2 cross 2, 4 cross 4, 6 cross 6.
+
+887
+01:33:30.180 --> 01:33:36.399
+Jitendra K: So, in a real-world scenario, you might not have a… Square metrics, always, to operate.
+
+888
+01:33:36.630 --> 01:33:43.349
+Jitendra K: Square metrics will be useful when you are using image, like 28 plus 28 pixels, 16 plus 16,
+
+889
+01:33:44.240 --> 01:33:47.900
+Jitendra K: But in the real-world scenario, you might have to use rectangular metrics.
+
+890
+01:33:48.820 --> 01:33:50.470
+Jitendra K: Not a square matrix.
+
+891
+01:33:50.970 --> 01:33:53.879
+Jitendra K: And that's where SVD will be useful.
+
+892
+01:33:54.150 --> 01:34:00.970
+Jitendra K: So, this is a very important interview question, when to use SVD, when to use… Linear PCA.
+
+893
+01:34:03.880 --> 01:34:04.760
+Jitendra K: Right?
+
+894
+01:34:05.880 --> 01:34:10.910
+Jitendra K: Now, the idea of SVD… It's to decompose.
+
+895
+01:34:12.590 --> 01:34:17.990
+Jitendra K: this equation. A is equals 2, U.
+
+896
+01:34:18.530 --> 01:34:20.700
+Jitendra K: This is not B, this is U.
+
+897
+01:34:21.110 --> 01:34:25.080
+Jitendra K: Summation of… V transpose.
+
+898
+01:34:26.510 --> 01:34:30.650
+Jitendra K: where A… Can be a real number.
+
+899
+01:34:31.830 --> 01:34:33.570
+Jitendra K: Belongs to a real number.
+
+900
+01:34:34.280 --> 01:34:35.860
+Jitendra K: I'm crossing.
+
+901
+01:34:36.870 --> 01:34:41.700
+Jitendra K: U belongs to… Real number, M cross M.
+
+902
+01:34:43.080 --> 01:34:45.600
+Jitendra K: This is your rectangular diagonal matrix.
+
+903
+01:34:50.530 --> 01:34:57.369
+Jitendra K: and V… Belongs to N cross, real or complex unitary matrix.
+
+904
+01:34:57.810 --> 01:35:02.449
+Jitendra K: So, as well as we decompose the matrix into 3 different metrics.
+
+905
+01:35:02.980 --> 01:35:07.650
+Jitendra K: So, two of the metrics are unitary metrics, which I'm going to explain in a few minutes.
+
+906
+01:35:08.020 --> 01:35:11.059
+Jitendra K: The middle one is a diagonal matrix.
+
+907
+01:35:12.420 --> 01:35:16.699
+Jitendra K: And the third one is… Gonna be another unitary matrix.
+
+908
+01:35:17.720 --> 01:35:22.900
+Jitendra K: So… So what SVD does…
+
+909
+01:35:28.000 --> 01:35:30.860
+Jitendra K: So, as we do…
+
+910
+01:35:31.800 --> 01:35:38.480
+Jitendra K: Maybe I have to explain this in two very simple terms first, and then we'll talk about the example.
+
+911
+01:35:38.790 --> 01:35:46.429
+Jitendra K: So, first and foremost thing, what SBD does is… SVD, Is using a matrix factorization.
+
+912
+01:35:47.540 --> 01:35:52.200
+Jitendra K: And matrix factorization is a method that breaks a matrix into three components.
+
+913
+01:35:52.720 --> 01:35:58.339
+Jitendra K: The first component is called orthogonal matrix, which is of size m cross m.
+
+914
+01:35:59.200 --> 01:36:05.039
+Jitendra K: The second metrics is diagonal matrix, which is of size m cross n, singular values matrix.
+
+915
+01:36:05.410 --> 01:36:08.960
+Jitendra K: Because diagonal will have only… these elements.
+
+916
+01:36:10.230 --> 01:36:11.909
+Jitendra K: If it is a square matrix.
+
+917
+01:36:12.060 --> 01:36:17.220
+Jitendra K: or a rectangle matrix, then it will be like this. So I will have only this diagonal matrix.
+
+918
+01:36:18.150 --> 01:36:23.959
+Jitendra K: And V of transpose is a transpose of another orthogonal matrix, which is of size n plus n.
+
+919
+01:36:24.750 --> 01:36:32.560
+Jitendra K: So, singular value, sigma, Reveal the important property about this matrix, such as rank.
+
+920
+01:36:33.980 --> 01:36:36.980
+Jitendra K: Noise filtering, and data manipulation tasks.
+
+921
+01:36:37.670 --> 01:36:43.700
+Jitendra K: So… when you're using SVD, You are performing this decomposition.
+
+922
+01:36:45.020 --> 01:36:49.720
+Jitendra K: So when you're performing this decomposition, you're understanding the data property.
+
+923
+01:36:57.570 --> 01:37:00.620
+Jitendra K: So basically, when you're understanding a data property.
+
+924
+01:37:01.070 --> 01:37:03.099
+Jitendra K: You will be able to reconstruct.
+
+925
+01:37:03.780 --> 01:37:17.150
+Jitendra K: the… Data, or a metrics, With a… less… intensive data points like this.
+
+926
+01:37:17.450 --> 01:37:19.469
+Jitendra K: So you will have a compress image.
+
+927
+01:37:19.780 --> 01:37:26.180
+Jitendra K: Versus the original image, and the compressed image will be… 90%…
+
+928
+01:37:26.290 --> 01:37:31.690
+Jitendra K: Less in terms of pixel geometries, or pixel metrics.
+
+929
+01:37:32.580 --> 01:37:39.710
+Jitendra K: So the idea of SVD is to reconstruct and decompose your data which is A.
+
+930
+01:37:40.060 --> 01:37:44.480
+Jitendra K: into three metrics, U, sigma, and V of T.
+
+931
+01:37:45.030 --> 01:37:49.670
+Jitendra K: And the final part that you are going to utilize is to learn
+
+932
+01:37:50.110 --> 01:37:55.819
+Jitendra K: the representation using sigma to reconstruct the image, or any data points.
+
+933
+01:37:55.960 --> 01:37:57.370
+Jitendra K: And a high dimension data.
+
+934
+01:37:59.080 --> 01:38:03.780
+Jitendra K: So, applying SVD, you can able to perform image compression.
+
+935
+01:38:04.230 --> 01:38:06.309
+Jitendra K: Applying SVD, you can able to.
+
+936
+01:38:06.740 --> 01:38:09.599
+Jitendra K: Create a feature preservation on text data.
+
+937
+01:38:09.980 --> 01:38:11.939
+Jitendra K: You can do much more than that.
+
+938
+01:38:13.160 --> 01:38:18.600
+Jitendra K: So the idea of SVD is very simple. It uses a simple linear algebra.
+
+939
+01:38:19.020 --> 01:38:29.610
+Jitendra K: to construct and deconstruct. Unlike autoencoders, where we required all architectures and stuff, So, here we are using…
+
+940
+01:38:31.690 --> 01:38:38.490
+Jitendra K: as VD as a linear combination of U, sigma, and V of transpose.
+
+941
+01:38:39.390 --> 01:38:42.269
+Jitendra K: Right, to reconstruct the same image.
+
+942
+01:38:43.170 --> 01:38:46.770
+Jitendra K: With a much less pixel density.
+
+943
+01:39:00.020 --> 01:39:01.650
+Jitendra K: Now, let me show you the…
+
+944
+01:39:10.160 --> 01:39:12.310
+Jitendra K: How to use SVD? SVD?
+
+945
+01:39:12.860 --> 01:39:15.659
+Jitendra K: And I will use NLP Text Analytics.
+
+946
+01:39:18.620 --> 01:39:22.600
+Jitendra K: to perform, the, SVD.
+
+947
+01:39:22.910 --> 01:39:24.100
+Jitendra K: calculation.
+
+948
+01:39:24.530 --> 01:39:28.500
+Jitendra K: And let me use some open source data points for doing this.
+
+949
+01:39:40.920 --> 01:39:45.420
+Jitendra K: Alright, so… First, let me explain what are we trying to do.
+
+950
+01:39:49.420 --> 01:39:54.960
+Jitendra K: So we are going to use, something called topic modeling, right? So remember what is topic modeling?
+
+951
+01:39:55.380 --> 01:39:57.799
+Jitendra K: So let's say I'm giving you some sentences.
+
+952
+01:39:58.330 --> 01:40:00.679
+Jitendra K: I'm just giving you some sentences to read.
+
+953
+01:40:01.410 --> 01:40:06.879
+Jitendra K: And then I'm giving you certain classes, like, what is the probability that this sentence belongs to this topic?
+
+954
+01:40:07.020 --> 01:40:10.460
+Jitendra K: So as a human, you can read and then define. Let's say I'm talking about
+
+955
+01:40:10.570 --> 01:40:23.670
+Jitendra K: from a sports person, Leon Messi, Sachin Tendulkar, you will be able to see that I'm talking about cricketer, footballer, etc. They are a sports personality. If I'm talking about Bollywood celebrity Shah Rukh Khan, Salman Khan.
+
+956
+01:40:23.840 --> 01:40:29.439
+Jitendra K: Hrithik Roshan, then you will be able to say that they are Bollywood celebrity. I'm giving introduction about Bollywood celebrity.
+
+957
+01:40:29.740 --> 01:40:33.670
+Jitendra K: If I'm talking about, space, crafts.
+
+958
+01:40:34.580 --> 01:40:52.820
+Jitendra K: Moon mission, Mars mission, etc, then you will be able to understand that they are rocket sciences, etc. If I'm talking about telemetry versus some other topic, like financial topic, political topics, right? You will be able to understand the topic, right? Like how LinkedIn hashed
+
+959
+01:40:53.200 --> 01:40:56.729
+Jitendra K: works. So you will have topic against each hash.
+
+960
+01:40:57.670 --> 01:41:04.880
+Jitendra K: So… When we talk about these topic modeling, there's an algorithm called LSA, Latent Semantic Analysis.
+
+961
+01:41:05.720 --> 01:41:10.380
+Jitendra K: And when we are performing a latency analysis, we are looking in the word probability range.
+
+962
+01:41:10.520 --> 01:41:12.879
+Jitendra K: Each word will associate with a probability.
+
+963
+01:41:14.280 --> 01:41:19.860
+Jitendra K: And then, you will be able to represent that data point To perform the analysis.
+
+964
+01:41:20.440 --> 01:41:24.409
+Jitendra K: Now, when you're performing latent semantic analysis on real data.
+
+965
+01:41:24.830 --> 01:41:31.180
+Jitendra K: you might have to operate on multitude of data. That means it will have multiple components.
+
+966
+01:41:32.230 --> 01:41:33.529
+Jitendra K: many vectors.
+
+967
+01:41:33.710 --> 01:41:37.549
+Jitendra K: Now, the key idea of using SVD is to reduce those factors.
+
+968
+01:41:37.790 --> 01:41:39.919
+Jitendra K: And even formulate a right topic.
+
+969
+01:41:40.080 --> 01:41:42.809
+Jitendra K: So, till what extent we can reduce the vectors?
+
+970
+01:41:43.060 --> 01:41:45.830
+Jitendra K: That is what we are trying to solve, right?
+
+971
+01:41:46.080 --> 01:41:48.590
+Jitendra K: So the problem statement is, I have a sentence.
+
+972
+01:41:55.970 --> 01:41:57.409
+Jitendra K: So on and so forth.
+
+973
+01:42:19.930 --> 01:42:21.430
+Jitendra K: And I've got a class.
+
+974
+01:42:26.160 --> 01:42:33.420
+Jitendra K: 1, 2… 3… 5, etc.
+
+975
+01:42:36.870 --> 01:42:40.310
+Jitendra K: Now, I would like to use this sentence, or a word probability.
+
+976
+01:42:40.670 --> 01:42:44.810
+Jitendra K: to depict which class the sentence code belongs to. There could be two
+
+977
+01:42:45.180 --> 01:42:48.209
+Jitendra K: Class overlap as well between the sentences, that is fine.
+
+978
+01:42:48.550 --> 01:42:50.959
+Jitendra K: So I will still choose the probability.
+
+979
+01:42:51.590 --> 01:42:53.690
+Jitendra K: Of the class, which is highest.
+
+980
+01:42:54.660 --> 01:42:59.579
+Jitendra K: Right? Among these classes. And I will say this sentence… Belongs to this class.
+
+981
+01:42:59.930 --> 01:43:05.620
+Jitendra K: multiple classes, but the primary topic of this class is Class 1 or Class 2.
+
+982
+01:43:06.300 --> 01:43:11.469
+Jitendra K: If they are eco-proval scenario, then I will give both weightage. I will give equal weightage to both classes.
+
+983
+01:43:12.510 --> 01:43:15.300
+Jitendra K: Right? So these are the boundary conditions that I'm trying to solve.
+
+984
+01:43:15.640 --> 01:43:19.500
+Jitendra K: Now, how I should create a model on this, I will use the words.
+
+985
+01:43:19.620 --> 01:43:21.280
+Jitendra K: Of each sentences.
+
+986
+01:43:21.700 --> 01:43:24.449
+Jitendra K: Not a character, I'm using words, right?
+
+987
+01:43:24.690 --> 01:43:30.519
+Jitendra K: I'm going to use the words, surrounding words, abbreviations, etc.
+
+988
+01:43:30.700 --> 01:43:33.969
+Jitendra K: And then try to identify the frequency
+
+989
+01:43:34.080 --> 01:43:38.709
+Jitendra K: Or maybe some other detrimental factors to infer the type of a class.
+
+990
+01:43:39.980 --> 01:43:42.619
+Jitendra K: Right? And then I will train the model.
+
+991
+01:43:43.020 --> 01:43:46.849
+Jitendra K: That, for this topic, these are the highly probable words.
+
+992
+01:43:47.090 --> 01:43:49.910
+Jitendra K: Which may appear in the sentence.
+
+993
+01:43:50.550 --> 01:43:53.330
+Jitendra K: And then, when the new sentence arrives.
+
+994
+01:43:54.790 --> 01:43:58.099
+Jitendra K: Or a new sentence has been arrived to my inference pipeline.
+
+995
+01:43:58.260 --> 01:44:01.070
+Jitendra K: I can able to create a hashtag on the top of it.
+
+996
+01:44:01.890 --> 01:44:06.429
+Jitendra K: Right? If it is talking about Donald Trump, definitely it's a political topic.
+
+997
+01:44:06.970 --> 01:44:12.449
+Jitendra K: Like that, right? So I will be able to identify the personalities, etc, on the topics.
+
+998
+01:44:12.950 --> 01:44:14.739
+Jitendra K: Now, I will create one model.
+
+999
+01:44:15.440 --> 01:44:19.989
+Jitendra K: That will explain how latent semantic analysis work behind the scene.
+
+1000
+01:44:20.490 --> 01:44:23.269
+Jitendra K: So remember, we are not talking about NLP.
+
+1001
+01:44:24.160 --> 01:44:30.130
+Jitendra K: So, the idea is, I'm not talking about NLP at this moment. I'm talking about only as VD algorithm.
+
+1002
+01:44:30.790 --> 01:44:33.339
+Jitendra K: And the only concept that we are going to learn here is…
+
+1003
+01:44:33.640 --> 01:44:36.859
+Jitendra K: To reduce the latent space of a word vector.
+
+1004
+01:44:38.030 --> 01:44:41.880
+Jitendra K: So, don't get overwhelmed with this topic.
+
+1005
+01:44:42.160 --> 01:44:46.370
+Jitendra K: The idea is to… Represent the data.
+
+1006
+01:44:47.460 --> 01:44:55.620
+Jitendra K: numerically, and use as VD technique, To reduce the word.
+
+1007
+01:44:55.880 --> 01:44:59.940
+Jitendra K: Sorry, to reduce the word dimension.
+
+1008
+01:45:03.060 --> 01:45:07.770
+Jitendra K: By converting your array, or your metrics.
+
+1009
+01:45:08.120 --> 01:45:10.550
+Jitendra K: And try to convert them to decompose.
+
+1010
+01:45:11.750 --> 01:45:17.020
+Jitendra K: Metrics, which represent document, Strength, in the term.
+
+1011
+01:45:20.370 --> 01:45:22.049
+Jitendra K: Now, this is what I'm getting.
+
+1012
+01:45:22.580 --> 01:45:26.730
+Jitendra K: So you can see that, literally, I'm using… Word by word.
+
+1013
+01:45:27.710 --> 01:45:34.160
+Jitendra K: their term frequency, how many times this word appear in a document. When I say document, it's the one sentence.
+
+1014
+01:45:34.750 --> 01:45:37.750
+Jitendra K: The sentence include that I'm using for training.
+
+1015
+01:45:40.030 --> 01:45:41.430
+Jitendra K: If you look into…
+
+1016
+01:45:51.260 --> 01:45:53.210
+Jitendra K: This is just an example.
+
+1017
+01:45:59.460 --> 01:46:03.869
+Jitendra K: Okay, so I'm using a 20 news group dataset, so let me open this.
+
+1018
+01:46:14.720 --> 01:46:18.259
+Jitendra K: So, this is the 20 News Group dataset, and these are the topics.
+
+1019
+01:46:19.850 --> 01:46:21.719
+Jitendra K: So, if you read this dataset.
+
+1020
+01:46:42.660 --> 01:46:47.159
+Jitendra K: You can see that I've got… individual text files.
+
+1021
+01:46:47.600 --> 01:46:51.809
+Jitendra K: Which talks about… different news reports.
+
+1022
+01:46:53.050 --> 01:46:58.980
+Jitendra K: For each topic, including hockey, religion.
+
+1023
+01:46:59.360 --> 01:47:08.500
+Jitendra K: politics… electronics… hardware, software, etc. So I've got… these topics.
+
+1024
+01:47:12.720 --> 01:47:14.580
+Jitendra K: Just like our Wikipedia pages.
+
+1025
+01:47:14.840 --> 01:47:17.750
+Jitendra K: let's say, assume that you're downloading Wikipedia pages.
+
+1026
+01:47:18.070 --> 01:47:21.109
+Jitendra K: And then using some files to operate.
+
+1027
+01:47:21.340 --> 01:47:24.450
+Jitendra K: So you'll get similar sort of… Topics.
+
+1028
+01:47:24.850 --> 01:47:31.610
+Jitendra K: Now, the key idea is, I would like to break down my document into… Words.
+
+1029
+01:47:32.570 --> 01:47:36.879
+Jitendra K: And the presence of the word is 1, and the absence of the word is 0.
+
+1030
+01:47:37.840 --> 01:47:43.269
+Jitendra K: So this is one latent space of my DTM, documental matrix. What is DTM?
+
+1031
+01:47:44.090 --> 01:47:47.310
+Jitendra K: DTM is a binary representation of your word vectors.
+
+1032
+01:47:48.120 --> 01:47:49.650
+Jitendra K: Using frequency.
+
+1033
+01:47:50.330 --> 01:47:57.670
+Jitendra K: If the frequency of the word is greater than 1, that means the word has been arrived at least one time in your document.
+
+1034
+01:47:57.950 --> 01:47:59.480
+Jitendra K: It will be marked as 1.
+
+1035
+01:48:00.640 --> 01:48:03.920
+Jitendra K: And we are taking a cross-reference between all documents.
+
+1036
+01:48:04.750 --> 01:48:08.029
+Jitendra K: And using these words, frequencies on the top of it.
+
+1037
+01:48:08.530 --> 01:48:12.259
+Jitendra K: Now, the purpose of word frequency is to create features.
+
+1038
+01:48:13.300 --> 01:48:15.240
+Jitendra K: Now, when we create the features.
+
+1039
+01:48:16.750 --> 01:48:19.740
+Jitendra K: We will see that some of the words, like politics.
+
+1040
+01:48:21.100 --> 01:48:27.540
+Jitendra K: Some political name will appear in those documents more comprehensively.
+
+1041
+01:48:28.200 --> 01:48:31.540
+Jitendra K: And that's one way that you can be able to differentiate two topics.
+
+1042
+01:48:33.010 --> 01:48:35.119
+Jitendra K: So you're learning that latent space.
+
+1043
+01:48:35.330 --> 01:48:37.859
+Jitendra K: And try to consider that as a matrix.
+
+1044
+01:48:38.130 --> 01:48:38.930
+Jitendra K: Right?
+
+1045
+01:48:39.080 --> 01:48:45.919
+Jitendra K: And then, you will convert the original space into a latent space with the help of SVD.
+
+1046
+01:48:46.510 --> 01:48:52.190
+Jitendra K: So you have decompose this matrix, so you can see it's not a square matrix anymore. I've got 7.
+
+1047
+01:48:52.950 --> 01:48:57.549
+Jitendra K: Okay, 7 cross 7, which is still a square matrix, but yes, it is good.
+
+1048
+01:48:58.270 --> 01:49:03.680
+Jitendra K: metrics to see. Based upon the similarity, I'm reducing these data points.
+
+1049
+01:49:04.560 --> 01:49:10.790
+Jitendra K: Now I'm representing… the similarity… and fitting…
+
+1050
+01:49:11.460 --> 01:49:16.060
+Jitendra K: my test data into it. This is my test data.
+
+1051
+01:49:18.760 --> 01:49:20.649
+Jitendra K: That is generating some output.
+
+1052
+01:49:21.050 --> 01:49:21.810
+Jitendra K: Right?
+
+1053
+01:49:22.120 --> 01:49:29.529
+Jitendra K: So the key idea is, I'm using SVD, to reduce…
+
+1054
+01:49:31.150 --> 01:49:35.889
+Jitendra K: the amount of vector that are required to take a To predict a topic.
+
+1055
+01:49:36.800 --> 01:49:43.229
+Jitendra K: And as VD will be very useful for… Keeping the singular values.
+
+1056
+01:49:44.060 --> 01:49:47.120
+Jitendra K: Reducing the noise, stop words, etc.
+
+1057
+01:49:47.490 --> 01:49:50.889
+Jitendra K: And typically, I will use this for large corpus.
+
+1058
+01:49:52.020 --> 01:49:54.539
+Jitendra K: Right, so the idea of SVD is very simple.
+
+1059
+01:49:54.830 --> 01:49:59.479
+Jitendra K: Here, I'm using one technique that will efficiently reduce the amount of
+
+1060
+01:50:00.060 --> 01:50:04.739
+Jitendra K: Latent spills that are required to… Predict the class.
+
+1061
+01:50:05.510 --> 01:50:07.310
+Jitendra K: in the NLP.
+
+1062
+01:50:07.700 --> 01:50:08.480
+Jitendra K: Word.
+
+1063
+01:50:14.720 --> 01:50:17.670
+Jitendra K: Is it clear to everyone what are we trying to solve?
+
+1064
+01:50:18.550 --> 01:50:21.139
+Jitendra K: Any question, anything that you would like to ask?
+
+1065
+01:50:28.500 --> 01:50:30.780
+Jitendra K: Let me share this code with everyone.
+
+1066
+01:50:32.500 --> 01:50:34.999
+Jitendra K: So that you can keep a copy of it.
+
+1067
+01:50:38.900 --> 01:50:46.650
+Jitendra K: Yes, ISPD will be used for NLP as well as image, but generally speaking, we will use it for NLP.
+
+1068
+01:50:50.240 --> 01:50:55.279
+Jitendra K: Not for image analytics, because image analytics will have their own techniques. We'll talk about that.
+
+1069
+01:51:03.190 --> 01:51:06.090
+Jitendra K: So, can you run this example and let me know your thought?
+
+1070
+01:51:07.990 --> 01:51:10.100
+Jitendra K: Can you guys please run this and let me know?
+
+1071
+01:52:28.090 --> 01:52:30.350
+Jitendra K: Please let me know once you complete.
+
+1072
+02:00:33.720 --> 02:00:36.339
+Jitendra K: Alright guys, I hope you're able to run this.
+
+1073
+02:00:37.190 --> 02:00:44.140
+Jitendra K: So if it is completed, let's take a quick 20 minutes break, and then when we come back, then we will discuss about,
+
+1074
+02:00:44.880 --> 02:00:49.899
+Jitendra K: The comparison of all the algorithms that we have learned for.
+
+1075
+02:00:50.960 --> 02:00:52.430
+Jitendra K: dimensional reduction.
+
+1076
+02:00:52.610 --> 02:00:55.669
+Jitendra K: Let's take a quick 20 minutes break, and then we can start the session again.
+
+1077
+02:00:56.310 --> 02:00:57.090
+Jitendra K: Thank you.
+
+1078
+02:02:37.150 --> 02:02:37.760
+Kaviya S: Right.
+
+1079
+02:21:33.870 --> 02:21:35.949
+Jitendra K: Hi guys, I hope you're back.
+
+1080
+02:21:36.520 --> 02:21:38.319
+Jitendra K: Can we have a quick confirmation?
+
+1081
+02:21:49.410 --> 02:21:50.370
+Jitendra K: Alright.
+
+1082
+02:21:51.100 --> 02:21:52.610
+Jitendra K: So…
+
+1083
+02:21:56.250 --> 02:22:01.110
+Jitendra K: What we are going to do next is, we will compile what we have learned so far, and
+
+1084
+02:22:01.890 --> 02:22:08.440
+Jitendra K: Maybe… Just to debrief, what we have learned so far is, we have completed the…
+
+1085
+02:22:09.080 --> 02:22:16.439
+Jitendra K: dimension reduction technique, in all possible manners. So, just a quick recap, we have learned about two techniques.
+
+1086
+02:22:17.160 --> 02:22:23.200
+Jitendra K: Linear and nonlinear dimension reduction, and we talked about supervised, unsupervised.
+
+1087
+02:22:23.500 --> 02:22:30.169
+Jitendra K: Dimension reduction, pretty, broadly speaking, all the dimension reduction technique comes under unsupervised learning.
+
+1088
+02:22:30.470 --> 02:22:34.690
+Jitendra K: So everything that we have learned in dimension reduction is an unsupervised learning technique.
+
+1089
+02:22:35.640 --> 02:22:38.870
+Jitendra K: So here we are talking about data, not labels.
+
+1090
+02:22:39.330 --> 02:22:45.799
+Jitendra K: And try to understand, the distribution, clusters, and breaking down the whole data.
+
+1091
+02:22:46.380 --> 02:22:52.999
+Jitendra K: Using a matrix operation, and factorize the data into different buckets, and try to understand there.
+
+1092
+02:22:53.350 --> 02:22:58.479
+Jitendra K: Lineage in terms of, similarities and stuff like that.
+
+1093
+02:22:58.750 --> 02:23:01.790
+Jitendra K: So, we have understood how dimension reduction works.
+
+1094
+02:23:02.960 --> 02:23:06.970
+Jitendra K: We also talked about what is the purpose of using dimension reduction.
+
+1095
+02:23:07.130 --> 02:23:11.040
+Jitendra K: So, dimension reduction will be very useful when you're dealing with,
+
+1096
+02:23:12.120 --> 02:23:15.389
+Jitendra K: High-dimensional data, and you would like to reduce features.
+
+1097
+02:23:15.730 --> 02:23:20.109
+Jitendra K: Or maybe you would like to use some algorithm which will be able to reduce the features.
+
+1098
+02:23:20.460 --> 02:23:21.940
+Jitendra K: on the top of T,
+
+1099
+02:23:22.180 --> 02:23:27.609
+Jitendra K: input data sets, right? So the idea is, we would like to use dimension reduction technique.
+
+1100
+02:23:27.930 --> 02:23:29.430
+Jitendra K: to make our…
+
+1101
+02:23:29.900 --> 02:23:36.600
+Jitendra K: model more, reduce… we would like to reduce the curse of dimensionality when we are dealing with machine learning model.
+
+1102
+02:23:36.740 --> 02:23:39.879
+Jitendra K: Right, so when you're training the model, it's a pre-processing step.
+
+1103
+02:23:40.540 --> 02:23:47.659
+Jitendra K: So we have started with PCA, we started with LDA, we have seen PCA and LDA in a very detailed manner.
+
+1104
+02:23:47.860 --> 02:23:55.530
+Jitendra K: In the last tutorial, and in this tutorial, we talked about TSNE, we talked about UMAP, we talked about.
+
+1105
+02:23:55.830 --> 02:23:59.009
+Jitendra K: Ica, and then the last is autoencoder.
+
+1106
+02:23:59.460 --> 02:24:06.870
+Jitendra K: So we have… and then SPD. So we have talked about 5 algorithms, including PCA and LDA in the last tutorial.
+
+1107
+02:24:07.040 --> 02:24:15.629
+Jitendra K: So we have understood that there are 7 or 8 algorithms which is there, for performing this dimension reduction in a linear and a nonlinear fashion.
+
+1108
+02:24:16.140 --> 02:24:22.370
+Jitendra K: Now I will cover the last technique for today, which is called non-negative metric factorization.
+
+1109
+02:24:22.830 --> 02:24:29.110
+Jitendra K: So, this is another technique that we are going to talk about, and this will be the last technique. So, which is called NMF.
+
+1110
+02:24:29.290 --> 02:24:33.409
+Jitendra K: Or NMF stands for non-negative metrics factorization.
+
+1111
+02:24:33.900 --> 02:24:39.019
+Jitendra K: So, the key idea of NMF is… let me first explain the idea.
+
+1112
+02:24:40.770 --> 02:24:49.050
+Jitendra K: It is very similar to SVD, but the only difference is here we are talking about feature metrics. In SVD, we are talking about latent space.
+
+1113
+02:24:49.710 --> 02:24:57.129
+Jitendra K: So, basically, what non-negative metric factorization does is, it's an unsupervised learning technique, again, that decomposes a large
+
+1114
+02:24:57.350 --> 02:24:59.669
+Jitendra K: Non-negative data metrics.
+
+1115
+02:24:59.930 --> 02:25:05.130
+Jitendra K: into a smaller, non-negative metrics, which are W and H.
+
+1116
+02:25:06.140 --> 02:25:09.759
+Jitendra K: Now, you can see here, if I have to create a…
+
+1117
+02:25:10.070 --> 02:25:18.040
+Jitendra K: maybe a relationship between these three metrics. I would say that My ex… Metrics is nothing but…
+
+1118
+02:25:19.200 --> 02:25:21.399
+Jitendra K: It is a multiplication of W and H.
+
+1119
+02:25:24.080 --> 02:25:27.990
+Jitendra K: Right, so I'm reducing the dimensionality and extracting the meaningful pair.
+
+1120
+02:25:28.150 --> 02:25:30.860
+Jitendra K: Or parts of the features from the data.
+
+1121
+02:25:31.210 --> 02:25:34.709
+Jitendra K: And it produces all the entities that are non-negative.
+
+1122
+02:25:35.740 --> 02:25:38.380
+Jitendra K: And, interpretable components.
+
+1123
+02:25:38.580 --> 02:25:44.960
+Jitendra K: It is very useful for… Again, for dimension reduction, because we are decomposing the metrics.
+
+1124
+02:25:45.300 --> 02:25:48.899
+Jitendra K: Which may be a pixel, which may be a text data, right?
+
+1125
+02:25:49.170 --> 02:25:53.410
+Jitendra K: And, try to convert them into WNH.
+
+1126
+02:25:53.940 --> 02:25:57.720
+Jitendra K: So W is the features, X is the, X is the coefficients.
+
+1127
+02:25:59.710 --> 02:26:05.049
+Jitendra K: And I'm putting a constraint that all the elements in X, W, and H must be greater than 0.
+
+1128
+02:26:05.930 --> 02:26:13.229
+Jitendra K: So the dot product W and H approximate the original matrix, capturing the essential structure and low dimension space.
+
+1129
+02:26:13.860 --> 02:26:17.939
+Jitendra K: So, basically, what it does is, behind the scene.
+
+1130
+02:26:18.350 --> 02:26:25.270
+Jitendra K: it will also learn from the latent features, right, by decomposing The features into two metrics.
+
+1131
+02:26:25.770 --> 02:26:29.000
+Jitendra K: So the key idea of, NMF
+
+1132
+02:26:29.680 --> 02:26:33.950
+Jitendra K: is, we are going to use a linear combination of W and H.
+
+1133
+02:26:35.500 --> 02:26:37.790
+Jitendra K: To perform this analysis.
+
+1134
+02:26:38.460 --> 02:26:44.880
+Jitendra K: Now… Now, as I mentioned, NMF is a process of decomposing
+
+1135
+02:26:44.980 --> 02:26:50.160
+Jitendra K: a non-negative feature matrix into V, NH.
+
+1136
+02:26:51.250 --> 02:26:55.860
+Jitendra K: So, if I have to talk about… the product of VNH,
+
+1137
+02:26:56.270 --> 02:26:58.979
+Jitendra K: It will have all the features, right?
+
+1138
+02:26:59.490 --> 02:27:06.089
+Jitendra K: Now, we will see… How to use a transformation to perform an MF?
+
+1139
+02:27:06.650 --> 02:27:10.299
+Jitendra K: So we'll take some code and then try to understand that. But before that.
+
+1140
+02:27:10.610 --> 02:27:14.370
+Jitendra K: I would like to talk about, what is the V and what is app.
+
+1141
+02:27:14.850 --> 02:27:17.770
+Jitendra K: So V, as you can… sorry, what is W and what is H?
+
+1142
+02:27:18.120 --> 02:27:20.429
+Jitendra K: So, you can see here, W and H.
+
+1143
+02:27:24.220 --> 02:27:27.130
+Jitendra K: Are they two transformed data metrics?
+
+1144
+02:27:27.620 --> 02:27:33.370
+Jitendra K: So if I talk about W, it represents a transformed data matrix after applying an NMF.
+
+1145
+02:27:34.000 --> 02:27:39.649
+Jitendra K: So, we use this transformation matrix in place of original matrix, which is A.
+
+1146
+02:27:40.210 --> 02:27:43.160
+Jitendra K: So, W is the most important output of NMEP.
+
+1147
+02:27:44.060 --> 02:27:49.850
+Jitendra K: So, I'm going to use a function called underscore underscore fit transform method in scikit-learn to generate this.
+
+1148
+02:27:50.950 --> 02:27:52.270
+Jitendra K: feature metrics.
+
+1149
+02:27:52.960 --> 02:27:57.280
+Jitendra K: And this feature matrix will comprise of number of observation.
+
+1150
+02:27:57.610 --> 02:28:02.810
+Jitendra K: And the number of latent factor or component that describe this data.
+
+1151
+02:28:03.190 --> 02:28:05.299
+Jitendra K: Or which batch described the data?
+
+1152
+02:28:05.620 --> 02:28:08.540
+Jitendra K: So it's a feature transform data that I'm going to use.
+
+1153
+02:28:09.080 --> 02:28:13.840
+Jitendra K: Now, the idea is, as I mentioned, we are going to use this idea for dimension reduction.
+
+1154
+02:28:14.350 --> 02:28:16.779
+Jitendra K: So, I will show you with an example.
+
+1155
+02:28:17.930 --> 02:28:23.980
+Jitendra K: If I'm using a dimension detection technique, in Amnest data.
+
+1156
+02:28:24.400 --> 02:28:30.429
+Jitendra K: or NMF technique in MNIST data, then what will be the output of the image compression looks like?
+
+1157
+02:28:31.010 --> 02:28:33.950
+Jitendra K: So, I will start with this analysis.
+
+1158
+02:28:36.280 --> 02:28:39.910
+Jitendra K: The first and foremost thing is, I would like to import this package.
+
+1159
+02:28:40.630 --> 02:28:44.649
+Jitendra K: So I will use scikit-learn for that. I will say scikit-learn decomposition.
+
+1160
+02:28:46.160 --> 02:28:48.969
+Jitendra K: NMF, I will create an object of NMF.
+
+1161
+02:28:49.290 --> 02:28:56.560
+Jitendra K: The first component I'm going to create is W, which is a weighted matrix, and I'm applying a transformation on the full matrix, which is my V.
+
+1162
+02:28:56.770 --> 02:28:58.860
+Jitendra K: Which is my original feature matrix.
+
+1163
+02:28:59.290 --> 02:29:01.330
+Jitendra K: So, let me create this object.
+
+1164
+02:29:01.430 --> 02:29:03.350
+Jitendra K: Okay, D is not defined.
+
+1165
+02:29:03.940 --> 02:29:05.120
+Jitendra K: is D.
+
+1166
+02:29:11.900 --> 02:29:16.159
+Jitendra K: Okay, so I think, my data points has to be reduced.
+
+1167
+02:29:17.830 --> 02:29:19.639
+Jitendra K: Quickly compare this.
+
+1168
+02:29:59.620 --> 02:30:01.429
+Jitendra K: Let me download the data.
+
+1169
+02:31:06.480 --> 02:31:08.649
+Jitendra K: Yeah, so this is what I'm talking about.
+
+1170
+02:31:08.850 --> 02:31:16.849
+Jitendra K: So basically, what NMF does is, in a nutshell, let me explain the mathematical Formula that we are using.
+
+1171
+02:31:17.250 --> 02:31:25.430
+Jitendra K: So, this is where we start with. So, given a non-negative metrics, which comprise of any dimension. So, here we are talking about
+
+1172
+02:31:25.630 --> 02:31:33.249
+Jitendra K: rectangular metrics, which is having two different dimensions. We are not talking about square metrics, again. That's a very important thing that I would like to cover.
+
+1173
+02:31:33.360 --> 02:31:41.500
+Jitendra K: So here we are not talking about square metrics, but here we are talking about rectangle metrics, which is having two different dimensions for rows and columns, M cross N.
+
+1174
+02:31:41.740 --> 02:31:45.420
+Jitendra K: So NMF factorized it into two components, W and H.
+
+1175
+02:31:46.040 --> 02:31:50.219
+Jitendra K: So V is the original data metric, which is non-negative. W is the…
+
+1176
+02:31:50.530 --> 02:31:54.400
+Jitendra K: Basic non-negative metrics, which is the most important features.
+
+1177
+02:31:54.590 --> 02:31:58.149
+Jitendra K: Inside your, inside your feature site.
+
+1178
+02:31:58.330 --> 02:32:04.970
+Jitendra K: H is the coefficient matrix, which is again non-negative, and D is the number of components, which is gonna be utilized for
+
+1179
+02:32:05.100 --> 02:32:06.180
+Jitendra K: reduction.
+
+1180
+02:32:07.410 --> 02:32:11.880
+Jitendra K: So I'm going to use number of components, let's say, randomly, I'm saying 2,
+
+1181
+02:32:12.130 --> 02:32:15.220
+Jitendra K: And then I'm retry to reconstruct the data points.
+
+1182
+02:32:15.350 --> 02:32:29.710
+Jitendra K: Now, in the second example, I have got Amnest data. Now, Amnest data comprise of, as you know, 10 images, 10 classes, not images, and there are multiple images, which is having a pixels of data, 28 cross 28, or so on and so forth.
+
+1183
+02:32:29.910 --> 02:32:33.500
+Jitendra K: So the idea is, we would like to reduce the pixel
+
+1184
+02:32:33.860 --> 02:32:37.090
+Jitendra K: Data with a number of components.
+
+1185
+02:32:37.200 --> 02:32:43.579
+Jitendra K: And try and try to visualize the same data. And then I will try to see what is the percentage of data that I have reduced.
+
+1186
+02:32:44.160 --> 02:32:51.299
+Jitendra K: So, some of the constraints that I have to apply on NMF is this condition.
+
+1187
+02:32:51.830 --> 02:32:54.480
+Jitendra K: Now, when I'm optimizing the number of
+
+1188
+02:32:55.020 --> 02:32:58.930
+Jitendra K: Data points that are required to reconstruct an image.
+
+1189
+02:32:59.260 --> 02:33:05.490
+Jitendra K: There are two factors. One is… My linear constraint should be…
+
+1190
+02:33:06.800 --> 02:33:11.009
+Jitendra K: Okay, yeah, I think, let me reduce the code.
+
+1191
+02:33:11.410 --> 02:33:13.309
+Jitendra K: So let me delete this example.
+
+1192
+02:33:15.010 --> 02:33:17.789
+Jitendra K: So, let me comment on this.
+
+1193
+02:33:21.920 --> 02:33:27.779
+Jitendra K: So this, I will ignore. Let's move on to the date word only, date example only.
+
+1194
+02:33:31.330 --> 02:33:34.970
+Jitendra K: Yeah, so here, what I'm trying to do is, I'm trying to see…
+
+1195
+02:33:36.390 --> 02:33:42.550
+Jitendra K: that, what are the features which has been preserved by the data set? So, I've got Amni's dataset, which is 8 across 8 images.
+
+1196
+02:33:43.100 --> 02:33:46.210
+Jitendra K: So, when I'm trying to reconstruct.
+
+1197
+02:33:47.520 --> 02:33:52.859
+Jitendra K: this image with 4 components, I'm getting 43% of error.
+
+1198
+02:33:53.440 --> 02:33:59.700
+Jitendra K: When I'm increasing the number of components to 9, I'm reducing the error by 8% or 10%.
+
+1199
+02:34:00.000 --> 02:34:03.369
+Jitendra K: When I'm using 16 component, I'm reducing further.
+
+1200
+02:34:04.320 --> 02:34:07.760
+Jitendra K: When I'm using 36 component, I'm reducing any further.
+
+1201
+02:34:08.110 --> 02:34:11.629
+Jitendra K: And with, 64 component, I'm getting this error.
+
+1202
+02:34:11.760 --> 02:34:17.459
+Jitendra K: So, 64 component is the maximum image, 8 cross 8 is 64 component, right?
+
+1203
+02:34:17.630 --> 02:34:24.939
+Jitendra K: So, with 50% reduction on my data, I'm getting 10% error. With 100% of data, I'm getting 3% error.
+
+1204
+02:34:25.510 --> 02:34:31.159
+Jitendra K: Right? So that means, if I'm going to use 50% less data using NMF,
+
+1205
+02:34:31.860 --> 02:34:36.720
+Jitendra K: on this Amnest data set, I will still get 90% accuracy on my model.
+
+1206
+02:34:37.560 --> 02:34:38.380
+Jitendra K: Right?
+
+1207
+02:34:38.770 --> 02:34:45.050
+Jitendra K: And, that means I can able to yield a compression ratio on the number of features that I'm using.
+
+1208
+02:34:45.160 --> 02:34:58.839
+Jitendra K: And then, based upon that compression ratio, I will be able to benchmark the relative error. So as the number of components increases, the error that I'm getting is also decreased, as you can see clearly. It is evident from here.
+
+1209
+02:34:59.100 --> 02:35:07.370
+Jitendra K: Service 16 component, I'm getting almost… 25% error?
+
+1210
+02:35:07.880 --> 02:35:10.520
+Jitendra K: Which is one-third of my original data.
+
+1211
+02:35:10.840 --> 02:35:16.089
+Jitendra K: 1 64 is one-fourth of original data, 25% of features.
+
+1212
+02:35:16.290 --> 02:35:19.299
+Jitendra K: It's giving me 25% of the error, right?
+
+1213
+02:35:19.540 --> 02:35:22.919
+Jitendra K: Which is also fine. And if I'm going with,
+
+1214
+02:35:23.140 --> 02:35:27.540
+Jitendra K: 36 feature, 50% of the feature, it is reducing the error by 15%.
+
+1215
+02:35:28.020 --> 02:35:34.730
+Jitendra K: So that means… my data… Or, if I'm using NMF,
+
+1216
+02:35:35.090 --> 02:35:38.560
+Jitendra K: I can still able to get better scores.
+
+1217
+02:35:39.170 --> 02:35:46.660
+Jitendra K: with the help of dimension reduction technique, right? So imagine that in image analytics, you have to deal with
+
+1218
+02:35:47.850 --> 02:35:54.649
+Jitendra K: thousands of images, millions of images. In those scenarios, NMF can be a very, very useful technique.
+
+1219
+02:35:55.320 --> 02:36:00.919
+Jitendra K: Right? Because it is very simple, and yet elegant. You can be able to compare the outcome.
+
+1220
+02:36:01.280 --> 02:36:05.759
+Jitendra K: By relative error versus the total dimension.
+
+1221
+02:36:06.250 --> 02:36:07.710
+Jitendra K: Of the data.
+
+1222
+02:36:07.830 --> 02:36:16.509
+Jitendra K: And then, based upon these two parameters, you can able to run this analysis, right? This is very simple as compared to the one that we have already
+
+1223
+02:36:16.800 --> 02:36:17.890
+Jitendra K: looked into.
+
+1224
+02:36:18.720 --> 02:36:21.030
+Jitendra K: That's one way that you can be able to use it.
+
+1225
+02:36:21.450 --> 02:36:26.129
+Jitendra K: Now the question is, if I'm going to define
+
+1226
+02:36:26.660 --> 02:36:31.649
+Jitendra K: Maybe, the quality of reconstruction of these images, right?
+
+1227
+02:36:31.750 --> 02:36:36.519
+Jitendra K: So what are the factors that I should consider? One is, you can able to use, maybe a…
+
+1228
+02:36:36.910 --> 02:36:39.179
+Jitendra K: Set of trash data samples.
+
+1229
+02:36:39.410 --> 02:36:41.640
+Jitendra K: And try to check the impact off.
+
+1230
+02:36:41.940 --> 02:36:47.569
+Jitendra K: prediction. Let's say, how many labels are predicted as two labels, how many of them are predicted as false labels.
+
+1231
+02:36:47.940 --> 02:36:59.280
+Jitendra K: Per class, I mean to say. And then you can increase the quality of data in your classes, so that even if you're reducing the amount of data, it will not have any inverse effect on your class.
+
+1232
+02:37:00.380 --> 02:37:06.589
+Jitendra K: Right? So that's one way you can able to still… Reconstruct these images.
+
+1233
+02:37:07.670 --> 02:37:15.330
+Jitendra K: So, this is how NMF works in a nutshell. It's a very simple algorithm, just a simple linear combination of two arrays.
+
+1234
+02:37:15.780 --> 02:37:20.689
+Jitendra K: W and H. W is your basis matrix. H is the coefficient.
+
+1235
+02:37:20.920 --> 02:37:23.100
+Jitendra K: And D is the number of components in it.
+
+1236
+02:37:23.430 --> 02:37:27.039
+Jitendra K: As the component increases, your error rate will decrease.
+
+1237
+02:37:27.250 --> 02:37:29.289
+Jitendra K: Are the components less dialed?
+
+1238
+02:37:29.770 --> 02:37:34.310
+Jitendra K: And then, you would like to find it out, the…
+
+1239
+02:37:34.480 --> 02:37:38.570
+Jitendra K: Solution for this equation, which is subjected to this linear constraint.
+
+1240
+02:37:38.760 --> 02:37:41.720
+Jitendra K: Where a W and H both should be non-negative.
+
+1241
+02:37:42.140 --> 02:37:45.669
+Jitendra K: All the elements of WNI should be non-negative, including coefficients.
+
+1242
+02:37:45.900 --> 02:37:50.480
+Jitendra K: And then, you will be able to utilize W.
+
+1243
+02:37:51.850 --> 02:37:54.399
+Jitendra K: To define the quality of reconstruction.
+
+1244
+02:37:55.020 --> 02:38:00.959
+Jitendra K: So basically, it's very similar to what we have seen in autoencoders, right? In autoencoder, we are learning the leaking space.
+
+1245
+02:38:01.210 --> 02:38:05.830
+Jitendra K: But here, we are defining the latency with a statistical parameter.
+
+1246
+02:38:06.220 --> 02:38:13.260
+Jitendra K: Now, when you're using autoencoders, you're… Algorithm will learn from noise.
+
+1247
+02:38:13.430 --> 02:38:14.450
+Jitendra K: as well.
+
+1248
+02:38:14.720 --> 02:38:18.239
+Jitendra K: Here, also, we are getting the impact of noise, but with a scale.
+
+1249
+02:38:19.670 --> 02:38:21.350
+Jitendra K: There's a scale of ad share.
+
+1250
+02:38:21.990 --> 02:38:27.849
+Jitendra K: Right? But in autoencoder, that is totally a black box. Your autoencoder can learn from noise as well.
+
+1251
+02:38:28.660 --> 02:38:34.929
+Jitendra K: Right? So it is very difficult to reduce noise in autoencoder, but here you can able to reduce it much more conveniently.
+
+1252
+02:38:35.500 --> 02:38:42.969
+Jitendra K: So with that, I think we have pretty much covered all the… Data compression and so-called,
+
+1253
+02:38:43.360 --> 02:38:48.409
+Jitendra K: data reduction technique. So, any question or any comment on… on the algorithms?
+
+1254
+02:38:48.970 --> 02:38:50.880
+Jitendra K: Let me share this code as well.
+
+1255
+02:38:53.290 --> 02:38:55.490
+Jitendra K: But any doubt on these algorithms?
+
+1256
+02:38:56.950 --> 02:38:59.940
+Jitendra K: Are you getting the gist of SVDs?
+
+1257
+02:39:00.080 --> 02:39:03.140
+Jitendra K: NMF, PCA, LDA.
+
+1258
+02:39:03.690 --> 02:39:04.790
+Jitendra K: Etc.
+
+1259
+02:40:02.210 --> 02:40:04.329
+Jitendra K: Are you guys clear with this example?
+
+1260
+02:40:05.130 --> 02:40:06.280
+Jitendra K: Any question?
+
+1261
+02:40:06.730 --> 02:40:10.360
+Jitendra K: So just try to run this, and let me know if there's any confusion.
+
+1262
+02:41:02.430 --> 02:41:08.930
+Jitendra K: Yeah, that's correct. So this is a pre-processing technique, before we move on to the foundational model of
+
+1263
+02:41:09.710 --> 02:41:13.550
+Jitendra K: image processing, or CNN. So this is the pre-processing step.
+
+1264
+02:41:13.980 --> 02:41:18.120
+Jitendra K: So, when you're dealing with any CNN model, image classification model.
+
+1265
+02:41:18.430 --> 02:41:23.450
+Jitendra K: So these techniques that we have learned, autoencoders, or including NMF,
+
+1266
+02:41:23.860 --> 02:41:28.210
+Jitendra K: This will serve like a pre-processing technique, right? Along with,
+
+1267
+02:41:28.900 --> 02:41:36.840
+Jitendra K: your data, you will be able to know how to reduce your data dimension, right? So there's a… basically, when you're dealing with any
+
+1268
+02:41:37.300 --> 02:41:39.590
+Jitendra K: Image or video analytics problem.
+
+1269
+02:41:39.820 --> 02:41:47.499
+Jitendra K: The curse of dimensionality is one of the important factor, right? Because… The model that you're using
+
+1270
+02:41:47.980 --> 02:41:53.680
+Jitendra K: To train and learn from the data, which are highly unstructured in nature, will require compute servers.
+
+1271
+02:41:54.380 --> 02:42:00.350
+Jitendra K: So when you're passing unnecessary data points in the same image, you can see that I have got background.
+
+1272
+02:42:00.700 --> 02:42:09.430
+Jitendra K: So… let's say I'm training the model, right? For… car classification.
+
+1273
+02:42:12.700 --> 02:42:19.649
+Jitendra K: So… My data points will comprise of different sort of cars, right?
+
+1274
+02:42:20.360 --> 02:42:24.560
+Jitendra K: Let me take one example. Okay, like this, yeah.
+
+1275
+02:42:26.810 --> 02:42:29.850
+Jitendra K: So, when I'm performing this kind of classification.
+
+1276
+02:42:31.990 --> 02:42:34.650
+Jitendra K: This is a good article, you can refer it.
+
+1277
+02:42:35.200 --> 02:42:39.230
+Jitendra K: So… but, when I'm using a deep learning model.
+
+1278
+02:42:39.410 --> 02:42:41.690
+Jitendra K: I would like to use bounding boxes.
+
+1279
+02:42:42.670 --> 02:42:49.570
+Jitendra K: So these bounding boxes… Will help me to reduce the background impact on these images.
+
+1280
+02:42:50.380 --> 02:42:53.310
+Jitendra K: And I will be able to focus only on the primary object.
+
+1281
+02:42:53.520 --> 02:42:55.590
+Jitendra K: That's one way you can clean your data.
+
+1282
+02:42:56.540 --> 02:42:59.720
+Jitendra K: Another way that you can able to rely on algorithm.
+
+1283
+02:42:59.890 --> 02:43:03.999
+Jitendra K: Which will learn the shape and size of the data, but that is not foolproof.
+
+1284
+02:43:07.000 --> 02:43:09.860
+Jitendra K: Right, that's why I told you that there are different techniques.
+
+1285
+02:43:10.430 --> 02:43:13.309
+Jitendra K: When we are performing, cleansing on…
+
+1286
+02:43:13.540 --> 02:43:18.539
+Jitendra K: image data. One of the techniques that we are going to learn and explore is bounding box regression.
+
+1287
+02:43:19.340 --> 02:43:26.110
+Jitendra K: So, that may or may not be applicable for this use case. But yes, in general speaking.
+
+1288
+02:43:26.400 --> 02:43:32.429
+Jitendra K: This technique will work like a pre-processing technique for your dimension reduction on your data points.
+
+1289
+02:43:36.990 --> 02:43:41.219
+Jitendra K: And it's not just image data, but voice analytics is one of the biggest things.
+
+1290
+02:43:41.530 --> 02:43:49.609
+Jitendra K: specifically… When we are using deepfakes and voiceovers.
+
+1291
+02:43:50.070 --> 02:43:52.949
+Jitendra K: there's a lot of animation these days, right? So…
+
+1292
+02:43:53.590 --> 02:44:00.750
+Jitendra K: Even animation industries are using this technique to reduce the impact of noise and try to make it more streamlined.
+
+1293
+02:44:01.240 --> 02:44:08.009
+Jitendra K: And, yes, I mean, there are a number of use cases on video and voice analytics.
+
+1294
+02:44:09.300 --> 02:44:11.140
+Jitendra K: So you can able to create…
+
+1295
+02:44:11.870 --> 02:44:14.819
+Jitendra K: Some model for biometric authentication of the voice.
+
+1296
+02:44:15.890 --> 02:44:20.859
+Jitendra K: I think most of the bank has done that, but they have discontinued because of the deepfake.
+
+1297
+02:44:21.000 --> 02:44:23.380
+Jitendra K: Because deepfake and able to generate a voice.
+
+1298
+02:44:24.020 --> 02:44:25.110
+Jitendra K: Pretty much.
+
+1299
+02:44:25.910 --> 02:44:27.450
+Jitendra K: Similar to a human.
+
+1300
+02:44:27.680 --> 02:44:30.869
+Jitendra K: So, if… It can create a lot of scams.
+
+1301
+02:44:31.600 --> 02:44:38.999
+Jitendra K: So, they have discontinued the voiceover and stuff, right? Otherwise, biometric authentication, including voice data, is…
+
+1302
+02:44:39.720 --> 02:44:43.800
+Jitendra K: Used by many banks, but they have discontinuous all of a sudden after defect.
+
+1303
+02:44:44.620 --> 02:44:48.110
+Jitendra K: So, the idea is, very simple.
+
+1304
+02:44:48.590 --> 02:44:56.039
+Jitendra K: I mean, when you have a highly structured data, you have to use a certain technique to reduce the dimension, but which technique you will use, it depends upon your
+
+1305
+02:44:56.470 --> 02:44:59.179
+Jitendra K: Data volume, noise, and stuff.
+
+1306
+02:45:18.850 --> 02:45:23.899
+Jitendra K: So let's run this NMF example, and then please let me know if there's any question.
+
+1307
+02:49:38.370 --> 02:49:43.439
+Jitendra K: So I hope, you're able to run this, whole analysis, guys.
+
+1308
+02:49:43.940 --> 02:49:50.830
+Jitendra K: Any final comment or anything that you would like to discuss before we can wind up for today? There's a poll that I'm going to launch as well.
+
+1309
+02:49:51.460 --> 02:49:53.849
+Jitendra K: So please,
+
+1310
+02:49:58.000 --> 02:50:01.529
+Jitendra K: Time the poll, and then, let me know your feedback.
+
+1311
+02:50:02.150 --> 02:50:06.009
+Jitendra K: So I think, the next class that we are going to have
+
+1312
+02:50:06.450 --> 02:50:10.250
+Jitendra K: Will we focus on… we are going to start with something
+
+1313
+02:50:13.970 --> 02:50:17.120
+Jitendra K: new, I mean, we will start with the CN3.
+
+1314
+02:50:17.430 --> 02:50:25.810
+Jitendra K: So, this entry is the… Kind of, the first technique that we are going to utilize for…
+
+1315
+02:50:26.830 --> 02:50:34.340
+Jitendra K: nonlinear data structures. That means I'm going to utilize this entry for the purpose of… solving…
+
+1316
+02:50:35.260 --> 02:50:40.730
+Jitendra K: The conditional probabilities associated with the database.
+
+1317
+02:50:41.220 --> 02:50:46.610
+Jitendra K: We will talk about divide by decientry. So, decentry is very important, so don't miss that class, because
+
+1318
+02:50:47.270 --> 02:50:54.120
+Jitendra K: We will talk about what the concept of entropy, we will discuss about the concept of information gain, and…
+
+1319
+02:50:54.350 --> 02:51:00.150
+Jitendra K: And also, we'll talk about, some of the split criterias of constructing this entry.
+
+1320
+02:51:00.340 --> 02:51:07.600
+Jitendra K: And these concepts will be useful in Random Forest, XZBoost, LightGBM, And so many other algorithms.
+
+1321
+02:51:08.090 --> 02:51:13.170
+Jitendra K: The concept of decent entry that we are going to utilize is…
+
+1322
+02:51:13.960 --> 02:51:19.899
+Jitendra K: To understand the basic element, or a basic building block, Of more advanced algorithm.
+
+1323
+02:51:20.060 --> 02:51:23.149
+Jitendra K: So, decentry have one important drawback.
+
+1324
+02:51:24.170 --> 02:51:26.039
+Jitendra K: It is very prone to warfight.
+
+1325
+02:51:26.910 --> 02:51:30.300
+Jitendra K: Right? So that's the reason in industry you will not use this entry much.
+
+1326
+02:51:30.600 --> 02:51:33.100
+Jitendra K: Right? I'm just talking about my experience.
+
+1327
+02:51:34.190 --> 02:51:39.050
+Jitendra K: So, you will not use this syntry, then why we are learning the syntry? That's the important question.
+
+1328
+02:51:39.340 --> 02:51:45.409
+Jitendra K: So, as I mentioned, the decision tree is an element, the strapping element, that will give you
+
+1329
+02:51:46.020 --> 02:51:50.890
+Jitendra K: The pathway for other algorithms, including their successors.
+
+1330
+02:51:51.040 --> 02:51:55.310
+Jitendra K: And the procedures. There's no procedure for decision tree. There's a successor of dysentry.
+
+1331
+02:51:55.510 --> 02:52:00.309
+Jitendra K: which is Random Forest, Xi Boost, Light GBM, we'll talk about.
+
+1332
+02:52:00.690 --> 02:52:05.090
+Jitendra K: Other gradient-based methods, so everywhere you will use this entry.
+
+1333
+02:52:05.490 --> 02:52:10.869
+Jitendra K: Now, in Random Forest, As the name says, forest. It's a group of descent tree.
+
+1334
+02:52:11.080 --> 02:52:12.290
+Jitendra K: dense forest.
+
+1335
+02:52:13.090 --> 02:52:16.640
+Jitendra K: Right? So, just remember to attend that class.
+
+1336
+02:52:17.280 --> 02:52:24.900
+Jitendra K: And, we will discuss in very detail mathematical fundamentals of entropy, Information gain.
+
+1337
+02:52:25.610 --> 02:52:32.049
+Jitendra K: How are the split criterias of dysentery, how the dysentery has been constructed, so on and so forth.
+
+1338
+02:52:33.140 --> 02:52:39.630
+Jitendra K: So, I think I've shared all the material for today's lecture, so you have everything that you required. Let me share one…
+
+1339
+02:52:40.490 --> 02:52:42.199
+Jitendra K: notebook that I have.
+
+1340
+02:52:43.360 --> 02:52:46.110
+Jitendra K: Promised to share earlier, for PCA.
+
+1341
+02:52:46.540 --> 02:52:50.889
+Jitendra K: So use this technique. This is for PC and SVD both.
+
+1342
+02:52:51.800 --> 02:52:58.060
+Jitendra K: So, use this, read it, Go line by line.
+
+1343
+02:53:00.610 --> 02:53:02.410
+Jitendra K: And you will be able to get…
+
+1344
+02:53:02.840 --> 02:53:07.529
+Jitendra K: Because these two techniques ultimately will be serving our purpose. Autoencoders is another technique.
+
+1345
+02:53:07.970 --> 02:53:13.370
+Jitendra K: So, just focus on PCA, LDA, And SVD.
+
+1346
+02:53:14.020 --> 02:53:18.560
+Jitendra K: And then, from deep learning perspective, focus on… autoencoders.
+
+1347
+02:53:19.840 --> 02:53:24.429
+Jitendra K: So that, you will have a very clear opinion on…
+
+1348
+02:53:25.760 --> 02:53:29.480
+Jitendra K: The choices that you're going to make to learn these fundamentals.
+
+1349
+02:53:32.280 --> 02:53:34.300
+Jitendra K: Yeah, let me share this as well.
+
+1350
+02:54:01.920 --> 02:54:05.710
+Jitendra K: Yeah, so in a nutshell, you need not to worry too much about UMAP.
+
+1351
+02:54:08.960 --> 02:54:10.280
+Jitendra K: T-S-N-E.
+
+1352
+02:54:13.090 --> 02:54:14.190
+Jitendra K: NMF.
+
+1353
+02:54:14.360 --> 02:54:16.510
+Jitendra K: NMF can be still useful.
+
+1354
+02:54:16.650 --> 02:54:18.130
+Jitendra K: When we're dealing with image.
+
+1355
+02:54:18.640 --> 02:54:20.790
+Jitendra K: But, it's… I would say…
+
+1356
+02:54:21.020 --> 02:54:29.520
+Jitendra K: You can consider to be… Ignorable as well. So, just focus on PCA.
+
+1357
+02:54:30.620 --> 02:54:31.820
+Jitendra K: LDA.
+
+1358
+02:54:33.040 --> 02:54:34.210
+Jitendra K: as we do.
+
+1359
+02:54:35.450 --> 02:54:36.920
+Jitendra K: And autoencoders.
+
+1360
+02:54:37.710 --> 02:54:39.030
+Jitendra K: These four techniques.
+
+1361
+02:54:39.220 --> 02:54:40.700
+Jitendra K: It's must.
+
+1362
+02:54:41.420 --> 02:54:44.990
+Jitendra K: This will be used in text analytics.
+
+1363
+02:54:45.160 --> 02:54:53.149
+Jitendra K: We will use this for… basically major and other captioning algorithms. The PCA is by default,
+
+1364
+02:54:54.210 --> 02:54:57.159
+Jitendra K: Everywhere, you're going to use, by default.
+
+1365
+02:54:59.330 --> 02:55:01.999
+Jitendra K: In machine learning, deep learning.
+
+1366
+02:55:03.530 --> 02:55:05.180
+Jitendra K: Right? All the techniques.
+
+1367
+02:55:25.920 --> 02:55:32.710
+Jitendra K: Okay, so if you're working on some project, which will be able to verify the author details, references, citation.
+
+1368
+02:55:33.160 --> 02:55:38.119
+Jitendra K: So, you need to use, RAG, Retrieval Augment Generation.
+
+1369
+02:55:39.090 --> 02:55:44.230
+Jitendra K: So you need to work on RAG pipelines, so RAG is the answer for your problem.
+
+1370
+02:55:45.140 --> 02:55:51.670
+Jitendra K: Or you can use… traditional LP to solve this as well. You can use extraction regex.
+
+1371
+02:55:52.460 --> 02:56:00.429
+Jitendra K: And, we can work on different sort of, data extraction using regex.
+
+1372
+02:56:01.000 --> 02:56:05.810
+Jitendra K: So, if you are trying to compile the topics from PDF,
+
+1373
+02:56:06.000 --> 02:56:10.009
+Jitendra K: Including citation references, figures, table, equation.
+
+1374
+02:56:10.440 --> 02:56:15.059
+Jitendra K: Then there are different sort of packages available. PyMu PDF, just try with PyMu PDF.
+
+1375
+02:56:15.920 --> 02:56:17.210
+Jitendra K: Let me ping you.
+
+1376
+02:56:17.380 --> 02:56:22.480
+Jitendra K: PYMU PDF. So this is one of the great packages that you can use.
+
+1377
+02:56:23.160 --> 02:56:26.630
+Jitendra K: This will extract your data with a proper…
+
+1378
+02:56:28.380 --> 02:56:32.320
+Jitendra K: Structure that you have just declared out.
+
+1379
+02:56:39.140 --> 02:56:45.660
+Jitendra K: Alright guys, so I think this is pretty much what we have for today, so we will meet in the next tutorial with DC Entry.
+
+1380
+02:56:45.970 --> 02:56:53.219
+Jitendra K: So, thank you for attending this session, and we will have the next session with DC Entry in the upcoming tutorial. Thank you.
+

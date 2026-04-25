@@ -1,0 +1,6 @@
+# Core RAG stack
+openai>=1.50.0          # client.embeddings.create + client.chat.completions
+chromadb>=1.0.0         # PersistentClient, get_or_create_collection
+PyMuPDF>=1.24.0         # imported as `fitz`; PDF text extraction
+
+# (Optional) pin a known-good Python: 3.10–3.12 are all fine.

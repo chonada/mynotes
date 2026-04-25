@@ -1,0 +1,4838 @@
+WEBVTT
+
+1
+00:04:46.260 --> 00:04:48.619
+Jitendra K: Hello guys, good evening, good afternoon.
+
+2
+00:04:49.210 --> 00:04:57.420
+Jitendra K: And welcome to another exciting module of Deep Learning. So before we start a class, can we have a quick audio check if my voices are audible to everyone?
+
+3
+00:04:58.040 --> 00:05:00.130
+Jitendra K: And you're able to see my screen as well.
+
+4
+00:05:17.090 --> 00:05:20.720
+Jitendra K: Okay, I can see only one user is able to listen, and how about the others?
+
+5
+00:05:20.920 --> 00:05:22.559
+Jitendra K: Are you able to hear me clearly?
+
+6
+00:05:27.350 --> 00:05:28.959
+Jitendra K: Okay, great. Thank you.
+
+7
+00:05:29.580 --> 00:05:40.409
+Jitendra K: So we will start with the new architecture called Convolution Neural Network in today's tutorial, and we'll talk about the journey of convolution neural networks so far from all the way to
+
+8
+00:05:40.700 --> 00:05:47.410
+Jitendra K: vision transformers, and we will take a step-by-step understanding of what convolution neural network does.
+
+9
+00:05:47.890 --> 00:05:54.619
+Jitendra K: in a… in a last decade or so, right? So, we will talk about the architecture.
+
+10
+00:05:54.880 --> 00:06:00.099
+Jitendra K: The components and the building blocks of convolution neural network, and try to understand
+
+11
+00:06:00.230 --> 00:06:05.959
+Jitendra K: With the help of, the human analogy, how we human as, how we as a human
+
+12
+00:06:06.490 --> 00:06:10.569
+Jitendra K: Pursue the image data, video data, etc.
+
+13
+00:06:10.780 --> 00:06:17.080
+Jitendra K: So, convolution neural network is a architecture that we are going to utilize for the purpose of
+
+14
+00:06:17.760 --> 00:06:21.159
+Jitendra K: Image processing and video processing task.
+
+15
+00:06:21.480 --> 00:06:23.110
+Jitendra K: So when you say CNN,
+
+16
+00:06:23.430 --> 00:06:28.100
+Jitendra K: It's a modern, or I would say it's a deep learning architecture, where we have a set of
+
+17
+00:06:28.530 --> 00:06:31.450
+Jitendra K: Algorithms or so-called architectures.
+
+18
+00:06:31.880 --> 00:06:38.120
+Jitendra K: Using feet for all neural networks, and we are going to utilize this for the purpose of… developing…
+
+19
+00:06:38.290 --> 00:06:42.050
+Jitendra K: The capability of a model to process images.
+
+20
+00:06:42.400 --> 00:06:52.680
+Jitendra K: The convolutional network is one of the main categories that do image recognition, image classification, object detection, recognitions, and localization.
+
+21
+00:06:53.790 --> 00:06:58.100
+Jitendra K: So CNN… Can able to do a lot of…
+
+22
+00:06:58.380 --> 00:07:05.860
+Jitendra K: stuff with the help of feature engineering. That means without training the model explicitly, you can design your features.
+
+23
+00:07:06.020 --> 00:07:11.410
+Jitendra K: And pass it to a network so that your model can learn to identify the image.
+
+24
+00:07:12.270 --> 00:07:18.089
+Jitendra K: This is a simple example where I'm just using a deep convolution neural network to identify the image.
+
+25
+00:07:18.520 --> 00:07:22.020
+Jitendra K: when I'm showing multiple categories of vehicles.
+
+26
+00:07:22.160 --> 00:07:25.310
+Jitendra K: And then finally to 95, one category out of it.
+
+27
+00:07:25.560 --> 00:07:37.780
+Jitendra K: So, the key idea of convolution is the convolution layer itself. That's why it is called convolution neural network. So, convolution is the first layer to extract feature from an input image. So, convolution will help us to preserve
+
+28
+00:07:37.990 --> 00:07:44.260
+Jitendra K: The relationship between pixels by learning images features using a small square of input data.
+
+29
+00:07:44.440 --> 00:07:49.170
+Jitendra K: And it's mathematical representation. So, that is the whole mathematical…
+
+30
+00:07:49.460 --> 00:07:56.889
+Jitendra K: linear algebra calculation which is happening inside the convolution layer. So we'll talk about what are these dimensions is all about.
+
+31
+00:07:57.850 --> 00:08:08.360
+Jitendra K: Now, let me go back to the slide. So, let's try to understand this analogy, how we can able to… what do you see in this image, right? So, as a human, you can see that I'm…
+
+32
+00:08:08.850 --> 00:08:13.430
+Jitendra K: Maybe a person has taken the image from a busy street of New York.
+
+33
+00:08:13.980 --> 00:08:15.830
+Jitendra K: And, there are a lot of…
+
+34
+00:08:16.630 --> 00:08:21.939
+Jitendra K: Hoardings, posters, some vehicles, pedestrians.
+
+35
+00:08:22.110 --> 00:08:26.610
+Jitendra K: Some signals, some boardings, banners.
+
+36
+00:08:26.960 --> 00:08:36.939
+Jitendra K: etc. I was there in my image. It looks pretty colorful, pretty lively, as a part of a human, but as a machine, or if I have to…
+
+37
+00:08:37.059 --> 00:08:38.309
+Jitendra K: to see…
+
+38
+00:08:38.870 --> 00:08:43.849
+Jitendra K: How do you see these images? Let's say these are the images that I'm passing it to you.
+
+39
+00:08:44.280 --> 00:08:58.280
+Jitendra K: And asking you to identify a particular object in this image, or a living animal in this image, right? So these images looks quite similar to each other, though some of them are the cakes as well, cookies as well.
+
+40
+00:08:58.830 --> 00:08:59.620
+Jitendra K: Right?
+
+41
+00:09:00.920 --> 00:09:06.340
+Jitendra K: How can we see How can we help competitors see these images?
+
+42
+00:09:06.540 --> 00:09:14.220
+Jitendra K: So, when we talk about a computer as a binary sequence that will be utilized for processing this image, an image is just a matrix of numbers.
+
+43
+00:09:14.660 --> 00:09:20.129
+Jitendra K: And if I talk about, black and white image art, which is called monochrome image.
+
+44
+00:09:20.430 --> 00:09:24.629
+Jitendra K: It will have a range of 0 to 255, a simple integer range.
+
+45
+00:09:25.890 --> 00:09:35.469
+Jitendra K: That means, if I'm using a simple black and white image, it will be represented in these numbers, based upon the intensity of each cell.
+
+46
+00:09:35.950 --> 00:09:41.889
+Jitendra K: So I can identify that this talks about the American president. As a user, I can able to understand this is…
+
+47
+00:09:42.150 --> 00:09:45.470
+Jitendra K: George Washington image, or I think Abraham Lincoln image.
+
+48
+00:09:46.130 --> 00:09:51.180
+Jitendra K: And based upon that, there are several intensities in each grid.
+
+49
+00:09:51.920 --> 00:09:59.860
+Jitendra K: Right? So as a computer, computer will understand that, okay, this is an image, I have multiple similar images to this category.
+
+50
+00:09:59.990 --> 00:10:08.259
+Jitendra K: I would like to localize segment and do some analysis on the top of it. So this is called, image processing model for monochrome. Similarly.
+
+51
+00:10:08.410 --> 00:10:17.289
+Jitendra K: When we talk about image processing model for colored images, you will have three channels called RGB, because any number or any color that you can create
+
+52
+00:10:17.500 --> 00:10:19.359
+Jitendra K: Will be a mix of these three.
+
+53
+00:10:20.810 --> 00:10:23.110
+Jitendra K: Colors. Red, green, and blue.
+
+54
+00:10:23.240 --> 00:10:27.879
+Jitendra K: And you can form any other color apart from what you want to…
+
+55
+00:10:28.150 --> 00:10:33.619
+Jitendra K: create. So, this is the universal set of colors, which is called RGB Array.
+
+56
+00:10:34.000 --> 00:10:38.710
+Jitendra K: So in this… In this, color images, we will have…
+
+57
+00:10:41.310 --> 00:10:43.260
+Jitendra K: We will have our details of…
+
+58
+00:10:43.670 --> 00:10:47.340
+Jitendra K: The pixel in the form of a 3-channel, rather than 2-channel.
+
+59
+00:10:47.450 --> 00:10:54.260
+Jitendra K: And that's the only difference between the… how the color and the… Monoprime MV has been processed.
+
+60
+00:10:54.530 --> 00:10:59.880
+Jitendra K: So, CNN has been inspired by human and animal visual cortex.
+
+61
+00:11:00.270 --> 00:11:07.159
+Jitendra K: So, as you know that, we are using a vision sensory optic nerves to pursue the image where
+
+62
+00:11:07.390 --> 00:11:12.400
+Jitendra K: The reflection and the optics principle works.
+
+63
+00:11:12.840 --> 00:11:16.630
+Jitendra K: And then, based upon that, you are going to track the image.
+
+64
+00:11:16.840 --> 00:11:20.989
+Jitendra K: And then generate, using your visual cortex, a lot of
+
+65
+00:11:21.150 --> 00:11:24.610
+Jitendra K: Complex calculation is going on inside your brain.
+
+66
+00:11:25.000 --> 00:11:30.680
+Jitendra K: On the basis of which, some layers, your subconscious and conscious, both layers, will
+
+67
+00:11:30.820 --> 00:11:36.340
+Jitendra K: Adapt to this, and then they generate information by sensory virtual cortex.
+
+68
+00:11:36.750 --> 00:11:45.410
+Jitendra K: So this is a layered architecture, again. As a human, we are also using a layered architecture, but these are biological neurons that we are using to perform this analysis.
+
+69
+00:11:45.550 --> 00:11:48.220
+Jitendra K: But when we talk about neural networks.
+
+70
+00:11:48.840 --> 00:11:52.200
+Jitendra K: Which is able to replace the whole process here.
+
+71
+00:11:52.560 --> 00:11:55.060
+Jitendra K: So, we are going to represent this with the help of…
+
+72
+00:11:55.790 --> 00:11:58.619
+Jitendra K: Speak for our neural network that will help us to generalize.
+
+73
+00:11:59.210 --> 00:12:01.529
+Jitendra K: So, when we talk about convolutional neural network.
+
+74
+00:12:02.260 --> 00:12:08.139
+Jitendra K: As I mentioned, it has use for a variety of tasks, including object localization, segmentation.
+
+75
+00:12:08.720 --> 00:12:14.249
+Jitendra K: Image classifications, as well as, image and face detection, as well.
+
+76
+00:12:14.520 --> 00:12:22.320
+Jitendra K: So, we will talk about a modern-day CNN architecture which has been using millions of parameters, dozens of layers, to perform this analysis.
+
+77
+00:12:22.430 --> 00:12:28.810
+Jitendra K: And we will take some example from the early days, including ImageNet, AlexNet, VGNet, GoogleNet, and ResNet.
+
+78
+00:12:29.020 --> 00:12:34.570
+Jitendra K: So as we progress, you can see number of parameters in each model has been increased subsequently.
+
+79
+00:12:34.780 --> 00:12:43.270
+Jitendra K: That means we are trying to improve over the different aspects of the architectures, different use case scenarios, as well as
+
+80
+00:12:43.760 --> 00:12:50.219
+Jitendra K: It will have enormous amount of data handling capabilities in terms of training and prediction part.
+
+81
+00:12:51.190 --> 00:13:04.139
+Jitendra K: So there are countless applications using CNN. You might have used Apple City, biometric authentication of your face, from your mobile device, from your Apple laptop, from your,
+
+82
+00:13:04.310 --> 00:13:07.430
+Jitendra K: Maybe you might be also logging to
+
+83
+00:13:07.750 --> 00:13:14.609
+Jitendra K: your Aadhaar card app or some other government website using facial symmetries. So, all these things are important.
+
+84
+00:13:14.710 --> 00:13:21.649
+Jitendra K: And created with the help of CNN architecture. So the input is a two-dimensional array of pixel, and then idea is to generalize.
+
+85
+00:13:22.000 --> 00:13:27.870
+Jitendra K: And use these densities of pixel to feed it to the neural network to identify a person.
+
+86
+00:13:28.400 --> 00:13:37.519
+Jitendra K: Now, how the features have been extracted, that is something which I'm going to talk about. So let me… let me talk about a high-level feature detection mechanism behind CNN.
+
+87
+00:13:37.980 --> 00:13:47.849
+Jitendra K: So, this is an image of a human, this is an image of a object, this is an image of a… some specification, house, row house, right?
+
+88
+00:13:48.210 --> 00:13:52.590
+Jitendra K: So, everything that we are looking at in each image have different sort of…
+
+89
+00:13:53.070 --> 00:13:57.760
+Jitendra K: personas. So this image talks about, maybe a person as a…
+
+90
+00:13:58.550 --> 00:14:05.840
+Jitendra K: actress, and this talks about, I would like to proceed what is there in the license plate, a set of numbers.
+
+91
+00:14:06.050 --> 00:14:11.619
+Jitendra K: This talks about, a symmetry of a house, and their stuff like,
+
+92
+00:14:12.050 --> 00:14:24.919
+Jitendra K: door, windows, and steps, etc. So, fully connected neural network will… able to use operation called convolution, which is an element-wise multiplication and addition. That's the simplest definition of convolution.
+
+93
+00:14:25.040 --> 00:14:32.450
+Jitendra K: So, convolution is the first layer to extract feature from the input image. So, convolution will help us to preserve the relationship between pixels.
+
+94
+00:14:32.560 --> 00:14:37.059
+Jitendra K: Which is nothing but their image data. Pixels means your image data, but learning images.
+
+95
+00:14:37.390 --> 00:14:39.770
+Jitendra K: And their features, spatial features.
+
+96
+00:14:39.910 --> 00:14:45.060
+Jitendra K: Using small squares as input. And this is a mathematical operation that takes two input
+
+97
+00:14:45.780 --> 00:14:54.790
+Jitendra K: Such as image metrics and filters or kernel to perform this operation. Now, we'll talk about kernels and filters and strides, padding, all these things.
+
+98
+00:14:55.080 --> 00:14:58.340
+Jitendra K: But let's try to understand what is the basic convolution.
+
+99
+00:14:59.190 --> 00:15:05.349
+Jitendra K: So, basic convolution, if I have to explain it to you by a simple term. So, consider that I have got 5 cross 5 image.
+
+100
+00:15:08.200 --> 00:15:13.800
+Jitendra K: And then, I'm using a size of filter to be 3 cos 3. So that means my image
+
+101
+00:15:14.190 --> 00:15:24.019
+Jitendra K: will work like this. My convolution operation will work like this. So, convolution operation will use A sliding concept.
+
+102
+00:15:24.950 --> 00:15:29.889
+Jitendra K: If a filter size is 3 cross 3, so it will be able to scan my image like this.
+
+103
+00:15:31.340 --> 00:15:38.970
+Jitendra K: The convolution of 5 cross 5 image matrix multiply with 3 cross-3 filter matrix, and it is constructing a feature map.
+
+104
+00:15:39.730 --> 00:15:44.650
+Jitendra K: So, this is my feature map, which is in the pink color, convolution features. So, convolution of the image.
+
+105
+00:15:45.010 --> 00:15:52.199
+Jitendra K: Where different filters can perform different operations to perform the granularity of the image detection.
+
+106
+00:15:52.560 --> 00:15:55.980
+Jitendra K: So let's say if I have to identify this image of a camel.
+
+107
+00:15:56.560 --> 00:15:58.540
+Jitendra K: Now, this image of a camel…
+
+108
+00:16:00.520 --> 00:16:04.190
+Jitendra K: You can see here, for edge detection, I'm sharpening the image.
+
+109
+00:16:05.250 --> 00:16:06.430
+Jitendra K: for…
+
+110
+00:16:06.620 --> 00:16:13.420
+Jitendra K: caution blur, I'm doing some blurring. But for edge detection, I can be able to identify that this looks like… a camel looks like this.
+
+111
+00:16:17.190 --> 00:16:24.499
+Jitendra K: Right? So we'll talk about all these operations in convolution, but let's try to understand the feature
+
+112
+00:16:24.870 --> 00:16:28.759
+Jitendra K: map how it's been constructed. So this is how the feature map has been constructed.
+
+113
+00:16:28.880 --> 00:16:32.810
+Jitendra K: So, we're going to use an original features from the image.
+
+114
+00:16:33.060 --> 00:16:35.850
+Jitendra K: And then try to construct this grid.
+
+115
+00:16:37.530 --> 00:16:41.099
+Jitendra K: We're still able to identify and detect the edges.
+
+116
+00:16:42.130 --> 00:16:43.339
+Jitendra K: of the image.
+
+117
+00:16:43.440 --> 00:16:46.110
+Jitendra K: And then identify the shape and size of this image.
+
+118
+00:16:46.490 --> 00:16:52.350
+Jitendra K: not size, shape at least. What is the shape of this image? How the… Facial symmetry looks like.
+
+119
+00:16:52.770 --> 00:16:57.529
+Jitendra K: Similarly, if I look on… into the kernel, it will be able to generate an image in this form.
+
+120
+00:16:58.900 --> 00:17:05.300
+Jitendra K: Now… Another question is, what are we going to achieve with this objective?
+
+121
+00:17:05.760 --> 00:17:10.510
+Jitendra K: So the idea is, we are going to learn the features, from the data.
+
+122
+00:17:10.970 --> 00:17:12.940
+Jitendra K: Rather than hand-holding.
+
+123
+00:17:13.280 --> 00:17:14.670
+Jitendra K: And engineering them.
+
+124
+00:17:15.400 --> 00:17:23.019
+Jitendra K: Right? Because every person is unique. I cannot do a feature engineering 400 people differently.
+
+125
+00:17:23.619 --> 00:17:30.000
+Jitendra K: for facial detection algorithm, right? I cannot… I have thousands of objects, lacks of object.
+
+126
+00:17:31.030 --> 00:17:33.410
+Jitendra K: multiple objects in the Earth.
+
+127
+00:17:34.040 --> 00:17:39.150
+Jitendra K: If Google Landscale can be able to identify everything just present in the Earth.
+
+128
+00:17:39.510 --> 00:17:43.020
+Jitendra K: How can I be able to, maybe…
+
+129
+00:17:43.450 --> 00:17:45.650
+Jitendra K: Do this modification by my own.
+
+130
+00:17:48.460 --> 00:17:50.669
+Jitendra K: Right? So I have to do something.
+
+131
+00:17:51.130 --> 00:17:55.759
+Jitendra K: Which is called learning the features, or Hierarchy of Data, from themselves.
+
+132
+00:17:56.060 --> 00:18:01.890
+Jitendra K: And that is what I'm going to use convulsion operation for. So I would like to create a low-level features.
+
+133
+00:18:02.350 --> 00:18:05.870
+Jitendra K: like, Edge's dark spot, high-level features, like Edge.
+
+134
+00:18:05.990 --> 00:18:10.059
+Jitendra K: Eyes, ears, nose, irrele features like facial symmetries.
+
+135
+00:18:10.340 --> 00:18:14.660
+Jitendra K: And that will help me to perform a simple rearrangement of this information.
+
+136
+00:18:14.800 --> 00:18:17.279
+Jitendra K: Which I may require to deal with it.
+
+137
+00:18:19.110 --> 00:18:27.139
+Jitendra K: So, let's try to understand now the component of the CNN architecture. So, if I have to talk about the components of CNN model.
+
+138
+00:18:28.510 --> 00:18:37.399
+Jitendra K: Which include filter, Stride… padding… And the concept of kernel.
+
+139
+00:18:37.670 --> 00:18:40.459
+Jitendra K: We'll talk about all these things in detail.
+
+140
+00:18:46.130 --> 00:18:51.899
+Jitendra K: Okay, so… First and foremost thing, let's try to understand what are the different
+
+141
+00:18:52.420 --> 00:18:59.509
+Jitendra K: Layers of convolution, and to start to understand how these layers have been working together.
+
+142
+00:19:00.020 --> 00:19:07.559
+Jitendra K: So, convolution… The process of applying a convolution kernel to the input data is referred to as convolution operation.
+
+143
+00:19:07.660 --> 00:19:10.379
+Jitendra K: So, here, there's a concept of kernel.
+
+144
+00:19:10.980 --> 00:19:14.859
+Jitendra K: Notice kernel, so if you look into this image.
+
+145
+00:19:15.490 --> 00:19:23.130
+Jitendra K: I have an image which talks about 1, 2, 3, 4, 5. 1, 2, 3, 4, 5, 5 cross 5.
+
+146
+00:19:23.690 --> 00:19:27.179
+Jitendra K: But I've reconstructed this image to 6 cross 6.
+
+147
+00:19:27.880 --> 00:19:29.869
+Jitendra K: By adding one extra pad.
+
+148
+00:19:29.990 --> 00:19:33.509
+Jitendra K: So this is the padding that I am doing. So I'm wrapping this image.
+
+149
+00:19:33.870 --> 00:19:38.070
+Jitendra K: So that I can be able to apply even kernel, sorry, odd kernel, 3 cross 3.
+
+150
+00:19:38.730 --> 00:19:43.409
+Jitendra K: If I'm not applying a padding sequence, I may miss some of critical information here.
+
+151
+00:19:43.870 --> 00:19:47.329
+Jitendra K: this part of the image. Maybe it will start from here.
+
+152
+00:19:47.640 --> 00:19:49.890
+Jitendra K: I will miss these two blocks.
+
+153
+00:19:50.630 --> 00:19:53.250
+Jitendra K: That's the reason I'm going to create a kernel.
+
+154
+00:19:53.520 --> 00:19:55.460
+Jitendra K: Which is going to operate on my image.
+
+155
+00:19:55.810 --> 00:20:02.220
+Jitendra K: And this kernel will be of certain dimension, not necessarily 3 cross 3, but it can go for any dimension.
+
+156
+00:20:02.500 --> 00:20:05.060
+Jitendra K: And the job of kernel is to create feature map.
+
+157
+00:20:07.710 --> 00:20:12.609
+Jitendra K: So, convolution… Kernels are also known as a filter.
+
+158
+00:20:12.840 --> 00:20:20.590
+Jitendra K: Which is a small metric used for convolution operation, and these kernel slides across the input data, performing element-wise multiplication.
+
+159
+00:20:20.840 --> 00:20:27.540
+Jitendra K: With the corresponding pixels, and producing a feature map that highlights specific patterns or features in the input data set.
+
+160
+00:20:28.100 --> 00:20:35.729
+Jitendra K: So the convolution operation is a thing, but the process of applying a convolution kernel to the input data, or an image data.
+
+161
+00:20:36.170 --> 00:20:44.420
+Jitendra K: And this operation involves sliding the kernel across the input, and computing the dot product at each position, and generating the feature map.
+
+162
+00:20:44.860 --> 00:20:52.750
+Jitendra K: So, in the context of CNN, feature refer to the meaningful patterns or characteristics extracted from the input data by convolution layer.
+
+163
+00:20:53.830 --> 00:21:01.849
+Jitendra K: And that is what we are calling it as, convolution layer, and each kernel will operate at a channel.
+
+164
+00:21:02.000 --> 00:21:05.879
+Jitendra K: So let's see if I'm using a kind of a…
+
+165
+00:21:06.050 --> 00:21:08.719
+Jitendra K: Colorful image to process the data.
+
+166
+00:21:09.080 --> 00:21:14.569
+Jitendra K: So my… I will plot 3 kernels, K1, K2, and K3, and they will individually work on
+
+167
+00:21:14.880 --> 00:21:16.750
+Jitendra K: Creating the feature set for.
+
+168
+00:21:16.950 --> 00:21:17.890
+Jitendra K: each…
+
+169
+00:21:21.050 --> 00:21:28.989
+Jitendra K: channel, right? So this is what the job of a kernel is. The multiple kernel will have
+
+170
+00:21:29.350 --> 00:21:31.540
+Jitendra K: In the context of convolution in the network.
+
+171
+00:21:31.740 --> 00:21:36.720
+Jitendra K: I'm using Kernel as a filter. Let me be interchangeable.
+
+172
+00:21:37.010 --> 00:21:45.019
+Jitendra K: I can say kernel is nothing but convolution metrics. Filter apply containing the learnable parameters, and these parameters are adjust.
+
+173
+00:21:45.400 --> 00:21:51.409
+Jitendra K: during the training process, through back preparation. So we have, remember, we have talked about backpropulation algorithm.
+
+174
+00:21:51.600 --> 00:21:58.669
+Jitendra K: to capture the relevant patterns or features in the input data. So when the filter is applied to the input data using the convolution operation.
+
+175
+00:21:58.960 --> 00:22:08.239
+Jitendra K: It slides or convolve across the inputs, and computing the dot products between its weights and the corresponding pixels of the input data. And this process
+
+176
+00:22:08.500 --> 00:22:10.889
+Jitendra K: In the interim, we'll generate a feature map.
+
+177
+00:22:13.080 --> 00:22:16.989
+Jitendra K: Right, so let's take an example to understand this. Let's say I've got…
+
+178
+00:22:20.990 --> 00:22:22.230
+Jitendra K: this image.
+
+179
+00:22:25.920 --> 00:22:27.590
+Jitendra K: This is my input matrix.
+
+180
+00:22:29.070 --> 00:22:31.000
+Jitendra K: And, this is my kernel.
+
+181
+00:22:32.840 --> 00:22:34.499
+Jitendra K: And I'm applying.
+
+182
+00:22:35.000 --> 00:22:37.260
+Jitendra K: This particular kernel on this image.
+
+183
+00:22:37.500 --> 00:22:38.809
+Jitendra K: So it will scan.
+
+184
+00:22:39.450 --> 00:22:41.670
+Jitendra K: First, it'll perform this scan like this.
+
+185
+00:22:42.830 --> 00:22:48.439
+Jitendra K: It will use these… 9 elements, and then it was Shift.
+
+186
+00:22:49.860 --> 00:22:51.870
+Jitendra K: Then it will come here.
+
+187
+00:22:52.880 --> 00:22:54.119
+Jitendra K: That will shift.
+
+188
+00:22:54.970 --> 00:22:57.759
+Jitendra K: That means with 1, 2, 3, 4,
+
+189
+00:22:58.980 --> 00:23:03.259
+Jitendra K: observation, it was able to complete the image scanning. And this is my kernel.
+
+190
+00:23:03.970 --> 00:23:13.109
+Jitendra K: Now, we are performing some matrix multiplication and some sort of calculation. I will come to this point, how it is coming as 45, what is 12.
+
+191
+00:23:13.460 --> 00:23:18.870
+Jitendra K: Right? And all these things. So right now, we are looking for some sort of mathematical metrics operation.
+
+192
+00:23:19.020 --> 00:23:26.250
+Jitendra K: That will help us to convert this 1, 2, 3, 4, 1, 2, 3, 4, 4 cross 4 into 2 cross 2.
+
+193
+00:23:28.710 --> 00:23:33.790
+Jitendra K: So here, we're not compressing anything. We are not saying that I'm compressing the image.
+
+194
+00:23:34.050 --> 00:23:39.180
+Jitendra K: I'm saying that I'm meaningfully I'm extracting only the meaningful information from the image.
+
+195
+00:23:40.820 --> 00:23:45.850
+Jitendra K: Right? Similarly, I can be able to do it for this, this… The software.
+
+196
+00:23:49.630 --> 00:24:00.749
+Jitendra K: So the kernel got into the position at the top left corner of the input matrix, and then it starts moving left to right, calculating the dot product and saving it to a new matrix, until it reaches the last column.
+
+197
+00:24:01.010 --> 00:24:04.019
+Jitendra K: So next, the kernel reset its position at the first column.
+
+198
+00:24:04.400 --> 00:24:11.040
+Jitendra K: And then it slides one row to the bottom and follow the same fashion to perform this analysis.
+
+199
+00:24:11.810 --> 00:24:14.089
+Jitendra K: So, conceptually, if I have to say.
+
+200
+00:24:16.340 --> 00:24:20.790
+Jitendra K: We are talking about multiple kernels which were able to do this task.
+
+201
+00:24:22.370 --> 00:24:30.450
+Jitendra K: Right? So… So, convolution is an operation by which we are converting the…
+
+202
+00:24:31.790 --> 00:24:35.099
+Jitendra K: Data, which is form… forming a channel.
+
+203
+00:24:35.460 --> 00:24:36.590
+Jitendra K: like this.
+
+204
+00:24:36.890 --> 00:24:43.489
+Jitendra K: And then help us to combine this data to generalize the important features that we can use to.
+
+205
+00:24:43.610 --> 00:24:45.370
+Jitendra K: Consider as an outcome.
+
+206
+00:24:48.840 --> 00:24:52.120
+Jitendra K: Yeah, we'll talk about all this thing when we go with padding and all.
+
+207
+00:24:52.250 --> 00:24:54.309
+Jitendra K: First, understand the operation of kernel.
+
+208
+00:24:55.190 --> 00:24:56.720
+Jitendra K: What are we trying to achieve?
+
+209
+00:24:59.200 --> 00:25:12.040
+Jitendra K: Okay, so now let me talk about… when we talk about, using RGB arrays, or RGB images. When we're working with RGB images, the convolution process works slightly different. It represents 3 channels, red, green, and blue.
+
+210
+00:25:12.390 --> 00:25:21.390
+Jitendra K: So in this case, the filter expands to have 3 corresponding channels, one for each color. So instead of 2D filters, it takes a shape of a 3D cuboid.
+
+211
+00:25:21.890 --> 00:25:32.739
+Jitendra K: So, convolution operation is performed across all three channels, and each channel of the filter interact with their respective color channel of the image. And the results are summed together to produce a single value.
+
+212
+00:25:33.010 --> 00:25:34.829
+Jitendra K: At each special location.
+
+213
+00:25:37.270 --> 00:25:42.550
+Jitendra K: So, if I have to just summarize this, I can say my 3 cross 3.
+
+214
+00:25:42.960 --> 00:25:46.399
+Jitendra K: 6 cross 6 cross 3 will be converted to 4 cross 4.
+
+215
+00:25:47.360 --> 00:25:56.199
+Jitendra K: So as we increase the number of filters, each filter produces its own feature map. So we will use AND filter, and we'll get AND separate feature map.
+
+216
+00:25:56.630 --> 00:26:00.100
+Jitendra K: So these feature maps are then gonna be stacked together.
+
+217
+00:26:00.600 --> 00:26:01.850
+Jitendra K: Along the depth.
+
+218
+00:26:02.480 --> 00:26:06.370
+Jitendra K: Which is a channel dimension, and forming a new multiple channel output.
+
+219
+00:26:06.680 --> 00:26:15.219
+Jitendra K: Or in other words, I can say the number of output channels after convolution layer is equal to the number of filters used to perform this analysis.
+
+220
+00:26:16.260 --> 00:26:21.450
+Jitendra K: So I can say, if I'm using… A formula to represent.
+
+221
+00:26:21.940 --> 00:26:24.070
+Jitendra K: How to determine the feature map.
+
+222
+00:26:25.480 --> 00:26:31.659
+Jitendra K: Right? So the formula for determining the number of heater maps is nothing but number of filters used to create convolution.
+
+223
+00:26:35.700 --> 00:26:43.419
+Jitendra K: So let's say I have an input image of M cross M size, that means it could be anything 200…
+
+224
+00:26:43.780 --> 00:26:49.370
+Jitendra K: 128 plus 128, or 56 plus 56, or 28 plus 28, etc.
+
+225
+00:26:49.770 --> 00:26:53.009
+Jitendra K: And I'm employing a filter of N cross N.
+
+226
+00:26:54.520 --> 00:27:01.900
+Jitendra K: Then the size of the output which I mapped will be given by this formula, which is M-1… M minus N.
+
+227
+00:27:02.480 --> 00:27:03.740
+Jitendra K: plus 1.
+
+228
+00:27:04.470 --> 00:27:08.000
+Jitendra K: multiply by M minus N plus 1.
+
+229
+00:27:12.080 --> 00:27:18.089
+Jitendra K: So if I'm taking a 6 across 6 image in this example, so my AM is 6,
+
+230
+00:27:18.510 --> 00:27:21.470
+Jitendra K: And I'm applying a filter of 3 across 3.
+
+231
+00:27:23.110 --> 00:27:27.920
+Jitendra K: Then my input… Picture map would be 6 minus 3.
+
+232
+00:27:28.380 --> 00:27:32.790
+Jitendra K: Plus one, which is… 4…
+
+233
+00:27:33.520 --> 00:27:40.030
+Jitendra K: Multiply by 6 minus 3 plus 1, which is, again, 4. So it will be 4 plus 4.
+
+234
+00:27:40.240 --> 00:27:41.190
+Jitendra K: feature.
+
+235
+00:27:42.360 --> 00:27:44.499
+Jitendra K: map size that I'm going to convert.
+
+236
+00:27:46.320 --> 00:27:51.510
+Jitendra K: Now, before we define what padding is, let's first understand why we need it at the first place.
+
+237
+00:27:51.800 --> 00:28:00.910
+Jitendra K: So when you're performing a convolution operation, the kernel slides over the image. We have seen that, right? So kernel slides over the image to perform this analysis.
+
+238
+00:28:01.160 --> 00:28:04.440
+Jitendra K: So this is my kernel operation, which is sliding and creating a feature map.
+
+239
+00:28:04.790 --> 00:28:08.080
+Jitendra K: So, when you're performing the convolution operation, the kernel
+
+240
+00:28:08.410 --> 00:28:12.019
+Jitendra K: Or a filter strides over the image one step at a time.
+
+241
+00:28:12.660 --> 00:28:20.890
+Jitendra K: But if you carefully observe, you will notice there's something important. The corner and the edge pixels are involved in convolution operation only once.
+
+242
+00:28:23.380 --> 00:28:26.800
+Jitendra K: So, in the context, the central pixel participation.
+
+243
+00:28:27.100 --> 00:28:31.439
+Jitendra K: In multiple conversion operation, as the kernel overlaps them repetitively.
+
+244
+00:28:32.000 --> 00:28:39.270
+Jitendra K: And this leads to an imbalance. Central pixels have greater influence on the final output, while corner pixels lose their importance.
+
+245
+00:28:39.860 --> 00:28:44.690
+Jitendra K: So, it does not make sense that more involvement in convolution means more impact.
+
+246
+00:28:45.500 --> 00:28:49.199
+Jitendra K: So, to overcome this, we are going to use a padding.
+
+247
+00:28:49.410 --> 00:28:57.229
+Jitendra K: And we introduce a padding, which ensures that the edges and the corners are given equal importance and help preserving the spatial dimension of the image as well.
+
+248
+00:29:01.830 --> 00:29:04.559
+Jitendra K: Right? So let's take this example. I have got…
+
+249
+00:29:04.710 --> 00:29:08.389
+Jitendra K: this image. Let's assume that this is my image data.
+
+250
+00:29:11.610 --> 00:29:15.959
+Jitendra K: A, B, and these are match pixels, and these are my middle pixels.
+
+251
+00:29:16.480 --> 00:29:17.250
+Jitendra K: Right?
+
+252
+00:29:17.930 --> 00:29:23.240
+Jitendra K: So, clearly, a pixel A is touched in just one convolution.
+
+253
+00:29:26.510 --> 00:29:29.669
+Jitendra K: And pixel B is touched in 3 convolution operation.
+
+254
+00:29:33.310 --> 00:29:37.209
+Jitendra K: While pixel C starts in 9 convolution operation.
+
+255
+00:29:37.670 --> 00:29:47.789
+Jitendra K: So, in general, pixels in the middles are used more often than pixels on the corner and the edges. So, consequently, the information on the border of the image is not preserved as well.
+
+256
+00:29:48.270 --> 00:29:51.220
+Jitendra K: the information in the middle. To address this issue.
+
+257
+00:29:51.380 --> 00:29:56.019
+Jitendra K: An additional layer, which comprises of entirely zeros.
+
+258
+00:29:56.260 --> 00:29:58.499
+Jitendra K: Which is added around the original image.
+
+259
+00:29:59.430 --> 00:30:07.370
+Jitendra K: And if I'm going to add all zeros as a frame, or as a pad, To protect this image.
+
+260
+00:30:07.760 --> 00:30:09.440
+Jitendra K: This technique is called padding.
+
+261
+00:30:10.150 --> 00:30:15.669
+Jitendra K: Since zeros are specifically used for padding, it is more precisely referred to as zero padding technique.
+
+262
+00:30:16.480 --> 00:30:25.129
+Jitendra K: By applying this padding technique, the size of the image increases, which may affect the formula used to calculate the output size after convolution.
+
+263
+00:30:25.530 --> 00:30:33.870
+Jitendra K: So the standard formula for calculating the output size without padding is N minus F, plus 1.
+
+264
+00:30:34.420 --> 00:30:40.220
+Jitendra K: Where n is then put size, F is the filter and kernel size, and after applying the padding.
+
+265
+00:30:40.690 --> 00:30:47.600
+Jitendra K: I will convert this formula to N plus 2P, Minus F.
+
+266
+00:30:48.480 --> 00:30:49.480
+Jitendra K: Thus far.
+
+267
+00:30:53.650 --> 00:31:00.090
+Jitendra K: So, basically, you're converting the image… By addition… adding this zero.
+
+268
+00:31:00.830 --> 00:31:02.300
+Jitendra K: layer boundary.
+
+269
+00:31:02.620 --> 00:31:07.389
+Jitendra K: In the existing data. So padding will help me to include corner pixels in convolution.
+
+270
+00:31:07.590 --> 00:31:13.889
+Jitendra K: And helped me to preserve important features. However, it increased image size, leading to more computationals and parameters.
+
+271
+00:31:14.730 --> 00:31:18.809
+Jitendra K: But it is useful for balance accuracy and efficiency in training the model.
+
+272
+00:31:22.130 --> 00:31:26.230
+Jitendra K: Alright, so I think this is clear now to everyone, right? Can we have a quick thumbs up?
+
+273
+00:31:26.880 --> 00:31:28.170
+Jitendra K: If it's clear.
+
+274
+00:31:36.700 --> 00:31:41.790
+Jitendra K: Can we have a quick thumbs up, guys, if this is clear to everyone? Okay, great.
+
+275
+00:31:42.680 --> 00:31:48.920
+Jitendra K: Okay, now we'll talk about stride. So stride means when we're performing convolution in CNN.
+
+276
+00:31:49.040 --> 00:31:57.859
+Jitendra K: the kernel or the filter move across the input image, typically one step at a time. So we are comparing… we are considering both row-wise and column-wise.
+
+277
+00:31:58.730 --> 00:31:59.960
+Jitendra K: formulation.
+
+278
+00:32:00.590 --> 00:32:07.050
+Jitendra K: So, when you say stride, that means the kernel will process every pixel that's in the image.
+
+279
+00:32:07.740 --> 00:32:14.679
+Jitendra K: So, Y2 is striding. So basically, the idea of striding is to Maybe, skipping over the pixels.
+
+280
+00:32:15.060 --> 00:32:21.460
+Jitendra K: that would use… The model. That will cause the model to miss out on important details.
+
+281
+00:32:22.640 --> 00:32:28.220
+Jitendra K: That means we are preventing overfitting, and reducing the computational and memory uses in the model.
+
+282
+00:32:31.180 --> 00:32:37.160
+Jitendra K: Right? So basically, when I say stride, basically, we are just… Let me show you…
+
+283
+00:32:39.440 --> 00:32:42.780
+Jitendra K: What I mean by stride? Stride means… this.
+
+284
+00:32:42.890 --> 00:32:43.980
+Jitendra K: Operation.
+
+285
+00:32:44.590 --> 00:32:48.270
+Jitendra K: We're sliding across… to CNN.
+
+286
+00:32:49.380 --> 00:32:54.999
+Jitendra K: So how to… how to select this parameter? When… should I stride with 1, or should I start with 2?
+
+287
+00:32:56.550 --> 00:32:59.539
+Jitendra K: Right, so this parameter is important, because…
+
+288
+00:32:59.750 --> 00:33:03.129
+Jitendra K: When we are performing a slide, you're selecting the sample.
+
+289
+00:33:04.150 --> 00:33:06.349
+Jitendra K: With a high stride, you will…
+
+290
+00:33:07.140 --> 00:33:08.849
+Jitendra K: Come up with a low sample.
+
+291
+00:33:09.120 --> 00:33:11.689
+Jitendra K: With a low stride, you will come up with a high sample.
+
+292
+00:33:12.520 --> 00:33:20.119
+Jitendra K: So, one of the things that you should consider when you're selecting the stride, right now we are talking about 6 across 6, and…
+
+293
+00:33:20.240 --> 00:33:22.450
+Jitendra K: 4 cross for very simple images.
+
+294
+00:33:22.870 --> 00:33:28.460
+Jitendra K: But imagine you're training a model with thousands and 10,000 images.
+
+295
+00:33:28.630 --> 00:33:32.660
+Jitendra K: So, this trite will literally use single image.
+
+296
+00:33:32.920 --> 00:33:38.090
+Jitendra K: Which can be of 256 plus 256, or 128 plus 128.
+
+297
+00:33:38.420 --> 00:33:43.000
+Jitendra K: image arrays, and imagine if I'm performing a stride of one
+
+298
+00:33:44.160 --> 00:33:46.519
+Jitendra K: How much time it will take to train the model.
+
+299
+00:33:48.510 --> 00:33:54.079
+Jitendra K: So… When you're selecting the stride parameter, the one challenge
+
+300
+00:33:54.630 --> 00:34:01.480
+Jitendra K: That you have introduced by padding, which you use to preserve agent Corner information may become…
+
+301
+00:34:02.280 --> 00:34:07.349
+Jitendra K: And increase the size of the image, leading to a more convolution operation and higher memory consumption.
+
+302
+00:34:07.470 --> 00:34:13.500
+Jitendra K: So Stride will help you to counter-track this by reducing the number of operations, making the model more efficient.
+
+303
+00:34:14.290 --> 00:34:20.260
+Jitendra K: Similarly, Stride will help you to prevent overfitting, because you're processing every pixel in the detail.
+
+304
+00:34:20.380 --> 00:34:24.609
+Jitendra K: Which might cause the model to over-learn or low-level insight.
+
+305
+00:34:24.900 --> 00:34:27.999
+Jitendra K: Or some insignificant features, also.
+
+306
+00:34:28.600 --> 00:34:36.739
+Jitendra K: Which may not be contributed meaningfully to the overall task. So this can lead to overfitting, where the model performed well on training data, but poorly on unseen data.
+
+307
+00:34:43.469 --> 00:34:46.750
+Jitendra K: Now, let me talk about the last operation called polling layers.
+
+308
+00:34:47.330 --> 00:34:55.369
+Jitendra K: So we use polling layer primarily to reduce the memory usage and computation, but there are another important reason. Translation invariance.
+
+309
+00:34:55.760 --> 00:35:02.729
+Jitendra K: Translation invariance means the model should recognize an object regardless of where it is appearing in the image.
+
+310
+00:35:03.010 --> 00:35:06.969
+Jitendra K: It could be in the left, it could be in the right, it could be at the bottom.
+
+311
+00:35:07.570 --> 00:35:13.989
+Jitendra K: That means, irrespective of the position of the object, the model should be able to categorize it. Let's say I'm keeping…
+
+312
+00:35:14.290 --> 00:35:16.950
+Jitendra K: A bunch of images from my part.
+
+313
+00:35:17.180 --> 00:35:18.590
+Jitendra K: That, right?
+
+314
+00:35:18.710 --> 00:35:21.889
+Jitendra K: So I can position the cat in the image in any form.
+
+315
+00:35:23.570 --> 00:35:25.800
+Jitendra K: So, the same object in different position.
+
+316
+00:35:27.370 --> 00:35:29.660
+Jitendra K: Should be recognized by the model.
+
+317
+00:35:30.350 --> 00:35:35.909
+Jitendra K: So, polling will help us to solve this issue. It reduced the spatial size of the feature map.
+
+318
+00:35:36.510 --> 00:35:44.820
+Jitendra K: and lowering the memory and the computation requirement. So it provides translation invariance by summarizing the presence of a feature in a region.
+
+319
+00:35:45.260 --> 00:35:49.060
+Jitendra K: And making the model less sensitive to extract object location.
+
+320
+00:35:50.630 --> 00:35:55.880
+Jitendra K: And we'll talk about several techniques called average polling, global polling, max polling.
+
+321
+00:35:57.250 --> 00:36:00.690
+Jitendra K: So if I have to just go show you the formulas.
+
+322
+00:36:02.320 --> 00:36:05.279
+Jitendra K: So let's try to look into some of the formulas.
+
+323
+00:36:05.690 --> 00:36:09.200
+Jitendra K: So this is the average pooling formula. So, if I'm using an average pooling.
+
+324
+00:36:09.600 --> 00:36:15.040
+Jitendra K: You can see that I have in pixels, which is 12, 24, and 18.
+
+325
+00:36:15.360 --> 00:36:17.740
+Jitendra K: So if I'm taking an average sum of all.
+
+326
+00:36:17.890 --> 00:36:20.599
+Jitendra K: Divide by 4, it will generate that output.
+
+327
+00:36:21.580 --> 00:36:27.160
+Jitendra K: That means I'm considering every pixel uniformly.
+
+328
+00:36:27.350 --> 00:36:29.799
+Jitendra K: And taking a distribution of those bits.
+
+329
+00:36:33.900 --> 00:36:37.549
+Jitendra K: In case of global polling, I would like to take
+
+330
+00:36:38.750 --> 00:36:41.219
+Jitendra K: The average of the entire feature map.
+
+331
+00:36:45.070 --> 00:36:48.360
+Jitendra K: So, I'll say I would like to take an average of the entire feature map.
+
+332
+00:36:49.800 --> 00:36:52.739
+Jitendra K: So, output will be one value per channel.
+
+333
+00:36:55.260 --> 00:36:57.230
+Jitendra K: Which is a loss of information.
+
+334
+00:36:58.810 --> 00:37:02.639
+Jitendra K: As compared to average polling. But let's see which is effective.
+
+335
+00:37:03.080 --> 00:37:08.309
+Jitendra K: Then in the max polling, I would like to save the maximum values
+
+336
+00:37:09.030 --> 00:37:12.779
+Jitendra K: Or I would say the maximum… Value of the array.
+
+337
+00:37:13.340 --> 00:37:16.260
+Jitendra K: from each… metrics.
+
+338
+00:37:16.510 --> 00:37:25.470
+Jitendra K: I would say, out of these four, which is the highest 20? Out of these four, which is the highest 15? Out of these four, which is the highest 14, and out of these four, which is the highest 22.
+
+339
+00:37:27.360 --> 00:37:36.209
+Jitendra K: So max polling takes the maximum value of the region, average polling compute average, global polling applies polling across entire region, and these operations significantly
+
+340
+00:37:36.440 --> 00:37:38.450
+Jitendra K: Reduce the size of the image.
+
+341
+00:37:39.150 --> 00:37:43.710
+Jitendra K: Size of the feature map, and lowering the computation requirement for a model.
+
+342
+00:37:44.500 --> 00:37:50.979
+Jitendra K: At the same time, they're also introducing translation invariance, allowing the model to detect feature regardless of their extract.
+
+343
+00:37:51.370 --> 00:37:55.420
+Jitendra K: Position, regardless of the exact position in the input image.
+
+344
+00:37:56.680 --> 00:38:02.170
+Jitendra K: So, polling makes the image of each Maps small, usually about half the size.
+
+345
+00:38:02.550 --> 00:38:10.479
+Jitendra K: And this will help the model to use less memory and run faster, and polling helps the model to recognize something like face or object, and even
+
+346
+00:38:10.790 --> 00:38:17.050
+Jitendra K: If it is moving slightly in the image, it will be able to capture via translation variance… invariance.
+
+347
+00:38:19.300 --> 00:38:27.950
+Jitendra K: The disadvantage of polling is you're losing the information, so you're shrinking the image. Lot of details you're missing, and this can be a problem in some tasks.
+
+348
+00:38:29.200 --> 00:38:35.479
+Jitendra K: So that's the reason we have to look for different types of polling strategies when we're developing the DNN architecture.
+
+349
+00:38:38.080 --> 00:38:47.900
+Jitendra K: So, in simple terms, your CNN architecture comprise of these elements, which will help you to do this basic task of image processing.
+
+350
+00:38:49.050 --> 00:38:50.610
+Jitendra K: And this is a basic task.
+
+351
+00:38:50.760 --> 00:38:52.280
+Jitendra K: of image processing.
+
+352
+00:38:52.600 --> 00:38:58.459
+Jitendra K: where I'm going to utilize the… Input features, and then perform.
+
+353
+00:38:58.670 --> 00:39:00.740
+Jitendra K: Some operations on the top of it.
+
+354
+00:39:05.630 --> 00:39:08.320
+Jitendra K: Alright, so what we can do now is,
+
+355
+00:39:08.500 --> 00:39:14.670
+Jitendra K: We will go back to our slides, and then try to understand the architecture of… different CNN.
+
+356
+00:39:15.230 --> 00:39:19.910
+Jitendra K: Now, this is clear that we have some good amount of
+
+357
+00:39:21.230 --> 00:39:28.060
+Jitendra K: models, which is available. But what… where the CNN has been start, Tracking, getting the traction.
+
+358
+00:39:28.400 --> 00:39:33.140
+Jitendra K: So this is in the year 1998, when Latin model
+
+359
+00:39:33.530 --> 00:39:41.840
+Jitendra K: which is using a gradient-based learning to document recognition task. And remember, this is the era of Word and Microsoft.
+
+360
+00:39:43.200 --> 00:39:47.870
+Jitendra K: tools, even the operating system, Windows, Has been launched.
+
+361
+00:39:48.220 --> 00:39:56.480
+Jitendra K: And, they're required to… They have created this 7-layer convolution basic model, very basic model.
+
+362
+00:39:56.890 --> 00:40:03.869
+Jitendra K: And they have, Latin developed by one of the Chinese scientists, Yan Kuhn.
+
+363
+00:40:04.480 --> 00:40:13.270
+Jitendra K: Which is a foundational 7-layer, convolution-layer neural network designed by a poor handwritten, detailed document. And that's where the Amnest dataset has been start.
+
+364
+00:40:14.130 --> 00:40:20.510
+Jitendra K: So it processed 32 plus 32 grayscale images through alternative convolution and averaging pooling.
+
+365
+00:40:20.780 --> 00:40:23.559
+Jitendra K: Followed by a fully connected layer to classified LG.
+
+366
+00:40:28.920 --> 00:40:33.519
+Jitendra K: So the key component of this architecture is you will have several layers.
+
+367
+00:40:35.010 --> 00:40:37.520
+Jitendra K: Then put will be 32 cross 32.
+
+368
+00:40:39.020 --> 00:40:42.520
+Jitendra K: Which is your pixel density, 32 plus 32.
+
+369
+00:40:46.950 --> 00:40:51.640
+Jitendra K: the Layer 1C1 It's a 6 filter of 5 plus 5.
+
+370
+00:40:52.230 --> 00:40:56.219
+Jitendra K: And it is generating an output as 28 plus 28 plus 6 feature map.
+
+371
+00:40:56.770 --> 00:41:00.520
+Jitendra K: Layer 2 is an average holding, 2 across 2 kernels.
+
+372
+00:41:00.770 --> 00:41:06.020
+Jitendra K: Layer 3 is performing the convolutions, 16 filters and 5 plus 5 output.
+
+373
+00:41:06.210 --> 00:41:09.010
+Jitendra K: 10 cross, 10 cross 16 feature map.
+
+374
+00:41:09.270 --> 00:41:16.430
+Jitendra K: And the fourth layer is the average pooling, which is 2 plus 2 kernel, stride of 2, reducing the size to 5 plus 5 plus 16.
+
+375
+00:41:17.500 --> 00:41:23.940
+Jitendra K: So, then we will have a fully connected layer, which is having 84 neurons, and the output is a 10 class.
+
+376
+00:41:24.690 --> 00:41:26.240
+Jitendra K: Which I'm using as well.
+
+377
+00:41:26.360 --> 00:41:28.760
+Jitendra K: Numbers from 0 to 9.
+
+378
+00:41:30.270 --> 00:41:33.180
+Jitendra K: So this is the simplest architecture, so…
+
+379
+00:41:33.600 --> 00:41:35.859
+Jitendra K: Some of the important concept is.
+
+380
+00:41:36.090 --> 00:41:43.019
+Jitendra K: It comprises of 60,000 trainable parameters. 60,000 trainable parameters at that point of time is pretty huge.
+
+381
+00:41:43.790 --> 00:41:48.709
+Jitendra K: We're talking about 26 minus 2, 28 years before.
+
+382
+00:41:49.860 --> 00:41:54.800
+Jitendra K: There's no… Such GPU available, 2080S before.
+
+383
+00:41:54.930 --> 00:41:56.280
+Jitendra K: For training the model.
+
+384
+00:41:56.440 --> 00:42:02.850
+Jitendra K: not even a good amount of RAM. We are talking about RAMs which are megabytes, not even gigabytes.
+
+385
+00:42:03.880 --> 00:42:12.169
+Jitendra K: So… It will utilize CNN concepts like convolution layer pooling and convolution, kernels with a
+
+386
+00:42:12.350 --> 00:42:15.330
+Jitendra K: Trainable parameter of 60,000 instances.
+
+387
+00:42:15.810 --> 00:42:22.009
+Jitendra K: And they use activation functions like 10SS Sigmoid through modern implementation, which has been replaced by Radu.
+
+388
+00:42:22.640 --> 00:42:26.759
+Jitendra K: But at that point of time, they are using 10H and sigmoid activation function.
+
+389
+00:42:27.320 --> 00:42:32.480
+Jitendra K: Now, the idea of this… Layered architecture is very simple.
+
+390
+00:42:35.010 --> 00:42:37.159
+Jitendra K: This is a gradient-based approach.
+
+391
+00:42:41.450 --> 00:42:46.119
+Jitendra K: So, when you say gradient-based approach, so last night is a convolution neural network.
+
+392
+00:42:46.630 --> 00:42:56.259
+Jitendra K: develop in… it has been introduced in 1989, but implemented in 1998. So it has been… idea has been originated in 1989, original idea.
+
+393
+00:42:56.880 --> 00:43:02.030
+Jitendra K: And it has been implemented in 1998. So every convolution layer includes
+
+394
+00:43:02.230 --> 00:43:05.909
+Jitendra K: The three parts, convolution, pooling, and nonlinear activation function.
+
+395
+00:43:06.160 --> 00:43:09.660
+Jitendra K: So the architecture dimension comprises of these.
+
+396
+00:43:09.950 --> 00:43:12.640
+Jitendra K: And you have got several trainable parameters.
+
+397
+00:43:13.090 --> 00:43:17.839
+Jitendra K: So, trainable parameter is nothing but your number of neurons that you're considering for training.
+
+398
+00:43:18.470 --> 00:43:22.239
+Jitendra K: So this is the… how the trainable parameters has been defined.
+
+399
+00:43:22.550 --> 00:43:24.750
+Jitendra K: The second layer comprises of
+
+400
+00:43:28.100 --> 00:43:37.059
+Jitendra K: Polling layers, where the train mode parameter has been increased from 122,000 to 5,000.
+
+401
+00:43:37.750 --> 00:43:39.700
+Jitendra K: more additional parameters.
+
+402
+00:43:39.800 --> 00:43:41.309
+Jitendra K: The third layer…
+
+403
+00:43:44.710 --> 00:43:51.010
+Jitendra K: comprises of… 151,000 neurons.
+
+404
+00:43:51.850 --> 00:43:57.920
+Jitendra K: So if you're adding all of them, you will get 16… 60,000 neurons, sorry.
+
+405
+00:43:58.600 --> 00:44:02.889
+Jitendra K: Connections, this is the number of connections, you will get overall 60,000 neurons.
+
+406
+00:44:03.610 --> 00:44:08.719
+Jitendra K: So, if I have to just summarize this architecture, the architecture comprises of several
+
+407
+00:44:09.280 --> 00:44:14.020
+Jitendra K: layers. That's a 7-layer architecture, from input to the output.
+
+408
+00:44:15.100 --> 00:44:17.719
+Jitendra K: And at that point of time, there is no value function.
+
+409
+00:44:18.500 --> 00:44:21.590
+Jitendra K: So they are using 10H, 10H, 10H, softmax.
+
+410
+00:44:21.770 --> 00:44:23.950
+Jitendra K: Size of this kernel is like this.
+
+411
+00:44:24.310 --> 00:44:27.600
+Jitendra K: And, these are the, some of the important considerations.
+
+412
+00:44:35.670 --> 00:44:42.880
+Jitendra K: So what we can do is, we can try this model and see if it is… giving any…
+
+413
+00:44:43.220 --> 00:44:45.960
+Jitendra K: We can create this model from the scratch.
+
+414
+00:44:46.530 --> 00:44:54.950
+Jitendra K: And then we can define… This particular model, with the help of… TensorFlow API now.
+
+415
+00:44:55.510 --> 00:45:01.430
+Jitendra K: So let's try to work on this model, very first model, the Hello World of CNN, and then see how it is work.
+
+416
+00:45:02.520 --> 00:45:04.979
+Jitendra K: So let me go to Google Pullab GPU.
+
+417
+00:45:30.310 --> 00:45:37.129
+Jitendra K: Okay, so we'll start with importing several libraries. So I will use TensorFlow Library, and importing the dataset, Amnest.
+
+418
+00:45:37.580 --> 00:45:41.049
+Jitendra K: Load a dataset in my memory, split into X train and Y train.
+
+419
+00:45:42.470 --> 00:45:49.010
+Jitendra K: I will start preprocessing my data. So my data comprise of 28 plus 20 pixels of images.
+
+420
+00:45:49.480 --> 00:45:51.520
+Jitendra K: And I will use this dataset.
+
+421
+00:45:51.820 --> 00:45:54.859
+Jitendra K: To convert and normalize into a range.
+
+422
+00:45:55.800 --> 00:46:05.749
+Jitendra K: Now, we'll define a new instance of a model object, which is using a sequential model API, and then add a layer to the neural network. As far as the net.
+
+423
+00:46:06.180 --> 00:46:08.719
+Jitendra K: Five architecture that we discussed.
+
+424
+00:46:09.170 --> 00:46:14.759
+Jitendra K: I would like to consider their configurations, or define layer by layer.
+
+425
+00:46:15.360 --> 00:46:17.890
+Jitendra K: And then… We will see.
+
+426
+00:46:18.710 --> 00:46:23.340
+Jitendra K: how this architecture has been formulated. Let me run this.
+
+427
+00:46:26.560 --> 00:46:31.920
+Jitendra K: Now, once I develop this model, then I would like to see… the outcome.
+
+428
+00:46:40.950 --> 00:46:42.760
+Jitendra K: Okay, one second…
+
+429
+00:47:22.060 --> 00:47:25.810
+Jitendra K: I'm using some optimizer… based optimizer.
+
+430
+00:48:21.940 --> 00:48:26.230
+Jitendra K: I think it is KRAS, too, which is creating an issue, but let me fix this.
+
+431
+00:49:37.220 --> 00:49:42.560
+Jitendra K: Let me delete these lines, because this is for KRAS 2, now we are using KRAS 3.
+
+432
+00:49:43.420 --> 00:49:44.900
+Jitendra K: This should work.
+
+433
+00:51:51.680 --> 00:51:54.969
+Jitendra K: So it's still training the model so that it be complete.
+
+434
+00:54:18.360 --> 00:54:20.439
+Jitendra K: So I think it's mostly done now.
+
+435
+00:54:42.560 --> 00:54:46.380
+Jitendra K: Okay, so this is showing 98% accurate.
+
+436
+00:54:46.620 --> 00:54:48.310
+Jitendra K: Which is pretty good.
+
+437
+00:54:49.190 --> 00:54:53.870
+Jitendra K: And, it is able to predict most of the label is correct.
+
+438
+00:54:54.370 --> 00:54:58.700
+Jitendra K: 0, 0… 4S4, 1 as 1…
+
+439
+00:54:59.270 --> 00:55:03.380
+Jitendra K: There's no incorrect prediction in the… validation sets.
+
+440
+00:55:04.150 --> 00:55:09.920
+Jitendra K: This is a pretty good model, with this limited Neurons, 60,000.
+
+441
+00:55:10.100 --> 00:55:15.259
+Jitendra K: parameters, we are able to create a good model. 98%, 99% accurate.
+
+442
+00:55:16.430 --> 00:55:21.410
+Jitendra K: Okay, so, this is one… Thing that we have covered.
+
+443
+00:55:21.790 --> 00:55:24.939
+Jitendra K: Let me move on to the more advanced architectures.
+
+444
+00:55:26.930 --> 00:55:32.519
+Jitendra K: So we talked about LENAC, which is having a different sort of parameters.
+
+445
+00:55:33.240 --> 00:55:39.359
+Jitendra K: And, it is also using gradient-decent convolution backpropagation algorithm to
+
+446
+00:55:39.800 --> 00:55:42.459
+Jitendra K: Improve the efficiency of the overall.
+
+447
+00:55:42.640 --> 00:55:44.130
+Jitendra K: convolution operation.
+
+448
+00:55:45.420 --> 00:55:49.019
+Jitendra K: Now we move on to the second architecture.
+
+449
+00:55:50.040 --> 00:55:52.310
+Jitendra K: Which is called AlexNet.
+
+450
+00:55:54.050 --> 00:55:57.259
+Jitendra K: So, let me go back to AlexNet.
+
+451
+00:56:11.210 --> 00:56:12.030
+Jitendra K: Yep.
+
+452
+00:56:12.470 --> 00:56:17.279
+Jitendra K: So, AlexNet, there's a lot of… good amount of, time.
+
+453
+00:56:17.990 --> 00:56:22.179
+Jitendra K: Just because there's no compute and no such…
+
+454
+00:56:22.830 --> 00:56:29.750
+Jitendra K: modern-day technologies available to train the deep learning neural network. At that point of time, there's… Supercomputers.
+
+455
+00:56:29.920 --> 00:56:34.200
+Jitendra K: Which is using for… Few of the high…
+
+456
+00:56:34.600 --> 00:56:41.209
+Jitendra K: Attraction use cases, which is used for, maybe, just for,
+
+457
+00:56:42.090 --> 00:56:46.510
+Jitendra K: commercial, non-commercial purpose, right? They are an all-commercial, non-commercial model.
+
+458
+00:56:47.170 --> 00:56:53.610
+Jitendra K: In 1998, you might not have even heard about all this model until 2000.
+
+459
+00:56:54.530 --> 00:56:55.380
+Jitendra K: 12.
+
+460
+00:56:56.260 --> 00:56:59.809
+Jitendra K: So, ImageNet is, the breakthrough where
+
+461
+00:57:00.580 --> 00:57:06.640
+Jitendra K: the… it facilitated by GPU, Highly Optimized Convolution Neural Network, and implemented a dataset current age net.
+
+462
+00:57:07.020 --> 00:57:14.950
+Jitendra K: And this is one of the largest CNN to date, has 60 million… 60,000 to 60 million now, compared to 60K parameter for L-Net.
+
+463
+00:57:15.500 --> 00:57:23.150
+Jitendra K: So, Vishnat, works… on several competitions.
+
+464
+00:57:23.330 --> 00:57:26.820
+Jitendra K: And, they are using different sort of…
+
+465
+00:57:27.040 --> 00:57:31.970
+Jitendra K: Best brains in the world to challenge this architecture.
+
+466
+00:57:32.650 --> 00:57:38.340
+Jitendra K: So, ImageNet, or LXNet, is the winner for the first CNN-based model.
+
+467
+00:57:38.510 --> 00:57:39.969
+Jitendra K: Which is called AlexNet.
+
+468
+00:57:42.550 --> 00:57:45.640
+Jitendra K: So, Alex and I have able to process…
+
+469
+00:57:45.770 --> 00:57:49.049
+Jitendra K: 227 across 227 across 3 images.
+
+470
+00:57:49.580 --> 00:57:53.269
+Jitendra K: Which is colored images with a set of parameters.
+
+471
+00:57:54.160 --> 00:57:57.700
+Jitendra K: So, we will talk about the architecture of AlexNet.
+
+472
+00:57:57.820 --> 00:58:01.539
+Jitendra K: maybe try to understand what is AlexNet is all about.
+
+473
+00:58:02.060 --> 00:58:05.090
+Jitendra K: And, we'll try to deep drive.
+
+474
+00:58:05.480 --> 00:58:10.740
+Jitendra K: the RXNet architecture, And then we'll see what are the components of AlexNet.
+
+475
+00:58:11.680 --> 00:58:15.289
+Jitendra K: in… and what is the mass behind AlexNet as well?
+
+476
+00:58:15.620 --> 00:58:24.370
+Jitendra K: The first and foremost thing is an architecture that… which is coming under CNN, right? So this is, again, a CNN deep learning neural network architecture.
+
+477
+00:58:24.650 --> 00:58:26.789
+Jitendra K: So, AlexNet is in architecture.
+
+478
+00:58:28.610 --> 00:58:33.470
+Jitendra K: Now, what makes this architecture so… useful.
+
+479
+00:58:34.590 --> 00:58:38.809
+Jitendra K: So this is the architecture. So this was the first architecture that used GPU.
+
+480
+00:58:39.370 --> 00:58:42.500
+Jitendra K: And 2012, GPUs available, yes.
+
+481
+00:58:43.640 --> 00:58:44.770
+Jitendra K: And…
+
+482
+00:58:45.390 --> 00:58:55.630
+Jitendra K: This was the first architecture that used GPU to boost the training performance, and LXNet comprised of 5 convolution layers, and 3 max pooling layers, and 2 normalized layers, and 2 fully connected layers.
+
+483
+00:58:56.200 --> 00:59:02.829
+Jitendra K: And it is also using one softmax layer. So each convulsion layer comprises of a convolution filter and a non-linear activation function.
+
+484
+00:59:03.540 --> 00:59:04.709
+Jitendra K: Which is Relu.
+
+485
+00:59:06.270 --> 00:59:14.100
+Jitendra K: So the polling sides are used to perform the max polling function, and then input is fixed due to the presence of fully connected layer.
+
+486
+00:59:14.330 --> 00:59:20.070
+Jitendra K: So, value is used as an activation function rather than 10H. The batch size has been changed to 128.
+
+487
+00:59:20.520 --> 00:59:24.769
+Jitendra K: The algorithm that has been used earlier in,
+
+488
+00:59:25.080 --> 00:59:30.580
+Jitendra K: the L-Net model is gradient descent. Here we are using SGD momentum.
+
+489
+00:59:30.910 --> 00:59:38.030
+Jitendra K: Which is, I think we've discussed all these things, right? SGD momentum, stochastic radiation, momentum algorithm.
+
+490
+00:59:38.170 --> 00:59:41.999
+Jitendra K: Which has been used for… Optimizing the output.
+
+491
+00:59:42.460 --> 00:59:47.990
+Jitendra K: Now, it is also using a max polling convolution layer to solve this issue.
+
+492
+00:59:48.640 --> 00:59:53.360
+Jitendra K: Now, the idea behind AlexNet is very simple.
+
+493
+00:59:53.710 --> 00:59:54.830
+Jitendra K: Alex Knight.
+
+494
+00:59:58.180 --> 01:00:02.500
+Jitendra K: takes an image of 27 plus 27 plus 3 RGB array.
+
+495
+01:00:03.360 --> 01:00:08.889
+Jitendra K: And then, it converts that image As an input tensor.
+
+496
+01:00:09.690 --> 01:00:16.610
+Jitendra K: And then it takes the networks of image size, 27 across 20… 227 across 227 across 3,
+
+497
+01:00:16.850 --> 01:00:20.599
+Jitendra K: And the output image will be 256 across 256.
+
+498
+01:00:21.330 --> 01:00:25.449
+Jitendra K: And to use all the necessary layers to operate.
+
+499
+01:00:27.210 --> 01:00:29.930
+Jitendra K: So this was the architecture in 2012.
+
+500
+01:00:31.810 --> 01:00:38.229
+Jitendra K: Where you can see the series of convolution operation, fully connected layer, and the activation function.
+
+501
+01:00:38.670 --> 01:00:46.479
+Jitendra K: So, from fully connected layer to… from feature map to the fully connected layer, They're using a certain process.
+
+502
+01:00:46.730 --> 01:00:49.290
+Jitendra K: To generate an output, and that is called flattening.
+
+503
+01:00:50.690 --> 01:00:54.470
+Jitendra K: So the output layer will be a softmax function, which will take
+
+504
+01:00:54.630 --> 01:00:57.479
+Jitendra K: The output, in a probabilistical term.
+
+505
+01:00:57.820 --> 01:01:02.170
+Jitendra K: And it will say whether it is a cat, dog, aeroplane, car, etc.
+
+506
+01:01:03.580 --> 01:01:08.499
+Jitendra K: So, the idea is, this model is pretty good.
+
+507
+01:01:08.840 --> 01:01:14.600
+Jitendra K: For multi-categorical classes as well, and it'll be able to predict the…
+
+508
+01:01:15.290 --> 01:01:21.709
+Jitendra K: Particular num… particular image of a character or an animal with a higher accuracy.
+
+509
+01:01:26.550 --> 01:01:34.729
+Jitendra K: So let me share this slide with you. I want everybody to go through this slide, and let me know if there's any question, and let me share the quote as well.
+
+510
+01:01:35.500 --> 01:01:38.439
+Jitendra K: So, we'll take 10 minutes to…
+
+511
+01:01:38.740 --> 01:01:42.300
+Jitendra K: I would allow you to run this code in your machine.
+
+512
+01:01:42.730 --> 01:01:47.530
+Jitendra K: I want everybody to be focused on this code, because these two architectures are important.
+
+513
+01:01:48.260 --> 01:01:49.849
+Jitendra K: So let's first…
+
+514
+01:01:57.230 --> 01:01:59.360
+Jitendra K: Let me share the code as well.
+
+515
+01:02:07.900 --> 01:02:13.050
+Jitendra K: So, can you guys please run this code, and go through the slides, and let me know if there's any question?
+
+516
+01:02:13.300 --> 01:02:15.340
+Jitendra K: And this slide also I will share.
+
+517
+01:02:17.930 --> 01:02:19.729
+Jitendra K: This is from Stanford.
+
+518
+01:02:19.860 --> 01:02:20.660
+Jitendra K: Oh.
+
+519
+01:02:21.820 --> 01:02:24.829
+Jitendra K: I'm just referring the best material available for CNN.
+
+520
+01:03:26.910 --> 01:03:28.170
+Jitendra K: Already shared.
+
+521
+01:03:29.820 --> 01:03:32.259
+Jitendra K: Vote for AlexNet, you will draw. First,
+
+522
+01:03:32.520 --> 01:03:35.650
+Jitendra K: Let's complete the Latin, and then we'll move to AlexNet.
+
+523
+01:08:27.260 --> 01:08:29.989
+Jitendra K: Let me know if you're able to run and execute.
+
+524
+01:08:36.010 --> 01:08:41.180
+Jitendra K: Yeah, this is the architecture, so everything will be taken care of by model itself.
+
+525
+01:08:43.979 --> 01:08:46.789
+Jitendra K: Architecture will have a predefined sequences.
+
+526
+01:09:16.439 --> 01:09:20.639
+Jitendra K: Okay, let's do one thing, let's go with AlexNetCore, and then…
+
+527
+01:09:21.310 --> 01:09:25.809
+Jitendra K: You can take your time to run and execute and understand this code.
+
+528
+01:09:26.010 --> 01:09:29.510
+Jitendra K: So, in AlexNet, what we are going to do is, we are going to use,
+
+529
+01:09:29.630 --> 01:09:33.339
+Jitendra K: the dataset that we have used multiple times earlier as well.
+
+530
+01:09:33.510 --> 01:09:35.240
+Jitendra K: It's called CIFAR.
+
+531
+01:09:35.649 --> 01:09:39.919
+Jitendra K: So this is a dataset that I'm going to use for training the AlexNet model.
+
+532
+01:09:40.450 --> 01:09:46.980
+Jitendra K: And this data set is available in many departments, and one of the universities that I'm using, the slides as well.
+
+533
+01:09:47.470 --> 01:09:49.520
+Jitendra K: I think this is the same slide, yes.
+
+534
+01:09:50.290 --> 01:09:53.649
+Jitendra K: From University of Toronto, from this side.
+
+535
+01:09:54.160 --> 01:09:59.710
+Jitendra K: And, this is a CIFAR10 dataset, which is having 60,000 colored images.
+
+536
+01:09:59.910 --> 01:10:02.629
+Jitendra K: Of 32 across 32 pixels.
+
+537
+01:10:03.200 --> 01:10:08.800
+Jitendra K: And we will use, 6,000 image per class. That means it is pretty well distributed.
+
+538
+01:10:10.280 --> 01:10:15.929
+Jitendra K: And these are the classes, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, that we are going to use.
+
+539
+01:10:16.460 --> 01:10:21.880
+Jitendra K: So let's start with the AlexNet code.
+
+540
+01:10:22.120 --> 01:10:24.270
+Jitendra K: So I'm going to use AlexNet to solve.
+
+541
+01:10:27.010 --> 01:10:33.179
+Jitendra K: architecture… this all CIF, they are a challenge.
+
+542
+01:10:40.670 --> 01:10:42.150
+Jitendra K: So I will run this…
+
+543
+01:10:52.440 --> 01:10:57.190
+Jitendra K: If you would like to read the paper, then go through it, how it has been determined and all.
+
+544
+01:10:57.870 --> 01:10:59.510
+Jitendra K: So please read this paper.
+
+545
+01:11:01.410 --> 01:11:11.059
+Jitendra K: So you have to read papers for understanding the architecture. As a trainer, I cannot help you to go each and every line why the kernel size has been determined, why it isn't chosen in that.
+
+546
+01:11:11.690 --> 01:11:14.100
+Jitendra K: They have to read this paper for doing this.
+
+547
+01:11:18.350 --> 01:11:22.310
+Jitendra K: So please use this paper, go through it, and let me know if anything is unclear.
+
+548
+01:11:23.040 --> 01:11:27.029
+Jitendra K: If I'm taking that much time to explain each and everything, then it will be…
+
+549
+01:11:27.280 --> 01:11:29.140
+Jitendra K: 100 class for CNN only.
+
+550
+01:11:33.830 --> 01:11:36.370
+Jitendra K: For AlexNet, this is the final paper.
+
+551
+01:11:37.260 --> 01:11:40.690
+Jitendra K: Now, from this class onward, we have 2 or 35 papers.
+
+552
+01:11:45.280 --> 01:11:47.359
+Jitendra K: So this is the paper for AlexNet.
+
+553
+01:11:48.050 --> 01:11:50.190
+Jitendra K: And these are all available in archive.
+
+554
+01:11:51.510 --> 01:11:53.250
+Jitendra K: So you can use this…
+
+555
+01:12:01.910 --> 01:12:03.570
+Jitendra K: Good closing press.
+
+556
+01:12:18.590 --> 01:12:21.730
+Jitendra K: With that point of time, there's no archive as well.
+
+557
+01:12:27.510 --> 01:12:29.089
+Jitendra K: Yeah, you can use this.
+
+558
+01:12:32.360 --> 01:12:35.669
+Jitendra K: So the architecture, they have tried multiple things.
+
+559
+01:12:35.940 --> 01:12:38.300
+Jitendra K: And then they come up with an architecture, right?
+
+560
+01:12:38.560 --> 01:12:44.890
+Jitendra K: But if we… If we recreate that architecture, that means we require 50 classes just for LXNet.
+
+561
+01:12:48.040 --> 01:12:51.260
+Jitendra K: So it is running now, and let's see what is the outcome.
+
+562
+01:12:51.390 --> 01:12:53.780
+Jitendra K: Okay, it is running in 50 epoch.
+
+563
+01:12:57.690 --> 01:13:04.880
+Jitendra K: Okay, so nonetheless, so this will cover after our break, but let me explain the code, what are we trying to do?
+
+564
+01:13:05.280 --> 01:13:12.399
+Jitendra K: So, as I mentioned, the focus now shift from PyTorch to TensorFlow, so we'll use TensorFlow now.
+
+565
+01:13:12.750 --> 01:13:20.650
+Jitendra K: So TensorFlow is a similar framework as PyTorch, the only difference is TensorFlow is more sophisticated as compared to PyTorch.
+
+566
+01:13:21.440 --> 01:13:34.450
+Jitendra K: Now, we are using several packages, including NumPy to store the pixels for numerical operation, array handling and random seeding, matplot for plotting the training curves and sample images.
+
+567
+01:13:34.760 --> 01:13:41.570
+Jitendra K: And TensorFlow for main… as a main deep learning framework. So I will also use one more framework called TensorBoard.
+
+568
+01:13:46.180 --> 01:13:52.339
+Jitendra K: for… ML Ops… That means how the models are.
+
+569
+01:13:55.070 --> 01:13:56.090
+Jitendra K: behaving.
+
+570
+01:14:03.350 --> 01:14:12.090
+Jitendra K: So we'll use TensorBoat for that purpose, model tracking purpose. So I'm using TensorFlow for two-way build models, sequential.
+
+571
+01:14:12.550 --> 01:14:16.410
+Jitendra K: polynear stack, model for more flexible API configuration.
+
+572
+01:14:16.750 --> 01:14:19.779
+Jitendra K: Now, here I'm defining the input size,
+
+573
+01:14:20.120 --> 01:14:35.330
+Jitendra K: input, defined input layer in the API function, convolution, two-dimensional convolution operation. So I'm reusing this all thing, right? This is a part of a TensorFlow, and that's the reason you will not see kernel, max pooling, and all these things, because this has already been predefined.
+
+574
+01:14:35.430 --> 01:14:38.150
+Jitendra K: inside this architecture. So I'm just reusing it.
+
+575
+01:14:39.170 --> 01:14:48.249
+Jitendra K: Do you think that you require customization? The answer is no, it has not required any customization, because it has been trained by best of the best data scientists in the world already.
+
+576
+01:14:48.850 --> 01:14:54.990
+Jitendra K: So we need not to even touch this model. We can use as it is. We are just using transfer learning to perform this.
+
+577
+01:14:55.570 --> 01:15:00.200
+Jitendra K: We'll talk about the other set of hyperparameters that you required for…
+
+578
+01:15:00.340 --> 01:15:05.349
+Jitendra K: Transfer learning, and that is something which we will use as a hyperparameter from a user perspective.
+
+579
+01:15:05.620 --> 01:15:08.590
+Jitendra K: But right now, we are using the architecture as it is.
+
+580
+01:15:08.880 --> 01:15:17.430
+Jitendra K: So, max polling is a max polling two layers for spatial downsampling, batch normalization for normalizing the activation, natural accelerator training.
+
+581
+01:15:17.880 --> 01:15:23.579
+Jitendra K: We've already seen that what is the purpose of batch normalization is to penalize the model for
+
+582
+01:15:23.800 --> 01:15:26.279
+Jitendra K: Act like a regularizer, my technique.
+
+583
+01:15:26.790 --> 01:15:34.659
+Jitendra K: Flattening the images, that means we are flattening the three-dimensional feature map into one-dimensional vector array for a full, fully connected layers.
+
+584
+01:15:34.800 --> 01:15:39.730
+Jitendra K: And a dense layer for fully connected outward.
+
+585
+01:15:39.900 --> 01:15:48.750
+Jitendra K: The dropout comprises of randomly dropping neurons during training to reduce overfitting, so this is one hyperparameter that we are using, dropout rate.
+
+586
+01:15:49.250 --> 01:15:57.920
+Jitendra K: Resizing of the image, which is not necessary, but it is useful when you have limited data sets. So here we are talking about 6,000.
+
+587
+01:15:58.200 --> 01:16:01.640
+Jitendra K: 60,000 images, which is more than enough.
+
+588
+01:16:02.660 --> 01:16:06.329
+Jitendra K: But we can also use resizing, re-rotation, and cropping.
+
+589
+01:16:06.550 --> 01:16:12.570
+Jitendra K: To make sure that we were able to generalize, these images and generate some more samples out of it.
+
+590
+01:16:12.950 --> 01:16:15.699
+Jitendra K: Then, we are starting with TensorFlow.
+
+591
+01:16:16.070 --> 01:16:18.680
+Jitendra K: KRAS, which is a low-level API.
+
+592
+01:16:18.850 --> 01:16:21.020
+Jitendra K: And TensorFlow is a high-level API.
+
+593
+01:16:21.740 --> 01:16:31.390
+Jitendra K: So I'm using… running Keras on the top of TensorFlow, so that I can able to import some packages like ADAM, which is Optimizer with Adaptive Learning Rate.
+
+594
+01:16:32.000 --> 01:16:41.670
+Jitendra K: TensorFlow, Exponential decay that will help me to schedule learning rate and, maybe accelerate my whole training.
+
+595
+01:16:42.230 --> 01:16:48.499
+Jitendra K: And I have certain criteria called early stopping and model checkpoints. So early stopping will help me to stop this model early.
+
+596
+01:16:48.640 --> 01:16:53.529
+Jitendra K: If there's no changes in my errors any further, but I think it's running.
+
+597
+01:16:53.940 --> 01:16:55.560
+Jitendra K: It will take some time.
+
+598
+01:16:57.160 --> 01:16:58.429
+Jitendra K: Before it stopped.
+
+599
+01:16:58.640 --> 01:17:01.940
+Jitendra K: Right? So we are using only stopping for that purpose.
+
+600
+01:17:02.040 --> 01:17:12.149
+Jitendra K: Model checkpoint to generate batch of augment image in real time, so that we can able to perform, some sort of validation before rolling around the model in production.
+
+601
+01:17:12.600 --> 01:17:20.710
+Jitendra K: Reproducibility purpose, I'm using a suite parameters. I will say, set a random suite for TensorFlow and NumPy, so the results are reproducible across runs.
+
+602
+01:17:21.330 --> 01:17:25.770
+Jitendra K: I'm using 10 class problem, so these are my 10 classes in a list.
+
+603
+01:17:26.510 --> 01:17:30.960
+Jitendra K: I'm loading the data from TensorFlow Keras. This is my data set.
+
+604
+01:17:32.040 --> 01:17:38.249
+Jitendra K: 50,000 images of shape 32 cross 32 cross 3, and all are integer 8 bits.
+
+605
+01:17:39.100 --> 01:17:42.280
+Jitendra K: So I'm keeping our training samples to be…
+
+606
+01:17:43.120 --> 01:17:46.360
+Jitendra K: 50,000, and test sample to be 10,000.
+
+607
+01:17:46.860 --> 01:17:55.450
+Jitendra K: pre-processing my data so that I can normalize my image by considering the fact that the maximum value of an image pixel is 255.
+
+608
+01:17:55.800 --> 01:17:57.920
+Jitendra K: So I'm just normalizing by min-max.
+
+609
+01:17:59.020 --> 01:18:05.680
+Jitendra K: converting pixel's value from interior to float in a range of 0 to 1. And this is a commonly a normalization step that will help
+
+610
+01:18:06.010 --> 01:18:08.629
+Jitendra K: To achieve a steady gradient-based learning.
+
+611
+01:18:09.490 --> 01:18:18.370
+Jitendra K: Now, I'm keeping a channel mean, per channel mean subtraction. It is, part of an Alex Knight paper, so that's the reason I'm giving a reference.
+
+612
+01:18:18.730 --> 01:18:25.369
+Jitendra K: The channel mean is given from, taken from AlexNet paper. This means it's computed over all training examples.
+
+613
+01:18:25.520 --> 01:18:27.769
+Jitendra K: While keeping the dimension to be true.
+
+614
+01:18:27.910 --> 01:18:35.470
+Jitendra K: So that I can be able to broadcast this array when I'm performing the calculation. Broadcasting the array is important in here.
+
+615
+01:18:36.130 --> 01:18:43.859
+Jitendra K: Now, I'm performing some data augmentation, so I'm saying data generator, that will image work, that will create an image generator.
+
+616
+01:18:44.660 --> 01:18:52.310
+Jitendra K: object, and this will help me to apply random transformation during training, like horizontal flip, Vertical shift in width.
+
+617
+01:18:52.460 --> 01:18:53.530
+Jitendra K: I shift.
+
+618
+01:18:53.760 --> 01:18:56.870
+Jitendra K: Shift image by 10%, or width and height.
+
+619
+01:18:57.030 --> 01:19:03.180
+Jitendra K: a zoomed image, Up to 10%, or… some numbers.
+
+620
+01:19:03.520 --> 01:19:10.029
+Jitendra K: So, this is what will help me to localize my image, and then… Using the same data.
+
+621
+01:19:11.140 --> 01:19:15.110
+Jitendra K: As it is, by just doing some manual data augmentation.
+
+622
+01:19:16.860 --> 01:19:19.120
+Jitendra K: then I will use a fully…
+
+623
+01:19:19.230 --> 01:19:30.059
+Jitendra K: connected AlexNet, so these are my architectures. So I think those who are asking, I think, the question why we are selecting all these numbers, this is given here.
+
+624
+01:19:30.400 --> 01:19:37.520
+Jitendra K: But as I mentioned, this is done by best of the best data scientists. If you would like to challenge, please go ahead and challenge them.
+
+625
+01:19:38.160 --> 01:19:45.200
+Jitendra K: And, produce something more efficient as compared to the existing one, or use as it is?
+
+626
+01:19:45.340 --> 01:19:46.910
+Jitendra K: For transfer learning purpose.
+
+627
+01:19:47.190 --> 01:19:52.689
+Jitendra K: So this is what we are using as it is for transfer learning purpose, and then these are the functions that we are using for that
+
+628
+01:19:53.810 --> 01:19:55.540
+Jitendra K: For that purpose.
+
+629
+01:19:55.820 --> 01:20:05.050
+Jitendra K: So, we are creating a function that will define the input layer with a given shape. So, the shape of the image is 227 cross 227 cross 3.
+
+630
+01:20:05.380 --> 01:20:08.090
+Jitendra K: And the number of tasks that we are going to predict is 10.
+
+631
+01:20:08.350 --> 01:20:17.120
+Jitendra K: So the first layer that we are using is block 1, which is convolution two-dimensional operation, which is having 96 filter of size to 11 plus 11.
+
+632
+01:20:17.420 --> 01:20:19.100
+Jitendra K: A stride of 4.
+
+633
+01:20:19.500 --> 01:20:22.879
+Jitendra K: And padding size, which is the output size.
+
+634
+01:20:23.100 --> 01:20:25.249
+Jitendra K: Given as 227.
+
+635
+01:20:25.520 --> 01:20:27.310
+Jitendra K: Minus 11 divided by 4.
+
+636
+01:20:28.800 --> 01:20:36.400
+Jitendra K: And then, we are using that value activation function to perform the block 1 nonlinearity transformation.
+
+637
+01:20:36.590 --> 01:20:44.020
+Jitendra K: Then we apply a bash normalization and a polling layer. So this is the three operations that we are applying at each layer now. So, layer one.
+
+638
+01:20:44.570 --> 01:20:45.779
+Jitendra K: Layer 2?
+
+639
+01:20:46.240 --> 01:20:49.999
+Jitendra K: Layer 3, and Layer 4, and so on and so forth.
+
+640
+01:20:50.180 --> 01:20:52.310
+Jitendra K: So once we achieve block.
+
+641
+01:20:52.470 --> 01:20:58.889
+Jitendra K: 2, that means after layer 1, we move on to the block 2. So, block 2 comprises of 256 filters.
+
+642
+01:20:59.490 --> 01:21:01.510
+Jitendra K: H of 5 cross 5.
+
+643
+01:21:01.770 --> 01:21:06.820
+Jitendra K: stride of 1. Padding is same, which is original sample size.
+
+644
+01:21:06.970 --> 01:21:14.480
+Jitendra K: And again, we are applying a bash normalization. In block number 3, We are using 384 filters.
+
+645
+01:21:14.970 --> 01:21:16.879
+Jitendra K: of size 3.
+
+646
+01:21:17.090 --> 01:21:19.450
+Jitendra K: Stride 1, and padding is equal to the same.
+
+647
+01:21:19.620 --> 01:21:26.330
+Jitendra K: Now, how does we come up with these numbers, right? That is what you're asking, if I… if I have…
+
+648
+01:21:26.850 --> 01:21:29.100
+Jitendra K: Not mistaken, this is what your question is.
+
+649
+01:21:30.640 --> 01:21:36.819
+Jitendra K: Okay, so that is what I'm saying, you have to read the paper. Can you read the paper and then ask this question?
+
+650
+01:21:40.800 --> 01:21:43.919
+Jitendra K: So you have to read the paper first, and then come up with this answer.
+
+651
+01:21:46.210 --> 01:22:00.109
+Jitendra K: Okay, so the model we are keeping as it is, as per the paper, the architecture which has been given to us. So there's no change in the… we are exactly following the same numbers which have been described in the LXNet library.
+
+652
+01:22:01.260 --> 01:22:03.030
+Jitendra K: Or this particular paper.
+
+653
+01:22:03.900 --> 01:22:14.049
+Jitendra K: So, now, once we have this function ready, then we are saying that let's try to run the model, and then use a categorical cross entropy as our objective function.
+
+654
+01:22:14.400 --> 01:22:21.290
+Jitendra K: So, objective is to increase… sorry, reduce this category of cross-entropy and improve the accuracy of the model.
+
+655
+01:22:21.710 --> 01:22:29.410
+Jitendra K: And we'll run this model in mini-batches. So we'll run a mini-batch model, and then display the output in a training function.
+
+656
+01:22:29.790 --> 01:22:38.550
+Jitendra K: So I would like to display the output, and then we will have several callback functions, which will also increase the early stopping.
+
+657
+01:22:39.040 --> 01:22:43.780
+Jitendra K: to… Decrease the number of compute costs requirement for my model training.
+
+658
+01:22:44.390 --> 01:22:56.520
+Jitendra K: Reduce RON on plateau. I will cover this part in the upcoming tutorials, what is plateau region in deep learning, and then we are creating and saving the… storing the model checkpoints, so in case of failure.
+
+659
+01:22:58.010 --> 01:23:01.269
+Jitendra K: So we're running this in 50 epoch by a size of 128.
+
+660
+01:23:01.420 --> 01:23:07.960
+Jitendra K: The evaluation strategy is across critical philanthropy and accuracy, and we will try to print at each step.
+
+661
+01:23:08.540 --> 01:23:13.620
+Jitendra K: And this is what we are doing in, in this whole exercise.
+
+662
+01:23:14.160 --> 01:23:20.870
+Jitendra K: And finally, it will generate some output, that will help us to substantiate how this model has been trained.
+
+663
+01:23:21.160 --> 01:23:23.299
+Jitendra K: Writing is taking much time.
+
+664
+01:23:23.620 --> 01:23:31.319
+Jitendra K: So it will take some time, because the data is huge now. 60,000 images, literally, we are using. I can use samples as well.
+
+665
+01:23:31.540 --> 01:23:36.429
+Jitendra K: But I just want to run this and see the original implementation of AlexNet.
+
+666
+01:23:37.140 --> 01:23:43.580
+Jitendra K: So all these parameters, you have to read the paper, architecture, original version, and then come up with a question.
+
+667
+01:23:43.990 --> 01:23:51.000
+Jitendra K: And, the architecture… if we ignore the architecture, we are just using attainable instances.
+
+668
+01:23:51.980 --> 01:24:01.410
+Jitendra K: Image augmentation during training, will it affect the generalization? Will it not affect the generalization? How will it affect the generalization? We are helping the model to have more samples.
+
+669
+01:24:03.260 --> 01:24:07.369
+Jitendra K: We're generating some raw samples without waiting for the new data.
+
+670
+01:24:08.480 --> 01:24:11.070
+Jitendra K: So this is a synthetic sample that we are generating.
+
+671
+01:24:14.950 --> 01:24:18.819
+Jitendra K: So, image augmentation will be helpful for the model training.
+
+672
+01:24:21.390 --> 01:24:25.109
+Jitendra K: But too much image augmentation will be not recommended.
+
+673
+01:24:25.310 --> 01:24:26.460
+Jitendra K: In this case.
+
+674
+01:24:27.300 --> 01:24:34.309
+Jitendra K: Because unnecessary, you will add… Some random parameters to the model, which may or may not impact.
+
+675
+01:24:48.820 --> 01:24:52.459
+Jitendra K: Okay, so this is the… this is how you should read the…
+
+676
+01:24:53.070 --> 01:24:59.069
+Jitendra K: total parameters that we are using in the model. So the total parameter that we are using in the model is 36…
+
+677
+01:24:59.330 --> 01:25:00.730
+Jitendra K: 30 million.
+
+678
+01:25:01.650 --> 01:25:06.719
+Jitendra K: Total trainable parameter is more than 30 million. Non-trainable parameter is 704.
+
+679
+01:25:07.210 --> 01:25:13.089
+Jitendra K: And, if I have to take the aggregated parameter, this is what the aggregated parameter is.
+
+680
+01:25:14.200 --> 01:25:20.240
+Jitendra K: And we are using 50,000 images for testing, 10,000 for validation, And we're running this in…
+
+681
+01:25:21.000 --> 01:25:26.490
+Jitendra K: 50 batches, so it will complete, I think, in 2 to 3 hours from now.
+
+682
+01:25:27.030 --> 01:25:31.909
+Jitendra K: So I will share this code, you can run it in your local machine, and then you can see the outcome.
+
+683
+01:25:32.720 --> 01:25:37.949
+Jitendra K: So, this is what it looks like. Maybe early stopping may prevent.
+
+684
+01:25:38.360 --> 01:25:44.829
+Jitendra K: To go up to all 50 steps, but it will be, again, Will take some time.
+
+685
+01:25:48.430 --> 01:25:54.429
+Jitendra K: Let me share this code with you guys as well. So here, How did you…
+
+686
+01:25:54.800 --> 01:26:01.039
+Jitendra K: how will you read this date, this particular code? Again, you have to revisit the paper…
+
+687
+01:26:01.790 --> 01:26:03.810
+Jitendra K: Look into the parameters.
+
+688
+01:26:04.230 --> 01:26:07.400
+Jitendra K: Try to understand what parameter you mention.
+
+689
+01:26:07.590 --> 01:26:13.869
+Jitendra K: Check the code, functions, are we… stick with those parameters? If yes, then good.
+
+690
+01:26:14.170 --> 01:26:17.580
+Jitendra K: If not, Then you can ask a question.
+
+691
+01:26:27.890 --> 01:26:30.040
+Jitendra K: So let me share this poll with everyone.
+
+692
+01:26:37.610 --> 01:26:43.860
+Jitendra K: A broadcaster is for… Basically, when you're using different layers.
+
+693
+01:26:44.130 --> 01:26:47.040
+Jitendra K: So these layers should have access to the previous…
+
+694
+01:26:47.580 --> 01:26:53.429
+Jitendra K: normalized array. So for that, we required broadcasting, so that should be shared between multiple convolution layers.
+
+695
+01:26:53.740 --> 01:26:55.680
+Jitendra K: And that's the purpose of broadcasting.
+
+696
+01:27:10.300 --> 01:27:15.590
+Jitendra K: Okay, so just a quick recap of what we have learned so far. So we started with a CNN architecture.
+
+697
+01:27:15.970 --> 01:27:21.969
+Jitendra K: So we understand what are our different… use cases for CNN.
+
+698
+01:27:22.450 --> 01:27:26.390
+Jitendra K: Then we talk about two important… Architecture Lean Act.
+
+699
+01:27:26.850 --> 01:27:28.030
+Jitendra K: And Alex Knight.
+
+700
+01:27:32.010 --> 01:27:38.970
+Jitendra K: We talked about the components of CNN, which include convolution, kernels…
+
+701
+01:27:40.300 --> 01:27:42.420
+Jitendra K: Which is also called as filters.
+
+702
+01:27:43.310 --> 01:27:52.270
+Jitendra K: We're distance strikes… parting… We understand what are the different types of,
+
+703
+01:27:53.070 --> 01:27:57.780
+Jitendra K: Layers that we are going to use, and in the layer, we are performing regularization.
+
+704
+01:27:59.220 --> 01:28:07.620
+Jitendra K: And also, we are doing… bit of, image… regeneration.
+
+705
+01:28:09.820 --> 01:28:11.549
+Jitendra K: Very, very simple, get.
+
+706
+01:28:11.670 --> 01:28:15.089
+Jitendra K: And then we are also talking about batch normalization.
+
+707
+01:28:15.820 --> 01:28:17.090
+Jitendra K: Max pooling.
+
+708
+01:28:22.080 --> 01:28:28.150
+Jitendra K: So all these things we have discussed, and to improve the model accuracy, we also talk about dropout rate.
+
+709
+01:28:32.080 --> 01:28:38.010
+Jitendra K: So the key idea that we are using in CNN is these building blocks, and then from these building blocks.
+
+710
+01:28:38.270 --> 01:28:42.369
+Jitendra K: We are using the models to generalize the outcome.
+
+711
+01:28:43.360 --> 01:28:46.350
+Jitendra K: So, I have shared the code with you guys.
+
+712
+01:28:46.730 --> 01:28:48.850
+Jitendra K: Now, what we are going to do next is…
+
+713
+01:28:49.260 --> 01:28:51.010
+Jitendra K: We are going to focus on…
+
+714
+01:28:52.610 --> 01:28:55.160
+Jitendra K: some more use cases of CNN.
+
+715
+01:28:55.300 --> 01:29:01.070
+Jitendra K: And this time, we will try to customize our CNN model, and this time, we will choose our parameter by our own.
+
+716
+01:29:01.580 --> 01:29:03.400
+Jitendra K: So instead of,
+
+717
+01:29:03.540 --> 01:29:08.739
+Jitendra K: reusing some architecture. Let's try to see how to fine-tune our hyperparameters, and what are the…
+
+718
+01:29:08.870 --> 01:29:14.890
+Jitendra K: Different constraint that you have to consider to design a CNN from the scratch.
+
+719
+01:29:15.040 --> 01:29:17.789
+Jitendra K: Alright, so let's take a quick break of 20 minutes.
+
+720
+01:29:17.900 --> 01:29:23.709
+Jitendra K: And once we come back, then we will start with the custom CNN model training by ourselves.
+
+721
+01:29:24.110 --> 01:29:27.810
+Jitendra K: And there we will have all the parameter discussion in depth.
+
+722
+01:29:28.480 --> 01:29:32.739
+Jitendra K: Let's take a quick 20 minutes break, and then we'll start the session. Thank you, guys.
+
+723
+01:52:46.750 --> 01:52:50.830
+Jitendra K: Alright guys, I hope you're back. Can we have a quick confirmation?
+
+724
+01:52:57.040 --> 01:52:58.080
+Jitendra K: Okay, great.
+
+725
+01:52:58.600 --> 01:53:04.240
+Jitendra K: So, any question on the previous discussion that we have on the architecture point of view?
+
+726
+01:53:10.240 --> 01:53:16.350
+Jitendra K: So we'll start with the new case study, and this is a dataset that I'm going to use called Eurostat.
+
+727
+01:53:16.840 --> 01:53:18.910
+Jitendra K: the Euro side. So this is…
+
+728
+01:53:22.350 --> 01:53:30.920
+Jitendra K: Okay, maybe, I'm replacing this data because this is not available, so I'm going to use CASA… Wally…
+
+729
+01:53:31.370 --> 01:53:32.560
+Jitendra K: PCs…
+
+730
+01:53:37.050 --> 01:53:39.019
+Jitendra K: So I'm going to use this dataset.
+
+731
+01:53:49.360 --> 01:53:53.820
+Jitendra K: So this is a great data set for doing the analysis on the images.
+
+732
+01:53:55.320 --> 01:54:02.850
+Jitendra K: So we have, some sort of plant called cassava, which is having four conditions.
+
+733
+01:54:03.300 --> 01:54:07.430
+Jitendra K: Including mosaic disease, material blight disease.
+
+734
+01:54:07.770 --> 01:54:14.609
+Jitendra K: green mite disease, and brown streak disease. So this dataset comprised of 9,430 image
+
+735
+01:54:15.350 --> 01:54:18.910
+Jitendra K: Label across these four categories, and these four…
+
+736
+01:54:19.250 --> 01:54:22.159
+Jitendra K: Categories include healthy leaves as well.
+
+737
+01:54:22.540 --> 01:54:29.509
+Jitendra K: So we have a bulk of training data, and then we'll use this dataset To train the model.
+
+738
+01:54:29.880 --> 01:54:37.099
+Jitendra K: and, identify the type of a disease. So this is a great, useful Type for red detection.
+
+739
+01:54:37.290 --> 01:54:38.470
+Jitendra K: for farmers.
+
+740
+01:54:39.440 --> 01:54:42.009
+Jitendra K: Right? And then they will be able to benchmark.
+
+741
+01:54:42.280 --> 01:54:52.790
+Jitendra K: any sort of, disease which is, there in their harvesting, and then take early decisions on the top of it. So there are a lot of startups which is doing this.
+
+742
+01:54:53.240 --> 01:54:56.770
+Jitendra K: And they have, throw a challenge, and Kegel,
+
+743
+01:54:57.260 --> 01:55:04.350
+Jitendra K: And this challenge has been introduced in the year, I think, 2022.
+
+744
+01:55:05.220 --> 01:55:08.079
+Jitendra K: Let me check when is the first version launched.
+
+745
+01:55:19.440 --> 01:55:23.050
+Jitendra K: Yeah, it's a recent addition, 2 years old challenge.
+
+746
+01:55:24.300 --> 01:55:30.369
+Jitendra K: So this dataset comprises of, the leaf, which is having different categories of diseases.
+
+747
+01:55:30.560 --> 01:55:35.259
+Jitendra K: And then, this is the homepage where you can download the data. The data size is pretty huge.
+
+748
+01:55:35.620 --> 01:55:39.710
+Jitendra K: Which is having some documentation as well, where you can read it.
+
+749
+01:55:40.030 --> 01:55:45.709
+Jitendra K: To understand the classification criterias, And then there are different money…
+
+750
+01:55:46.780 --> 01:55:50.339
+Jitendra K: For this particular challenge to be solved.
+
+751
+01:55:50.600 --> 01:55:53.440
+Jitendra K: So this is, the leadership board.
+
+752
+01:55:55.050 --> 01:56:00.649
+Jitendra K: Who is, the developers of this solution. So this is a 7-year-old, actually.
+
+753
+01:56:00.980 --> 01:56:03.850
+Jitendra K: 2000… quarantine.
+
+754
+01:56:04.410 --> 01:56:10.249
+Jitendra K: Okay, so I went to… 2018 to 2019. I think Abhisheit Thakur is also there? No.
+
+755
+01:56:10.370 --> 01:56:11.060
+Jitendra K: Okay.
+
+756
+01:56:12.430 --> 01:56:16.799
+Jitendra K: So this is, the data set that we're going to use to train this model.
+
+757
+01:56:17.040 --> 01:56:30.239
+Jitendra K: And this is an open challenge, so you can use any model, right? So, when you're solving any Kegel challenges, it's a pretty open challenge. You need not to put your solution to a specific model. So that's the reason we will use our own solution, rather than using
+
+758
+01:56:31.580 --> 01:56:33.490
+Jitendra K: Template for transfer learning.
+
+759
+01:56:34.610 --> 01:56:36.239
+Jitendra K: So let's try to solve this.
+
+760
+01:56:47.870 --> 01:56:50.200
+Jitendra K: So let me just download the data first.
+
+761
+01:57:24.810 --> 01:57:27.600
+Jitendra K: Okay, so till the time it is running,
+
+762
+01:57:28.960 --> 01:57:33.790
+Jitendra K: I will explain the code, let me first see if it is start running without any error.
+
+763
+01:57:40.390 --> 01:57:43.100
+Jitendra K: So now it'll start extracting the files.
+
+764
+01:58:16.730 --> 01:58:25.550
+Jitendra K: Okay, I extracted our data… Plotting some sample images… These are my input images.
+
+765
+01:58:31.450 --> 01:58:34.450
+Jitendra K: We'll start building the convolution.
+
+766
+01:58:37.070 --> 01:58:38.730
+Jitendra K: Okay, this is a error.
+
+767
+01:58:53.660 --> 01:58:57.829
+Jitendra K: Let me first split the code into two parts, so that I know not to run.
+
+768
+01:59:26.240 --> 01:59:28.619
+Jitendra K: Okay, let's try to understand this code first.
+
+769
+01:59:29.150 --> 01:59:31.250
+Jitendra K: And then we'll revisit this.
+
+770
+01:59:32.000 --> 01:59:34.880
+Jitendra K: So basically, this quote talks about,
+
+771
+01:59:38.540 --> 01:59:44.940
+Jitendra K: The leaf disease detection algorithm from image processing point of view.
+
+772
+01:59:45.040 --> 01:59:52.589
+Jitendra K: So we have got, 64 across 64 pixel images for each type of data sets.
+
+773
+01:59:52.860 --> 01:59:59.080
+Jitendra K: And we are going to use our own convolution neural network from the scratch, and then we'll try to complete this.
+
+774
+01:59:59.190 --> 02:00:17.279
+Jitendra K: This script is useful for building convulsion neural networks from the scratch for Canvas leaf detection classification, which is a cable competition-hosted challenge, and it covers every fundamentals concept of CNN, including kernel stride, padding, pooling, patch normalization, dropouts, skip connection.
+
+775
+02:00:17.450 --> 02:00:22.579
+Jitendra K: Dilated convert convolutions, and provide an extensive idea to work on this.
+
+776
+02:00:22.880 --> 02:00:30.879
+Jitendra K: So, first and foremost thing, I have to import the packages, standard set of libraries, to suppress warnings, and importing the TensorFlow clipping method.
+
+777
+02:00:31.990 --> 02:00:35.359
+Jitendra K: Then I'm using a standard set of Python libraries.
+
+778
+02:00:35.650 --> 02:00:42.519
+Jitendra K: Including Matplot for plotting the graphs, and posted this into a MLib using TensorFlow datasets.
+
+779
+02:00:43.100 --> 02:00:52.120
+Jitendra K: Then, I'm using, TensorFlow KRAS imports, specific KRAS components, including layer optimizer, schedulers, callback, regularizer.
+
+780
+02:00:52.580 --> 02:01:01.530
+Jitendra K: And also implementing a cosine decay method that implements a cosine annealing learning rate with warm restart, and I'm adding L2 as a…
+
+781
+02:01:01.810 --> 02:01:03.480
+Jitendra K: regularization strategy.
+
+782
+02:01:03.650 --> 02:01:11.119
+Jitendra K: Setting up the seat parameters for reproducibility part, checking if there's any valid GPU available, which I have enabled here.
+
+783
+02:01:11.620 --> 02:01:18.660
+Jitendra K: Then, I'm looking for the first section, the concept of dictionary, and building a multi-string dictionary that defines as CNN components.
+
+784
+02:01:18.820 --> 02:01:21.139
+Jitendra K: So these are my components that I'm using.
+
+785
+02:01:22.850 --> 02:01:30.029
+Jitendra K: And the formulas are also… I'm keeping it inside, so that you can take a reference and understand why these numbers are coming, which strides.
+
+786
+02:01:30.290 --> 02:01:37.299
+Jitendra K: So 3 cross 3 convolution. So if we have to start somewhere, right? I'm using 3 cross 3, you can convert it into 4 cross 4 as well.
+
+787
+02:01:37.470 --> 02:01:38.889
+Jitendra K: Depending upon the type.
+
+788
+02:01:39.200 --> 02:01:43.689
+Jitendra K: But I'm just starting with, some bit of experimentation.
+
+789
+02:01:43.910 --> 02:01:50.500
+Jitendra K: Polling layer, I'm keeping all three, basically max polling, average polling, global polling, and then I will see which one is the best.
+
+790
+02:01:50.910 --> 02:01:57.819
+Jitendra K: The dilation, I will explain in the upcoming tutorial. Batch normalization, you already know, I'm using it in mini-batch.
+
+791
+02:01:57.960 --> 02:02:03.760
+Jitendra K: Dropout rate, you already know, that will help me to prevent overfitting, so I will use a certain percentage to drop neurons.
+
+792
+02:02:04.020 --> 02:02:09.749
+Jitendra K: And skip connection is another green bypass that I'm using for… Trading this model.
+
+793
+02:02:10.130 --> 02:02:14.709
+Jitendra K: Now, I have some global configuration, including image size, which is of 64,
+
+794
+02:02:15.430 --> 02:02:18.770
+Jitendra K: 64 plus 64, and number of classes is…
+
+795
+02:02:19.150 --> 02:02:23.090
+Jitendra K: Five here, including the healthy leaf, and the four disease
+
+796
+02:02:23.580 --> 02:02:27.860
+Jitendra K: Then I'm keeping the batch size to be 64, epoch to be 40,
+
+797
+02:02:28.190 --> 02:02:31.650
+Jitendra K: and autotune, using TensorFlow Object.
+
+798
+02:02:32.330 --> 02:02:37.609
+Jitendra K: I have a class, which is healthy, and then the 4DDs class, which is my class name.
+
+799
+02:02:37.740 --> 02:02:40.219
+Jitendra K: I'm saving my data in log directory.
+
+800
+02:02:40.440 --> 02:02:48.830
+Jitendra K: checkpoint I'm creating for using Keras. If I retrain the model with new data set, I can use this checkpoint to
+
+801
+02:02:51.460 --> 02:02:54.070
+Jitendra K: Add on the deltas to the existing layers.
+
+802
+02:02:54.600 --> 02:03:01.039
+Jitendra K: Section number 3 talks about loading the data to memory, so I will load the data via TFDS.
+
+803
+02:03:01.200 --> 02:03:05.420
+Jitendra K: TensorFlow data sets, And I'm keeping this data start
+
+804
+02:03:06.390 --> 02:03:11.760
+Jitendra K: inside my NumPy vectors, so I will download this dataset and name it as Canvas.
+
+805
+02:03:12.130 --> 02:03:16.949
+Jitendra K: Cassava, and then split them into 70-15% testing.
+
+806
+02:03:17.310 --> 02:03:22.309
+Jitendra K: And 15% for validation, so 70, 15, 15. I'm keeping it, this ratio.
+
+807
+02:03:22.830 --> 02:03:30.049
+Jitendra K: Then I will calculate the number of samples in the splitting by validating the… Data set size, and then…
+
+808
+02:03:30.250 --> 02:03:34.320
+Jitendra K: Again, I'm just trying to print some few things on class distribution.
+
+809
+02:03:34.590 --> 02:03:38.039
+Jitendra K: Now, I would like to visualize the clause distribution
+
+810
+02:03:39.040 --> 02:03:43.820
+Jitendra K: By using a plot of, class sound with numerical labels on the top.
+
+811
+02:03:44.220 --> 02:03:48.239
+Jitendra K: And then I will start with the section 4, which is the CNN visualization.
+
+812
+02:03:48.370 --> 02:03:54.880
+Jitendra K: So this takes a raw sample image, resizes it to 64 plus 64, normalized between 0 to 1,
+
+813
+02:03:55.040 --> 02:03:59.449
+Jitendra K: and add a batch dimension. This image will be used to demonstrate various CNN operation.
+
+814
+02:03:59.770 --> 02:04:05.140
+Jitendra K: So the first thing that I'm using is handcrafting my kernels. I'm saying my kernel
+
+815
+02:04:05.560 --> 02:04:11.000
+Jitendra K: I will use the original image and then apply a fixed non-trainable kernel to detect edge.
+
+816
+02:04:11.570 --> 02:04:17.400
+Jitendra K: blur the image and sharpen the image to illustrate convulsion effect. And each kernel is defined manually.
+
+817
+02:04:17.610 --> 02:04:23.610
+Jitendra K: Tied to 3-channel, 3 input channels, because this is a colored image, and using 2D operation.
+
+818
+02:04:24.310 --> 02:04:35.479
+Jitendra K: I'm just keeping it 2D. So, I'm using some methods, like Laplacian transformation, Or… Using some sort of…
+
+819
+02:04:36.760 --> 02:04:40.979
+Jitendra K: Stride effects to resize my image for consistency purpose.
+
+820
+02:04:41.160 --> 02:04:44.430
+Jitendra K: So here, if you look in closely, I'm just using…
+
+821
+02:04:44.570 --> 02:04:49.009
+Jitendra K: The channel size here, nothing else. So there's no configuration here.
+
+822
+02:04:49.440 --> 02:04:54.400
+Jitendra K: Then, what I'm doing here is, I'm also… In row number 2.
+
+823
+02:04:54.880 --> 02:04:58.779
+Jitendra K: Where the polling layers have been defined. So I'm trying with all three polling.
+
+824
+02:04:59.110 --> 02:05:05.370
+Jitendra K: So I applied different polling size per strategy and showed a downsample effect that will resize back my image.
+
+825
+02:05:05.730 --> 02:05:10.890
+Jitendra K: Then I'm looking for the best of the three, and then select them.
+
+826
+02:05:11.320 --> 02:05:16.450
+Jitendra K: And finally, I believe the receptive field growth, which is… kind of…
+
+827
+02:05:17.230 --> 02:05:20.960
+Jitendra K: Maybe a receptive field is nothing, but it will expand.
+
+828
+02:05:21.080 --> 02:05:22.059
+Jitendra K: with that.
+
+829
+02:05:22.480 --> 02:05:30.279
+Jitendra K: So, I would like to see how my models are learning with the receptive fields and network depth increase with the help of these parameters.
+
+830
+02:05:30.810 --> 02:05:35.320
+Jitendra K: Now, I'm constructing a data pipeline, finally, so I'm using…
+
+831
+02:05:35.500 --> 02:05:38.490
+Jitendra K: The mean and standard division per channel for normalization.
+
+832
+02:05:38.780 --> 02:05:50.929
+Jitendra K: And then keeping my scale between 0 to 1, resizing the image of 66… 64 plus 64 to 0 to 1. And then augment the image with these random flips and rotations.
+
+833
+02:05:51.310 --> 02:05:57.630
+Jitendra K: And then start building the TensorFlow pipeline for batching, mapping, and shuffling.
+
+834
+02:05:58.080 --> 02:06:03.380
+Jitendra K: So, I'm building this architecture, where…
+
+835
+02:06:03.680 --> 02:06:07.610
+Jitendra K: I'm designing every aspect. So I'm selecting a large kernel.
+
+836
+02:06:07.790 --> 02:06:11.799
+Jitendra K: Which can capture the coarse leaf texture at once, with a stride tool.
+
+837
+02:06:12.210 --> 02:06:20.159
+Jitendra K: That means if my major 64 plus 68, my kernel, my stem size will be 7 plus 7, stride of 2,
+
+838
+02:06:20.520 --> 02:06:25.750
+Jitendra K: And then I'm dividing this strategy to make it more sophisticated. So in the state number one.
+
+839
+02:06:26.310 --> 02:06:29.510
+Jitendra K: Every convolution block will have
+
+840
+02:06:30.490 --> 02:06:38.390
+Jitendra K: 3 cross-free kernel operating on the top of it, and then it will use, backward propagation to…
+
+841
+02:06:38.530 --> 02:06:47.910
+Jitendra K: converse, and then I'm using a global polling and some null variation effect to perform regularization and dropout on the top of my mesh training.
+
+842
+02:06:48.260 --> 02:06:53.200
+Jitendra K: And finally, I have a detailed… architecture here.
+
+843
+02:06:53.390 --> 02:06:57.130
+Jitendra K: Where I'm determining, maybe I can show you the output.
+
+844
+02:06:57.270 --> 02:06:59.519
+Jitendra K: That's how this architecture has been defined.
+
+845
+02:06:59.730 --> 02:07:05.979
+Jitendra K: So basically, the simple task is, when you… when you're using these architectures, right.
+
+846
+02:07:06.250 --> 02:07:10.590
+Jitendra K: You have to think through the stages of each block.
+
+847
+02:07:11.220 --> 02:07:13.949
+Jitendra K: So I have to explain you the stages of each block.
+
+848
+02:07:19.390 --> 02:07:25.219
+Jitendra K: So the first block that we are using is the input. The input image, 64 plus 64. So we are having…
+
+849
+02:07:25.680 --> 02:07:27.049
+Jitendra K: 5 stages.
+
+850
+02:07:27.890 --> 02:07:31.720
+Jitendra K: So if I have to break down, the input is 64 plus 64 plus 3,
+
+851
+02:07:32.050 --> 02:07:43.090
+Jitendra K: The stam is 16 cross 16 cross 64, stage 1 is 8 across 8 cross 64. So basically, the goal of a STAM is to rapidly downsample input while extracting low-level features.
+
+852
+02:07:43.350 --> 02:07:46.630
+Jitendra K: Including edge, color, blobs, simple textures.
+
+853
+02:07:46.820 --> 02:07:53.040
+Jitendra K: So I'm adding a 3… Size padding, 3 pixels of zero padding on all sides.
+
+854
+02:07:53.360 --> 02:07:56.640
+Jitendra K: And then performing a convolution operation with a strike 2,
+
+855
+02:07:57.070 --> 02:08:08.970
+Jitendra K: So I'm keeping a large kernel which will capture the core sleeve structure in one go, and Stride 2 will halve the spatial size without needing any extra polling layer that we are supplying.
+
+856
+02:08:09.500 --> 02:08:16.789
+Jitendra K: And the batch normalization, I'm keeping it to reduce the overfitting criterias, and that will help me to do so.
+
+857
+02:08:16.930 --> 02:08:19.240
+Jitendra K: In the stage number one, I'm using
+
+858
+02:08:20.300 --> 02:08:28.050
+Jitendra K: I'm using a low-level features, and it will learn simple patterns like spots, leaf, edges, veins, etc.
+
+859
+02:08:28.160 --> 02:08:31.129
+Jitendra K: There are two residual blocks of 64 filters each.
+
+860
+02:08:31.470 --> 02:08:35.999
+Jitendra K: And a residual block comprised of 3 across 3,
+
+861
+02:08:36.850 --> 02:08:46.370
+Jitendra K: networks, which is using a ReLU operating… ReLU as a… as a… Transfer functions, right?
+
+862
+02:08:47.070 --> 02:08:58.710
+Jitendra K: So, residual blocks allow gradient to flow directly through skip connection, making it quite easier to train the deep network model, and using two blocks here, we are having enough capsule to capture textures without overfitting.
+
+863
+02:08:59.050 --> 02:09:05.289
+Jitendra K: Stage number 2 is just a double of stage number 1. So in 64, instead of 64, I'm using 128.
+
+864
+02:09:05.890 --> 02:09:11.079
+Jitendra K: filters. So the block must handle the increase in filter count from 64 to 128.
+
+865
+02:09:11.410 --> 02:09:18.549
+Jitendra K: And also, downsample if it's tried is equal to 2. So I'm just using a max polling after each block to reduce the…
+
+866
+02:09:18.700 --> 02:09:21.579
+Jitendra K: spatial size that I'm using for training the model.
+
+867
+02:09:21.700 --> 02:09:28.350
+Jitendra K: Stage number three is even, two times of stage number 4, which will capture the large-scale disease patterns.
+
+868
+02:09:28.730 --> 02:09:35.829
+Jitendra K: While keeping the number of parameters in check. So, 2 residual block with 256 filter, again, handling the channel increase parameters.
+
+869
+02:09:38.230 --> 02:09:44.080
+Jitendra K: So, this will run in 40 epoch, so it will take some time, but let me…
+
+870
+02:09:52.300 --> 02:09:54.150
+Jitendra K: See if we can reduce this.
+
+871
+02:10:20.620 --> 02:10:33.420
+Jitendra K: Yeah, we are using 7 plus 7 convolution with a stride tool. So, input image is 64 plus 64 with 0 padding. So, we are adding 3 pixels of zero padding on all strides. So, effectively, it becomes 70 plus 70, right?
+
+872
+02:10:34.100 --> 02:10:36.779
+Jitendra K: So 64 plus 64, and adding 3…
+
+873
+02:10:37.050 --> 02:10:40.399
+Jitendra K: Per… so 3 into 12. 3 into 4.
+
+874
+02:10:40.930 --> 02:10:50.090
+Jitendra K: So, it becomes 12. So, somewhere around 72, 72 into 72. So, convolution 2D with 7 plus 7 kernel inside of 2,
+
+875
+02:10:50.630 --> 02:10:54.800
+Jitendra K: Will help me to generate 32 plus 32 feature maps.
+
+876
+02:10:54.910 --> 02:10:56.399
+Jitendra K: So I'm using this formula.
+
+877
+02:10:56.830 --> 02:11:00.900
+Jitendra K: So I'm having… Original MA64 cost 64.
+
+878
+02:11:02.430 --> 02:11:05.440
+Jitendra K: And if I'm adding a padding of plus 3,
+
+879
+02:11:05.890 --> 02:11:08.260
+Jitendra K: It will become 70 into 70.
+
+880
+02:11:12.500 --> 02:11:15.050
+Jitendra K: So, if I'm using these formulas.
+
+881
+02:11:15.850 --> 02:11:19.269
+Jitendra K: 70 minus 7 divided by 2.
+
+882
+02:11:19.760 --> 02:11:22.539
+Jitendra K: With a stride size, plus 1.
+
+883
+02:11:23.160 --> 02:11:25.809
+Jitendra K: Which is equals 263 by 2.
+
+884
+02:11:26.520 --> 02:11:27.760
+Jitendra K: Thus one.
+
+885
+02:11:28.150 --> 02:11:32.109
+Jitendra K: Just close to 32, so 32 plus 32 feature map I will generate.
+
+886
+02:11:33.790 --> 02:11:40.139
+Jitendra K: So the last kernel capture… More coarse leaf structures from the image.
+
+887
+02:11:41.040 --> 02:11:45.990
+Jitendra K: You can reduce this as well. So, I mean, you can go with 4 plus 4, and you will see the…
+
+888
+02:11:46.580 --> 02:11:49.220
+Jitendra K: Consequences of choosing the low corner.
+
+889
+02:12:17.570 --> 02:12:18.420
+Jitendra K: Yeah.
+
+890
+02:12:20.770 --> 02:12:23.270
+Jitendra K: In the medium layer, we required…
+
+891
+02:12:24.190 --> 02:12:26.379
+Jitendra K: The kernel to be on higher side.
+
+892
+02:12:26.680 --> 02:12:30.930
+Jitendra K: Because we need to have more… granular information.
+
+893
+02:12:50.380 --> 02:12:55.440
+Jitendra K: Yes. Higher the criminal, higher the… Sorry, Zofia features.
+
+894
+02:12:56.580 --> 02:12:57.500
+Jitendra K: feature map.
+
+895
+02:13:04.320 --> 02:13:09.219
+Jitendra K: We are using a four-layer architecture, right? So, at each layer, we are increasing the number of neurons.
+
+896
+02:13:13.620 --> 02:13:15.140
+Jitendra K: the residual blocks.
+
+897
+02:13:51.140 --> 02:13:56.099
+Jitendra K: So, when we're increasing the feature map here, feature size here, from stage 1 to stage 2,
+
+898
+02:13:56.560 --> 02:13:59.800
+Jitendra K: We are going… go… weird.
+
+899
+02:13:59.920 --> 02:14:03.580
+Jitendra K: Going quite deeper in data, the spatial dimension of the feature map.
+
+900
+02:14:04.040 --> 02:14:07.979
+Jitendra K: Shrink at stage number 2, and stage number 3 after max pooling.
+
+901
+02:14:08.410 --> 02:14:19.169
+Jitendra K: What we are doing is, we are increasing the number of channels and filters, so we are representing… we are increasing the representation capacity of this data from mid-level to high-level disease-specific partners.
+
+902
+02:14:19.710 --> 02:14:23.560
+Jitendra K: And try to… Create a hierarchical future learning.
+
+903
+02:14:24.050 --> 02:14:26.549
+Jitendra K: Using more…
+
+904
+02:14:27.140 --> 02:14:32.650
+Jitendra K: samples that were able to differentiate the four types of disease. We know that this is a disease now.
+
+905
+02:14:32.760 --> 02:14:36.159
+Jitendra K: So at stage number one, we were able to predict, okay, this is a disease.
+
+906
+02:14:36.380 --> 02:14:41.169
+Jitendra K: This is a healthy, healthy leave, and this is the non-healthy leave, right? So we understand that part.
+
+907
+02:14:41.360 --> 02:14:50.270
+Jitendra K: Now, in stage number two, we are saying that let's try to run through more examples to differentiate between the four types of a disease, and create more patterns.
+
+908
+02:14:50.700 --> 02:14:52.689
+Jitendra K: That is what we are doing in this layer.
+
+909
+02:14:52.820 --> 02:14:55.540
+Jitendra K: So each layer will become dense as we progress.
+
+910
+02:15:17.700 --> 02:15:23.839
+Jitendra K: So these are the facial geometries. Spatial geometries, or I would say these are the features which have been generated.
+
+911
+02:15:24.130 --> 02:15:27.999
+Jitendra K: You can see edge detection, blurring, sharpening.
+
+912
+02:15:28.280 --> 02:15:32.060
+Jitendra K: Horizontal edge, vertical edge, servo filters.
+
+913
+02:15:32.490 --> 02:15:35.030
+Jitendra K: And then by average pooling, max pooling, and…
+
+914
+02:15:35.150 --> 02:15:37.300
+Jitendra K: You can see the loss of information here.
+
+915
+02:15:37.530 --> 02:15:38.710
+Jitendra K: Very clearly.
+
+916
+02:15:52.230 --> 02:15:55.400
+Jitendra K: Yeah, so I would request, you guys to run with
+
+917
+02:15:55.770 --> 02:15:59.559
+Jitendra K: 3… can you guys change this epoch to 3?
+
+918
+02:16:00.240 --> 02:16:03.759
+Jitendra K: And once you run this, let me know what is the outcome that you're getting.
+
+919
+02:16:05.580 --> 02:16:07.389
+Jitendra K: Can you guys try with Epoch?
+
+920
+02:16:07.540 --> 02:16:09.760
+Jitendra K: Not more than… Cree.
+
+921
+02:16:10.530 --> 02:16:12.269
+Jitendra K: You have to change this code here.
+
+922
+02:17:22.920 --> 02:17:26.110
+Jitendra K: I think it should be hard-coded here, somewhere.
+
+923
+02:17:32.370 --> 02:17:33.209
+Jitendra K: Yeah.
+
+924
+02:17:34.590 --> 02:17:36.750
+Jitendra K: So change it to 3 and rerun this.
+
+925
+02:17:38.709 --> 02:17:40.140
+Jitendra K: Line number 100.
+
+926
+02:17:40.840 --> 02:17:42.070
+Jitendra K: 101.
+
+927
+02:26:12.610 --> 02:26:16.009
+Jitendra K: Hi guys, are you able to download the code and run it?
+
+928
+02:26:16.790 --> 02:26:20.939
+Jitendra K: Please let me know if you are able to complete this for 4 epoch, as I mentioned.
+
+929
+02:30:00.670 --> 02:30:04.890
+Jitendra K: Okay, great, so you're able to run for 3 POC?
+
+930
+02:30:05.250 --> 02:30:07.090
+Jitendra K: Let me check the output.
+
+931
+02:30:11.500 --> 02:30:18.580
+Jitendra K: Okay, just, 14% accuracy. Very low, but yeah, at least…
+
+932
+02:30:19.070 --> 02:30:22.500
+Jitendra K: We get something, that this model is working.
+
+933
+02:30:22.680 --> 02:30:25.430
+Jitendra K: So the homework for you guys is to run both models.
+
+934
+02:30:26.020 --> 02:30:28.790
+Jitendra K: And then run it overnight, and then…
+
+935
+02:30:28.900 --> 02:30:32.870
+Jitendra K: The very first thing that you have to do is… Once you…
+
+936
+02:30:34.210 --> 02:30:37.410
+Jitendra K: Once you came across the result, then…
+
+937
+02:30:37.780 --> 02:30:41.669
+Jitendra K: I want everybody to do a thorough check on the reports.
+
+938
+02:30:42.010 --> 02:30:46.339
+Jitendra K: the classification reports, right? And then, Try to see…
+
+939
+02:30:47.180 --> 02:30:50.020
+Jitendra K: How it is, behaving, right?
+
+940
+02:30:50.390 --> 02:30:54.309
+Jitendra K: So, right, okay, somebody is getting 37% accuracy as well.
+
+941
+02:30:54.850 --> 02:30:58.070
+Jitendra K: Dop 2 accuracy is 71%, which is good.
+
+942
+02:30:59.340 --> 02:31:00.210
+Jitendra K: Yep.
+
+943
+02:31:07.300 --> 02:31:14.609
+Jitendra K: So I've got two code here, which you need to run. One is this code, and then another one is the earlier code that we have discussed.
+
+944
+02:31:27.140 --> 02:31:34.169
+Jitendra K: And I've written the detailed steps, so that you can able to go through it, and then let me know if there's any question.
+
+945
+02:31:34.560 --> 02:31:36.240
+Jitendra K: So let's do one thing,
+
+946
+02:31:37.470 --> 02:31:43.010
+Jitendra K: Let's try to complete, the… Third architecture for today.
+
+947
+02:31:43.760 --> 02:31:50.179
+Jitendra K: Which is, we have covered AlexNet, we have covered Leanet, now we are going to cover the third architecture.
+
+948
+02:31:54.920 --> 02:31:56.760
+Jitendra K: Let me open my slides.
+
+949
+02:32:09.700 --> 02:32:13.399
+Jitendra K: Yeah, so we'll talk about an important architecture called BGNet now.
+
+950
+02:32:13.910 --> 02:32:16.409
+Jitendra K: So, VGDNAT is a very advanced
+
+951
+02:32:16.560 --> 02:32:22.090
+Jitendra K: architecture, which has been proposed in the year 2015, and that set up the fundamental
+
+952
+02:32:23.210 --> 02:32:28.219
+Jitendra K: for advanced CNN now. So, let me talk about what is VGD.
+
+953
+02:32:28.890 --> 02:32:30.349
+Jitendra K: night architecture.
+
+954
+02:32:30.690 --> 02:32:31.879
+Jitendra K: is all about.
+
+955
+02:32:32.220 --> 02:32:34.619
+Jitendra K: And then we'll deep dive into this architecture.
+
+956
+02:32:36.320 --> 02:32:43.779
+Jitendra K: So these are all the family of CNN, by the way, so we are not devoting anything away from CNN, so these are all a part of a CNN family.
+
+957
+02:32:44.350 --> 02:32:50.019
+Jitendra K: First, let's try to understand what is VGG, and what is the purpose of VGG, and
+
+958
+02:32:51.510 --> 02:33:00.260
+Jitendra K: We are going to talk about different types of VGGs in setup. So, here we are talking about VGG NAT16, which is one of the fundamental architecture.
+
+959
+02:33:00.460 --> 02:33:12.910
+Jitendra K: That we are going to use. There's something called VGG19 as well. VGG stands for Visual Geometrical Group, or Visual Geometry Group. Particularly, they have two sets of subfamilies, VGG16 and VGG19.
+
+960
+02:33:13.070 --> 02:33:20.490
+Jitendra K: Which have significantly influenced the field of computer vision, and the image transformers…
+
+961
+02:33:20.820 --> 02:33:25.220
+Jitendra K: And these models introduced the visual geometry group from the University of Oxford.
+
+962
+02:33:25.610 --> 02:33:36.920
+Jitendra K: stood out in 2014, ImageNet Large Scale Visualized Model from the deep convolution neutral Network. So it's a kind of a refinement on Leanet and LXNet,
+
+963
+02:33:37.110 --> 02:33:42.780
+Jitendra K: Which laid a foundation for another advance… GPU-accelerated models.
+
+964
+02:33:43.240 --> 02:33:49.850
+Jitendra K: So, let me talk about what is VGG19 architecture. So, VGG19 is the first architecture.
+
+965
+02:33:50.140 --> 02:33:53.520
+Jitendra K: So the component, I will talk about VGD19 first.
+
+966
+02:33:54.040 --> 02:33:56.290
+Jitendra K: So, let me go back to my drawing board.
+
+967
+02:33:56.550 --> 02:34:00.759
+Jitendra K: So these are the components that we're talking about in terms of BG19.
+
+968
+02:34:02.790 --> 02:34:04.610
+Jitendra K: So, in VGG19,
+
+969
+02:34:09.070 --> 02:34:11.440
+Jitendra K: This is what the architecture looks like.
+
+970
+02:34:11.770 --> 02:34:18.129
+Jitendra K: So, VGG19 is a deep convolution neural network with 19 weights layer. 19.
+
+971
+02:34:18.660 --> 02:34:26.879
+Jitendra K: Which comprise of 16 convolution layers and 3 fully connected layers. So total, it is 19. And the architecture follows a very straightforward and repetitive pattern.
+
+972
+02:34:27.610 --> 02:34:39.499
+Jitendra K: So that means you have convolution layer. The key component of BGR19 is start with convolution layer, which is having 3 cross-view filters with a stride of 1, and padding of 1, to preserve the spatial resolution.
+
+973
+02:34:39.680 --> 02:34:45.279
+Jitendra K: Then you have got the activation function ReLU, which is, rectified linear init, which has been applied.
+
+974
+02:34:45.470 --> 02:34:51.459
+Jitendra K: After each convolution layer, to introduce nonlinearity transformation, followed by a polling layer.
+
+975
+02:34:51.640 --> 02:34:57.010
+Jitendra K: And here we are using a max polling with 2 cross 2 filter and a stride of 2 to reduce the spatial dimension.
+
+976
+02:34:57.120 --> 02:35:05.889
+Jitendra K: Followed by a fully connected layer, 3 fully connected layer at the end of the network for classification, and softmax layer for output class probability depiction.
+
+977
+02:35:06.470 --> 02:35:07.440
+Jitendra K: So, the first block.
+
+978
+02:35:07.440 --> 02:35:09.029
+Amit Sharma: Can you call me on Monday?
+
+979
+02:35:10.490 --> 02:35:13.060
+Jitendra K: The first block that we are using is…
+
+980
+02:35:15.400 --> 02:35:18.319
+Jitendra K: Convolution 1, which is having 64 filters.
+
+981
+02:35:19.190 --> 02:35:27.639
+Jitendra K: And 3 cross 3 kernels. And here, I'm using rectified linear unit as activation function. Block number 2 have 128 filters.
+
+982
+02:35:27.920 --> 02:35:32.740
+Jitendra K: And 3 cross 3 kernels, and I'm having a max folding of 2 cross 2.
+
+983
+02:35:33.060 --> 02:35:34.939
+Jitendra K: With a filter and stride of 2.
+
+984
+02:35:35.240 --> 02:35:39.920
+Jitendra K: Block number 3, where I'm using 256 kernels for each channel.
+
+985
+02:35:40.340 --> 02:35:46.269
+Jitendra K: And then max polling is, again, 2 cross 2 and filter in stride of 2.
+
+986
+02:35:46.810 --> 02:35:55.630
+Jitendra K: Block 4 is using 512 filters, and block 5 have, 512 as well, and the size of fully connected layer
+
+987
+02:35:55.750 --> 02:35:59.530
+Jitendra K: that I'm operating is 40696 neurons.
+
+988
+02:35:59.910 --> 02:36:05.699
+Jitendra K: with a thousand class classification. So this architecture is used for 1000-class class classification.
+
+989
+02:36:07.630 --> 02:36:11.629
+Jitendra K: filter is equal to cardinal, not number of neurons, so number of neurons are different.
+
+990
+02:36:12.040 --> 02:36:20.619
+Jitendra K: Now, I'm using VGG19 architecture, which will have a uniform convolution filters, which are consistently across 3 across 3.
+
+991
+02:36:21.200 --> 02:36:25.620
+Jitendra K: And a deep architecture that increases the depth of the network that will enable to help
+
+992
+02:36:25.740 --> 02:36:28.120
+Jitendra K: The model to learn complex features.
+
+993
+02:36:28.560 --> 02:36:29.699
+Jitendra K: And that I lose…
+
+994
+02:36:29.810 --> 02:36:39.219
+Jitendra K: rectify linear activation function will introduce nonlinearity to transform complex patterns, and max pooling for reducing the spatial dimension.
+
+995
+02:36:39.610 --> 02:36:42.449
+Jitendra K: And preserving only the important features from my data.
+
+996
+02:36:43.020 --> 02:36:48.660
+Jitendra K: So this is a simple and… but elegant, elegant and effective layers.
+
+997
+02:36:48.900 --> 02:36:57.389
+Jitendra K: that influence the design of subsequent deep learning models. So, in future, you will hear about ResNet, InceptionNAT,
+
+998
+02:36:57.830 --> 02:37:02.150
+Jitendra K: So these are all models which have been originated from VGG19 architecture.
+
+999
+02:37:02.450 --> 02:37:09.909
+Jitendra K: So VGG19 has been extensively used in transfer learning due to its robust feature extraction capabilities, pre-trained VGG-19 models.
+
+1000
+02:37:10.210 --> 02:37:13.530
+Jitendra K: on the large data sets, like ImageNet Use.
+
+1001
+02:37:14.260 --> 02:37:18.129
+Jitendra K: Or object detection, image segmentation, and style transfers.
+
+1002
+02:37:18.380 --> 02:37:24.809
+Jitendra K: So this is where the VGD19 model is quite comprehensive, laid down the foundation.
+
+1003
+02:37:24.950 --> 02:37:29.999
+Jitendra K: for transfer learning approach. And this is, I would say, this is the first kind of a model
+
+1004
+02:37:30.410 --> 02:37:34.460
+Jitendra K: Where we are keeping things quite adaptable and…
+
+1005
+02:37:34.640 --> 02:37:37.729
+Jitendra K: interchangeable, so that means these models
+
+1006
+02:37:38.100 --> 02:37:44.560
+Jitendra K: are fitting under SOTA architecture, state-of-the-art architecture. So this is a state-of-the-art architecture.
+
+1007
+02:37:44.790 --> 02:37:50.680
+Jitendra K: or first type that will utilize for the purpose. If I have to compare LXNet versus VGNet.
+
+1008
+02:37:52.290 --> 02:37:57.490
+Jitendra K: So this is the layer… Differentiation, you can see VGGNAT is more complex.
+
+1009
+02:37:57.650 --> 02:38:00.020
+Jitendra K: More number of polling and convolution.
+
+1010
+02:38:00.870 --> 02:38:06.780
+Jitendra K: And fully connected layer, which is 2 in the LXNet. Here, I'm using 3.
+
+1011
+02:38:07.010 --> 02:38:09.870
+Jitendra K: Convolution layer, I'm just doubling it up.
+
+1012
+02:38:10.240 --> 02:38:12.000
+Jitendra K: Now, how should I…
+
+1013
+02:38:12.470 --> 02:38:21.989
+Jitendra K: come to a conclusion whether I should I use 2 or 3, that is something you have to read from the paper, right? They will show you all the effort that they have put to select these numbers.
+
+1014
+02:38:22.760 --> 02:38:27.740
+Jitendra K: So, but if you look carefully, this architecture is… white…
+
+1015
+02:38:29.020 --> 02:38:32.999
+Jitendra K: I would say, simple, but this is quite deep.
+
+1016
+02:38:33.880 --> 02:38:39.639
+Jitendra K: So this is the convo… This is the difference between regions. It's a typical deep convolution
+
+1017
+02:38:39.980 --> 02:38:45.339
+Jitendra K: neural network, designed with numerous layers and abbreviations for VGG is Visual Geometry Group.
+
+1018
+02:38:45.930 --> 02:38:53.630
+Jitendra K: And this term, D, describes the number of layers. We have two prototypes, VGD16, and VG19 conversion layer.
+
+1019
+02:38:54.180 --> 02:39:01.089
+Jitendra K: So the key innovation in this architecture is it created a deep neural network which outperformed the benchmarks on a variety of tasks.
+
+1020
+02:39:01.830 --> 02:39:05.560
+Jitendra K: That has been performed by ImageNet. So VG16 is…
+
+1021
+02:39:06.620 --> 02:39:10.510
+Jitendra K: Quite useful for large-scale image recognition models.
+
+1022
+02:39:10.890 --> 02:39:18.460
+Jitendra K: The top accuracy which this model achieved is around 92.7%, and the data set From ImageNet, which is having…
+
+1023
+02:39:18.710 --> 02:39:21.050
+Jitendra K: 14 million photos.
+
+1024
+02:39:21.510 --> 02:39:23.570
+Jitendra K: 14 million images.
+
+1025
+02:39:24.060 --> 02:39:32.019
+Jitendra K: Now, remember that we are talking about very large-scale models. VA16 has been trained on 14 million images.
+
+1026
+02:39:32.730 --> 02:39:36.109
+Jitendra K: It can be trained on your Facebook images as well.
+
+1027
+02:39:37.530 --> 02:39:40.950
+Jitendra K: That you're uploading in the Facebook communities.
+
+1028
+02:39:41.710 --> 02:39:46.100
+Jitendra K: And that's the whole idea of Facebook, social media, nothing else.
+
+1029
+02:39:46.440 --> 02:39:55.530
+Jitendra K: They are using your data for training the model. So the ImageNet VGG model achieved top 5 test accuracy over 92.7%,
+
+1030
+02:39:55.770 --> 02:40:01.580
+Jitendra K: And a dataset which has been used over 14 million photos that fall into almost 1,000 categories.
+
+1031
+02:40:02.210 --> 02:40:12.859
+Jitendra K: So, it was among the most likely model submitted at a particular… community called ILSVRS.
+
+1032
+02:40:13.080 --> 02:40:16.609
+Jitendra K: This is a community which has been formed, International Learning
+
+1033
+02:40:17.110 --> 02:40:26.510
+Jitendra K: I think it's a university forum which has been organized, and there are a lot of papers which have been submitted, and this one of the top papers is VGD Architecture.
+
+1034
+02:40:26.760 --> 02:40:30.569
+Jitendra K: So we use 16 as a 16-layer architecture, and
+
+1035
+02:40:30.940 --> 02:40:34.320
+Jitendra K: It improved the overall accuracy of AlexNet.
+
+1036
+02:40:34.510 --> 02:40:38.470
+Jitendra K: by… I would say, 90 times.
+
+1037
+02:40:41.050 --> 02:40:46.079
+Jitendra K: As compared to this. So this is what the VGD architecture looks like. These are the layers.
+
+1038
+02:40:46.390 --> 02:40:48.020
+Jitendra K: That we have defined.
+
+1039
+02:40:48.310 --> 02:40:51.349
+Jitendra K: So, just, just a reclassification.
+
+1040
+02:40:52.350 --> 02:40:54.260
+Jitendra K: of this model.
+
+1041
+02:40:56.800 --> 02:40:59.960
+Jitendra K: So these are the layers that we are using. So the input is…
+
+1042
+02:41:00.240 --> 02:41:08.160
+Jitendra K: WGNet accepts 224 plus 224 pixel image as input, and to maintain a consistent input of the ImageNet competition.
+
+1043
+02:41:08.540 --> 02:41:12.560
+Jitendra K: The model chopped the images, patches into each image.
+
+1044
+02:41:12.940 --> 02:41:19.019
+Jitendra K: Then the convolution layer starts, where the VGG convolution layer use the smallest flexible receptive fields.
+
+1045
+02:41:19.630 --> 02:41:26.899
+Jitendra K: To record left-to-right and up-down movement, and additionally, it is also covering 11 convolution, which is used to transform the input linearity.
+
+1046
+02:41:27.310 --> 02:41:33.990
+Jitendra K: Then it is having several hidden layers that make use of ReLU, local responsive networks, normalization factors.
+
+1047
+02:41:34.250 --> 02:41:37.639
+Jitendra K: That will help us to improve the overall accuracy of the model.
+
+1048
+02:41:38.390 --> 02:41:41.500
+Jitendra K: So, the deep neural network 16 layer indicate
+
+1049
+02:41:41.650 --> 02:41:45.759
+Jitendra K: by the number 16, right? So, as you can see, VJ 16 have 16 layers.
+
+1050
+02:41:46.350 --> 02:41:54.280
+Jitendra K: So, it indicates that VGA16 network is quite large, with a total of 138 million parameters.
+
+1051
+02:41:55.060 --> 02:42:00.980
+Jitendra K: The 138 million parameter from last night, which is having 60,000 parameter.
+
+1052
+02:42:01.660 --> 02:42:08.379
+Jitendra K: Now, we are moving to 138 million parameters. So even by today, this is a highly standard and highly sized network.
+
+1053
+02:42:13.710 --> 02:42:21.160
+Jitendra K: Now, let's try to understand what each layer does, in a nutshell. So this is what the layer does. Let's say if I'm training a model with an image of a car.
+
+1054
+02:42:21.530 --> 02:42:23.280
+Jitendra K: So this is how it will split.
+
+1055
+02:42:23.870 --> 02:42:29.389
+Jitendra K: The different categories of a car image, and then generalize the output.
+
+1056
+02:42:30.070 --> 02:42:39.849
+Jitendra K: So, the core idea of VGG16 is it will be able to use more comprehensive layers to convert
+
+1057
+02:42:40.100 --> 02:42:43.040
+Jitendra K: The feature map into more complex transformation.
+
+1058
+02:42:43.760 --> 02:42:48.700
+Jitendra K: And as you grow with network, these complex transformations can be handled by architecture.
+
+1059
+02:42:49.480 --> 02:42:52.050
+Jitendra K: And that is the whole purpose of VGGNet.
+
+1060
+02:43:01.280 --> 02:43:07.920
+Jitendra K: Yes, so in this architecture, conversion layer and molding layer will be clean, organized image, fully connected layer, and retainer, yes.
+
+1061
+02:43:08.180 --> 02:43:12.010
+Jitendra K: So, fully corrected layer means you are connecting end-to-end with backpropagation.
+
+1062
+02:43:12.800 --> 02:43:20.710
+Jitendra K: So, this model will train similar to what we have talked about in FFN, right? So, fully connected neural network will use a backpropagation.
+
+1063
+02:43:20.850 --> 02:43:23.380
+Jitendra K: So, each layer connected with the previous layer.
+
+1064
+02:43:23.570 --> 02:43:31.719
+Jitendra K: And then it backpropagates from the last layer to the initial layer to identify the errors, using SGD, or momentum-based learning.
+
+1065
+02:43:32.030 --> 02:43:37.289
+Jitendra K: And then, it will be able to improve the overall model. Since you are feeding the model with images.
+
+1066
+02:43:37.570 --> 02:43:41.509
+Jitendra K: And you're categorizing the images as training and validation.
+
+1067
+02:43:41.800 --> 02:43:45.640
+Jitendra K: So this data will… this model will test against validation.
+
+1068
+02:43:46.460 --> 02:43:47.730
+Jitendra K: during this training.
+
+1069
+02:43:50.170 --> 02:43:53.429
+Jitendra K: And 146 million images is quite huge.
+
+1070
+02:43:53.800 --> 02:44:00.130
+Jitendra K: That means I cannot use VGD to train from the scratch that I'm doing for ImageNet and AlexNet in my local laptops.
+
+1071
+02:44:01.180 --> 02:44:03.670
+Jitendra K: So I cannot train VGG on my computer.
+
+1072
+02:44:03.800 --> 02:44:06.869
+Jitendra K: I can use transfer learning to use this model.
+
+1073
+02:44:08.180 --> 02:44:13.859
+Jitendra K: I can use this model for my own task, but I cannot retrain this model from the scratch.
+
+1074
+02:44:16.480 --> 02:44:19.350
+Jitendra K: Until and unless you buy a data center from Google.
+
+1075
+02:44:22.250 --> 02:44:25.369
+Jitendra K: Right, so that's the whole idea of VGGNet.
+
+1076
+02:44:25.610 --> 02:44:29.609
+Jitendra K: Any question on this slide? Any doubt on this architecture?
+
+1077
+02:44:48.190 --> 02:44:51.249
+Jitendra K: Any question, any doubt, guys, on the slides?
+
+1078
+02:44:52.780 --> 02:44:54.360
+Jitendra K: Are you good so far?
+
+1079
+02:44:54.920 --> 02:45:00.909
+Jitendra K: So what we have learned so far is, what is CNN? CNN is a convolution neural network, which will help us to
+
+1080
+02:45:01.870 --> 02:45:07.349
+Jitendra K: Train the images, image captioning problems, and
+
+1081
+02:45:07.580 --> 02:45:16.510
+Jitendra K: We'll talk about several image captioning problems, including Object segmentation and localization.
+
+1082
+02:45:16.660 --> 02:45:27.240
+Jitendra K: So, these image mod… these… sorry, these models will help us to train the Alright, architecture.
+
+1083
+02:45:34.360 --> 02:45:37.399
+Jitendra K: Yeah, there are different sort of applications,
+
+1084
+02:45:37.840 --> 02:45:39.649
+Jitendra K: You can be able to identify…
+
+1085
+02:45:40.330 --> 02:45:46.049
+Jitendra K: objects using IoT sensors, video cameras, video detection sensors.
+
+1086
+02:45:46.520 --> 02:45:53.099
+Jitendra K: You can do… image localization segmentation using OuGG.
+
+1087
+02:45:53.670 --> 02:45:56.409
+Jitendra K: There are a number of applications that you can use.
+
+1088
+02:46:22.610 --> 02:46:26.510
+Jitendra K: Alright, any question, guys, now? Anything that you would like to discuss?
+
+1089
+02:46:29.720 --> 02:46:33.550
+Jitendra K: On the architecture, are you clear so far? What are we trying to achieve?
+
+1090
+02:46:38.290 --> 02:46:40.300
+Jitendra K: Is the examples are clear.
+
+1091
+02:46:41.020 --> 02:46:43.309
+Jitendra K: We have taken a variety of examples today.
+
+1092
+02:46:48.880 --> 02:46:51.359
+Jitendra K: Okay, now let me ask this question,
+
+1093
+02:46:51.950 --> 02:46:54.590
+Jitendra K: What did you understand from Professor Tutorials?
+
+1094
+02:46:58.830 --> 02:47:03.330
+Jitendra K: This is supervised learning during determining… yes, this is all supervised learning, yeah.
+
+1095
+02:47:06.440 --> 02:47:08.139
+Jitendra K: Because we are labeling the data.
+
+1096
+02:47:19.160 --> 02:47:24.620
+Jitendra K: So, have we gone through professor tutorials on CNN? What was your impression on CNN from professors?
+
+1097
+02:47:24.780 --> 02:47:25.950
+Jitendra K: an LMS.
+
+1098
+02:47:26.490 --> 02:47:27.760
+Jitendra K: Is it that deep?
+
+1099
+02:47:28.170 --> 02:47:32.499
+Jitendra K: You understand the concept, just at theoretical level or practical level as well?
+
+1100
+02:47:35.860 --> 02:47:37.090
+Jitendra K: Only theory?
+
+1101
+02:47:37.380 --> 02:47:38.460
+Jitendra K: Nothing else?
+
+1102
+02:47:40.070 --> 02:47:42.200
+Jitendra K: Okay, only theoretical lectures.
+
+1103
+02:47:46.920 --> 02:47:48.520
+Jitendra K: Just theoretical.
+
+1104
+02:47:48.870 --> 02:47:53.909
+Jitendra K: Okay, so which one you feel is more convenient option to understand CNN?
+
+1105
+02:47:54.830 --> 02:47:58.320
+Jitendra K: This practical class, or the theoretical class?
+
+1106
+02:48:00.460 --> 02:48:03.410
+Jitendra K: This one, okay. Live session. Great.
+
+1107
+02:48:04.360 --> 02:48:09.790
+Jitendra K: Yeah, I agree, and I also agree that they should improve on this.
+
+1108
+02:48:12.410 --> 02:48:17.419
+Jitendra K: But anyway, I… I think… If it is not, then it's not.
+
+1109
+02:48:17.590 --> 02:48:19.330
+Jitendra K: We cannot do anything about it.
+
+1110
+02:48:21.290 --> 02:48:23.729
+Jitendra K: But yeah, continue to explore…
+
+1111
+02:48:24.770 --> 02:48:31.639
+Jitendra K: examples that I'm sharing with you, so that you can make your learning more seamlessly, and so on.
+
+1112
+02:48:32.350 --> 02:48:38.270
+Jitendra K: And, try to get good references, right, from… The internet as well.
+
+1113
+02:48:38.840 --> 02:48:43.130
+Jitendra K: So I've shared some good books and some good reading materials, so continue to use that.
+
+1114
+02:48:43.640 --> 02:48:48.220
+Jitendra K: So, I think I've shared you the deep learning book, in the last tutorial.
+
+1115
+02:48:48.480 --> 02:48:55.230
+Jitendra K: And then What we need to do is, we need to Visit these chapters today.
+
+1116
+02:48:58.200 --> 02:49:00.679
+Jitendra K: Which is under this purview of this book.
+
+1117
+02:49:00.800 --> 02:49:04.900
+Jitendra K: So you have to visit chapter number 7, and then go through
+
+1118
+02:49:05.250 --> 02:49:07.970
+Jitendra K: these concepts. This is your homework for today.
+
+1119
+02:49:08.720 --> 02:49:16.110
+Jitendra K: I don't want you to, revisit tutorials from professors and… because your self is saying that they are not
+
+1120
+02:49:16.490 --> 02:49:22.550
+Jitendra K: theoretical, but this book, I want you to visit again, and then… maybe…
+
+1121
+02:49:22.660 --> 02:49:24.950
+Jitendra K: Take a good reference from internet as well.
+
+1122
+02:49:25.220 --> 02:49:32.440
+Jitendra K: So… there's blocks like Medium, Towards data science, which can help you to understand these concepts as well.
+
+1123
+02:49:32.720 --> 02:49:38.069
+Jitendra K: But I think the slide that I've shared with you is more than useful for the purpose.
+
+1124
+02:49:38.340 --> 02:49:42.080
+Jitendra K: So you can use those slides, and you can make a lot of…
+
+1125
+02:49:42.230 --> 02:49:45.879
+Jitendra K: Good understanding on the use cases around it.
+
+1126
+02:49:46.300 --> 02:49:51.760
+Jitendra K: But if you would still want to read more about the mathematical formulas…
+
+1127
+02:49:52.120 --> 02:49:56.259
+Jitendra K: From theory to all the way to practical implementation, then go for this book.
+
+1128
+02:49:56.990 --> 02:50:01.469
+Jitendra K: And then finally, once you convert, convolution…
+
+1129
+02:50:01.860 --> 02:50:04.880
+Jitendra K: of topic, then go to LeadNet.
+
+1130
+02:50:05.290 --> 02:50:12.230
+Jitendra K: Linet and modern convolution neural network, so you can go with the first AlexNet, and then VGG.
+
+1131
+02:50:13.250 --> 02:50:16.890
+Jitendra K: So we have covered both, and then in the next tutorial, we'll talk about
+
+1132
+02:50:17.390 --> 02:50:20.710
+Jitendra K: So, more rest snack, dense net.
+
+1133
+02:50:21.030 --> 02:50:25.450
+Jitendra K: And then we move on to Transformers VIT, which are information transformers.
+
+1134
+02:50:26.000 --> 02:50:27.969
+Jitendra K: So all these things are becoming…
+
+1135
+02:50:28.270 --> 02:50:34.720
+Jitendra K: elevated, but the key concept would remain the same. You have fully connected layer, you have got polling layers, you have got FCC,
+
+1136
+02:50:35.050 --> 02:50:41.520
+Jitendra K: You have got, number of kernels, strides, riding, etc, right? So the… basic…
+
+1137
+02:50:41.960 --> 02:50:50.219
+Jitendra K: thing that I've shared with you is all given. So this book is also having a good practical example, and this is where… that makes this book a great ex…
+
+1138
+02:50:50.320 --> 02:50:51.470
+Jitendra K: Explorer.
+
+1139
+02:50:51.640 --> 02:50:55.699
+Jitendra K: So you can go through these examples. You can just click on this.
+
+1140
+02:50:55.960 --> 02:51:00.290
+Jitendra K: And it'll show you, very detailed examples on the top of it.
+
+1141
+02:51:03.170 --> 02:51:09.249
+Jitendra K: So I would request you to run this in your local machine, and then try to
+
+1142
+02:51:09.680 --> 02:51:12.929
+Jitendra K: Maybe look forward for more…
+
+1143
+02:51:13.070 --> 02:51:15.939
+Jitendra K: Interesting scenarios on the top of it.
+
+1144
+02:51:16.340 --> 02:51:18.289
+Jitendra K: So we will…
+
+1145
+02:51:18.560 --> 02:51:26.690
+Jitendra K: complete CNN, and then we move on to recurrent neural network, which is the stepping stone for transformers, GPT-based models.
+
+1146
+02:51:27.130 --> 02:51:33.430
+Jitendra K: So, this is very important topics. Once we complete CNN, then we move on to RNN, sequential learning.
+
+1147
+02:51:34.310 --> 02:51:38.429
+Jitendra K: So, I think this is pretty much what we have for today. If there's no other question, we can…
+
+1148
+02:51:38.790 --> 02:51:40.080
+Jitendra K: Close the session.
+
+1149
+02:51:40.480 --> 02:51:43.110
+Jitendra K: But if there's any question, I've been happy to answer.
+
+1150
+02:51:44.900 --> 02:51:51.909
+Jitendra K: So, are you clear with your homework now? What you need to do? You need to complete the two codes that I've shared with you.
+
+1151
+02:51:52.130 --> 02:51:53.860
+Jitendra K: You have to visit this book.
+
+1152
+02:51:54.030 --> 02:52:04.600
+Jitendra K: download these training materials, and then run this as well. Running means you should not just connect and click on run. Running means you have to go line by line.
+
+1153
+02:52:04.810 --> 02:52:06.380
+Jitendra K: To understand the concept.
+
+1154
+02:52:07.060 --> 02:52:07.880
+Jitendra K: Right?
+
+1155
+02:52:08.050 --> 02:52:12.900
+Jitendra K: So make sure that you make a habit of doing in-depth introspection of the code.
+
+1156
+02:52:13.140 --> 02:52:17.620
+Jitendra K: Otherwise, you will lose… confidence, why I'm doing this.
+
+1157
+02:52:19.760 --> 02:52:28.769
+Jitendra K: Right? So it's the practical sessions that you're doing. Forget about what you're going to do in future, in your actual projects. Maybe, perhaps, you're not going to use CNN.
+
+1158
+02:52:31.210 --> 02:52:36.450
+Jitendra K: Right? But here we are learning, so the fundamental objective for you is to learn.
+
+1159
+02:52:36.680 --> 02:52:37.669
+Jitendra K: a concept.
+
+1160
+02:52:38.100 --> 02:52:42.540
+Jitendra K: And that has to be come with… Practical examples.
+
+1161
+02:52:53.260 --> 02:52:56.679
+Jitendra K: Okay, great. 60 bucks, 36.9.
+
+1162
+02:52:57.210 --> 02:52:58.760
+Jitendra K: Okay, it is improving.
+
+1163
+02:52:59.080 --> 02:53:00.110
+Jitendra K: Escort.
+
+1164
+02:53:02.460 --> 02:53:04.500
+Jitendra K: So, can you show me the Tensor board?
+
+1165
+02:53:12.450 --> 02:53:17.140
+Jitendra K: Just click on the link which has been generated for TensorBoard, and you will be able to read it.
+
+1166
+02:53:19.110 --> 02:53:26.220
+Jitendra K: So your homework for… This class would be, as I mentioned, to complete all the execution of the code.
+
+1167
+02:53:26.730 --> 02:53:33.270
+Jitendra K: Followed by… the… Followed by the…
+
+1168
+02:53:33.800 --> 02:53:41.430
+Jitendra K: the book that I've shared with you. Don't go each and every part of this book, because I think I have explained everything.
+
+1169
+02:53:41.850 --> 02:53:46.969
+Jitendra K: So you just need to go through some of the additional quotes, which is there in the book as well.
+
+1170
+02:53:48.120 --> 02:53:52.959
+Jitendra K: So, this is a… I know it's a complex topic, guys, so you have to practice.
+
+1171
+02:53:53.130 --> 02:53:54.999
+Jitendra K: And take some good references.
+
+1172
+02:53:55.360 --> 02:54:02.079
+Jitendra K: So with practice and taking good references, you will definitely going to understand the CNN architecture in depth.
+
+1173
+02:54:09.760 --> 02:54:12.789
+Jitendra K: So these are, like, a basic of CNN.
+
+1174
+02:54:12.920 --> 02:54:15.420
+Jitendra K: And they are more advanced CNN concept.
+
+1175
+02:54:15.660 --> 02:54:18.159
+Jitendra K: That we have to discuss in the upcoming tutorials.
+
+1176
+02:54:19.980 --> 02:54:24.699
+Jitendra K: TensorBoard link will be there in the… Output of your code,
+
+1177
+02:54:26.030 --> 02:54:29.080
+Jitendra K: I think there would be a link which shows host
+
+1178
+02:54:30.060 --> 02:54:32.010
+Jitendra K: So my HTTP host will be…
+
+1179
+02:54:32.110 --> 02:54:38.110
+Jitendra K: a part of your output. So just click on that link, it will navigate to your Tensor board. Or maybe it was a part of your
+
+1180
+02:54:38.820 --> 02:54:44.899
+Jitendra K: collab output itself. So, in the cell itself, you will see the Tensor Boat. Just scroll through the output.
+
+1181
+02:54:45.920 --> 02:54:49.489
+Jitendra K: Like this… You will get some tensor board link.
+
+1182
+02:55:01.500 --> 02:55:06.179
+Jitendra K: If you're running it this in local, are you running this in local, or Google Colab?
+
+1183
+02:55:07.450 --> 02:55:11.390
+Jitendra K: CoLab. Okay, so in the Colab, it will generate in the Colab output itself.
+
+1184
+02:55:23.930 --> 02:55:28.519
+Jitendra K: Okay, so, but yeah, I can see the model is improving, so that means it is working, so…
+
+1185
+02:55:28.940 --> 02:55:33.360
+Jitendra K: I will… Check the results once you come back next week.
+
+1186
+02:55:34.150 --> 02:55:38.480
+Jitendra K: So just complete this, save the notebook in iron Python way.
+
+1187
+02:55:38.910 --> 02:55:40.750
+Jitendra K: And then share the output with me.
+
+1188
+02:55:40.950 --> 02:55:46.189
+Jitendra K: Okay, this is… This is a class distribution, this is not tensor output.
+
+1189
+02:55:48.850 --> 02:55:54.250
+Jitendra K: TensorBoard, we'll show you the training and addition error differences.
+
+1190
+02:56:05.460 --> 02:56:11.050
+Jitendra K: These are your feature maps. You can see how feature map has been generated. From this image, it has converted into this.
+
+1191
+02:56:12.580 --> 02:56:17.220
+Jitendra K: As a machine, machine can understand what is this, but as a human, I cannot read.
+
+1192
+02:56:17.440 --> 02:56:22.850
+Jitendra K: which segment I have to focus. So it is saying that the color of this leaf is changing in between.
+
+1193
+02:56:24.080 --> 02:56:33.829
+Jitendra K: the color of the leaf is changing in between with some pattern, and then it is saying that this is a type of disease 1. Similarly, you can do a cancer screening as well, using X-ray images.
+
+1194
+02:56:35.500 --> 02:56:40.749
+Jitendra K: Right, so there's a lot of possibility with CNN. You can do a lot of things with CNN.
+
+1195
+02:56:41.790 --> 02:56:45.930
+Jitendra K: COVID detections, x-ray from reading the X-ray images.
+
+1196
+02:56:52.910 --> 02:56:56.169
+Jitendra K: So there are ample amount of, use cases.
+
+1197
+02:56:58.840 --> 02:57:12.200
+Jitendra K: All right, so I think this is pretty much what we have for today, guys, so thank you for attending this lecture, and then we'll meet in the next tutorial, and continue to explore what case studies. Don't just rely on theories.
+
+1198
+02:57:12.680 --> 02:57:14.119
+Jitendra K: Go with practical.
+
+1199
+02:57:14.830 --> 02:57:19.920
+Jitendra K: And that is the most important thing that you can do to achieve better results.
+
+1200
+02:57:20.620 --> 02:57:29.159
+Jitendra K: So, hands-on is very important. Without hands-on, if you just understand convolution superficially, it is good for our managers.
+
+1201
+02:57:29.270 --> 02:57:31.310
+Jitendra K: Because you need not to code, right?
+
+1202
+02:57:31.530 --> 02:57:36.670
+Jitendra K: If you're already past 20 years of experience in your organization, why should you code?
+
+1203
+02:57:37.980 --> 02:57:39.280
+Jitendra K: Which is fine.
+
+1204
+02:57:39.470 --> 02:57:48.400
+Jitendra K: But if you are taking your career towards data science and as a hardcore developer, then this is a must.
+
+1205
+02:57:51.790 --> 02:57:57.629
+Jitendra K: And for a manager, it is important to understand the concepts, right? So, the concept also should have clarity.
+
+1206
+02:57:57.870 --> 02:58:03.000
+Jitendra K: Because you're going to work like a solution architect or system architect along with your peers.
+
+1207
+02:58:03.130 --> 02:58:07.770
+Jitendra K: And you have to give them a very clear opinion, which model should I… should you use and why.
+
+1208
+02:58:07.960 --> 02:58:13.269
+Jitendra K: You cannot randomly throw that, okay, go with VG16. You should know why you're saying VG16.
+
+1209
+02:58:17.290 --> 02:58:24.780
+Jitendra K: So, with that, thank you for attending the session, and we will meet next week to… for the upcoming Advanced CNN. Thank you.
+

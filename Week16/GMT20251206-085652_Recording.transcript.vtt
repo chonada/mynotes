@@ -1,0 +1,4638 @@
+WEBVTT
+
+1
+00:00:10.040 --> 00:00:13.279
+Jitendra K: Alright, is the screen as visible as well?
+
+2
+00:00:16.540 --> 00:00:21.570
+Jitendra K: Alright, thank you. So… We'll start with, one of the
+
+3
+00:00:22.590 --> 00:00:30.399
+Jitendra K: agenda for today's discussion, we will explore two models, two probabilistical models, and both are coming under classification scenarios.
+
+4
+00:00:30.700 --> 00:00:39.859
+Jitendra K: So the first model that we are going to talk about today is, something called Bayesian or native bias, right? So we'll talk about what is native bias.
+
+5
+00:00:39.970 --> 00:00:50.740
+Jitendra K: And what is the purpose of naive bias? We'll take some example to understand native bias, and we will understand how this algorithm works behind the scenes. So what are the different types of
+
+6
+00:00:51.440 --> 00:00:54.569
+Jitendra K: Techniques, or so-called,
+
+7
+00:00:54.780 --> 00:01:01.740
+Jitendra K: conditional probability Bayesian theorem has been implemented to calculate the postlier probability. So, we'll talk about that part.
+
+8
+00:01:02.820 --> 00:01:11.050
+Jitendra K: We will also talk about one more algorithm called KNN, kNearest Neighbor, and this is also coming under supervised learning, when you have to do clustering, or…
+
+9
+00:01:11.270 --> 00:01:15.599
+Jitendra K: Performing aggregation of the data points, which are very similar in nature.
+
+10
+00:01:15.730 --> 00:01:25.910
+Jitendra K: And that is where we are going to use k nearest neighbor, and this is one of the algorithms that we are going to use for imputation as well. So when I say data imputation, then
+
+11
+00:01:26.300 --> 00:01:30.109
+Jitendra K: You are going to utilize KNN to impute the data.
+
+12
+00:01:34.510 --> 00:01:47.919
+Jitendra K: All right, so let me start with the native bias. So basically, when you say nave bias, right, so naive bias is an algorithm that we are going to utilize, and nave bias is a classification technique, right? So when you say nave bias,
+
+13
+00:01:48.420 --> 00:01:52.030
+Jitendra K: is a classification technique. That means we are going to classify
+
+14
+00:01:52.200 --> 00:01:57.870
+Jitendra K: The outcome of the two classes based upon the posterior probability of the input features.
+
+15
+00:01:58.380 --> 00:02:01.740
+Jitendra K: So the idea of NaveBys is, it is using
+
+16
+00:02:03.380 --> 00:02:21.170
+Jitendra K: an assumption that all the features that predict the target values are independent of each other. So the ideal, so, in a very simple term, or very, I would say, probabilistical term, I would say that it calculates the probability of each class, and then pick the one with the highest probability.
+
+17
+00:02:21.890 --> 00:02:37.439
+Jitendra K: So, native bias has been successfully used for many purposes, but it has been particularly well used in natural language processing problems. We'll talk a while. But I'm damn sure that you guys have received a lot of emails
+
+18
+00:02:37.780 --> 00:02:40.089
+Jitendra K: on a daily basis in your Gmail account.
+
+19
+00:02:40.400 --> 00:02:43.890
+Jitendra K: or your Hotmail account, whatever browser you're using.
+
+20
+00:02:44.520 --> 00:02:47.290
+Jitendra K: And some of them are spams, right?
+
+21
+00:02:47.980 --> 00:02:57.239
+Jitendra K: So, how did… how do Gmail was able to identify, or Google is able to identify, that some of the emails should land up into a spam folder automatically?
+
+22
+00:02:57.830 --> 00:03:02.879
+Jitendra K: So that is something which we'll talk about in today's tutorial, and that's the whole idea of native bias.
+
+23
+00:03:03.440 --> 00:03:11.580
+Jitendra K: So, basically, a Bayesian theorem, or an Abyss theorem, work on…
+
+24
+00:03:17.840 --> 00:03:23.299
+Jitendra K: work on postular probability. We've had to describe the probability of an event.
+
+25
+00:03:23.860 --> 00:03:25.939
+Jitendra K: I can write down a formula like this.
+
+26
+00:03:27.980 --> 00:03:31.260
+Jitendra K: So, here you can see that What I'm saying…
+
+27
+00:03:31.760 --> 00:03:37.470
+Jitendra K: The probability, or the possible probability of a hypothesis, given the evidence, is true.
+
+28
+00:03:39.250 --> 00:03:47.740
+Jitendra K: So I can break down this probability into conditional probability by saying that the likelihood of the evidence given that hypothesis is true.
+
+29
+00:03:47.940 --> 00:03:56.649
+Jitendra K: Multiply by positive probability of the hypothesis itself, divided by the positive probability or prior probability of the evidence it is going to be true.
+
+30
+00:03:57.140 --> 00:04:02.029
+Jitendra K: So basically, this whole setup that you're seeing on my screen
+
+31
+00:04:02.230 --> 00:04:05.910
+Jitendra K: It was nothing but. That's the actual definition of a Bayesian.
+
+32
+00:04:06.540 --> 00:04:07.400
+Jitendra K: Curo.
+
+33
+00:04:08.780 --> 00:04:16.959
+Jitendra K: So, native buys classify assumes that the feature we use to predict the target or independent features.
+
+34
+00:04:17.529 --> 00:04:19.380
+Jitendra K: They're not going to affect each other.
+
+35
+00:04:22.200 --> 00:04:28.239
+Jitendra K: Right? But in real world, you might be thinking that, the features are always correlated.
+
+36
+00:04:28.870 --> 00:04:33.109
+Jitendra K: Right, so in that scenario, nave biwise is slightly…
+
+37
+00:04:36.540 --> 00:04:41.720
+Jitendra K: coming under, I would say, unconditional situation, right?
+
+38
+00:04:42.100 --> 00:04:44.170
+Jitendra K: And that's why it is called native bias.
+
+39
+00:04:44.850 --> 00:04:49.520
+Jitendra K: Right? Through the independent assumption, it never corrected in real world.
+
+40
+00:04:49.980 --> 00:04:53.960
+Jitendra K: But often works in practice, so that's why it is called nave bias.
+
+41
+00:04:54.520 --> 00:05:01.700
+Jitendra K: So the mathematical fundamental behind nave biwise is, let's say I have a feature. I have a feature of vector, or a feature space.
+
+42
+00:05:02.320 --> 00:05:03.810
+Jitendra K: Or a feature vector.
+
+43
+00:05:06.420 --> 00:05:11.180
+Jitendra K: let's say the feature vector space is X, Which comprise of several,
+
+44
+00:05:11.290 --> 00:05:18.070
+Jitendra K: attributes of this feature vector, X1, X2, up to XN, And a class variable Y.
+
+45
+00:05:19.090 --> 00:05:26.200
+Jitendra K: So I can say the probability of predicting A spam versus normal email.
+
+46
+00:05:26.400 --> 00:05:30.700
+Jitendra K: Depending upon the keywords from my spam subject.
+
+47
+00:05:31.230 --> 00:05:34.120
+Jitendra K: Subject line say that you have in a lottery.
+
+48
+00:05:34.640 --> 00:05:37.470
+Jitendra K: Yeah, when, maybe,
+
+49
+00:05:39.270 --> 00:05:47.000
+Jitendra K: you have won one CR lottery or something of that sort, right? So these are all spam email subject lines.
+
+50
+00:05:47.170 --> 00:05:50.210
+Jitendra K: So the idea is, we are trying to split
+
+51
+00:05:50.900 --> 00:05:58.840
+Jitendra K: the content of the email into individual keyword, and try to use this positive probability to infer if
+
+52
+00:05:59.260 --> 00:06:06.779
+Jitendra K: The probability of a class… It's gonna be 0 or 1, which is spam versus ham.
+
+53
+00:06:07.290 --> 00:06:11.440
+Jitendra K: depends upon probability of X given Y.
+
+54
+00:06:14.020 --> 00:06:17.889
+Jitendra K: Right? Multiply by probability of Y.
+
+55
+00:06:19.020 --> 00:06:21.379
+Jitendra K: Divide by a probability of X.
+
+56
+00:06:21.720 --> 00:06:27.850
+Jitendra K: So, in a nutshell, what I'm trying to do here is, I'm saying that, given a feature, X1, X2, X3, Xn.
+
+57
+00:06:28.200 --> 00:06:34.399
+Jitendra K: And a class variable Y, Bayesian sort of theorem state, can be reformulated in this manner.
+
+58
+00:06:34.710 --> 00:06:38.910
+Jitendra K: So we are interested in calculating the positive probability of P given Y,
+
+59
+00:06:39.350 --> 00:06:44.229
+Jitendra K: or Y given X, from the likelihood of PX given Y.
+
+60
+00:06:44.420 --> 00:06:47.449
+Jitendra K: And the prior probability of P of Y and P .
+
+61
+00:06:47.880 --> 00:06:53.989
+Jitendra K: So using this chain rule, the likelihood P of X given Y can be decomposed in this form.
+
+62
+00:06:56.110 --> 00:07:02.389
+Jitendra K: But because of the native condition independence assumption, the condition probability are independent of each other.
+
+63
+00:07:02.990 --> 00:07:12.879
+Jitendra K: So I can write down this conditional probability by saying, if I'm going to fit all features in this equation, I may end up into this nice equation.
+
+64
+00:07:13.060 --> 00:07:17.529
+Jitendra K: which is P of Y given X is equals to P of X1,
+
+65
+00:07:19.040 --> 00:07:23.160
+Jitendra K: individual effect on Y. I'm talking about independent effect.
+
+66
+00:07:23.530 --> 00:07:31.880
+Jitendra K: multiply by P of… X2… Independent effect on Y.
+
+67
+00:07:32.450 --> 00:07:35.989
+Jitendra K: So on and so forth, up to P of XN.
+
+68
+00:07:37.250 --> 00:07:39.220
+Jitendra K: Independent effect on wire.
+
+69
+00:07:39.610 --> 00:07:42.549
+Jitendra K: And this will be multiplied by P of Y.
+
+70
+00:07:43.170 --> 00:07:52.650
+Jitendra K: And the whole equation will be… X1… X2…
+
+71
+00:07:55.870 --> 00:07:56.960
+Jitendra K: Excellent.
+
+72
+00:07:59.380 --> 00:08:06.359
+Jitendra K: So I can represent this mathematical equation, you can say it's all linear multiplication, so I can represent this equation as P of
+
+73
+00:08:07.740 --> 00:08:08.760
+Jitendra K: Why?
+
+74
+00:08:09.560 --> 00:08:12.880
+Jitendra K: Given X1, X2, up to Xn.
+
+75
+00:08:15.180 --> 00:08:18.480
+Jitendra K: can be represented as P ,
+
+76
+00:08:19.870 --> 00:08:26.070
+Jitendra K: Linear multiplication. This is a multiplier, and I'm using from i is equals to 1.
+
+77
+00:08:26.990 --> 00:08:28.000
+Jitendra K: 2N.
+
+78
+00:08:28.830 --> 00:08:31.410
+Jitendra K: pay off… XI.
+
+79
+00:08:32.870 --> 00:08:33.710
+Jitendra K: Why?
+
+80
+00:08:34.039 --> 00:08:37.570
+Jitendra K: So this is the equation of your Bayesian curum.
+
+81
+00:08:39.850 --> 00:08:51.630
+Jitendra K: Right? So naive combines this model with a decision rule. And one common rule is to pick the hypothesis that is more probable, and this is where we are talking about maximum postlier decision boundary.
+
+82
+00:08:53.910 --> 00:09:02.240
+Jitendra K: Use the data marked as spam by the user. Yes, we will use the label data to train the model. So, we will use the labeling data, or label data, to train the model.
+
+83
+00:09:02.400 --> 00:09:09.160
+Jitendra K: So we'll train the model to understand what is the… How the…
+
+84
+00:09:09.720 --> 00:09:16.859
+Jitendra K: spam folder looks like, what is the non-spam folder looks like, and so on and so forth. And we train the algorithm on the top of our data points.
+
+85
+00:09:19.620 --> 00:09:21.870
+Jitendra K: No, the denominator is this only.
+
+86
+00:09:22.200 --> 00:09:28.200
+Jitendra K: So, you'll say P of Y, so here we are talking about Okay.
+
+87
+00:09:28.540 --> 00:09:35.540
+Jitendra K: So here, I'm talking about when we are predicting Y, I will say, it's an argument Max?
+
+88
+00:09:36.800 --> 00:09:37.800
+Jitendra K: Why?
+
+89
+00:09:38.540 --> 00:09:39.830
+Jitendra K: P of Y.
+
+90
+00:09:40.840 --> 00:09:44.150
+Jitendra K: Multiplication of… P off.
+
+91
+00:09:44.780 --> 00:09:50.660
+Jitendra K: Xi given Y. So this form is… Representing this equation.
+
+92
+00:09:57.890 --> 00:09:58.830
+Jitendra K: Alright.
+
+93
+00:09:59.610 --> 00:10:04.969
+Jitendra K: So… Let's try to understand nave bias with some example.
+
+94
+00:10:07.120 --> 00:10:13.360
+Jitendra K: So let's say… assume that a customer survey has been conducted. So, there was a survey which you have conducted.
+
+95
+00:10:13.660 --> 00:10:16.100
+Jitendra K: To understand, customer intent.
+
+96
+00:10:16.220 --> 00:10:19.209
+Jitendra K: Right? So assume that a customer survey on a purchase
+
+97
+00:10:19.400 --> 00:10:22.620
+Jitendra K: of high… ultra-high definition TV was conducted.
+
+98
+00:10:23.110 --> 00:10:28.259
+Jitendra K: So, I will show you the result from the survey. So, let's say… The result from the survey
+
+99
+00:10:28.780 --> 00:10:30.019
+Jitendra K: Looks like this.
+
+100
+00:10:31.710 --> 00:10:36.160
+Jitendra K: So, some of the customers say, I would like to purchase, they are planning to purchase a TV,
+
+101
+00:10:36.990 --> 00:10:42.300
+Jitendra K: But actually… Which is… purchasing is $300.
+
+102
+00:10:42.720 --> 00:10:48.590
+Jitendra K: And, they said in the survey that they will purchase, but they didn't purchase, so they are 50.
+
+103
+00:10:49.140 --> 00:10:54.630
+Jitendra K: Who didn't purchase. So the total who said yes in the survey was $350.
+
+104
+00:10:55.140 --> 00:10:58.520
+Jitendra K: But out of 350, 300 been purchased a TV.
+
+105
+00:10:59.140 --> 00:11:09.370
+Jitendra K: Out of the total 750 customers who said no, Some of them… has… actually come under.
+
+106
+00:11:10.000 --> 00:11:13.820
+Jitendra K: adverse scenario. That means they purchase… they end up into purchasing a TV.
+
+107
+00:11:14.170 --> 00:11:19.350
+Jitendra K: And the remaining, they are saying… whoever is saying that they will not purchase, they stick with that.
+
+108
+00:11:19.830 --> 00:11:25.210
+Jitendra K: So, 750 customers say no, they will not purchase, and out of which, 150 purchase a TV.
+
+109
+00:11:25.630 --> 00:11:27.559
+Jitendra K: So, I would say the total purchase…
+
+110
+00:11:29.450 --> 00:11:31.889
+Jitendra K: The total sales is 450 TV.
+
+111
+00:11:33.060 --> 00:11:41.650
+Jitendra K: And then, the number of customers who does not purchase is… Gonna be close to $6.50.
+
+112
+00:11:45.430 --> 00:11:47.669
+Jitendra K: Right? Now, the idea is…
+
+113
+00:11:47.820 --> 00:11:52.429
+Jitendra K: we can represent this with the help of Venn diagram. So, can I say that
+
+114
+00:11:52.760 --> 00:11:57.249
+Jitendra K: I have a VIN diagram, which says the population sample A,
+
+115
+00:11:57.360 --> 00:12:00.340
+Jitendra K: and population sample B. So I can say that
+
+116
+00:12:00.720 --> 00:12:03.610
+Jitendra K: If I'm going to find A intersection B,
+
+117
+00:12:05.440 --> 00:12:07.350
+Jitendra K: That will be a total purchase.
+
+118
+00:12:07.770 --> 00:12:09.740
+Jitendra K: So can I say that 50?
+
+119
+00:12:10.620 --> 00:12:13.009
+Jitendra K: Customers does not purchase.
+
+120
+00:12:13.670 --> 00:12:15.569
+Jitendra K: Out of the total, yes.
+
+121
+00:12:16.250 --> 00:12:19.270
+Jitendra K: So these are E300 customers who purchase.
+
+122
+00:12:20.080 --> 00:12:22.639
+Jitendra K: And this is a remaining 150 customer.
+
+123
+00:12:24.000 --> 00:12:25.130
+Jitendra K: Who does not.
+
+124
+00:12:26.490 --> 00:12:32.359
+Jitendra K: The total customer… is gonna be… this sample.
+
+125
+00:12:32.920 --> 00:12:34.220
+Jitendra K: That I'm representing.
+
+126
+00:12:34.330 --> 00:12:42.159
+Jitendra K: So I can say probability of A. That means the probability of A means… Proviability of the customers.
+
+127
+00:12:42.780 --> 00:12:47.109
+Jitendra K: Who's planning to purchase? So, out of the total customer, which is 1,100.
+
+128
+00:12:47.530 --> 00:12:53.650
+Jitendra K: The total customer who's planning to purchase is… 350?
+
+129
+00:12:55.290 --> 00:12:59.299
+Jitendra K: We say in the survey, because that's the only way that I can be able to identify their interest.
+
+130
+00:12:59.480 --> 00:13:04.979
+Jitendra K: If they say yes in the survey. So, out of 1,100, say, 50 say yes. So the probability of
+
+131
+00:13:05.370 --> 00:13:09.999
+Jitendra K: Purchase, of actual purchase, or sorry, planned purchase is $3.50.
+
+132
+00:13:10.520 --> 00:13:17.089
+Jitendra K: The probability of actual purchase which is B, is actually 300 plus 150.
+
+133
+00:13:17.620 --> 00:13:22.010
+Jitendra K: So I'll say 450 divided by… 1100.
+
+134
+00:13:22.890 --> 00:13:27.640
+Jitendra K: So when I'm calculating P , Intersection B.
+
+135
+00:13:28.730 --> 00:13:33.729
+Jitendra K: The probability of planned purchase and the actual purchase would be 300.
+
+136
+00:13:35.750 --> 00:13:37.440
+Jitendra K: Divided by 1100.
+
+137
+00:13:38.740 --> 00:13:42.419
+Jitendra K: Right, so you can see that when I'm computing probability of B,
+
+138
+00:13:42.670 --> 00:13:49.419
+Jitendra K: we didn't consider if the customer planned to purchase or not. The prior knowledge that customer planned to purchase
+
+139
+00:13:49.610 --> 00:13:54.460
+Jitendra K: Changes the customer probability of actual purchase, and this is the conditional probability.
+
+140
+00:13:55.650 --> 00:13:58.120
+Jitendra K: Given that, the customer planned to purchase.
+
+141
+00:13:58.360 --> 00:14:04.710
+Jitendra K: And I'm representing this conditional probability using… a syntax.
+
+142
+00:14:05.070 --> 00:14:09.090
+Jitendra K: B… of B given A.
+
+143
+00:14:11.370 --> 00:14:17.190
+Jitendra K: So I can write this equation, probability of… A intersection.
+
+144
+00:14:18.380 --> 00:14:19.360
+Jitendra K: B.
+
+145
+00:14:19.640 --> 00:14:27.290
+Jitendra K: As probability of… be given a… multiply by probability of A.
+
+146
+00:14:33.600 --> 00:14:47.859
+Jitendra K: Right? So the idea of Bayesian theorem is very simple. It works on prior probabilical computation. And depending upon that, it will be able to identify the actual prediction probability of an event.
+
+147
+00:14:51.620 --> 00:14:59.770
+Jitendra K: Right? So, it looks slightly… I would say simple, because what we are talking about here is.
+
+148
+00:14:59.890 --> 00:15:02.850
+Jitendra K: We're just talking about this equation, nice equation.
+
+149
+00:15:03.220 --> 00:15:07.579
+Jitendra K: Which says that probability of A given B, or
+
+150
+00:15:08.120 --> 00:15:13.580
+Jitendra K: the… can be written as the posterior probability of A, Being true.
+
+151
+00:15:13.710 --> 00:15:18.430
+Jitendra K: giving B is also true, so there's a condition in which they do
+
+152
+00:15:18.840 --> 00:15:22.750
+Jitendra K: Appear simultaneously, can be represented as…
+
+153
+00:15:23.060 --> 00:15:25.569
+Jitendra K: So here we are talking about a likelihood of B.
+
+154
+00:15:25.800 --> 00:15:27.920
+Jitendra K: being true, given A is true.
+
+155
+00:15:28.770 --> 00:15:36.119
+Jitendra K: Right? So I can reconstruct this as prior probability, or posture probability, the probability A being true.
+
+156
+00:15:37.680 --> 00:15:40.640
+Jitendra K: And then, the likelihood of B
+
+157
+00:15:41.760 --> 00:15:43.910
+Jitendra K: being true, given A is true.
+
+158
+00:15:45.610 --> 00:15:48.569
+Jitendra K: So this is the interchangeable terminology that I'm using.
+
+159
+00:15:52.970 --> 00:15:58.880
+Jitendra K: Right? So basically, the idea of not… Sorry, naive Bay's theorem
+
+160
+00:15:59.360 --> 00:16:08.440
+Jitendra K: Is to identify and depend, depending upon how the model likelihood function has been created, it will be able to generate an answer.
+
+161
+00:16:09.370 --> 00:16:11.099
+Jitendra K: So, there are 4 types of…
+
+162
+00:16:11.380 --> 00:16:15.589
+Jitendra K: Nave buys, or so-called… there are four types of
+
+163
+00:16:16.220 --> 00:16:22.650
+Jitendra K: some methods that we are going to talk about in navewise. The first is called Gaussian navewise.
+
+164
+00:16:23.410 --> 00:16:27.680
+Jitendra K: The second one that we are going to talk about is multinomial native bias theorem.
+
+165
+00:16:28.250 --> 00:16:34.519
+Jitendra K: The third one is called Bernali Nave Wise, and the fourth one is the raw one that we just discussed.
+
+166
+00:16:35.490 --> 00:16:38.219
+Jitendra K: Now, if I'm talking about a Gaussian nave bias.
+
+167
+00:16:39.810 --> 00:16:46.200
+Jitendra K: So here, the assumption that the feature will follow, the feature means X will follow a normal distribution.
+
+168
+00:16:46.850 --> 00:16:47.760
+Jitendra K: Part 10.
+
+169
+00:16:48.600 --> 00:16:53.940
+Jitendra K: And the parameter of distribution, that means mean and variance, are estimated from the training data.
+
+170
+00:16:54.600 --> 00:17:02.280
+Jitendra K: So, a Gaussian bias, or a Gaussian A vice, is a simple but effective method Let's assume that…
+
+171
+00:17:03.080 --> 00:17:11.309
+Jitendra K: The features are independent and follow a Gaussian distribution. So it works really well in many cases, even if the features are not exactly Gaussian.
+
+172
+00:17:11.630 --> 00:17:18.650
+Jitendra K: So it's often used for continuous features, which make a very good candidate for tasks like NLP and image recognition.
+
+173
+00:17:19.250 --> 00:17:25.290
+Jitendra K: So when you're using an A-wise, Gaussian A-wise, you're talking about this equation.
+
+174
+00:17:26.480 --> 00:17:30.849
+Jitendra K: So here, I'm talking about that I have got, let's say, two-class distribution.
+
+175
+00:17:31.100 --> 00:17:33.850
+Jitendra K: In this form, the blue and the red line.
+
+176
+00:17:34.170 --> 00:17:40.689
+Jitendra K: Right? So basically, I'm assuming that the probability of observation, Y,
+
+177
+00:17:40.940 --> 00:17:43.599
+Jitendra K: If X came from Class A distribution.
+
+178
+00:17:45.120 --> 00:17:51.740
+Jitendra K: So I'm talking about probability of X given by… when the probability of observing X is… came from class B distribution.
+
+179
+00:17:52.240 --> 00:17:57.360
+Jitendra K: So that means I'm going to calculate, and I just… their distances.
+
+180
+00:17:57.790 --> 00:18:02.420
+Jitendra K: to find out the separation. And that is where I would like to use
+
+181
+00:18:02.630 --> 00:18:06.039
+Jitendra K: NAVY is for classification purpose as well.
+
+182
+00:18:09.880 --> 00:18:17.590
+Jitendra K: And the equation that I can represent probability of X, Given why.
+
+183
+00:18:18.120 --> 00:18:24.330
+Jitendra K: can be written as… in the form of a bell-shaped curve, it will be under root of 2,
+
+184
+00:18:24.980 --> 00:18:30.560
+Jitendra K: Pi, standard deviation, Square.
+
+185
+00:18:31.040 --> 00:18:32.330
+Jitendra K: This is Pi.
+
+186
+00:18:32.790 --> 00:18:41.380
+Jitendra K: Multiply by exponential of… minus X minus… mu Y.
+
+187
+00:18:41.850 --> 00:18:44.410
+Jitendra K: Whole square divided by 2 sigma squared.
+
+188
+00:18:44.920 --> 00:18:53.909
+Jitendra K: And this is the equation that we're going to use for representing My, any sort of… Gaussian curves.
+
+189
+00:18:55.270 --> 00:18:59.150
+Jitendra K: Right, so the idea of Gaussian bias, or Gaussian wave-wise, is very simple.
+
+190
+00:18:59.330 --> 00:19:05.309
+Jitendra K: But it is very effective that the method will assume that the features are independent and follow a Gaussian distribution.
+
+191
+00:19:10.600 --> 00:19:17.860
+Jitendra K: The second type of Bayesian algorithm that we are going to talk about Or the so-called,
+
+192
+00:19:18.260 --> 00:19:21.170
+Jitendra K: Maybe, a type of vision algorithm.
+
+193
+00:19:22.750 --> 00:19:28.970
+Jitendra K: Is when you're going to utilize Bernali NAVE. Bernali Trials.
+
+194
+00:19:30.450 --> 00:19:33.869
+Jitendra K: Right, so Bernardi trials means when you're using the count data.
+
+195
+00:19:34.530 --> 00:19:38.330
+Jitendra K: So you're going to assume that the features are binary, 0 or 1,
+
+196
+00:19:39.220 --> 00:19:47.440
+Jitendra K: And it is very similar to multinomial navies, where it considers the presence and absence of the feature, rather than the frequency of that feature.
+
+197
+00:19:47.600 --> 00:19:50.039
+Jitendra K: So we'll talk about that part,
+
+198
+00:19:50.330 --> 00:19:53.030
+Jitendra K: In a while, like, when we are creating.
+
+199
+00:19:53.200 --> 00:19:58.170
+Jitendra K: a program, how to differentiate these two things. What are the things that you should consider?
+
+200
+00:20:03.160 --> 00:20:06.069
+Jitendra K: When you're trying to solve an A bye equation.
+
+201
+00:20:09.900 --> 00:20:17.149
+Jitendra K: Is it clear to everyone that what is nave-wise, at least, from the mathematical point of view? Any issue with understanding the nave-wise?
+
+202
+00:20:34.670 --> 00:20:39.000
+Jitendra K: Yes, you need to remember the formula, as I mentioned, you need to understand the formula, that's it.
+
+203
+00:20:52.860 --> 00:20:55.780
+Jitendra K: Alright, so we'll take one example, and
+
+204
+00:20:56.210 --> 00:20:58.750
+Jitendra K: I will take, 2 or 3 examples.
+
+205
+00:21:00.470 --> 00:21:04.850
+Jitendra K: Name bias is equal to base theorem plus an independent of each other, yes.
+
+206
+00:21:05.260 --> 00:21:06.240
+Jitendra K: That's correct.
+
+207
+00:21:11.540 --> 00:21:14.539
+Jitendra K: So Besian theorem is a…
+
+208
+00:21:15.270 --> 00:21:21.679
+Jitendra K: main, driving force of creation… creating the native bias, but with an assumption that the features are independent.
+
+209
+00:21:27.440 --> 00:21:33.750
+Jitendra K: Alright, so we'll use our program now to understand how can we implement a native-based algorithm.
+
+210
+00:21:34.070 --> 00:21:40.920
+Jitendra K: Using Python, right? So that is something which we would like to utilize this class for. So this is a hands-on session.
+
+211
+00:21:41.120 --> 00:21:43.220
+Jitendra K: Let me go back to my Google Pool app.
+
+212
+00:21:50.550 --> 00:21:52.400
+Jitendra K: Let me open a new notebook.
+
+213
+00:22:08.070 --> 00:22:15.430
+Jitendra K: Okay, so what do I… what are we going to do now is… First and foremost thing, We will…
+
+214
+00:22:15.640 --> 00:22:17.590
+Jitendra K: use scikit-learn.
+
+215
+00:22:25.500 --> 00:22:27.500
+Jitendra K: to implement nave buys.
+
+216
+00:22:30.200 --> 00:22:36.460
+Jitendra K: We will use… TFIDF, I will talk about this algorithm.
+
+217
+00:22:40.540 --> 00:22:43.129
+Jitendra K: And that is called term frequency.
+
+218
+00:22:46.640 --> 00:22:49.030
+Jitendra K: Multiply by inverse.
+
+219
+00:22:55.160 --> 00:22:56.830
+Jitendra K: document frequency.
+
+220
+00:22:57.360 --> 00:23:02.709
+Jitendra K: to create a feature, so this is the feature engineering part. We'll create a feature engineering.
+
+221
+00:23:03.240 --> 00:23:10.619
+Jitendra K: Using this. And the idea is you will have to use rates… To train the model.
+
+222
+00:23:12.570 --> 00:23:14.290
+Jitendra K: Which model native price?
+
+223
+00:23:14.900 --> 00:23:17.160
+Jitendra K: The third is, you will have two classes.
+
+224
+00:23:17.580 --> 00:23:18.980
+Jitendra K: 0 and 1.
+
+225
+00:23:19.220 --> 00:23:21.259
+Jitendra K: So I'll say 0, says spam.
+
+226
+00:23:23.050 --> 00:23:24.280
+Jitendra K: One is…
+
+227
+00:23:27.350 --> 00:23:29.039
+Jitendra K: Or normal image.
+
+228
+00:23:35.570 --> 00:23:37.080
+Jitendra K: We'll also implement
+
+229
+00:23:40.370 --> 00:23:42.460
+Jitendra K: MLOps to understand…
+
+230
+00:23:45.710 --> 00:23:47.690
+Jitendra K: model output…
+
+231
+00:23:50.880 --> 00:23:52.669
+Jitendra K: And his efficacy.
+
+232
+00:23:55.530 --> 00:23:59.450
+Jitendra K: So these are the things that we are going to talk about now, and
+
+233
+00:24:00.270 --> 00:24:03.990
+Jitendra K: We will… I will implement the program from the scratch.
+
+234
+00:24:04.100 --> 00:24:05.639
+Jitendra K: And we'll have some data.
+
+235
+00:24:06.290 --> 00:24:10.770
+Jitendra K: So the data that we are going to utilize is… email topics.
+
+236
+00:24:12.420 --> 00:24:17.850
+Jitendra K: So, we will use the email topics, the way that you are receiving your emails in your Gmail box.
+
+237
+00:24:18.350 --> 00:24:26.320
+Jitendra K: So, let me start with importing the libraries. So, we will import… necessary packages, NumPy, Pindass.
+
+238
+00:24:27.080 --> 00:24:30.310
+Jitendra K: Model selection, train, test, fit, cross-validation.
+
+239
+00:24:31.050 --> 00:24:37.860
+Jitendra K: We will have scikit-learn TFIDF, multinomial native bias, Because I've got two classes.
+
+240
+00:24:38.340 --> 00:24:41.139
+Jitendra K: That's the reason I'm using multinamel native bias.
+
+241
+00:24:43.110 --> 00:24:46.709
+Jitendra K: I would like to print these model parameters, how the model
+
+242
+00:24:47.610 --> 00:24:51.980
+Jitendra K: is behaving in a set of data that I have been passed.
+
+243
+00:24:52.110 --> 00:24:56.720
+Jitendra K: For that, I would like to use… Some plot enablement.
+
+244
+00:24:57.470 --> 00:24:59.240
+Jitendra K: So, let me run this.
+
+245
+00:25:06.460 --> 00:25:10.629
+Jitendra K: Alright, so now what I'm going to do is, let me show you the data first.
+
+246
+00:25:11.840 --> 00:25:14.410
+Jitendra K: I've got set of messages.
+
+247
+00:25:21.530 --> 00:25:26.789
+Jitendra K: And these are the set of messages that I'm using to train my algorithm. So you can see spam messages.
+
+248
+00:25:33.310 --> 00:25:39.989
+Jitendra K: The spam messages usually look like this, right? In a generic sense. They could be more complex spam, but
+
+249
+00:25:40.260 --> 00:25:49.160
+Jitendra K: when I'm talking about… Generic scams, you will get these sort of lucrative offers, emails, Very good amount of…
+
+250
+00:25:53.130 --> 00:25:58.479
+Jitendra K: Polite tone from the users, and all these things will be a part of your email.
+
+251
+00:25:58.860 --> 00:26:05.470
+Jitendra K: When we talk about normal emails, you can see the normal emails looks… like this…
+
+252
+00:26:12.170 --> 00:26:14.619
+Jitendra K: Now, what if I have to train a machine?
+
+253
+00:26:15.270 --> 00:26:19.450
+Jitendra K: To identify the patterns from the… spams.
+
+254
+00:26:20.490 --> 00:26:22.670
+Jitendra K: And the pattern from the normal email.
+
+255
+00:26:23.020 --> 00:26:25.569
+Jitendra K: So that I can able to identify…
+
+256
+00:26:25.750 --> 00:26:28.739
+Jitendra K: If any new email appears in my mailbox.
+
+257
+00:26:29.060 --> 00:26:33.719
+Jitendra K: Should I consider this in my inbox, or should I send it to a spam folder?
+
+258
+00:26:36.520 --> 00:26:38.950
+Jitendra K: So that is something which you would like to talk about.
+
+259
+00:26:42.220 --> 00:26:49.040
+Jitendra K: Now, what I'm going to do next is, I would like to implement a class which will accommodate…
+
+260
+00:26:50.140 --> 00:26:52.230
+Jitendra K: these functions together.
+
+261
+00:26:52.880 --> 00:26:54.550
+Jitendra K: So, I will say I have a class.
+
+262
+00:26:55.590 --> 00:27:03.029
+Jitendra K: Which is called spam filter native bias, and this is a simple multinomial class, and it is using TFIDF as a feature.
+
+263
+00:27:03.160 --> 00:27:07.950
+Jitendra K: Now, let me explain what is TF IDF first, before we move on to the nave-wise.
+
+264
+00:27:08.160 --> 00:27:13.229
+Jitendra K: So when you say TF-IDF, I've already explained what is the purpose of TF-IDF.
+
+265
+00:27:13.380 --> 00:27:16.400
+Jitendra K: Which is term frequency inverse document frequency.
+
+266
+00:27:16.730 --> 00:27:23.819
+Jitendra K: But the idea of this… Method is to perform a statistical measurement of the text.
+
+267
+00:27:24.160 --> 00:27:26.099
+Jitendra K: Or even words, I would say.
+
+268
+00:27:27.210 --> 00:27:29.979
+Jitendra K: To evaluate how important a word.
+
+269
+00:27:30.590 --> 00:27:34.199
+Jitendra K: Is in context of the document or a collection.
+
+270
+00:27:35.210 --> 00:27:40.870
+Jitendra K: So, basically, we are going to multiply the term frequency, how often a word appears in the document.
+
+271
+00:27:41.270 --> 00:27:49.380
+Jitendra K: Let's say if I'm reading, wikipedia page, which talks about All-time great batsman.
+
+272
+00:27:50.850 --> 00:27:52.500
+Jitendra K: You will see a lot of…
+
+273
+00:27:53.530 --> 00:27:58.830
+Jitendra K: buzz around Sachintan Luker, Dawn Bredman, Brian Lara.
+
+274
+00:27:58.960 --> 00:28:01.769
+Jitendra K: Right, so these names will appear quite often.
+
+275
+00:28:02.200 --> 00:28:11.489
+Jitendra K: And their records will be… substantiated by their numbers in the Wikipedia page. So basically, when we talk about
+
+276
+00:28:12.400 --> 00:28:14.310
+Jitendra K: Some topic of interest.
+
+277
+00:28:14.510 --> 00:28:18.630
+Jitendra K: You'll automatically get a keyword, some keywords, on the higher side.
+
+278
+00:28:19.100 --> 00:28:21.150
+Jitendra K: And that is what we would like to see.
+
+279
+00:28:21.600 --> 00:28:25.710
+Jitendra K: how important that word is in terms of document.
+
+280
+00:28:28.150 --> 00:28:33.899
+Jitendra K: Now, when we're calculating the inverse document frequency, we will also look for how rare the word is.
+
+281
+00:28:35.340 --> 00:28:39.879
+Jitendra K: Right? Across all documents. And this method gives a high score to the words.
+
+282
+00:28:40.120 --> 00:28:45.899
+Jitendra K: That are frequently used in a specific document, but are uncommon in overlap corpus.
+
+283
+00:28:46.310 --> 00:28:50.419
+Jitendra K: And we'll assign a low score to the common words that appear every year.
+
+284
+00:28:51.100 --> 00:28:57.290
+Jitendra K: So the TF will measure how often a term appears in a single document, and IDF will measure how rare
+
+285
+00:28:57.430 --> 00:29:02.620
+Jitendra K: Our common award is across a collection of documents. And when we multiply them together.
+
+286
+00:29:02.720 --> 00:29:04.559
+Jitendra K: We'll get a normalized factor.
+
+287
+00:29:08.380 --> 00:29:10.990
+Jitendra K: So this is what the TF IDF will do for you.
+
+288
+00:29:11.160 --> 00:29:13.749
+Jitendra K: Now, let's… let me run this class.
+
+289
+00:29:14.120 --> 00:29:21.310
+Jitendra K: Compile this class, And, we will use this class for running the… model.
+
+290
+00:29:22.700 --> 00:29:28.770
+Jitendra K: So, now I would like to… compile this… function as well.
+
+291
+00:29:29.810 --> 00:29:32.180
+Jitendra K: Alright, now I will have one more function.
+
+292
+00:29:32.750 --> 00:29:37.919
+Jitendra K: To generate the evaluation of output, that means how effective the model is.
+
+293
+00:29:38.220 --> 00:29:41.930
+Jitendra K: To classify a spam as a spam, a ham as a ham.
+
+294
+00:29:42.610 --> 00:29:50.080
+Jitendra K: Are it… is it able to capture all the spams, or 80% effective, 90% effective, and so on and so forth?
+
+295
+00:29:50.900 --> 00:29:55.819
+Jitendra K: I would like to… Also, Test this algorithm.
+
+296
+00:29:56.630 --> 00:30:00.020
+Jitendra K: using some… Simulation.
+
+297
+00:30:02.050 --> 00:30:05.450
+Jitendra K: And for that, I would like to test the model with some custom messages.
+
+298
+00:30:06.510 --> 00:30:08.989
+Jitendra K: Right? And see how the model behaves.
+
+299
+00:30:09.880 --> 00:30:13.900
+Jitendra K: Right, so it's like a test or unseen data that I'm passing to my model.
+
+300
+00:30:14.310 --> 00:30:20.079
+Jitendra K: Now, let me run this model in a form of a loop, using a main loop, and let's see the output.
+
+301
+00:30:20.700 --> 00:30:23.960
+Jitendra K: So you can see that… okay, so there's some issue.
+
+302
+00:31:20.560 --> 00:31:23.610
+Jitendra K: Home files are missing, it seems. Let me check.
+
+303
+00:32:52.090 --> 00:32:55.699
+Jitendra K: Okay, it just… it does well, work well.
+
+304
+00:32:56.120 --> 00:33:01.280
+Jitendra K: So, let me explain what is the code outcome looks like. So, you can see that, the model
+
+305
+00:33:01.530 --> 00:33:04.039
+Jitendra K: It's working with a recall of 80%.
+
+306
+00:33:04.220 --> 00:33:06.639
+Jitendra K: To predict the normal email.
+
+307
+00:33:06.980 --> 00:33:12.629
+Jitendra K: And to predict the spam, it is working with a position of 83 and a recall of 100%.
+
+308
+00:33:13.020 --> 00:33:17.219
+Jitendra K: So if I combine both scores, I will get 91 as a F1 score.
+
+309
+00:33:19.560 --> 00:33:26.190
+Jitendra K: Now, if I look into some of the specific, thing, like true negative classification versus.
+
+310
+00:33:26.410 --> 00:33:31.159
+Jitendra K: False negative, true positive. So there's no false negative, but there are some false positives.
+
+311
+00:33:31.350 --> 00:33:37.339
+Jitendra K: So, some of the ham, that means normal email, has been classified as spam, which is fine.
+
+312
+00:33:37.520 --> 00:33:40.530
+Jitendra K: And some of the, some of the spam…
+
+313
+00:33:40.740 --> 00:33:46.780
+Jitendra K: Classified as HAM, which is not… Anything in my code.
+
+314
+00:33:47.250 --> 00:33:51.630
+Jitendra K: Right, so the idea is, your model overcaptured, but that is fine.
+
+315
+00:33:52.030 --> 00:33:57.460
+Jitendra K: So, this is the characteristics of ROC AOC when you have a perfect 100% area covered.
+
+316
+00:33:57.960 --> 00:34:07.580
+Jitendra K: And then, some of the important indicators, or you can say keywords which have been identified by the algorithm are these, 10 or 12.
+
+317
+00:34:07.710 --> 00:34:11.909
+Jitendra K: And then, depending upon that, you're getting the result. So the idea is.
+
+318
+00:34:12.179 --> 00:34:18.880
+Jitendra K: Let's assume that, if I'm going to train this algorithm with more data, it will understand more patterns, right?
+
+319
+00:34:19.020 --> 00:34:23.449
+Jitendra K: And with the help of this pattern, I can be able to do… the…
+
+320
+00:34:24.370 --> 00:34:29.280
+Jitendra K: I can say it is going to protect your spam or email.
+
+321
+00:34:29.510 --> 00:34:36.800
+Jitendra K: as a ham, right? So that's the whole idea of this. So similarly, the Google engine works, typically of using
+
+322
+00:34:37.010 --> 00:34:47.490
+Jitendra K: these, keyword search, and then try to identify the weights on the top of it. But, this is a basic mechanism of splitting your email into Hammond.
+
+323
+00:34:47.760 --> 00:34:48.989
+Jitendra K: spam category.
+
+324
+00:34:49.199 --> 00:34:52.470
+Jitendra K: So, any question on this? Anything that you would like to ask?
+
+325
+00:34:52.940 --> 00:34:57.079
+Jitendra K: Before we move on to… The next example…
+
+326
+00:35:08.080 --> 00:35:11.999
+Jitendra K: ROC is Region Operating Characteristics, so we'll talk about ROC
+
+327
+00:35:12.860 --> 00:35:18.790
+Jitendra K: in a while, but ROC talks about how your model is operating.
+
+328
+00:35:19.040 --> 00:35:24.669
+Jitendra K: within the space of TP true positive, and FP false positive. Sorry, false negative.
+
+329
+00:35:25.080 --> 00:35:27.160
+Jitendra K: And how it is suppressing the…
+
+330
+00:35:29.780 --> 00:35:33.300
+Jitendra K: Oh, sorry, how it is suppressing the false positive capture rate.
+
+331
+00:35:33.850 --> 00:35:37.400
+Jitendra K: So, ROC Region Operating Characteristics, I mean to say.
+
+332
+00:35:37.860 --> 00:35:44.160
+Jitendra K: If you would like to see that… how your model behaves in a particular time frame, then you can use ROC.
+
+333
+00:35:52.400 --> 00:35:54.980
+Jitendra K: Alright, let me share this notebook with everyone.
+
+334
+00:35:55.560 --> 00:36:02.000
+Jitendra K: And I would request you to run this, and let me know if you're facing any issue with understanding the code.
+
+335
+00:36:02.330 --> 00:36:05.579
+Jitendra K: Or maybe some other thing that you would like to discuss?
+
+336
+00:36:06.070 --> 00:36:08.059
+Jitendra K: Let me share this code with everyone.
+
+337
+00:36:13.460 --> 00:36:21.420
+Jitendra K: So, please tie it to your system, and then let me know if it is working fine, having some issue, so that we can be able to expedite.
+
+338
+00:38:16.560 --> 00:38:24.759
+Jitendra K: Can you please run this, last cell? I think I've shared you everything. That's the reason you're getting the error. Can you please run this last cell?
+
+339
+00:38:25.260 --> 00:38:27.860
+Jitendra K: Just go to the last cell, and then try to run this.
+
+340
+00:38:28.430 --> 00:38:30.399
+Jitendra K: I've compiled everything in the last cell.
+
+341
+00:38:44.370 --> 00:38:46.080
+Jitendra K: Yeah, I'm resharing the file.
+
+342
+00:41:59.950 --> 00:42:07.129
+Jitendra K: So this is a real value features, right? So the count will be a real-world feature, real-value features, so it is using a Gaussian distribution model.
+
+343
+00:42:12.690 --> 00:42:16.870
+Jitendra K: Still getting error. Where are you getting the error?
+
+344
+00:42:17.990 --> 00:42:22.559
+Jitendra K: Let me share the one file only. I think you're still running the wrong file, let me…
+
+345
+00:42:23.770 --> 00:42:24.970
+Jitendra K: Let me delete.
+
+346
+00:42:36.860 --> 00:42:39.489
+Jitendra K: Still running the wrong file.
+
+347
+00:42:40.860 --> 00:42:42.769
+Jitendra K: Let me just put this file.
+
+348
+00:42:58.520 --> 00:43:02.399
+Jitendra K: Yeah, can you try this one, and let me know if it is having an issue.
+
+349
+00:43:11.430 --> 00:43:15.180
+Jitendra K: Yeah, so the training will happen when you're creating a nave-based object.
+
+350
+00:43:15.610 --> 00:43:20.809
+Jitendra K: Right, so once we create a dataset, Then we are calling…
+
+351
+00:43:28.990 --> 00:43:30.800
+Jitendra K: So you are splitting the data?
+
+352
+00:43:31.070 --> 00:43:35.800
+Jitendra K: And then we are calling this class… Spam filter naive bias.
+
+353
+00:43:36.080 --> 00:43:42.000
+Jitendra K: And we are saying that, let's try to train this model With thousand keywords.
+
+354
+00:43:42.640 --> 00:43:50.170
+Jitendra K: So, this is the combination of the awards. So, you might… you might be getting Unigrams and bigrams, both.
+
+355
+00:43:50.400 --> 00:43:55.770
+Jitendra K: So the word, which is single words, right, will be considered to be unigram.
+
+356
+00:43:56.190 --> 00:44:00.230
+Jitendra K: The words which are combined, or maybe are two words.
+
+357
+00:44:00.580 --> 00:44:03.320
+Jitendra K: Pair will be considered to be migrant.
+
+358
+00:44:03.740 --> 00:44:06.900
+Jitendra K: So I'm considering both, and then try to change my model.
+
+359
+00:44:13.400 --> 00:44:17.990
+Jitendra K: How many of you are getting the error, same error that, Balaji is getting?
+
+360
+00:44:18.590 --> 00:44:21.250
+Jitendra K: Are you getting the same error, or are you able to execute it?
+
+361
+00:44:21.490 --> 00:44:24.739
+Jitendra K: And which code interpreter are you using to run this?
+
+362
+00:44:25.760 --> 00:44:30.350
+Jitendra K: I think you're using a py file, I don't know why. It should be an Python file.
+
+363
+00:44:31.090 --> 00:44:37.690
+Jitendra K: Are you running this as a… by double-clicking that, and then use… using .py as an extension, or…
+
+364
+00:44:38.470 --> 00:44:40.550
+Jitendra K: Are you using the Google Cool app to run?
+
+365
+00:44:44.690 --> 00:44:49.759
+Jitendra K: Copy-paste, okay, have you opened this file in this manner, and then copy-paste?
+
+366
+00:44:50.040 --> 00:44:53.350
+Jitendra K: Let me show you. So, it should not be copy-paste.
+
+367
+00:44:53.530 --> 00:44:55.369
+Jitendra K: You have to import a file.
+
+368
+00:44:56.210 --> 00:44:58.260
+Jitendra K: You have to say Go File.
+
+369
+00:44:58.570 --> 00:45:01.459
+Jitendra K: And upload the file. It should be a notebook.
+
+370
+00:45:03.380 --> 00:45:08.740
+Jitendra K: You cannot say, I will simply copy and paste, like this, double-clicking on the file.
+
+371
+00:45:09.570 --> 00:45:12.530
+Jitendra K: So let's say this is a file, if I just double-click…
+
+372
+00:45:16.090 --> 00:45:20.950
+Jitendra K: Open with… Text editor.
+
+373
+00:45:22.110 --> 00:45:24.070
+Jitendra K: You cannot open the file like this.
+
+374
+00:45:31.230 --> 00:45:34.330
+Jitendra K: If I copy and paste this content to my…
+
+375
+00:45:35.290 --> 00:45:37.609
+Jitendra K: Coolab, of course it will show an error.
+
+376
+00:45:38.960 --> 00:45:40.609
+Jitendra K: This is a formatting error.
+
+377
+00:45:58.630 --> 00:46:03.630
+Jitendra K: Is everybody clear what I'm trying to say? I hope you are using this command.
+
+378
+00:46:04.160 --> 00:46:05.580
+Jitendra K: To upload the file.
+
+379
+00:46:09.530 --> 00:46:11.830
+Jitendra K: Okay, so upload a file.
+
+380
+00:46:11.950 --> 00:46:13.280
+Jitendra K: Browse the file.
+
+381
+00:46:13.970 --> 00:46:15.670
+Jitendra K: And then upload this file.
+
+382
+00:46:26.200 --> 00:46:29.750
+Jitendra K: So first, save the file, and then upload by using file option.
+
+383
+00:46:41.480 --> 00:46:45.049
+Jitendra K: Alright, so, I hope you're clear now, right?
+
+384
+00:46:45.800 --> 00:46:47.890
+Jitendra K: Okay, so let's move on.
+
+385
+00:46:53.130 --> 00:46:57.699
+Jitendra K: Okay, so we talked about, navy's algorithm to solve
+
+386
+00:46:57.940 --> 00:47:02.150
+Jitendra K: text-ish… text problems, right? Or maybe simple…
+
+387
+00:47:02.310 --> 00:47:08.289
+Jitendra K: spam detection problem, right? So we have just created a very simple spam detection algorithm.
+
+388
+00:47:08.500 --> 00:47:10.269
+Jitendra K: That will able to do this trick.
+
+389
+00:47:10.630 --> 00:47:17.130
+Jitendra K: Now… What are the parameters that we are using to train this model?
+
+390
+00:47:17.400 --> 00:47:19.699
+Jitendra K: So, we are using the parameters
+
+391
+00:47:23.150 --> 00:47:30.399
+Jitendra K: Including, the probability of different words, total count of the words in a document.
+
+392
+00:47:30.780 --> 00:47:38.870
+Jitendra K: the vocabulary size, and then some repetitive words, which are coming in every spam emails, right? Like, when…
+
+393
+00:47:39.290 --> 00:47:43.810
+Jitendra K: Lottery, share your account details, etc.
+
+394
+00:47:44.280 --> 00:47:50.980
+Jitendra K: Right, so all these things are the kind of repetitive words which are a part of that particular pipeline, or so-called feature pipeline.
+
+395
+00:47:51.470 --> 00:47:59.159
+Jitendra K: Now, what we can do is, I will show you how to use nave-wise for numerical features.
+
+396
+00:47:59.880 --> 00:48:04.750
+Jitendra K: Although we are using a numerical feature here as well, but let me put it into a different manner.
+
+397
+00:48:05.180 --> 00:48:11.430
+Jitendra K: So let's try to implement an ABAS algorithm for… numerical features.
+
+398
+00:48:11.530 --> 00:48:14.140
+Jitendra K: Right? So, I will use a numerical data.
+
+399
+00:48:14.270 --> 00:48:18.099
+Jitendra K: model, and use a nave bias for categorical and numerical.
+
+400
+00:48:18.790 --> 00:48:24.329
+Jitendra K: So… Let me go back to my collab again.
+
+401
+00:48:25.300 --> 00:48:27.859
+Jitendra K: So what I'm going to do is, I would like to…
+
+402
+00:48:28.490 --> 00:48:31.200
+Jitendra K: Again, show you what is native bias.
+
+403
+00:48:31.570 --> 00:48:36.699
+Jitendra K: And, we will use this algorithm for performing the class separation.
+
+404
+00:48:50.720 --> 00:48:52.680
+Jitendra K: One second, let me open this.
+
+405
+00:49:12.070 --> 00:49:14.560
+Jitendra K: Alright, so what I'm going to do is,
+
+406
+00:49:15.290 --> 00:49:17.530
+Jitendra K: I would like to implement a nave bias.
+
+407
+00:49:24.030 --> 00:49:32.360
+Jitendra K: for one of the medical data, and I'm going to use the breast cancer data set for this case study again. So let me go back…
+
+408
+00:49:40.570 --> 00:49:43.579
+Jitendra K: And first, let me import all the libraries.
+
+409
+00:50:02.860 --> 00:50:04.950
+Jitendra K: Let me import this file.
+
+410
+00:50:05.760 --> 00:50:08.129
+Jitendra K: Which comprise of the history of the patient.
+
+411
+00:50:21.260 --> 00:50:23.320
+Jitendra K: So I have this data in my…
+
+412
+00:50:30.720 --> 00:50:33.649
+Jitendra K: Let me download this data quickly.
+
+413
+00:50:54.590 --> 00:50:58.359
+Jitendra K: Okay, let me use a CSV file, I need a CSV file.
+
+414
+00:51:51.350 --> 00:51:55.930
+Jitendra K: Okay, so once I upload this, I will upload in my…
+
+415
+00:52:12.640 --> 00:52:14.960
+Jitendra K: folder, and I'll copy the file path.
+
+416
+00:52:37.980 --> 00:52:44.569
+Jitendra K: Right now, we'll read the file by saying DF is equals to pd.read underscore CSV.
+
+417
+00:52:45.130 --> 00:52:47.349
+Jitendra K: I will pass on the file path.
+
+418
+00:52:49.670 --> 00:52:51.949
+Jitendra K: And I will check the DF headers.
+
+419
+00:52:56.720 --> 00:52:59.619
+Jitendra K: Everything is fine here until this point.
+
+420
+00:53:00.460 --> 00:53:02.270
+Jitendra K: Now, I would like to check…
+
+421
+00:53:03.060 --> 00:53:06.529
+Jitendra K: And create some histograms to check the…
+
+422
+00:53:07.240 --> 00:53:12.680
+Jitendra K: File… sorry, the class frequency? Like, what is the… Majority of the class.
+
+423
+00:53:12.850 --> 00:53:14.470
+Jitendra K: So, I will use histogram.
+
+424
+00:53:14.900 --> 00:53:20.640
+Jitendra K: DF Diagnostics, and then… Let me run this…
+
+425
+00:53:27.030 --> 00:53:28.480
+Jitendra K: I'm getting…
+
+426
+00:53:28.640 --> 00:53:39.580
+Jitendra K: malign and benign… maligant and benign as the two classes. So maligant is minority, and benign is the majority of the classes. So I've got
+
+427
+00:53:39.790 --> 00:53:42.260
+Jitendra K: 350… crisis.
+
+428
+00:53:42.890 --> 00:53:44.279
+Jitendra K: Which has been diagnosed?
+
+429
+00:53:44.710 --> 00:53:45.759
+Jitendra K: With B.
+
+430
+00:53:46.590 --> 00:53:48.879
+Jitendra K: These are the two categories that I'm going to use.
+
+431
+00:53:49.060 --> 00:53:50.550
+Jitendra K: Now, I would like to check…
+
+432
+00:53:51.560 --> 00:53:57.760
+Jitendra K: the… maybe some attribute of my data, let's say, let's try to analyze area mean of the
+
+433
+00:53:58.000 --> 00:53:59.680
+Jitendra K: Cell, the cancer cell.
+
+434
+00:54:00.170 --> 00:54:06.150
+Jitendra K: So I'll say PX… Thought… Histor Brown.
+
+435
+00:54:08.480 --> 00:54:17.740
+Jitendra K: Data frame… is TF… X attribute that I'm trying to analyze is area mean.
+
+436
+00:54:18.160 --> 00:54:24.569
+Jitendra K: I can also pass several other parameters, like color, I will create a diagnosis.
+
+437
+00:54:25.110 --> 00:54:27.550
+Jitendra K: The class name, the final class name.
+
+438
+00:54:28.170 --> 00:54:30.490
+Jitendra K: And I can say that color palette.
+
+439
+00:54:31.440 --> 00:54:39.900
+Jitendra K: that I required should be sequence… And it should have… Blur.
+
+440
+00:54:41.190 --> 00:54:41.940
+Jitendra K: And…
+
+441
+00:54:49.120 --> 00:54:51.309
+Jitendra K: Oh, I can say red and blue.
+
+442
+00:54:55.860 --> 00:54:59.760
+Jitendra K: So you can see that it is showing me the overlap between the two
+
+443
+00:55:00.220 --> 00:55:07.329
+Jitendra K: Features, so you can see that some features, like area under the… area means is slightly high.
+
+444
+00:55:07.760 --> 00:55:12.380
+Jitendra K: For benign cases, and malicant cases have low cell area.
+
+445
+00:55:13.210 --> 00:55:17.510
+Jitendra K: I can also do some more analysis on radius, mean.
+
+446
+00:55:17.890 --> 00:55:22.439
+Jitendra K: And other attributes as well. Just want to do a uni… what do you call?
+
+447
+00:55:23.060 --> 00:55:26.530
+Jitendra K: I'm just trying to do a… ED analysis.
+
+448
+00:55:26.940 --> 00:55:28.320
+Jitendra K: on D…
+
+449
+00:55:33.340 --> 00:55:35.700
+Jitendra K: Single variables of interest.
+
+450
+00:55:36.410 --> 00:55:40.689
+Jitendra K: Right? That is called univariate analysis. So I'm just trying to do a unibarrit analysis.
+
+451
+00:55:41.630 --> 00:55:43.970
+Jitendra K: I would like to check the scattered plot.
+
+452
+00:55:44.210 --> 00:55:51.040
+Jitendra K: for symmetric… Warseness, that means the cell should be symmetric if it is non-cancerous.
+
+453
+00:55:51.480 --> 00:55:54.679
+Jitendra K: If it is, then how many of the cells?
+
+454
+00:55:55.080 --> 00:55:58.269
+Jitendra K: Which are non-symmetric, so I would like to check that.
+
+455
+00:55:58.710 --> 00:56:02.580
+Jitendra K: I would like to check what is the tendency of that.
+
+456
+00:56:03.490 --> 00:56:11.520
+Jitendra K: Right? And, you can see that if I'm plotting this into a pair plot, the…
+
+457
+00:56:11.750 --> 00:56:15.540
+Jitendra K: scale that I'm using, symmetry worst, in millimeters.
+
+458
+00:56:16.430 --> 00:56:21.249
+Jitendra K: is… Getting higher values for…
+
+459
+00:56:22.070 --> 00:56:24.640
+Jitendra K: the class diagnosis to be M.
+
+460
+00:56:24.890 --> 00:56:27.950
+Jitendra K: For B, it is getting the smaller values.
+
+461
+00:56:28.740 --> 00:56:31.089
+Jitendra K: Now, I would like to also do some…
+
+462
+00:56:31.510 --> 00:56:34.460
+Jitendra K: cleaning on my data, so I will drop the ID.
+
+463
+00:56:34.750 --> 00:56:39.159
+Jitendra K: which I do not require, I will see the description of my data.
+
+464
+00:56:39.760 --> 00:56:41.979
+Jitendra K: The 5-point summary of my data.
+
+465
+00:56:43.000 --> 00:56:46.799
+Jitendra K: And try to see what is the median mode of my data points.
+
+466
+00:56:47.290 --> 00:56:51.810
+Jitendra K: Now, I would like to… Encode…
+
+467
+00:56:51.920 --> 00:56:55.580
+Jitendra K: The maligant and the benign, the two classes.
+
+468
+00:56:55.770 --> 00:57:00.820
+Jitendra K: as binary, 1 and 0, so I will say maligant, to be…
+
+469
+00:57:01.220 --> 00:57:05.110
+Jitendra K: 1, and benign to be 0. So I will just use this.
+
+470
+00:57:06.040 --> 00:57:13.120
+Jitendra K: And then I would like to find out the correlation between the variables. Is there any multicollinearity, or any sort of such…
+
+471
+00:57:13.500 --> 00:57:16.910
+Jitendra K: behavior in my variable, so I would like to check for that.
+
+472
+00:57:17.350 --> 00:57:22.550
+Jitendra K: So if I plot a heat map, I will be able to get… the insights.
+
+473
+00:57:22.930 --> 00:57:29.100
+Jitendra K: So you can see that from the heat map, I was able to identify that the…
+
+474
+00:57:29.960 --> 00:57:31.849
+Jitendra K: Patient has been diagnosed.
+
+475
+00:57:32.460 --> 00:57:36.100
+Jitendra K: with one, This is the value.
+
+476
+00:57:36.720 --> 00:57:44.310
+Jitendra K: Have higher correlation with Parameter mean, area mean… Compactness mean…
+
+477
+00:57:44.820 --> 00:57:49.740
+Jitendra K: Concave point mean, as well as radius, textures.
+
+478
+00:57:50.480 --> 00:57:56.960
+Jitendra K: I can say… Your parameter worst, area of the cell.
+
+479
+00:57:57.170 --> 00:58:00.750
+Jitendra K: The compactness of the cell, the concavity of the cell.
+
+480
+00:58:01.240 --> 00:58:04.539
+Jitendra K: The fractional dimension, which is partially correlated.
+
+481
+00:58:04.900 --> 00:58:11.480
+Jitendra K: But some of the variables which include area and the mean is having a higher Impact on the…
+
+482
+00:58:11.900 --> 00:58:14.719
+Jitendra K: Prediction capability of this model.
+
+483
+00:58:15.300 --> 00:58:22.669
+Jitendra K: So I would like to get an absolute value of the correlation. Maybe I'm interested to see the absolute value of correlation, rather than
+
+484
+00:58:23.090 --> 00:58:28.850
+Jitendra K: Seeing the heat maps, so let me… Just write down this code.
+
+485
+00:58:29.240 --> 00:58:38.030
+Jitendra K: So I would like to see… Okay, iterate item… views.
+
+486
+00:58:38.490 --> 00:58:39.960
+Jitendra K: Hi, Traders.
+
+487
+00:58:56.970 --> 00:58:59.990
+Jitendra K: Okay, anyway, I will come back here, but let me run.
+
+488
+00:59:00.090 --> 00:59:03.750
+Jitendra K: Now, what I'm going to do is, I would like to start training my model, so I will say.
+
+489
+00:59:11.560 --> 00:59:14.670
+Jitendra K: Okay, let me do some… Cleaning first.
+
+490
+00:59:17.420 --> 00:59:19.289
+Jitendra K: I am getting this error.
+
+491
+00:59:29.970 --> 00:59:35.389
+Jitendra K: This is, I think, due to… Version compatibility, but…
+
+492
+00:59:35.920 --> 00:59:39.830
+Jitendra K: Let me check with the help of Gemini if it is fixing it.
+
+493
+00:59:43.270 --> 00:59:45.009
+Jitendra K: This is an iterator.
+
+494
+00:59:45.260 --> 00:59:50.490
+Jitendra K: on relevant features, which is my X… And I'm looping through indexes.
+
+495
+01:00:31.790 --> 01:00:33.639
+Jitendra K: And I can fix this…
+
+496
+01:00:41.830 --> 01:00:43.449
+Jitendra K: Okay, this is working.
+
+497
+01:00:43.550 --> 01:00:44.230
+Jitendra K: Great.
+
+498
+01:00:45.110 --> 01:00:53.850
+Jitendra K: Now, what I'm going to do next is, I would like to use, the X and Y, two separate variables, to differentiate the features.
+
+499
+01:00:54.110 --> 01:00:56.280
+Jitendra K: And the output variable.
+
+500
+01:00:56.960 --> 01:01:01.509
+Jitendra K: Now, nave bias is slightly sensitive to outliers.
+
+501
+01:01:01.910 --> 01:01:07.899
+Jitendra K: Now, when you are using navewise, you have to ensure that your features should be on the same scale.
+
+502
+01:01:08.180 --> 01:01:10.909
+Jitendra K: So what I'm going to do is, I would like to utilize…
+
+503
+01:01:12.970 --> 01:01:20.330
+Jitendra K: maybe, first thing that I'm going to do is, I would like to utilize the feature scaling…
+
+504
+01:01:21.510 --> 01:01:27.719
+Jitendra K: And then, based upon the feature scaling, I would like to utilize, that my… all the features should be on the same scale.
+
+505
+01:01:28.300 --> 01:01:36.950
+Jitendra K: So, because, my name is sensitive, To the outliers, or so-called…
+
+506
+01:01:37.530 --> 01:01:40.119
+Jitendra K: My neighbors will definitely going to have
+
+507
+01:01:40.280 --> 01:01:46.320
+Jitendra K: an adverse impact, if I'm going to use the… outliers…
+
+508
+01:01:46.440 --> 01:01:49.049
+Jitendra K: into consideration, so I would like to shape them up.
+
+509
+01:01:49.370 --> 01:01:50.800
+Jitendra K: So I'm scaling them.
+
+510
+01:01:50.980 --> 01:01:56.320
+Jitendra K: So I'll say, let's try to use this scale and convert this into normalized form.
+
+511
+01:01:56.580 --> 01:01:57.969
+Jitendra K: So I'm taking…
+
+512
+01:01:58.780 --> 01:02:07.540
+Jitendra K: The deviation, or standard deviation away from the mean, and then using a red scaler, also called min-max scalar, to convert this value.
+
+513
+01:02:08.190 --> 01:02:16.230
+Jitendra K: I would like to split my data into training and test, and for that, I would like to use the mechanism to split my data.
+
+514
+01:02:16.390 --> 01:02:21.350
+Jitendra K: And then, I will assign… X train, Y train.
+
+515
+01:02:22.030 --> 01:02:31.449
+Jitendra K: Using train test fit function, And finally, I will call my model, which is a class, navepice.
+
+516
+01:02:31.830 --> 01:02:34.850
+Jitendra K: That will use the assumption of Gaussian.
+
+517
+01:02:37.100 --> 01:02:39.460
+Jitendra K: to run this. So I will run this.
+
+518
+01:02:39.920 --> 01:02:42.319
+Jitendra K: And then I will see the accuracy of my model.
+
+519
+01:02:49.930 --> 01:02:51.840
+Jitendra K: So let me fit this object.
+
+520
+01:03:03.470 --> 01:03:08.179
+Jitendra K: I will try to use Gaussian native bias and see if it is improving our model.
+
+521
+01:03:08.470 --> 01:03:10.580
+Jitendra K: So, this is what you can see, right?
+
+522
+01:03:11.160 --> 01:03:16.420
+Jitendra K: Now, the idea is, this algorithm works pretty well with a 96% of accuracy.
+
+523
+01:03:16.890 --> 01:03:23.080
+Jitendra K: that I'm able to identify, the maligant Patients…
+
+524
+01:03:23.560 --> 01:03:27.869
+Jitendra K: Against the benign one, right? So this is a 96% accurate model.
+
+525
+01:03:28.250 --> 01:03:35.429
+Jitendra K: So the idea is, what we have done so far is… We have just taken… the numerical data.
+
+526
+01:03:36.170 --> 01:03:37.339
+Jitendra K: In this form.
+
+527
+01:03:37.720 --> 01:03:43.770
+Jitendra K: Which is having some 20-odd attributes, and these attributes are in different scale.
+
+528
+01:03:44.510 --> 01:03:50.639
+Jitendra K: Predominantly, we are talking about the cell features, the cancer cell features.
+
+529
+01:03:52.570 --> 01:04:00.570
+Jitendra K: Okay, is it possible to take this example slow and hands-on so that we can type in our ID as well? Okay, yeah, that should be fine. If you would like to…
+
+530
+01:04:01.010 --> 01:04:04.329
+Jitendra K: Maybe tight with me, that should be okay.
+
+531
+01:04:04.600 --> 01:04:07.749
+Jitendra K: So, let me first share the data so that you can start.
+
+532
+01:04:09.250 --> 01:04:13.659
+Jitendra K: Maybe from here… First, let me share the data.
+
+533
+01:04:20.220 --> 01:04:24.879
+Jitendra K: Okay, so… let me go back. Okay, this here.
+
+534
+01:04:25.950 --> 01:04:30.440
+Jitendra K: So, okay, so let's try to understand, one by one what this code does.
+
+535
+01:04:31.380 --> 01:04:37.379
+Jitendra K: So, the first and foremost thing what we have done is, after getting the data from the CSV file.
+
+536
+01:04:38.030 --> 01:04:43.790
+Jitendra K: We are… have performed some, maybe, university data analytics, right, on the top of it.
+
+537
+01:04:44.150 --> 01:04:48.190
+Jitendra K: Now, here we are performing… the…
+
+538
+01:04:50.220 --> 01:04:56.749
+Jitendra K: absolute value of correlation. That means we are trying to select the features which is having…
+
+539
+01:04:57.470 --> 01:05:00.339
+Jitendra K: impact on Y, which is to predict
+
+540
+01:05:00.780 --> 01:05:04.039
+Jitendra K: The output as cancerous and non-cancerous patient.
+
+541
+01:05:04.720 --> 01:05:06.350
+Jitendra K: 20% and above.
+
+542
+01:05:06.640 --> 01:05:10.740
+Jitendra K: So, we have used 8Map for that purpose. 8Map
+
+543
+01:05:11.200 --> 01:05:17.040
+Jitendra K: We'll give you the pictorial representation of the variable intensity on a scale of 0 to 1.
+
+544
+01:05:17.210 --> 01:05:21.930
+Jitendra K: So, we are using the same skill to quantify, can I be able to eliminate the variables?
+
+545
+01:05:22.690 --> 01:05:25.480
+Jitendra K: From being a part of my algorithm features.
+
+546
+01:05:25.630 --> 01:05:28.499
+Jitendra K: If their value is less than 20%.
+
+547
+01:05:29.640 --> 01:05:31.560
+Jitendra K: Right? So here we are doing this.
+
+548
+01:05:31.870 --> 01:05:38.000
+Jitendra K: Now, we are saying that I have all the features apart from the one that I dropped in the previous step as X,
+
+549
+01:05:38.340 --> 01:05:41.129
+Jitendra K: And my Y variable will still remain the diagnosis.
+
+550
+01:05:42.190 --> 01:05:44.520
+Jitendra K: Now I'm performing a standard scaler.
+
+551
+01:05:45.150 --> 01:05:51.119
+Jitendra K: Now, the idea of standard scalar is very simple. When you are using too many discrete variables.
+
+552
+01:05:52.050 --> 01:05:57.719
+Jitendra K: for your feature pipe… in your feature pipeline. Some of the features may have adverse impact.
+
+553
+01:05:58.010 --> 01:05:59.760
+Jitendra K: Because of the scalability.
+
+554
+01:06:00.130 --> 01:06:03.420
+Jitendra K: Because their scales are different in terms of…
+
+555
+01:06:04.190 --> 01:06:08.770
+Jitendra K: measurement, some of them are millimeters, some of them are nanometers, etc.
+
+556
+01:06:09.000 --> 01:06:14.559
+Jitendra K: So, basically, what you're trying to do is, you're using… a mechanism.
+
+557
+01:06:15.070 --> 01:06:17.020
+Jitendra K: To normalize this scale.
+
+558
+01:06:17.790 --> 01:06:20.369
+Jitendra K: And this is what we are doing as a standard scaler.
+
+559
+01:06:21.710 --> 01:06:28.620
+Jitendra K: Once we perform this standard scaler, we have created a function. Now we are implementing this function across all my features.
+
+560
+01:06:29.420 --> 01:06:34.269
+Jitendra K: And then I'm calling a train test split function, which will be able to split my data.
+
+561
+01:06:35.000 --> 01:06:41.240
+Jitendra K: Into training and test samples, 20% being test, remaining 80% being training.
+
+562
+01:06:41.700 --> 01:06:47.149
+Jitendra K: And I would like to start training my nave buys. Now, in this class, nave buys.
+
+563
+01:06:47.420 --> 01:06:50.470
+Jitendra K: I've got a fit method that will simply fit
+
+564
+01:06:50.850 --> 01:06:57.690
+Jitendra K: my rows into my model, and then I will get the probability, or the possible probability of the two classes.
+
+565
+01:06:57.890 --> 01:07:03.690
+Jitendra K: Now, I will say how many of… how many labels, which is in 20% proportion.
+
+566
+01:07:03.890 --> 01:07:05.749
+Jitendra K: that I pass to this model.
+
+567
+01:07:06.650 --> 01:07:09.539
+Jitendra K: 20% proportion that I pass to this model.
+
+568
+01:07:10.560 --> 01:07:14.400
+Jitendra K: coming as… Maligant as malicant.
+
+569
+01:07:14.900 --> 01:07:16.520
+Jitendra K: Benign as benign.
+
+570
+01:07:18.330 --> 01:07:20.749
+Jitendra K: So that is what I'm trying to do here.
+
+571
+01:07:20.890 --> 01:07:22.749
+Jitendra K: So once I'm able to do this.
+
+572
+01:07:23.050 --> 01:07:24.930
+Jitendra K: Then you will get an accuracy.
+
+573
+01:07:25.610 --> 01:07:27.730
+Jitendra K: Right? The overall accuracy of the model.
+
+574
+01:07:27.920 --> 01:07:31.660
+Jitendra K: So once I get an accuracy of this model, then I can say.
+
+575
+01:07:33.490 --> 01:07:37.750
+Jitendra K: My model on a scale of 0 to 100, how effective that model is.
+
+576
+01:07:37.860 --> 01:07:40.729
+Jitendra K: So it is showing me 96% accurate model.
+
+577
+01:07:40.940 --> 01:07:42.239
+Jitendra K: That I have created.
+
+578
+01:07:42.510 --> 01:07:50.080
+Jitendra K: So let me share this file with everyone, and please download this file, and upload via file button. Do not double-click and then…
+
+579
+01:07:50.500 --> 01:07:56.569
+Jitendra K: Upload, so please upload it with the help of… file option in Colab.
+
+580
+01:07:59.870 --> 01:08:06.620
+Jitendra K: And please run this file, or so-called code, and let me know Your understanding on this quote.
+
+581
+01:08:08.950 --> 01:08:15.170
+Jitendra K: And if you are facing some issue, let me know. If you need to understand some part of the code, I will…
+
+582
+01:08:15.700 --> 01:08:17.620
+Jitendra K: Maybe he reacts more to…
+
+583
+01:12:01.300 --> 01:12:05.060
+Jitendra K: Please let me know once you are able to execute this code.
+
+584
+01:12:05.430 --> 01:12:10.870
+Jitendra K: Let's try to look into the code, methodologies, the classes that have been implemented.
+
+585
+01:12:11.250 --> 01:12:18.180
+Jitendra K: And try to understand what are the parameters that we're passing to that class, why, and…
+
+586
+01:12:18.370 --> 01:12:23.499
+Jitendra K: How did we… or Formula Train Test Split.
+
+587
+01:12:24.100 --> 01:12:28.980
+Jitendra K: Is it random? It is, is it, stratified samples.
+
+588
+01:12:29.340 --> 01:12:33.939
+Jitendra K: And then, try to see how did we parse that data to the algorithm.
+
+589
+01:15:06.780 --> 01:15:10.630
+Jitendra K: Okay, I hope everybody's in the same page, you're able to run.
+
+590
+01:15:11.250 --> 01:15:13.470
+Jitendra K: This whole, quote now.
+
+591
+01:15:17.630 --> 01:15:22.669
+Jitendra K: Alright, so I think, let's take a break, short break of 20 minutes.
+
+592
+01:15:22.870 --> 01:15:30.839
+Jitendra K: Once we come back, then what we can do is, we will start with KNN Imputer, and I will show you how to use KNN Imputer.
+
+593
+01:15:31.200 --> 01:15:36.700
+Jitendra K: for managing your missing variables, as well as how to use KNN as a classification modeling.
+
+594
+01:15:37.060 --> 01:15:41.369
+Jitendra K: So we'll talk about both, Kenan. I would say.
+
+595
+01:15:41.480 --> 01:15:47.259
+Jitendra K: implementation, one with… Imputation strategy, and one with classification strategy.
+
+596
+01:15:47.480 --> 01:15:50.860
+Jitendra K: Let's take a quick break of 20 minutes, and then we can start the session again.
+
+597
+01:15:52.490 --> 01:15:53.320
+Jitendra K: Thank you.
+
+598
+01:44:45.890 --> 01:44:49.550
+Jitendra K: Hi guys, I hope you resume. Can we have a confirmation?
+
+599
+01:45:02.780 --> 01:45:04.970
+Jitendra K: Alright, so let's…
+
+600
+01:45:28.780 --> 01:45:34.390
+Jitendra K: Yeah, so we'll start with another algorithm called kNearest Neighbor, and we will understand
+
+601
+01:45:34.950 --> 01:45:39.970
+Jitendra K: How the K-Nearest neighbor works, and what are we trying to solve with Albo? K-Nearest Neighbor.
+
+602
+01:45:40.380 --> 01:45:47.440
+Jitendra K: So… First and the foremost thing is, can nearest neighbor comes under supervised learning.
+
+603
+01:45:47.680 --> 01:45:52.730
+Jitendra K: That means, when you're trying to use, any supervised learning algorithm, k-nearest is…
+
+604
+01:45:52.940 --> 01:45:55.110
+Jitendra K: Another algorithm that you can use.
+
+605
+01:45:55.320 --> 01:45:59.830
+Jitendra K: So the idea of kNearest Neighbor is to create a centroid of data points.
+
+606
+01:46:00.050 --> 01:46:05.400
+Jitendra K: Now, when I say it's centroid of data points, that means we are trying to identify the distance
+
+607
+01:46:06.110 --> 01:46:10.530
+Jitendra K: from the same… Center of this data point.
+
+608
+01:46:11.530 --> 01:46:15.289
+Jitendra K: Towards the intra-distance between the other data points, right?
+
+609
+01:46:16.890 --> 01:46:18.259
+Jitendra K: So the idea is.
+
+610
+01:46:18.570 --> 01:46:25.659
+Jitendra K: The first and foremost thing, it's an iterative process. The first thing that you're going to do is you're going to select
+
+611
+01:46:26.090 --> 01:46:31.270
+Jitendra K: The number of… K nearest neighbor. So you have to set up the seat parameter K.
+
+612
+01:46:32.230 --> 01:46:34.199
+Jitendra K: So that is something you have to set up.
+
+613
+01:46:36.440 --> 01:46:41.559
+Jitendra K: The second and the most important aspect is, it will calculate a distance of the nearest neighbor.
+
+614
+01:46:42.010 --> 01:46:44.529
+Jitendra K: And count the nearest point to each neighbor.
+
+615
+01:46:45.530 --> 01:46:50.519
+Jitendra K: The third important step is, it will assign the new point to the category.
+
+616
+01:46:50.850 --> 01:46:54.449
+Jitendra K: Where you counted the most neighbors in terms of group
+
+617
+01:46:55.360 --> 01:46:57.290
+Jitendra K: Alright, so basically what it does is.
+
+618
+01:46:57.430 --> 01:47:03.250
+Jitendra K: It will be using some adjacent… adjustancy metrics.
+
+619
+01:47:03.650 --> 01:47:10.440
+Jitendra K: And, it will try to utilize that particular matrix to find out the distance between the cluster, and if it is least.
+
+620
+01:47:10.540 --> 01:47:13.700
+Jitendra K: It will choose that particular label to assign.
+
+621
+01:47:15.040 --> 01:47:19.560
+Jitendra K: Now, let's take an example, let's say if I'm having two classes.
+
+622
+01:47:20.200 --> 01:47:22.990
+Jitendra K: Let's say, very simple, male and female.
+
+623
+01:47:23.190 --> 01:47:27.479
+Jitendra K: Right? And I'm comparing the height and weight, the BMI ratio of the two.
+
+624
+01:47:28.090 --> 01:47:30.809
+Jitendra K: classes. So we have two classes.
+
+625
+01:47:30.940 --> 01:47:41.290
+Jitendra K: Male red, female blue, and green is a new point. So let's say the height and weight of that particular data point is known, but a category is unknown.
+
+626
+01:47:41.570 --> 01:47:44.740
+Jitendra K: So, what I'm going to do is, I will use an approximation.
+
+627
+01:47:44.920 --> 01:47:49.839
+Jitendra K: that this looks like a cluster of mail, so I will assign this label as male.
+
+628
+01:47:50.340 --> 01:47:55.309
+Jitendra K: And that is what imputation does, right? So basically, you can see that I'm going to impute
+
+629
+01:47:55.420 --> 01:48:01.070
+Jitendra K: This particular variable, the green point, to the nearest neighbor to be considered.
+
+630
+01:48:01.220 --> 01:48:07.090
+Jitendra K: So the idea is, it is using a distance metrics, commonly Euclidean distance.
+
+631
+01:48:07.480 --> 01:48:13.600
+Jitendra K: And, it may use Manhattan and Cosine also to calculate the DCN rules.
+
+632
+01:48:13.880 --> 01:48:18.930
+Jitendra K: So if it is… if this algorithm is going to use a distance metrics as Manhattan.
+
+633
+01:48:22.730 --> 01:48:25.910
+Jitendra K: then we will say that the Caribbean distance
+
+634
+01:48:26.210 --> 01:48:37.120
+Jitendra K: sorry, not Manhattan, Ecuridian. So let's say, if I'm going to use K nearest neighbor… distance…
+
+635
+01:48:38.680 --> 01:48:41.780
+Jitendra K: between the data point P and Q.
+
+636
+01:48:43.890 --> 01:48:49.130
+Jitendra K: then I will say that distance is nothing but a straight line between the two points.
+
+637
+01:48:49.400 --> 01:48:55.189
+Jitendra K: So when I'm calculating a distance between the two points in a straight line, all I'm doing is, I'm taking
+
+638
+01:48:55.630 --> 01:49:00.340
+Jitendra K: A magnitude of… difference…
+
+639
+01:49:07.420 --> 01:49:10.240
+Jitendra K: I'm taking a square of it. So, so that's a…
+
+640
+01:49:10.340 --> 01:49:16.029
+Jitendra K: whole idea of distance between the two lines. So here, my D of P of Q represent the Euclidean distance.
+
+641
+01:49:16.150 --> 01:49:25.290
+Jitendra K: between the point P and the point Q, and the sigma represent the sum of all dimension from i is equal to 1 to N, and P of i and Q of i
+
+642
+01:49:25.410 --> 01:49:28.829
+Jitendra K: represent the corresponding value in the i8 dimension.
+
+643
+01:49:28.930 --> 01:49:31.580
+Jitendra K: for the point P and Q, respectively.
+
+644
+01:49:31.820 --> 01:49:40.450
+Jitendra K: So this is, something called Euclidean distance, right? If I'm going to use a Manhattan distance, the Manhattan distance will become…
+
+645
+01:49:41.780 --> 01:49:49.530
+Jitendra K: Slightly… distinguish… So instead of mod, or square root.
+
+646
+01:49:49.790 --> 01:49:56.069
+Jitendra K: I will use a mod value. So I will say i is equal to 1 to N, and I will use the absolute value.
+
+647
+01:49:56.760 --> 01:49:58.479
+Jitendra K: Of their differences.
+
+648
+01:49:58.810 --> 01:50:02.909
+Jitendra K: Now, this equation… As compared to…
+
+649
+01:50:03.670 --> 01:50:11.940
+Jitendra K: the previous equation that I've calculated is slightly simpler, right? So, Manhattan distance calculate the…
+
+650
+01:50:12.270 --> 01:50:17.589
+Jitendra K: Distance between the two points in a grade base on a sum of absolute differences between the coordinates.
+
+651
+01:50:17.850 --> 01:50:31.140
+Jitendra K: And that's why Maniton distance is useful for Many applications, including Route calculations, and including Then, shortest path retrieval.
+
+652
+01:50:32.010 --> 01:50:37.990
+Jitendra K: And, we can able to use this particular distance criteria for various purposes.
+
+653
+01:50:42.850 --> 01:50:48.040
+Jitendra K: Are you able to see my screen, guys? Is it… visible?
+
+654
+01:50:48.140 --> 01:50:49.950
+Jitendra K: the whiteboard that I'm using.
+
+655
+01:50:50.100 --> 01:50:51.609
+Jitendra K: Alright, okay.
+
+656
+01:50:55.420 --> 01:51:00.619
+Jitendra K: The third type of distance criteria that we're going to talk about is slightly hybrid.
+
+657
+01:51:01.020 --> 01:51:05.679
+Jitendra K: And that distance criteria is called… men's coffee distance.
+
+658
+01:51:12.670 --> 01:51:16.840
+Jitendra K: So, in the min's copy distance, you are going to get a generalized form.
+
+659
+01:51:17.420 --> 01:51:19.279
+Jitendra K: So when I say generalized form.
+
+660
+01:51:21.530 --> 01:51:25.329
+Jitendra K: It can accommodate either Achillidean or…
+
+661
+01:51:25.800 --> 01:51:34.730
+Jitendra K: Manhattan into the same equation. So when I'm saying I'm going to use… the distance…
+
+662
+01:51:39.200 --> 01:51:48.019
+Jitendra K: And the power… So if I'm going to use, let's say the parameter R,
+
+663
+01:51:48.250 --> 01:51:52.539
+Jitendra K: If I'm substituting this parameter R is equal to 1, it will become Manaton.
+
+664
+01:51:52.710 --> 01:52:07.130
+Jitendra K: And when I'm substituting this parameter with 2, it will become Euclidean. So that's the whole idea of Minskobe. So it is going to use the Boh generalization form of Euclidean and the Manhattan distance into the same equation.
+
+665
+01:52:08.490 --> 01:52:12.900
+Jitendra K: I will also have one more… Score called cosine.
+
+666
+01:52:14.890 --> 01:52:22.309
+Jitendra K: So, in cosine, I will find out a similarity between the point P and the point Q.
+
+667
+01:52:24.450 --> 01:52:29.770
+Jitendra K: the dot product of P and Q, And their absolute values.
+
+668
+01:52:31.040 --> 01:52:33.070
+Jitendra K: of PNQ.
+
+669
+01:52:33.480 --> 01:52:41.630
+Jitendra K: And that will become my… Cosine similarity. So, cosine similarity is nothing but… it will talk about the vectors.
+
+670
+01:52:43.410 --> 01:52:48.860
+Jitendra K: And I can able to find out the distance between the two vectors, Using this theta.
+
+671
+01:52:52.600 --> 01:53:01.679
+Jitendra K: Right? So this kind of metrics is very useful for text analytics, where you are trying to find out how the similarity between the two sentences or two words.
+
+672
+01:53:01.830 --> 01:53:04.920
+Jitendra K: And you're going to often use text similarity using cosine.
+
+673
+01:53:05.600 --> 01:53:11.050
+Jitendra K: But a computation of this distance is slightly expensive, so we will have to use
+
+674
+01:53:11.460 --> 01:53:19.610
+Jitendra K: this with a pinch of salt, right? Now, basically what KNN algorithm does with the distance is, it will use
+
+675
+01:53:19.840 --> 01:53:23.300
+Jitendra K: Manhattan or Minskobe distance, as your…
+
+676
+01:53:23.930 --> 01:53:30.120
+Jitendra K: Primary criterias. And then, based upon this criteria, So…
+
+677
+01:53:30.540 --> 01:53:35.219
+Jitendra K: The core is… the KNN is a supervised learning algorithm, so that means…
+
+678
+01:53:35.630 --> 01:53:39.540
+Jitendra K: KNN works based on the idea that similar things are close to each other.
+
+679
+01:53:39.780 --> 01:53:41.880
+Jitendra K: So imagine that you have a dataset.
+
+680
+01:53:42.180 --> 01:53:44.960
+Jitendra K: of different… Classes.
+
+681
+01:53:45.790 --> 01:53:47.950
+Jitendra K: Let's say 3 Class A, B, and C.
+
+682
+01:53:48.120 --> 01:53:56.669
+Jitendra K: And each describe their property. Let's say… let's take an example of iris data flowers. Iris datasets, right? So we have seen Iris dataset.
+
+683
+01:53:56.870 --> 01:54:00.810
+Jitendra K: And in our dataset, we have 3 flower species.
+
+684
+01:54:01.680 --> 01:54:06.960
+Jitendra K: We have got… Satosa?
+
+685
+01:54:10.430 --> 01:54:13.040
+Jitendra K: Virginica, and Versicolor.
+
+686
+01:54:13.420 --> 01:54:16.039
+Jitendra K: These are the 3 flower species that we are having.
+
+687
+01:54:16.310 --> 01:54:21.019
+Jitendra K: So, based upon these three flower species, we'll say that I have a class A, Class B, and Class C.
+
+688
+01:54:21.520 --> 01:54:27.639
+Jitendra K: Now, remember, we have got paddle length, paddleWidth, sepal length, and sepalWidth as the four important parameters.
+
+689
+01:54:28.460 --> 01:54:30.479
+Jitendra K: And the features that we have considered.
+
+690
+01:54:30.890 --> 01:54:39.159
+Jitendra K: Now, the idea is, when we are trying to classify a new data point that belongs to these class distribution, or so-called.
+
+691
+01:54:39.380 --> 01:54:58.970
+Jitendra K: their parameter estimation, then we will be able to utilize k-nearest neighbor to assign and calculate the distance between the new flower and all flower in the data set, and use the Euclidian distance to measure the straight line distance between the two points, and find the k-nearest, or the shortest distance between the new flower.
+
+692
+01:54:59.500 --> 01:55:06.730
+Jitendra K: And then, we will use a voting criteria. The voting will be, let's say, if I'm having 3 distance, D1, D2, and D3.
+
+693
+01:55:06.880 --> 01:55:08.380
+Jitendra K: And this is my data point.
+
+694
+01:55:11.030 --> 01:55:16.819
+Jitendra K: Now, I would like to project the data point to the nearest point in my cluster of each classes.
+
+695
+01:55:17.130 --> 01:55:23.550
+Jitendra K: And then I will see which distance is minimum. So I will compare D1, D2, and D3.
+
+696
+01:55:24.280 --> 01:55:30.020
+Jitendra K: And, if I found D1, is less than D2,
+
+697
+01:55:30.150 --> 01:55:32.110
+Jitendra K: And D2 is less than D3.
+
+698
+01:55:32.470 --> 01:55:35.569
+Jitendra K: Then I will assign the new data point to B1.
+
+699
+01:55:36.820 --> 01:55:42.549
+Jitendra K: So that is the whole idea of behind the k-nearest neighbor implementation.
+
+700
+01:55:46.520 --> 01:55:47.560
+Jitendra K: Nope.
+
+701
+01:55:48.840 --> 01:55:51.110
+Jitendra K: What are the limitations of this approach?
+
+702
+01:55:52.930 --> 01:55:57.620
+Jitendra K: Now, when you say limitation of this approach could be… it's a lazy learning.
+
+703
+01:55:58.140 --> 01:56:01.530
+Jitendra K: That means… because… because when… when you're training.
+
+704
+01:56:02.050 --> 01:56:11.460
+Jitendra K: You may need to calculate all the distance from these data points, and then it makes your algorithm slightly slow. Now, imagine that you have a data set which takes
+
+705
+01:56:11.770 --> 01:56:22.159
+Jitendra K: tons of rows, 1 lakh rows, 500 columns. In that case, your prediction of the model to calculate the current distance from those 1 lakh point in 500-dimensional data set.
+
+706
+01:56:22.290 --> 01:56:26.910
+Jitendra K: It'll be a lot of time-consuming in terms of model time complexity.
+
+707
+01:56:27.460 --> 01:56:33.510
+Jitendra K: The second drawback of using KNN is it is also affected by the curse of dimensionality.
+
+708
+01:56:34.110 --> 01:56:39.470
+Jitendra K: That means, your feature space becomes increasingly sparse as the number of dimensions grows.
+
+709
+01:56:40.870 --> 01:56:49.790
+Jitendra K: The third type of k-nearest neighbor, or the drawback of using k-nearest neighbor is… it is… so slightly…
+
+710
+01:56:50.670 --> 01:56:55.029
+Jitendra K: I would say prone to outliers, sensitive to outliers.
+
+711
+01:56:56.830 --> 01:56:57.620
+Jitendra K: Right?
+
+712
+01:56:58.470 --> 01:57:01.709
+Jitendra K: And the fourth is, let's say your class is imbalanced.
+
+713
+01:57:02.580 --> 01:57:07.659
+Jitendra K: So it will have a higher tendency to… Go towards majority classes.
+
+714
+01:57:10.700 --> 01:57:14.200
+Jitendra K: So, these are some of the drawbacks of using k-nearest Never.
+
+715
+01:57:14.430 --> 01:57:18.560
+Jitendra K: Now, what I'm going to show you is… I will show you an example.
+
+716
+01:57:19.110 --> 01:57:24.139
+Jitendra K: First, we will use KNN as an imputor. As I mentioned, imputation.
+
+717
+01:57:24.350 --> 01:57:30.240
+Jitendra K: So, when you say imputation, KNN imputer. So, I would like to show you Knan Imputer with the help of…
+
+718
+01:57:31.350 --> 01:57:38.039
+Jitendra K: Python, And we'll take open source, example or data set.
+
+719
+01:57:38.510 --> 01:57:41.530
+Jitendra K: To perform this analysis.
+
+720
+01:57:41.680 --> 01:57:46.750
+Jitendra K: Using KNN imputer. So, the idea is, I will show you how to
+
+721
+01:57:47.470 --> 01:57:54.729
+Jitendra K: fill in the missing values. Imputation means missing value impedation. So let's say you have an algorithm which will be able to give you
+
+722
+01:57:54.960 --> 01:58:00.760
+Jitendra K: The very precise answer, like, If there's a missing value at random.
+
+723
+01:58:01.160 --> 01:58:04.239
+Jitendra K: Then if I analyze all the data points in my class.
+
+724
+01:58:05.040 --> 01:58:08.639
+Jitendra K: Right? All the data points from the majority-minority classes.
+
+725
+01:58:09.120 --> 01:58:11.060
+Jitendra K: then I can be able to adjust…
+
+726
+01:58:11.250 --> 01:58:14.709
+Jitendra K: the missing labels appropriately. So the idea is.
+
+727
+01:58:14.870 --> 01:58:21.300
+Jitendra K: I would like to show you an example where I can able to utilize the missing values…
+
+728
+01:58:21.430 --> 01:58:22.900
+Jitendra K: With the help of…
+
+729
+01:58:26.080 --> 01:58:27.960
+Jitendra K: the KN imputation.
+
+730
+01:58:28.340 --> 01:58:36.159
+Jitendra K: So we'll take an example to impute a variable. So when you say imputation of the variable, we are just looking for missing at random.
+
+731
+01:58:36.380 --> 01:58:42.049
+Jitendra K: That means I would like to find it out, missing at random, and then using that particular approach.
+
+732
+01:58:42.480 --> 01:58:47.489
+Jitendra K: to find if… if I have anything which is missing in my data.
+
+733
+01:58:47.750 --> 01:58:50.140
+Jitendra K: Point, then how to impute that variables.
+
+734
+01:58:50.810 --> 01:58:53.479
+Jitendra K: So, let me go back to my notebook.
+
+735
+01:59:21.960 --> 01:59:26.500
+Jitendra K: Then we'll talk about… Q&L algorithm…
+
+736
+01:59:33.650 --> 01:59:39.580
+Jitendra K: S… Classification… model.
+
+737
+01:59:41.010 --> 01:59:45.240
+Jitendra K: So, we'll take both examples. First, let's try to understand the imputation.
+
+738
+01:59:45.770 --> 01:59:49.359
+Jitendra K: And then we'll take, example for classification.
+
+739
+02:00:01.080 --> 02:00:05.100
+Jitendra K: Alright, so… so I'm going to import some pluses.
+
+740
+02:00:09.110 --> 02:00:12.759
+Jitendra K: And I'm going to use one dataset called Titanic Dataset.
+
+741
+02:00:13.880 --> 02:00:18.870
+Jitendra K: So, Titanic dataset, if you remember, we have taken work case study for Titanic,
+
+742
+02:00:19.240 --> 02:00:27.890
+Jitendra K: Dataset, and that is available in, Kegel repository, that dataset. If you're unfamiliar what Titanic Datasite is all about.
+
+743
+02:00:28.180 --> 02:00:33.700
+Jitendra K: So, Titanic, as you know that, there's a disaster which has happened in 1905.
+
+744
+02:00:34.250 --> 02:00:40.900
+Jitendra K: When the… 1915, I believe, not 1905, 1915, when the Titanic, ship sink.
+
+745
+02:00:41.480 --> 02:00:42.740
+Jitendra K: in the…
+
+746
+02:00:44.010 --> 02:00:50.159
+Jitendra K: In the ocean, right? So, the idea is, we have a list of those passengers who died.
+
+747
+02:00:50.870 --> 02:00:55.129
+Jitendra K: Alright, so we have… The list of passengers who died, who survived.
+
+748
+02:00:55.510 --> 02:01:00.340
+Jitendra K: So, let's say, using a dead dataset, you would like to predict the probability of survival.
+
+749
+02:01:00.670 --> 02:01:02.579
+Jitendra K: Like, what is the probability of survival?
+
+750
+02:01:03.020 --> 02:01:09.469
+Jitendra K: So that is what this dataset is talking about. So the first and foremost thing that I'm going to do is to upload the libraries.
+
+751
+02:01:09.860 --> 02:01:12.310
+Jitendra K: And then I will upload the datasets.
+
+752
+02:01:12.700 --> 02:01:17.380
+Jitendra K: So, dataset… that I'm going to utilize.
+
+753
+02:01:17.950 --> 02:01:19.240
+Jitendra K: is from…
+
+754
+02:01:22.960 --> 02:01:26.760
+Jitendra K: Kegel, so I'm just keeping this dataset as it is.
+
+755
+02:01:29.180 --> 02:01:32.909
+Jitendra K: And calling… The function to load the data.
+
+756
+02:01:33.280 --> 02:01:36.789
+Jitendra K: Now, I would like to explore how many missing values are there.
+
+757
+02:01:37.220 --> 02:01:40.899
+Jitendra K: Now, I would like to plot my missing values, and see…
+
+758
+02:01:41.250 --> 02:01:47.600
+Jitendra K: what are the attributes which are missing? And I would like to use these plots, which is basically my plots.
+
+759
+02:01:47.840 --> 02:01:50.510
+Jitendra K: To explore how many variables are missing.
+
+760
+02:01:50.830 --> 02:01:56.269
+Jitendra K: So I've got several missing parameters, including that age of the passengers.
+
+761
+02:01:56.790 --> 02:02:01.500
+Jitendra K: The class in which they are traveling, the embark town and embark location.
+
+762
+02:02:02.080 --> 02:02:05.710
+Jitendra K: So I've got several missing values in age and tag.
+
+763
+02:02:08.070 --> 02:02:12.119
+Jitendra K: Now, I know that these two columns are highly…
+
+764
+02:02:13.250 --> 02:02:16.230
+Jitendra K: Missing from my overall data points.
+
+765
+02:02:16.450 --> 02:02:22.470
+Jitendra K: I would like to find it out… maybe… The total missing values.
+
+766
+02:02:22.800 --> 02:02:27.430
+Jitendra K: Before I can go for it. So, the total missing values that I'm having is 177.
+
+767
+02:02:29.520 --> 02:02:33.079
+Jitendra K: Now, as you know that, I'm going to use KNN imputer.
+
+768
+02:02:33.960 --> 02:02:42.289
+Jitendra K: To perform this analysis, So the Knan imputor will work with several strategies.
+
+769
+02:02:42.850 --> 02:02:45.390
+Jitendra K: First, I will show you the simple imputation.
+
+770
+02:02:46.080 --> 02:02:48.460
+Jitendra K: Or so-called distance-based imprutation.
+
+771
+02:02:48.910 --> 02:02:50.770
+Jitendra K: So let's say if I'm using…
+
+772
+02:02:52.700 --> 02:02:57.859
+Jitendra K: the example, of missing passengers data, right? In this case.
+
+773
+02:02:58.210 --> 02:03:09.170
+Jitendra K: So, let's say I would like to identify the two passengers… Which is likely to travel
+
+774
+02:03:10.750 --> 02:03:14.960
+Jitendra K: in the Class A of Titanic, versus Class B of Titanic.
+
+775
+02:03:15.190 --> 02:03:19.709
+Jitendra K: they might have paid similar fare. So I have other variables.
+
+776
+02:03:20.110 --> 02:03:24.040
+Jitendra K: Which can able to help me to identify the missing values.
+
+777
+02:03:24.670 --> 02:03:30.730
+Jitendra K: So let's say if the two passengers are traveling, In the same class.
+
+778
+02:03:33.160 --> 02:03:34.639
+Jitendra K: Economic loss.
+
+779
+02:03:36.680 --> 02:03:39.889
+Jitendra K: Their fair values, Must be same.
+
+780
+02:03:41.190 --> 02:03:44.380
+Jitendra K: So even if I have a missing class in which they are traveling.
+
+781
+02:03:44.550 --> 02:03:49.480
+Jitendra K: via FAIR, I can be able to identify that they are Traveling to this class.
+
+782
+02:03:50.060 --> 02:03:53.690
+Jitendra K: So the first method that I'm going to use is the simplest one.
+
+783
+02:03:54.350 --> 02:03:59.330
+Jitendra K: And I would like to utilize this method to impute the variable.
+
+784
+02:03:59.460 --> 02:04:01.549
+Jitendra K: So here you can see that I'm using…
+
+785
+02:04:01.880 --> 02:04:07.150
+Jitendra K: The fares and other important consideration to calculate the missing values.
+
+786
+02:04:08.350 --> 02:04:14.940
+Jitendra K: So, it has calculated… The missing values, and then try to impute it.
+
+787
+02:04:21.250 --> 02:04:26.280
+Jitendra K: The second method… that I can use is maybe a median.
+
+788
+02:04:26.440 --> 02:04:36.320
+Jitendra K: Right? So basically, let's say if I have the classes which are integer, or numerical literals, I can also use an imputed strategy to be median.
+
+789
+02:04:36.660 --> 02:04:43.190
+Jitendra K: Right? So I can be able to say that if I have to utilize a median range, for importation.
+
+790
+02:04:44.790 --> 02:04:53.600
+Jitendra K: My data point… can… use… Medium, median, Cool.
+
+791
+02:04:53.790 --> 02:04:55.379
+Jitendra K: perform the analysis.
+
+792
+02:05:00.880 --> 02:05:03.040
+Jitendra K: So let me write down the second method.
+
+793
+02:05:04.040 --> 02:05:08.110
+Jitendra K: which is the median. I'm going to use a two-second method, median.
+
+794
+02:05:08.300 --> 02:05:11.319
+Jitendra K: And then I will compare which method is making.
+
+795
+02:05:11.830 --> 02:05:13.010
+Jitendra K: more sense.
+
+796
+02:05:14.810 --> 02:05:17.129
+Jitendra K: Now, to compare these two methods.
+
+797
+02:05:22.250 --> 02:05:24.740
+Jitendra K: I would like to visualize the result.
+
+798
+02:05:26.840 --> 02:05:29.509
+Jitendra K: So, I would say, let's visualize this result.
+
+799
+02:05:30.740 --> 02:05:32.589
+Jitendra K: It is some issue…
+
+800
+02:05:42.960 --> 02:05:48.970
+Jitendra K: So you can see that I'm having the… 177 variable distribution.
+
+801
+02:05:49.220 --> 02:05:51.830
+Jitendra K: with the two method that I'm using.
+
+802
+02:05:52.030 --> 02:05:57.200
+Jitendra K: And both method is giving me some sort of depiction about the attribute.
+
+803
+02:05:57.420 --> 02:06:00.790
+Jitendra K: Now, if I looked closely, if I compare them.
+
+804
+02:06:01.170 --> 02:06:04.950
+Jitendra K: So I'm debating too much away from the mean.
+
+805
+02:06:05.690 --> 02:06:10.840
+Jitendra K: In terms of… Original imputation versus the second implementation.
+
+806
+02:06:11.410 --> 02:06:13.309
+Jitendra K: So, you can see on my screen.
+
+807
+02:06:13.600 --> 02:06:16.299
+Jitendra K: The first method is more approximate.
+
+808
+02:06:17.410 --> 02:06:23.999
+Jitendra K: Right? When I'm using the distance criteria instead of median, That is making more sense.
+
+809
+02:06:24.200 --> 02:06:30.700
+Jitendra K: Because the idea is, when you're using a Knan algorithm, The KNN algorithm works with…
+
+810
+02:06:32.490 --> 02:06:38.619
+Jitendra K: Understanding all the nearest features, Which will help you to predict
+
+811
+02:06:39.390 --> 02:06:44.009
+Jitendra K: the missing value. But here, we are depending upon the one type of feature.
+
+812
+02:06:44.290 --> 02:06:50.429
+Jitendra K: Where we are just looking for one column, one… one value, which is median, and then try to impute it.
+
+813
+02:06:50.590 --> 02:06:54.160
+Jitendra K: So that means, if you are using or preferring KNN,
+
+814
+02:06:54.910 --> 02:07:03.670
+Jitendra K: That will give you the better output as compared to Any… static… Importation strategy.
+
+815
+02:07:06.500 --> 02:07:07.320
+Jitendra K: Right?
+
+816
+02:07:07.510 --> 02:07:17.699
+Jitendra K: So, we have just imputed 177 variables… sorry, 177 data points, and then we are using the KNN algorithm. Now, how did you fit this method? So, we are using this.
+
+817
+02:07:21.070 --> 02:07:24.190
+Jitendra K: So, I'm fitting this method by saying that
+
+818
+02:07:24.880 --> 02:07:28.320
+Jitendra K: Okay, let me show you the method 1.
+
+819
+02:07:29.400 --> 02:07:31.319
+Jitendra K: Yeah, so here I'm saying that…
+
+820
+02:07:31.640 --> 02:07:38.039
+Jitendra K: I would like to use the… okay, yeah, so I've written down the steps, so here I'm saying that…
+
+821
+02:07:38.180 --> 02:07:42.200
+Jitendra K: I would like to analyze my data points, which are all numerical.
+
+822
+02:07:42.590 --> 02:07:44.810
+Jitendra K: I would like to check for the missing values.
+
+823
+02:07:45.490 --> 02:07:56.940
+Jitendra K: If the missing values… are there, replace diamet NA, Create a loop, All this algorithm.
+
+824
+02:07:57.150 --> 02:08:04.150
+Jitendra K: and try different values of k. That means, if I'm forcing the algorithm to use a distance, Equilian distance as a criteria.
+
+825
+02:08:04.900 --> 02:08:11.500
+Jitendra K: Then, it should take a decision based upon minimum 3 data points, or 5 or 7 data points.
+
+826
+02:08:12.250 --> 02:08:17.560
+Jitendra K: So it'll try if it is having a minimum of 7 data points, 3 data points, or 5, vice versa.
+
+827
+02:08:17.710 --> 02:08:19.489
+Jitendra K: Before coming to an answer.
+
+828
+02:08:22.860 --> 02:08:31.169
+Jitendra K: Right? So that is where you can able to transform your data From missing values to… Imputed values, more.
+
+829
+02:08:31.450 --> 02:08:32.790
+Jitendra K: comprehensively.
+
+830
+02:08:36.310 --> 02:08:39.600
+Jitendra K: So, shall I share this code with you, and you would like to run now?
+
+831
+02:08:39.980 --> 02:08:41.940
+Jitendra K: And let me know your thought.
+
+832
+02:08:42.460 --> 02:08:47.300
+Jitendra K: And before we can move on to the K&N, classification.
+
+833
+02:08:54.390 --> 02:08:56.580
+Jitendra K: Alright, let me share this code with you.
+
+834
+02:08:58.390 --> 02:09:01.909
+Jitendra K: I'm just overriding the file, so please use the cell number.
+
+835
+02:09:02.090 --> 02:09:08.929
+Jitendra K: Appropriately, and then run… Appropriately. So the last cell will be the latest one.
+
+836
+02:09:11.730 --> 02:09:14.410
+Jitendra K: Don't run all, just keep on appending.
+
+837
+02:15:59.050 --> 02:16:05.739
+Jitendra K: Yeah, so this is a random value that I have chosen, so 357. You can choose 9 as well.
+
+838
+02:16:06.120 --> 02:16:10.800
+Jitendra K: But this will be more clear when we talk about hyperparameter tuning.
+
+839
+02:16:11.240 --> 02:16:17.510
+Jitendra K: So, we will start with some experimentation, bit of seed values, and then we can optimize it.
+
+840
+02:16:17.910 --> 02:16:20.950
+Jitendra K: So we'll use hyperparameter tuning for that purpose.
+
+841
+02:16:23.990 --> 02:16:31.890
+Jitendra K: But, are you guys getting the gist of this imputation method? What is imputation? Why we need imputation?
+
+842
+02:18:27.700 --> 02:18:33.500
+Jitendra K: Yes, so we are not calculating, enforcing any statistical technical mean, or…
+
+843
+02:18:33.750 --> 02:18:37.970
+Jitendra K: Median, but we rather use an actual distribution of the data.
+
+844
+02:18:38.209 --> 02:18:42.360
+Jitendra K: And, using the algorithm, we understand that how the data has been…
+
+845
+02:18:42.670 --> 02:18:44.789
+Jitendra K: A range, and then we are picking
+
+846
+02:18:45.270 --> 02:18:48.489
+Jitendra K: The distribution from the algorithm, and then
+
+847
+02:18:50.090 --> 02:18:52.290
+Jitendra K: Placing the imputed value over there.
+
+848
+02:18:54.480 --> 02:18:56.149
+Jitendra K: Yes, yeah.
+
+849
+02:18:59.090 --> 02:19:02.950
+Jitendra K: So the graphs show imputed value as 29.7.
+
+850
+02:19:03.750 --> 02:19:05.739
+Jitendra K: Where's the graph?
+
+851
+02:19:08.719 --> 02:19:11.979
+Jitendra K: This is… okay, so this is the original distribution.
+
+852
+02:19:12.469 --> 02:19:16.899
+Jitendra K: And with the amputation, no missing value I'm talking about. So the mean will increase, right?
+
+853
+02:19:20.350 --> 02:19:23.400
+Jitendra K: The mean has been increased if you are adding more values.
+
+854
+02:19:26.260 --> 02:19:29.709
+Jitendra K: So, mean is 29.7 to 38 has been increased.
+
+855
+02:19:35.270 --> 02:19:37.809
+Jitendra K: The red graph. Where is the red graph?
+
+856
+02:19:39.900 --> 02:19:41.430
+Jitendra K: 29.7.
+
+857
+02:19:45.750 --> 02:19:48.759
+Jitendra K: Where it is, 13? I cannot see any 13.
+
+858
+02:19:51.440 --> 02:19:55.689
+Jitendra K: This one you're saying, standard deviation, this is not mean, this is standard deviation.
+
+859
+02:20:12.570 --> 02:20:18.190
+Jitendra K: Alright, so we'll take a last, example now for KNN algorithm.
+
+860
+02:20:18.510 --> 02:20:23.600
+Jitendra K: And I think we are doing above time, because we have only two topics to cover today.
+
+861
+02:20:23.770 --> 02:20:26.449
+Jitendra K: But, I will take this opportunity to…
+
+862
+02:20:27.060 --> 02:20:30.470
+Jitendra K: If you have any question, but let's try to finish the last topic for today.
+
+863
+02:20:30.910 --> 02:20:36.780
+Jitendra K: So, the last topic for today is if I have to use KNN algorithm as a… classifier.
+
+864
+02:20:37.300 --> 02:20:49.000
+Jitendra K: Now, if I'm using a KNN as a classifier, then… The idea is… since KNN use… clustering technique.
+
+865
+02:20:49.850 --> 02:20:52.920
+Jitendra K: To identify the region of the data points.
+
+866
+02:20:53.790 --> 02:20:56.390
+Jitendra K: So you can use this property of KNN,
+
+867
+02:20:56.490 --> 02:20:59.669
+Jitendra K: To even classify the boundary of the classes.
+
+868
+02:20:59.850 --> 02:21:04.030
+Jitendra K: And when we talk about the boundary of the classes, you end up into classification.
+
+869
+02:21:04.530 --> 02:21:07.940
+Jitendra K: Separation of the two classes. Separation of the three classes.
+
+870
+02:21:08.650 --> 02:21:13.319
+Jitendra K: Right? So that is where KNN can also be used as a classification technique.
+
+871
+02:21:13.690 --> 02:21:18.070
+Jitendra K: So, I would like to… Create an example.
+
+872
+02:21:19.250 --> 02:21:26.159
+Jitendra K: with the healthcare data set again, I will use breast cancer data set again, and I would like to classify the outcome.
+
+873
+02:21:28.520 --> 02:21:30.399
+Jitendra K: As maligant and benign.
+
+874
+02:21:31.910 --> 02:21:33.280
+Jitendra K: From this dataset.
+
+875
+02:21:33.560 --> 02:21:41.120
+Jitendra K: Let me first import, libraries… I will also impute… Canon Imputer…
+
+876
+02:21:41.820 --> 02:21:44.710
+Jitendra K: But another imputor I will use.
+
+877
+02:21:50.620 --> 02:21:55.200
+Jitendra K: From scikit-learn… dot datasets…
+
+878
+02:21:58.410 --> 02:21:59.970
+Jitendra K: import…
+
+879
+02:22:06.970 --> 02:22:08.919
+Jitendra K: Sorry for the long thought.
+
+880
+02:22:11.790 --> 02:22:14.360
+Jitendra K: Model selection impute train test split.
+
+881
+02:22:15.080 --> 02:22:17.749
+Jitendra K: I will use kNearest Neighbor Classifier.
+
+882
+02:22:18.210 --> 02:22:21.049
+Jitendra K: And also from scikit-learn.
+
+883
+02:22:22.950 --> 02:22:23.750
+Jitendra K: tricks…
+
+884
+02:22:26.860 --> 02:22:28.859
+Jitendra K: import, classification report.
+
+885
+02:22:29.260 --> 02:22:30.760
+Jitendra K: Accuracy report.
+
+886
+02:22:36.940 --> 02:22:37.940
+Jitendra K: etc.
+
+887
+02:22:38.480 --> 02:22:41.419
+Jitendra K: So this is the data I'm going to import.
+
+888
+02:22:41.810 --> 02:22:48.400
+Jitendra K: Now, I will also import one important library called… shop.
+
+889
+02:22:48.970 --> 02:22:50.000
+Jitendra K: Sharply.
+
+890
+02:22:50.700 --> 02:22:55.250
+Jitendra K: I will talk about this library in a while, but let me instantiate.
+
+891
+02:22:55.820 --> 02:22:58.349
+Jitendra K: the JavaScript to run this.
+
+892
+02:23:11.440 --> 02:23:12.880
+Jitendra K: Okay, this is done.
+
+893
+02:23:13.720 --> 02:23:19.899
+Jitendra K: Now, we'll load the data into the memory, so I will say data is equals 2, load breast cancer data.
+
+894
+02:23:21.110 --> 02:23:24.780
+Jitendra K: I would like to analyze my data.add.
+
+895
+02:23:28.710 --> 02:23:34.309
+Jitendra K: the, okay, so this is my data.
+
+896
+02:23:35.320 --> 02:23:40.680
+Jitendra K: No… I would like to see what is there in X.
+
+897
+02:23:41.180 --> 02:23:48.509
+Jitendra K: Also, pd.dataFrame… Data or data, columns, feature name, and then period, series, target.
+
+898
+02:23:48.980 --> 02:23:52.600
+Jitendra K: So, I would like to print… the shape…
+
+899
+02:23:52.910 --> 02:23:59.980
+Jitendra K: And the unique values in the data points, so I would like to see what is the data point looks like. So, I've got two target variables.
+
+900
+02:24:00.210 --> 02:24:02.349
+Jitendra K: Classes 0 and 1.
+
+901
+02:24:03.080 --> 02:24:07.919
+Jitendra K: Now, I would like to split my data into train and test, so I'm going to use train test split function.
+
+902
+02:24:10.830 --> 02:24:13.740
+Jitendra K: With a test size of 0.2.
+
+903
+02:24:14.510 --> 02:24:21.820
+Jitendra K: Random state… 42… stratified sampling.
+
+904
+02:24:25.520 --> 02:24:29.560
+Jitendra K: Do we enable And then execute.
+
+905
+02:24:30.310 --> 02:24:34.829
+Jitendra K: Now, I will also do a feature scaling, because my features, as you know, is different.
+
+906
+02:24:35.150 --> 02:24:37.420
+Jitendra K: Some of them are area, some of them are length.
+
+907
+02:24:38.040 --> 02:24:40.339
+Jitendra K: So I will say, scalar…
+
+908
+02:24:43.380 --> 02:24:48.789
+Jitendra K: Request to… Standard scaler, quick transformation next train.
+
+909
+02:24:51.350 --> 02:24:52.190
+Jitendra K: desk.
+
+910
+02:24:52.470 --> 02:24:53.620
+Jitendra K: That's sad.
+
+911
+02:24:54.930 --> 02:25:00.510
+Jitendra K: Okay, now I think you have asked this question, wire 3 via 5?
+
+912
+02:25:00.910 --> 02:25:07.400
+Jitendra K: Now, instead of doing that, I would like to use hyperparameter tuning. I would say, I would like to use a range.
+
+913
+02:25:08.720 --> 02:25:10.410
+Jitendra K: Between 3 to 21.
+
+914
+02:25:10.670 --> 02:25:15.970
+Jitendra K: Right? And then also I'm passing the metrics, distance metrics.
+
+915
+02:25:16.210 --> 02:25:20.549
+Jitendra K: Which, will be evaluated by hyperparameter tuning for K&M.
+
+916
+02:25:20.900 --> 02:25:24.779
+Jitendra K: So, there are several algorithms that we are going to learn in future.
+
+917
+02:25:24.980 --> 02:25:28.999
+Jitendra K: Which will talk about the best estimator, or the best model.
+
+918
+02:25:29.480 --> 02:25:33.280
+Jitendra K: That will be… Fit to this scenario.
+
+919
+02:25:33.490 --> 02:25:35.639
+Jitendra K: Okay, grid search, I have to import.
+
+920
+02:25:49.450 --> 02:25:52.519
+Jitendra K: Okay, so this is what my output looks like.
+
+921
+02:25:52.890 --> 02:25:59.540
+Jitendra K: Now, what I'm going to do is, so I have a K&N… computer class, I've got,
+
+922
+02:25:59.770 --> 02:26:01.440
+Jitendra K: the best estimation…
+
+923
+02:26:01.770 --> 02:26:09.360
+Jitendra K: Now, I would like to perform a prediction and evaluation on my data points, but before that,
+
+924
+02:26:10.020 --> 02:26:12.139
+Jitendra K: I would like to introduce you.
+
+925
+02:26:12.300 --> 02:26:14.370
+Jitendra K: to one library called Shapley.
+
+926
+02:26:14.950 --> 02:26:18.190
+Jitendra K: Now, let me explain what is Shapley. So…
+
+927
+02:26:20.590 --> 02:26:25.129
+Jitendra K: Okay, so in a very simple term, Shapley or Sharp Library?
+
+928
+02:26:27.400 --> 02:26:33.950
+Jitendra K: is… A way that you can able to find it out the feature importance.
+
+929
+02:26:34.240 --> 02:26:35.929
+Jitendra K: So we can be able to find it out.
+
+930
+02:26:37.220 --> 02:26:43.399
+Jitendra K: If I'm using… let's say… It's not plotting.
+
+931
+02:26:47.700 --> 02:26:52.470
+Jitendra K: Yeah, let me show you some… visuals.
+
+932
+02:26:52.880 --> 02:26:57.510
+Jitendra K: So, the output of Shapley will look like this. You will get this kind of output.
+
+933
+02:26:57.880 --> 02:27:05.790
+Jitendra K: Now, the idea is, of SharePlace, The chapel is a very… important measurement.
+
+934
+02:27:06.240 --> 02:27:12.300
+Jitendra K: To identify how much each feature contributes to shifting the prediction away from the average.
+
+935
+02:27:14.320 --> 02:27:17.640
+Jitendra K: Right? So basically, it will help you to create a baseline model.
+
+936
+02:27:18.120 --> 02:27:19.700
+Jitendra K: Or a fair model.
+
+937
+02:27:20.030 --> 02:27:25.369
+Jitendra K: Right? So every ML model has a baseline prediction, average model values, across all data points.
+
+938
+02:27:25.650 --> 02:27:32.409
+Jitendra K: Now, for a new sample, the model predicts something different. So, Shap play will distribute this difference fairly among all features.
+
+939
+02:27:33.270 --> 02:27:35.340
+Jitendra K: And that's the whole idea of Shap Play.
+
+940
+02:27:35.960 --> 02:27:41.169
+Jitendra K: So, the idea is, Shapley has come from game theory, game theory foundational model.
+
+941
+02:27:41.910 --> 02:27:47.270
+Jitendra K: So, it comes from the cooperative game theory. So, let's say you have a team of players, a team earns a reward.
+
+942
+02:27:48.560 --> 02:27:54.759
+Jitendra K: The team, as a team, earns a reward. So you would like to distribute the reward fairly between each player.
+
+943
+02:27:54.860 --> 02:27:56.839
+Jitendra K: With a marginal contribution.
+
+944
+02:27:57.850 --> 02:28:01.430
+Jitendra K: Right, so that is what this… shop.
+
+945
+02:28:01.960 --> 02:28:03.610
+Jitendra K: Value will determine.
+
+946
+02:28:04.340 --> 02:28:11.760
+Jitendra K: Right? So that means it will show you how much the feature pushed the prediction. Is it higher or lower? Is it increasing or decreasing?
+
+947
+02:28:12.310 --> 02:28:13.880
+Jitendra K: And what is the impact of?
+
+948
+02:28:14.290 --> 02:28:16.120
+Jitendra K: Enabling that particular feature.
+
+949
+02:28:16.410 --> 02:28:18.730
+Jitendra K: So that you can be able to understand with the help of SHAP.
+
+950
+02:28:18.870 --> 02:28:21.690
+Jitendra K: I think I'm getting some error, but anyway…
+
+951
+02:28:21.820 --> 02:28:27.359
+Jitendra K: So, the output of this model that I'm using with KNN I'm fitting here.
+
+952
+02:28:27.590 --> 02:28:32.840
+Jitendra K: And remember, I'm fitting the best parameter now. I'm not fitting any arbitrary or…
+
+953
+02:28:32.990 --> 02:28:36.949
+Jitendra K: Anything which is coming along, so this is the best parameter that I have achieved.
+
+954
+02:28:37.230 --> 02:28:40.779
+Jitendra K: So I'm using this hyperparameter of tuning.
+
+955
+02:28:41.070 --> 02:28:49.140
+Jitendra K: To ensure that my model has been used these best grid parameters, to create a decision boundary.
+
+956
+02:28:50.190 --> 02:28:55.149
+Jitendra K: And when it is generating the output, it is 97% accurate. That means I'm able to predict
+
+957
+02:28:55.390 --> 02:28:58.919
+Jitendra K: The cancer patient with a 97% accuracy.
+
+958
+02:29:00.780 --> 02:29:04.289
+Jitendra K: with the help of kNearest Neighbor algorithm.
+
+959
+02:29:06.040 --> 02:29:06.840
+Jitendra K: Right?
+
+960
+02:29:07.120 --> 02:29:11.530
+Jitendra K: So the idea is, of this algorithm is very simple. So we started with…
+
+961
+02:29:12.790 --> 02:29:16.790
+Jitendra K: the open source data uploading. Let me delete this.
+
+962
+02:29:20.260 --> 02:29:23.219
+Jitendra K: So we load the data into the memory Pandas data frame.
+
+963
+02:29:23.530 --> 02:29:26.050
+Jitendra K: We split the data into X and Y.
+
+964
+02:29:26.500 --> 02:29:31.539
+Jitendra K: We identify the shape of this data, that how many rows and columns are there.
+
+965
+02:29:31.820 --> 02:29:36.110
+Jitendra K: So we just see that it is having 569 rows, 30 columns.
+
+966
+02:29:36.500 --> 02:29:44.350
+Jitendra K: And it is having only two classes, maligant and benign, which we already know, that it is a two-class binary problem, binary class prediction problem.
+
+967
+02:29:44.580 --> 02:29:46.670
+Jitendra K: And we have, 0 and 1.
+
+968
+02:29:47.090 --> 02:29:50.680
+Jitendra K: Then, what we did is we perform a split of the data.
+
+969
+02:29:51.060 --> 02:29:56.420
+Jitendra K: And then we standardize the data into a same scale, and then use a hyperparameter
+
+970
+02:29:56.680 --> 02:30:00.060
+Jitendra K: To find it out, the range of these variables.
+
+971
+02:30:00.230 --> 02:30:06.630
+Jitendra K: And then use this method to fit in to our original… model.
+
+972
+02:30:06.930 --> 02:30:10.549
+Jitendra K: And finally, we are getting this outcome, which is,
+
+973
+02:30:12.140 --> 02:30:15.389
+Jitendra K: The accuracy of the model, which is showing to be 97%.
+
+974
+02:30:16.980 --> 02:30:28.219
+Jitendra K: So let me share this code with everyone, and maybe let me fix the Shapley as well in the meanwhile, so you guys continue to run this, and in the meantime, let me fix the Shapley.
+
+975
+02:30:28.330 --> 02:30:32.580
+Jitendra K: And let me know if there's any question, and I'm opening the forum for a question now.
+
+976
+02:30:32.710 --> 02:30:37.790
+Jitendra K: So I think this is pretty much what we have for today, but let's try to complete this exercise.
+
+977
+02:30:37.930 --> 02:30:40.020
+Jitendra K: And let me fix Shapley, and then…
+
+978
+02:30:40.130 --> 02:30:43.319
+Jitendra K: We can have a Q&A, and then we can wind up the session.
+
+979
+02:30:43.500 --> 02:30:48.230
+Jitendra K: So, any question, on this code? I've shared the code in the…
+
+980
+02:30:48.870 --> 02:30:51.590
+Jitendra K: Chart, so please take a look.
+
+981
+02:34:02.420 --> 02:34:05.139
+Jitendra K: So this works now for me.
+
+982
+02:34:28.070 --> 02:34:33.160
+Jitendra K: And you can see that addition boundary is also coming up. Now, let me explain this chart.
+
+983
+02:34:33.840 --> 02:34:35.569
+Jitendra K: So, let me copy this.
+
+984
+02:34:35.880 --> 02:34:37.909
+Jitendra K: Let's deep dive into this chart.
+
+985
+02:34:40.630 --> 02:34:45.519
+Jitendra K: Okay, so… As I mentioned, the idea of Shapley is 25,
+
+986
+02:34:46.620 --> 02:34:51.729
+Jitendra K: That how your model is able to accommodate the variance in the features.
+
+987
+02:34:52.480 --> 02:34:55.099
+Jitendra K: So, the y-axis that you can see here.
+
+988
+02:34:56.020 --> 02:34:59.090
+Jitendra K: Have a vertical line and the vertical features.
+
+989
+02:34:59.770 --> 02:35:05.200
+Jitendra K: So, which has been ordered, so… The vertical axis, Y axis.
+
+990
+02:35:05.410 --> 02:35:09.710
+Jitendra K: Featured order top to bottom by global importance.
+
+991
+02:35:10.050 --> 02:35:12.879
+Jitendra K: So the worst radius is the most important feature.
+
+992
+02:35:13.030 --> 02:35:17.639
+Jitendra K: For your algorithm, followed by mean and other data points.
+
+993
+02:35:17.910 --> 02:35:20.669
+Jitendra K: So the x-axis that you can see here.
+
+994
+02:35:20.890 --> 02:35:29.520
+Jitendra K: Comprises of negative and the positive variables, so that means negative values pushes prediction towards the negative class.
+
+995
+02:35:30.000 --> 02:35:33.699
+Jitendra K: And in your setup, the probability of benign is negative plus.
+
+996
+02:35:34.220 --> 02:35:39.879
+Jitendra K: And the positive shab pushes prediction towards the positive class, so in our setup, that is towards maligant.
+
+997
+02:35:40.250 --> 02:35:45.790
+Jitendra K: So, each dot, one sample, one patient, The dot horizontal position.
+
+998
+02:35:45.970 --> 02:35:48.359
+Jitendra K: These are SHAP features for that sample.
+
+999
+02:35:48.600 --> 02:35:52.950
+Jitendra K: And the color coding that we are using encodes the raw feature, like.
+
+1000
+02:35:53.210 --> 02:35:57.280
+Jitendra K: You can see a pink and a green… sorry, pink and a blue.
+
+1001
+02:35:57.760 --> 02:36:00.209
+Jitendra K: Is a probabilical scale, right?
+
+1002
+02:36:00.430 --> 02:36:04.440
+Jitendra K: So, the high-level summary, what does plot… plot tell you is…
+
+1003
+02:36:04.650 --> 02:36:07.650
+Jitendra K: The feature at the top is the most important.
+
+1004
+02:36:09.380 --> 02:36:12.970
+Jitendra K: From several features, you can see their high raw.
+
+1005
+02:36:13.120 --> 02:36:20.000
+Jitendra K: And some of them are positive impact, some of them are having negative impact on predicting the class. So this is where we can…
+
+1006
+02:36:20.400 --> 02:36:28.440
+Jitendra K: I'm able to identify that if this feature has been incorporated in my model, what impact it will create on my both classes.
+
+1007
+02:36:28.560 --> 02:36:32.930
+Jitendra K: Because ultimately, when you're predicting a class, 0 and 1.
+
+1008
+02:36:33.270 --> 02:36:35.020
+Jitendra K: Valigant and benign.
+
+1009
+02:36:35.850 --> 02:36:37.940
+Jitendra K: Cancer and non-cancerous.
+
+1010
+02:36:39.740 --> 02:36:45.189
+Jitendra K: If you are able to predict a non-cancer patient as a non-cancer, that will also improve your model accuracy.
+
+1011
+02:36:45.530 --> 02:36:48.330
+Jitendra K: So, by default, you have to work on both classes.
+
+1012
+02:36:50.370 --> 02:36:56.070
+Jitendra K: Right? So that is what Shap Play will offer you. It offers you two important things.
+
+1013
+02:36:56.350 --> 02:36:58.329
+Jitendra K: One is the rank of the features.
+
+1014
+02:36:58.700 --> 02:37:02.490
+Jitendra K: And the impact of that feature on the overall classes.
+
+1015
+02:37:03.900 --> 02:37:07.499
+Jitendra K: In terms of the data points. And it will create a nice…
+
+1016
+02:37:07.790 --> 02:37:10.769
+Jitendra K: Violin-like structure if you have more data points.
+
+1017
+02:37:11.320 --> 02:37:15.669
+Jitendra K: So you'll see this kind of structure quite often. This is…
+
+1018
+02:37:16.500 --> 02:37:22.100
+Jitendra K: Looks, like, scattered because of few data points, but if you have good data points, it will look like this.
+
+1019
+02:37:25.740 --> 02:37:31.710
+Jitendra K: Alright, so I'm, let me share the updated notebook, since it works. Let me share this.
+
+1020
+02:37:32.520 --> 02:37:35.369
+Jitendra K: Or maybe I can paste this here…
+
+1021
+02:37:38.960 --> 02:37:41.750
+Jitendra K: Yeah, I think I cannot be able to paste full.
+
+1022
+02:37:53.390 --> 02:37:57.590
+Jitendra K: Yeah, so… I've shared the notebook with everyone.
+
+1023
+02:37:59.410 --> 02:38:05.650
+Jitendra K: So, can you please try now, and let me know if there's any issue with… The understanding part.
+
+1024
+02:38:05.790 --> 02:38:10.630
+Jitendra K: And we will use these, topics, going forward as well.
+
+1025
+02:38:10.850 --> 02:38:15.530
+Jitendra K: So we'll talk about Shapley, we'll talk about hyperparameter, we'll talk about,
+
+1026
+02:38:16.620 --> 02:38:22.680
+Jitendra K: ROCAUC, and we will also talk about cross-validation strategies coming in the upcoming tutorials.
+
+1027
+02:38:23.040 --> 02:38:26.919
+Jitendra K: So this will become… a kind of…
+
+1028
+02:38:28.930 --> 02:38:32.810
+Jitendra K: reusable blocks in the upcoming tutorials. So make sure
+
+1029
+02:38:33.280 --> 02:38:37.800
+Jitendra K: You have some understanding of these, until we deep dive into this.
+
+1030
+02:43:41.560 --> 02:43:45.900
+Jitendra K: So please let me know if you're able to execute this end-to-end.
+
+1031
+02:43:46.270 --> 02:43:49.249
+Jitendra K: Are you understanding the code, the logic?
+
+1032
+02:43:50.090 --> 02:43:52.560
+Jitendra K: The way to interpret the outcome?
+
+1033
+02:45:54.920 --> 02:46:00.529
+Jitendra K: Yeah, so remember, in the earlier code, we have fixed the parameter to 357.
+
+1034
+02:46:01.200 --> 02:46:06.530
+Jitendra K: Alright, so now we are saying that instead of 357, let's use a broad range of 3 to 21.
+
+1035
+02:46:07.200 --> 02:46:11.629
+Jitendra K: And the algorithm will find it out which range is better, which particular variable
+
+1036
+02:46:12.420 --> 02:46:16.419
+Jitendra K: Let's say, is it 357? Is… which one is better?
+
+1037
+02:46:16.520 --> 02:46:22.069
+Jitendra K: So that is what we are doing as a hyperparameter. So we start with a range rather than a fixed value.
+
+1038
+02:46:22.700 --> 02:46:25.040
+Jitendra K: And here you can see that it is cutting.
+
+1039
+02:46:25.390 --> 02:46:26.620
+Jitendra K: the output.
+
+1040
+02:46:27.680 --> 02:46:29.919
+Jitendra K: With the optimal range as 8.
+
+1041
+02:46:56.770 --> 02:47:01.790
+Jitendra K: All right, guys, so I think this is pretty much what we have for today, so if there's no further question.
+
+1042
+02:47:02.360 --> 02:47:08.360
+Jitendra K: Is there any further question, guys, or anything that you would like to ask before we can call it a day?
+
+1043
+02:47:10.780 --> 02:47:13.549
+Jitendra K: So just a quick recap, what we have learned so far.
+
+1044
+02:47:13.960 --> 02:47:16.110
+Jitendra K: Okay, KNN, predict.
+
+1045
+02:47:16.890 --> 02:47:23.379
+Jitendra K: Okay, so this is, two functions. Okay, so these are two functions that I'm using to pack
+
+1046
+02:47:24.220 --> 02:47:28.110
+Jitendra K: the outcome. So, the Ravel… Is that too?
+
+1047
+02:47:28.310 --> 02:47:29.610
+Jitendra K: is a package.
+
+1048
+02:47:29.890 --> 02:47:32.600
+Jitendra K: official pack, right? So the idea is…
+
+1049
+02:47:33.310 --> 02:47:37.170
+Jitendra K: When I'll be using a Ravel on Unravel, so the idea is,
+
+1050
+02:47:37.560 --> 02:47:44.260
+Jitendra K: to pack these two data points together, right? So… So let me explain this.
+
+1051
+02:47:44.490 --> 02:47:46.390
+Jitendra K: with the example…
+
+1052
+02:48:05.320 --> 02:48:12.299
+Jitendra K: Yes, so the model output class is the most frequent class, 8 class… 8 data point it has used, not 8 classes.
+
+1053
+02:48:12.720 --> 02:48:14.060
+Jitendra K: 8 data points.
+
+1054
+02:48:27.750 --> 02:48:32.059
+Jitendra K: Yeah, so here, what I'm trying to do is, I'm trying to create a decision boundary here.
+
+1055
+02:48:32.610 --> 02:48:34.660
+Jitendra K: So I'm creating a decient boundary.
+
+1056
+02:48:35.900 --> 02:48:40.319
+Jitendra K: On which my… Data points has been fit.
+
+1057
+02:48:40.710 --> 02:48:45.679
+Jitendra K: So this XRAVL is a two-dimensional array matrix that creates a match grid.
+
+1058
+02:48:46.050 --> 02:48:49.930
+Jitendra K: And they represent X and Y coordinates of every data point on that grid.
+
+1059
+02:48:50.270 --> 02:48:55.759
+Jitendra K: So the RAV will flattened these two-dimensional data points into one-dimensional array as a long list.
+
+1060
+02:48:56.180 --> 02:48:59.219
+Jitendra K: And here, I'm just using that long list.
+
+1061
+02:48:59.590 --> 02:49:03.140
+Jitendra K: as individual data points, and color code it. So that is what I'm doing.
+
+1062
+02:49:06.730 --> 02:49:14.969
+Jitendra K: But Shashank, it will be too much, because I have to wait for everybody in that case, right? So everybody will not have their typing…
+
+1063
+02:49:15.630 --> 02:49:21.369
+Jitendra K: condition similar to you, or maybe if you're typing fast or slow, I don't know.
+
+1064
+02:49:21.690 --> 02:49:33.219
+Jitendra K: But, it will be too much if I wait for every… after every line of code, and asking you to write. So it will be, like, 8, 10, 10 hours classes daily.
+
+1065
+02:49:40.280 --> 02:49:48.830
+Jitendra K: Yeah, so a smaller example, these are smaller example only, these are not advanced examples, so we are taking a small example only.
+
+1066
+02:49:49.440 --> 02:49:55.589
+Jitendra K: So, that's why I'm giving it time to ensure that you absorb the concept.
+
+1067
+02:49:56.050 --> 02:50:04.339
+Jitendra K: But if we are taking very small example, let's say toy data set, 5 or 6 rows, it will not serve the purpose of this course.
+
+1068
+02:50:04.830 --> 02:50:09.260
+Jitendra K: So this is not programming classes like C++, we will create a star.
+
+1069
+02:50:10.190 --> 02:50:16.139
+Jitendra K: programs, like, create 5-star, 6-star, 2-dimensional matrix multiplication.
+
+1070
+02:50:16.290 --> 02:50:19.789
+Jitendra K: And this is data science, so we have to think of slightly…
+
+1071
+02:50:20.910 --> 02:50:30.789
+Jitendra K: advanced use case. This is not even advanced use case. I'm not saying that this is advanced. This is simple use cases, and we are using a ready-made data for doing this. Now, if you…
+
+1072
+02:50:31.130 --> 02:50:33.000
+Jitendra K: If you… you might be saying that…
+
+1073
+02:50:34.270 --> 02:50:42.750
+Jitendra K: don't perform transformation, don't use scalar, just stick with the concept of KNN, that's it. That is what I assume that you're talking about, right?
+
+1074
+02:50:43.220 --> 02:50:49.320
+Jitendra K: So, that is also not possible, because you have to understand multiple methods as we progress.
+
+1075
+02:50:49.760 --> 02:50:53.840
+Jitendra K: Because these methods will become a reusable function.
+
+1076
+02:50:54.110 --> 02:50:58.840
+Jitendra K: In the upcoming tutorials. So we can… I cannot say that I'm just teaching KNN,
+
+1077
+02:50:58.980 --> 02:51:04.179
+Jitendra K: So I will just stick with the KNN class only. Let's use a class, pitDubData.
+
+1078
+02:51:04.370 --> 02:51:09.320
+Jitendra K: Even if it is giving 1% result, let's be happy, because we understand K&M.
+
+1079
+02:51:09.830 --> 02:51:11.740
+Jitendra K: So what are we going to achieve?
+
+1080
+02:51:12.520 --> 02:51:14.289
+Jitendra K: That's the most important aspect.
+
+1081
+02:51:23.160 --> 02:51:24.110
+Jitendra K: Yeah.
+
+1082
+02:51:28.440 --> 02:51:33.520
+Jitendra K: Yeah, these libraries are important, these discussions are important, that's why I'm giving you time to run.
+
+1083
+02:51:33.830 --> 02:51:37.920
+Jitendra K: And I'm expecting, let's say if you're running the program.
+
+1084
+02:51:38.240 --> 02:51:44.479
+Jitendra K: read these lines, which is in code. So that's the reason I'm using the proper
+
+1085
+02:51:46.170 --> 02:51:48.990
+Jitendra K: Indentation and description of the code as well.
+
+1086
+02:51:53.000 --> 02:51:55.470
+Jitendra K: In the real-time project, how these…
+
+1087
+02:51:55.640 --> 02:51:58.220
+Jitendra K: Use maybe a wrapper services build.
+
+1088
+02:51:59.450 --> 02:52:05.719
+Jitendra K: These are all experimentation notebooks, right? So, once you deploy a model.
+
+1089
+02:52:06.070 --> 02:52:09.299
+Jitendra K: Then you will have a different, challenge altogether.
+
+1090
+02:52:09.430 --> 02:52:16.220
+Jitendra K: Right, so… Maybe, let's say you're creating a… Doctor Diagnostic app, right?
+
+1091
+02:52:16.540 --> 02:52:19.099
+Jitendra K: On the patient history on these data points.
+
+1092
+02:52:19.260 --> 02:52:25.249
+Jitendra K: So you can use some sort of, UI using Tableau, or Streamlit.
+
+1093
+02:52:25.580 --> 02:52:35.340
+Jitendra K: to showcase, maybe if a doctor is examining a patient, then what are the attributes which is coming in a medical report. So, you can think of that as a UI.
+
+1094
+02:52:35.730 --> 02:52:39.450
+Jitendra K: But yeah, it depends upon your use case that you're trying to utilize.
+
+1095
+02:53:03.220 --> 02:53:04.850
+Jitendra K: Okay, so…
+
+1096
+02:53:07.300 --> 02:53:17.129
+Jitendra K: In SHAP kernel Explainer, we pass X train50 as a background data. Is 50 sample enough to represent a breast cancer data set?
+
+1097
+02:53:17.890 --> 02:53:20.910
+Jitendra K: Yes. So, if I'm using…
+
+1098
+02:53:21.780 --> 02:53:25.360
+Jitendra K: 50 data as a sample. That's not sufficient.
+
+1099
+02:53:26.310 --> 02:53:28.709
+Jitendra K: That's not, definitely, it's not sufficient.
+
+1100
+02:53:29.640 --> 02:53:33.459
+Jitendra K: Right? So, 50 data points is a very small sample.
+
+1101
+02:53:35.490 --> 02:53:42.820
+Jitendra K: he required… For this complex case study, at least thousands of data points to begin with.
+
+1102
+02:53:43.840 --> 02:53:47.649
+Jitendra K: But what we have, is something which you have seen.
+
+1103
+02:53:49.250 --> 02:53:57.040
+Jitendra K: We have… somewhere around… 569 data points.
+
+1104
+02:53:58.710 --> 02:54:02.250
+Jitendra K: 569 data points is too low.
+
+1105
+02:54:02.390 --> 02:54:04.140
+Jitendra K: To make a case study.
+
+1106
+02:54:05.870 --> 02:54:07.530
+Jitendra K: Yeah, thanks, thanks, Mahesh.
+
+1107
+02:54:08.390 --> 02:54:16.740
+Jitendra K: Yeah, so I'm welcoming the session, but it's nearly impossible to go line by line during the class and wait for you to write down.
+
+1108
+02:54:16.840 --> 02:54:20.619
+Jitendra K: Because we have 60 students in the class, and if I wait for…
+
+1109
+02:54:20.920 --> 02:54:26.999
+Jitendra K: each student, and they say that I'm still working, then it will be 8-hour to 10-hour classes.
+
+1110
+02:54:28.050 --> 02:54:35.369
+Jitendra K: Okay, just to understand web app interface, that's why you have to work, off hours as well. Take this notebook, run in your local.
+
+1111
+02:54:35.710 --> 02:54:41.159
+Jitendra K: Come, the next, week, right, and ask questions from there.
+
+1112
+02:54:41.420 --> 02:54:47.910
+Jitendra K: Once I share the notebook, please try to run it in your local machine, just to understand the concepts and…
+
+1113
+02:54:48.060 --> 02:54:52.539
+Jitendra K: Reiterate the concept, and the slides that you have used to learn the concept.
+
+1114
+02:54:52.800 --> 02:54:56.579
+Jitendra K: Right? Try to conceptualize both. Take two screens.
+
+1115
+02:54:56.940 --> 02:55:02.649
+Jitendra K: put one screen on your slide, I mean, as a slide, and the second screen as your code.
+
+1116
+02:55:02.830 --> 02:55:07.370
+Jitendra K: And try to correlate what you're learning versus implementing in the code.
+
+1117
+02:55:08.890 --> 02:55:11.880
+Jitendra K: Okay, just to underst- just to understand…
+
+1118
+02:55:14.710 --> 02:55:20.659
+Jitendra K: Yeah, I will share that as well. Web app interface to upload, model.pickle file.
+
+1119
+02:55:20.870 --> 02:55:28.459
+Jitendra K: Model.picklefile will return only the binary values. It will not return the graphs and stuff, until unless you're printing the graphs.
+
+1120
+02:55:29.310 --> 02:55:34.659
+Jitendra K: So, the purpose of pickle file is to serialize… use a serialized Python object.
+
+1121
+02:55:34.900 --> 02:55:39.800
+Jitendra K: And you will use this file similar to EXE files, or backed files in your Windows, right?
+
+1122
+02:55:40.090 --> 02:55:45.199
+Jitendra K: So when you're using the exe file, you have to just double-click and install. So similarly, the pickle file.
+
+1123
+02:55:45.610 --> 02:55:49.140
+Jitendra K: Is the file that you are going to use for model deployment.
+
+1124
+02:55:49.350 --> 02:55:51.259
+Jitendra K: So when you're deploying your model.
+
+1125
+02:55:51.420 --> 02:55:55.419
+Jitendra K: You have to use some way to store the data, right?
+
+1126
+02:55:55.870 --> 02:55:58.699
+Jitendra K: Sorry, to store the object
+
+1127
+02:55:59.380 --> 02:56:04.249
+Jitendra K: compute of your model, so that is called pickle file, serialized object in Python.
+
+1128
+02:56:23.300 --> 02:56:25.460
+Jitendra K: Yes, we'll talk about that part.
+
+1129
+02:56:26.740 --> 02:56:31.500
+Jitendra K: Yeah, so we'll have a class on deployments and stuff in the upcoming tutorial.
+
+1130
+02:56:58.970 --> 02:57:01.949
+Jitendra K: Yeah, so I've shared the files as well.
+
+1131
+02:57:02.210 --> 02:57:05.719
+Jitendra K: This file, so that you can keep a track of the formulas.
+
+1132
+02:57:06.160 --> 02:57:08.310
+Jitendra K: And, yeah, so…
+
+1133
+02:57:09.080 --> 02:57:15.600
+Jitendra K: Yeah, so I think we have learned nave, bias, and KNN as a two important algorithms. We have already covered logistic regression.
+
+1134
+02:57:16.130 --> 02:57:20.980
+Jitendra K: Now, in the next tutorial, we are going to cover one important algorithm called support vector machine.
+
+1135
+02:57:21.620 --> 02:57:25.280
+Jitendra K: And that is something, I would say is,
+
+1136
+02:57:25.390 --> 02:57:28.640
+Jitendra K: Slightly complex algorithm, so we have to think of
+
+1137
+02:57:29.640 --> 02:57:34.809
+Jitendra K: Using different types of geometric progressions or geometric margin concepts.
+
+1138
+02:57:35.010 --> 02:57:40.920
+Jitendra K: And we'll basically use algebra and trigonometry to understand support vector machine. Not more than that.
+
+1139
+02:57:41.290 --> 02:57:48.149
+Jitendra K: So… Support vector machine, we'll also talk about what are the primal and the dual form of SVM.
+
+1140
+02:57:48.350 --> 02:57:55.189
+Jitendra K: And how to use SVM as a regression versus classification, right? So we'll use this concept to understand.
+
+1141
+02:57:55.850 --> 02:58:02.150
+Jitendra K: So, yeah, so there will be two classes for SVM, and we will have a deep dive into SVM.
+
+1142
+02:58:02.460 --> 02:58:09.970
+Jitendra K: You'll understand different types of kernel method in SVM, linear kernel, Gaussian kernel, there's something called…
+
+1143
+02:58:11.360 --> 02:58:13.449
+Jitendra K: There's something called,
+
+1144
+02:58:18.900 --> 02:58:21.489
+Jitendra K: Radial Base Kernel, RBG.
+
+1145
+02:58:21.940 --> 02:58:26.320
+Jitendra K: So we'll talk about all these algorithms in the upcoming tutorials.
+
+1146
+02:58:26.670 --> 02:58:33.170
+Jitendra K: So, I think this is pretty much what we have for today, guys. So, I hope you enjoy the session, and there's a feedback
+
+1147
+02:58:33.650 --> 02:58:36.059
+Jitendra K: A link which will be shared, so…
+
+1148
+02:58:36.850 --> 02:58:39.759
+Jitendra K: Please rate on the higher side if you feel that the class is…
+
+1149
+02:58:39.970 --> 02:58:42.990
+Jitendra K: Having value for you, to understand the concept.
+
+1150
+02:58:45.070 --> 02:58:56.839
+Jitendra K: And, I'm using the medium-range complexity example, but we have to increase the complexity going forward. So make sure you practice to sync up with the class space.
+
+1151
+02:58:58.650 --> 02:59:02.840
+Jitendra K: So, just keep on practicing. At least try to run the notebook.
+
+1152
+02:59:03.350 --> 02:59:07.850
+Jitendra K: Once we have shared with you, so that you can able to make it.
+
+1153
+02:59:09.080 --> 02:59:09.780
+Jitendra K: More.
+
+1154
+02:59:20.860 --> 02:59:22.709
+Jitendra K: Thank you. Thank you, Brother D.
+
+1155
+02:59:24.570 --> 02:59:25.820
+Jitendra K: Thanks, English.
+
+1156
+02:59:30.210 --> 02:59:31.139
+Jitendra K: Thanks so much.
+
+1157
+02:59:41.720 --> 02:59:47.529
+Jitendra K: Yeah, and then you have a long holiday which is coming as well, so basically, I will explain, I will…
+
+1158
+02:59:47.770 --> 02:59:53.400
+Jitendra K: Maybe assign you some homework, for you, so that you can be busy during that time.
+
+1159
+02:59:55.750 --> 03:00:01.859
+Jitendra K: All right, thank you guys for attending this class. It was pleasure to have an interaction. We'll meet next week. Thank you.
+

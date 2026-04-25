@@ -1,0 +1,5030 @@
+WEBVTT
+
+1
+00:00:59.910 --> 00:01:01.490
+Jitendra U: Hey, good afternoon, everyone.
+
+2
+00:01:03.170 --> 00:01:13.889
+Jitendra U: And welcome to another exciting module of data science. So, before we quickly start the session, can we have a quick audio check? If my voice is audible to everyone, I'm going to share my screen as well.
+
+3
+00:01:28.880 --> 00:01:30.439
+Jitendra U: Alright, thank you.
+
+4
+00:01:31.030 --> 00:01:36.199
+Jitendra U: I hope, my screen's visible to everyone. My voice is audible as well, loud and clear.
+
+5
+00:01:39.940 --> 00:01:44.570
+Jitendra U: Alright, thanks for the, thanks for the confirmation, folks. So…
+
+6
+00:01:44.710 --> 00:01:51.029
+Jitendra U: So let's first set up the agenda for today's tutorial, what we are going to have, and how today's tutorial looks like.
+
+7
+00:01:51.380 --> 00:02:00.220
+Jitendra U: So, we have started with exploratory data analytics in the last session. So, we have covered the wider aspects of EDA, where we have to understand
+
+8
+00:02:00.560 --> 00:02:10.060
+Jitendra U: There are three sort of techniques in any exploratory data analytics, which include univariate analysis, bivariate analysis, and multivariate analytics, right?
+
+9
+00:02:10.220 --> 00:02:24.459
+Jitendra U: So when we talk about a single variable of interest, we consider this analysis to be univariate analysis. When we are trying to understand correlation between the two variables, that means impact of one variable over the other.
+
+10
+00:02:24.620 --> 00:02:27.400
+Jitendra U: We end up into bivariate analysis.
+
+11
+00:02:27.770 --> 00:02:38.900
+Jitendra U: When we are trying to study a group of variables, more than two, right, 2, 3, or predominantly three and more, then we end up into multivariate analytics.
+
+12
+00:02:39.130 --> 00:02:55.630
+Jitendra U: Right? So this is something which we already know, right? So we already know that EDA is a process of analyzing, summarizing your data to uncover patterns. And, one way that you are going to look into EDA is, you're going to improve your model by detecting the anomies.
+
+13
+00:02:55.630 --> 00:03:04.620
+Jitendra U: Right? So, we are going to test the hypothesis, validate certain assumption, and use statistical method and visualization technique, right?
+
+14
+00:03:04.650 --> 00:03:10.500
+Jitendra U: We have seen that there are different types of plotting technique, including matplot, Seabond.
+
+15
+00:03:10.970 --> 00:03:19.800
+Jitendra U: We have checked those packages, they are very powerful, and by virtue of those packages, we are able to get some
+
+16
+00:03:19.940 --> 00:03:37.719
+Jitendra U: critical data insights, right? So that is where you are going to start with EDA for any machine learning problem statement. So the first and the foremost thing when you have a machine learning, problem statement in future, or maybe you're working currently as well, you are going to work on EDA.
+
+17
+00:03:37.720 --> 00:03:40.530
+Jitendra U: That's the first and the foremost thing that you're going to work.
+
+18
+00:03:40.530 --> 00:03:49.300
+Jitendra U: Now, when you talk about an EDA, so this is what… it's a four-step process, right? So, first and foremost thing, you have to collect the data.
+
+19
+00:03:49.870 --> 00:03:54.870
+Jitendra U: So what are the sources of data that you're going to collect? You're going to collect the data from different
+
+20
+00:03:55.180 --> 00:04:06.519
+Jitendra U: ERP system, different databases, different APIs, different web scrapping, it can be anything, right, that you're going to collect. Maybe you're going to have metadata already.
+
+21
+00:04:06.850 --> 00:04:14.150
+Jitendra U: in some shape and form, and you're going to use that metadata for performing the analysis, right? So data collection is also
+
+22
+00:04:14.480 --> 00:04:22.610
+Jitendra U: the very beginning of your EDS step. So you have to start thinking of collecting the raw data from different sources.
+
+23
+00:04:23.220 --> 00:04:42.669
+Jitendra U: The second important aspect that you're going to have when you're dealing with EDA tasks is to handle the missing values. Now, as you know that, data can have missing values, missing values by random, missing values by design, so there are different types of missing value indicators. So when you have missing values in your data.
+
+24
+00:04:42.940 --> 00:04:47.559
+Jitendra U: You're going to impute doors… Missing attribute.
+
+25
+00:04:47.860 --> 00:04:51.390
+Jitendra U: Or, you're going to drop the… data itself.
+
+26
+00:04:52.780 --> 00:05:02.710
+Jitendra U: The second and the most important aspect when you're performing a data cleansing is duplication of data. So you might have duplicate rows in your data.
+
+27
+00:05:02.830 --> 00:05:10.090
+Jitendra U: Which you would like to get rid of, right? So you have to handle the duplicate rows in your data.
+
+28
+00:05:10.660 --> 00:05:17.850
+Jitendra U: All right, the third step is called data profiling. So, data profiling include your summaries of your
+
+29
+00:05:18.220 --> 00:05:31.030
+Jitendra U: variables, which is the quantile summaries, their 25th percentile, 75th percentile distributions. So you're going to look into the statistics, specifically from quantile perspective.
+
+30
+00:05:31.130 --> 00:05:37.379
+Jitendra U: And also, you're going to check the distribution of your data, whether they are normally distributed, so we have seen that
+
+31
+00:05:37.540 --> 00:05:44.660
+Jitendra U: If my data is not normal distributed, then I may have to consider…
+
+32
+00:05:44.770 --> 00:05:48.910
+Jitendra U: The center limit theorem as, the…
+
+33
+00:05:50.100 --> 00:05:59.099
+Jitendra U: boundary case scenario, right? So, central limit theorem assumed that my data is normally distributed. So, check of distribution is very, very important.
+
+34
+00:05:59.880 --> 00:06:07.289
+Jitendra U: So, you're going to also explore the patterns with the charts. So, we have seen that we are using heat map, we are using
+
+35
+00:06:07.490 --> 00:06:11.779
+Jitendra U: Some sort of pie charts to understand the distributions and stuff like that.
+
+36
+00:06:13.330 --> 00:06:34.299
+Jitendra U: Now, when you start collecting data, as I mentioned, the data can be from different sources, it can be an API, it can be a flat file, it can be a databases, so that the data will come from different sources. So there's no fix or right and wrong sources, right? Depends upon your business, depending upon your problem, depending upon the type of data that you're going to handle.
+
+37
+00:06:34.460 --> 00:06:43.470
+Jitendra U: That will decide your source, right? So, in this particular class, we are going to focus on CSVs and some bit of, layman
+
+38
+00:06:43.540 --> 00:06:47.839
+Jitendra U: databases, right? Like, MySQL databases, right?
+
+39
+00:06:47.840 --> 00:07:04.529
+Jitendra U: APIs we will study in a later part of the class, maybe a few classes from now, like, when we're dealing with NLP-based problem. There, I will tell you how to utilize APIs to call different financial websites, like Yahoo or Google Finance APIs.
+
+40
+00:07:04.530 --> 00:07:07.629
+Jitendra U: And there, we are going to download the data from those APIs.
+
+41
+00:07:07.890 --> 00:07:15.509
+Jitendra U: Now, once you have a data sources defined, the second and important stuff that you have to think through is, you have to
+
+42
+00:07:15.670 --> 00:07:19.190
+Jitendra U: Make sure you're going to benchmark your data quality.
+
+43
+00:07:19.490 --> 00:07:22.929
+Jitendra U: Now, why the benchmarking of data quality is very important?
+
+44
+00:07:23.640 --> 00:07:25.670
+Jitendra U: So think of this as a…
+
+45
+00:07:26.870 --> 00:07:30.239
+Jitendra U: Problem, like, your data might have certain noise.
+
+46
+00:07:30.720 --> 00:07:36.379
+Jitendra U: Now, when you say noise in your data, that means it will have some abrupt patterns.
+
+47
+00:07:36.860 --> 00:07:40.480
+Jitendra U: Pattern could be Missing values?
+
+48
+00:07:40.670 --> 00:07:43.520
+Jitendra U: some outliers. It can be a…
+
+49
+00:07:44.990 --> 00:07:50.300
+Jitendra U: some incorrect values as well, right? So the data quality is always
+
+50
+00:07:50.470 --> 00:07:56.679
+Jitendra U: Very challenging task. So you have to understand your data, you should know what attribute you are gathering.
+
+51
+00:07:56.920 --> 00:08:00.990
+Jitendra U: And depending upon that data lineage, you should understand
+
+52
+00:08:01.250 --> 00:08:04.709
+Jitendra U: What's the data ethnicity in your…
+
+53
+00:08:05.120 --> 00:08:13.889
+Jitendra U: Strategy, like, how… when you're… when you're using the source system to identify for the columns, you should know what this column comprises of.
+
+54
+00:08:14.450 --> 00:08:15.280
+Jitendra U: Right?
+
+55
+00:08:15.640 --> 00:08:19.799
+Jitendra U: And then, accordingly, you are going to create a strategy to validate your data.
+
+56
+00:08:20.910 --> 00:08:36.070
+Jitendra U: there could be some inconsistency in the from format, some privacy issues, right? Like, you might not have access to all the schemas, so you may end up into partial data. So there could be some inconsistency in terms of formats, some privacy-based concerns.
+
+57
+00:08:36.140 --> 00:08:55.019
+Jitendra U: on which you're going to handle, you're going to impact your data collection itself, the first step itself of EDA. So when you have such sort of inconsistencies, format, privacy issue, role-based access, you don't have… you don't have sufficient privilege to access the data lakes, etc.
+
+58
+00:08:55.070 --> 00:09:00.349
+Jitendra U: So, in those scenarios, you have to talk to your business, get the approvals, and try to
+
+59
+00:09:00.470 --> 00:09:04.490
+Jitendra U: Make sure that the data challenges that you're facing should overcome.
+
+60
+00:09:04.620 --> 00:09:10.620
+Jitendra U: Right? So again, it depends upon your problem, it depends upon your organization, it depends upon…
+
+61
+00:09:10.750 --> 00:09:17.230
+Jitendra U: what role you are dealing with. And then, accordingly, you are going to deal with the inconsistency and the privacy issues.
+
+62
+00:09:18.500 --> 00:09:30.460
+Jitendra U: All right, so we have talked about in the last tutorial how to handle the data cleansing, including outliers, standardization of data, duplicate removal, and finding a missing value. So this is something we should have discussed.
+
+63
+00:09:31.760 --> 00:09:34.730
+Jitendra U: We have talked about some, data,
+
+64
+00:09:35.480 --> 00:09:51.270
+Jitendra U: packages, which is very powerful in terms of identifying the skewness, scales, outliers, etc, right? So we have seen several techniques. Now, what I'm going to do next is, I would like to talk about, some more advanced EDA.
+
+65
+00:09:52.220 --> 00:09:56.479
+Jitendra U: So I'm going to talk about some more advanced EDA. So first, let's start with…
+
+66
+00:09:57.410 --> 00:10:00.750
+Jitendra U: The understanding of correlation method.
+
+67
+00:10:01.430 --> 00:10:15.189
+Jitendra U: Now, I have to talk about what is correlation, right? So, correlation is nothing but… we are trying to study a variable and the impact of one variable on the other, right? So, correlation means…
+
+68
+00:10:15.360 --> 00:10:20.710
+Jitendra U: We are trying to understand the impact off.
+
+69
+00:10:20.820 --> 00:10:22.989
+Jitendra U: One variable over the other.
+
+70
+00:10:23.360 --> 00:10:27.550
+Jitendra U: Now, before moving on to the correlation, let me talk about one important
+
+71
+00:10:28.200 --> 00:10:35.840
+Jitendra U: mathematical terminology called covariance. And then we will try to understand the difference between covariance and correlation.
+
+72
+00:10:36.280 --> 00:10:41.979
+Jitendra U: So, as you can see on my screen, covariance is a measure of the direction of the relationship between the two variables.
+
+73
+00:10:42.700 --> 00:10:46.050
+Jitendra U: Now, direction means what? A variable can have direction?
+
+74
+00:10:46.590 --> 00:10:51.989
+Jitendra U: The answer is yes. When we talk about a relationship between a two variables, it will have a direction.
+
+75
+00:10:52.090 --> 00:10:56.429
+Jitendra U: So, the direction can be of three types, positive, negative.
+
+76
+00:10:56.830 --> 00:11:05.539
+Jitendra U: and neutral, right? So, positive covariance means both variables increase together. Let's say age and height.
+
+77
+00:11:06.460 --> 00:11:15.729
+Jitendra U: Right? So generally, for a normal person, healthy person, age and height are positively correlated, or having a positive covariance.
+
+78
+00:11:15.930 --> 00:11:20.530
+Jitendra U: Negative covariance could be… The…
+
+79
+00:11:21.560 --> 00:11:31.569
+Jitendra U: the two entities, where one variable increases while the other decreases. Like, the… Winter, sorry, summers, and the…
+
+80
+00:11:32.550 --> 00:11:39.980
+Jitendra U: jacket sales, or winter and the ice cream sales. So during the winter, the sales of the ice cream will be…
+
+81
+00:11:40.350 --> 00:11:51.250
+Jitendra U: going in the negative direction, right? So that's the whole idea of negative covariance. So the magnitude of covariance does not standardized. Now, let me explain, first.
+
+82
+00:11:51.640 --> 00:11:58.299
+Jitendra U: What is covariance? So basically, in a very simple term logic, a covariance is a statistical tool
+
+83
+00:11:58.630 --> 00:12:03.239
+Jitendra U: That helps to quantify the total variance of a random variable.
+
+84
+00:12:03.650 --> 00:12:08.029
+Jitendra U: I'm repeating, a covariance is a statistical tool or technique
+
+85
+00:12:08.290 --> 00:12:19.180
+Jitendra U: That will help to quantify the total variance of the random variable from their expected mean value. So, in simple words, it measures the linear relationship between the two random variables.
+
+86
+00:12:19.690 --> 00:12:28.540
+Jitendra U: Now, the two random variable can have positive covariance or negative covariance scenario, and in those scenarios, you can have
+
+87
+00:12:28.820 --> 00:12:35.909
+Jitendra U: The two variable tends to move in the same direction, which means that if we increase the value of 1,
+
+88
+00:12:36.280 --> 00:12:38.599
+Jitendra U: The other variable will also be increase.
+
+89
+00:12:38.990 --> 00:12:50.330
+Jitendra U: In case of negative, it could be a vice versa. That means the two-variable tendency is to move in opposite direction, which means that if we increase the value of one variable, other variable will decrease.
+
+90
+00:12:50.640 --> 00:13:01.199
+Jitendra U: Zero covariance, on the other hand, that means there's no linear relationship between the variable. Now, when you have to define a covariance in a mathematical term.
+
+91
+00:13:01.350 --> 00:13:09.219
+Jitendra U: So let me write down… So when I'm using, the covariance formula.
+
+92
+00:13:11.670 --> 00:13:14.120
+Jitendra U: So let me explain the covariance formula.
+
+93
+00:13:22.530 --> 00:13:24.690
+Jitendra U: So let's say I have a variable.
+
+94
+00:13:26.920 --> 00:13:29.769
+Jitendra U: X and Y, and I would like to find out…
+
+95
+00:13:30.350 --> 00:13:33.440
+Jitendra U: the covariance of two variables, X and Y.
+
+96
+00:13:36.200 --> 00:13:42.690
+Jitendra U: So the formula for covariance between X and Y is nothing but it will be given by… the difference…
+
+97
+00:13:44.310 --> 00:13:46.579
+Jitendra U: Of the variable, away from the mean.
+
+98
+00:13:54.630 --> 00:13:57.430
+Jitendra U: Divide by total number of observation.
+
+99
+00:13:58.380 --> 00:14:06.940
+Jitendra U: Right? So, covariance between the two variables X and Y… is nothing but… the IR data point.
+
+100
+00:14:07.890 --> 00:14:13.989
+Jitendra U: Minus the mean of that data point, Multiply by Yet.
+
+101
+00:14:14.410 --> 00:14:21.760
+Jitendra U: data point minus mean of the Y data points, divided by total number of data points. This is a total number of data points that I'm having.
+
+102
+00:14:22.100 --> 00:14:30.530
+Jitendra U: So, the covariance… So… so what is the limitation here? So, here you can see that covariance, magnitude.
+
+103
+00:14:30.870 --> 00:14:33.920
+Jitendra U: Does not signify the strength of relationship.
+
+104
+00:14:34.810 --> 00:14:36.649
+Jitendra U: But it will give you the direction.
+
+105
+00:14:38.260 --> 00:14:40.980
+Jitendra U: Right? So it will give you the direction.
+
+106
+00:14:41.410 --> 00:14:42.220
+Jitendra U: Right?
+
+107
+00:14:42.330 --> 00:14:48.019
+Jitendra U: But we need direction as well as magnitude of relationship as well.
+
+108
+00:14:48.570 --> 00:14:53.180
+Jitendra U: So, when you have 25, if my two variables
+
+109
+00:14:53.520 --> 00:15:05.780
+Jitendra U: are moving, let's say, if I'm just saying, The age of the person, Let's say 5-year, 10-year, 15 years.
+
+110
+00:15:06.980 --> 00:15:08.240
+Jitendra U: 20 years.
+
+111
+00:15:09.330 --> 00:15:13.560
+Jitendra U: And I'm… on the y-axis, I'm projecting the height in centimeter.
+
+112
+00:15:14.520 --> 00:15:21.780
+Jitendra U: Right? So as the age of the person increase, the height of the person will also increase. So I will get a…
+
+113
+00:15:21.900 --> 00:15:30.249
+Jitendra U: study rate, of this variable. So I can say the covariance between height and the age is positive.
+
+114
+00:15:31.410 --> 00:15:36.570
+Jitendra U: When I'm looking for the sales of… Sales Craft.
+
+115
+00:15:37.660 --> 00:15:39.230
+Jitendra U: of temperature.
+
+116
+00:15:42.610 --> 00:15:47.149
+Jitendra U: Versus… ice cream sales.
+
+117
+00:15:52.540 --> 00:15:56.079
+Jitendra U: So as the temperature increases, the sale of the ice cream is also increasing.
+
+118
+00:15:56.490 --> 00:16:05.199
+Jitendra U: But, as the temperature decreases, the ice cream sale is also… sorry, increasing, right? So the temperature increases.
+
+119
+00:16:05.470 --> 00:16:13.410
+Jitendra U: the ice cream sale is also increasing, right? So this is also positively correlated. But let me talk about a negatively correlated variable.
+
+120
+00:16:15.870 --> 00:16:23.420
+Jitendra U: So, as our temperature increases, The sale of the woolen, Jackets will decrease.
+
+121
+00:16:23.810 --> 00:16:34.589
+Jitendra U: Right? So certain aperial section will have impact due to temperature. So basically, what I'm trying to say is correlation… sorry, covariance will give you a direction.
+
+122
+00:16:34.920 --> 00:16:51.019
+Jitendra U: So, there are three types of covariance, positive, zero, and negative, right? So, covariance will give you the direction. So, the limitation of covariance is covariance magnitude does not… does not signifies the strength of the relationship, it just signifies the direction.
+
+123
+00:16:51.290 --> 00:16:52.020
+Jitendra U: Right?
+
+124
+00:16:52.330 --> 00:16:57.660
+Jitendra U: Now, if I have to calculate the direction versus strength.
+
+125
+00:16:57.780 --> 00:17:01.019
+Jitendra U: then I have to use correlation.
+
+126
+00:17:01.570 --> 00:17:03.989
+Jitendra U: Now, the definition for correlation is…
+
+127
+00:17:11.990 --> 00:17:15.849
+Jitendra U: So I'm going to have several types of correlation.
+
+128
+00:17:16.040 --> 00:17:18.039
+Jitendra U: The first one is called Pearson.
+
+129
+00:17:19.200 --> 00:17:21.470
+Jitendra U: The second one is called Spearmen.
+
+130
+00:17:24.530 --> 00:17:29.570
+Jitendra U: The third type of correlation that we're going to talk about is called Kendall.
+
+131
+00:17:32.440 --> 00:17:40.780
+Jitendra U: Then the fourth type we are going to talk about is point by cereal.
+
+132
+00:17:41.690 --> 00:17:45.839
+Jitendra U: Correlation. Let's first understand what is the correlation.
+
+133
+00:17:46.590 --> 00:17:53.250
+Jitendra U: Now, correlation… It's nothing, but it will also give you
+
+134
+00:17:53.370 --> 00:17:59.120
+Jitendra U: The strength of the two variables, at which the degree of association between the two variables can be positive or negative.
+
+135
+00:17:59.610 --> 00:18:01.320
+Jitendra U: Now, there are several…
+
+136
+00:18:01.910 --> 00:18:08.449
+Jitendra U: Statistical technique that we are going to explore and understand, by virtue of which we can be able to calculate a correlation.
+
+137
+00:18:08.800 --> 00:18:09.760
+Jitendra U: coefficient.
+
+138
+00:18:10.280 --> 00:18:15.660
+Jitendra U: So, a Pearson correlation coefficient is also known as product moment correlation coefficient.
+
+139
+00:18:15.880 --> 00:18:19.569
+Jitendra U: It's nothing but an normalized measurement of the covariant itself.
+
+140
+00:18:19.940 --> 00:18:27.039
+Jitendra U: So basically, what Pearson correlation coefficient does, it measures the linear relationship between the two variables.
+
+141
+00:18:28.370 --> 00:18:35.440
+Jitendra U: Right? So it measured the linear relationship between the two variables, and then tried to identify these…
+
+142
+00:18:35.570 --> 00:18:38.010
+Jitendra U: Variable in terms of…
+
+143
+00:18:39.110 --> 00:18:47.009
+Jitendra U: strength, as well as direction. So, if I have to write down the formula for PSN correlation coefficient. It is… looks like this.
+
+144
+00:18:48.130 --> 00:19:04.630
+Jitendra U: Summation of… XI… minus X bar, so this is the mean value, YI… minus Y bar, Divide by…
+
+145
+00:19:04.870 --> 00:19:14.510
+Jitendra U: Under rooftops, Summation of… Xi… minus X bar, molar square.
+
+146
+00:19:15.030 --> 00:19:21.550
+Jitendra U: Submission of… YI… Minus y bar, Holy Square.
+
+147
+00:19:22.110 --> 00:19:26.019
+Jitendra U: So, basically, this is called Pearson Correlation coefficient R.
+
+148
+00:19:26.540 --> 00:19:38.999
+Jitendra U: X of i is the X variable sample, Y of I is the Y variable sample, X bar is the mean value of the sample, X, and the Y is bar is the mean value of the sample Y.
+
+149
+00:19:39.300 --> 00:19:51.729
+Jitendra U: So… So basically, Pearson correlation coefficient have two disadvantages, or limitations. The first limitation of Pearson correlation coefficient is
+
+150
+00:19:51.900 --> 00:20:03.089
+Jitendra U: It fails to capture the nonlinear relationship between the two variables. I'm repeating, Pearson correlation coefficient fails to capture the nonlinear relationship between the two variables.
+
+151
+00:20:03.590 --> 00:20:08.329
+Jitendra U: And usually, we do not use Pearson correlation coefficient for ordinal variables.
+
+152
+00:20:08.850 --> 00:20:16.559
+Jitendra U: Where this sequence is going to matter, like rank features. So I cannot be able to use Pearson correlation coefficient for that purpose.
+
+153
+00:20:17.080 --> 00:20:24.189
+Jitendra U: then that's the reason we have different types of correlation. So in that scenario, I'm going to use Spearman Rank Correlation.
+
+154
+00:20:24.510 --> 00:20:34.299
+Jitendra U: Now, when you talk about Spearman rank correlation coefficient, the formula for Pearson… sorry, Spearman is rho.
+
+155
+00:20:34.780 --> 00:20:46.409
+Jitendra U: And this is equals to 1 minus… Sixth time… summation of… D of i, whole square, divided by…
+
+156
+00:20:46.860 --> 00:20:56.450
+Jitendra U: N into N squared minus 1. Now, you need not to remember this formula, you just need to use Python libraries to solve this. So I'm just writing the formulas.
+
+157
+00:20:56.650 --> 00:21:13.129
+Jitendra U: So that you can get familiar with internal mechanism of this algorithm, but, behind the scene, you have to just use Python package to run. So we'll run some algorithm, and then we'll see how to calculate this. So, this condition… this particular variable row is called Spearman Rank
+
+158
+00:21:13.130 --> 00:21:18.029
+Jitendra U: correlation coefficient. D of i is the difference between the two rank of each observation.
+
+159
+00:21:18.810 --> 00:21:27.360
+Jitendra U: Now… Let me go back to the lab and explain you how to use Python to run this analysis.
+
+160
+00:21:27.470 --> 00:21:29.029
+Jitendra U: So let me show you…
+
+161
+00:21:44.810 --> 00:21:48.979
+Jitendra U: One second, guys, I think my system is slightly slow.
+
+162
+00:22:01.500 --> 00:22:10.359
+Jitendra U: Is there any way we can illustrate what is position quotient in the form of a diagram? No, you do not need a diagram for doing this. Let me explain with the help of program.
+
+163
+00:22:10.500 --> 00:22:12.399
+Jitendra U: So, let's try to run the program.
+
+164
+00:22:28.770 --> 00:22:30.139
+Jitendra U: Mmm, okay.
+
+165
+00:22:42.620 --> 00:22:50.439
+Jitendra U: Okay, so the definition of Pearson correlation coefficient is Pearson correlation coefficient is a product moment correlation coefficient.
+
+166
+00:22:50.750 --> 00:22:56.819
+Jitendra U: And it is a… it's a kind of a normalized measurement of the covariance. That means we would like to understand
+
+167
+00:22:57.230 --> 00:22:59.499
+Jitendra U: The relationship between two variables.
+
+168
+00:22:59.990 --> 00:23:11.740
+Jitendra U: in a form of a range. So for doing this analysis, what you need to do is, first and the foremost thing is, you have to work on importing the packages. So I'm going to import…
+
+169
+00:23:12.250 --> 00:23:14.460
+Jitendra U: SciPy, Scientific Python.
+
+170
+00:23:14.720 --> 00:23:16.350
+Jitendra U: dot stats module.
+
+171
+00:23:17.090 --> 00:23:20.580
+Jitendra U: And I'm going to import… Pearson…
+
+172
+00:23:23.880 --> 00:23:25.520
+Jitendra U: Correlation coefficient.
+
+173
+00:23:26.030 --> 00:23:28.759
+Jitendra U: Now, I would like to perform the analysis on…
+
+174
+00:23:29.830 --> 00:23:32.600
+Jitendra U: random variable, so I need to import NumPy.
+
+175
+00:23:34.060 --> 00:23:40.819
+Jitendra U: Now, I've got the package, I've got the placeholder. Now, what I'm going to do is, I'm going to generate a variable.
+
+176
+00:23:41.210 --> 00:23:45.039
+Jitendra U: So, remember the package that we used earlier is random package.
+
+177
+00:23:45.210 --> 00:23:48.410
+Jitendra U: And with this package, I'm generating 10 variables.
+
+178
+00:23:49.980 --> 00:23:54.739
+Jitendra U: And for B, I'm also generating… Another randown.
+
+179
+00:24:00.050 --> 00:24:01.480
+Jitendra U: 10 variables.
+
+180
+00:24:10.810 --> 00:24:14.100
+Jitendra U: Okay, normal distributed variables I need to generate.
+
+181
+00:24:19.610 --> 00:24:22.349
+Jitendra U: Now, let me show you what is A and what is B.
+
+182
+00:24:25.530 --> 00:24:28.290
+Jitendra U: So this is my A from 10 variables.
+
+183
+00:24:28.570 --> 00:24:40.020
+Jitendra U: And similarly, I will have a B as well, which is an array of 10 variables. Now, when I'm trying to calculate the PSM correlation coefficient of these two variables, which is a list or an array.
+
+184
+00:24:40.380 --> 00:24:45.300
+Jitendra U: You have to simply say, Here, sir.
+
+185
+00:24:45.850 --> 00:24:47.120
+Jitendra U: A comma B.
+
+186
+00:24:49.130 --> 00:24:50.710
+Jitendra U: So this will give you…
+
+187
+00:24:51.180 --> 00:24:59.600
+Jitendra U: the two values here. So here, the Pearson correlation coefficient will be determined, which is gonna be 0.17.
+
+188
+00:25:00.070 --> 00:25:09.829
+Jitendra U: So this… Suggests that there's no linear relationship among the two variables, or two sort of arrays.
+
+189
+00:25:11.350 --> 00:25:13.959
+Jitendra U: Right? So this is 0.17.
+
+190
+00:25:15.260 --> 00:25:18.329
+Jitendra U: That means it's a partial correlated variable.
+
+191
+00:25:19.110 --> 00:25:25.290
+Jitendra U: Assume it, like, some re… some, different distribution of height.
+
+192
+00:25:25.590 --> 00:25:34.289
+Jitendra U: Versus age of a person. And I would like to understand the relationship between age and the height of a person. So, I'm not going to study only on one person.
+
+193
+00:25:34.440 --> 00:25:36.940
+Jitendra U: But rather, I will collect a sample of data.
+
+194
+00:25:37.710 --> 00:25:40.899
+Jitendra U: That sample of data is nothing but my observations.
+
+195
+00:25:41.320 --> 00:25:43.360
+Jitendra U: Against age and height.
+
+196
+00:25:44.410 --> 00:25:50.129
+Jitendra U: So, generally speaking, For this dataset, my Pearson correlation coefficient is…
+
+197
+00:25:50.820 --> 00:26:00.689
+Jitendra U: showing to be 0.17. And the maximum value that I can have is minus 1 to plus 1. That means the relationship between the two variables, the strength.
+
+198
+00:26:01.460 --> 00:26:02.810
+Jitendra U: of relationship.
+
+199
+00:26:02.980 --> 00:26:06.129
+Jitendra U: is partial. 0.17.
+
+200
+00:26:07.580 --> 00:26:12.380
+Jitendra U: Similarly, I can be able to run the same analysis on these variables using
+
+201
+00:26:13.330 --> 00:26:22.850
+Jitendra U: Spearman correlation coefficient. So all I have to say is, instead of Pearson, I would like to call… Speerman.
+
+202
+00:26:28.100 --> 00:26:29.780
+Jitendra U: Now, let me run this.
+
+203
+00:26:30.080 --> 00:26:31.230
+Jitendra U: Analysis.
+
+204
+00:26:38.480 --> 00:26:40.450
+Jitendra U: So, showing been negative.
+
+205
+00:26:44.460 --> 00:26:48.000
+Jitendra U: Right? So we can say that there's a negative correlation between the two variables.
+
+206
+00:26:50.710 --> 00:26:53.120
+Jitendra U: Right? That's a strength of relationship.
+
+207
+00:26:53.340 --> 00:26:56.110
+Jitendra U: But a degree of relationship will be given by Spearman.
+
+208
+00:26:59.100 --> 00:27:03.010
+Jitendra U: Now, the third type of correlation question is called CANDL.
+
+209
+00:27:03.740 --> 00:27:06.769
+Jitendra U: Kendall our rank correlation.
+
+210
+00:27:07.530 --> 00:27:10.720
+Jitendra U: Or, sometimes it's called as tau coefficient.
+
+211
+00:27:13.280 --> 00:27:22.180
+Jitendra U: So… So, this particular… Correlation coefficient as well, can't all rank correlation coefficient.
+
+212
+00:27:22.460 --> 00:27:28.859
+Jitendra U: It's a non-parametric measure, meant of the Rank correlation of ordinal variables.
+
+213
+00:27:29.150 --> 00:27:36.430
+Jitendra U: So, as we… as I mentioned, when it… when your variables are in certain order, right? Let's take an example.
+
+214
+00:27:38.480 --> 00:27:43.629
+Jitendra U: Okay, when to use correlation coefficient? So, correlation coefficient, you are going to use a variety of problems.
+
+215
+00:27:44.320 --> 00:27:46.130
+Jitendra U: Right? So, let's say…
+
+216
+00:27:46.690 --> 00:27:54.870
+Jitendra U: When you're performing a bivariate analytics, you need to have… understand, you need to have a very clear understanding on the variable selection criteria.
+
+217
+00:27:56.080 --> 00:27:59.359
+Jitendra U: Right? So you need to understand what is the impact of…
+
+218
+00:28:00.310 --> 00:28:06.090
+Jitendra U: X1 on Y. Similarly, I would like to understand the impact of X2 on Y.
+
+219
+00:28:06.480 --> 00:28:11.829
+Jitendra U: Because when you're dealing with machine learning problems, let's say you have a machine learning algorithm.
+
+220
+00:28:14.480 --> 00:28:16.710
+Jitendra U: We're going to use the input features.
+
+221
+00:28:17.140 --> 00:28:19.959
+Jitendra U: And these are your X1, X2, X3.
+
+222
+00:28:20.870 --> 00:28:22.160
+Jitendra U: So on and so forth.
+
+223
+00:28:24.740 --> 00:28:26.850
+Jitendra U: Now, which one you are going to select?
+
+224
+00:28:27.240 --> 00:28:33.159
+Jitendra U: to make sure Your predictive power of the model Should be high.
+
+225
+00:28:34.190 --> 00:28:38.760
+Jitendra U: So that will be determined by… by Variate Analytics.
+
+226
+00:28:41.010 --> 00:28:48.150
+Jitendra U: So when you're performing a bivariate analysis, you have to use correlation, Oh, for sure.
+
+227
+00:28:50.520 --> 00:28:55.219
+Jitendra U: Alright, so… Let me show you how to calculate.
+
+228
+00:28:56.000 --> 00:29:01.510
+Jitendra U: candle correlation coefficient as well. So, for doing so, you need to import
+
+229
+00:29:07.540 --> 00:29:08.989
+Jitendra U: Unit import.
+
+230
+00:29:17.370 --> 00:29:18.699
+Jitendra U: Candle towel.
+
+231
+00:29:20.340 --> 00:29:23.680
+Jitendra U: So, in this, I'm going to use the same variable.
+
+232
+00:29:24.090 --> 00:29:26.940
+Jitendra U: And pass… A and B to it.
+
+233
+00:29:31.210 --> 00:29:34.760
+Jitendra U: So you can see it is showing me, again, the negative correlation.
+
+234
+00:29:34.960 --> 00:29:41.140
+Jitendra U: So here, it is showing me negative 2.28, so it… we can say it's a negatively correlated among them.
+
+235
+00:29:42.010 --> 00:29:45.179
+Jitendra U: Right? So now, when to use what?
+
+236
+00:29:45.630 --> 00:29:47.069
+Jitendra U: So, as I mentioned.
+
+237
+00:29:48.640 --> 00:29:54.959
+Jitendra U: When you're using the basic correlation coefficient without ordinal variables, you can go with either of the two.
+
+238
+00:29:59.260 --> 00:30:05.090
+Jitendra U: But when you're using ordinal, Where your variable has certain order.
+
+239
+00:30:05.700 --> 00:30:10.999
+Jitendra U: Of construction, then you have to go with candle or point by cereal.
+
+240
+00:30:16.750 --> 00:30:24.040
+Jitendra U: Right? So this is where you are going to utilize different sort of correlation, coefficient to understand
+
+241
+00:30:24.180 --> 00:30:32.249
+Jitendra U: the impact of one variable over the other. And generally, your Y var… sorry, your one variable is always Y, output.
+
+242
+00:30:37.500 --> 00:30:45.210
+Jitendra U: Right? So let's try to solve one example, and then it will be clear to everyone. So let's try to understand.
+
+243
+00:30:45.610 --> 00:30:50.089
+Jitendra U: with some example. So, let's take some example.
+
+244
+00:30:51.010 --> 00:30:55.919
+Jitendra U: I will choose one case study. Let me show you.
+
+245
+00:31:17.010 --> 00:31:19.209
+Jitendra U: Okay, let me show you an example.
+
+246
+00:31:19.610 --> 00:31:24.740
+Jitendra U: instead of generating random variables, let's say I would like to do some more meaningful.
+
+247
+00:31:35.960 --> 00:31:40.140
+Jitendra U: Okay, somebody's asking, can we be able to see,
+
+248
+00:31:40.470 --> 00:31:44.610
+Jitendra U: the visuals, right? So, let me show you the visuals as well.
+
+249
+00:31:45.930 --> 00:31:50.780
+Jitendra U: For these two… The two concepts that we just discussed.
+
+250
+00:31:51.070 --> 00:31:53.410
+Jitendra U: So, in terms of visual representation.
+
+251
+00:32:06.400 --> 00:32:08.600
+Jitendra U: My system is hanging, I don't know.
+
+252
+00:32:40.020 --> 00:32:44.790
+Jitendra U: One second, Guide, I think my system is… Let me show one second.
+
+253
+00:32:51.740 --> 00:32:54.170
+Jitendra U: Alright, so let me explain.
+
+254
+00:33:22.760 --> 00:33:25.520
+Jitendra U: Okay, so this is called covariance, so you can see that
+
+255
+00:33:25.890 --> 00:33:30.589
+Jitendra U: When I have two variables, two data points, I would like to find it out
+
+256
+00:33:30.970 --> 00:33:35.470
+Jitendra U: These lines, which represent the direction of magnitude.
+
+257
+00:33:35.590 --> 00:33:37.909
+Jitendra U: Right? When I have…
+
+258
+00:33:38.290 --> 00:33:49.850
+Jitendra U: zero covariance, that means it's all randomly spreaded. It's all randomly spreaded, right? When I'm saying large positive correlation, it will show some incremental trend, right?
+
+259
+00:33:50.080 --> 00:33:57.210
+Jitendra U: Similarly, if I have to look for correlation, it will also have a direction, not just magnitude, but also a direction.
+
+260
+00:33:57.520 --> 00:34:00.229
+Jitendra U: So that's the difference between correlation and covariance.
+
+261
+00:34:01.380 --> 00:34:05.790
+Jitendra U: Right, so let's try to understand how to calculate both
+
+262
+00:34:06.040 --> 00:34:11.350
+Jitendra U: with the help of some data points. So I will show you some, case study, and then…
+
+263
+00:34:11.480 --> 00:34:16.140
+Jitendra U: We will use that particular case study to understand, how to apply this particular concept.
+
+264
+00:34:16.320 --> 00:34:21.060
+Jitendra U: To learn the fundamentals of correlation and coefficient, right?
+
+265
+00:34:21.219 --> 00:34:22.429
+Jitendra U: Now, imagine…
+
+266
+00:34:22.840 --> 00:34:32.039
+Jitendra U: a scenario that you are going to work on some machine learning projects, right? So, when you're dealing with any problem statement in data science or machine learning.
+
+267
+00:34:32.280 --> 00:34:33.730
+Jitendra U: problem statement.
+
+268
+00:34:33.920 --> 00:34:37.399
+Jitendra U: You have to understand the effect of variables.
+
+269
+00:34:37.560 --> 00:34:41.919
+Jitendra U: The choice of your variable will impact the efficacy of the model.
+
+270
+00:34:42.040 --> 00:34:47.819
+Jitendra U: Now, if I'm going to choose a model, sorry, a variable, which does not have any impact on Y,
+
+271
+00:34:48.250 --> 00:34:54.620
+Jitendra U: The output variable of interest. Then selecting that particular variable will not be a very meaningful
+
+272
+00:34:55.280 --> 00:35:04.449
+Jitendra U: For my model, right? Because, anyway, I'm just using… Something which is not Well correlated with Y.
+
+273
+00:35:04.840 --> 00:35:11.660
+Jitendra U: So, for performing that kind of analysis, we will use covariance and correlation.
+
+274
+00:35:12.940 --> 00:35:15.489
+Jitendra U: Okay, so, again, I…
+
+275
+00:35:19.490 --> 00:35:23.999
+Jitendra U: Guys, am I audible to you? Are you able to see my screen? Is it flickering?
+
+276
+00:35:24.780 --> 00:35:28.310
+Jitendra U: Is my screen this visible, or not?
+
+277
+00:35:36.080 --> 00:35:37.570
+Tech Cert 008: The screen is not visible.
+
+278
+00:35:38.450 --> 00:35:40.470
+Jitendra U: Okay, one second, let me…
+
+279
+00:36:36.290 --> 00:36:38.640
+Jitendra U: I hope it's visible now, right?
+
+280
+00:36:39.940 --> 00:36:40.620
+Tech Cert 008: Yes.
+
+281
+00:36:41.480 --> 00:36:42.350
+Jitendra U: Alright.
+
+282
+00:36:42.800 --> 00:36:49.219
+Jitendra U: So, the first problem that we are going to solve today is we are going to talk about one real-time case study.
+
+283
+00:36:49.370 --> 00:36:52.570
+Jitendra U: Which is called credit card problem, right? So…
+
+284
+00:36:53.330 --> 00:36:59.000
+Jitendra U: Imagine that you're working for a bank. Oh, still a black, black screen? Oh, okay.
+
+285
+00:36:59.890 --> 00:37:01.349
+Jitendra U: Let me reshare this.
+
+286
+00:37:03.340 --> 00:37:06.190
+Jitendra U: Is it visible now? Are you able to see my Google Pool app?
+
+287
+00:37:10.360 --> 00:37:12.640
+Jitendra U: Alright, thank you, thanks for the…
+
+288
+00:37:25.280 --> 00:37:27.349
+Jitendra U: Let me close some of the…
+
+289
+00:37:49.850 --> 00:37:55.450
+Jitendra U: Alright, so I'm going to talk about one credit card fraud detection case study.
+
+290
+00:37:55.840 --> 00:37:58.460
+Jitendra U: Now, let me explain what this study talks about.
+
+291
+00:37:58.990 --> 00:38:02.170
+Jitendra U: So imagine that you're working for a bank.
+
+292
+00:38:07.110 --> 00:38:12.730
+Jitendra U: Which offer different sort of… Schemes to the customers.
+
+293
+00:38:12.870 --> 00:38:16.070
+Jitendra U: So, one of the departments is credit card.
+
+294
+00:38:18.070 --> 00:38:24.140
+Jitendra U: So, landing a credit card. So, credit card is like a… You're landing a money
+
+295
+00:38:28.810 --> 00:38:30.070
+Jitendra U: to a customer.
+
+296
+00:38:34.260 --> 00:38:37.639
+Jitendra U: Right? Without any guarantee, without any declaration.
+
+297
+00:38:37.850 --> 00:38:54.850
+Jitendra U: So, but you're looking for the risk, measurement, like, what is the SIBLE score of the customers, or surpass purchase, anything else that he has, purchased via credit card or home loan, etc. So, credit card is nothing but comes under loan department.
+
+298
+00:38:55.290 --> 00:39:00.639
+Jitendra U: Now, we would like to create a case study called Credit Card Fraud Detection Algorithm.
+
+299
+00:39:01.280 --> 00:39:02.470
+Jitendra U: So we'll not…
+
+300
+00:39:02.850 --> 00:39:15.350
+Jitendra U: discuss about any algorithm at this moment, but we'll rather focus on the data points, like how the data points will be created for this case study. Now, the business problem is, let's assume that you're working for a bank.
+
+301
+00:39:16.210 --> 00:39:29.829
+Jitendra U: And this particular bank find it hard to give loan to a people due to their inadequate or missing credit summaries. So some of the consumer use their, use this loophole to become defaulters.
+
+302
+00:39:31.360 --> 00:39:42.940
+Jitendra U: So, bank has decided that I would like to perform and create a series of analysis before landing a loan to a customer, because the default rate is increasing in my
+
+303
+00:39:43.260 --> 00:39:44.450
+Jitendra U: Business.
+
+304
+00:39:45.260 --> 00:39:50.860
+Jitendra U: Now, when a client applies for a loan, basically, you are going to have four sort of decisions.
+
+305
+00:39:51.600 --> 00:39:55.589
+Jitendra U: The first decision could be your loan application will get approved.
+
+306
+00:40:01.200 --> 00:40:03.389
+Jitendra U: So your loan application will get approved.
+
+307
+00:40:04.010 --> 00:40:09.580
+Jitendra U: Or credit card application get approved. The second scenario will be it can get canceled.
+
+308
+00:40:11.040 --> 00:40:14.019
+Jitendra U: That means the loan application process is stopped.
+
+309
+00:40:15.950 --> 00:40:26.639
+Jitendra U: before the final approval, due to an XYZ reason. It can be client itself is saying that I would like to withdraw my application, or bank want to cancel the application.
+
+310
+00:40:27.100 --> 00:40:29.830
+Jitendra U: The third… Hi, Paul.
+
+311
+00:40:32.500 --> 00:40:35.439
+Jitendra U: Decision could be, it is refused.
+
+312
+00:40:39.610 --> 00:40:43.859
+Jitendra U: The loan application is denied due to unmet criteria or risk factor.
+
+313
+00:40:45.100 --> 00:40:49.990
+Jitendra U: Fourth… could be… unused…
+
+314
+00:40:51.240 --> 00:40:58.909
+Jitendra U: offer. That means bank has offered you a loan, but you haven't taken afterwards. The loan has been approved, but it has not been sanctioned.
+
+315
+00:40:59.010 --> 00:41:01.450
+Jitendra U: But a client did not proceed to utilize the fund.
+
+316
+00:41:02.090 --> 00:41:04.940
+Jitendra U: Now, based upon this business case study.
+
+317
+00:41:05.520 --> 00:41:07.160
+Jitendra U: What you need to do is…
+
+318
+00:41:07.490 --> 00:41:09.709
+Jitendra U: You need to identify the pattern.
+
+319
+00:41:10.130 --> 00:41:13.290
+Jitendra U: When an applicant will repay their installment.
+
+320
+00:41:13.580 --> 00:41:17.310
+Jitendra U: So you need to understand… so let's say if I'm giving you some data.
+
+321
+00:41:17.650 --> 00:41:23.579
+Jitendra U: Which talks about customer details. Let's say new customer details.
+
+322
+00:41:27.490 --> 00:41:50.800
+Jitendra U: Which include… his… personas… like, age… gender… Salary… designation… Etc. Previous home loans.
+
+323
+00:41:51.730 --> 00:41:53.500
+Jitendra U: Any car loans?
+
+324
+00:41:54.210 --> 00:41:55.689
+Jitendra U: civil history.
+
+325
+00:41:57.590 --> 00:42:04.399
+Jitendra U: And so on and so forth, right? I'm going to have these kind of, parameters to identify
+
+326
+00:42:04.620 --> 00:42:07.209
+Jitendra U: What's the capability of the customer to pay back?
+
+327
+00:42:07.470 --> 00:42:09.460
+Jitendra U: Right, let me show you the data.
+
+328
+00:42:09.690 --> 00:42:13.289
+Jitendra U: So I will share you this data with you guys as well, after the class.
+
+329
+00:42:13.570 --> 00:42:15.200
+Jitendra U: So, data looks like this.
+
+330
+00:42:17.740 --> 00:42:32.110
+Jitendra U: So, let me show you the data points. This is the definition of the data points. So, let me show you the data points itself. So, I have a data, which is gonna be useful for that purpose, but let me show you the data itself.
+
+331
+00:42:49.850 --> 00:42:55.449
+Jitendra U: Alright, so this is… this is my data points. Oh, it's still open?
+
+332
+00:43:02.570 --> 00:43:06.760
+Jitendra U: Okay, so this is my data points. So let me quickly flip this.
+
+333
+00:43:30.230 --> 00:43:32.879
+Jitendra U: Okay, so these are me… these are my data points.
+
+334
+00:43:33.460 --> 00:43:34.270
+Jitendra U: Right?
+
+335
+00:43:35.290 --> 00:43:36.360
+Jitendra U: So…
+
+336
+00:43:38.150 --> 00:43:44.459
+Jitendra U: So, you can see that I've got several data points. So, let's try to understand these data points. So, we have got…
+
+337
+00:43:44.880 --> 00:43:46.720
+Jitendra U: Current ID of the customer.
+
+338
+00:43:47.270 --> 00:43:51.090
+Jitendra U: The target predictor says the previous loan has been approved.
+
+339
+00:43:51.880 --> 00:43:57.210
+Jitendra U: The type of loan that he has used, the amount total that he has acquired.
+
+340
+00:43:57.550 --> 00:44:01.529
+Jitendra U: And so on and so forth. So you can see that we have got a wide range of…
+
+341
+00:44:01.710 --> 00:44:04.899
+Jitendra U: Details about this particular customer.
+
+342
+00:44:05.110 --> 00:44:05.870
+Jitendra U: Right?
+
+343
+00:44:06.310 --> 00:44:10.790
+Jitendra U: So the same thing applies for all customers. So, I've got a wide range of data points.
+
+344
+00:44:11.290 --> 00:44:19.240
+Jitendra U: Now, there's another data point that I'm going to utilize for this particular EDA, which is called Previous Loan Application. So, I've got two files.
+
+345
+00:44:19.410 --> 00:44:23.640
+Jitendra U: One is called the current file, the second one is called previous file.
+
+346
+00:44:24.070 --> 00:44:30.269
+Jitendra U: So what I'm going to do is, I'm going to add these two files together, and perform the ADA on the top of it.
+
+347
+00:44:31.200 --> 00:44:35.990
+Jitendra U: Right? So the problem statement is clear to everyone, what are we trying to do?
+
+348
+00:44:41.510 --> 00:44:45.609
+Jitendra U: Is the problem statement clear to everyone? What are we trying to achieve here?
+
+349
+00:44:46.540 --> 00:44:49.369
+Jitendra U: I will share this file with you, so that you can also run.
+
+350
+00:44:49.820 --> 00:44:52.510
+Jitendra U: It is a problem statement clear? Alright.
+
+351
+00:44:53.460 --> 00:44:55.599
+Jitendra U: So let's quickly go back to our…
+
+352
+00:45:00.690 --> 00:45:01.770
+Jitendra U: Notepad.
+
+353
+00:45:02.100 --> 00:45:07.759
+Jitendra U: Let me… upload the files.
+
+354
+00:45:09.270 --> 00:45:11.530
+Jitendra U: So I'm going to upload the two files.
+
+355
+00:46:23.620 --> 00:46:24.729
+Jitendra U: Good luck news.
+
+356
+00:46:24.840 --> 00:46:26.309
+Jitendra U: Another pull-up.
+
+357
+00:46:47.560 --> 00:46:51.619
+Jitendra U: Yeah, the problem statement is we are trying to predict the credit card defaulters.
+
+358
+00:46:51.760 --> 00:47:00.320
+Jitendra U: Using the… previous historical loans that we have distributed. So, credit card is nothing but… it's like a loan.
+
+359
+00:47:00.880 --> 00:47:05.320
+Jitendra U: Right, you're offering a landing card, which will have some value.
+
+360
+00:47:05.610 --> 00:47:09.789
+Jitendra U: Right, so you're looking for… A model that will able to
+
+361
+00:47:10.310 --> 00:47:13.789
+Jitendra U: Predict whether, if you're offering a card to a customer.
+
+362
+00:47:14.010 --> 00:47:16.780
+Jitendra U: What is the probability that he will commit a fraud?
+
+363
+00:47:17.060 --> 00:47:17.950
+Jitendra U: R?
+
+364
+00:47:18.100 --> 00:47:20.519
+Jitendra U: Default on your credit card offered.
+
+365
+00:47:21.160 --> 00:47:22.959
+Jitendra U: So that is what we are trying to solve.
+
+366
+00:47:34.470 --> 00:47:37.280
+Jitendra U: Okay, it's getting hanged.
+
+367
+00:48:16.990 --> 00:48:22.840
+Jitendra U: Yeah, let me give it a… One more try, then… I will try to.
+
+368
+00:49:06.310 --> 00:49:08.699
+Jitendra U: Okay, so we will run the CDA.
+
+369
+00:49:11.640 --> 00:49:16.300
+Jitendra U: Okay, so what I'm going to do is… I'm going to first…
+
+370
+00:49:17.520 --> 00:49:20.769
+Jitendra U: get all my data points, so I have got application.
+
+371
+00:49:21.100 --> 00:49:26.760
+Jitendra U: And previous application data points. So first, I would like to import all the modules.
+
+372
+00:49:26.990 --> 00:49:31.650
+Jitendra U: So first, I would like to store… import all the modules, so I will start with warnings.
+
+373
+00:49:33.190 --> 00:49:39.840
+Jitendra U: I will start with… Warnings… dot filter…
+
+374
+00:49:45.790 --> 00:49:46.500
+Jitendra U: ignore.
+
+375
+00:49:50.270 --> 00:49:52.030
+Jitendra U: Then I would like to import.
+
+376
+00:49:53.590 --> 00:50:00.290
+Jitendra U: NumPy… I would like to import pandas…
+
+377
+00:50:04.040 --> 00:50:12.019
+Jitendra U: I would like to import… Matplot, Seaborn, from… plot lead.
+
+378
+00:50:14.590 --> 00:50:16.000
+Jitendra U: dot graph…
+
+379
+00:50:39.020 --> 00:50:46.849
+Jitendra U: And then I would like to set up a few display settings. That means I would like to print Pandas, so I would like to display the full data frame.
+
+380
+00:51:05.580 --> 00:51:07.239
+Jitendra U: Alright, so this is done.
+
+381
+00:51:07.700 --> 00:51:10.350
+Jitendra U: Now, I'm going to create two data frames.
+
+382
+00:51:10.670 --> 00:51:16.840
+Jitendra U: The first data frame I'm going to create is… DF1 is equal to PD.readCSV.
+
+383
+00:51:18.320 --> 00:51:21.710
+Jitendra U: And I'm going to… I'm going to load.
+
+384
+00:51:23.290 --> 00:51:24.859
+Jitendra U: The application data set.
+
+385
+00:51:31.910 --> 00:51:36.129
+Jitendra U: I can see… Do you have fun?
+
+386
+00:51:36.370 --> 00:51:39.990
+Jitendra U: Is equals to current application.
+
+387
+00:51:46.950 --> 00:51:48.750
+Jitendra U: data set.
+
+388
+00:51:52.280 --> 00:51:54.539
+Jitendra U: I'm going to print DF1.
+
+389
+00:51:57.930 --> 00:52:01.420
+Jitendra U: So I've got… These attributes.
+
+390
+00:52:03.430 --> 00:52:12.110
+Jitendra U: So you can see that I'm having all the… Information about a customer, including Credit Risk Bureau report.
+
+391
+00:52:12.470 --> 00:52:16.539
+Jitendra U: His, requirement for…
+
+392
+00:52:17.530 --> 00:52:26.170
+Jitendra U: different types of loan that he has, right? The occupation details, organization in which he's working, city in which he's living.
+
+393
+00:52:26.460 --> 00:52:35.329
+Jitendra U: etc. So I've got every detail of the customer. So I've got nearly all data points, right? The total income that he's earning, what's the amount.
+
+394
+00:52:35.780 --> 00:52:38.809
+Jitendra U: That he's earning. Is he on a car?
+
+395
+00:52:39.200 --> 00:52:41.090
+Jitendra U: How many children's he is having.
+
+396
+00:52:41.520 --> 00:52:44.980
+Jitendra U: Right? So all these things I'm having with the help of application data.
+
+397
+00:52:45.840 --> 00:52:50.800
+Jitendra U: Now, what I'm going to do this next is… I would like to perform…
+
+398
+00:52:51.150 --> 00:52:57.260
+Jitendra U: some data inspection on this data frame, so I will say df1.shape.
+
+399
+00:52:57.800 --> 00:52:59.309
+Jitendra U: I would like to first check.
+
+400
+00:52:59.720 --> 00:53:01.950
+Jitendra U: what… how many data points I'm having.
+
+401
+00:53:02.280 --> 00:53:10.660
+Jitendra U: So, I've got 122… Columns, and 40,000… near about 41,000 rows.
+
+402
+00:53:11.280 --> 00:53:15.100
+Jitendra U: So that is what I'm having in my input data.
+
+403
+00:53:15.300 --> 00:53:18.699
+Jitendra U: Now I can able to see DF1.info.
+
+404
+00:53:20.280 --> 00:53:26.320
+Jitendra U: verbose equals to true, so this command you are going to use for… Printing…
+
+405
+00:53:28.230 --> 00:53:31.730
+Jitendra U: The class associated with each variable.
+
+406
+00:53:31.880 --> 00:53:36.940
+Jitendra U: So you can see that each variable, which is my column, We'll have a class.
+
+407
+00:53:37.300 --> 00:53:41.120
+Jitendra U: Some of them are integers, some of them are objects, some of them are float.
+
+408
+00:53:41.270 --> 00:53:47.249
+Jitendra U: Some of them might be Boolean as well, but I don't think so. My data have any Boolean. So, predominantly.
+
+409
+00:53:47.460 --> 00:53:48.720
+Jitendra U: They are float.
+
+410
+00:53:49.610 --> 00:53:57.139
+Jitendra U: Some of them are integer, and some of them are object as well, right? But many of the data points are float. Now…
+
+411
+00:53:57.690 --> 00:53:59.890
+Jitendra U: Once I have this information.
+
+412
+00:54:00.530 --> 00:54:05.199
+Jitendra U: Now, I would like to describe my data. Now, you can use this command, df1.describe.
+
+413
+00:54:05.780 --> 00:54:08.020
+Jitendra U: DF1.describe.
+
+414
+00:54:08.700 --> 00:54:10.590
+Jitendra U: So this command will give you…
+
+415
+00:54:11.210 --> 00:54:15.129
+Jitendra U: the 5-point summary of your data points. So here I can see that
+
+416
+00:54:15.270 --> 00:54:18.100
+Jitendra U: You will get all the statistical inferences.
+
+417
+00:54:18.290 --> 00:54:22.529
+Jitendra U: Or information for the numerical columns, and their distribution.
+
+418
+00:54:22.780 --> 00:54:26.189
+Jitendra U: In terms of the criteria of outliers.
+
+419
+00:54:26.440 --> 00:54:31.329
+Jitendra U: Right, so you can see that if I look for, count of children's.
+
+420
+00:54:34.260 --> 00:54:38.100
+Jitendra U: 75% of our customers have at least one children.
+
+421
+00:54:38.620 --> 00:54:43.639
+Jitendra U: Maximum children some of the customers have, looks like 11.
+
+422
+00:54:44.270 --> 00:54:45.670
+Jitendra U: Maybe an outlier.
+
+423
+00:54:46.200 --> 00:54:49.869
+Jitendra U: So what I'm going to do is, I'm going to also handle the null values.
+
+424
+00:54:50.330 --> 00:54:51.800
+Jitendra U: Let me try.
+
+425
+00:54:53.160 --> 00:54:59.510
+Jitendra U: to check if my data have null values in some of the columns or not. So I'm going to use isNull.
+
+426
+00:55:00.200 --> 00:55:06.430
+Jitendra U: Right? ISNL is a function that I'm going to use, and I'm operating on DataFrame.
+
+427
+00:55:06.690 --> 00:55:10.200
+Jitendra U: And I'm saying, DF my data frame dot is null.
+
+428
+00:55:10.720 --> 00:55:19.789
+Jitendra U: And I would like to find out all the null values in a column, and summing them together. So I would like to find it out, for a particular column, how many rows are null.
+
+429
+00:55:20.440 --> 00:55:26.770
+Jitendra U: And gave me the percentage of that particular column. So I can see that
+
+430
+00:55:26.930 --> 00:55:32.339
+Jitendra U: Some of the columns, like common area, Have 70 percentile values.
+
+431
+00:55:33.460 --> 00:55:35.750
+Jitendra U: Living apartment average length.
+
+432
+00:55:36.210 --> 00:55:41.559
+Jitendra U: All these things are having null values. So I've got a lot of null values.
+
+433
+00:55:42.530 --> 00:55:47.110
+Jitendra U: Now, I would like to analyze this further, so I'm going to plot this and see
+
+434
+00:55:48.240 --> 00:55:54.040
+Jitendra U: Can I be able to get some more insight from the null values? So this is what the null values look like.
+
+435
+00:55:54.330 --> 00:56:03.649
+Jitendra U: So I've got… Common average area, apartment mode, and all these variables which are having null values.
+
+436
+00:56:04.940 --> 00:56:05.750
+Jitendra U: Right?
+
+437
+00:56:05.870 --> 00:56:09.420
+Jitendra U: Now, maybe I would like to find it out, the list of…
+
+438
+00:56:09.530 --> 00:56:16.720
+Jitendra U: nulls which are more than 35 percentile… 35%. So these are the columns which is having null value greater than 35.
+
+439
+00:56:17.120 --> 00:56:23.500
+Jitendra U: So, theoretically speaking, 25 to 30%, 30% of the variable missing values are allowed.
+
+440
+00:56:23.680 --> 00:56:29.759
+Jitendra U: But beyond that, We have to think of either imputational.
+
+441
+00:56:30.900 --> 00:56:36.740
+Jitendra U: Can I be able to impute those null values? Or, you have to think of, worst case scenario.
+
+442
+00:56:37.000 --> 00:56:42.140
+Jitendra U: Maybe you are thinking of dropping the variable itself. If you're dropping a variable.
+
+443
+00:56:42.420 --> 00:56:45.820
+Jitendra U: You have to first inspect the percentage of null values.
+
+444
+00:56:47.390 --> 00:57:03.819
+Jitendra U: Now, let me check how many columns are with null value greater than 35, and I would like to remove those columns. So I'm going to take our decision by dropping the columns, which is having more than 25% of the null values. So first, let me check how many columns
+
+445
+00:57:04.100 --> 00:57:11.159
+Jitendra U: So there are 49 columns out of… Out of 122.
+
+446
+00:57:11.780 --> 00:57:15.300
+Jitendra U: 49 columns have null values, more than 35%.
+
+447
+00:57:15.610 --> 00:57:17.260
+Jitendra U: So I would like to drop them.
+
+448
+00:57:17.390 --> 00:57:19.610
+Jitendra U: So I will say, I would like to drop…
+
+449
+00:57:26.130 --> 00:57:28.690
+Jitendra U: By converting this into a list.
+
+450
+00:57:29.110 --> 00:57:34.750
+Jitendra U: So I'm making a list of columns which is having null value greater than 35 percentile, or percentage.
+
+451
+00:57:34.910 --> 00:57:38.779
+Jitendra U: And then I'm passing these labels, which is nothing but my column name.
+
+452
+00:57:39.210 --> 00:57:44.940
+Jitendra U: on x-axis, which is… sorry, y-axis, which is my column axis.
+
+453
+00:57:45.090 --> 00:57:53.859
+Jitendra U: And I'm saying I would like to drop these columns from the original data frame. So let me run this. This in place equals to true means I'm going to append.
+
+454
+00:57:54.650 --> 00:57:58.490
+Jitendra U: Sorry, I'm going to assert, not append.
+
+455
+00:57:58.890 --> 00:58:03.230
+Jitendra U: Right, I'm going to override the previous data frame, Bye.
+
+456
+00:58:04.320 --> 00:58:05.700
+Jitendra U: new values.
+
+457
+00:58:07.570 --> 00:58:13.029
+Jitendra U: So, after checking the… after removing the null values, let's check, again, how many
+
+458
+00:58:14.220 --> 00:58:25.089
+Jitendra U: data points still we have, which is having less than 35% of the null value. So these are the columns, which still have null values, but they are
+
+459
+00:58:25.210 --> 00:58:27.470
+Jitendra U: Less than 35% age.
+
+460
+00:58:28.700 --> 00:58:29.530
+Jitendra U: Right?
+
+461
+00:58:30.840 --> 00:58:33.479
+Jitendra U: Where we are saying 35 percentile here.
+
+462
+00:58:38.380 --> 00:58:39.840
+Jitendra U: 0.35.
+
+463
+00:58:45.890 --> 00:58:51.939
+Jitendra U: Alright, so once we drop these columns, now we have the column which is having…
+
+464
+00:58:52.980 --> 00:59:03.250
+Jitendra U: less than 35% of the null values. Now, I can think of… I can think of… creating… a solution
+
+465
+00:59:03.840 --> 00:59:09.119
+Jitendra U: to impute the values which are still missing. Maybe I can impute the values.
+
+466
+00:59:09.730 --> 00:59:14.399
+Jitendra U: sort of… There are 3 ways… different ways that I'm going to impute a variable.
+
+467
+00:59:15.120 --> 00:59:18.779
+Jitendra U: If the variable is continuous variable, I can be able to use mean.
+
+468
+00:59:20.100 --> 00:59:21.669
+Jitendra U: I can use mode.
+
+469
+00:59:22.830 --> 00:59:25.070
+Jitendra U: Or I can use median as well.
+
+470
+00:59:25.880 --> 00:59:31.060
+Jitendra U: But let's say I'm going to use mode, the most frequent values in my data sets.
+
+471
+00:59:31.780 --> 00:59:36.369
+Jitendra U: I would like to apply mode to impute all the variables
+
+472
+00:59:36.660 --> 00:59:39.320
+Jitendra U: Which is having the missing values.
+
+473
+00:59:42.500 --> 00:59:49.640
+Jitendra U: And some of the variables… Some of the variables… I'm going to use median.
+
+474
+00:59:50.420 --> 00:59:57.999
+Jitendra U: The reason being is… Some of the variables which are having very few values missing, like 19-20%.
+
+475
+00:59:59.520 --> 01:00:00.979
+Jitendra U: I can use median.
+
+476
+01:00:02.420 --> 01:00:05.069
+Jitendra U: Right? So what is the difference between median and mode?
+
+477
+01:00:06.760 --> 01:00:11.000
+Jitendra U: So, mode is the most frequent observation in your data column.
+
+478
+01:00:11.850 --> 01:00:15.120
+Jitendra U: Which is called mode, frequency of that particular column value.
+
+479
+01:00:15.890 --> 01:00:19.559
+Jitendra U: Median, on the other hand, is the 58th percentile of that.
+
+480
+01:00:21.190 --> 01:00:24.989
+Jitendra U: Right? So, that's a true difference that I'm using.
+
+481
+01:00:26.330 --> 01:00:27.260
+Jitendra U: Alright.
+
+482
+01:00:27.380 --> 01:00:32.330
+Jitendra U: Now, I would like to check again the null values after imputation, so it should give me 0.
+
+483
+01:00:33.300 --> 01:00:35.430
+Jitendra U: Okay, I still have null values.
+
+484
+01:00:37.590 --> 01:00:43.369
+Jitendra U: So, basically, we didn't impute occupation type, because it may contain some information.
+
+485
+01:00:44.260 --> 01:00:50.570
+Jitendra U: So, media does not make any sense, that's the reason it is, giving me…
+
+486
+01:00:51.040 --> 01:00:55.750
+Jitendra U: the, still some values are null, right? 31%.
+
+487
+01:00:58.150 --> 01:01:02.859
+Jitendra U: Now, if you observe the column carefully, you will find that some columns contain errors.
+
+488
+01:01:04.950 --> 01:01:05.810
+Jitendra U: Right?
+
+489
+01:01:05.970 --> 01:01:09.210
+Jitendra U: So let me check, solve the aeronautis data.
+
+490
+01:01:10.250 --> 01:01:12.340
+Jitendra U: So let me check the bird dates.
+
+491
+01:01:12.470 --> 01:01:13.630
+Jitendra U: Date of birth?
+
+492
+01:01:13.910 --> 01:01:15.229
+Jitendra U: Get employed.
+
+493
+01:01:15.460 --> 01:01:16.800
+Jitendra U: Data registered.
+
+494
+01:01:16.920 --> 01:01:25.429
+Jitendra U: dates to publish, and date last phone change. That means customer has changed their phone number. But as you can see here.
+
+495
+01:01:25.530 --> 01:01:27.479
+Jitendra U: All the values are negative.
+
+496
+01:01:28.370 --> 01:01:30.340
+Jitendra U: Date of birth cannot be negative.
+
+497
+01:01:31.450 --> 01:01:37.609
+Jitendra U: The days employed, that means, let's say, you would apply for a loan, and you're working for some organization.
+
+498
+01:01:38.460 --> 01:01:42.410
+Jitendra U: And that was your latest company that you're working for?
+
+499
+01:01:42.580 --> 01:01:44.190
+Jitendra U: And you apply for a loan.
+
+500
+01:01:44.390 --> 01:01:50.450
+Jitendra U: So, as a bank, they will try to understand the proof of income, by seeing…
+
+501
+01:01:50.560 --> 01:01:53.300
+Jitendra U: How long you had been working for that organization?
+
+502
+01:01:55.270 --> 01:02:09.819
+Jitendra U: Right? These questions will be asked by the loan department team, like, how long you had been working with that organization. He may ask you to prove that particular thing with the help of an offer letter. Let's say you're applying for a home loan, once a year, two-year.
+
+503
+01:02:10.750 --> 01:02:13.990
+Jitendra U: Right? Or 50, like, whatever value that you're applying.
+
+504
+01:02:14.270 --> 01:02:20.800
+Jitendra U: The bank will ask you to furnish your… not just educational profiles, but also your
+
+505
+01:02:21.250 --> 01:02:34.659
+Jitendra U: salary details and, the company that you're working with, the tenure with the company, your designation, your city, last promotions. They might ask you about any
+
+506
+01:02:38.000 --> 01:02:49.219
+Jitendra U: what do you call that? Any, you know, appraisal that you obtained in the last year. They will ask you for declaring all these things. Otherwise, they will simply ask you for Form 16.
+
+507
+01:02:49.370 --> 01:02:52.110
+Jitendra U: And that they themselves can be able to know all those things.
+
+508
+01:02:53.290 --> 01:02:59.900
+Jitendra U: Right? Because that data will be available for a credit card bureau, and the credit card bureau will be able to use this data.
+
+509
+01:03:01.540 --> 01:03:02.689
+Jitendra U: One second there?
+
+510
+01:03:03.330 --> 01:03:08.419
+Jitendra U: Right? So this is what this data is all about, right? So here you can see that
+
+511
+01:03:08.570 --> 01:03:11.730
+Jitendra U: Our data points, which is coming to be negative.
+
+512
+01:03:14.140 --> 01:03:28.129
+Jitendra U: Right? So this is… looks like logical data points to me. Some of them are coming as negative, which should not be negative values. So if you look at the data carefully, you… you see that they contain negative values, which are not valid.
+
+513
+01:03:28.450 --> 01:03:30.119
+Jitendra U: So I would like to change…
+
+514
+01:03:32.630 --> 01:03:36.809
+Jitendra U: So I would like to use all the column starts with the dates.
+
+515
+01:03:38.550 --> 01:03:42.250
+Jitendra U: Right? So first, let me check how many columns are there.
+
+516
+01:03:42.580 --> 01:03:46.710
+Jitendra U: Which starts with days. Like, days of… dates of birth.
+
+517
+01:03:46.840 --> 01:03:48.080
+Jitendra U: days employed.
+
+518
+01:03:48.520 --> 01:03:52.920
+Jitendra U: Days of registration, days of ID published, days of last vote change.
+
+519
+01:03:57.200 --> 01:04:02.630
+Jitendra U: Right? And then, I would like to employ… one function…
+
+520
+01:04:02.740 --> 01:04:08.390
+Jitendra U: Which is called absolute. So, absolute function will convert your negative value to a positive value.
+
+521
+01:04:09.950 --> 01:04:11.979
+Jitendra U: Alright, so I'm going to apply.
+
+522
+01:04:12.230 --> 01:04:16.070
+Jitendra U: ABS, absolute function, Here.
+
+523
+01:04:19.710 --> 01:04:20.720
+Jitendra U: Okay.
+
+524
+01:04:22.590 --> 01:04:25.879
+Jitendra U: Yeah. One second… yeah, here.
+
+525
+01:04:26.760 --> 01:04:35.560
+Jitendra U: Right? I'm applying an absolute function here, so that I can able to convert all the… okay, let me just convert, and then print.
+
+526
+01:04:39.920 --> 01:04:42.550
+Jitendra U: Yeah, so I'm able to convert…
+
+527
+01:05:04.230 --> 01:05:08.990
+Jitendra U: So I'm able to convert every variable which are previously negative to a positive.
+
+528
+01:05:09.890 --> 01:05:15.779
+Jitendra U: Okay, there's a question from Manit, I guess I missed…
+
+529
+01:05:16.470 --> 01:05:19.479
+Jitendra U: But how did we find out which column have incorrect data?
+
+530
+01:05:19.990 --> 01:05:25.449
+Jitendra U: Incorrect data can be two things, right? Some data looks logically incorrect to me.
+
+531
+01:05:26.460 --> 01:05:29.810
+Jitendra U: So, as a user, I know date of birth cannot be negative.
+
+532
+01:05:31.130 --> 01:05:32.950
+Jitendra U: Days cannot be negative.
+
+533
+01:05:34.040 --> 01:05:40.370
+Jitendra U: Right? If I'm working for the organization, let's say, from the last 6 months, I can say 180 days.
+
+534
+01:05:41.720 --> 01:05:46.319
+Jitendra U: But is… is there any somebody who's working for the organization as minus Monet 3 days?
+
+535
+01:05:47.390 --> 01:05:48.460
+Jitendra U: No, right?
+
+536
+01:05:49.080 --> 01:05:51.659
+Jitendra U: So that sounds to be illogical.
+
+537
+01:05:52.500 --> 01:05:53.689
+Jitendra U: Data to me.
+
+538
+01:05:54.140 --> 01:05:57.319
+Jitendra U: Some data errors while feeding the entry.
+
+539
+01:05:58.380 --> 01:06:02.510
+Jitendra U: Right? So these are human-prone errors that somebody have done.
+
+540
+01:06:03.770 --> 01:06:06.149
+Jitendra U: While performing a data entry job.
+
+541
+01:06:08.650 --> 01:06:15.169
+Jitendra U: Right? So these are our… I can able to get rid of. And what I did is…
+
+542
+01:06:15.290 --> 01:06:19.640
+Jitendra U: I would like to find out all the columns which is having days.
+
+543
+01:06:20.080 --> 01:06:24.080
+Jitendra U: associated with that. The name of the column starts with days.
+
+544
+01:06:26.020 --> 01:06:30.180
+Jitendra U: Because generally speaking, Number of days cannot be negative.
+
+545
+01:06:34.710 --> 01:06:40.710
+Jitendra U: Right? So if I'm asking you what… how many days you spend on Art.
+
+546
+01:06:42.060 --> 01:06:47.309
+Jitendra U: So, that means I'm asking, what is your age in terms of number of days?
+
+547
+01:06:49.180 --> 01:06:53.790
+Jitendra U: So you cannot say negative, 9,000 days, 10,000 days.
+
+548
+01:06:54.870 --> 01:06:57.020
+Jitendra U: Which is not possible at all, right?
+
+549
+01:06:57.380 --> 01:07:00.289
+Jitendra U: So, this is what I'm trying to resolve now.
+
+550
+01:07:01.350 --> 01:07:02.260
+Jitendra U: Alright.
+
+551
+01:07:02.530 --> 01:07:11.050
+Jitendra U: Now I would like to also look for several type of… Boolean columns.
+
+552
+01:07:11.880 --> 01:07:15.969
+Jitendra U: So I've got some columns, let me show you some of the columns, DF1.
+
+553
+01:07:19.200 --> 01:07:21.739
+Jitendra U: So I've got some columns, flag.
+
+554
+01:07:26.610 --> 01:07:32.530
+Jitendra U: So I've got some Boolean columns, like the… whether the person who is applying for a loan
+
+555
+01:07:32.850 --> 01:07:34.519
+Jitendra U: Had a car or not.
+
+556
+01:07:36.440 --> 01:07:44.120
+Jitendra U: So, first and foremost thing, I would like to convert these Boolean, or categorical data into numerical format.
+
+557
+01:07:46.830 --> 01:07:56.660
+Jitendra U: Similarly, I might have a gender code, DF1, which is also… Looks like…
+
+558
+01:07:56.760 --> 01:07:59.870
+Jitendra U: Male and female to me. Let me check.
+
+559
+01:08:05.570 --> 01:08:10.670
+Jitendra U: Yeah, so I've got male, female, and some of them are not declared.
+
+560
+01:08:14.030 --> 01:08:18.829
+Jitendra U: Alright, so first let me convert this into… Numerical 0 and 1.
+
+561
+01:08:19.580 --> 01:08:24.149
+Jitendra U: So remember… We talked about dummy variables in the last tutorial.
+
+562
+01:08:24.910 --> 01:08:28.459
+Jitendra U: The purpose of dummy variable is to save your memory.
+
+563
+01:08:29.370 --> 01:08:33.750
+Jitendra U: Why do we need numerical variables? Because machine learning cannot operate on strings.
+
+564
+01:08:34.660 --> 01:08:40.800
+Jitendra U: Your machine learning algorithm cannot take any inference if you're passing these variables as yes and no.
+
+565
+01:08:42.410 --> 01:08:45.689
+Jitendra U: None of the algorithm that you're going to learn
+
+566
+01:08:46.350 --> 01:08:48.539
+Jitendra U: We'll have a capacity to run.
+
+567
+01:08:49.069 --> 01:08:51.999
+Jitendra U: The data side where you are passing the strings.
+
+568
+01:08:52.640 --> 01:08:59.100
+Jitendra U: It cannot do automatically conversion. There's no auto-conversion that's going to happen inside the algorithm.
+
+569
+01:09:02.090 --> 01:09:04.279
+Jitendra U: So you have to convert this… this…
+
+570
+01:09:07.300 --> 01:09:08.679
+Jitendra U: Are you getting my point?
+
+571
+01:09:09.340 --> 01:09:17.800
+Jitendra U: So when you're feeding the algorithm, you have to make sure that you're not passing the strings to your algorithm, because the algorithm will not learn anything from the strings.
+
+572
+01:09:19.270 --> 01:09:21.079
+Jitendra U: It will throw an error simply.
+
+573
+01:09:23.750 --> 01:09:26.439
+Jitendra U: The type incompatible to run the algorithm.
+
+574
+01:09:27.050 --> 01:09:29.730
+Jitendra U: You have to convert this into a numerical literal.
+
+575
+01:09:31.819 --> 01:09:35.060
+Jitendra U: Alright, so let me just do that. So I'm going to convert this.
+
+576
+01:09:39.920 --> 01:09:44.359
+Jitendra U: No, Boolean means, if it is a numerical Boolean, then it's okay.
+
+577
+01:09:44.479 --> 01:09:52.649
+Jitendra U: Boolean is also true and false. If you're using a string boolean, It'll not work.
+
+578
+01:09:56.870 --> 01:10:00.470
+Jitendra U: But we cannot complete all the data point to be numerical, right?
+
+579
+01:10:02.470 --> 01:10:03.440
+Jitendra U: Why?
+
+580
+01:10:03.660 --> 01:10:07.700
+Jitendra U: Why can't we convert all the data point to numerical?
+
+581
+01:10:08.450 --> 01:10:09.839
+Jitendra U: Give me an example.
+
+582
+01:10:17.610 --> 01:10:19.730
+Jitendra U: Name. What is the name of…
+
+583
+01:10:19.950 --> 01:10:23.700
+Jitendra U: purpose in, giving a loan, if it is a Ram, Shyam, Rahim.
+
+584
+01:10:25.570 --> 01:10:29.629
+Jitendra U: I'll have to give a loan to a… The prospective customer.
+
+585
+01:10:29.840 --> 01:10:31.569
+Jitendra U: What is the purpose of name?
+
+586
+01:10:31.860 --> 01:10:33.569
+Jitendra U: Name does not make any sense.
+
+587
+01:10:34.480 --> 01:10:40.670
+Jitendra U: Occupation. Occupation I will convert into… Again, a series of…
+
+588
+01:10:40.790 --> 01:10:43.659
+Jitendra U: Numerical literals. 1, 2, 3, 4, 5.
+
+589
+01:10:44.890 --> 01:10:46.400
+Jitendra U: That's ordinal variable.
+
+590
+01:10:49.180 --> 01:10:53.630
+Jitendra U: I will convert this occupation into encoded vectors.
+
+591
+01:10:59.240 --> 01:11:04.260
+Jitendra U: Occupation is unnecessary if your salary taxes are beyond a certain threshold limit.
+
+592
+01:11:07.280 --> 01:11:10.300
+Jitendra U: I did get your… Question.
+
+593
+01:11:11.230 --> 01:11:15.720
+Jitendra U: Occupation is unnecessary if your salary taxes are beyond 13.
+
+594
+01:11:16.870 --> 01:11:18.080
+Jitendra U: Okay.
+
+595
+01:11:18.640 --> 01:11:23.160
+Jitendra U: Yeah, so whether you're declaring your occupation as,
+
+596
+01:11:23.850 --> 01:11:29.959
+Jitendra U: Okay, so let me talk about that part. So let's say I'm declaring I'm having some types of occupation in my data.
+
+597
+01:11:30.300 --> 01:11:31.950
+Jitendra U: So, occupation says…
+
+598
+01:11:35.240 --> 01:11:40.100
+Jitendra U: Occupation… Seize…
+
+599
+01:11:43.320 --> 01:11:44.550
+Jitendra U: Farmer…
+
+600
+01:11:47.890 --> 01:11:49.760
+Jitendra U: IT professional…
+
+601
+01:11:54.000 --> 01:11:55.939
+Jitendra U: software professional.
+
+602
+01:11:56.460 --> 01:12:01.550
+Jitendra U: Manager… lurk.
+
+603
+01:12:05.450 --> 01:12:10.640
+Jitendra U: Teacher… Businessman.
+
+604
+01:12:12.020 --> 01:12:15.159
+Jitendra U: But there's no order, right? So I can consider this to be…
+
+605
+01:12:16.710 --> 01:12:21.699
+Jitendra U: non-ordinal variable, it is kind of a categorical variable, right? Each…
+
+606
+01:12:22.430 --> 01:12:24.719
+Jitendra U: Each occupation will have one category.
+
+607
+01:12:25.040 --> 01:12:34.270
+Jitendra U: So when I'm dealing with this data, I can be able to convert this into encoded vectors, one hot encoded. So it will look like, is farmer zero?
+
+608
+01:12:34.470 --> 01:12:36.319
+Jitendra U: is IT Professional 1.
+
+609
+01:12:36.690 --> 01:12:41.220
+Jitendra U: Is manager 0? Is clerk 0? Is teacher 0? Is business zero?
+
+610
+01:12:42.100 --> 01:12:48.010
+Jitendra U: So that is what your algorithm will be able to understand. If you're passing these strings.
+
+611
+01:12:48.850 --> 01:12:56.069
+Jitendra U: The algorithm will simply throw an error, that these… Data points are mismatching.
+
+612
+01:13:00.060 --> 01:13:06.039
+Jitendra U: But how will you convert this into binary data? What is binary data? You mean to say hexadecimal codes?
+
+613
+01:13:09.340 --> 01:13:13.740
+Jitendra U: hexadecimal code, You want me to say hexadecimal code?
+
+614
+01:13:14.400 --> 01:13:16.330
+Jitendra U: Is that what your cushion is?
+
+615
+01:13:25.690 --> 01:13:27.889
+Jitendra U: But why has that SML port will work?
+
+616
+01:13:28.280 --> 01:13:31.980
+Jitendra U: You're not solving logical gates, problem here.
+
+617
+01:13:32.320 --> 01:13:35.019
+Jitendra U: We're using machine learning, algorithm.
+
+618
+01:13:35.950 --> 01:13:39.369
+Jitendra U: We're not solving binary logical gates with hexadecimal.
+
+619
+01:13:41.720 --> 01:13:45.850
+Jitendra U: So your machine learning algorithm simply understands numerical literals.
+
+620
+01:13:46.780 --> 01:13:48.470
+Jitendra U: Not hexadecimal data.
+
+621
+01:13:50.880 --> 01:13:53.220
+Jitendra U: For comparing, but how will you compare?
+
+622
+01:13:53.340 --> 01:14:01.280
+Jitendra U: If I'm making a mistake, let's say I'm writing farmer, as far… Murder.
+
+623
+01:14:02.170 --> 01:14:06.490
+Jitendra U: I… maybe I'm writing… R. Mark.
+
+624
+01:14:06.840 --> 01:14:11.800
+Jitendra U: So there's a typo, then you have three exadecimal values, but they are all same professional.
+
+625
+01:14:12.890 --> 01:14:14.619
+Jitendra U: So, till what time you'll debug?
+
+626
+01:14:21.510 --> 01:14:23.170
+Jitendra U: Right? So this is what…
+
+627
+01:14:24.950 --> 01:14:32.679
+Jitendra U: these algorithms cannot be able to control. Okay, so the golden rule of thumb is we are going to use one-hot encoders for doing this.
+
+628
+01:14:33.640 --> 01:14:34.540
+Jitendra U: Alright.
+
+629
+01:14:35.320 --> 01:14:40.279
+Jitendra U: So, I have converted this… Flag ownership into 1 and 0.
+
+630
+01:14:40.510 --> 01:14:43.209
+Jitendra U: Flag ownership reality into 1 and 0.
+
+631
+01:14:43.580 --> 01:14:48.589
+Jitendra U: Now, what I'm going to do next is… I would like to check.
+
+632
+01:14:48.840 --> 01:14:51.980
+Jitendra U: Let me compile this. Oh, sorry, comment this.
+
+633
+01:14:52.840 --> 01:14:58.580
+Jitendra U: So I'm going to check… So you can see now it is coming as 0 and 1.
+
+634
+01:14:59.810 --> 01:15:06.710
+Jitendra U: Now, I would like to check the distribution of the column, having the category. So, some of the gender has not been declared.
+
+635
+01:15:07.890 --> 01:15:16.520
+Jitendra U: So, you can see that I've got… I'm assigning XNA, to a female… gender itself.
+
+636
+01:15:16.920 --> 01:15:21.970
+Jitendra U: maybe I can assign mail as well, but I'm using,
+
+637
+01:15:22.220 --> 01:15:30.269
+Jitendra U: maybe some business rule to do so. Maybe my… most of my customers are female, which is applying for a loan.
+
+638
+01:15:30.440 --> 01:15:35.270
+Jitendra U: So there's a high chances that those customers who haven't declared their gender will be also female.
+
+639
+01:15:38.830 --> 01:15:39.660
+Jitendra U: Right?
+
+640
+01:15:39.870 --> 01:15:46.910
+Jitendra U: Now, coming back to the organization, so let me check the organization. So, this is what your organization looks like. Business.
+
+641
+01:15:47.150 --> 01:15:51.190
+Jitendra U: self-employed, medical… industry.
+
+642
+01:15:51.480 --> 01:15:52.659
+Jitendra U: So on and so forth.
+
+643
+01:15:54.360 --> 01:15:59.200
+Jitendra U: So, I would like to first check others An extending.
+
+644
+01:15:59.420 --> 01:16:03.630
+Jitendra U: It does not declare anything. So I've got 7,000 such
+
+645
+01:16:04.550 --> 01:16:06.890
+Jitendra U: Customer who haven't done… declared anything.
+
+646
+01:16:07.740 --> 01:16:15.230
+Jitendra U: So, what I'm going to do is… I would like to… Check.
+
+647
+01:16:15.380 --> 01:16:17.999
+Jitendra U: The value count of income type.
+
+648
+01:16:18.880 --> 01:16:25.549
+Jitendra U: So the organization's income type, together, will be able to give me the importation strategy.
+
+649
+01:16:25.900 --> 01:16:29.630
+Jitendra U: Right? So, it's like…
+
+650
+01:16:30.240 --> 01:16:40.859
+Jitendra U: self-employed might have certain range. Doctor might have certain salary ranges. So I would like to use together two variables together, and then try to impute this variable.
+
+651
+01:16:41.180 --> 01:16:42.459
+Jitendra U: Let me do that.
+
+652
+01:16:58.290 --> 01:17:01.169
+Jitendra U: So you can see that, I've got…
+
+653
+01:17:01.690 --> 01:17:06.769
+Jitendra U: The pension value, which is approximately equal to the null values in the organization type.
+
+654
+01:17:09.260 --> 01:17:13.040
+Jitendra U: This is what the null values look like, 7332.
+
+655
+01:17:13.470 --> 01:17:29.879
+Jitendra U: And I've got 7,2… less than 3, so they are pension… they are basically retired professionals. So, from the data, we can conclude that the pensioner values is approximity to the null values in the organization type column, so the missing values are random.
+
+656
+01:17:31.190 --> 01:17:33.539
+Jitendra U: Right? So I will simply say that
+
+657
+01:17:33.640 --> 01:17:37.469
+Jitendra U: Imputing the null values of operation, I will select this code.
+
+658
+01:17:37.840 --> 01:17:39.279
+Jitendra U: the pensioner.
+
+659
+01:17:40.170 --> 01:17:44.660
+Jitendra U: Right? So that I can able to… accommodate ALL.
+
+660
+01:17:45.210 --> 01:17:50.280
+Jitendra U: types of… All kind of.
+
+661
+01:17:50.830 --> 01:17:57.040
+Jitendra U: Sorry, all, all, an ace with a pensioner.
+
+662
+01:17:57.490 --> 01:17:58.729
+Jitendra U: Let me do that.
+
+663
+01:17:59.260 --> 01:18:00.600
+Jitendra U: I'm able to do so.
+
+664
+01:18:00.750 --> 01:18:09.010
+Jitendra U: So, you can see that this is how the analysis will be in your real-world project. So, you have to start from somewhere. You have to start with assumption.
+
+665
+01:18:09.030 --> 01:18:27.899
+Jitendra U: You have to look into our data. You have to check your data quality. You have to keep continuously investigating on your data points. Once you reach to a starting conclusion, then you're going to check how to impute, how to delete, how to substitute the data to a numerical format.
+
+666
+01:18:28.560 --> 01:18:29.320
+Jitendra U: Right?
+
+667
+01:18:29.490 --> 01:18:33.910
+Jitendra U: Now, we have a data, which is also called annual income total.
+
+668
+01:18:34.510 --> 01:18:35.820
+Jitendra U: Let me check.
+
+669
+01:18:36.800 --> 01:18:42.750
+Jitendra U: Because my annual income total, Will be of different… Category?
+
+670
+01:18:44.510 --> 01:18:48.190
+Jitendra U: So, I would like to import a package
+
+671
+01:18:48.770 --> 01:18:57.600
+Jitendra U: where I'm going to convert the annual income Of the… of a particular… client…
+
+672
+01:18:58.240 --> 01:19:04.519
+Jitendra U: to 4 categories. Or maybe 5… sorry, 1, 2, 3, 4, 5, 5 categories.
+
+673
+01:19:04.740 --> 01:19:06.019
+Jitendra U: Which is very low.
+
+674
+01:19:06.680 --> 01:19:07.620
+Jitendra U: low.
+
+675
+01:19:07.930 --> 01:19:12.519
+Jitendra U: Medium income groups, high-income groups, and very high income groups.
+
+676
+01:19:12.630 --> 01:19:14.100
+Jitendra U: Why I'm doing this?
+
+677
+01:19:14.580 --> 01:19:23.279
+Jitendra U: Because… Remember, the scale of… This particular variable called salary.
+
+678
+01:19:23.940 --> 01:19:25.600
+Jitendra U: The salary can be in.
+
+679
+01:19:26.350 --> 01:19:28.859
+Jitendra U: CRs as well, seven zeros.
+
+680
+01:19:29.010 --> 01:19:32.709
+Jitendra U: Salary can be in thousands as well, where you have
+
+681
+01:19:33.560 --> 01:19:35.660
+Jitendra U: Maybe not more than 3 zeros.
+
+682
+01:19:36.010 --> 01:19:40.010
+Jitendra U: That means there's a huge scale of inversion.
+
+683
+01:19:40.200 --> 01:19:41.640
+Jitendra U: From 302?
+
+684
+01:19:42.680 --> 01:19:43.930
+Jitendra U: 7 zeros.
+
+685
+01:19:44.960 --> 01:19:49.880
+Jitendra U: So, in such a situation, Your model will become biased.
+
+686
+01:19:50.660 --> 01:19:53.310
+Jitendra U: Buys towards high-salary customers.
+
+687
+01:19:54.670 --> 01:20:02.480
+Jitendra U: Right? So to avoid this, You have to use… you have to use… something called…
+
+688
+01:20:02.860 --> 01:20:06.910
+Jitendra U: Categorical… nominal categorical value imputation.
+
+689
+01:20:07.680 --> 01:20:09.070
+Jitendra U: That is what we are doing.
+
+690
+01:20:11.600 --> 01:20:12.440
+Jitendra U: Right?
+
+691
+01:20:12.610 --> 01:20:17.239
+Jitendra U: No, it's still… it's still being numerical only, so I will impute this variable.
+
+692
+01:20:17.540 --> 01:20:22.259
+Jitendra U: And I will use 1, 1, 2, 3, 4, 5 column.
+
+693
+01:20:22.690 --> 01:20:25.800
+Jitendra U: And I will allocate 0 and 1. Let's say…
+
+694
+01:20:26.070 --> 01:20:29.280
+Jitendra U: I'm looking for one customer salary who is in medium range.
+
+695
+01:20:29.650 --> 01:20:33.129
+Jitendra U: So, remaining data point will become 0, and this will become 1.
+
+696
+01:20:33.420 --> 01:20:37.830
+Jitendra U: So the value it still that I'm using is… is numerical.
+
+697
+01:20:38.460 --> 01:20:44.760
+Jitendra U: The column variable is categorical. The name of the column is categorical, which is fine.
+
+698
+01:20:48.910 --> 01:20:52.049
+Jitendra U: Okay, so this cut method, right? Quantile cut.
+
+699
+01:20:52.620 --> 01:20:58.239
+Jitendra U: So I'm saying the quantile cut method, that means I'm looking for a distribution of this data frame.
+
+700
+01:20:58.670 --> 01:21:00.559
+Jitendra U: On annual income total.
+
+701
+01:21:00.830 --> 01:21:03.970
+Jitendra U: So consider this as a… Mari?
+
+702
+01:21:04.910 --> 01:21:06.250
+Jitendra U: So I've got an array.
+
+703
+01:21:07.530 --> 01:21:09.250
+Jitendra U: Are they off? Sequence?
+
+704
+01:21:09.580 --> 01:21:11.559
+Jitendra U: What is this sequence comprised of?
+
+705
+01:21:12.150 --> 01:21:21.810
+Jitendra U: This array of sequence comprises of annual salary of… How many… 40,782 customers.
+
+706
+01:21:22.430 --> 01:21:24.019
+Jitendra U: So this is the length of the array.
+
+707
+01:21:24.380 --> 01:21:34.640
+Jitendra U: Now, when I have the length of the array, the first and foremost thing is I would like to sort this array. When I'm sorting this array, I will start with the lowest salary and the highest salary at the last.
+
+708
+01:21:35.320 --> 01:21:40.740
+Jitendra U: Now, when I'm trying to represent the data, in quantiles.
+
+709
+01:21:41.300 --> 01:21:49.829
+Jitendra U: 0-20%, 20% to 50%, 50% to 80%, 80% to 95%, 95% to 100%.
+
+710
+01:21:50.200 --> 01:21:53.709
+Jitendra U: So I'm saying between 0 to 20%, I will consider very low.
+
+711
+01:21:54.020 --> 01:21:57.030
+Jitendra U: Between 20% to 50%, I'll consider low.
+
+712
+01:21:57.340 --> 01:22:00.160
+Jitendra U: 50-80% I will consider to be medium.
+
+713
+01:22:00.400 --> 01:22:03.599
+Jitendra U: 80-95% I will consider to be high.
+
+714
+01:22:03.790 --> 01:22:13.309
+Jitendra U: 95% to 100%, I will consider to be very high. So that is where this quantile cut will use these values
+
+715
+01:22:13.430 --> 01:22:16.840
+Jitendra U: An assign… yes, it's like a binning, yes.
+
+716
+01:22:17.820 --> 01:22:21.379
+Jitendra U: So it's like binning the salaries in two.
+
+717
+01:22:21.640 --> 01:22:23.460
+Jitendra U: 5 categories.
+
+718
+01:22:24.400 --> 01:22:30.290
+Jitendra U: I can use 7 or 8 as well, but it will be confusing, right? Too much confusing for us.
+
+719
+01:22:30.540 --> 01:22:34.410
+Jitendra U: So I'm using a simplified version of binning.
+
+720
+01:22:37.570 --> 01:22:39.150
+Jitendra U: Very clear to everyone?
+
+721
+01:22:39.860 --> 01:22:41.939
+Jitendra U: Till… till now, everything is good.
+
+722
+01:22:47.980 --> 01:22:52.930
+Jitendra U: Alright, so once I'm binning this amount, Or so-called salary ranges.
+
+723
+01:22:53.180 --> 01:22:55.120
+Jitendra U: Now, I would like to convert
+
+724
+01:22:55.620 --> 01:22:58.920
+Jitendra U: My age group into bidding as well.
+
+725
+01:22:59.560 --> 01:23:05.829
+Jitendra U: So, amount type, income type, and also I would like to bin amount credited type.
+
+726
+01:23:07.120 --> 01:23:08.730
+Jitendra U: So let me bin this.
+
+727
+01:23:12.360 --> 01:23:16.249
+Jitendra U: And I would like to bin the date of birth as well.
+
+728
+01:23:19.550 --> 01:23:21.580
+Jitendra U: So, I will say various age groups.
+
+729
+01:23:24.250 --> 01:23:25.369
+Jitendra U: Very young.
+
+730
+01:23:26.190 --> 01:23:30.769
+Jitendra U: Less than… between 19 to 25, very young customer who's applying for a loan.
+
+731
+01:23:31.710 --> 01:23:38.780
+Jitendra U: 25-35% young customer, 35-60 middle age, 6200 senior citizens.
+
+732
+01:23:38.920 --> 01:23:40.480
+Jitendra U: So I will again do this.
+
+733
+01:23:40.850 --> 01:23:48.809
+Jitendra U: And this show me the statistics. So let me see how many customers… Are there from different profiles.
+
+734
+01:23:52.850 --> 01:23:54.160
+Jitendra U: So I've got…
+
+735
+01:23:57.790 --> 01:24:04.460
+Jitendra U: Most of the customer… Applying for the loan… applying for the loan is middle age.
+
+736
+01:24:04.870 --> 01:24:06.400
+Jitendra U: 50 to 55.
+
+737
+01:24:07.400 --> 01:24:11.650
+Jitendra U: How many… 200.
+
+738
+01:24:14.020 --> 01:24:15.790
+Jitendra U: Or 2,000 customers.
+
+739
+01:24:16.080 --> 01:24:19.290
+Jitendra U: Right, so this is what the distribution says. So I've got…
+
+740
+01:24:19.560 --> 01:24:25.099
+Jitendra U: Very good idea, like, how the customers, who's the owner, sorry, who's the lender.
+
+741
+01:24:25.530 --> 01:24:28.559
+Jitendra U: What is the purpose of getting the loan?
+
+742
+01:24:29.040 --> 01:24:32.279
+Jitendra U: What age group is looking for a loan?
+
+743
+01:24:33.390 --> 01:24:34.940
+Jitendra U: And so on and so forth.
+
+744
+01:24:35.460 --> 01:24:38.439
+Jitendra U: Now, let me check how many columns that we have.
+
+745
+01:24:39.590 --> 01:24:41.960
+Jitendra U: In DF1, so we have got…
+
+746
+01:24:42.580 --> 01:24:52.140
+Jitendra U: I can check the null values, so none of them are null values now. I've got… some… 40…
+
+747
+01:24:52.950 --> 01:24:55.529
+Jitendra U: 6? No, 75?
+
+748
+01:24:55.880 --> 01:24:57.840
+Jitendra U: Data variables, still.
+
+749
+01:25:04.210 --> 01:25:05.020
+Jitendra U: Right?
+
+750
+01:25:05.320 --> 01:25:06.190
+Jitendra U: So…
+
+751
+01:25:06.800 --> 01:25:14.969
+Jitendra U: Let's say I have… okay, let's say I present this data to a business now. A business says that, can you give me an update?
+
+752
+01:25:16.070 --> 01:25:21.020
+Jitendra U: So, business will… Have a meeting with me.
+
+753
+01:25:21.640 --> 01:25:24.920
+Jitendra U: And he will say that, can you show me what I have done so far?
+
+754
+01:25:25.400 --> 01:25:28.519
+Jitendra U: So you are saying that I'm doing EDA for the last 3 weeks.
+
+755
+01:25:29.250 --> 01:25:31.230
+Jitendra U: What, what exactly you have done?
+
+756
+01:25:32.340 --> 01:25:35.930
+Jitendra U: The business will review that what column you are selecting and why.
+
+757
+01:25:36.790 --> 01:25:42.400
+Jitendra U: Then he will suggest to you, let's assume that business will suggest you, some of the columns that you are looking for.
+
+758
+01:25:42.720 --> 01:25:45.810
+Jitendra U: Out of these 75 data points.
+
+759
+01:25:46.740 --> 01:25:51.940
+Jitendra U: Some of the columns are still redundant. That means you should not use them.
+
+760
+01:25:53.130 --> 01:25:57.539
+Jitendra U: So let's say business has given you a list of those columns. What are you going to do?
+
+761
+01:25:57.850 --> 01:26:04.060
+Jitendra U: You're going to drop… Now, how many columns you left with?
+
+762
+01:26:06.720 --> 01:26:11.130
+Jitendra U: Now, here, from 75, you shrink to 47.
+
+763
+01:26:15.100 --> 01:26:24.810
+Jitendra U: Right? So this is also possible. Business will also give you some recommendation. Now, what I'm going to do next is, I would like to check for the outliers.
+
+764
+01:26:25.750 --> 01:26:33.340
+Jitendra U: So, first and the foremost thing, I would like to select how many columns are numerical. So, I've got 35 columns, which are still numerical.
+
+765
+01:26:34.290 --> 01:26:36.159
+Jitendra U: Now, I would like to plot…
+
+766
+01:26:40.640 --> 01:26:41.830
+Jitendra U: applaud them.
+
+767
+01:26:43.210 --> 01:26:47.000
+Jitendra U: And like to see, like to see… There.
+
+768
+01:26:49.070 --> 01:26:53.470
+Jitendra U: distribution using boxes upload. This is not very readable.
+
+769
+01:32:44.810 --> 01:32:48.589
+Jitendra U: Hey, sorry, is it audible to everyone now?
+
+770
+01:32:54.900 --> 01:33:01.480
+Jitendra U: Okay, so, we have talked about, until this point, so are you with me? Are you falling so far?
+
+771
+01:33:14.190 --> 01:33:15.080
+Jitendra U: Alright.
+
+772
+01:33:30.520 --> 01:33:32.919
+Jitendra U: Alright, so now what we are going to do is…
+
+773
+01:33:41.430 --> 01:33:42.250
+Jitendra U: Okay.
+
+774
+01:33:42.670 --> 01:33:45.530
+Jitendra U: Oh, okay, sure, sure, so it's working, okay.
+
+775
+01:33:45.990 --> 01:33:54.390
+Jitendra U: So, okay, let me first… Boot is plotting… more clearly.
+
+776
+01:34:08.190 --> 01:34:09.859
+Jitendra U: Okay, this looks good.
+
+777
+01:34:10.740 --> 01:34:27.989
+Jitendra U: So you can see that I've got several outliers in my variables. So, outlier analysis is very important. When you're dealing with any data science project in future, right, outlier analysis will give you sensitivity analysis. That means you're performing some sensitivity analysis on your data points.
+
+778
+01:34:28.050 --> 01:34:32.959
+Jitendra U: So, what is sensitivity analysis? So, outliers are generally noise in your data.
+
+779
+01:34:33.620 --> 01:34:34.760
+Jitendra U: And,
+
+780
+01:34:35.050 --> 01:34:41.810
+Jitendra U: one of the, one of the examples of outlier is the salary itself, right? So, when you have an applicant which is having
+
+781
+01:34:41.930 --> 01:34:49.619
+Jitendra U: two different sort of salary ranges. They are, kind of very different in terms of salary, and
+
+782
+01:34:50.030 --> 01:34:51.630
+Jitendra U: their designation.
+
+783
+01:34:51.790 --> 01:35:02.120
+Jitendra U: So, some of the higher salary will become an outlier, right? So, the same impact, these outlier will definitely going to impact your model.
+
+784
+01:35:03.660 --> 01:35:06.139
+Jitendra U: And the impact is not on the…
+
+785
+01:35:07.230 --> 01:35:09.949
+Jitendra U: Positive side, but it will be on an adverse side.
+
+786
+01:35:10.750 --> 01:35:14.840
+Jitendra U: So basically, we have to perform the outlier analysis, for that.
+
+787
+01:35:15.280 --> 01:35:26.030
+Jitendra U: So, for doing so, there are different methods that you can be able to utilize. The one is, you can be able to use box whisker plot. The second is, you can be able to use
+
+788
+01:35:26.140 --> 01:35:30.179
+Jitendra U: Quantile methods to pick the outlier.
+
+789
+01:35:30.540 --> 01:35:31.730
+Jitendra U: data points.
+
+790
+01:35:32.520 --> 01:35:43.070
+Jitendra U: Now, I'm not going to clean the outliers, but let's focus on the outlier definition. So, we have our outliers. Now, I've got some data imbalance in my
+
+791
+01:35:43.380 --> 01:35:45.419
+Jitendra U: data set as well, so you can see that.
+
+792
+01:35:45.770 --> 01:35:50.390
+Jitendra U: So, it is a very important step to check your target variable.
+
+793
+01:35:51.260 --> 01:35:59.149
+Jitendra U: The target variable is the loan sanction versus non-sanctioned, or default versus non-default.
+
+794
+01:35:59.470 --> 01:36:05.940
+Jitendra U: So here I can see that 8% of my customer has committed a default In the credit card.
+
+795
+01:36:06.530 --> 01:36:08.140
+Jitendra U: past history.
+
+796
+01:36:08.890 --> 01:36:13.410
+Jitendra U: And 91 customer… 91% of the customer has not defaulted.
+
+797
+01:36:14.410 --> 01:36:18.989
+Jitendra U: That's why it's become a kind of a rare dataset for me. 8% data.
+
+798
+01:36:20.230 --> 01:36:28.660
+Jitendra U: Right? So there's a huge imbalance in my… Plus… the target variable, But…
+
+799
+01:36:28.990 --> 01:36:31.670
+Jitendra U: I can able to overcome this.
+
+800
+01:36:31.890 --> 01:36:38.590
+Jitendra U: Now, let me first see, on the target variable, What's the gender who's committing?
+
+801
+01:36:39.550 --> 01:36:44.950
+Jitendra U: The default, let me see, is target 0.
+
+802
+01:37:49.310 --> 01:37:50.729
+Jitendra U: One second, one second.
+
+803
+01:38:03.400 --> 01:38:04.760
+Jitendra U: So, I've got…
+
+804
+01:38:08.200 --> 01:38:09.740
+Jitendra U: Soft plot, okay.
+
+805
+01:38:10.860 --> 01:38:13.419
+Jitendra U: Dear fund.target, okay, got it.
+
+806
+01:38:53.610 --> 01:38:57.479
+Jitendra U: This is my daytime balance, so target 1, target 0.
+
+807
+01:38:58.240 --> 01:39:00.750
+Jitendra U: Okay.
+
+808
+01:39:01.340 --> 01:39:02.649
+Jitendra U: This is my ex.
+
+809
+01:39:04.860 --> 01:39:07.850
+Jitendra U: This is… my wife.
+
+810
+01:39:44.920 --> 01:39:48.939
+Jitendra U: Okay, let me first analyze the organization, and then I will come back here.
+
+811
+01:41:24.650 --> 01:41:28.160
+Jitendra U: Okay, so this is what I'm expecting, so this is what the graph looks like.
+
+812
+01:41:29.000 --> 01:41:40.589
+Jitendra U: So you can see that I'm getting, the defaulter, which are more female customers, and, the landers, the payback, have,
+
+813
+01:41:43.160 --> 01:41:50.160
+Jitendra U: Okay, it should be other way around. Yeah, so there are, yeah, so most of our defaulters are female in my credit card.
+
+814
+01:41:50.400 --> 01:41:57.589
+Jitendra U: Let me check… the… Organization type, where the defaulters are high.
+
+815
+01:41:58.800 --> 01:42:02.360
+Jitendra U: Okay, so business entity customers are high.
+
+816
+01:42:02.590 --> 01:42:08.640
+Jitendra U: Followed by Pensioner, so all are equivalent, basically, so I can see they are all equivalent.
+
+817
+01:42:09.010 --> 01:42:18.710
+Jitendra U: which is rare, that means I have defaulted from each and every classes. So basically, what I'm trying to do is, I'm just trying to make sure that I have…
+
+818
+01:42:18.860 --> 01:42:25.680
+Jitendra U: the clear understanding of defaulter versus non-defaulter profiles, right? That is what I'm trying to do here.
+
+819
+01:42:25.830 --> 01:42:29.199
+Jitendra U: So when I'm performing this analysis, I'm just focusing on
+
+820
+01:42:30.100 --> 01:42:46.230
+Jitendra U: what are the categories which make default, which gender, which occupation type, so that I can be able to make this analysis more robust, right? So, think from the… from the business perspective. So, let's say if a new loan application appears.
+
+821
+01:42:48.600 --> 01:42:50.810
+Jitendra U: And, you have a diffusion tree.
+
+822
+01:42:51.030 --> 01:42:57.009
+Jitendra U: And your decision tree says that the female customers have more probability of making a default.
+
+823
+01:42:57.160 --> 01:42:57.960
+Jitendra U: Right?
+
+824
+01:42:58.350 --> 01:43:02.520
+Jitendra U: So… Then you will look for his occupation.
+
+825
+01:43:03.070 --> 01:43:10.910
+Jitendra U: Occupation of the customer, age of the customer, Country which she belongs to.
+
+826
+01:43:11.110 --> 01:43:12.240
+Jitendra U: etc.
+
+827
+01:43:12.400 --> 01:43:20.710
+Jitendra U: So you will look for all these factors, and then decide whether to provide a loan or not, right? So that is what your data point will say.
+
+828
+01:43:20.910 --> 01:43:28.039
+Jitendra U: So this is what your data point will suggest, like, I'm going to… I'm going to approve or disapprove the loan application based upon
+
+829
+01:43:28.190 --> 01:43:32.580
+Jitendra U: these constraints. So that is all we are going to…
+
+830
+01:43:33.350 --> 01:43:35.780
+Jitendra U: Perform, with the help of this model.
+
+831
+01:43:36.680 --> 01:43:42.140
+Jitendra U: So… I will share this… Analysts with you guys.
+
+832
+01:43:43.010 --> 01:43:51.730
+Jitendra U: I want everybody to, look into this analysis. And then, what we are going to do is, let's take a quick…
+
+833
+01:43:52.000 --> 01:43:53.269
+Jitendra U: 20 minutes break.
+
+834
+01:43:54.500 --> 01:44:03.639
+Jitendra U: I think gender cannot be a big factor. She will sue bank for gender bias. But bank will not give, the reason why they're rejecting.
+
+835
+01:44:05.700 --> 01:44:13.169
+Jitendra U: Is it possible, or would it be helpful to have a flow chart of the steps that we are going through through ADA?
+
+836
+01:44:13.280 --> 01:44:24.339
+Jitendra U: So that way, can you study each of them, apply for referral, as it released? Yes. So I will share the notebook with you, so that you can able to revisit this notebook, and this is how you have to do EDA.
+
+837
+01:44:24.970 --> 01:44:27.300
+Jitendra U: So, EDA means,
+
+838
+01:44:27.610 --> 01:44:40.270
+Jitendra U: ED is a regular exercise that you have to perform going forward, right? So, you have to keep on learning different types of visuals, different set of analysis, and we'll talk about how to fit these data points to a model.
+
+839
+01:44:40.390 --> 01:44:46.100
+Jitendra U: So ADAs are kind of a mandatory exercise going forward. So make sure that you understand,
+
+840
+01:44:46.210 --> 01:44:51.940
+Jitendra U: EDA from the first principle, and apply the EDA to all the other
+
+841
+01:44:52.560 --> 01:44:59.749
+Jitendra U: use cases going forward. So what we are going to do next is, let's take a quick, 20 minutes break. So once we come from the break.
+
+842
+01:44:59.910 --> 01:45:06.579
+Jitendra U: We will take another case study, and this time we will use some more EDA example. I will talk about
+
+843
+01:45:07.790 --> 01:45:12.599
+Jitendra U: How to perform… Red test of hypothesis.
+
+844
+01:45:13.020 --> 01:45:17.599
+Jitendra U: Right, while performing the idea. So, we'll talk about that aspect. So…
+
+845
+01:45:18.120 --> 01:45:21.589
+Jitendra U: We will also talk about the bivariate analysis using,
+
+846
+01:45:21.750 --> 01:45:32.980
+Jitendra U: correlation plots that we have learned so far. So these two concepts we'll learn, and apply as well, with the help of code logic. So let's come back after 20 minutes, and then we can start the session.
+
+847
+01:45:34.200 --> 01:45:37.500
+Jitendra U: So let's take a quick break, guys, and then we will start the session again.
+
+848
+02:03:45.390 --> 02:03:49.399
+Jitendra U: Hi guys, I hope you're back. Can we have a quick confirmation?
+
+849
+02:03:55.870 --> 02:03:56.800
+Jitendra U: Alright.
+
+850
+02:03:57.780 --> 02:04:03.870
+Jitendra U: Okay, so thanks for joining back. So, as I mentioned, we are going to start with another case now.
+
+851
+02:04:04.160 --> 02:04:11.440
+Jitendra U: And this time, we are going to take one more interesting use case. This is for quality analysis of a wine… wine data.
+
+852
+02:04:11.590 --> 02:04:15.800
+Jitendra U: So first, let me show you the data set, like, how the data looks like.
+
+853
+02:04:16.280 --> 02:04:21.250
+Jitendra U: And, where the data resides. So, I will show you the data set first.
+
+854
+02:04:22.550 --> 02:04:23.440
+Jitendra U: Ugh.
+
+855
+02:04:24.150 --> 02:04:25.120
+Jitendra U: My work.
+
+856
+02:04:25.300 --> 02:04:26.130
+Jitendra U: Okay.
+
+857
+02:04:26.590 --> 02:04:28.710
+Jitendra U: So let me show you the red wine data.
+
+858
+02:04:31.330 --> 02:04:32.690
+Jitendra U: UCA.
+
+859
+02:04:33.470 --> 02:04:37.440
+Jitendra U: So this dataset talks about the quality of a red wine.
+
+860
+02:04:37.680 --> 02:04:39.439
+Jitendra U: With several attributes.
+
+861
+02:04:40.850 --> 02:04:43.070
+Jitendra U: Okay, let's…
+
+862
+02:05:12.440 --> 02:05:15.479
+Jitendra U: Okay, so this is our dataset. So you can see that.
+
+863
+02:05:15.770 --> 02:05:24.169
+Jitendra U: These are the attributes which talks about the quality of a red wine, which include acidity level, volatility, acidity level, citric acid.
+
+864
+02:05:24.330 --> 02:05:36.670
+Jitendra U: residual sugar in the wine, chlorides in the wine, sulfur dioxide in the wine, and the density and the pH value, right? So assume that we have a… we have to solve this sort of…
+
+865
+02:05:36.940 --> 02:05:38.329
+Jitendra U: Challenge now.
+
+866
+02:05:38.960 --> 02:05:41.229
+Jitendra U: So, what I'm going to do next is…
+
+867
+02:05:42.510 --> 02:05:46.939
+Jitendra U: I would like to show you, how I'm going to import this data.
+
+868
+02:05:47.100 --> 02:05:53.390
+Jitendra U: And how I'm going to solve this whole challenge with the help of Logistic regression.
+
+869
+02:05:53.670 --> 02:06:02.489
+Jitendra U: Right? And then I will share this board notebook with you guys, so that you can run and then let me know any questions. So this will become a kind of a lab session for you.
+
+870
+02:06:02.730 --> 02:06:16.190
+Jitendra U: Before 30 minutes, right? So let me complete this part, and then I will open the forum for a question, so that you will not feel that we are overwhelming with concepts, and I'm bombarding with you with the concepts, right? So just try to…
+
+871
+02:06:16.310 --> 02:06:34.600
+Jitendra U: Make sure. The first and foremost thing to solve this problem, I would like to import all the packages. So I will start with Pandas, NumPy, Matplot, Seabond, the usual packages for, for generating them into visuals. Then I would like to perform some logistic regression
+
+872
+02:06:34.730 --> 02:06:40.220
+Jitendra U: Use case, because the quality of the wine will be classified into three classes.
+
+873
+02:06:41.600 --> 02:06:50.740
+Jitendra U: Right? So that is what we are looking for, and then we are going to use, logistic regression and different sort of confusion metrics and classification reports.
+
+874
+02:06:51.040 --> 02:06:55.099
+Jitendra U: to understand efficacy of the model. So first, let me import these packages.
+
+875
+02:06:56.350 --> 02:07:02.390
+Jitendra U: Now, I would like to use certain styles for better visualization, so I will say I would like to fix my grids.
+
+876
+02:07:03.200 --> 02:07:05.750
+Jitendra U: Now, I would like to start with the EDA.
+
+877
+02:07:05.860 --> 02:07:07.190
+Jitendra U: So I will say…
+
+878
+02:07:10.480 --> 02:07:12.390
+Jitendra U: I will start with the EDA.
+
+879
+02:07:14.530 --> 02:07:16.559
+Jitendra U: Now, I would like to load the data.
+
+880
+02:07:19.050 --> 02:07:33.450
+Jitendra U: So I would like to trigger this command where my URL, the one that I show you, will have a data point. So you can see that I've got 1600 data points and 12 attributes of the wine. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.
+
+881
+02:07:36.120 --> 02:07:36.960
+Jitendra U: Yep.
+
+882
+02:07:37.180 --> 02:07:44.690
+Jitendra U: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12. The quality is the output, the score between 0 to 10.
+
+883
+02:07:44.990 --> 02:07:53.119
+Jitendra U: So, a zero-quality wine is, kind of orderless, testless, but tan means it's a great quality.
+
+884
+02:07:53.260 --> 02:08:07.409
+Jitendra U: color, red or white, will depend upon the output of the… all the ingredients. So, we are going to utilize this dataset for the purpose. Now, I would like to start with a basic data exploration. First, I would like to check what's the
+
+885
+02:08:08.340 --> 02:08:10.550
+Jitendra U: First 5 rows of my data.
+
+886
+02:08:10.750 --> 02:08:17.789
+Jitendra U: what's the basic data structure looks like, what's the column attribute, how many null values. You can see that its data is very quality.
+
+887
+02:08:18.390 --> 02:08:20.730
+Jitendra U: The data is having all…
+
+888
+02:08:20.870 --> 02:08:26.370
+Jitendra U: values inside. That means there's no missing values. So this is one of the rare data.
+
+889
+02:08:26.550 --> 02:08:34.129
+Jitendra U: Now, that means I'm good to start with my univariate analysis. So, for univariate analysis, I will start looking into
+
+890
+02:08:34.450 --> 02:08:42.040
+Jitendra U: the basic statistics. So you can see that my unibarrot analysis says, my acidity index
+
+891
+02:08:42.340 --> 02:08:46.490
+Jitendra U: So, because wine have acidic nature, So…
+
+892
+02:08:46.680 --> 02:08:50.609
+Jitendra U: the acidic index, or pH value, of this liquid.
+
+893
+02:08:50.890 --> 02:08:54.510
+Jitendra U: Falls in the range of 4.6 to 15.
+
+894
+02:08:55.480 --> 02:08:58.300
+Jitendra U: With a median range of 7.9.
+
+895
+02:08:59.230 --> 02:09:09.639
+Jitendra U: The volatile acidity index is 0.52, the citric acid level is 0.26 milliliter, residual sugar is 2.2 milliliter, chlorides…
+
+896
+02:09:10.600 --> 02:09:18.430
+Jitendra U: 0.07, free sulfur dioxide, Which will create a color for a wine, is 14 milligram.
+
+897
+02:09:18.800 --> 02:09:20.050
+Jitendra U: per liter.
+
+898
+02:09:20.210 --> 02:09:23.689
+Jitendra U: Total sulfur dioxide, 38 milligram per liter.
+
+899
+02:09:24.880 --> 02:09:34.210
+Jitendra U: And then the density of the wine, this is gonna discuss density, volume of the wine. So the density of the wine is 0.99.
+
+900
+02:09:34.510 --> 02:09:42.549
+Jitendra U: cubic centimeter, and then the pH level on a scale of 5 is this, sulfate, alcohol content.
+
+901
+02:09:43.050 --> 02:09:55.120
+Jitendra U: And the quality of the wine is 6, right? On an average, I'm having wine quality as 6, some of the wines are 8 as well. I would like to start with a unit rate analysis, so I would first like to see…
+
+902
+02:09:55.880 --> 02:09:57.140
+Jitendra U: and create.
+
+903
+02:09:57.360 --> 02:09:59.449
+Jitendra U: The understanding on my data.
+
+904
+02:10:00.880 --> 02:10:05.480
+Jitendra U: And I would like to see the distribution of each variable, the one that I just showed to you.
+
+905
+02:10:05.860 --> 02:10:09.870
+Jitendra U: So I would like to also… plot.
+
+906
+02:10:10.290 --> 02:10:15.209
+Jitendra U: Rather than, just looking to this, right? So this is what the plot looks like.
+
+907
+02:10:15.440 --> 02:10:22.510
+Jitendra U: So you can see that most of the attribute, like fixed acidity, volatile acidity, citric acid.
+
+908
+02:10:22.780 --> 02:10:27.650
+Jitendra U: Residual sugar, free sulfur dioxide, density, pH,
+
+909
+02:10:28.120 --> 02:10:32.649
+Jitendra U: And even sulfate and the alcohol, they all look like a normal distributed curve to me.
+
+910
+02:10:32.830 --> 02:10:45.729
+Jitendra U: Some of them are highly curtic, that means some of them are right shift and left shift, here and there, but overall, they are normal distributed data points. Now, I would like to check the skewness and the kartosis.
+
+911
+02:10:46.410 --> 02:10:52.180
+Jitendra U: In my data points, So I can see the skewness in fixed acidity.
+
+912
+02:10:53.060 --> 02:10:55.439
+Jitendra U: is… looks like right curtic.
+
+913
+02:10:56.550 --> 02:11:02.790
+Jitendra U: Similarly, the skewness, the spreadness of my data towards the tail.
+
+914
+02:11:02.940 --> 02:11:14.480
+Jitendra U: is heavily tail on the right side as well. So that means my data is having skewness of contosis. It's not free from, skewness and cortosis, but overall, it looks like I have a decent
+
+915
+02:11:14.910 --> 02:11:23.870
+Jitendra U: Normalized data, also called, gaussian data, right, to begin with. Now, I would like to look for…
+
+916
+02:11:25.020 --> 02:11:29.360
+Jitendra U: The first analysis… Which is called bivariate.
+
+917
+02:11:29.680 --> 02:11:33.430
+Jitendra U: So for bivariate analysis, my target variable is…
+
+918
+02:11:33.830 --> 02:11:36.689
+Jitendra U: Quality of the wine, which is my target variable.
+
+919
+02:11:36.790 --> 02:11:40.840
+Jitendra U: Remaining will become features, right? So I would like to check
+
+920
+02:11:41.310 --> 02:11:44.980
+Jitendra U: How this target variable is correlated
+
+921
+02:11:45.210 --> 02:11:50.479
+Jitendra U: with these numerical features. Let's say if I increase the citric acid in the wine.
+
+922
+02:11:50.750 --> 02:11:58.329
+Jitendra U: Will it increase the quality of the wine? If I increase the sulfur dioxide in the wine, will it increase the quality of the wine, or decrease the quality of the wine?
+
+923
+02:11:58.450 --> 02:12:02.849
+Jitendra U: So that is something which I would like to perform analysis against. So let me run this.
+
+924
+02:12:04.960 --> 02:12:12.020
+Jitendra U: So I'm getting the correlation. Alcohol con… Quantity in the wine, decide.
+
+925
+02:12:12.290 --> 02:12:18.429
+Jitendra U: The quality in a greater extent. Sulfates with 21%, citric acid with 15%,
+
+926
+02:12:18.540 --> 02:12:25.510
+Jitendra U: Acidity, fixed acidity level, 9%. Remaining are having an adverse impact on the wine quality.
+
+927
+02:12:26.080 --> 02:12:28.910
+Jitendra U: So I can also see the correlation plot.
+
+928
+02:12:29.030 --> 02:12:31.970
+Jitendra U: So it correlation shows alcohol versus quantity.
+
+929
+02:12:32.140 --> 02:12:45.900
+Jitendra U: So this is how you are going to run a correlation analysis in any use case scenario. So you are going to perform a correlation analysis by using bivariate analysis. So, I would like to see the tendency of my data points, which can be represented as a linear line.
+
+930
+02:12:46.310 --> 02:12:52.460
+Jitendra U: So I can say that alcohol versus quantity is correlated by 4.3… sorry, 43%.
+
+931
+02:12:52.830 --> 02:13:06.260
+Jitendra U: That means they are significantly drivers for each other. Alcohol increase, the quantity of alcohol increase in the wine content, the quality of the wine will also increase, the volatile acidity of the wine.
+
+932
+02:13:06.550 --> 02:13:13.859
+Jitendra U: will decrease the quality if I'm increasing the content, because they are negatively correlated. So there, you can see a decremental trend.
+
+933
+02:13:14.060 --> 02:13:19.290
+Jitendra U: Similarly, there's a decremental trend here, and an incremental trend in terms of sulfate level.
+
+934
+02:13:19.550 --> 02:13:27.159
+Jitendra U: But it's partial. Right? So, I have got… This analysis done for bivariate.
+
+935
+02:13:27.360 --> 02:13:33.520
+Jitendra U: Now, for bivariate analysis, the most important idea is, I would like to also comment on the outliers.
+
+936
+02:13:33.920 --> 02:13:35.899
+Jitendra U: Let me check the outliers.
+
+937
+02:13:39.160 --> 02:13:51.860
+Jitendra U: So I've got a bunch of outliers. Alcohol by wine quality, I've got a bunch of outliers for poor quality and the good quality wines. The total sulfur dioxide by wine quality does matter.
+
+938
+02:13:52.760 --> 02:13:58.540
+Jitendra U: So, sulfate… Sulfur dioxide and the sulfate ratio. They are two different chemicals.
+
+939
+02:13:58.690 --> 02:14:02.599
+Jitendra U: So, for quality of the wine, which is categorized as poor.
+
+940
+02:14:02.820 --> 02:14:13.060
+Jitendra U: is also impacted by outliers, which is good, also impacted by outliers, right? So I've got both categories here. Now, I would like to perform some correlation analysis.
+
+941
+02:14:13.340 --> 02:14:17.140
+Jitendra U: Now, correlation analysis, as I mentioned, will give you the
+
+942
+02:14:17.330 --> 02:14:22.319
+Jitendra U: Magnitude and direction both. So I would like to check the high correlated pairs.
+
+943
+02:14:22.840 --> 02:14:25.399
+Jitendra U: By using heat maps.
+
+944
+02:14:29.630 --> 02:14:32.399
+Jitendra U: So let it… Let it complete the heat map.
+
+945
+02:14:32.530 --> 02:14:40.340
+Jitendra U: Okay, so this is what the heat map says. Let me open… Yeah.
+
+946
+02:14:40.580 --> 02:14:44.440
+Jitendra U: So you can see that if I have to read this, if I have to read this…
+
+947
+02:14:46.350 --> 02:14:59.539
+Jitendra U: If I look into the… Correlation between the two variables, like, alcohol, is… Partially correlated with residual sugar.
+
+948
+02:15:00.080 --> 02:15:05.520
+Jitendra U: But if I look into the pH level and the volatility in acidity level, they are highly correlated.
+
+949
+02:15:06.130 --> 02:15:18.550
+Jitendra U: the density and the citric acid is also correlated. That means if I'm increasing the citric acid content in the wine, the density of the wine will also increase. And the density play an adverse role in the
+
+950
+02:15:20.280 --> 02:15:31.739
+Jitendra U: quality of the wine, the scores that I'm using, right? So this way, I can able to find out the pairs which are having adverse impact on the quality of the wine.
+
+951
+02:15:32.130 --> 02:15:39.689
+Jitendra U: Now, this is the correlation analysis. What about covariance analysis? Can I be able to do a covariance analysis as well?
+
+952
+02:15:40.310 --> 02:15:59.369
+Jitendra U: So the answer is yes. I can do the covariance analysis. This covariance analysis is showing me the similar theme as correlation, but with a different coefficient. Right? But here, I'm not talking about any magnitude scale. I'm just talking about the covariance, the togetherness of the variable.
+
+953
+02:16:00.510 --> 02:16:09.029
+Jitendra U: Now, I would like to perform a multivariate analysis on this data set. Multivariate analysis means I would like to study more than two variables.
+
+954
+02:16:09.160 --> 02:16:14.210
+Jitendra U: Right? So let me do the multivariate analysis on this. Data points.
+
+955
+02:16:16.500 --> 02:16:33.960
+Jitendra U: So I'm creating a pair plot for the top 5 features. So we already know from the bivariate analysis that what are the top 5 features, and I would like to pick those 5 features and try to create a pair plot using a 3D spectrum, so that I can be able to find it out.
+
+956
+02:16:34.500 --> 02:16:45.630
+Jitendra U: What data points have… which data point have adverse impact on my Y variable, which is the quality?
+
+957
+02:16:46.469 --> 02:16:49.010
+Jitendra U: Right? And then I would like to study…
+
+958
+02:16:49.150 --> 02:16:55.800
+Jitendra U: Let's say if I'm going to include alcohol, volatile index, total sulfur dioxide, and sulfate, and citric oxide.
+
+959
+02:16:55.930 --> 02:17:13.589
+Jitendra U: And I would like to understand the proportion in which they can able to take a part, so I would like to know from this analysis. Alright, so this analysis is nothing but… it's a kind of a pair plot. You can see the pair plot. So the first histogram that I'm getting is for alcohol, the right one.
+
+960
+02:17:13.700 --> 02:17:20.320
+Jitendra U: And the blue one that you are seeing is for target variable. Similarly, the volatility index is my right gram.
+
+961
+02:17:20.459 --> 02:17:22.330
+Jitendra U: Sorry, red, chart.
+
+962
+02:17:24.650 --> 02:17:33.389
+Jitendra U: Okay, you're not able to understand the difference between covariant and the coefficient analysis. Okay, so what I'm trying to say is, when you have a dilemma.
+
+963
+02:17:33.620 --> 02:17:44.950
+Jitendra U: which one to use? I would say always go with Correlation. Because correlation automatically Induce covariance analysis.
+
+964
+02:17:45.280 --> 02:17:49.700
+Jitendra U: So the difference between covariance and correlation is, you can see here.
+
+965
+02:17:56.639 --> 02:18:00.280
+Jitendra U: I'm just talking about a magnitude scale, from 0 to 1000.
+
+966
+02:18:00.750 --> 02:18:04.410
+Jitendra U: And here, the magnitude scale is probabilitical scale.
+
+967
+02:18:05.440 --> 02:18:08.450
+Jitendra U: Right, so covariance says minus 1 to plus 1.
+
+968
+02:18:08.670 --> 02:18:14.510
+Jitendra U: But… Covariance can have these discrete scales, so it's very…
+
+969
+02:18:15.219 --> 02:18:18.330
+Jitendra U: You know, very hard to predict.
+
+970
+02:18:19.000 --> 02:18:25.379
+Jitendra U: what's the strength of relationship between the variable? But when I'm using the probabilical scale, of inference.
+
+971
+02:18:25.730 --> 02:18:33.850
+Jitendra U: between minus 1 to plus 1, it will be rather easy for me to understand, right? But if I'm using a covariance, I have to decide my own.
+
+972
+02:18:34.100 --> 02:18:37.000
+Jitendra U: Thresholds, like, after 600,
+
+973
+02:18:37.129 --> 02:18:46.250
+Jitendra U: I can consider the relationship between the two variables to be on a higher side. You can see only two variables are coming, very few variables are coming under this.
+
+974
+02:18:46.879 --> 02:18:54.800
+Jitendra U: So, my suggestion is, whenever you have a dilemma, which one should I use? So, always go with correlation heat maps.
+
+975
+02:18:54.990 --> 02:19:01.440
+Jitendra U: Because it automatically caters covariance into consideration inside correlation analysis.
+
+976
+02:19:01.650 --> 02:19:08.859
+Jitendra U: So you're not to worry about a two different sort of analysis, but I'm just trying to show two different analyses, just because we have discussed this topic.
+
+977
+02:19:12.120 --> 02:19:22.600
+Jitendra U: All right. Now, I would like to create an outlier removal and detection algorithm. So remember, outliers is very impactful, and when you're dealing with outliers.
+
+978
+02:19:22.870 --> 02:19:25.310
+Jitendra U: It can have an adverse impact on your data.
+
+979
+02:19:25.459 --> 02:19:31.119
+Jitendra U: Now, I would like to find out how the percentage of outliers in each attribute. Let me increase a bit.
+
+980
+02:19:31.650 --> 02:19:39.599
+Jitendra U: So… The first feature that we are using, residual sugar, have 9%, near about 10% outliers.
+
+981
+02:19:40.070 --> 02:19:48.029
+Jitendra U: Chloride feature have 7% outlier. Sulfates have 59 outlier, which is 4% of the total outliers.
+
+982
+02:19:48.299 --> 02:19:54.250
+Jitendra U: Similarly, I have got… 3.5, 3… no, 3%, 2%.
+
+983
+02:19:54.390 --> 02:20:04.849
+Jitendra U: 2%, 1%, 1%, and 0% in citric acid. That means I have certain outliers, but I have to make sure that these outliers should be removed.
+
+984
+02:20:05.320 --> 02:20:09.379
+Jitendra U: So, basically, what I'm trying to do is, I'm performing an outlier analysis.
+
+985
+02:20:09.820 --> 02:20:16.800
+Jitendra U: And then removing the outliers by using this formula. So I will explain this formula maybe in upcoming lectures.
+
+986
+02:20:17.150 --> 02:20:22.749
+Jitendra U: But, remember, when you're detecting the outliers, you are going to use quantile.
+
+987
+02:20:23.170 --> 02:20:27.080
+Jitendra U: Which is IQ or Q1, box plot that we have discussed, right? The other day.
+
+988
+02:20:27.330 --> 02:20:39.260
+Jitendra U: So, basically, I'm going to see… I'm going to see… My data points, which is… within this box.
+
+989
+02:20:40.760 --> 02:20:43.049
+Jitendra U: I've got two sort of outliers.
+
+990
+02:20:43.530 --> 02:20:48.380
+Jitendra U: Extreme left, And extreme right.
+
+991
+02:20:49.150 --> 02:20:51.030
+Jitendra U: Right, so both are outliers.
+
+992
+02:20:51.870 --> 02:20:57.479
+Jitendra U: Right? So when I have to read this graph, I will say this is Q1, This is Q2.
+
+993
+02:20:57.780 --> 02:20:59.300
+Jitendra U: This is median.
+
+994
+02:20:59.450 --> 02:21:00.989
+Jitendra U: This is Q3.
+
+995
+02:21:01.110 --> 02:21:02.699
+Jitendra U: And this is Q4.
+
+996
+02:21:03.150 --> 02:21:09.470
+Jitendra U: So I'm going to say that this Q3 minus Q1 is nothing but my interquartile range.
+
+997
+02:21:11.370 --> 02:21:15.090
+Jitendra U: That is called IQR range, Q3 minus Q1, Q2.
+
+998
+02:21:15.770 --> 02:21:24.159
+Jitendra U: And then I'm looking for 1.5 times… so you remember 3 standard deviation from the both sides, so divide by 2.
+
+999
+02:21:24.390 --> 02:21:28.210
+Jitendra U: 1.5 times from here and 1.5 times from here.
+
+1000
+02:21:28.720 --> 02:21:30.140
+Jitendra U: This will be…
+
+1001
+02:21:30.490 --> 02:21:36.139
+Jitendra U: my definition of outliers. So I'm going to say that I would like to find out the outliers, which are
+
+1002
+02:21:36.440 --> 02:21:44.340
+Jitendra U: 1.5… IQR, that means 1.5 standard deviation away from Median.
+
+1003
+02:21:44.990 --> 02:21:47.859
+Jitendra U: and towards the medium. So both…
+
+1004
+02:21:49.290 --> 02:21:51.860
+Jitendra U: things I would consider as an outlier.
+
+1005
+02:21:52.210 --> 02:22:11.989
+Jitendra U: So once I have the outliers, I would like to remove them, and then try to treat the outliers based upon the same formula. So I make this analysis, and then the… my data point is free from outliers. So this is how you are going to perform an EDA. But let's say I have to fit this data points to a model.
+
+1006
+02:22:12.430 --> 02:22:14.310
+Jitendra U: Now, what my model does is…
+
+1007
+02:22:15.000 --> 02:22:18.900
+Jitendra U: My model will make a prediction on the quality of the wine.
+
+1008
+02:22:19.580 --> 02:22:28.960
+Jitendra U: the quality of the wine into two categories, good and bad. So I can say anything which ranges from 0 to 5 is bad quality.
+
+1009
+02:22:29.340 --> 02:22:34.390
+Jitendra U: Anything above 5 is good quality, right? So, I will say in that manner.
+
+1010
+02:22:34.550 --> 02:22:37.000
+Jitendra U: So I would like to fit in my logistic regression.
+
+1011
+02:22:38.090 --> 02:22:40.329
+Jitendra U: On the top of my data points.
+
+1012
+02:22:40.590 --> 02:22:44.430
+Jitendra U: Now, first and the foremost thing, I would like to evaluate the model.
+
+1013
+02:22:44.580 --> 02:22:49.299
+Jitendra U: Now, if I have to evaluate a model, I have to look for accuracy of the model.
+
+1014
+02:22:49.920 --> 02:22:52.049
+Jitendra U: How accurate my model is.
+
+1015
+02:22:52.280 --> 02:22:57.500
+Jitendra U: To predict the quality of the wine, so I can say the accuracy of the model is 75%.
+
+1016
+02:22:57.850 --> 02:23:05.319
+Jitendra U: Which is good accuracy as a part of my data analysis. So basically, what we have learned so far is, we have learned
+
+1017
+02:23:05.590 --> 02:23:16.019
+Jitendra U: We are not learning logistic regression, by the way, so don't get confused that we are running logistic regression without explanation. Logistic regression will be something which we are going to cover in the upcoming tutorials.
+
+1018
+02:23:16.150 --> 02:23:20.820
+Jitendra U: But what I'm trying to say here is, we are trying to learn until this point.
+
+1019
+02:23:21.490 --> 02:23:23.680
+Jitendra U: Right? We are learning EDA.
+
+1020
+02:23:23.810 --> 02:23:27.480
+Jitendra U: So, EDA is a very systematic analysis. You can see that
+
+1021
+02:23:27.750 --> 02:23:36.740
+Jitendra U: The data quality is great. That means we need not worry too much about the data. We don't have much missing values. Some outliers, but…
+
+1022
+02:23:36.920 --> 02:23:54.650
+Jitendra U: Approximately, they are ignorable outliers, and we… we have performed a systematic analysis on this data sample, started with a univariate analysis, which is called the study of single variable. Then we move on to the bivariate and the multivariate analysis, right?
+
+1023
+02:23:54.750 --> 02:24:00.550
+Jitendra U: So, by virtue of this analysis, we came to know that how the feature and the variable selection
+
+1024
+02:24:00.820 --> 02:24:03.490
+Jitendra U: Can be done as a data scientist.
+
+1025
+02:24:03.870 --> 02:24:09.900
+Jitendra U: How to treat noise in the data, how to get an insight about your features.
+
+1026
+02:24:10.190 --> 02:24:19.849
+Jitendra U: Right? So this is very, very important. When you're dealing with any machine learning algorithm, or any machine learning or AI use case in future.
+
+1027
+02:24:20.100 --> 02:24:21.490
+Jitendra U: You have to work
+
+1028
+02:24:21.700 --> 02:24:26.690
+Jitendra U: very close with your data points first. You have to make sure that you understand the data.
+
+1029
+02:24:27.110 --> 02:24:38.850
+Jitendra U: then only you can be able to choose an algorithm, or solution, or anything else, right? So without data understanding, without attribute understanding, without feature understanding.
+
+1030
+02:24:39.120 --> 02:24:42.619
+Jitendra U: You cannot able to solve any data science problem.
+
+1031
+02:24:43.060 --> 02:24:50.340
+Jitendra U: So make sure You have a clear understanding on your data, You have a very good…
+
+1032
+02:24:50.600 --> 02:24:56.530
+Jitendra U: grip on your EDA, You know your hypothesis pretty well.
+
+1033
+02:24:56.870 --> 02:25:02.330
+Jitendra U: And then only you're going to take that challenge to fit an algorithm on the top of it.
+
+1034
+02:25:02.640 --> 02:25:05.500
+Jitendra U: Right? So this is the whole idea of data science.
+
+1035
+02:25:05.880 --> 02:25:12.479
+Jitendra U: So the… the tough part of this whole analysis is the EDA itself.
+
+1036
+02:25:12.580 --> 02:25:22.879
+Jitendra U: So EDA is very tough, right? We can see that. There are several sort of steps. There's no right and wrong answer. The data itself is having a challenge. There's a lot of imputation that we need to perform.
+
+1037
+02:25:22.970 --> 02:25:37.450
+Jitendra U: There's… there are missing values at random. There are incorrect values as well. Age is negative, right? In a previous example. So all these things will make your life very complicated, right? So you have to work very close with the data.
+
+1038
+02:25:37.700 --> 02:25:42.830
+Jitendra U: You have to make reasonable assumption, you have to talk to business to get clarification.
+
+1039
+02:25:43.080 --> 02:25:47.830
+Jitendra U: And then only you are going to fit the algorithm. So algorithm fitment is a last resort.
+
+1040
+02:25:48.900 --> 02:25:53.900
+Jitendra U: So the last part of your data science will be, you are going to fit any algorithm.
+
+1041
+02:25:54.550 --> 02:26:02.240
+Jitendra U: I will share this code with everyone, so we have 30 more minutes. I would like to make sure that this, everybody will
+
+1042
+02:26:02.530 --> 02:26:04.060
+Jitendra U: go to their LMS,
+
+1043
+02:26:10.100 --> 02:26:13.760
+Jitendra U: Everybody should go to your LMS, and then try to solve this.
+
+1044
+02:26:13.970 --> 02:26:16.490
+Jitendra U: And then let me know if you're facing some issue.
+
+1045
+02:26:17.030 --> 02:26:18.999
+Jitendra U: So I'm sharing the data points.
+
+1046
+02:26:24.620 --> 02:26:25.560
+Jitendra U: Meh…
+
+1047
+02:26:49.430 --> 02:26:51.599
+Jitendra U: So I've shared 4 files with you.
+
+1048
+02:26:55.480 --> 02:26:59.820
+Jitendra U: Okay, previous application and the application data also I have to share.
+
+1049
+02:27:01.210 --> 02:27:03.200
+Jitendra U: Application data…
+
+1050
+02:27:07.860 --> 02:27:09.170
+Jitendra U: Close this file…
+
+1051
+02:27:24.650 --> 02:27:27.579
+Jitendra U: Can you guys try and let me know what you've done?
+
+1052
+02:27:41.340 --> 02:27:45.359
+Jitendra U: So please, guys, please try the notebooks that I shared.
+
+1053
+02:27:45.660 --> 02:27:49.759
+Jitendra U: In your system, you have all the dependent files as well.
+
+1054
+02:27:50.140 --> 02:27:55.469
+Jitendra U: At least run the latest analysis that we have just not done, the wine data quality.
+
+1055
+02:27:55.800 --> 02:28:01.119
+Jitendra U: And let me know your thoughts. If you have any doubt, please ask questions, and then we can move forward.
+
+1056
+02:28:52.890 --> 02:28:55.600
+Jitendra U: No, I think I've shared you all the files, right?
+
+1057
+02:28:55.730 --> 02:29:00.150
+Jitendra U: the Excel files I already shared, previous application, oh, it's loading, so just…
+
+1058
+02:29:00.420 --> 02:29:04.239
+Jitendra U: It's a big file, so, like, let it be. It's still loading in the chat.
+
+1059
+02:29:05.300 --> 02:29:08.410
+Jitendra U: Just give 2 more minutes, I think it will load.
+
+1060
+02:29:23.220 --> 02:29:27.829
+Jitendra U: Okay, so if you're not able to download, I will give you the link,
+
+1061
+02:29:28.600 --> 02:29:30.440
+Jitendra U: Maybe that will be easy.
+
+1062
+02:29:37.690 --> 02:29:40.329
+Jitendra U: So, can you guys go to this Google Drive?
+
+1063
+02:29:41.030 --> 02:29:44.290
+Jitendra U: And download the files from here, all the 3 files will be there.
+
+1064
+02:29:49.330 --> 02:29:53.250
+Jitendra U: Can you guys go to the Google Drive? I've uploaded a file here as well.
+
+1065
+02:32:30.570 --> 02:32:36.440
+Jitendra U: So, I would request everybody to at least attend the second question, sorry, second part of the case study.
+
+1066
+02:32:37.040 --> 02:32:40.949
+Jitendra U: First part you can ignore, and you can complete it offline.
+
+1067
+02:32:41.610 --> 02:32:45.160
+Jitendra U: But at the second one, you have to be very firm.
+
+1068
+02:32:47.200 --> 02:32:57.859
+Jitendra U: So we have seen two sort of case studies. One is where the data quality is great, the second one is… the first one is having data quality to be worst, and the second one have the good data quality.
+
+1069
+02:32:58.220 --> 02:33:03.950
+Jitendra U: So, go for the wine, tool analysis, and then let me know your thoughts.
+
+1070
+02:33:06.440 --> 02:33:11.390
+Jitendra U: No, it's a website, we are hitting the website. There's no data.csv.
+
+1071
+02:33:12.790 --> 02:33:14.379
+Jitendra U: We are hitting from the URL.
+
+1072
+02:34:52.250 --> 02:34:55.020
+Jitendra U: Yeah, you have to go through this cell,
+
+1073
+02:34:56.580 --> 02:34:58.960
+Jitendra U: From here onwards, you have to run this.
+
+1074
+02:35:23.790 --> 02:35:28.830
+Jitendra U: Yeah, so you have to upload a file, go to File, Upload, the one that I share with you.
+
+1075
+02:35:29.250 --> 02:35:30.730
+Jitendra U: on Vocarium.
+
+1076
+02:35:31.950 --> 02:35:33.100
+Jitendra U: Okay.
+
+1077
+02:35:34.060 --> 02:35:37.499
+Jitendra U: So, how many of you are able to run in VoCarium?
+
+1078
+02:35:37.750 --> 02:35:39.880
+Jitendra U: And how many of you are still struggling?
+
+1079
+02:35:53.480 --> 02:35:54.590
+Jitendra U: Able to run?
+
+1080
+02:35:57.300 --> 02:35:58.290
+Jitendra U: Okay.
+
+1081
+02:37:38.720 --> 02:37:44.989
+Jitendra U: Okay, great. So those are able to run in local, or… That should be fine.
+
+1082
+02:38:28.420 --> 02:38:32.949
+Jitendra U: I think you haven't copied the data.csv file, that's the reason you're getting this error.
+
+1083
+02:38:33.450 --> 02:38:38.960
+Jitendra U: And I can… Read, okay.
+
+1084
+02:38:42.090 --> 02:38:46.429
+Jitendra U: Oh, great, okay. So is it run on your carrier machine as well?
+
+1085
+02:38:50.800 --> 02:38:51.980
+Jitendra U: Okay, great.
+
+1086
+02:38:56.720 --> 02:39:01.589
+Jitendra U: Okay, so I think, some of you are getting errors, so I would request you to debug.
+
+1087
+02:39:02.440 --> 02:39:05.949
+Jitendra U: And let me know in the next class, right?
+
+1088
+02:39:06.070 --> 02:39:20.580
+Jitendra U: So, let's continue. So, I can see that there are two or three more algorithms which have been discussed. One is the KNN, and the second one is Random Forest. Any other thing we can discuss in your LMS tutorials, or these two algorithms have been discussed?
+
+1089
+02:39:22.020 --> 02:39:26.580
+Jitendra U: So… What are the other algorithms that have been discussed with you guys?
+
+1090
+02:39:39.630 --> 02:39:43.180
+Jitendra U: Okay, Vocarium, okay.
+
+1091
+02:39:48.100 --> 02:39:53.429
+Jitendra U: Okay, able to run in Colab, okay. Able to run in Colab now, okay, great.
+
+1092
+02:39:55.170 --> 02:39:59.800
+Jitendra U: We just mentioned in the LMS, not a detailed internal pull-up.
+
+1093
+02:40:01.480 --> 02:40:04.450
+Jitendra U: Was any algorithm discussed in the LMS? Okay.
+
+1094
+02:40:23.530 --> 02:40:27.100
+Jitendra U: How many, of you are still facing issue with BoCarium lah?
+
+1095
+02:40:27.370 --> 02:40:28.850
+Jitendra U: Can you raise your hand?
+
+1096
+02:40:32.510 --> 02:40:34.879
+Jitendra U: You're not able to run anything on VoCarium.
+
+1097
+02:40:35.340 --> 02:40:37.490
+Jitendra U: Not even assignment, nothing.
+
+1098
+02:40:37.980 --> 02:40:40.440
+Jitendra U: Only Kiran, or anybody else?
+
+1099
+02:40:50.520 --> 02:40:53.899
+Jitendra U: So, have you raised any ticket, to understand this?
+
+1100
+02:41:07.780 --> 02:41:12.540
+Jitendra U: Have you configured your workspace properly? How many of you have configured a workspace?
+
+1101
+02:41:49.140 --> 02:41:53.170
+Jitendra U: Okay, those who are doing, using VS Code and all should be okay.
+
+1102
+02:42:01.510 --> 02:42:06.770
+Jitendra U: So, have we configured a workspace, Kiran? First, are you in this screen or not?
+
+1103
+02:42:07.750 --> 02:42:09.529
+Jitendra U: Are you able to launch a notebook?
+
+1104
+02:42:14.970 --> 02:42:18.059
+Jitendra U: So what is the issue after notebook, once you launch the notebook?
+
+1105
+02:42:52.100 --> 02:42:54.840
+Jitendra U: Yeah, somebody would like to show,
+
+1106
+02:42:56.930 --> 02:42:59.169
+Jitendra U: Maybe I can give a presenter right.
+
+1107
+02:44:57.640 --> 02:45:00.430
+Jitendra U: Yeah, can you start?
+
+1108
+02:45:00.970 --> 02:45:04.790
+Jitendra U: Sharing, Shashank, just want to… See the request.
+
+1109
+02:45:05.260 --> 02:45:09.309
+Jitendra U: Can you send me the request for sharing this? Do we see anything?
+
+1110
+02:45:11.010 --> 02:45:13.019
+Jitendra U: I'll give you the presenter ride.
+
+1111
+02:45:37.500 --> 02:45:38.190
+Shashank Sharma: Hello.
+
+1112
+02:45:38.910 --> 02:45:39.620
+Jitendra U: Yeah.
+
+1113
+02:45:40.270 --> 02:45:44.799
+Shashank Sharma: Yeah, I… I can't actually see the… the sharing option.
+
+1114
+02:45:45.690 --> 02:45:46.660
+Jitendra U: Oh, okay.
+
+1115
+02:45:47.770 --> 02:45:53.119
+Jitendra U: Yeah, so this is what, the Enterprise Notebook looks like. So you have to put your files…
+
+1116
+02:45:53.860 --> 02:45:54.650
+Jitendra U: Yeah, right?
+
+1117
+02:45:54.930 --> 02:45:58.690
+Shashank Sharma: My, issue is that, I…
+
+1118
+02:45:59.670 --> 02:46:05.470
+Shashank Sharma: Yeah, I actually, can't see the files in the apps.
+
+1119
+02:46:05.570 --> 02:46:09.269
+Shashank Sharma: Section on the left side.
+
+1120
+02:46:11.130 --> 02:46:19.850
+Shashank Sharma: I see this, I, I shared a screen shot to… just now.
+
+1121
+02:46:20.380 --> 02:46:31.880
+Shashank Sharma: So, on my, on the left-hand side, I see, courses, on AI Studio.
+
+1122
+02:46:32.010 --> 02:46:38.549
+Shashank Sharma: Jen, AI… all these options. I don't know, only CF files and apps.
+
+1123
+02:46:39.580 --> 02:46:44.249
+Jitendra U: No, no, no, you have to go to your first BorkSpace configuration, and then…
+
+1124
+02:46:44.640 --> 02:46:47.199
+Jitendra U: From Workspace, you have to launch it.
+
+1125
+02:46:47.550 --> 02:46:50.490
+Shashank Sharma: Okay, how do I avoid all that?
+
+1126
+02:46:50.490 --> 02:46:55.960
+Jitendra U: Yeah, so… okay, so let's say there are different modules in Bookarium.
+
+1127
+02:46:56.120 --> 02:46:57.179
+Jitendra U: You can see, right.
+
+1128
+02:46:57.180 --> 02:47:00.610
+Shashank Sharma: Yes. Let's say if I'm going to week number 7, Okay.
+
+1129
+02:47:00.610 --> 02:47:03.459
+Jitendra U: Week number 7 talks about configure workspace.
+
+1130
+02:47:06.660 --> 02:47:13.669
+Jitendra U: So, once I click here, I can see the files, apps, and all. So, there are two sort of files, work and,
+
+1131
+02:47:14.310 --> 02:47:21.039
+Jitendra U: the course content. So, this one you cannot modify, but this one work, you can modify. You can upload multiple files here.
+
+1132
+02:47:21.040 --> 02:47:25.750
+Shashank Sharma: Is this in, on settings?
+
+1133
+02:47:27.080 --> 02:47:27.600
+Jitendra U: Contrary.
+
+1134
+02:47:27.600 --> 02:47:28.630
+Shashank Sharma: Different settings.
+
+1135
+02:47:31.170 --> 02:47:39.790
+Shashank Sharma: Okay, I'll share a screenshot, again, I am on week 7… But…
+
+1136
+02:47:39.950 --> 02:47:44.050
+Shashank Sharma: So, I still can't see the options.
+
+1137
+02:47:44.470 --> 02:47:47.440
+Jitendra U: Let me check the student view, if it is having issue.
+
+1138
+02:47:48.390 --> 02:47:52.450
+Jitendra U: Terminals and files, okay, no, strand view is also similar.
+
+1139
+02:47:52.920 --> 02:47:54.800
+Jitendra U: The lab is ready, swing.
+
+1140
+02:47:57.230 --> 02:47:59.359
+Jitendra U: Yeah, Praveen, let me unmute you.
+
+1141
+02:48:02.890 --> 02:48:04.309
+Jitendra U: Yeah, please go ahead.
+
+1142
+02:48:04.730 --> 02:48:09.469
+Praveen Ramkumar: Yeah, so, Sashan, so once you click on that week, right, in your screenshot what you shared.
+
+1143
+02:48:09.840 --> 02:48:10.540
+Shashank Sharma: Yep.
+
+1144
+02:48:10.540 --> 02:48:13.360
+Praveen Ramkumar: So, once you click on that, then it'll open into a new window.
+
+1145
+02:48:14.560 --> 02:48:15.430
+Shashank Sharma: Yes.
+
+1146
+02:48:18.950 --> 02:48:20.240
+Praveen Ramkumar: So from…
+
+1147
+02:48:20.490 --> 02:48:21.280
+Shashank Sharma: No.
+
+1148
+02:48:22.380 --> 02:48:23.360
+Shashank Sharma: Still not…
+
+1149
+02:48:23.790 --> 02:48:26.779
+Praveen Ramkumar: This is the web folder, right? This is what you're asking for.
+
+1150
+02:48:35.630 --> 02:48:37.780
+Praveen Ramkumar: So, ideally, you'll see something like this.
+
+1151
+02:48:39.160 --> 02:48:44.890
+Praveen Ramkumar: When you click on Week 7, on that, the accordion is there, right? So, when you click on that, you'll see something like this.
+
+1152
+02:48:46.080 --> 02:48:48.259
+Praveen Ramkumar: Let me put the screenshot from the chat.
+
+1153
+02:48:51.320 --> 02:48:54.400
+Shashank Sharma: So, you know, week 8, okay? I…
+
+1154
+02:48:54.510 --> 02:48:57.689
+Shashank Sharma: Let me click on the exam and repeat.
+
+1155
+02:48:57.980 --> 02:49:00.589
+Shashank Sharma: But I see files and.
+
+1156
+02:49:00.860 --> 02:49:01.390
+Praveen Ramkumar: 30 minutes.
+
+1157
+02:49:01.390 --> 02:49:03.830
+Shashank Sharma: terminal, yeah.
+
+1158
+02:49:04.120 --> 02:49:09.009
+Praveen Ramkumar: So we click on that file, you can go and we can, like, just click on how the lead generation is.
+
+1159
+02:49:17.550 --> 02:49:18.959
+Shashank Sharma: Okay, okay, huh?
+
+1160
+02:49:21.000 --> 02:49:21.770
+Shashank Sharma: Yeah.
+
+1161
+02:49:23.920 --> 02:49:27.039
+Jitendra U: You can see that I'm able to upload the file in a student view as well.
+
+1162
+02:49:27.280 --> 02:49:35.099
+Jitendra U: The same way you have to do it, so there's an option, once you right-click here, I have an option for new notebook, I and Python notebook.
+
+1163
+02:49:35.570 --> 02:49:43.419
+Jitendra U: I can say eda.inpython notebook, and it will create a notebook for me. I'll create it successfully.
+
+1164
+02:49:43.900 --> 02:49:46.389
+Jitendra U: Now, if I just double-click on this.
+
+1165
+02:49:48.020 --> 02:49:50.590
+Jitendra U: It is asking for my cardinal.
+
+1166
+02:49:51.660 --> 02:49:58.279
+Jitendra U: So I can open the kernel here, and now I can write anything from here, right? Or maybe I can simply dump
+
+1167
+02:49:58.900 --> 02:50:05.200
+Jitendra U: the file that I have shared with you guys, which is current Python 49.
+
+1168
+02:50:07.380 --> 02:50:08.799
+Jitendra U: Okay, let me upload.
+
+1169
+02:50:32.350 --> 02:50:33.920
+Jitendra U: Now I have this file.
+
+1170
+02:50:35.300 --> 02:50:37.299
+Jitendra U: Okay, there's some error to show me.
+
+1171
+02:50:39.290 --> 02:50:41.749
+Jitendra U: Hmm. Now you can see I can run from here.
+
+1172
+02:50:42.200 --> 02:50:43.449
+Jitendra U: Everything is here.
+
+1173
+02:50:45.860 --> 02:50:50.879
+Shashank Sharma: Okay, I think that is,
+
+1174
+02:50:50.880 --> 02:50:57.690
+Jitendra U: So, okay, so there are two things you have to consider. You cannot modify this VOC, vocalium lab
+
+1175
+02:50:58.010 --> 02:51:00.229
+Jitendra U: But you can modify your workspace.
+
+1176
+02:51:01.070 --> 02:51:02.239
+Jitendra U: So… Perfect.
+
+1177
+02:51:02.410 --> 02:51:08.979
+Jitendra U: Yeah, so there are two provisions that you have to work on. One is, you cannot modify this folder, which is locked.
+
+1178
+02:51:09.380 --> 02:51:11.639
+Jitendra U: But work folder, you can able to make it…
+
+1179
+02:51:11.640 --> 02:51:12.800
+Shashank Sharma: That's twice.
+
+1180
+02:51:15.410 --> 02:51:18.290
+Jitendra U: And even with student view, I can do that, you can see, right?
+
+1181
+02:51:22.350 --> 02:51:29.169
+Jitendra U: So, when you are looking for any installation packages, please use Terminal. When you're running any notebook, please use this one.
+
+1182
+02:51:36.760 --> 02:51:38.500
+Shashank Sharma: You got it.
+
+1183
+02:51:39.630 --> 02:51:42.670
+Jitendra U: No, in order to create a file, you can upload the file.
+
+1184
+02:51:43.020 --> 02:51:45.790
+Jitendra U: You can simply say, I need to upload.
+
+1185
+02:51:49.430 --> 02:51:53.450
+Jitendra U: So once you upload the file, then it will ask for a kernel.
+
+1186
+02:52:03.530 --> 02:52:05.609
+Jitendra U: Alright, so,
+
+1187
+02:52:08.650 --> 02:52:15.019
+Jitendra U: So, let's move on. So, the last part of today's tutorial is, we are going to talk about something called k-nearest Neighbor.
+
+1188
+02:52:15.730 --> 02:52:22.670
+Jitendra U: So, I think, this particular algorithm you have seen, from Props editorial, and, that's the reason
+
+1189
+02:52:23.000 --> 02:52:29.709
+Jitendra U: I can see some questions are coming from kNearest and random forest. First, let's try to understand what is k-nearest Neighbor is all about.
+
+1190
+02:52:30.640 --> 02:52:38.170
+Jitendra U: So… K-needest neighbor algorithm, or KNN algorithm, is used for…
+
+1191
+02:52:39.130 --> 02:52:45.980
+Jitendra U: Performing the classification of the nearby data grouping.
+
+1192
+02:52:46.350 --> 02:52:50.529
+Jitendra U: So let's assume that… Let me show you the scenario.
+
+1193
+02:52:52.130 --> 02:52:53.450
+Jitendra U: Let's assume that…
+
+1194
+02:53:09.320 --> 02:53:12.380
+Jitendra U: I desperately need to restart my system, but anyway.
+
+1195
+02:53:12.590 --> 02:53:14.160
+Jitendra U: After the class, I will do that.
+
+1196
+02:53:14.930 --> 02:53:19.250
+Jitendra U: So basically what I'm trying to say is, let me just open this…
+
+1197
+02:53:32.940 --> 02:53:33.890
+Jitendra U: Okay.
+
+1198
+02:53:34.150 --> 02:53:36.119
+Jitendra U: So let's assume that you have got…
+
+1199
+02:53:45.600 --> 02:53:52.150
+Jitendra U: Yeah, please reach out to the Amirias team, and then they will help you. They have a support staff who will help you.
+
+1200
+02:53:52.340 --> 02:53:59.300
+Jitendra U: to set up the Vocarium lab. If you're facing some issue, please reach them to out, and then you can even call them. They will definitely going to help you.
+
+1201
+02:54:05.380 --> 02:54:08.410
+Jitendra U: Okay, so let's assume that I've got data points, like this.
+
+1202
+02:54:21.200 --> 02:54:24.010
+Jitendra U: Okay, so let's assume that I've got data points like this.
+
+1203
+02:54:41.330 --> 02:54:45.270
+Jitendra U: And this is the unknown data point. Let's assume that this is an unknown data point.
+
+1204
+02:54:45.870 --> 02:54:47.789
+Jitendra U: Right, so what Cayman does is…
+
+1205
+02:54:48.020 --> 02:54:57.090
+Jitendra U: It'll try to find out the proximity of the distance from the two data points, which are similar. So it starts with grouping the two data points, which are very similar to each other.
+
+1206
+02:54:57.320 --> 02:55:00.440
+Jitendra U: Like this. So it will create a cluster of these data points.
+
+1207
+02:55:00.810 --> 02:55:02.630
+Jitendra U: Then it will check for the
+
+1208
+02:55:02.950 --> 02:55:09.700
+Jitendra U: Any data point which is similar to this data point, and it will try to move that data point to the
+
+1209
+02:55:09.980 --> 02:55:27.409
+Jitendra U: nearest cluster, that is called intra-cluster, right? Similarly, I would like to move these two circles inside these intra-clusters, right? And these two rectangles inside this. Now, the question is, when I have the unknown data point like this, which does not have any property associated with that.
+
+1210
+02:55:27.470 --> 02:55:37.770
+Jitendra U: So, which cluster it will go towards? So the answer is, it will go to that particular cluster where the distance between the centroid of the two clusters is the minimum.
+
+1211
+02:55:38.130 --> 02:55:47.189
+Jitendra U: And that is what k nearest neighbor does. So k nearest neighbor algorithm is nothing but… it's a kind of an imputational or clustering algorithm.
+
+1212
+02:55:47.690 --> 02:56:03.330
+Jitendra U: Right? So k nearest neighbor is nothing, but it is using a distance criteria to approximate the clusters, right? So, first and foremost thing you have to do is, you have to first use the minimum… sorry, the seed data value to begin with.
+
+1213
+02:56:03.870 --> 02:56:18.560
+Jitendra U: When you start with the seed value, you are going to assume that I have two data points which are similar in nature, right? And then, based upon that similarity, you are going to pair them together. And at the last, you are going to achieve
+
+1214
+02:56:18.780 --> 02:56:31.090
+Jitendra U: the data points which are closest resembling to each other. So, k nearest neighbor or KNN algorithm is nothing but… it's an algorithm which comes under supervised learning approach.
+
+1215
+02:56:31.470 --> 02:56:36.529
+Jitendra U: And, with the help of labels, the data label that you are creating.
+
+1216
+02:56:36.670 --> 02:56:40.329
+Jitendra U: You're going to utilize these algorithms to perform the
+
+1217
+02:56:40.620 --> 02:56:44.860
+Jitendra U: nearest distance, right? So that is the whole idea of k nearest neighbor.
+
+1218
+02:56:45.200 --> 02:56:48.809
+Jitendra U: So, what exactly K-Nearest Neighbor does.
+
+1219
+02:56:49.380 --> 02:56:52.599
+Jitendra U: The first and foremost thing is, you have to initialize the value of K.
+
+1220
+02:56:53.170 --> 02:56:59.140
+Jitendra U: how many cluster centroids that you are going to have. So this depends typically upon your class.
+
+1221
+02:56:59.380 --> 02:57:03.480
+Jitendra U: How many classes you are going to have. For binary classification, you can say it's 2.
+
+1222
+02:57:03.830 --> 02:57:16.399
+Jitendra U: For multi-class classification, you can go for 3, 4, 5, so on and so forth, right? So that depends. That… that K value will decide how many classes you are going to have, how many cluster you are going to formulate.
+
+1223
+02:57:16.980 --> 02:57:20.090
+Jitendra U: Right? So when you have to implement such algorithm.
+
+1224
+02:57:20.540 --> 02:57:26.679
+Jitendra U: It is using two important considerations. One is the similarity of your data point. The second one is
+
+1225
+02:57:26.810 --> 02:57:28.780
+Jitendra U: How well they are separated.
+
+1226
+02:57:32.040 --> 02:57:38.130
+Jitendra U: Right? So basically, how well they are separated is also determined by the K nearest neighbor.
+
+1227
+02:57:38.440 --> 02:57:44.549
+Jitendra U: So, k nearest neighbor is nothing but… it's an algorithm which comes under support learning approach.
+
+1228
+02:57:44.720 --> 02:57:51.590
+Jitendra U: And the purpose of Knearest Neighbor is to ensure that you will have That same data points together.
+
+1229
+02:57:51.770 --> 02:57:53.109
+Jitendra U: In a one cluster.
+
+1230
+02:57:55.360 --> 02:58:00.149
+Jitendra U: Right? So I'll show you a very simple example to fit Knearest neighbor.
+
+1231
+02:58:03.650 --> 02:58:04.940
+Jitendra U: Let me show you.
+
+1232
+02:59:30.710 --> 02:59:36.419
+Jitendra U: Okay, so what I'm going to do is, I would like to create a very simple example to help you to understand a k-nearest neighbor.
+
+1233
+02:59:36.870 --> 02:59:41.559
+Jitendra U: So we'll start with… mirror this.
+
+1234
+03:00:08.190 --> 03:00:12.760
+Jitendra U: Yes, I was… A very simple data set.
+
+1235
+03:00:55.660 --> 03:00:58.459
+Jitendra U: Okay, so my dataset comprises of,
+
+1236
+03:00:59.730 --> 03:01:03.270
+Jitendra U: Maybe some data points, let me just take it.
+
+1237
+03:01:42.960 --> 03:01:47.160
+Jitendra U: Hey guys, I'm Audible, audio to everyone.
+
+1238
+03:01:48.880 --> 03:01:49.780
+Jitendra U: Okay.
+
+1239
+03:02:13.840 --> 03:02:16.029
+Jitendra U: Okay, so these are my data points.
+
+1240
+03:02:16.520 --> 03:02:19.949
+Jitendra U: Now, you can see that I have created a random data point, X and Y.
+
+1241
+03:02:20.080 --> 03:02:25.779
+Jitendra U: And I'm labeling them into two classes, 0 and 1. So I'm saying that this data point belongs to 0 and 1.
+
+1242
+03:02:26.000 --> 03:02:30.059
+Jitendra U: Right? Now, what I'm going to, show you is…
+
+1243
+03:02:30.740 --> 03:02:34.780
+Jitendra U: I would like to show you how to call a k-mean
+
+1244
+03:02:35.390 --> 03:02:42.440
+Jitendra U: algorithm to fit the data points into two different clusters. So you can see that I'm using a scikit-learn module.
+
+1245
+03:02:42.790 --> 03:02:44.629
+Jitendra U: During a neighbor class.
+
+1246
+03:02:44.740 --> 03:02:58.589
+Jitendra U: And from neighbor class, I'm calling kNearest Neighbor, and then I'm zipping my data points X and Y, and then setting up a state parameter. I'm saying that I would like to go with one cluster, one data… one data class.
+
+1247
+03:02:58.830 --> 03:03:15.159
+Jitendra U: And from that particular data class, I would like to utilize the cluster configuration. So let's say, once I train this algorithm, I will create an object, kNearest neighbor, Knn, right, which has been trained on my input data samples, X and Y.
+
+1248
+03:03:15.370 --> 03:03:21.920
+Jitendra U: So once I fit this data sample, and let's say in future, I come across new data points.
+
+1249
+03:03:22.140 --> 03:03:29.640
+Jitendra U: Then I will be able to use this training and try to fit a new data point to the approximate cluster proximity.
+
+1250
+03:03:29.790 --> 03:03:32.879
+Jitendra U: So that's the whole idea of k-mean clustering.
+
+1251
+03:03:33.410 --> 03:03:34.160
+Jitendra U: Right?
+
+1252
+03:03:34.600 --> 03:03:36.350
+Jitendra U: So,
+
+1253
+03:03:37.420 --> 03:03:50.730
+Jitendra U: With that, I think we have completed today's tutorial, guys. So, thank you for attending this session, and there would be a feedback survey after this class. So, I've shared the coding material, but I will upload this into your lab LMS.
+
+1254
+03:03:50.880 --> 03:04:00.920
+Jitendra U: So please make sure that, once you go back, you perform the exercise, and then come back next class. So next class, we are going to start with, some more,
+
+1255
+03:04:01.350 --> 03:04:02.760
+Jitendra U: Interesting topic.
+
+1256
+03:04:02.930 --> 03:04:08.239
+Jitendra U: And we will start… we have completed our EDA, but we will start with some more interesting topic of
+
+1257
+03:04:08.660 --> 03:04:10.259
+Jitendra U: partner with Machine Learning.
+

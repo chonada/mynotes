@@ -1,0 +1,4918 @@
+WEBVTT
+
+1
+00:00:30.550 --> 00:00:33.920
+Jitendra U: Hey guys, good afternoon, good evening.
+
+2
+00:00:34.600 --> 00:00:39.090
+Jitendra U: So I hope you're doing good, and you have a good last weekend.
+
+3
+00:00:40.770 --> 00:00:50.070
+Jitendra U: So, welcome to Week 5 module. So before we start this session, let me see how many students have joined. So, 39 participants.
+
+4
+00:00:50.430 --> 00:00:54.620
+Jitendra U: Alright, so we are good to start. Let me share my screen.
+
+5
+00:00:59.780 --> 00:01:09.019
+Jitendra U: Okay, so let me set up the quickly the agenda for today's tutorial, what we are going to learn, and how the system, the whole structure of this cohort looks like.
+
+6
+00:01:09.580 --> 00:01:18.539
+Jitendra U: So we're going to talk about one important fundamental of programming called SQL, and we will try to understand SQL from
+
+7
+00:01:18.670 --> 00:01:20.800
+Jitendra U: This particular class onwards, right?
+
+8
+00:01:21.200 --> 00:01:32.149
+Jitendra U: So, I hope you have attended Professor Tutorial, and you have came across this particular content. So, any doubt before we start the tutorial? Any questions?
+
+9
+00:01:33.050 --> 00:01:34.469
+Jitendra U: That you would like to ask?
+
+10
+00:01:43.160 --> 00:01:49.979
+Jitendra U: How was the content for SQL? Have you guys attended all the tutorials which has been uploaded in the LMS?
+
+11
+00:01:58.320 --> 00:02:04.360
+Jitendra U: Yeah, math stuff is mostly done. We will revisit some of the leftover concepts, like ANOVA, Rima, as I mentioned.
+
+12
+00:02:04.610 --> 00:02:08.919
+Jitendra U: We will cover, once we start with our… Machine learning journey.
+
+13
+00:02:18.140 --> 00:02:24.200
+Jitendra U: Alright, but apart from that, have you guys got a chance to look into a SQL-based LMS module?
+
+14
+00:02:28.860 --> 00:02:33.139
+Jitendra U: We'll just cover MySQL in this class. RDBMS, NoSQL will be…
+
+15
+00:02:33.260 --> 00:02:35.929
+Jitendra U: Later part of big data technologies.
+
+16
+00:02:36.200 --> 00:02:37.579
+Jitendra U: Not in this class.
+
+17
+00:02:45.750 --> 00:02:47.470
+Jitendra U: Okay, so…
+
+18
+00:02:48.260 --> 00:02:57.510
+Jitendra U: So, okay, so let me ask this question. So when we talk about SQL, how many of you have experience into SQL, and what databases have you used in your project?
+
+19
+00:03:05.780 --> 00:03:07.740
+Jitendra U: S equals snowflake.
+
+20
+00:03:08.630 --> 00:03:16.419
+Jitendra U: RDBMS… Oracle, Teradata, Big Data, MongoDB, no experience.
+
+21
+00:03:17.850 --> 00:03:20.109
+Jitendra U: Okay, snowflake again, okay.
+
+22
+00:03:21.150 --> 00:03:23.519
+Jitendra U: Okay, so I can see mostly you're using…
+
+23
+00:03:24.390 --> 00:03:27.550
+Jitendra U: different versions of SQL and NoSQL databases.
+
+24
+00:03:28.170 --> 00:03:33.980
+Jitendra U: Now, if I have to ask you, how did you compare the NoSQL versus SQL? So what will be your answer?
+
+25
+00:03:35.020 --> 00:03:38.719
+Jitendra U: So, can somebody explain to me what is the difference between NoSQL and SQL?
+
+26
+00:03:53.910 --> 00:04:00.649
+Jitendra U: NoSQL is more flexible, NoSQL is related to schema, NoSQL does not have structure versus non-structure.
+
+27
+00:04:01.350 --> 00:04:04.490
+Jitendra U: Okay… Yeah, so…
+
+28
+00:04:05.240 --> 00:04:13.729
+Jitendra U: I think, you guys are partially correct, but let me explain in a very layman term, when we talk about SQL versus NoSQL.
+
+29
+00:04:14.270 --> 00:04:29.319
+Jitendra U: Both are serving the same purpose, right? We are just mining the data from it as a part of best practices. We are trying to deal with structure versus unstructured data. So you're correct in stating that NoSQL can be able to store and accommodate unstructured data as well, right?
+
+30
+00:04:29.500 --> 00:04:38.449
+Jitendra U: Now, let me… talk about the other aspects of these two paradigms, right? So when you talk about NoSQL,
+
+31
+00:04:38.640 --> 00:04:44.340
+Jitendra U: So, as you can see on my screen, we are talking about something called dynamic schemas.
+
+32
+00:04:44.580 --> 00:04:51.349
+Jitendra U: And fixed schemas, right? So when we talk about dynamic schemas, that means, let's say, you're using some apps.
+
+33
+00:04:51.540 --> 00:04:53.129
+Jitendra U: In your day-to-day project.
+
+34
+00:04:53.490 --> 00:05:02.500
+Jitendra U: And the app will have certain types of attributes which can change dynamically, right? So that means you're trying to look for something which is very suitable for your
+
+35
+00:05:02.890 --> 00:05:05.019
+Jitendra U: Advanced real-time data.
+
+36
+00:05:05.710 --> 00:05:06.560
+Jitendra U: database.
+
+37
+00:05:08.620 --> 00:05:16.290
+Jitendra U: It's just using some sort of feedback mechanism system in your app, so the user can write anything on the top of it.
+
+38
+00:05:16.470 --> 00:05:23.090
+Jitendra U: So basically, you need to handle or require some sort of databases that can be able to store and accumulate
+
+39
+00:05:23.360 --> 00:05:31.390
+Jitendra U: different properties on the top of it, right? So that is where you have to use non-relationship model or non-relation model.
+
+40
+00:05:31.390 --> 00:05:44.040
+Jitendra U: to store such sort of event-driven databases, right? And that's the reason NoSQL is getting more attraction, and it is more demanding as compared to SQL. However, SQL is the core
+
+41
+00:05:44.040 --> 00:05:46.349
+Jitendra U: Idea behind NoSQL, right?
+
+42
+00:05:47.100 --> 00:06:02.289
+Jitendra U: All right, so you can see here, I'm talking about two important properties of NoSQL and versus SQL, which is called vertical scalability and horizontal scalability, right? So when you talk about horizontal versus vertical scalability, we are talking about the compute servers.
+
+43
+00:06:02.510 --> 00:06:08.899
+Jitendra U: to perform, To perform some sort of analysis on the data type, right?
+
+44
+00:06:08.940 --> 00:06:26.359
+Jitendra U: So when you're using a vertical scalable system, that means you are going to utilize certain compute resources and add it to the server-side capacities to perform an add-on, right? So when you talk about horizontal versus vertical, it's nothing but we are adding an additional physical compute.
+
+45
+00:06:27.180 --> 00:06:44.810
+Jitendra U: Right? So, if I'm going to add a physical compute in a particular server-side capability, that means I'm just looking for a scaling-out option. So, horizontal scaling is a scaling out, that means add more machine to a system, distributing the load across them to increase capacity.
+
+46
+00:06:45.120 --> 00:06:48.460
+Jitendra U: While in case of vertical scaling, I'm scaling up
+
+47
+00:06:48.880 --> 00:06:55.040
+Jitendra U: Right? That means I'm adding more resources, like CPU, RAM, or storage to a single machine itself.
+
+48
+00:06:55.340 --> 00:07:01.949
+Jitendra U: So, horizontal scaling is ideal for a high availability and large fluctuating workloads, like web application.
+
+49
+00:07:02.350 --> 00:07:05.399
+Jitendra U: But, it also required a distributed architecture.
+
+50
+00:07:05.560 --> 00:07:13.230
+Jitendra U: On the other hand, vertical scaling is a simple and a good or more elegant way for resource-intensive monolithic application.
+
+51
+00:07:13.450 --> 00:07:19.960
+Jitendra U: with less complex data handling, right? But it has physical limits that create a single point of failure.
+
+52
+00:07:20.300 --> 00:07:22.560
+Jitendra U: Right? So if I have to just give you a…
+
+53
+00:07:22.670 --> 00:07:28.520
+Jitendra U: pictorial representation of the two, this is what I'm talking about. So you can see here.
+
+54
+00:07:28.710 --> 00:07:32.289
+Jitendra U: This is where I'm adding a vertical scalable system.
+
+55
+00:07:32.670 --> 00:07:36.350
+Jitendra U: On the same machine, which is growing, like, vertical.
+
+56
+00:07:36.530 --> 00:07:42.299
+Jitendra U: And horizontal scaling, I'm adding more compute resources in parallel. So this is the complex
+
+57
+00:07:42.930 --> 00:07:47.150
+Jitendra U: or I would say more… more, intensive operation.
+
+58
+00:07:47.260 --> 00:07:48.760
+Jitendra U: As compared to this.
+
+59
+00:07:49.570 --> 00:07:57.069
+Jitendra U: Right? So you can say here, see here, NoSQL required horizontal scalability, but SQL required vertical scalability.
+
+60
+00:07:57.450 --> 00:08:04.320
+Jitendra U: The most important aspect is it is not suited for hierarchical data storage. Now, what do you mean by hierarchical data storage?
+
+61
+00:08:04.770 --> 00:08:12.339
+Jitendra U: So, data storage where I required some relationship entities to be maintained throughout my program.
+
+62
+00:08:12.670 --> 00:08:18.920
+Jitendra U: let's say, customer interest. Customer… Past orders…
+
+63
+00:08:19.030 --> 00:08:24.990
+Jitendra U: Right? So all this data comes under hierarchical data storage. That means I required some way to store.
+
+64
+00:08:25.180 --> 00:08:33.919
+Jitendra U: the data in some form and shape. So that is where I require the heuristics or data storage to perform some sort of hierarchies on the top of it.
+
+65
+00:08:34.409 --> 00:08:36.550
+Jitendra U: Yeah, just like a networking concept.
+
+66
+00:08:37.140 --> 00:08:45.959
+Jitendra U: On the other hand, if I can use the hierarchical data storage on NoSQL, right? And that's why you required some way of
+
+67
+00:08:46.070 --> 00:08:49.120
+Jitendra U: Creating an indexes on the top of it.
+
+68
+00:08:49.530 --> 00:09:01.199
+Jitendra U: And that's the whole idea, when you're trying to scale your system with using a structured data, you require the indexes on the top of your rows and columns, specifically on columns, right, not on rows.
+
+69
+00:09:01.510 --> 00:09:04.270
+Jitendra U: But here, you do not require such thing.
+
+70
+00:09:04.720 --> 00:09:19.539
+Jitendra U: So that's the reason MongoDB, RavinDB, LightDB, ChromaDB, and that there are a lot of other types of databases that will able to perform a row-wise operation instead of column-wise operation. And that's why it is much, much powerful than
+
+71
+00:09:19.700 --> 00:09:37.120
+Jitendra U: any other types of SQL-based data, right? Be it Oracle, be it, be it, let's say, the schemas that you had designed earlier using SQL, so that you can be able to replace with the help of these.
+
+72
+00:09:37.280 --> 00:09:43.530
+Jitendra U: Now, the most important question is, if I have to ask you guys, are these two…
+
+73
+00:09:44.020 --> 00:09:47.249
+Jitendra U: types of SQL following asset operation.
+
+74
+00:09:47.390 --> 00:09:50.779
+Jitendra U: So what will be your answer? And what is asset operation?
+
+75
+00:09:52.240 --> 00:09:53.510
+Jitendra U: ACID.
+
+76
+00:10:01.920 --> 00:10:02.860
+Jitendra U: Okay.
+
+77
+00:10:03.010 --> 00:10:05.209
+Jitendra U: RDMS follow assert, okay?
+
+78
+00:10:05.870 --> 00:10:09.280
+Jitendra U: Yeah, that's the right answer, RDBMS follow asset. So…
+
+79
+00:10:10.170 --> 00:10:13.149
+Jitendra U: Okay, so when you say about asset operation.
+
+80
+00:10:15.110 --> 00:10:22.579
+Jitendra U: Right? So… so can somebody explain to me what is acid first? Atomicity, consistency, integrity, and durability, okay?
+
+81
+00:10:23.130 --> 00:10:27.980
+Jitendra U: But what are these… all four… Subcategory talks about.
+
+82
+00:10:39.300 --> 00:10:40.980
+Jitendra U: So what is consistency?
+
+83
+00:10:50.540 --> 00:10:52.750
+Jitendra U: Okay, let me explain this.
+
+84
+00:10:54.300 --> 00:11:01.910
+Jitendra U: So, basically, we are talking about acid operation, right? So, acid means, we already… let me quickly put up my slide.
+
+85
+00:11:09.500 --> 00:11:13.749
+Jitendra U: Okay, so here we are talking about acid operation, and this is what the acid operation looks like.
+
+86
+00:11:14.450 --> 00:11:15.370
+Jitendra U: Nope.
+
+87
+00:11:15.630 --> 00:11:29.539
+Jitendra U: Okay, so let me explain this in a more layman term. So when we talk about asset operation, right, so asset stands for atomicity, consistency, isolation, and durability. And it is a fine… kind of a…
+
+88
+00:11:29.810 --> 00:11:39.259
+Jitendra U: specialized operation, or when you're dealing with RDBMS, or Relation Database Management System, right? Like SQL Server, MySQL, or Postgres.
+
+89
+00:11:39.720 --> 00:11:50.339
+Jitendra U: So, in a nutshell, when you're talking about atomicity, right, so it dictates that a transition must be treated as a single unit of a work. That means it
+
+90
+00:11:50.900 --> 00:11:52.670
+Jitendra U: It will have certain…
+
+91
+00:11:52.950 --> 00:12:12.820
+Jitendra U: visibility and certain key aspects, including implementation strategies, right? So let's say you would like to create a database system that achieves high atomicity through transaction log, which record every changes. So if a transaction fails, the log is used to undo any partial changes. That means you should have a rollback
+
+92
+00:12:13.070 --> 00:12:23.160
+Jitendra U: operation sustainable on this particular principle. That means you can be able to perform insert, update, delete, commit, and rollback.
+
+93
+00:12:23.700 --> 00:12:38.119
+Jitendra U: Right? So you have to begin and end somewhere, right? So that means this operation should be atomic in nature. Consistency, on the other hand, that will ensure that you are going to have a transaction move the data from one valid state to another.
+
+94
+00:12:38.440 --> 00:12:44.090
+Jitendra U: So, this particular operation will involve that a database is enforcing rules like unique
+
+95
+00:12:44.210 --> 00:12:47.210
+Jitendra U: Key constraint, which is primary key constraint.
+
+96
+00:12:47.410 --> 00:12:56.859
+Jitendra U: foreign key constraint to maintain data integrity. And if a transaction system validates these rules, that means you should throw an exception.
+
+97
+00:12:57.670 --> 00:13:05.660
+Jitendra U: Right? So let's, for example, if a rule required, let's say I'm maintaining an employee record, and a rule says in my databases that an employee
+
+98
+00:13:05.780 --> 00:13:08.129
+Jitendra U: Department ID should exist.
+
+99
+00:13:08.720 --> 00:13:16.499
+Jitendra U: In all scenarios, that means it cannot be a non… it cannot be a null, right? So I'm maintaining a consistency in that particular column.
+
+100
+00:13:17.200 --> 00:13:24.430
+Jitendra U: The third type of… Rule, or so-called property of acid is isolation.
+
+101
+00:13:24.670 --> 00:13:35.220
+Jitendra U: So, isolation guarantee that the concurrent transaction does not interfere with each other. That means you're making each transaction appear if it is only one.
+
+102
+00:13:35.400 --> 00:13:36.570
+Jitendra U: on running.
+
+103
+00:13:36.920 --> 00:13:45.369
+Jitendra U: So, the purpose of this is, let's say you're trying to create an update on the same table simultaneously, on the same number of records.
+
+104
+00:13:45.590 --> 00:13:50.550
+Jitendra U: So, one of the records should have… Wait until…
+
+105
+00:13:51.110 --> 00:14:00.250
+Jitendra U: this particular transaction commit. That means there should be a deadlock condition, right? So you should not allow two operations to be performed simultaneously.
+
+106
+00:14:00.440 --> 00:14:04.570
+Jitendra U: So, isolation means you are going to allow read commit data
+
+107
+00:14:05.250 --> 00:14:08.120
+Jitendra U: And preventing any dirty reads, right?
+
+108
+00:14:08.880 --> 00:14:14.030
+Jitendra U: Similarly, durability means your transaction… once your transaction has been committed.
+
+109
+00:14:14.130 --> 00:14:22.900
+Jitendra U: it changes our permanent serving system failure, right? So that means you're going to have a… Record.
+
+110
+00:14:23.010 --> 00:14:27.370
+Jitendra U: In the system, once you commit, that means you're not going to
+
+111
+00:14:27.480 --> 00:14:32.400
+Jitendra U: allow your system to have any loss of data. So that means it is more durable.
+
+112
+00:14:32.720 --> 00:14:41.760
+Jitendra U: And with this whole four fundamental principle, you're getting more and more sophisticated SQL databases.
+
+113
+00:14:42.070 --> 00:14:43.350
+Jitendra U: Right?
+
+114
+00:14:43.450 --> 00:14:57.160
+Jitendra U: Okay, now, coming back to the original content, right, that we are learning, that we are comparing is NoSQL. So, how the NoSQL databases is different for this particular operation.
+
+115
+00:14:57.160 --> 00:15:06.479
+Jitendra U: Now, as I mentioned, NoSQL databases, right? NoSQL databases. We have different types of NoSQL that has been used in industry, so…
+
+116
+00:15:06.680 --> 00:15:08.729
+Jitendra U: If I'm just looking for…
+
+117
+00:15:09.160 --> 00:15:21.140
+Jitendra U: cloud variations, I have a lot of other type of NoSQL databases in cloud. Some of the favorite would be, like, Google BigQuery, right? There's something called
+
+118
+00:15:22.060 --> 00:15:29.609
+Jitendra U: Azure Cognitive Services, right, or Azure Databrick instances, where I'm heavily using NoSQL databases.
+
+119
+00:15:29.870 --> 00:15:49.190
+Jitendra U: There are a lot of other Amazon-based databases, like Amazon Bedrock use some… their own way of writing the queries, and then stuff like that. And then you have, of course, MongoDB, Cassandra, and Hive, etc. So these are all important databases, which is using NoSQL databases.
+
+120
+00:15:49.390 --> 00:15:51.289
+Jitendra U: Now, let me list down what are the…
+
+121
+00:15:51.360 --> 00:15:59.120
+Jitendra U: databases available, right? So if I have to just list down the databases and, based upon certain
+
+122
+00:15:59.120 --> 00:16:14.390
+Jitendra U: examples, like, why we require certain types of databases, and how can we be able to get benefit out of it. So, there are different types of databases, but I would like to show you some of them. So these are the type of databases that is available in
+
+123
+00:16:14.410 --> 00:16:16.039
+Jitendra U: in the industry.
+
+124
+00:16:16.120 --> 00:16:30.010
+Jitendra U: And these databases can be very, very useful for performing different complex tasks. As I mentioned, you have different categories of databases, as you can see on the screen, but if I have to generalize the category of these databases into
+
+125
+00:16:30.120 --> 00:16:32.300
+Jitendra U: 2 quadrant or four quadrant.
+
+126
+00:16:32.480 --> 00:16:37.240
+Jitendra U: Then it will look like this. So let's say if I'm going to talk about… I would like to store
+
+127
+00:16:38.200 --> 00:16:55.740
+Jitendra U: a PDF document into my memory, right? So, I would definitely like to use something in this particular quadrant, Q1, right? So I have something called CouchDB, MongoDB, which are very great in terms of storing the document and performing the analysis on the top of it.
+
+128
+00:16:55.900 --> 00:17:03.990
+Jitendra U: If I'm going to look for graph-based TVs, like, your Google Maps, right, so I can use Neo 4J for that purposes.
+
+129
+00:17:04.200 --> 00:17:13.780
+Jitendra U: So, if I have to create a map or anything which is more… depends upon the geolocations and recent events, which is there in the app.
+
+130
+00:17:13.930 --> 00:17:17.329
+Jitendra U: I can go for Neo 4G, or Infinite Crafts.
+
+131
+00:17:17.740 --> 00:17:28.410
+Jitendra U: When I'm trying to store columns, that means for caching purposes, I have these types of databases. Ritis is one of the famous, DynamoDB is another, and then I can be able to use this.
+
+132
+00:17:28.410 --> 00:17:38.890
+Jitendra U: If I'm going to use key-value databases, I have HatchBase, Cassandra, Accumulo, Amazon SimpleDB, etc. So these are all databases which is very, very useful.
+
+133
+00:17:38.890 --> 00:17:43.810
+Jitendra U: We're performing several operations on a real-time basis.
+
+134
+00:17:44.040 --> 00:17:51.540
+Jitendra U: Right? So this is what I'm going to, I mean, this is what you're going to have as a part of this discussion.
+
+135
+00:17:54.540 --> 00:18:07.039
+Jitendra U: Right? Now, there are different other types of use cases in machine learning, right? So when you talk about more, more different types of use cases in machine learning, so I would like to talk about this part as well.
+
+136
+00:18:07.260 --> 00:18:19.619
+Jitendra U: Now, when you talk about more about, let's say, I would like to perform a time series analysis. I would like to perform some policies on the top of it. Let's say I'm performing some analysis on financial domain corpus.
+
+137
+00:18:20.340 --> 00:18:22.749
+Jitendra U: And, I need some more…
+
+138
+00:18:24.640 --> 00:18:38.530
+Jitendra U: typical databases which can be able to return the policies on the databases, or some sort of layman rules on my time series databases. So I can use these types of data, like KDB is there, InfluxDB is there, Prometheus is there.
+
+139
+00:18:38.530 --> 00:18:48.989
+Jitendra U: Prometheus is one of the databases which is going to be used for different, monitoring purposes as well, so that's become a time series database, because you have a timestamp of failure, etc.
+
+140
+00:18:49.200 --> 00:19:08.560
+Jitendra U: Then you have something called TD Engine, M3DB, right? So all these databases are very, very important for performing the time series analysis on the data point. Key value data, we already covered that these are the types of databases that you're going to have in terms of persistent caching. Persistent caching means
+
+141
+00:19:08.930 --> 00:19:24.840
+Jitendra U: Let's say you have an event queue. You're taking some order from some app, and each event queue will have certain sequence, so… so you're going to deliver the order based upon the time associated with the order ID. And then, based upon that particular type of
+
+142
+00:19:25.170 --> 00:19:31.350
+Jitendra U: Event, you're going to… Positioning your data into an event queue.
+
+143
+00:19:31.500 --> 00:19:36.789
+Jitendra U: So that is where the event value databases will be very, very useful for performing this analysis.
+
+144
+00:19:37.020 --> 00:19:47.800
+Jitendra U: Then you have object storage, or object-oriented databases, like ZoopKeeper, or ObjectDB, or Caching by DB40, right? So these are all very, very important.
+
+145
+00:19:47.990 --> 00:19:59.450
+Jitendra U: When you talk about document-based databases, you have MongoDB as one of the preferred choice, Elasticsearch for website designs, and so on and so forth, like Cosmos DB or CouchDB.
+
+146
+00:19:59.930 --> 00:20:05.470
+Jitendra U: Similarly, when you're looking for spatial databases, like typological-based analysis.
+
+147
+00:20:05.750 --> 00:20:13.669
+Jitendra U: I would like to perform some sort of typical column-wise indexing on my data, then I will prefer these sort of databases.
+
+148
+00:20:13.870 --> 00:20:30.010
+Jitendra U: GraphDBs, as I mentioned, is very, very useful when you're having a relationship stored in the form of a graph. That means you're following the property of a graph to store the data. And for that, you have these many options, even Microsoft Azure, Neptune, Amazon Neptune.
+
+149
+00:20:30.180 --> 00:20:38.610
+Jitendra U: Radis Graph, TitanDB, and Neo4Js is more important, right? So these databases are very, very important.
+
+150
+00:20:39.770 --> 00:20:54.099
+Jitendra U: All right, so with this analysis in mind, what we are going to do next is, we would like to start with the basics of NoSQL, right? So, basics of NoSQL means we will start working on SQL databases for NoSQL databases.
+
+151
+00:20:54.140 --> 00:21:00.329
+Jitendra U: And we will understand, with some example, how to perform the basic operation on the top of it.
+
+152
+00:21:00.590 --> 00:21:02.780
+Jitendra U: So, this is week number 5.
+
+153
+00:21:02.940 --> 00:21:11.549
+Jitendra U: programming fundamental for machine learning, and then we are going to start with NoSQL databases. So, any question before we start this session? Any doubt?
+
+154
+00:21:21.420 --> 00:21:25.419
+Jitendra U: Alright, I can see there's no question. So let's begin with this.
+
+155
+00:21:26.420 --> 00:21:33.110
+Jitendra U: Okay, so what we are going to do next is, we are going to use… the NoSQL databases…
+
+156
+00:21:33.410 --> 00:21:36.599
+Jitendra U: And I'm going to use the collab notebook for that purpose.
+
+157
+00:21:36.840 --> 00:21:44.619
+Jitendra U: And, we're going to start with something basic, right? So let's start with something basic, and then try to understand the…
+
+158
+00:21:45.600 --> 00:21:54.710
+Jitendra U: crux of this whole analysis, and then we will try to use some examples. So, first and the foremost thing, I would like to show you the data that I'm going to use in this particular class.
+
+159
+00:21:54.970 --> 00:22:01.120
+Jitendra U: And this data is very important. This data belongs to… A retail segment use case.
+
+160
+00:22:01.380 --> 00:22:07.509
+Jitendra U: And in retail segment use case, you can see I have a list of orders, right? I have an order.
+
+161
+00:22:07.860 --> 00:22:12.280
+Jitendra U: And the order talks about certain…
+
+162
+00:22:12.470 --> 00:22:14.919
+Jitendra U: Stock code, which is the product code.
+
+163
+00:22:15.100 --> 00:22:17.399
+Jitendra U: And then I have got a series of
+
+164
+00:22:17.630 --> 00:22:23.469
+Jitendra U: other attributes on data, right? So you can see I have a description, I have a quantity order.
+
+165
+00:22:23.850 --> 00:22:28.650
+Jitendra U: And then I have invoice, generated details, the unit price.
+
+166
+00:22:29.030 --> 00:22:33.160
+Jitendra U: So if they are bulk orders, then I would just multiply this with…
+
+167
+00:22:33.620 --> 00:22:47.939
+Jitendra U: the same, and to generate the order value. The customer ID, the customer who has ordered this, and the country from which they had ordered, right? So it's like, I'm using this particular retail-specific data set to perform some analysis on the top of it.
+
+168
+00:22:48.770 --> 00:23:07.900
+Jitendra U: All right, so what we are going to do next is we will use this Colab environment to run this, though it's free, so you just need to Google and then start using it. Just, yeah, you need to have your own Gmail account, that's the bare minimum. Okay, so we will start with, Colab, sorry, we will start with the,
+
+169
+00:23:08.130 --> 00:23:14.389
+Jitendra U: tutorial on SQL. So, the first and foremost thing that I'm going to do is to install this.
+
+170
+00:23:14.940 --> 00:23:27.449
+Jitendra U: Right, so when I'm trying to install this SQL, I would like to use SQLite 3, right? So first, I would like to check if I'm having a SQLite 3 in my system or not.
+
+171
+00:23:27.660 --> 00:23:29.190
+Jitendra U: So I'm going to import…
+
+172
+00:23:32.810 --> 00:23:40.760
+Jitendra U: I'm going to import pandas… I'm going to import SQLite.
+
+173
+00:23:57.620 --> 00:24:02.860
+Jitendra U: And finally… I also like to import NumPy.
+
+174
+00:24:09.600 --> 00:24:13.520
+Jitendra U: Okay, so I have a SQLite, so this is the database that I'm talking about.
+
+175
+00:24:13.640 --> 00:24:17.289
+Jitendra U: Now, if I just take a help on understanding what is SQLite.
+
+176
+00:24:17.530 --> 00:24:27.029
+Jitendra U: So you can see this is what SQLite package talks about. So SQLite is a package which you can be able to use for creating database operation on the
+
+177
+00:24:27.490 --> 00:24:35.380
+Jitendra U: different, sort of use cases. Now, the question is, why we required to do everything in Python?
+
+178
+00:24:36.050 --> 00:24:52.140
+Jitendra U: why we can't do this analysis in some SQL databases, right? So, we are still doing everything in databases, but with a Python interface, right? The reason for this is we can able to perform this operation directly on Notebook.
+
+179
+00:24:52.810 --> 00:25:04.429
+Jitendra U: Right? Because you cannot write functions and classes on databases. You can create stored procedures, some DML operation you can perform, you can write some
+
+180
+00:25:05.070 --> 00:25:09.349
+Jitendra U: Triggers and other conditions on databases, but you cannot create
+
+181
+00:25:09.990 --> 00:25:18.029
+Jitendra U: the object-orient programming way of writing the code in SQL databases. So, to make a single point of interface, we are using this.
+
+182
+00:25:18.240 --> 00:25:34.499
+Jitendra U: concept. So, first and foremost thing, I would… what I'm trying to do is, I would like to import these packages, and then I would like to load the data that I just showed to you, which is a retail-specific data set. Now, to make sure that this operation will be performed.
+
+183
+00:25:42.030 --> 00:25:49.389
+Jitendra U: So, let me create a connection. So, I would like to create a connection now. So, I'm saying I would like to create a connection.
+
+184
+00:25:50.180 --> 00:25:51.770
+Jitendra U: in-memory connection.
+
+185
+00:25:51.890 --> 00:26:04.240
+Jitendra U: So I'm just creating a connection DB string. This is an object. What is the type of object here? The object type is SQLite. So I'm using a SQLite class to construct this object.
+
+186
+00:26:04.350 --> 00:26:18.739
+Jitendra U: And from this object, what I did is I created a connection in memory connection, right? So I just managed to get these three packages import, and then I'm creating a connection. Now, let me put up the file that I just showed to you in my…
+
+187
+00:26:18.900 --> 00:26:21.750
+Jitendra U: It's already there, but let me copy the path.
+
+188
+00:26:22.100 --> 00:26:33.729
+Jitendra U: Because anyway, I'm going to read this file, and this file is similar to what we have shown in the Excel earlier. So this file is the same file, 46431 entries, rows, right?
+
+189
+00:26:33.830 --> 00:26:43.340
+Jitendra U: So I'm going to use this file to perform some in-memory operation. So for doing this, I would like to load the sample retail data that we have created
+
+190
+00:26:43.510 --> 00:26:50.030
+Jitendra U: And I would like to check the first few columns after loading that data into memory.
+
+191
+00:26:50.130 --> 00:27:02.220
+Jitendra U: So here you can see that I'm using a best practice of writing the code. Always follow the best practice. So I'm using a try and catch block to write this code. So I'm saying that if my…
+
+192
+00:27:02.800 --> 00:27:09.450
+Jitendra U: if my data is available in the particular designated folder, I can replace this with a
+
+193
+00:27:09.700 --> 00:27:12.290
+Jitendra U: pull path, I will say this is my path.
+
+194
+00:27:12.940 --> 00:27:14.910
+Jitendra U: Let me go back to this…
+
+195
+00:27:16.650 --> 00:27:19.849
+Jitendra U: Let me copy this path. Okay, so I'm copying this path.
+
+196
+00:27:20.710 --> 00:27:23.290
+Jitendra U: So I would like to replace this file.
+
+197
+00:27:24.750 --> 00:27:26.780
+Jitendra U: like this, and I've put a…
+
+198
+00:27:26.920 --> 00:27:45.249
+Jitendra U: a raw data string here. So I would like to check if the data has been uploaded here, then I would like to print the length of the rows. If it is not uploaded properly, that means there's some issue with my file, or the file is not present, then I will create some data by my own, some synthetic data.
+
+199
+00:27:45.430 --> 00:27:52.369
+Jitendra U: So, instead of creating a synthetic data, I will try to load the existing data in memory, and then see what is the output.
+
+200
+00:27:53.030 --> 00:27:54.500
+Jitendra U: Let me run this cell.
+
+201
+00:28:02.240 --> 00:28:08.359
+Jitendra U: Okay, so let me… This has to change…
+
+202
+00:28:12.400 --> 00:28:13.770
+Jitendra U: I'm gonna delete this.
+
+203
+00:29:01.980 --> 00:29:07.579
+Jitendra U: Okay, so it's loaded, so I haven't been able to load this data. Now, what I'm going to do is, I would like to check…
+
+204
+00:29:08.320 --> 00:29:16.720
+Jitendra U: I would like to create a data frame, right? So I've created this, data now, so I would like to convert this data into a data frame. So I would like to add
+
+205
+00:29:16.890 --> 00:29:18.580
+Jitendra U: Two more conditions to it.
+
+206
+00:29:34.850 --> 00:29:38.129
+Jitendra U: So, I would like to add data frame is equals to…
+
+207
+00:29:39.250 --> 00:29:43.470
+Jitendra U: P.data frame, sample data, and then I would like to print.
+
+208
+00:29:53.880 --> 00:30:00.159
+Jitendra U: created… length of… This data frame.
+
+209
+00:30:00.800 --> 00:30:03.369
+Jitendra U: That means the number of rows in my data.
+
+210
+00:30:04.530 --> 00:30:12.980
+Jitendra U: And I will simply print rows of sample… data in SQL Server.
+
+211
+00:30:15.140 --> 00:30:16.669
+Jitendra U: Let me do that.
+
+212
+00:30:16.910 --> 00:30:25.030
+Jitendra U: So I've got 4,000… 46,000… rows, 431, somewhere around close to 46,000 rows that I'm having.
+
+213
+00:30:25.570 --> 00:30:28.489
+Jitendra U: Alright, so this is where I'm having the data now.
+
+214
+00:30:28.680 --> 00:30:38.310
+Jitendra U: Now, I would like to register my data into SQLite. So this is just, I created a data frame. This is Panda's data frame that I created. Now, I would like to store this data back to SQL Server.
+
+215
+00:30:38.580 --> 00:30:43.080
+Jitendra U: So remember, I installed and then I imported that particular package?
+
+216
+00:30:43.430 --> 00:30:46.320
+Jitendra U: So, for doing so, what I'm going to do now is…
+
+217
+00:30:48.870 --> 00:30:51.000
+Jitendra U: what I'm going to do next is,
+
+218
+00:30:51.620 --> 00:30:53.719
+Jitendra U: I would like to store this data.
+
+219
+00:30:54.220 --> 00:30:55.410
+Jitendra U: In memory.
+
+220
+00:30:55.800 --> 00:31:00.899
+Jitendra U: So this is how the data loaded into SQLite databases. So this is what it looks like.
+
+221
+00:31:01.370 --> 00:31:05.309
+Jitendra U: Now, I would like to create and select the…
+
+222
+00:31:05.870 --> 00:31:14.379
+Jitendra U: some of the basic operation. Let's say I would like to retrieve data from table, and this is the most important and the most fundamental SQL command.
+
+223
+00:31:14.580 --> 00:31:20.170
+Jitendra U: that you can use, like, select column from table, right? So I hope you're familiar with at least select command.
+
+224
+00:31:20.310 --> 00:31:34.370
+Jitendra U: So I would like to show you certain foundational command, but that means I'm able to upload the data into SQL now. Now I'm ready to use SQL on this data frame. So this is no longer a Python data frame, but it's a SQL data frame now.
+
+225
+00:31:34.810 --> 00:31:46.880
+Jitendra U: Right, so to perform this analysis, the first and foremost thing I would like to show you is how to perform a select operation, or a basic operation on your data. So the first and foremost operation that I would like to perform is…
+
+226
+00:31:47.060 --> 00:31:48.369
+Jitendra U: I would like to check.
+
+227
+00:31:50.950 --> 00:31:52.830
+Jitendra U: How many columns are there?
+
+228
+00:31:53.110 --> 00:32:06.669
+Jitendra U: So, you can see here, I'm just using a very foundational, query. I'm just saying I would like to perform a select statement on columns from table. So, I've created a table here, right? So this table is having
+
+229
+00:32:08.040 --> 00:32:18.039
+Jitendra U: loaded into SQLite databases, and then what I'm trying to do is, I'm just trying to extract all the columns. And the first query that I'm doing is selecting the first
+
+230
+00:32:18.420 --> 00:32:21.540
+Jitendra U: 5 rows from retail data.
+
+231
+00:32:21.730 --> 00:32:25.219
+Jitendra U: And then printing that particular data in my…
+
+232
+00:32:25.330 --> 00:32:28.559
+Jitendra U: Python console. So this is the basic syntax that I'm following.
+
+233
+00:32:28.780 --> 00:32:33.590
+Jitendra U: And after that, I'm getting this output as a query, right? So this is what the output looks like.
+
+234
+00:32:33.830 --> 00:32:38.040
+Jitendra U: So the output is, I'm getting the first 5 rows on my…
+
+235
+00:32:38.140 --> 00:32:50.610
+Jitendra U: console here, right? So, you can see here, I'm not using a Python function, but I'm using a syntax using a database query. So, I'm saying that my query is select a strict from SQL,
+
+236
+00:32:50.830 --> 00:32:55.420
+Jitendra U: table, which is retail data, limit by 5. That means it will allow me to…
+
+237
+00:32:55.670 --> 00:32:58.419
+Jitendra U: Show only the first 5 rows.
+
+238
+00:32:58.600 --> 00:33:04.720
+Jitendra U: from my database, right? And then I'm creating… the query connection.
+
+239
+00:33:05.590 --> 00:33:07.510
+Jitendra U: And then running this query.
+
+240
+00:33:07.690 --> 00:33:13.780
+Jitendra U: on the top of it. So I'm creating a query connection, right? So I'm saying I would like to store this result.
+
+241
+00:33:13.910 --> 00:33:18.750
+Jitendra U: Whatever this query execution return after connecting it to a database.
+
+242
+00:33:19.210 --> 00:33:24.659
+Jitendra U: So here you can see that I'm getting the first 5 rows, right? So these are the columns, typically.
+
+243
+00:33:28.540 --> 00:33:32.389
+Jitendra U: Okay, what type of data… yeah, we'll come to this.
+
+244
+00:33:33.320 --> 00:33:53.040
+Jitendra U: Okay, now I would like to, let's say, select only specific columns, right? So I would like to select only specific columns. So if I have to just select a specific column, I can do another way of writing the query, same query, right? So if I'm going to just select only very few types of columns, right? Let's say I would like to select
+
+245
+00:33:53.130 --> 00:34:06.420
+Jitendra U: Invoice, description, quantity, unit price. I can pass on these criterias here, and then run this query to perform this analysis. So if I'm going to perform this analysis, I can just get the selected columns.
+
+246
+00:34:07.910 --> 00:34:18.290
+Jitendra U: Now, let's say I would like to perform some more analysis on the top of it. Let's say, I would like to perform some feature engineering on my columns. So I'm saying that I would like to find it out.
+
+247
+00:34:18.540 --> 00:34:25.649
+Jitendra U: the quantity sold and unit price as a total bill value, right? Total value of a bill.
+
+248
+00:34:26.030 --> 00:34:35.459
+Jitendra U: So I would like to perform some mathematical function or analysis on the top of my existing columns, right? So I would like to create a new feature called Total Value.
+
+249
+00:34:35.570 --> 00:34:38.769
+Jitendra U: So I can be able to do this with the help of the same…
+
+250
+00:34:39.030 --> 00:34:47.030
+Jitendra U: data set that I just stored in SQL. And instead of just doing this analysis.
+
+251
+00:34:47.480 --> 00:34:53.649
+Jitendra U: I can say, via query, I can write this over-analysis by saying I would like to perform
+
+252
+00:34:54.170 --> 00:35:13.459
+Jitendra U: the multiplication on quantity sold versus unit price as a total value, and that value will be my bill value, right? So this will return me an output as a bill value, total value. That value I'm going to use for certain analysis, like, I would like to find it out, what are the top customers, who's generating
+
+253
+00:35:13.800 --> 00:35:17.620
+Jitendra U: more profit for me. How many customers are…
+
+254
+00:35:18.330 --> 00:35:25.969
+Jitendra U: average spenders versus high spenders, right? So they can able to spend… I can able to increase their, their…
+
+255
+00:35:26.560 --> 00:35:35.960
+Jitendra U: appetite, or let's say, I would like to increase, or give some more recommendation on a certain product which they like, based upon their average revenue.
+
+256
+00:35:36.060 --> 00:35:52.660
+Jitendra U: or average bill that they have generated for the past month, right? So that is where I can be able to perform this whole analysis. Now, the most important and the basic operation that you always do in XSQL is where operation, right? So you would like to filter data based upon certain condition.
+
+257
+00:35:53.190 --> 00:35:59.960
+Jitendra U: Now, if you have to just, consider… assume…
+
+258
+00:36:02.880 --> 00:36:06.080
+Jitendra U: Simple exam aware statement. Let me write down.
+
+259
+00:36:39.410 --> 00:36:41.629
+Jitendra U: One second, I think it's got stuck.
+
+260
+00:37:40.140 --> 00:37:44.810
+Jitendra U: Okay, so I have to rerun this, but I will use my existing… Encode.
+
+261
+00:38:12.700 --> 00:38:17.860
+Jitendra U: Okay, so we're talking about wear filter criteria, so I would like to show you a simple wear clause.
+
+262
+00:38:35.610 --> 00:38:39.289
+Jitendra U: Okay, so you can see the syntax here. I would like to print…
+
+263
+00:38:39.430 --> 00:38:45.260
+Jitendra U: certain rows based upon some condition, right? So I'm the basic syntax for VR is.
+
+264
+00:38:45.420 --> 00:38:49.090
+Jitendra U: You're going to select a column, that means it's a columnar operation.
+
+265
+00:38:49.360 --> 00:39:02.029
+Jitendra U: from table, where condition will be implemented, right? So, we will understand the sequence of this operation, and then based upon the sequence of this operation, you can see I'm just employing a condition here. The condition here, I'm saying.
+
+266
+00:39:02.210 --> 00:39:08.559
+Jitendra U: I would like to find out the details of customer past purchase based upon these four attributes.
+
+267
+00:39:09.140 --> 00:39:12.000
+Jitendra U: on the country of origin as France.
+
+268
+00:39:12.510 --> 00:39:14.420
+Jitendra U: So I would like to just focus on…
+
+269
+00:39:14.590 --> 00:39:23.530
+Jitendra U: one country, specific country, France, and I would like to query it. So here, once I query this data, you can see I'm getting 8,500 and…
+
+270
+00:39:23.800 --> 00:39:25.349
+Jitendra U: 57 result.
+
+271
+00:39:25.910 --> 00:39:28.080
+Jitendra U: Out of 45,000
+
+272
+00:39:28.330 --> 00:39:33.910
+Jitendra U: rows that I'm having, right? So that means it is trying to filter the data based upon the condition.
+
+273
+00:39:34.080 --> 00:39:39.099
+Jitendra U: Right? I can also perform the condition
+
+274
+00:39:39.760 --> 00:39:46.189
+Jitendra U: on numerical operation. So I would like to, let's say, find it out a unit price, right, instead of…
+
+275
+00:39:46.310 --> 00:39:59.729
+Jitendra U: string, I can pass a numerical column. I would like to say, I would like to find it out. The list of customer where the quantity they have purchased is greater than 7, right? I can get the list of these customers. I can change this to
+
+276
+00:39:59.900 --> 00:40:10.780
+Jitendra U: even 10, right? And it will generate some results for me, right? So that is how you can able to utilize the numerical columns as a filter criteria instead of a text column.
+
+277
+00:40:11.420 --> 00:40:27.369
+Jitendra U: Now, I would like to add, let's say, a multiple condition. So, basically, multiple condition means I would like to add two conditions together in the same, SQL. So, for that, I need to use a condition clause as Boolean, which is AND and OR.
+
+278
+00:40:27.820 --> 00:40:36.749
+Jitendra U: So I'm saying, I would like to find it out, the list of customer, with a quantity they have purchased greater than 6, and the spend on unit price is greater than 3.
+
+279
+00:40:37.330 --> 00:40:45.410
+Jitendra U: Right, so this is the list that I can be able to formulate based upon this query. And these are the list of customers who is qualifying for that.
+
+280
+00:40:47.060 --> 00:40:52.409
+Jitendra U: Right? I can also use OR condition instead of AND. I can say I would like to find it out.
+
+281
+00:40:52.550 --> 00:40:56.400
+Jitendra U: The… one of the two conditions.
+
+282
+00:40:56.550 --> 00:41:01.380
+Jitendra U: Out of the two, and then based upon that, I would like to print it. So this is how
+
+283
+00:41:01.630 --> 00:41:05.950
+Jitendra U: You're going to say that I would like to find out the details of customer.
+
+284
+00:41:06.140 --> 00:41:11.349
+Jitendra U: where the country of origin is France or Germany, and that will create the output for me.
+
+285
+00:41:13.140 --> 00:41:22.589
+Jitendra U: Right? I can use a multiple condition more clean way, so I can use something called in condition, right? There's a clause called… or there's an operator.
+
+286
+00:41:22.700 --> 00:41:28.560
+Jitendra U: in SQL called IN, right? So you can use Instead of writing, like this.
+
+287
+00:41:29.260 --> 00:41:37.240
+Jitendra U: repeating the same variable multiple times, you will say that I would like to write more elegant way of reusing the same condition.
+
+288
+00:41:37.760 --> 00:41:41.349
+Jitendra U: as an in operation, right? So I'm using in condition.
+
+289
+00:41:41.490 --> 00:41:45.030
+Jitendra U: So, in means I can able to pass on multiple criterias.
+
+290
+00:41:45.150 --> 00:41:47.540
+Jitendra U: In a single row statement.
+
+291
+00:41:47.900 --> 00:41:53.209
+Jitendra U: Right, so when I run this program, it will give me all the customer who belongs to either of the three.
+
+292
+00:41:53.830 --> 00:41:55.600
+Jitendra U: Right? Or all of the three.
+
+293
+00:41:55.800 --> 00:41:58.539
+Jitendra U: Right? So this will give me that criteria.
+
+294
+00:41:59.590 --> 00:42:08.470
+Jitendra U: I can also do some more pattern match in string, and there's a one, operator, which is called…
+
+295
+00:42:09.560 --> 00:42:24.469
+Jitendra U: like, as a pattern matching operator, right? So I can be able to find it out any description of the product where I found a string variable as white, right? So I will say I would like to find it out. Anything which is start with W,
+
+296
+00:42:25.040 --> 00:42:31.900
+Jitendra U: And followed by these 5 or 6 letters, and then end with anything. So that means I'm looking for a white.
+
+297
+00:42:32.050 --> 00:42:42.220
+Jitendra U: Right? I can make it black as well. Any type of string that I'm looking for. So, in a nutshell, what I'm trying to do here is I'm trying to look for a pattern using this.
+
+298
+00:42:42.590 --> 00:42:46.089
+Jitendra U: particular query. So I'm trying to find out the patterns in it.
+
+299
+00:42:46.400 --> 00:42:51.640
+Jitendra U: So pattern means, it's a string search, right? So you're going to perform a search on the
+
+300
+00:42:51.880 --> 00:42:58.460
+Jitendra U: Particular invoice, where you have… These strings appeared, like, white.
+
+301
+00:42:59.980 --> 00:43:04.500
+Jitendra U: Right? I can change this to clock or something to showcase.
+
+302
+00:43:07.300 --> 00:43:09.459
+Jitendra U: You can see I'm getting all clock.
+
+303
+00:43:10.750 --> 00:43:13.049
+Jitendra U: I can change it to toy.
+
+304
+00:43:15.600 --> 00:43:20.100
+Jitendra U: Right, so you can see you're getting everything as toy. Right, so this is how…
+
+305
+00:43:20.240 --> 00:43:25.049
+Jitendra U: this string search is a very, very powerful operation, right? So…
+
+306
+00:43:25.170 --> 00:43:31.149
+Jitendra U: That you can able to utilize for the purpose of getting certain sequence. Now.
+
+307
+00:43:32.350 --> 00:43:47.689
+Jitendra U: Let's try to talk about some more advanced operations that you can perform on SQL. And one such operation is called order by clause. That means you're trying to sort the result, sorting result in ascending or descending order. So when you're passing
+
+308
+00:43:49.090 --> 00:43:51.360
+Jitendra U: A condition as ordered by.
+
+309
+00:43:51.810 --> 00:44:01.390
+Jitendra U: right, from SQL query, you're performing a sorting. Order by means You're creating an order of… output generation.
+
+310
+00:44:02.040 --> 00:44:08.720
+Jitendra U: And there are two types of output. If you have a numerical output, then you can be able to sort ascending by default.
+
+311
+00:44:09.140 --> 00:44:11.079
+Jitendra U: Or descending by…
+
+312
+00:44:11.130 --> 00:44:21.589
+Jitendra U: changing that default value, right? So we learn how to create an order by sorting result using SQL. So we'll use the same example and try to see
+
+313
+00:44:21.590 --> 00:44:31.710
+Jitendra U: order by function works. So the syntax for order by function is, you're going to use the same query select column 1, column 2, from table, order by column.
+
+314
+00:44:32.140 --> 00:44:34.250
+Jitendra U: So you have to use a column to order by.
+
+315
+00:44:34.890 --> 00:44:39.899
+Jitendra U: Right? So you have to print… sorry, you have to perform the order by a single column, right?
+
+316
+00:44:40.120 --> 00:44:42.829
+Jitendra U: So, you have to use atomicity principle here.
+
+317
+00:44:44.310 --> 00:44:50.600
+Jitendra U: Right, so this is what we are trying to do with. So we will try to perform an order by sequence using a column.
+
+318
+00:44:51.330 --> 00:44:57.410
+Jitendra U: So let me run this query. So here, I'm saying that I would like to order by quantity descending.
+
+319
+00:44:58.120 --> 00:45:04.939
+Jitendra U: So, by default, my search or order by function will work on ascending. That means it will create a…
+
+320
+00:45:05.420 --> 00:45:13.379
+Jitendra U: incremental output, but if I'm using a decremental, that means the top row will be having the highest value.
+
+321
+00:45:13.910 --> 00:45:21.230
+Jitendra U: So I have to just pass DESC, right? So this is what I'm getting, it's an output. So here you can see that I'm getting
+
+322
+00:45:21.610 --> 00:45:23.819
+Jitendra U: The quantity sold…
+
+323
+00:45:24.150 --> 00:45:29.929
+Jitendra U: In a descending order. So that means the customer who have purchased, the highest quantity will appear at the top.
+
+324
+00:45:30.250 --> 00:45:32.450
+Jitendra U: Followed by the bottom.
+
+325
+00:45:32.650 --> 00:45:40.950
+Jitendra U: Right, so this is what I'm getting as an output. So this is the function of order by. Now, here you can see that there's a certain sequence that we are following.
+
+326
+00:45:41.360 --> 00:45:43.799
+Jitendra U: So here, I'm using Select.
+
+327
+00:45:44.200 --> 00:45:51.440
+Jitendra U: from order by. So this sequence has to be maintained when you're writing a query, right? So, I can also do
+
+328
+00:45:51.780 --> 00:45:53.229
+Jitendra U: So, more complex…
+
+329
+00:45:53.730 --> 00:46:08.789
+Jitendra U: example, by saying that I would like to perform order by on multiple columns. So multiple columns, I can do order by as well. So here I'm saying that I would like to order by country ascending and quantity descending. So it means I have two different criterias.
+
+330
+00:46:08.940 --> 00:46:13.319
+Jitendra U: Okay, those customers… From certain countries in our data.
+
+331
+00:46:14.190 --> 00:46:20.910
+Jitendra U: who has purchased the highest quantity should appear, right? So this is what we are getting as an output.
+
+332
+00:46:22.340 --> 00:46:29.139
+Jitendra U: Right? So this is what I'm getting as an output. So that means I would like to create a conditional statement here, right, using order by.
+
+333
+00:46:29.640 --> 00:46:34.369
+Jitendra U: Now, there are another, there are a second function, which is called GroupPy.
+
+334
+00:46:35.140 --> 00:46:45.120
+Jitendra U: So, group by and order by have certain sequence that we should follow while writing this particular statement. So, group by is an aggregate operation. Group by means, as the name suggests, group.
+
+335
+00:46:45.630 --> 00:46:47.480
+Jitendra U: Grouping the data together.
+
+336
+00:46:47.720 --> 00:46:53.840
+Jitendra U: So we're trying to group the data typically using a mathematical function like count, sum, average.
+
+337
+00:46:54.300 --> 00:47:02.979
+Jitendra U: And, you're again performing an atomic operation on the top of it. That means you're looking for one particular column from a table or grouped by clause.
+
+338
+00:47:03.140 --> 00:47:09.869
+Jitendra U: So I would like to perform, let's say, group by aggregation, On a particular transaction count.
+
+339
+00:47:10.280 --> 00:47:15.550
+Jitendra U: by country. So that means I would like to find it out, how… what is the total transition per country.
+
+340
+00:47:15.710 --> 00:47:22.370
+Jitendra U: Right? Across my database. That means I would like to find out the highest revenue generated country for me.
+
+341
+00:47:22.590 --> 00:47:27.300
+Jitendra U: So this is what I'm getting, that Germany have more transactions, followed by France.
+
+342
+00:47:29.300 --> 00:47:34.880
+Jitendra U: Yeah, I think I have discussed this atomic operation already. So, atomic operation means single column.
+
+343
+00:47:35.720 --> 00:47:37.110
+Jitendra U: Okay, so…
+
+344
+00:47:37.310 --> 00:47:44.270
+Jitendra U: we are talking about group by clause, by a particular transaction count, right? So we are saying that I would like to find it out the top
+
+345
+00:47:44.300 --> 00:47:58.600
+Jitendra U: countries where the transition count is highest. Germany come as the highest, followed by France, followed by other countries, right? So, one thing that you should notice here, I'm using a sequence of group by and order by here.
+
+346
+00:47:58.890 --> 00:48:01.090
+Jitendra U: So, group by should always…
+
+347
+00:48:01.650 --> 00:48:07.819
+Jitendra U: Followed by order by, not yet been all, right? So you should follow this condition very diligently.
+
+348
+00:48:08.120 --> 00:48:13.949
+Jitendra U: If you write order by by mistake at the top, after… before group buy, then it will throw an error.
+
+349
+00:48:14.060 --> 00:48:22.349
+Jitendra U: So the group bar has to be performed, and then the order of that sequence has to be performed. It's like, the same way you're calculating
+
+350
+00:48:22.750 --> 00:48:26.930
+Jitendra U: The, let's say, here you have a space of card.
+
+351
+00:48:27.270 --> 00:48:29.860
+Jitendra U: And you are first ordering them.
+
+352
+00:48:30.480 --> 00:48:31.889
+Jitendra U: Grouping them together.
+
+353
+00:48:32.320 --> 00:48:41.780
+Jitendra U: Right? Grouping them together by color and by their shape, and then you're ordering by. That means you're putting spades at the top, and then followed by hearts, followed by…
+
+354
+00:48:41.890 --> 00:48:44.190
+Jitendra U: Two other types of cars.
+
+355
+00:48:44.430 --> 00:48:48.670
+Jitendra U: So that is why you have to understand this concept in much more detail.
+
+356
+00:48:49.580 --> 00:49:03.110
+Jitendra U: Now, I can able to perform group by with multiple aggregators as well. Let's say I would like to find out average quantity sold versus, minimum quantity sold. I can able to perform this kind of operation using
+
+357
+00:49:03.270 --> 00:49:10.320
+Jitendra U: different… Columns, references. So I would like to find out the sum of quantity sold.
+
+358
+00:49:10.570 --> 00:49:18.119
+Jitendra U: Average quantity sold, minimum unit price, maximum unit price for a particular country. So I can be able to do this analysis.
+
+359
+00:49:18.350 --> 00:49:23.180
+Jitendra U: By just writing this query. So you can see here, I'm getting this output as a…
+
+360
+00:49:23.300 --> 00:49:25.100
+Jitendra U: Out, as a query output.
+
+361
+00:49:25.690 --> 00:49:26.470
+Jitendra U: Right?
+
+362
+00:49:26.650 --> 00:49:31.950
+Jitendra U: So, this is what we are going to have in Group PI.
+
+363
+00:49:32.600 --> 00:49:39.420
+Jitendra U: Any question until this point before we go to having? Any question? Are you guys falling so far? Everything is good?
+
+364
+00:49:52.020 --> 00:49:55.049
+Jitendra U: Will the connection open and close for each party? No.
+
+365
+00:49:55.430 --> 00:49:58.369
+Jitendra U: It will keep open until the session terminates.
+
+366
+00:50:03.920 --> 00:50:10.170
+Jitendra U: Okay, you would like to do the hands-on, so you want me to share the sheet, and then you guys want to try right now?
+
+367
+00:50:13.980 --> 00:50:18.049
+Jitendra U: What is the advantage of doing this analysis in Python rather than in SQL Client?
+
+368
+00:50:18.820 --> 00:50:24.890
+Jitendra U: Yeah, so when you're performing this operation on Python Notebook, it is faster as compared to SQL. That's the advantage.
+
+369
+00:50:28.570 --> 00:50:34.030
+Jitendra U: Okay, let me share this sheet with you guys, and the data as well. So, I'm giving you 10 minutes.
+
+370
+00:50:34.740 --> 00:50:39.489
+Jitendra U: So please work on this, and let me know once it's generated, once you complete this.
+
+371
+00:50:48.970 --> 00:50:52.570
+Jitendra U: Okay, so if you have a data access in Vocarium, please use that.
+
+372
+00:50:52.720 --> 00:50:54.550
+Jitendra U: Otherwise, I'll ping in the chat.
+
+373
+00:50:55.910 --> 00:51:01.800
+Jitendra U: You can download it from there as well. And I'm sharing the… sheet as well.
+
+374
+00:51:26.550 --> 00:51:30.799
+Jitendra U: Okay, please use this, SQL notebook I've shared with you.
+
+375
+00:51:31.990 --> 00:51:38.219
+Jitendra U: So, I'm waiting for your confirmation, guys. So, once you complete this, Just let me know.
+
+376
+00:51:39.800 --> 00:51:43.590
+Jitendra U: You have to go here, the file icon, and then put it, drag and drop.
+
+377
+00:51:43.760 --> 00:51:45.830
+Jitendra U: Or you can use the upload option.
+
+378
+00:58:22.080 --> 00:58:24.000
+Jitendra U: Is everybody able to run this?
+
+379
+00:58:24.260 --> 00:58:26.019
+Jitendra U: Any issue while running this?
+
+380
+00:58:34.140 --> 00:58:39.390
+Jitendra U: Alright, so let's move on to the third, clause, which is called having.
+
+381
+00:58:40.010 --> 00:58:43.099
+Jitendra U: So we just understand how to perform select operation.
+
+382
+00:58:43.260 --> 00:58:50.970
+Jitendra U: nested select operation, etc, and then we try group by, order by. Now, we would like to understand how to use having, right?
+
+383
+00:58:51.110 --> 00:58:54.950
+Jitendra U: So having claws, is just like… where?
+
+384
+00:58:55.310 --> 00:59:09.879
+Jitendra U: But for a group data. So, you have to use having after group by. So, you have to apply where for filtering the rows before grouping, and having filter after grouping. I'm repeating, maybe I can write down so that you can take it as a reference.
+
+385
+00:59:11.380 --> 00:59:14.169
+Jitendra U: So, let me give an example to explain this.
+
+386
+00:59:17.540 --> 00:59:20.279
+Jitendra U: So, this is what I'm trying to say. So, having…
+
+387
+00:59:20.700 --> 00:59:38.889
+Jitendra U: where filter will be used before grouping, and having should be used after grouping. That's the basic difference between the two clauses. So if you're using a syntax of having, so this is a sequence that you should follow. So, selecting the columns, performing some aggregation or some mathematical operation on the columns.
+
+388
+00:59:38.890 --> 00:59:51.330
+Jitendra U: And then you have to select from table, group by, and then followed by having, right? So here you can see that I'm using having, condition, similar to filter that we have used, using where clause.
+
+389
+00:59:51.520 --> 00:59:56.720
+Jitendra U: But instead of creating an individual row filter, it is using aggregated row filters.
+
+390
+00:59:57.080 --> 01:00:00.080
+Jitendra U: Right? So I'm saying I would like to select a country.
+
+391
+01:00:00.360 --> 01:00:04.380
+Jitendra U: Total number of countries, which is having certain transaction count.
+
+392
+01:00:04.560 --> 01:00:06.580
+Jitendra U: Sum of quantity sold.
+
+393
+01:00:06.870 --> 01:00:14.800
+Jitendra U: From my data, group by country, having count of transaction greater than 2.
+
+394
+01:00:14.950 --> 01:00:17.160
+Jitendra U: Ordered by this transaction count.
+
+395
+01:00:17.420 --> 01:00:18.990
+Jitendra U: In a defending order.
+
+396
+01:00:20.500 --> 01:00:28.409
+Jitendra U: So, you can see these are my countries which is having the highest orders, or highest transaction quantity sold, total quantity sold.
+
+397
+01:00:28.810 --> 01:00:39.670
+Jitendra U: Sorry, higher transaction count and total quantity sold in that. So I can be able to multiply these two attributes to find out the total revenue generated by a country.
+
+398
+01:00:39.840 --> 01:00:46.719
+Jitendra U: Right? In a top… 5 or top, whatever. You would like to find our top 10 country.
+
+399
+01:00:46.920 --> 01:00:53.760
+Jitendra U: So you are going to use this whole thing for reporting purposes and data preparation purposes, and also you are going to have
+
+400
+01:00:54.120 --> 01:01:01.800
+Jitendra U: All this analysis done for… the, EDA task, exploratory data analytics task.
+
+401
+01:01:02.480 --> 01:01:08.819
+Jitendra U: Now, when you're performing the EDA, exploited Data Analytics, there are two more important things that you have to deal with.
+
+402
+01:01:09.040 --> 01:01:12.260
+Jitendra U: The first one is called common aggregated function.
+
+403
+01:01:12.620 --> 01:01:18.359
+Jitendra U: So I will try to talk about count, Distinct count, minimum, maximum round.
+
+404
+01:01:18.530 --> 01:01:25.450
+Jitendra U: And then we'll talk about the most important, data quality chat.
+
+405
+01:01:25.780 --> 01:01:28.270
+Jitendra U: Which is called removing the duplicate values.
+
+406
+01:01:28.740 --> 01:01:30.790
+Jitendra U: Right? So we'll use these two.
+
+407
+01:01:31.370 --> 01:01:37.560
+Jitendra U: Concept to understand a bit more. So let me first run common aggregated function.
+
+408
+01:01:37.910 --> 01:01:40.249
+Jitendra U: So, common aggregated functions include
+
+409
+01:01:49.960 --> 01:01:53.160
+Jitendra U: Okay, so the common aggregated function includes pound.
+
+410
+01:01:53.430 --> 01:01:56.410
+Jitendra U: Sum, average, minimum, maximum, and wrong.
+
+411
+01:01:56.640 --> 01:02:03.770
+Jitendra U: So this is what I'm getting, once I employ this SQL by saying I would like to find a count of distinct country.
+
+412
+01:02:03.910 --> 01:02:19.019
+Jitendra U: count of distinct customer IDs, sum of quantities, average quantity sold, minimum unit price, maximum unit price, sum of quantity as total revenue. And then I'm trying to round off, to two decimal places. So this is how we are going to perform this analysis.
+
+413
+01:02:19.020 --> 01:02:26.440
+Jitendra U: And this analysis can be useful for several EDA tasks, or data preparation tasks, because in every machine learning model, you have to deal with EDA.
+
+414
+01:02:26.850 --> 01:02:30.079
+Jitendra U: So you have to prepare your data. You cannot simply say,
+
+415
+01:02:30.510 --> 01:02:38.769
+Jitendra U: whatever data you have as a raw, you're going to feed it to the machine learning algorithm. You have to identify the data, you have to perform a lot of exploratory data analytics.
+
+416
+01:02:38.900 --> 01:02:46.179
+Jitendra U: prepare the data, get a clear understanding on the criterias, and then only you will feed it to the model, right? So, this is…
+
+417
+01:02:46.310 --> 01:02:49.730
+Jitendra U: All about feature engineering that we are discussing at this moment.
+
+418
+01:02:50.360 --> 01:02:53.350
+Jitendra U: Similarly, if I have to find it out, the duplicate
+
+419
+01:02:53.480 --> 01:02:57.399
+Jitendra U: Or a distinct value by removing the duplicates in my
+
+420
+01:02:57.780 --> 01:03:07.610
+Jitendra U: dataset, so I'm going to use a SQL function called distinct, and this particular function will allow me to choose a distinct rows
+
+421
+01:03:08.270 --> 01:03:11.420
+Jitendra U: Or a column based upon this unique combination.
+
+422
+01:03:11.680 --> 01:03:15.749
+Jitendra U: If I run this, I will get a distinct list of countries.
+
+423
+01:03:16.020 --> 01:03:20.050
+Jitendra U: unique product country combination as well. That means a multiple.
+
+424
+01:03:20.240 --> 01:03:23.809
+Jitendra U: CPK composite primary key that I'm going to use.
+
+425
+01:03:28.560 --> 01:03:39.219
+Jitendra U: All right, so before, moving on, so what are the things that we have learned so far? We have just learned the basics, nothing else, right? So let me go back to the slides.
+
+426
+01:03:39.490 --> 01:03:43.450
+Jitendra U: So we just understand the basic filter criterias on SQL query.
+
+427
+01:03:46.140 --> 01:03:49.950
+Jitendra U: Right, so we've performed some basic analysis, including
+
+428
+01:03:50.170 --> 01:03:59.669
+Jitendra U: sorting, limiting, and aggregation functions, we understand how to perform crop, aggregation, etc. Now, I will try to talk about something
+
+429
+01:04:00.320 --> 01:04:01.950
+Jitendra U: more advanced.
+
+430
+01:04:02.420 --> 01:04:06.870
+Jitendra U: using joins. So first, try to understand the joins, right?
+
+431
+01:04:07.000 --> 01:04:12.540
+Jitendra U: So let's say I have to join two tables. So for joining that table, we have to create another table.
+
+432
+01:04:12.770 --> 01:04:14.070
+Jitendra U: Right? So…
+
+433
+01:04:23.940 --> 01:04:26.070
+Jitendra U: So, let me create another table.
+
+434
+01:04:26.970 --> 01:04:28.650
+Jitendra U: To perform this analysis…
+
+435
+01:04:32.660 --> 01:04:37.080
+Jitendra U: Sorry, can somebody explain me what are the types of join that you have now?
+
+436
+01:04:37.540 --> 01:04:39.059
+Jitendra U: What are the types of join?
+
+437
+01:04:43.390 --> 01:04:45.310
+Jitendra U: How many types of joints are there?
+
+438
+01:04:45.690 --> 01:04:49.069
+Jitendra U: Inner join, outer join, left outer, right outer, okay?
+
+439
+01:04:49.630 --> 01:04:52.019
+Jitendra U: Inner and outer, yeah, that's the right answer.
+
+440
+01:04:52.520 --> 01:04:55.419
+Jitendra U: There are two types of join, inner and outer.
+
+441
+01:05:03.140 --> 01:05:07.569
+Jitendra U: Yeah, cross-join… We'll discuss what's the difference.
+
+442
+01:05:13.660 --> 01:05:18.499
+Jitendra U: Okay, now let me run through some more complex operation using join.
+
+443
+01:05:18.770 --> 01:05:25.549
+Jitendra U: So we'll try to learn a lot of other types of joints in this tutorial, and I will explain in a while.
+
+444
+01:05:32.550 --> 01:05:41.270
+Jitendra U: Let me go back to my… SQL, and then… Create a code here.
+
+445
+01:06:17.700 --> 01:06:25.920
+Jitendra U: Okay, so let me… start… Creating different sort of data, so…
+
+446
+01:06:26.420 --> 01:06:29.759
+Jitendra U: First, let me create multiple tables, and I will explain.
+
+447
+01:06:30.580 --> 01:06:33.789
+Jitendra U: these tables before loading to a SQLite.
+
+448
+01:06:34.150 --> 01:06:35.490
+Jitendra U: Alright, so…
+
+449
+01:06:42.240 --> 01:06:44.269
+Jitendra U: Let me show you the data first.
+
+450
+01:06:49.480 --> 01:06:54.880
+Jitendra U: Alright, so I have, I'm creating several types of…
+
+451
+01:06:55.090 --> 01:06:59.239
+Jitendra U: retail tables. The first table that I'm going to create is a transaction.
+
+452
+01:06:59.690 --> 01:07:08.610
+Jitendra U: It's a similar table that we have just seen, but instead of complicating things with 4,000 and… 40,000 and 50,000 rows, I'm just trying to simplify this.
+
+453
+01:07:08.820 --> 01:07:18.700
+Jitendra U: By saying I would like to perform analysis on these 20 or 30 records, right? So, I have invoice number, stock code, description of the product, quantity sold, invoice date, unit price.
+
+454
+01:07:18.920 --> 01:07:33.020
+Jitendra U: customer who has purchased this product, country which they originated from. And then I have a customer data, which talks about customer ID, customer name, their email address, the date in which they had onboarded, which type of customer they are.
+
+455
+01:07:33.960 --> 01:07:39.160
+Jitendra U: the country which they belong to. Then I have a product data which talks about these categories.
+
+456
+01:07:39.390 --> 01:07:46.609
+Jitendra U: Then I've got, country table information, including the region, currency, population, etc.
+
+457
+01:07:46.790 --> 01:07:50.630
+Jitendra U: So, I would like to create a databases.
+
+458
+01:07:51.180 --> 01:08:00.330
+Jitendra U: Using these four categories. So, predominantly, we have retail transaction data, customer personas, product catalog.
+
+459
+01:08:00.750 --> 01:08:04.280
+Jitendra U: and country… affiliation data.
+
+460
+01:08:04.970 --> 01:08:12.879
+Jitendra U: Right, and then I would like to store this data into SQL. So I would like to systematically consider them data, and then I will start joining them.
+
+461
+01:08:14.980 --> 01:08:29.310
+Jitendra U: So, you can see I've created this data now, so all the four tables has been created and loaded into a SQL database as well. Now, I would like to understand the relationship between tables. So, for doing so, I would like to first identify the unique key
+
+462
+01:08:29.420 --> 01:08:37.759
+Jitendra U: Which is primary and foreign key differences. And then the most, the first type of join that I would like to perform is…
+
+463
+01:08:38.410 --> 01:08:39.590
+Jitendra U: inner join.
+
+464
+01:08:40.100 --> 01:08:44.199
+Jitendra U: So I'd like to show you the… Different types of inner join.
+
+465
+01:08:44.649 --> 01:08:59.679
+Jitendra U: And then, like, can I do another join on two tables, or more than two tables? So, that is what I would like to perform here. So, first and foremost thing in your transaction data, you have invoice stock code as a CPK, composite key.
+
+466
+01:08:59.890 --> 01:09:06.689
+Jitendra U: Customer ID as your foreign key, product as a stock code, country as… This…
+
+467
+01:09:06.810 --> 01:09:13.600
+Jitendra U: The foreign key difference includes transaction plus customer ID as a complete primary key, and followed by these.
+
+468
+01:09:13.740 --> 01:09:16.400
+Jitendra U: So, I would like to perform another join on this table.
+
+469
+01:09:17.340 --> 01:09:18.750
+Jitendra U: So let me run this.
+
+470
+01:09:19.970 --> 01:09:22.910
+Jitendra U: So, when I join these two tables.
+
+471
+01:09:23.010 --> 01:09:25.020
+Jitendra U: So you can see I'm getting this output.
+
+472
+01:09:25.279 --> 01:09:38.510
+Jitendra U: So in a joint syntax I'm using, and then followed by these primary and foreign key identifiers, and then rating the output like this, right? So basically, what I did is I just joined two tables. The first table is your…
+
+473
+01:09:39.080 --> 01:09:44.490
+Jitendra U: transaction table with a customer details, right? So you already have a customer ID,
+
+474
+01:09:44.670 --> 01:09:53.149
+Jitendra U: a foreign key here in customer table, and I'm joining this data with the first table. And how I'm joining it, I'm just using an inner join.
+
+475
+01:09:53.880 --> 01:09:56.700
+Jitendra U: Right? So I'm using inner join to compare.
+
+476
+01:09:57.100 --> 01:10:05.460
+Jitendra U: Now, if I have to join multiple tables, more than two tables, that means I would like to use a triple join, right? So I'm saying inner join.
+
+477
+01:10:06.040 --> 01:10:15.230
+Jitendra U: on two conditions. The first condition is where the transaction customer ID Versus customer persona, customer ID.
+
+478
+01:10:15.390 --> 01:10:16.680
+Jitendra U: is matching.
+
+479
+01:10:17.210 --> 01:10:23.450
+Jitendra U: And… The stock code from transaction and purchase table should match.
+
+480
+01:10:23.890 --> 01:10:29.400
+Jitendra U: So here, I'm using one product category, just for simplicity purposes, home decor.
+
+481
+01:10:29.600 --> 01:10:37.879
+Jitendra U: And then I'm ordering by revenue. So this is what I'm getting as a triple join, and this join condition works pretty well, and I'm getting this table.
+
+482
+01:10:38.250 --> 01:10:48.140
+Jitendra U: Right? Which is the output table. So the purpose of this kind of join is to perform the…
+
+483
+01:10:48.260 --> 01:10:50.750
+Jitendra U: Kind of a combination of the two data sets.
+
+484
+01:10:51.190 --> 01:10:54.349
+Jitendra U: That we're able to do some bit of,
+
+485
+01:10:55.800 --> 01:11:03.689
+Jitendra U: quick, you know, massage between the two data, right? So I'm just trying to use the data which are joined.
+
+486
+01:11:03.950 --> 01:11:12.060
+Jitendra U: Now, I would like to talk about a most commonly used join condition called left outer join. So, we will perform a left join, or left outer join.
+
+487
+01:11:12.370 --> 01:11:15.110
+Jitendra U: So, the left join means I will keep the left
+
+488
+01:11:15.310 --> 01:11:34.179
+Jitendra U: keep all the records of the left table while joining it. So left join, return all the row from the left table, and the match row from the right table. And if the no matches occurred within this operation, it will return the null value from the right table's column. So, the syntax would be, you're going to say select column.
+
+489
+01:11:34.900 --> 01:11:36.340
+Jitendra U: common columns.
+
+490
+01:11:36.560 --> 01:11:37.970
+Jitendra U: from Table 1.
+
+491
+01:11:38.130 --> 01:11:41.570
+Jitendra U: Left join, that means table 2 will become left joined.
+
+492
+01:11:41.840 --> 01:11:49.900
+Jitendra U: on table 1, which is my right table, and then I'm adding a condition. If the two column values match.
+
+493
+01:11:50.700 --> 01:11:58.710
+Jitendra U: So I would like to join all record from the left table, plus matching record from the right table. If there is no matching record, I will pass null value to it.
+
+494
+01:11:59.610 --> 01:12:01.040
+Jitendra U: If no match found.
+
+495
+01:12:05.910 --> 01:12:14.980
+Jitendra U: But this condition… this condition… is implicit.
+
+496
+01:12:18.440 --> 01:12:23.149
+Jitendra U: That means I need not to define this condition and replace this with null. Automatically, it will take care of.
+
+497
+01:12:23.270 --> 01:12:28.010
+Jitendra U: So here I'm using a query 4 by saying I would like to select these 4 attribute.
+
+498
+01:12:28.270 --> 01:12:34.430
+Jitendra U: And I'm using, Alias here. Alias, of customer table, transaction table.
+
+499
+01:12:34.740 --> 01:12:37.760
+Jitendra U: And then I'm creating one more column, revenue.
+
+500
+01:12:38.130 --> 01:12:42.870
+Jitendra U: And then joining the transaction table on customer ID using this condition.
+
+501
+01:12:43.460 --> 01:12:46.699
+Jitendra U: So once I perform this analysis, I will write something.
+
+502
+01:12:47.790 --> 01:12:52.450
+Jitendra U: like this, that means I have all the records of my transaction table.
+
+503
+01:12:58.020 --> 01:12:58.930
+Jitendra U: Right?
+
+504
+01:12:59.550 --> 01:13:04.930
+Jitendra U: And all the records of… Oh, sorry, all the records off.
+
+505
+01:13:05.210 --> 01:13:06.630
+Jitendra U: Persona table.
+
+506
+01:13:06.990 --> 01:13:10.299
+Jitendra U: Versus common records on transaction table.
+
+507
+01:13:10.540 --> 01:13:13.499
+Jitendra U: Right, so I'm just targeting customer analysts here.
+
+508
+01:13:13.710 --> 01:13:16.509
+Jitendra U: So I'd like to find out who's the customer with a…
+
+509
+01:13:17.020 --> 01:13:24.090
+Jitendra U: Premium segment, or maybe their values are… revenue generation is more, as compared to other customers.
+
+510
+01:13:24.580 --> 01:13:29.129
+Jitendra U: So I will like to target, let's say, premium segment customers, so that I can give them some more discount.
+
+511
+01:13:29.340 --> 01:13:30.440
+Jitendra U: For next sales.
+
+512
+01:13:31.330 --> 01:13:37.140
+Jitendra U: So I would like to create a strategy on Black Friday or something else. So that's the whole idea of doing this analysis.
+
+513
+01:13:37.270 --> 01:13:42.379
+Jitendra U: Right join is slightly less common, so you will see right join,
+
+514
+01:13:42.930 --> 01:13:53.889
+Jitendra U: is very, you know, barely used, basically, so… but still, let's see what is right join. So, as compared to as analogous to lab join, write join means you're going to pass on
+
+515
+01:13:54.240 --> 01:13:57.990
+Jitendra U: all the… attribute…
+
+516
+01:13:58.460 --> 01:14:06.299
+Jitendra U: from right table, and all the common attributes from the left table, right? So this is what we are trying to do with the help of right join.
+
+517
+01:14:06.970 --> 01:14:13.209
+Jitendra U: Now, this is what the right join looks like, but generally, you're going to use left join 99% of the time, so right join is, like.
+
+518
+01:14:13.470 --> 01:14:17.579
+Jitendra U: You're going to use for a very specific scenario, when you have
+
+519
+01:14:18.220 --> 01:14:25.889
+Jitendra U: let's say, a small table at the right, then use a right join. If you have a bigger table at the left or right.
+
+520
+01:14:26.150 --> 01:14:28.830
+Jitendra U: Then you should not use that joint condition.
+
+521
+01:14:29.200 --> 01:14:29.990
+Jitendra U: Right?
+
+522
+01:14:31.310 --> 01:14:34.420
+Jitendra U: Okay, now we'll talk about the…
+
+523
+01:14:34.740 --> 01:14:40.929
+Jitendra U: The full and outer join as well, that means all the record from both table, that means intersection between the two.
+
+524
+01:14:41.190 --> 01:14:56.540
+Jitendra U: So for that, you have to use a condition called union between the two tables. So here I'm saying union between the two table. So I'm writing one query, select asterisk from… or select specific columns from customers, join by this.
+
+525
+01:14:56.650 --> 01:14:58.580
+Jitendra U: Here, also, I'm using a left join.
+
+526
+01:14:59.190 --> 01:15:02.180
+Jitendra U: Then I'm using another table, using a left join.
+
+527
+01:15:02.350 --> 01:15:13.029
+Jitendra U: But I'm sandwiching them with union, right? So in this case, I will get all the records from customer and country data, and then I will be able to join them together.
+
+528
+01:15:13.730 --> 01:15:16.979
+Jitendra U: Instead of passing a certain particular condition.
+
+529
+01:15:17.210 --> 01:15:21.209
+Jitendra U: Similarly, I will have… I can use a cross-join Cartesian product.
+
+530
+01:15:22.260 --> 01:15:31.090
+Jitendra U: So, cross-join or Cartesian product will also be useful for the purpose of… Joining the tooth table.
+
+531
+01:15:31.360 --> 01:15:40.569
+Jitendra U: But you have to use this with caution, right? So Cartesian returned the Cartesian product. That means it returned every row from table 1, combining every row from table 2.
+
+532
+01:15:40.950 --> 01:15:46.100
+Jitendra U: And this is a very… Data-intensive operation that you're performing.
+
+533
+01:15:46.720 --> 01:15:54.750
+Jitendra U: So that's the reason I'm saying use with caution, because this is a very data-intensive operation. So you have to use this operation
+
+534
+01:15:55.010 --> 01:15:56.609
+Jitendra U: Only when you need.
+
+535
+01:15:56.780 --> 01:16:04.710
+Jitendra U: Right? So make sure that you split your data into partition before performing this. Otherwise, it will be a never-ending loop.
+
+536
+01:16:05.360 --> 01:16:09.820
+Jitendra U: And, it will give you, no result at that.
+
+537
+01:16:10.140 --> 01:16:10.880
+Jitendra U: Right?
+
+538
+01:16:11.090 --> 01:16:14.310
+Jitendra U: So basically, what we have done so far is, we have understood
+
+539
+01:16:14.490 --> 01:16:20.819
+Jitendra U: the basics of SQL, we understand the aggregated function, group by function, order by function, where, filter.
+
+540
+01:16:21.210 --> 01:16:26.129
+Jitendra U: Now, we also know about the join, and we discussed about 4 or 5 types of join.
+
+541
+01:16:27.020 --> 01:16:29.829
+Jitendra U: Right? Yeah, left hand can never be null.
+
+542
+01:16:32.110 --> 01:16:33.730
+Jitendra U: Okay, so…
+
+543
+01:16:34.740 --> 01:16:42.870
+Jitendra U: Cross-join is used only for small table and big table combination, where you want to apply result of small table and big table. Yes. Cross-join…
+
+544
+01:16:43.130 --> 01:16:49.329
+Jitendra U: You can see here, I would like to take a Cartesian product. So every row from table 1, combined with every row from table 2.
+
+545
+01:16:49.900 --> 01:16:53.320
+Jitendra U: So it's a kind of a… For loop that you're running.
+
+546
+01:16:53.780 --> 01:16:57.620
+Jitendra U: One row from one table, all rows from other table.
+
+547
+01:17:04.370 --> 01:17:14.979
+Jitendra U: Cross-one and union are two different operations, right? So what is union here? So when we talk about union, right? Union means we are aggregating the two columns in a site format.
+
+548
+01:17:15.500 --> 01:17:20.160
+Jitendra U: So SAT operation, I hope you are aware about SAT operation, intersection, union, right?
+
+549
+01:17:20.470 --> 01:17:23.880
+Jitendra U: So, union means we are taking both columns.
+
+550
+01:17:24.210 --> 01:17:27.400
+Jitendra U: Together. Sorry, all data from two tables together.
+
+551
+01:17:27.530 --> 01:17:28.999
+Jitendra U: And then we are joining it.
+
+552
+01:17:29.740 --> 01:17:35.750
+Jitendra U: So basically, when we are performing a cross join, cross-shoin using union.
+
+553
+01:17:36.580 --> 01:17:39.740
+Jitendra U: Right? So, or cross-gen without using union.
+
+554
+01:17:40.190 --> 01:17:43.380
+Jitendra U: Right? So, these are two differences. So, if I have to just say.
+
+555
+01:17:43.490 --> 01:17:48.690
+Jitendra U: Union means it's a Boolean operation, or I'm just aggregating the data
+
+556
+01:17:48.810 --> 01:17:56.840
+Jitendra U: after generating the, output, right? So, cross-join and unions are both SQL operations that has been used to combine data.
+
+557
+01:17:57.130 --> 01:17:58.810
+Jitendra U: But the difference…
+
+558
+01:17:58.920 --> 01:18:05.719
+Jitendra U: is a cross-joint produce the Cartesian product of the two table, that means it create a result set.
+
+559
+01:18:06.130 --> 01:18:10.729
+Jitendra U: Right? Here, we are creating a result set, where each row from the first table is combined with
+
+560
+01:18:10.870 --> 01:18:12.739
+Jitendra U: Every row from the second table.
+
+561
+01:18:13.590 --> 01:18:17.930
+Jitendra U: In case of union, We are using an operator.
+
+562
+01:18:18.250 --> 01:18:23.469
+Jitendra U: That combines the result set of two or more select statements into a single result.
+
+563
+01:18:23.620 --> 01:18:26.130
+Jitendra U: So, append a row of one query.
+
+564
+01:18:26.390 --> 01:18:29.079
+Jitendra U: Result to the end of other query, as simple as that.
+
+565
+01:18:30.860 --> 01:18:36.769
+Jitendra U: Right? So, the number of rows in the result set will be… From the individual select statement.
+
+566
+01:18:41.750 --> 01:18:43.119
+Jitendra U: Is it clear now?
+
+567
+01:18:47.760 --> 01:18:58.080
+Jitendra U: Alright, so… Okay, so what we have done so far is we have understood, the basics of SQL.
+
+568
+01:18:59.110 --> 01:19:06.380
+Jitendra U: Now, what else you have, understand from LMS or Profit Editorial? What else do you know about
+
+569
+01:19:06.630 --> 01:19:11.320
+Jitendra U: sequels, and best way of writing SQL. I would like to hear from you guys.
+
+570
+01:19:16.880 --> 01:19:19.310
+Jitendra U: What other topics been covered in LMS?
+
+571
+01:19:22.290 --> 01:19:24.280
+Jitendra U: Subqueries, okay.
+
+572
+01:19:27.100 --> 01:19:28.160
+Jitendra U: What else?
+
+573
+01:19:32.710 --> 01:19:34.210
+Jitendra U: Trading, okay.
+
+574
+01:19:50.300 --> 01:19:51.270
+Jitendra U: Okay.
+
+575
+01:19:53.200 --> 01:19:55.400
+Jitendra U: What is trading, and what is,
+
+576
+01:19:56.260 --> 01:19:57.930
+Jitendra U: What is the concept of trading?
+
+577
+01:20:08.600 --> 01:20:10.100
+Jitendra U: Splitting the DB.
+
+578
+01:20:10.800 --> 01:20:12.749
+Jitendra U: But why you perform a split?
+
+579
+01:20:15.290 --> 01:20:16.380
+Jitendra U: Okay, Chung.
+
+580
+01:20:16.720 --> 01:20:20.509
+Jitendra U: Can be managed via horizontal splitting for better performance.
+
+581
+01:20:21.060 --> 01:20:23.010
+Jitendra U: But why better performance?
+
+582
+01:20:23.190 --> 01:20:27.289
+Jitendra U: Or… What it makes to have a better performance.
+
+583
+01:20:31.620 --> 01:20:36.100
+Jitendra U: Similar to hashing. Distributed architecture, okay?
+
+584
+01:20:44.980 --> 01:20:45.960
+Jitendra U: Okay.
+
+585
+01:20:48.150 --> 01:20:53.320
+Jitendra U: Yeah, so the answer is in-memory operation. You need to perform in-memory operation on your…
+
+586
+01:20:54.280 --> 01:20:59.620
+Jitendra U: modules, that's a required… you require the shredding and… The splitting of the data.
+
+587
+01:21:03.240 --> 01:21:11.939
+Jitendra U: Okay, let's talk about the subqueries, right? So, let me talk about subqueries, and then we'll move on to the writing concepts.
+
+588
+01:21:12.090 --> 01:21:17.990
+Jitendra U: First, let me explain to you what is subqueries and nested queries is all about when you're dealing with
+
+589
+01:21:18.440 --> 01:21:26.170
+Jitendra U: the… the SQL way of writing the subqueries, right? So subqueries, as the name says, it is creating
+
+590
+01:21:26.550 --> 01:21:32.149
+Jitendra U: A dependency on two queries, that means they are becoming a nested query now.
+
+591
+01:21:32.340 --> 01:21:40.510
+Jitendra U: So what is nested query? Let's say I would like to perform a major… data chunk.
+
+592
+01:21:40.780 --> 01:21:45.030
+Jitendra U: Or maybe I would like to retrieve two different schemas of data.
+
+593
+01:21:45.490 --> 01:21:51.250
+Jitendra U: So, based upon the condition. So, the condition is select column from table 2, where
+
+594
+01:21:51.480 --> 01:21:53.269
+Jitendra U: condition I would like to put.
+
+595
+01:21:53.440 --> 01:21:57.269
+Jitendra U: So I'm going to put single row subquery, multi-row sub-queries.
+
+596
+01:21:57.410 --> 01:22:02.779
+Jitendra U: Then I will show you how to perform this analysis using the data that we have created so far.
+
+597
+01:22:03.130 --> 01:22:09.499
+Jitendra U: So, when you're talking about the subqueries, it's a way that you are going to perform. The same sort of analysis, but
+
+598
+01:22:09.630 --> 01:22:22.050
+Jitendra U: Or two different schemas, right? So we will see how can we change the schemas, and then how can we use the subqueries to perform the analysis of one table, merge it with the analysis of the other.
+
+599
+01:22:22.400 --> 01:22:25.499
+Jitendra U: Let's try to look for that particular example.
+
+600
+01:22:26.460 --> 01:22:30.280
+Jitendra U: Let me just quickly… Open that.
+
+601
+01:22:36.140 --> 01:22:40.860
+Jitendra U: So, we're running… Nested subquery.
+
+602
+01:22:58.480 --> 01:23:01.289
+Jitendra U: And let's see how… Looks like…
+
+603
+01:23:26.440 --> 01:23:28.839
+Jitendra U: Okay, so let me go through a tutorial one by one.
+
+604
+01:23:30.520 --> 01:23:39.019
+Jitendra U: So, this is what we are going to learn as a part of a nested subquery. So, again, I have some sample data, transaction, customer, product.
+
+605
+01:23:39.610 --> 01:23:44.329
+Jitendra U: and the personas. And then I stored this data into SQL,
+
+606
+01:23:44.590 --> 01:23:55.919
+Jitendra U: So, if I have to just explain to you what are subqueries, so basically, the basic syntax it follows, I would like to create a subquery that means a query nested inside another SQL statement.
+
+607
+01:23:56.050 --> 01:24:01.109
+Jitendra U: So the one query will become inner, and the second one becomes… and kind of a nested query, or outer query.
+
+608
+01:24:01.410 --> 01:24:08.800
+Jitendra U: So, the basic syntax would look like this. So, I would like to select column 1, column 2 from table 1, where column 1 in
+
+609
+01:24:09.160 --> 01:24:13.600
+Jitendra U: And then this condition will wait until this query execute.
+
+610
+01:24:14.140 --> 01:24:21.389
+Jitendra U: So it'll return me the rows, and then I would like to pass on these rows to this outer query to execute.
+
+611
+01:24:21.790 --> 01:24:38.180
+Jitendra U: And the purpose of this is to filter the data, as I mentioned. So you can run two different schemas. One schema you can use here, another schema you can use here, and if they are joined by some way, like column 1 or column 2, then you can be able to use a condition to perform this.
+
+612
+01:24:38.570 --> 01:24:46.479
+Jitendra U: Right? So we will learn two types of analysis, the multiple rows of query and the single rows of query. So let me…
+
+613
+01:24:46.670 --> 01:24:47.859
+Jitendra U: Delete this.
+
+614
+01:26:06.500 --> 01:26:13.200
+Jitendra U: Okay, so single subquery worked, so I can see that I'm using a single subquery. By saying that.
+
+615
+01:26:14.490 --> 01:26:23.210
+Jitendra U: Okay, so here what we are trying to do is, in a single subquery, what we are saying is, I would like to return exactly one value using this operation.
+
+616
+01:26:23.330 --> 01:26:26.960
+Jitendra U: So, I would like to find out the customer who made the highest single purchase.
+
+617
+01:26:27.310 --> 01:26:32.510
+Jitendra U: Based upon certain amount, and then I'm joining the two conditions… using this condition.
+
+618
+01:26:32.700 --> 01:26:39.470
+Jitendra U: Where the quantity sold is equal to the maximum quantity from transaction table.
+
+619
+01:26:39.700 --> 01:26:44.410
+Jitendra U: Right, so I'm going to run this query first, and then generate the output.
+
+620
+01:26:44.530 --> 01:26:51.219
+Jitendra U: And it will return me the rows, and from that rows, it will pass on to a filter criteria using outer query.
+
+621
+01:26:51.420 --> 01:27:00.289
+Jitendra U: And that is how these two queries will generate an output for me in a combination, right? That is the single nested subquery that I'm going to have.
+
+622
+01:27:00.710 --> 01:27:14.909
+Jitendra U: Similarly, I can able to perform more complex analysis, where I would like to perform two different sub-queries. I'm saying, select stock code, product code, unit price from, this table.
+
+623
+01:27:15.210 --> 01:27:19.329
+Jitendra U: T, Where unit price is greater than…
+
+624
+01:27:19.870 --> 01:27:23.149
+Jitendra U: Average unit price presented in the transaction table.
+
+625
+01:27:23.250 --> 01:27:25.550
+Jitendra U: And then I'm returning the order back clause.
+
+626
+01:27:25.660 --> 01:27:32.080
+Jitendra U: So this is where I'm going to use a slightly compound query to perform this analysis, right?
+
+627
+01:27:33.020 --> 01:27:37.019
+Jitendra U: I think this I can remove, just to avoid any confusion.
+
+628
+01:27:46.820 --> 01:27:53.599
+Jitendra U: Yeah. So basically, what we're trying to do here is, we are using a nested query as a conditional statement.
+
+629
+01:27:54.350 --> 01:28:06.030
+Jitendra U: to the previous query. So that way, it will become a kind of a wrapper function, right? So the first query will wait until the inner query executes, and then once it generates the rows.
+
+630
+01:28:06.170 --> 01:28:10.780
+Jitendra U: It will use those rows and filter criteria to perform this analysis.
+
+631
+01:28:11.240 --> 01:28:19.460
+Jitendra U: Now, what are the ways that you can Write these queries more
+
+632
+01:28:19.640 --> 01:28:22.580
+Jitendra U: More, in a more optimal manner.
+
+633
+01:28:22.700 --> 01:28:27.519
+Jitendra U: So there's something called Common Table Expression, right? CTE.
+
+634
+01:28:27.910 --> 01:28:36.079
+Jitendra U: So, I will explain to you what is CTE is, right? And then, based upon the CTE, common table expression.
+
+635
+01:28:36.190 --> 01:28:41.950
+Jitendra U: We will be able to understand how to perform this analysis, In a moor?
+
+636
+01:28:42.410 --> 01:28:51.699
+Jitendra U: optimal manner, right? So, I will show you some simple examples of how to write common table expression.
+
+637
+01:28:54.130 --> 01:28:57.819
+Jitendra U: Have you heard about this term, by the way, in the tutorial? CTE?
+
+638
+01:29:07.170 --> 01:29:08.070
+Jitendra U: Okay.
+
+639
+01:29:39.790 --> 01:29:42.440
+Jitendra U: Okay, so let me show you the example of CTE.
+
+640
+01:29:42.870 --> 01:29:50.740
+Jitendra U: So, for performing this common temple expression, we will use the same syntax. That means we will not change,
+
+641
+01:29:51.090 --> 01:29:53.230
+Jitendra U: Much on the example.
+
+642
+01:29:53.370 --> 01:29:55.780
+Jitendra U: But I would like to show you the CT…
+
+643
+01:29:56.240 --> 01:30:00.859
+Jitendra U: With joints as well. So, I have created 5 examples for that purpose.
+
+644
+01:30:01.310 --> 01:30:02.799
+Jitendra U: So, let me run this.
+
+645
+01:30:03.590 --> 01:30:04.550
+Jitendra U: Okay.
+
+646
+01:30:04.670 --> 01:30:13.369
+Jitendra U: So basically, what I'm trying to do here is, I'm performing a… I'm using a CTE. So what is CTE? Command Table Expiration. Now, what is the use of CTE?
+
+647
+01:30:13.540 --> 01:30:16.790
+Jitendra U: So, CTA will act as a temporary result.
+
+648
+01:30:18.420 --> 01:30:23.670
+Jitendra U: Right? So it's a kind of a view, temporary view, which will exist until your session
+
+649
+01:30:24.150 --> 01:30:26.499
+Jitendra U: valid. So if I terminate this session.
+
+650
+01:30:26.640 --> 01:30:29.250
+Jitendra U: It will delete that data from memory.
+
+651
+01:30:29.460 --> 01:30:33.479
+Jitendra U: So it's a kind of a caching that we are doing on views.
+
+652
+01:30:33.580 --> 01:30:35.270
+Jitendra U: before executing.
+
+653
+01:30:35.430 --> 01:30:44.030
+Jitendra U: the other statement, right? So basically, the basic syntax to use CT is, you have to use CT name as column alias.
+
+654
+01:30:44.220 --> 01:30:47.669
+Jitendra U: And then, followed by the… the…
+
+655
+01:30:47.670 --> 01:31:07.669
+Jitendra U: queries that you're going to perform, right, on the top of it. So if I create the same data, or more simpler data, like sales data, I have a sales data which talks about these sales on the electronic appliances, or computers, or SRs, or laptops, then I would like to just, register this as a table, and then creating a CD. So I'm saying.
+
+656
+01:31:07.990 --> 01:31:17.020
+Jitendra U: I'm just trying to show you without CT and with CTE. So, with CTE, you will see, I'm using a width statement, with customer total S.
+
+657
+01:31:17.600 --> 01:31:21.189
+Jitendra U: That means it will become a temporary allocation.
+
+658
+01:31:21.670 --> 01:31:25.850
+Jitendra U: for my… Databases.
+
+659
+01:31:26.170 --> 01:31:32.649
+Jitendra U: So it's like a temporary location. So with customer total S, and here I'm using a select statement without CT.
+
+660
+01:31:34.040 --> 01:31:39.010
+Jitendra U: That means I'm reducing the overhead in storing this data back to memory.
+
+661
+01:31:39.680 --> 01:31:47.430
+Jitendra U: So it'll, like, act like a temporary placeholder, and the purpose of this placeholder is valid until this session.
+
+662
+01:31:48.200 --> 01:31:54.030
+Jitendra U: So this all analysis will be conducted inside my… RAM, or in-memory.
+
+663
+01:31:54.230 --> 01:32:00.939
+Jitendra U: And then, once the heap has been deallocated, it will release that memory back to my operating system.
+
+664
+01:32:02.670 --> 01:32:06.859
+Jitendra U: So this is one way that you can able to save your disk, IOPS,
+
+665
+01:32:07.330 --> 01:32:10.520
+Jitendra U: As well as, you can use more
+
+666
+01:32:10.730 --> 01:32:13.730
+Jitendra U: advanced complex calculation with the help of CTE.
+
+667
+01:32:14.280 --> 01:32:19.390
+Jitendra U: And, you can reduce the amount of data storage that you require. It's like a local variable, yes.
+
+668
+01:32:22.770 --> 01:32:29.760
+Jitendra U: Right, so CT is fundamentally Helping you to create a temporary view.
+
+669
+01:32:30.650 --> 01:32:34.140
+Jitendra U: And then you're not committing that view in your databases.
+
+670
+01:32:35.800 --> 01:32:42.160
+Jitendra U: Right? So this will become, like, a session variable for you, that view will be present in your memory.
+
+671
+01:32:42.510 --> 01:32:45.659
+Jitendra U: And you can use as many as operational that view.
+
+672
+01:32:47.080 --> 01:32:48.500
+Jitendra U: Before deleting it.
+
+673
+01:32:50.320 --> 01:32:55.240
+Jitendra U: Right? So what are the benefits? It makes your complex query more reliable, more readable.
+
+674
+01:32:56.270 --> 01:33:05.290
+Jitendra U: It can reference multiple times. It can be able to break complex logic into smaller steps, and you can debug it and maintain it thoroughly.
+
+675
+01:33:05.860 --> 01:33:09.470
+Jitendra U: And then, it will be a great alternative for sub-queries and views.
+
+676
+01:33:14.090 --> 01:33:21.790
+Jitendra U: Yeah, so CT stands for Common Table Expression, and this is one of the fundamentals that you are going to use for storing the temporary result.
+
+677
+01:33:22.420 --> 01:33:26.530
+Jitendra U: That will exit during the execution of a SQL statement.
+
+678
+01:33:26.750 --> 01:33:31.820
+Jitendra U: So think of this whole city as a virtual table, or virtual views.
+
+679
+01:33:32.030 --> 01:33:35.430
+Jitendra U: That you can reference in your main query, and number of times.
+
+680
+01:33:37.800 --> 01:33:41.319
+Jitendra U: Right? So syntax for writing the…
+
+681
+01:33:41.490 --> 01:33:43.439
+Jitendra U: CTEs, you have to use width.
+
+682
+01:33:50.050 --> 01:33:55.490
+Jitendra U: No, you have to store this output into some table, and then… performer, DML.
+
+683
+01:34:07.290 --> 01:34:12.289
+Jitendra U: Is it clear to everyone what is CT, how to write an elegant way of writing the CT?
+
+684
+01:34:12.790 --> 01:34:19.169
+Jitendra U: Does it need special privileges, like creating table or views, or if you have already accessed, you want to build 3D? Yes.
+
+685
+01:34:20.220 --> 01:34:25.520
+Jitendra U: It does not, depend upon read-only view or write-only view.
+
+686
+01:34:26.290 --> 01:34:28.560
+Jitendra U: It's a best way of writing the…
+
+687
+01:34:28.720 --> 01:34:32.540
+Jitendra U: Conditions that you're going to use in your space.
+
+688
+01:34:32.890 --> 01:34:41.700
+Jitendra U: Otherwise, these table will become static, right? So, how many times you will write back, if the table data grows daily, that means you're creating each table
+
+689
+01:34:42.510 --> 01:34:47.689
+Jitendra U: Daily, and storing it in your memory, in your disk, or in your databases.
+
+690
+01:34:49.070 --> 01:34:56.240
+Jitendra U: Right? So your table will grow every day. That means you're required to store this table every day into your database.
+
+691
+01:34:56.580 --> 01:34:58.900
+Jitendra U: So imagine I have a million records.
+
+692
+01:34:59.370 --> 01:35:02.109
+Jitendra U: And you keep on storing million records every day.
+
+693
+01:35:02.310 --> 01:35:04.320
+Jitendra U: But which option is better?
+
+694
+01:35:04.780 --> 01:35:08.289
+Jitendra U: I can flush off the million record of one side.
+
+695
+01:35:08.570 --> 01:35:12.769
+Jitendra U: perform some analysis, or I have to store this daily? Which one is more better?
+
+696
+01:35:14.710 --> 01:35:16.309
+Jitendra U: Option 1 or option 2?
+
+697
+01:35:21.180 --> 01:35:22.590
+Jitendra U: Optional, right?
+
+698
+01:35:23.960 --> 01:35:25.780
+Jitendra U: So that's why we are using CTE.
+
+699
+01:35:34.150 --> 01:35:36.430
+Jitendra U: Alright, any other question before we…
+
+700
+01:35:37.830 --> 01:35:42.420
+Jitendra U: move on or take a break. Any other question, guys? Any question from this?
+
+701
+01:35:46.320 --> 01:35:48.559
+Jitendra U: Yeah, I will upload this after the class.
+
+702
+01:35:50.200 --> 01:35:53.920
+Jitendra U: No, this URL you cannot access, I haven't shared this with anyone.
+
+703
+01:35:54.110 --> 01:35:55.389
+Jitendra U: About to share this.
+
+704
+01:35:59.020 --> 01:36:01.769
+Jitendra U: Maybe I can share it here, you can use it.
+
+705
+01:36:12.180 --> 01:36:15.370
+Jitendra U: Okay, but I will share this notebook of post to the class, so…
+
+706
+01:36:16.280 --> 01:36:23.070
+Jitendra U: But what we have done so far is clear to everyone. Are you guys, following so far? Too technical, basic?
+
+707
+01:36:23.230 --> 01:36:24.250
+Jitendra U: Medium.
+
+708
+01:36:25.100 --> 01:36:26.490
+Jitendra U: Hard to digest.
+
+709
+01:36:27.560 --> 01:36:32.720
+Jitendra U: Painful… Basic, okay.
+
+710
+01:36:32.850 --> 01:36:34.359
+Jitendra U: Normal, great.
+
+711
+01:36:38.760 --> 01:36:40.010
+Jitendra U: Normal, okay.
+
+712
+01:36:41.250 --> 01:36:45.160
+Jitendra U: Yeah, need more practice, yeah, I agree. You need to have more practice.
+
+713
+01:36:45.610 --> 01:36:48.920
+Jitendra U: Able to run it in code in Python, good refresher.
+
+714
+01:36:49.440 --> 01:36:54.279
+Jitendra U: I have no prior experience on SQL, maybe that's why a little technical for me. Okay.
+
+715
+01:36:54.890 --> 01:37:00.959
+Jitendra U: Yeah, but you have to practice, then only you can understand more from this session.
+
+716
+01:37:01.240 --> 01:37:05.959
+Jitendra U: So, post to the class, I always make a habit of 2 hours.
+
+717
+01:37:07.190 --> 01:37:09.290
+Jitendra U: Sit on your table… chair.
+
+718
+01:37:09.480 --> 01:37:15.609
+Jitendra U: And table, and then start practicing. That feels very easy, yeah, that's good.
+
+719
+01:37:19.790 --> 01:37:26.349
+Jitendra U: Oh, I think this is a wrong question, CT and subquery differences. You cannot compare CT with subquery.
+
+720
+01:37:27.650 --> 01:37:30.079
+Jitendra U: Wrong question, illogical question to me.
+
+721
+01:37:33.930 --> 01:37:35.770
+Jitendra U: Both are serving different purpose.
+
+722
+01:37:39.200 --> 01:37:42.269
+Jitendra U: Okay, any other question, guys, on this?
+
+723
+01:37:54.080 --> 01:37:58.359
+Jitendra U: Yeah, I will share this notebook, maybe I can share right now, so I can see.
+
+724
+01:38:03.770 --> 01:38:07.229
+Jitendra U: Yeah, after every class, I used to provide in the chat, so…
+
+725
+01:38:07.390 --> 01:38:09.600
+Jitendra U: Make sure that you use this content.
+
+726
+01:38:11.310 --> 01:38:13.329
+Jitendra U: But anyway, let me upload this.
+
+727
+01:38:25.030 --> 01:38:32.720
+Jitendra U: Okay, so I think you're familiar with the SQL now, you're comfortable in using SQL. All you need to do is just to install this SQLite.
+
+728
+01:38:35.620 --> 01:38:37.310
+Jitendra U: Is my understanding correct?
+
+729
+01:38:37.990 --> 01:38:39.440
+Jitendra U: Are you falling so far?
+
+730
+01:38:41.350 --> 01:38:46.250
+Jitendra U: Shall we move on to NoSQL database before that you need a break or something?
+
+731
+01:38:53.850 --> 01:38:57.110
+Jitendra U: Yeah, we'll talk about, how to read data nicely.
+
+732
+01:38:57.740 --> 01:38:58.470
+Jitendra U: Yeah.
+
+733
+01:38:58.600 --> 01:39:08.200
+Jitendra U: Yeah, let's take a 15 minutes break, and then, right now the time is… I think, 440.
+
+734
+01:39:08.710 --> 01:39:13.140
+Jitendra U: So let's, come back at… by…
+
+735
+01:39:16.750 --> 01:39:23.489
+Jitendra U: Yes, it has been uploaded, so I've shared the file, so it should be there, but you can double-check with the team, and then…
+
+736
+01:39:29.240 --> 01:39:32.589
+Jitendra U: Okay, let's take a quick 20-minute break, and then we'll start the session.
+
+737
+02:01:11.380 --> 02:01:13.089
+Jitendra U: I hope you guys are back.
+
+738
+02:01:14.870 --> 02:01:16.549
+Jitendra U: Can we have a quick confirmation?
+
+739
+02:01:25.970 --> 02:01:31.349
+Jitendra U: Alright, so I hope you're able to see my screen as well, right? The notebook that I'm sharing on the screen.
+
+740
+02:01:34.890 --> 02:01:41.400
+Jitendra U: All right, so, we will start with the session 2 agenda, which is Chapter 2 of today's tutorial, which is…
+
+741
+02:01:41.970 --> 02:01:51.050
+Jitendra U: We will start with something called NoSQL databases, right? So, NoSQL databases, as we already know the difference between SQL and NoSQL, and in the first part.
+
+742
+02:01:51.210 --> 02:01:54.920
+Jitendra U: Of this tutorial, we have covered the SQL databases.
+
+743
+02:01:55.150 --> 02:02:01.819
+Jitendra U: Now, we will talk about one more important database, which is called MongoDB, right? So, for…
+
+744
+02:02:02.300 --> 02:02:07.910
+Jitendra U: MongoDB, we need to install several clients and several packages, just to ensure that,
+
+745
+02:02:08.460 --> 02:02:11.570
+Jitendra U: We will have some way of getting this
+
+746
+02:02:12.150 --> 02:02:18.429
+Jitendra U: Up and running as a server, and then we will use that particular server for different purposes.
+
+747
+02:02:18.820 --> 02:02:29.160
+Jitendra U: Now, if I have to talk about what is MongoDB, right? So, MongoDB is another NoSQL database, right? So, if I have to explain you very clearly MongoDB,
+
+748
+02:02:29.940 --> 02:02:31.969
+Jitendra U: right, versus SQL.
+
+749
+02:02:32.820 --> 02:02:38.019
+Jitendra U: Right, so MongoDB comes under… NoSQL database. But what did this…
+
+750
+02:02:38.410 --> 02:02:42.149
+Jitendra U: What make it so much differentiated?
+
+751
+02:02:42.340 --> 02:02:45.900
+Jitendra U: In terms of, the NoSQL interfaces.
+
+752
+02:02:46.480 --> 02:02:49.850
+Jitendra U: So that is something which we are going to talk about in, in a…
+
+753
+02:02:50.270 --> 02:02:53.429
+Jitendra U: detail. And so, first, let me explain to you what is…
+
+754
+02:02:54.170 --> 02:02:57.130
+Jitendra U: the ecosystem of MongoDB. So, MongoDB…
+
+755
+02:02:58.040 --> 02:03:03.589
+Jitendra U: comes under NoSQL, and it has been used for any non-relation database management. That means
+
+756
+02:03:03.840 --> 02:03:09.590
+Jitendra U: We are going to store data not in tables, but in a form of a metadata.
+
+757
+02:03:09.930 --> 02:03:18.469
+Jitendra U: So, MongoDB has several advantages. The first advantage is flexibility. That means NoSQL database can store and manage data in various formats.
+
+758
+02:03:18.650 --> 02:03:32.529
+Jitendra U: Including JSON, XML, key-value pairs, and much more than that. And this flexibility allows organizations to adapt, change data requirements without altering their database schemas. So you don't have to change the schemas every time.
+
+759
+02:03:32.820 --> 02:03:40.530
+Jitendra U: The second one is a scalability, that means NoSQL databases are made to grow horizontally. That means horizontal scalable.
+
+760
+02:03:40.660 --> 02:03:51.089
+Jitendra U: And they can work with a lot of information and a lot of people spreading the data among several points or groups, which ensures that the speed is not lost, as there are more demand.
+
+761
+02:03:51.440 --> 02:03:59.259
+Jitendra U: The third and the most important aspect of NoSQL databases is high availability. That means the system has been built to ensure
+
+762
+02:03:59.470 --> 02:04:09.269
+Jitendra U: that they do not go down, even when there are problems with the equipment or connection, this is very important for applications that cannot stop, that need to be done anyways.
+
+763
+02:04:09.570 --> 02:04:18.360
+Jitendra U: And the first, point is the functionality improviation. That means NoSQL have data types that adapt to each situation, offering us different
+
+764
+02:04:18.500 --> 02:04:25.320
+Jitendra U: data models, yet very simple and elegant way of working with them, right? So basically, MongoDB…
+
+765
+02:04:25.970 --> 02:04:33.409
+Jitendra U: offers store document in the form of a JSON or XML format, right? So, this is the whole idea of using MongoDB.
+
+766
+02:04:33.790 --> 02:04:40.920
+Jitendra U: Alright, so we will try to look for the basics, how to install this, and what are the…
+
+767
+02:04:41.500 --> 02:04:48.000
+Jitendra U: fundamental that we required to use MongoDB, so these are all things we are going to talk about in this tutorial.
+
+768
+02:04:50.330 --> 02:04:54.029
+Jitendra U: Right, so first, let me show you how to start
+
+769
+02:04:54.820 --> 02:04:59.819
+Jitendra U: installing the MongoDB, in your machine.
+
+770
+02:05:00.040 --> 02:05:02.690
+Jitendra U: So, for installing the MongoDB in your machine.
+
+771
+02:05:02.800 --> 02:05:05.050
+Jitendra U: You have to use this command.
+
+772
+02:05:10.800 --> 02:05:16.860
+Jitendra U: install, using AppGateway, MongoDB. So I'm just using this command to install this.
+
+773
+02:05:17.490 --> 02:05:20.699
+Jitendra U: And then I would like to import the packages.
+
+774
+02:05:28.430 --> 02:05:30.570
+Jitendra U: So, I will install these packages.
+
+775
+02:05:31.430 --> 02:05:35.109
+Jitendra U: So this has been installed. Okay, I will share the command.
+
+776
+02:05:38.120 --> 02:05:49.849
+Jitendra U: Okay, so I've installed the MongoDB, and then I would like to install Python MongoDB driver. So you required a Python MongoDB driver as well, so let me show you the full command.
+
+777
+02:05:52.200 --> 02:05:54.880
+Jitendra U: So first, I will install MongoDB.
+
+778
+02:05:55.930 --> 02:06:00.410
+Jitendra U: database, and the driver for… Running this.
+
+779
+02:06:00.690 --> 02:06:03.020
+Jitendra U: And then I will use our server.
+
+780
+02:06:04.010 --> 02:06:10.120
+Jitendra U: to start… Using MongoDB. So if I'm using a server.
+
+781
+02:06:30.040 --> 02:06:36.360
+Jitendra U: Okay, it hasn't been started, but it is showing me the error, but it has been started, so that means we can start using this.
+
+782
+02:06:37.580 --> 02:06:40.020
+Jitendra U: Yes, this will start in the CLAB environment.
+
+783
+02:06:42.210 --> 02:06:47.480
+Jitendra U: So, we'll just start this MongoDB into the Colab, and after installation, I have
+
+784
+02:06:48.080 --> 02:06:53.330
+Jitendra U: Just created a connection string. So first I installed this app, sorry, this database.
+
+785
+02:06:53.770 --> 02:06:59.169
+Jitendra U: And then I install this, connector, and then I'm creating the service up.
+
+786
+02:06:59.370 --> 02:07:02.269
+Jitendra U: Right, so this is starting the service in the Maya.
+
+787
+02:07:02.630 --> 02:07:08.680
+Jitendra U: Jupiter notebook, or collab notebook, so I'm just starting that. Let me change the runtime.
+
+788
+02:07:28.110 --> 02:07:33.259
+Jitendra U: Alright, now I would like to import the packages. To import the packages, I will say…
+
+789
+02:07:34.280 --> 02:07:36.000
+Jitendra U: Okay, let me rerun this.
+
+790
+02:07:36.160 --> 02:07:37.290
+Jitendra U: run this…
+
+791
+02:07:48.280 --> 02:07:54.669
+Jitendra U: Okay, so I'm getting the unrecognized service to handle this exception. I'm just checking the port.
+
+792
+02:07:55.110 --> 02:07:56.459
+Jitendra U: And let's see…
+
+793
+02:08:28.470 --> 02:08:30.659
+Jitendra U: Okay, so there's a refused connection.
+
+794
+02:08:34.630 --> 02:08:37.620
+Jitendra U: Yeah, if you're using the local, then you can use pip.
+
+795
+02:08:37.830 --> 02:08:38.770
+Jitendra U: for that.
+
+796
+02:08:45.440 --> 02:08:47.560
+Jitendra U: First, let me try this connection.
+
+797
+02:09:55.330 --> 02:10:01.040
+Jitendra U: Once again, let me just try to use some other port. I'm just checking my system configurations.
+
+798
+02:12:27.840 --> 02:12:36.740
+Jitendra U: Okay, the port is not allowing me to go through, but I would like to use Atlas server, so let me just invoke this server, and then see if it is…
+
+799
+02:13:38.130 --> 02:13:43.800
+Jitendra U: Yeah, so this exclamation mark is for showing that this is a Unix terminal. Unix command, basically.
+
+800
+02:13:56.220 --> 02:14:01.510
+Jitendra U: Okay, so we'll use this compiler, and I will show you… I think I'm getting some connection error.
+
+801
+02:14:01.820 --> 02:14:07.789
+Jitendra U: So we'll use this compiler, so let me share this… Ling with everyone.
+
+802
+02:14:08.930 --> 02:14:12.330
+Jitendra U: So this is the compiler that we're going to use to learn this MongoDB.
+
+803
+02:14:12.800 --> 02:14:18.490
+Jitendra U: So in this compiler, what we are going to do is, we will like to understand that,
+
+804
+02:14:18.830 --> 02:14:22.100
+Jitendra U: We are going to run this whole database.
+
+805
+02:14:22.600 --> 02:14:25.299
+Jitendra U: Which is managed in this Atlas server.
+
+806
+02:14:25.780 --> 02:14:29.690
+Jitendra U: So this is the server that I'm going to use, right? And
+
+807
+02:14:30.110 --> 02:14:32.470
+Jitendra U: This is the compiler that I'm using for…
+
+808
+02:14:32.690 --> 02:14:36.580
+Jitendra U: performing this analysis, right? So we'll create some more databases.
+
+809
+02:14:37.100 --> 02:14:40.340
+Jitendra U: So, we'll create some retail database.
+
+810
+02:14:41.360 --> 02:14:44.330
+Jitendra U: Retail segment, database.
+
+811
+02:14:44.490 --> 02:15:02.569
+Jitendra U: And then work… start working on this server, right, which is hosted in Atlas. So this particular server have several types of programming paradigms. So, here we are using Mongo, so I'm just using MongoDB as one of our primary source, and the version that we're going to use is XPoint.
+
+812
+02:15:03.090 --> 02:15:04.420
+Jitendra U: 013.
+
+813
+02:15:04.630 --> 02:15:21.669
+Jitendra U: So instead of using, so just want to show you how to run this. So, all you need to do is you need to just make this dictionary, or a JSON format dictionary, a JSONified string, basically, to trash this row. So here, we're saying that I have a database student.
+
+814
+02:15:21.930 --> 02:15:28.810
+Jitendra U: And I'm inserting these attributes, including ID, name of the student, and the gender of the student, so that it can become a schema.
+
+815
+02:15:29.020 --> 02:15:38.450
+Jitendra U: And then I can able to run, this particular query to find out all the females from this database, right? The female student from this database.
+
+816
+02:15:38.700 --> 02:15:41.210
+Jitendra U: So this is what I'm getting as a part of.
+
+817
+02:15:41.540 --> 02:15:42.999
+Jitendra U: The output, let's see.
+
+818
+02:15:51.410 --> 02:15:54.990
+Jitendra U: So you can see that this is what I'm getting as an output.
+
+819
+02:15:55.650 --> 02:15:58.519
+Jitendra U: So, I have two objects, and then…
+
+820
+02:15:59.210 --> 02:16:05.119
+Jitendra U: I would like to create this, but I will show you some more advanced queries that we can be able to run. First, let's try to…
+
+821
+02:16:05.360 --> 02:16:07.170
+Jitendra U: Use some more database.
+
+822
+02:16:07.460 --> 02:16:12.149
+Jitendra U: So I'm going to create… Some collection of customers.
+
+823
+02:16:12.470 --> 02:16:16.940
+Jitendra U: So here, I'm going to use, the two databases.
+
+824
+02:16:17.330 --> 02:16:18.719
+Jitendra U: Product collection.
+
+825
+02:16:19.110 --> 02:16:27.620
+Jitendra U: And, the order collection. So let me show you the data first, and then based upon that, we will create an inventory of…
+
+826
+02:16:28.540 --> 02:16:29.360
+Jitendra U: That…
+
+827
+02:16:31.850 --> 02:16:38.239
+Jitendra U: Alright, so I have a data like this. Now, I'm creating a real retail database with a customer ID.
+
+828
+02:16:38.750 --> 02:16:47.520
+Jitendra U: the name of the customer, email of the customer, phone number of the customer, age, gender, city, state. So you can see that this database looks like an app.
+
+829
+02:16:48.020 --> 02:17:05.559
+Jitendra U: Right? App data to me, because this is how the app data has been put forth. And, you can see that in MongoDB, I have a liberty to store a data in this same format as it is, instead of breaking them into rows and columns. And that's the beauty of MongoDB.
+
+830
+02:17:05.900 --> 02:17:12.620
+Jitendra U: So I can be able to document this data in a natural form, right? So that is something which I can create as a…
+
+831
+02:17:12.980 --> 02:17:14.910
+Jitendra U: App Server logs.
+
+832
+02:17:15.129 --> 02:17:23.510
+Jitendra U: And then I'm creating some customer collection, or some customer onboarding, and I have certain product collection data as well, where the product sold.
+
+833
+02:17:23.639 --> 02:17:38.789
+Jitendra U: the quantity sold, rating given by the user in the form of an app event, I'm getting all these things, right? So, all these things I'm getting as a part of event trail, and then I have an order collection, which talks about how many orders have been
+
+834
+02:17:39.280 --> 02:17:46.820
+Jitendra U: previously… Manage in this data. So let me run this. So it will start creating the data.
+
+835
+02:17:49.850 --> 02:17:51.769
+Jitendra U: First, let me create this data.
+
+836
+02:17:53.799 --> 02:17:54.629
+Jitendra U: Cool.
+
+837
+02:17:54.799 --> 02:17:56.790
+Jitendra U: Yeah, so this has been created.
+
+838
+02:18:06.790 --> 02:18:08.340
+Jitendra U: So I'll save this.
+
+839
+02:18:08.990 --> 02:18:10.390
+Jitendra U: Toward any loss.
+
+840
+02:18:18.469 --> 02:18:22.370
+Jitendra U: Yes, you can paste your data as well. I will share the data with you.
+
+841
+02:18:23.170 --> 02:18:25.929
+Jitendra U: So we have customer collection, the first schema.
+
+842
+02:18:26.139 --> 02:18:31.400
+Jitendra U: The second schema is product collection. The third schema that we are using is order collection.
+
+843
+02:18:31.820 --> 02:18:34.329
+Jitendra U: The fourth schema is inventory collection.
+
+844
+02:18:34.690 --> 02:18:36.769
+Jitendra U: So that is what you need.
+
+845
+02:18:37.139 --> 02:18:46.529
+Jitendra U: To manage the supplier… And, all the inventories, right? Because in e-commerce world, all you need to have
+
+846
+02:18:47.010 --> 02:18:58.610
+Jitendra U: You need to… Perform some analysis on different types of stuff, including… Your inventory, your supply chain.
+
+847
+02:18:59.139 --> 02:19:14.970
+Jitendra U: And then, what are you trying to achieve with this is, you are trying to use collections of order, tracking your customers, their past order behaviors, and stuff like that. So, here we are… what we are trying to do is we're just trying to create a basic,
+
+848
+02:19:15.540 --> 02:19:17.720
+Jitendra U: Collection on the events.
+
+849
+02:19:18.379 --> 02:19:26.270
+Jitendra U: Which is in the app server, and these events are nothing but past interaction from customers, your suppliers.
+
+850
+02:19:26.370 --> 02:19:32.869
+Jitendra U: And how you're managing the orders, right? So this is… looks like an Amazon data to me, and that is how Amazon manages
+
+851
+02:19:33.219 --> 02:19:38.340
+Jitendra U: database operations. So let's… Let me fork this.
+
+852
+02:19:54.040 --> 02:19:57.200
+Jitendra U: Yes, it will store in a form of a key-value pair.
+
+853
+02:20:15.110 --> 02:20:16.430
+Jitendra U: Let me run this…
+
+854
+02:20:21.400 --> 02:20:26.670
+Jitendra U: Okay, once we register our database, then we learn how to perform a basic operation on this data.
+
+855
+02:20:27.660 --> 02:20:30.920
+Jitendra U: So we'll start working on the basic operation on this data.
+
+856
+02:20:31.180 --> 02:20:33.850
+Jitendra U: So the first operation that I would like to perform is…
+
+857
+02:20:40.890 --> 02:20:44.710
+Jitendra U: Okay, let me run this as it is, and then we can discuss.
+
+858
+02:20:50.720 --> 02:20:57.470
+Jitendra U: Okay, so the first and the formest operation that we are trying to learn is the basic operation, right? So we have four schemas.
+
+859
+02:20:57.750 --> 02:21:06.260
+Jitendra U: So, we have… We have created 4 schemas, right? The first schema is… the…
+
+860
+02:21:06.690 --> 02:21:14.239
+Jitendra U: Customer data, so the name of the customer, ID of the customer, email, phone, address, gender, city, state.
+
+861
+02:21:14.770 --> 02:21:24.919
+Jitendra U: Type of member, joining date, address, which includes street, city, state, zip code, postal code, preferences, in which,
+
+862
+02:21:25.710 --> 02:21:31.130
+Jitendra U: Which type of product they have more preferences, their likes, dislikes, number of clicks.
+
+863
+02:21:32.500 --> 02:21:35.410
+Jitendra U: Right? Total spanked, total orders.
+
+864
+02:21:35.710 --> 02:21:43.980
+Jitendra U: Right, so that is your customer data. Then the product collection includes product ID, name of the product, iPhone 11, 15 Pro.
+
+865
+02:21:44.140 --> 02:21:49.480
+Jitendra U: 17. Which brand this phone belongs to? What's the subcategory of this phone?
+
+866
+02:21:50.080 --> 02:21:53.159
+Jitendra U: Product, smartphones, price of the product.
+
+867
+02:21:53.570 --> 02:21:58.310
+Jitendra U: stock quantity, How many quantities left in your carousel?
+
+868
+02:21:58.420 --> 02:22:02.010
+Jitendra U: What are the specifications of screen size, storage, camera?
+
+869
+02:22:02.380 --> 02:22:09.669
+Jitendra U: all these things are there in your data, right? So, which include, that means you are talking about product collection. So, product defined
+
+870
+02:22:09.930 --> 02:22:11.540
+Jitendra U: What is there in here?
+
+871
+02:22:12.610 --> 02:22:17.340
+Jitendra U: website. So this talks about the type of iPhone.
+
+872
+02:22:17.740 --> 02:22:18.780
+Jitendra U: the cause.
+
+873
+02:22:18.910 --> 02:22:24.640
+Jitendra U: the quantity that you have, right? So, let's say you're running a offer on your iPhone.
+
+874
+02:22:25.490 --> 02:22:26.979
+Jitendra U: in your website.
+
+875
+02:22:27.710 --> 02:22:33.650
+Jitendra U: Right? So, let's say you have launched a website, and you have 100 iPhones to sell.
+
+876
+02:22:34.240 --> 02:22:37.159
+Jitendra U: 50 has been sold out, and you're running
+
+877
+02:22:37.970 --> 02:22:49.629
+Jitendra U: 70… you're running offer on first 70 iPhones, that means you still have 20 iPhones, which comes under the offer. So you keep on checking the stock quantity, if it is less than or greater… if it is greater than…
+
+878
+02:22:49.750 --> 02:22:58.219
+Jitendra U: remaining 30, 30 and more, then you will still run the offer. Otherwise, you will shut down the offer. So these kind of rules you will create in your website.
+
+879
+02:22:58.340 --> 02:23:02.180
+Jitendra U: Similarly, I would like to create, the review count.
+
+880
+02:23:03.040 --> 02:23:10.320
+Jitendra U: Who are the… what is the review from the users, and how they are… appreciating, or decent, or…
+
+881
+02:23:10.690 --> 02:23:12.069
+Jitendra U: Criticizing your product.
+
+882
+02:23:12.310 --> 02:23:18.440
+Jitendra U: So all these things will be a part of your event log. Then you have order collection, that means you're checking for
+
+883
+02:23:18.760 --> 02:23:25.339
+Jitendra U: Product name, quantity, unit price, discount, offer, etc, and that's the total of the final checkout.
+
+884
+02:23:25.810 --> 02:23:31.480
+Jitendra U: So all these things have been tracked, and then finally you will have… Inventory collection, that means…
+
+885
+02:23:33.590 --> 02:23:37.350
+Jitendra U: From which warehouse the stock has to be clear.
+
+886
+02:23:37.890 --> 02:23:39.780
+Jitendra U: What's the maximum stock left?
+
+887
+02:23:40.470 --> 02:23:42.440
+Jitendra U: What's the quantity ordered?
+
+888
+02:23:42.600 --> 02:23:46.249
+Jitendra U: What's the distance between your supplier and delivery?
+
+889
+02:23:46.430 --> 02:23:49.340
+Jitendra U: So that he can be able to deliver this on time.
+
+890
+02:23:49.650 --> 02:23:53.549
+Jitendra U: A supplier also you need if your inventory has been
+
+891
+02:23:54.550 --> 02:24:03.190
+Jitendra U: exhausted, then you are going to supply… you are going to order new from the supplier. So the supplier will have different companies
+
+892
+02:24:03.670 --> 02:24:08.349
+Jitendra U: country of origin, South Korea, China, India…
+
+893
+02:24:09.000 --> 02:24:13.010
+Jitendra U: Right, so all these things will come under the supplier chain.
+
+894
+02:24:13.260 --> 02:24:18.300
+Jitendra U: And then you're going to find out some basic operations. So, first operation is, I would like to print
+
+895
+02:24:19.200 --> 02:24:23.770
+Jitendra U: All customers… And find the…
+
+896
+02:24:24.040 --> 02:24:29.540
+Jitendra U: name, email, and city from it, right? And then I would like to find it out
+
+897
+02:24:29.840 --> 02:24:32.990
+Jitendra U: The female customers, where gender is equal to female.
+
+898
+02:24:33.430 --> 02:24:36.320
+Jitendra U: Or board members in my data.
+
+899
+02:24:36.500 --> 02:24:40.869
+Jitendra U: The category in which they ordered, what's the brand personas.
+
+900
+02:24:41.260 --> 02:24:54.720
+Jitendra U: How many products are there under $100 category, US dollar, and then less than US dollar? So here you can see that I'm creating a query, basic query, to find operation. So I'm trying to find out something from the data.
+
+901
+02:24:54.930 --> 02:25:03.589
+Jitendra U: And the way that I'm using this data is without creating any select, without writing any where, without using any having.
+
+902
+02:25:04.230 --> 02:25:10.870
+Jitendra U: So that's the beauty of MongoDB. So it's like, I'm parsing, Something…
+
+903
+02:25:11.350 --> 02:25:22.659
+Jitendra U: which has been, you know, creating some value for me. That means I'm just trying to utilize this find query to print all this statement.
+
+904
+02:25:22.770 --> 02:25:25.030
+Jitendra U: Right, so let me delete this.
+
+905
+02:25:27.830 --> 02:25:31.959
+Jitendra U: Let me delete this, and then start with the basic operation.
+
+906
+02:25:35.920 --> 02:25:37.789
+Jitendra U: So I have a database now.
+
+907
+02:25:42.960 --> 02:25:44.110
+Jitendra U: If we run this…
+
+908
+02:26:24.240 --> 02:26:27.259
+Jitendra U: Yeah, it's a strange server, it's strange.
+
+909
+02:27:27.390 --> 02:27:42.800
+Jitendra U: Okay, so here you go. Okay, so whatever it is, I just created this data until this point, and then I'm running the basic query. So I would like to find out all the customers. That's the first query that I'm running. So I'm just trying to list down all the customers. So these are the list of my customers, which is there.
+
+910
+02:27:42.900 --> 02:27:44.210
+Jitendra U: In my data.
+
+911
+02:27:44.560 --> 02:28:03.639
+Jitendra U: Then I would like to find it out how many of them are specific gender female, so I would say I would like to run some campaign on Women's Day, so I would like to find out how many of them are from female categories, what's their membership, what city they belong to, and etc, and which product they like and dislike.
+
+912
+02:28:03.930 --> 02:28:09.799
+Jitendra U: And then I would like to look for gold members, right? So I'm just saying I would like to find out all the members.
+
+913
+02:28:10.010 --> 02:28:15.300
+Jitendra U: which are in the gold category. That means the gold members. So here I'm saying, find…
+
+914
+02:28:15.480 --> 02:28:21.159
+Jitendra U: from the DB, from the customer table, find the customer.
+
+915
+02:28:21.330 --> 02:28:29.209
+Jitendra U: Which are coming under gold category. So this is what I'm getting as a gold member. So I have customer 1, Alice Johnson.
+
+916
+02:28:29.550 --> 02:28:33.120
+Jitendra U: Charlie Brown, which is coming in a gold category.
+
+917
+02:28:33.360 --> 02:28:37.050
+Jitendra U: I would like to find out, the electronic product categories.
+
+918
+02:28:37.160 --> 02:28:42.079
+Jitendra U: From my data site as well, so these are my electronic product categories.
+
+919
+02:28:42.320 --> 02:28:47.569
+Jitendra U: I would like to find out how many products are under 100 US dollars, so these are the products.
+
+920
+02:28:47.780 --> 02:28:55.170
+Jitendra U: How many or… how many, how many, Orders were completed.
+
+921
+02:28:55.490 --> 02:28:58.840
+Jitendra U: What surprise quantity ordered, so I can be able to see…
+
+922
+02:28:59.170 --> 02:29:01.009
+Jitendra U: Then I would like to find it out
+
+923
+02:29:01.220 --> 02:29:08.100
+Jitendra U: greater than and between conditions. So, let's say I'm running very targeted campaign for a specific user group.
+
+924
+02:29:08.420 --> 02:29:10.549
+Jitendra U: 25 to 35 years of growth.
+
+925
+02:29:10.980 --> 02:29:18.939
+Jitendra U: And, I would like to give certain discount to my loyal customers who belongs to this group. So I would like to find it out
+
+926
+02:29:19.100 --> 02:29:32.499
+Jitendra U: using the CT expression, which is GT and LTE. This is called, expressions greater than or equal to or less than equal to. So I'm passing the two conditions to find it out which customers are coming under the age group of
+
+927
+02:29:32.800 --> 02:29:39.529
+Jitendra U: 25 to 35, so I've got 2 customers, in fact, 3 or 4 customers, which is qualifying for this criteria.
+
+928
+02:29:39.760 --> 02:29:52.289
+Jitendra U: I would like to find out how the preferences, so that means the preference is a column, so I'm, again, using the find condition, sorry, find, expression, and then I'm saying.
+
+929
+02:29:52.790 --> 02:29:58.910
+Jitendra U: Give me the list of customers, where the preference… Of, categories, books.
+
+930
+02:29:59.110 --> 02:30:02.089
+Jitendra U: I can see that these are the books reader.
+
+931
+02:30:02.730 --> 02:30:08.500
+Jitendra U: And these are the customer who belongs to this category. Give me the list of, product…
+
+932
+02:30:09.020 --> 02:30:10.889
+Jitendra U: Where the listing is.
+
+933
+02:30:11.530 --> 02:30:24.760
+Jitendra U: having value greater than 500 US dollars. So I have these products, which are greater than 500 US dollars. I would like to find out if a customer who belongs to New York and Seattle, so these are the two states that I'm targeting.
+
+934
+02:30:25.200 --> 02:30:27.150
+Jitendra U: So you can see I'm getting…
+
+935
+02:30:27.340 --> 02:30:33.859
+Jitendra U: these customers who belongs to New York or Seattle, right? So they are New York and Seattle-based, Los Angeles.
+
+936
+02:30:34.400 --> 02:30:36.839
+Jitendra U: customers, right? So, these are the…
+
+937
+02:30:37.540 --> 02:30:51.570
+Jitendra U: Typical customer. But one thing I would like to show you, why we are using MongoDB. Now, look carefully here, right? So, here you're not talking about any rows and columns. Here, you're not talking about row, order by, group by, having…
+
+938
+02:30:51.710 --> 02:31:05.340
+Jitendra U: select. You know, you're not even talking about select statement anymore, right? So it's all documented in the form of a JSONified strings, right? And from the JSONified strings, this will become a document ID.
+
+939
+02:31:06.630 --> 02:31:08.439
+Jitendra U: Each data will become a document.
+
+940
+02:31:08.740 --> 02:31:13.159
+Jitendra U: And here you're using the collections, or so-called queries.
+
+941
+02:31:13.320 --> 02:31:16.070
+Jitendra U: To run in a single-line statement.
+
+942
+02:31:16.350 --> 02:31:23.529
+Jitendra U: Without actually concerning too much about the beautification, optimization, and rendering method that you need to
+
+943
+02:31:24.520 --> 02:31:29.390
+Jitendra U: So imagine a situation, you have 1 million transactions per day.
+
+944
+02:31:30.210 --> 02:31:34.720
+Jitendra U: Let's say, in certain banking server or some e-commerce website.
+
+945
+02:31:35.410 --> 02:31:37.260
+Jitendra U: Then these operations can be
+
+946
+02:31:37.670 --> 02:31:44.529
+Jitendra U: Blazing fast as compared to trivial SQLs, and that's the whole idea of using NoSQL databases.
+
+947
+02:31:45.220 --> 02:31:48.010
+Jitendra U: Are you falling so far? Are you with me so far?
+
+948
+02:31:48.520 --> 02:31:56.220
+Jitendra U: So, basically, the idea is to utilize the… NoSQL databases.
+
+949
+02:31:56.620 --> 02:31:58.800
+Jitendra U: In a very analogous manner.
+
+950
+02:31:59.190 --> 02:32:08.220
+Jitendra U: to the way the real-time data can be generated. So that means this is all real-time data. That means your order can change, your customer can churn.
+
+951
+02:32:08.460 --> 02:32:12.300
+Jitendra U: You will have an update on their emails. Maybe,
+
+952
+02:32:13.220 --> 02:32:26.929
+Jitendra U: their membership will become gold from silver, so these changes can happen in a day's time or in an hourly time as well. To reflect those changes in your databases, you require some sort of event-driven databases.
+
+953
+02:32:27.130 --> 02:32:35.610
+Jitendra U: And one of the event-driven databases that is there is MongoDB. And that is a very, very powerful way of mining the data.
+
+954
+02:32:36.530 --> 02:32:42.260
+Jitendra U: Is it clear to everyone, are you following so far what we are performing, what we are trying to understand here?
+
+955
+02:32:55.200 --> 02:32:58.939
+Jitendra U: No, but why you want a readability when you're getting a performance?
+
+956
+02:33:13.860 --> 02:33:19.350
+Jitendra U: Okay, so this Mongo… okay, so the MongoDB, in a nutshell, we are using…
+
+957
+02:33:19.860 --> 02:33:26.090
+Jitendra U: as a NoSQL event-driven databases, rather than a regular table and row-formatted data.
+
+958
+02:33:29.080 --> 02:33:33.189
+Jitendra U: Yeah, I think my server is not working, so you can run it.
+
+959
+02:33:34.010 --> 02:33:37.919
+Jitendra U: From your Python notebook as well. But my server is down, so…
+
+960
+02:33:38.480 --> 02:33:41.939
+Jitendra U: It does not allow me to use the port that I'm trying to target.
+
+961
+02:33:49.970 --> 02:33:54.869
+Jitendra U: Is it clear to everyone? Is it interesting? Which one is more interesting, this one or the previous?
+
+962
+02:33:55.700 --> 02:33:57.570
+Jitendra U: Databases that we just learned.
+
+963
+02:34:02.560 --> 02:34:03.380
+Jitendra U: Yep.
+
+964
+02:34:12.720 --> 02:34:16.109
+Jitendra U: Yeah, so let's try to understand some more operational MongoDB.
+
+965
+02:34:16.600 --> 02:34:21.550
+Jitendra U: So, let's say I would like to find it out And create an aggregation.
+
+966
+02:34:22.160 --> 02:34:27.390
+Jitendra U: So, let's say I would like to find it out… Customers by membership type.
+
+967
+02:34:27.920 --> 02:34:29.459
+Jitendra U: And total spends.
+
+968
+02:34:30.070 --> 02:34:32.589
+Jitendra U: Right? So I would like to find it out a customer width.
+
+969
+02:34:32.910 --> 02:34:35.460
+Jitendra U: Highest spent per membership category.
+
+970
+02:34:35.790 --> 02:34:41.449
+Jitendra U: I would like to find out the top 3 spenders, so that I can give them more discount in future.
+
+971
+02:34:41.600 --> 02:34:48.859
+Jitendra U: Because they are my loyal customer, as well as their highest spenders, right? So they are spending a huge amount of money in my website.
+
+972
+02:34:49.260 --> 02:34:57.690
+Jitendra U: I would like to find out the product by categories. Like, what are the price, what's the order summary, how the product is doing in my carousel.
+
+973
+02:34:58.040 --> 02:35:03.700
+Jitendra U: I would like to, let's say, update some customer membership. The customer has become bronze…
+
+974
+02:35:03.890 --> 02:35:15.430
+Jitendra U: Previously, there was bronze, now it becomes silver. I would like to update the membership. I would like to update the customer preferences. They would like to deliver the product on office, home.
+
+975
+02:35:15.890 --> 02:35:17.760
+Jitendra U: Or somewhere else, right?
+
+976
+02:35:17.890 --> 02:35:20.140
+Jitendra U: So I would like to product update that.
+
+977
+02:35:20.570 --> 02:35:23.230
+Jitendra U: decision. I would like to find it out.
+
+978
+02:35:23.430 --> 02:35:29.920
+Jitendra U: Let's say… the document count. So, each document here references to the table.
+
+979
+02:35:30.310 --> 02:35:32.130
+Jitendra U: And each table halves…
+
+980
+02:35:32.510 --> 02:35:38.030
+Jitendra U: certain schemas. You can see the schema here, so I need to design the schema, it's well written.
+
+981
+02:35:38.630 --> 02:35:49.319
+Jitendra U: All I'm doing is I'm just reusing the same attribute throughout, so that it should not create any ambiguity. So let me run this program for complex query as well.
+
+982
+02:35:49.580 --> 02:35:51.680
+Jitendra U: So the complex query starts with…
+
+983
+02:35:54.980 --> 02:35:55.870
+Jitendra U: Here.
+
+984
+02:35:56.040 --> 02:35:58.909
+Jitendra U: So I'm trying to find out a customer by membership type.
+
+985
+02:35:59.190 --> 02:36:02.359
+Jitendra U: So, trying to generate a count of each member.
+
+986
+02:36:02.580 --> 02:36:05.710
+Jitendra U: And then, from each member, I would like to find it out.
+
+987
+02:36:07.750 --> 02:36:09.420
+Jitendra U: I would like to find it out.
+
+988
+02:36:11.560 --> 02:36:13.990
+Jitendra U: What's their spam behavior?
+
+989
+02:36:14.140 --> 02:36:18.819
+Jitendra U: So I have two customers from gold category, one from bronze, one from silver.
+
+990
+02:36:19.070 --> 02:36:25.410
+Jitendra U: So if I'm taking the spend, that means total spend by true customer divided by number of customer, which is 2.
+
+991
+02:36:25.870 --> 02:36:29.940
+Jitendra U: So, their average spend is $2,825.
+
+992
+02:36:30.130 --> 02:36:35.350
+Jitendra U: For bronze category, it is $980. For silver, it is $17.63.
+
+993
+02:36:36.050 --> 02:36:43.560
+Jitendra U: So, if I have to call it out, the top 3 spenders, Charlie Brown, Alice Johnson, and Bob Smith are the 3 customers.
+
+994
+02:36:43.770 --> 02:36:46.880
+Jitendra U: Which is having the highest spends in my website.
+
+995
+02:36:47.180 --> 02:36:47.930
+Jitendra U: Bye.
+
+996
+02:36:49.540 --> 02:36:53.610
+Jitendra U: By a huge margin. You can see it's a gold cust… it's a gold customer.
+
+997
+02:36:53.970 --> 02:37:01.610
+Jitendra U: Then you have, gold category customer, not gold customer. Gold category customer, you have silver category, and a bronze category customer.
+
+998
+02:37:01.730 --> 02:37:06.579
+Jitendra U: So I've got 3 customers, top spenders in my website, right?
+
+999
+02:37:07.500 --> 02:37:15.140
+Jitendra U: I have got, the products by category, how many category I'm maintaining, I've got
+
+1000
+02:37:15.600 --> 02:37:21.409
+Jitendra U: 3 electronic appliances listed, 1 home decor product, 1 fashion product.
+
+1001
+02:37:22.030 --> 02:37:25.800
+Jitendra U: one type of a reading book, right, I'm having.
+
+1002
+02:37:26.130 --> 02:37:31.770
+Jitendra U: I can see the order status by summary, so those products which are shipped, I can track them.
+
+1003
+02:37:32.160 --> 02:37:37.550
+Jitendra U: Those products who are under processing, those products which have been delivered and written back as well.
+
+1004
+02:37:37.760 --> 02:37:40.230
+Jitendra U: So I can create a very complex
+
+1005
+02:37:41.320 --> 02:37:46.339
+Jitendra U: supply chain tool with the help of MongoDB, so I can track
+
+1006
+02:37:46.630 --> 02:37:51.800
+Jitendra U: And you can see how much time it is taking. If I increase my data by, let's say, millions of records.
+
+1007
+02:37:51.990 --> 02:37:57.969
+Jitendra U: It'll not take much to execute this as well, right? So that's the whole idea that we are using.
+
+1008
+02:37:58.200 --> 02:38:04.449
+Jitendra U: So you can see that I can able to run this in a fraction of a second, and it's generating the answer pretty nicely.
+
+1009
+02:38:04.780 --> 02:38:10.239
+Jitendra U: And I can use this… analysis for different purposes. One purpose could be
+
+1010
+02:38:10.920 --> 02:38:14.769
+Jitendra U: For machine learning purpose, let's say I would like to generate a recommendation model.
+
+1011
+02:38:15.360 --> 02:38:20.820
+Jitendra U: I've created a recommendation model, Which will look for all categories.
+
+1012
+02:38:21.900 --> 02:38:24.860
+Jitendra U: In which the customer is getting more attractions.
+
+1013
+02:38:25.660 --> 02:38:31.240
+Jitendra U: And, I will track their likes, dislikes, The thumb up, thumbnails.
+
+1014
+02:38:31.650 --> 02:38:42.110
+Jitendra U: their emojis, their review comments, etc, and I can be able to perform the analysis and perform something of this sort. So this is very blazing fast data, right? And very…
+
+1015
+02:38:42.420 --> 02:38:46.840
+Jitendra U: Convenient way of getting the real-time data, because if you look into…
+
+1016
+02:38:47.540 --> 02:38:53.710
+Jitendra U: these websites, right? Let's take… Lipkart, or Amazon.
+
+1017
+02:38:58.950 --> 02:39:01.209
+Jitendra U: Right, so if I, if I order this book.
+
+1018
+02:39:01.930 --> 02:39:08.810
+Jitendra U: it'll generate some event, right? Once I order this book, it is asking me for the password and credentials, so the… everything is, like.
+
+1019
+02:39:09.710 --> 02:39:18.339
+Jitendra U: You can say… it's a layout, right? So basically, everything is, like.
+
+1020
+02:39:18.950 --> 02:39:22.329
+Jitendra U: A unique layout that you are using for the purpose of?
+
+1021
+02:39:26.940 --> 02:39:34.340
+Jitendra U: creating this app, right? So this is nothing but… Yeah, just… doing…
+
+1022
+02:39:35.450 --> 02:39:40.310
+Jitendra U: the, if I have to show the paste source, view paste source…
+
+1023
+02:39:40.980 --> 02:39:45.699
+Jitendra U: You can see that this website is nothing but a set of events.
+
+1024
+02:39:46.520 --> 02:39:52.539
+Jitendra U: Alright, so these are the functions, and all the HTML rendering, and all the link events.
+
+1025
+02:39:52.880 --> 02:39:56.450
+Jitendra U: Which will allow you to perform certain…
+
+1026
+02:39:57.370 --> 02:40:01.090
+Jitendra U: Actions on this website, and these pages are rendered.
+
+1027
+02:40:01.500 --> 02:40:06.619
+Jitendra U: Right? And each page have certain unique IDs associated with that.
+
+1028
+02:40:06.870 --> 02:40:10.640
+Jitendra U: And the same way we are using the events at a…
+
+1029
+02:40:11.320 --> 02:40:15.340
+Jitendra U: User level, and then try to streamline this analysis on the top of it.
+
+1030
+02:40:16.950 --> 02:40:21.110
+Jitendra U: So, I would like to share this code with you, everyone, and what I want is…
+
+1031
+02:40:22.850 --> 02:40:30.870
+Jitendra U: You have to run this… In this website, and let me know if you're able to Run this… cleanly.
+
+1032
+02:40:31.140 --> 02:40:34.910
+Jitendra U: Not just blindly run it, but go through the code and ask questions.
+
+1033
+02:40:36.250 --> 02:40:39.479
+Jitendra U: So just let me share this code with everyone.
+
+1034
+02:40:42.130 --> 02:40:44.190
+Jitendra U: So this is JS, JavaScript.
+
+1035
+02:40:45.680 --> 02:40:50.119
+Jitendra U: But we can use Python as well. I'm just using, this particular
+
+1036
+02:40:50.460 --> 02:40:53.109
+Jitendra U: tool, because I'm facing some issue with my IP.
+
+1037
+02:40:53.380 --> 02:40:54.230
+Jitendra U: port.
+
+1038
+02:40:54.500 --> 02:40:57.990
+Jitendra U: So that IP port is… looks like preventing me to…
+
+1039
+02:40:58.440 --> 02:41:01.550
+Jitendra U: run this analysis from Jopra Notebook, but…
+
+1040
+02:41:01.710 --> 02:41:03.490
+Jitendra U: For time being, let's use this.
+
+1041
+02:42:18.420 --> 02:42:21.820
+Jitendra U: If you are, if you would like to use this.
+
+1042
+02:42:22.430 --> 02:42:27.950
+Jitendra U: Which looks, like, more readable, then you are… you're free to use this as well.
+
+1043
+02:42:28.420 --> 02:42:29.880
+Jitendra U: This is more readable.
+
+1044
+02:42:30.110 --> 02:42:35.149
+Jitendra U: So, if… anyway, I'm just leaving it up to you which one you should use.
+
+1045
+02:42:35.330 --> 02:42:39.329
+Jitendra U: Let me put… Pick this one compiler link.
+
+1046
+02:42:40.370 --> 02:42:41.779
+Jitendra U: And you can use this.
+
+1047
+02:43:10.610 --> 02:43:16.420
+Jitendra U: Alright, so first, let me know once you are able to then generate the output in either of the two links that I shared with you.
+
+1048
+02:43:20.840 --> 02:43:23.689
+Jitendra U: Yes, it will be stored in a session memory, DB.
+
+1049
+02:43:35.380 --> 02:43:37.820
+Jitendra U: Can you try with this link? And let me know.
+
+1050
+02:43:42.970 --> 02:43:48.080
+Jitendra U: timeouter… But it is strange why you're getting timeout error.
+
+1051
+02:43:48.620 --> 02:43:50.620
+Jitendra U: How many of you are getting timeout error?
+
+1052
+02:44:08.880 --> 02:44:12.440
+Jitendra U: So, I haven't logged in in this portal, you can see.
+
+1053
+02:44:13.410 --> 02:44:16.660
+Jitendra U: So it should work as it is. I haven't used paid version.
+
+1054
+02:44:18.990 --> 02:44:20.589
+Jitendra U: Yeah, so use this one.
+
+1055
+02:44:21.490 --> 02:44:24.889
+Jitendra U: If you're using, one compiler, that should be okay as well.
+
+1056
+02:44:27.220 --> 02:44:28.370
+Jitendra U: Okay, great.
+
+1057
+02:44:36.000 --> 02:44:41.349
+Jitendra U: All right, so shall we move on to the last topic for today, Cassandra, and then we can wind up the session?
+
+1058
+02:44:47.430 --> 02:44:51.829
+Jitendra U: Okay, great. So if you're able to generate for both, that should be great.
+
+1059
+02:45:13.490 --> 02:45:15.010
+Jitendra U: Is Cassandra.
+
+1060
+02:45:27.860 --> 02:45:33.389
+Jitendra U: Okay, so… Cassandra, on the other hand, It's more like,
+
+1061
+02:45:35.650 --> 02:45:38.529
+Jitendra U: You can say it's more like, you know.
+
+1062
+02:45:38.830 --> 02:45:45.330
+Jitendra U: you can see it's more like a SQL data. That means it's a row database, rather than a column database.
+
+1063
+02:45:45.760 --> 02:45:49.439
+Jitendra U: So the difference between Cassandra and MongoDB,
+
+1064
+02:45:49.870 --> 02:45:55.210
+Jitendra U: basically, if you have to just… if I have to just explain what is the difference between Cassandra
+
+1065
+02:45:56.100 --> 02:46:04.520
+Jitendra U: and MongoDB… so MongoDB is a leaf data base, right? That means it is using each document ID as a leaf.
+
+1066
+02:46:05.300 --> 02:46:10.430
+Jitendra U: So, the difference between Cassandra and MongoDB is between the architecture.
+
+1067
+02:46:10.730 --> 02:46:18.189
+Jitendra U: Both are prominent NoSQL databases, both are coming under the category of NoSQL, but they are very different in terms of architecture and data model.
+
+1068
+02:46:18.870 --> 02:46:22.959
+Jitendra U: So, Cassandra is a wide column data store.
+
+1069
+02:46:23.120 --> 02:46:28.350
+Jitendra U: Which has been decentralized to use peer-to-peer architecture with no single point of failures.
+
+1070
+02:46:28.700 --> 02:46:32.170
+Jitendra U: However, on the other hand, MongoDB,
+
+1071
+02:46:32.970 --> 02:46:37.180
+Jitendra U: is more like a traditional, I would say.
+
+1072
+02:46:37.500 --> 02:46:50.369
+Jitendra U: flexible schema, which is powerful of querying and aggregating capabilities, and working with more complex or evolving structures. Just now we have seen, right, how it is able to get results in a fractional second.
+
+1073
+02:46:50.500 --> 02:46:54.419
+Jitendra U: With such a complex data structure that we have created.
+
+1074
+02:46:54.790 --> 02:47:01.999
+Jitendra U: So, if I have to talk about the purpose, right, that means what purpose each
+
+1075
+02:47:02.470 --> 02:47:05.849
+Jitendra U: will serve, and why, and which one should I use where.
+
+1076
+02:47:06.070 --> 02:47:14.709
+Jitendra U: That's the whole idea of differentiating these two use cases. So, the purpose of using MongoDB, when you have event as a
+
+1077
+02:47:15.290 --> 02:47:22.659
+Jitendra U: so-called, event as a document references. Let's say you would like to find it out.
+
+1078
+02:47:23.020 --> 02:47:25.109
+Jitendra U: That what is, the…
+
+1079
+02:47:25.430 --> 02:47:31.579
+Jitendra U: sales in your product channel, right? And you have event data in a pharmacist, and then you can go with…
+
+1080
+02:47:32.240 --> 02:47:34.479
+Jitendra U: document parsing using MongoDB.
+
+1081
+02:47:34.720 --> 02:47:39.710
+Jitendra U: But if you would like to utilize the other way around, that means you would like to perform.
+
+1082
+02:47:40.080 --> 02:47:57.640
+Jitendra U: the analysis in a way that you are familiar with SQL way of writing the code, then you can go for Cassandra. If you're familiar with SQL way of writing the code, I will definitely say you can still go with Cassandra, and you can use the power of compute, power of,
+
+1083
+02:47:58.880 --> 02:48:03.800
+Jitendra U: The way which you can ride the parry, and then you can go it from there.
+
+1084
+02:48:23.350 --> 02:48:25.290
+Jitendra U: So, let me create a data first.
+
+1085
+02:48:26.430 --> 02:48:29.009
+Jitendra U: One second, let me create a data…
+
+1086
+02:48:42.450 --> 02:48:48.029
+Jitendra U: Okay, so again, we are going to work on the same sort of example, specific to
+
+1087
+02:48:48.470 --> 02:48:55.350
+Jitendra U: retail, so we will… sorry, this time we will use, employee records, so we will use employee
+
+1088
+02:48:55.540 --> 02:49:00.380
+Jitendra U: Details, including employer ID, name, department, salary, hire date.
+
+1089
+02:49:00.900 --> 02:49:07.889
+Jitendra U: Emails, and then we'll look into our department details, which department it belongs to, Then we'll create a…
+
+1090
+02:49:08.250 --> 02:49:15.280
+Jitendra U: create a table called Employ Projects, and then from there, we will perform some insertion.
+
+1091
+02:49:15.670 --> 02:49:20.530
+Jitendra U: Try to look for collections, and then performing some aggregation on the top of it.
+
+1092
+02:49:20.720 --> 02:49:25.919
+Jitendra U: Right, so what we can do is, we will learn how to create indexes, what are the…
+
+1093
+02:49:26.120 --> 02:49:28.820
+Jitendra U: Batch operation applicable.
+
+1094
+02:49:29.060 --> 02:49:33.579
+Jitendra U: when you're performing these queries into Cassandra side of things.
+
+1095
+02:49:33.820 --> 02:49:41.460
+Jitendra U: what are the different ways you can use, complex queries in Cassandra? What are the aggregation functions, and how to use
+
+1096
+02:49:41.600 --> 02:49:45.219
+Jitendra U: User-defined tables to perform this analysis.
+
+1097
+02:49:45.420 --> 02:49:48.280
+Jitendra U: So let's try to run this analysis.
+
+1098
+02:49:48.840 --> 02:49:51.030
+Jitendra U: And see the outcome.
+
+1099
+02:49:54.090 --> 02:49:59.730
+Jitendra U: Okay, this is… Let me log in first.
+
+1100
+02:52:17.390 --> 02:52:24.440
+Jitendra U: This is showing me that this is temporarily disabled. So, Cassandra, they have taken a route on the server.
+
+1101
+02:52:24.830 --> 02:52:28.040
+Jitendra U: Well, let me try… To use some setup.
+
+1102
+02:53:21.830 --> 02:53:25.779
+Jitendra U: I think this is disabled, as a part of this, but
+
+1103
+02:53:26.350 --> 02:53:33.540
+Jitendra U: Let me try with programmers, if it is allowing me to run SQL process.
+
+1104
+02:53:34.350 --> 02:53:38.180
+Jitendra U: Okay, this is disabled for most of the places.
+
+1105
+02:53:42.340 --> 02:53:45.369
+Jitendra U: I think we lost the access to Cassandra.
+
+1106
+02:54:10.960 --> 02:54:13.859
+Jitendra U: The code does not support this, okay.
+
+1107
+02:54:14.470 --> 02:54:19.780
+Jitendra U: Yeah, so I think, this, database is disabled at this moment.
+
+1108
+02:54:19.910 --> 02:54:30.440
+Jitendra U: Maybe if this server is up and running, then we can be able to run this. But anyway, let me look into the questions. What are the questions? How this programming we are learning is cool for machine learning.
+
+1109
+02:54:30.860 --> 02:54:39.669
+Jitendra U: So, we haven't started machine learning yet, so be very clear, we are talking about machine learning, we are talking about SQL and NoSQL databases, so that's the ultimate answer.
+
+1110
+02:54:40.120 --> 02:54:50.310
+Jitendra U: The second question is, for this project, I will be doing this code, we're working with Pandas, DataFrame, or SQL tables. We will be working both, Pandas and DataFrames, SQL table as well.
+
+1111
+02:54:50.640 --> 02:54:56.370
+Jitendra U: As in the sales practice, does ML engineers or AI developer have to create tables and also decide SQL? Yes.
+
+1112
+02:54:56.490 --> 02:55:03.249
+Jitendra U: It's a full-stack job now. It's not long… no longer just an AI analyst or data scientist. It's a full-stack developer.
+
+1113
+02:55:03.490 --> 02:55:09.019
+Jitendra U: So, you need not… you need to become an ML engineer, full-stack AI developer, all roles you have to do.
+
+1114
+02:55:09.560 --> 02:55:15.810
+Jitendra U: Would you mind sharing your Python notebook for Mongi? I will share this after… This… okay.
+
+1115
+02:55:16.360 --> 02:55:21.409
+Jitendra U: So, this is a full-stack developer course, right? So, you're not specialized just for data science?
+
+1116
+02:55:21.820 --> 02:55:25.890
+Jitendra U: So you have to learn more technologies, as well as machine learning algorithms.
+
+1117
+02:55:26.890 --> 02:55:31.399
+Jitendra U: to survive in this world. It's a cutthroat competition world now.
+
+1118
+02:55:31.740 --> 02:55:38.769
+Jitendra U: For the project that we have to doing… we will be doing this course, will we work more? Okay, I think this has been answered.
+
+1119
+02:55:39.420 --> 02:55:57.490
+Jitendra U: when we can cover these topics, we'll come into that, we have to go sequentially, right? The topic is… we are… why we are debating too much from the topic, because the topic is very clear. Programming fundamental machine learning with SQL. That's the topic. So should I jump into that last topic? That is what you're saying, or… I don't know why this question is appearing too many times.
+
+1120
+02:55:57.620 --> 02:56:01.240
+Jitendra U: So we're learning the fundamental SQL, and that is a topic of interest for today.
+
+1121
+02:56:02.280 --> 02:56:11.789
+Jitendra U: How Python use database management. So, I've shown you, right, we are using SQL to perform this analysis and, you know, database management.
+
+1122
+02:56:12.970 --> 02:56:18.200
+Jitendra U: Is Cassandra the key-value pair, similar to Postgres? No, it's not a key value.
+
+1123
+02:56:20.380 --> 02:56:25.810
+Jitendra U: as a professional for me, dedicated, I can… Clearly, our specialized, yes.
+
+1124
+02:56:30.430 --> 02:56:40.510
+Jitendra U: Yes, so we have other agenda for pandas and the stuff, so we'll cover all these things in the upcoming tutorial, so don't worry about this. So we have just focused on the SQL part.
+
+1125
+02:56:40.990 --> 02:56:49.560
+Jitendra U: So here we are learning two types of SQL, NoSQL and SQL way of writing the queries, right? So NoSQL and SQL has been covered.
+
+1126
+02:56:49.670 --> 02:56:55.700
+Jitendra U: In this tutorial, and then you have understood how to deal with these two types of… databases.
+
+1127
+02:57:00.060 --> 02:57:03.660
+Jitendra U: Yeah, I will share this slide and notebook for everyone.
+
+1128
+02:57:06.020 --> 02:57:09.910
+Jitendra U: Python 3.6 and higher, or 3.11 and higher.
+
+1129
+02:57:10.370 --> 02:57:12.650
+Jitendra U: Should be okay, so 3.11.
+
+1130
+02:57:12.800 --> 02:57:14.160
+Jitendra U: 0.5.
+
+1131
+02:57:14.850 --> 02:57:18.870
+Jitendra U: PyCharm is also okay with me. PyCharm, Anaconda…
+
+1132
+02:57:19.420 --> 02:57:26.350
+Jitendra U: Google Colab, or if you're using Ocarium, that should also be fine. So anything should be fine with me, so until unless you're running Python.
+
+1133
+02:57:31.100 --> 02:57:34.579
+Jitendra U: Spider also can… yes, spider should be okay.
+
+1134
+02:57:35.770 --> 02:57:43.229
+Jitendra U: Or if you have Visual Basic, Visual Studio, that should be great as well. So anything is okay. If you are using Linux server, that is also good with me.
+
+1135
+02:57:48.370 --> 02:57:50.860
+Jitendra U: Yeah, I will upload this after the class.
+
+1136
+02:57:53.350 --> 02:57:59.660
+Jitendra U: So let's try to summarize this, what we have learned so far. So we have understood the advanced technique, including
+
+1137
+02:58:00.440 --> 02:58:11.609
+Jitendra U: the demos that we have seen in a real-time manner, like how the retail data has been stored, right? So these are all real case studies. Real-time case studies means
+
+1138
+02:58:11.910 --> 02:58:21.089
+Jitendra U: You are using the industrial experiences from this whole analysis, so make sure that you perform hands-on after this class to get it more.
+
+1139
+02:58:21.570 --> 02:58:26.909
+Jitendra U: So don't miss the chance to perform hands-on session, right? So always try to…
+
+1140
+02:58:27.170 --> 02:58:30.229
+Jitendra U: Use the better way of learning the things.
+
+1141
+02:58:47.420 --> 02:58:49.180
+Jitendra U: Where to see it?
+
+1142
+02:58:50.890 --> 02:58:52.669
+Jitendra U: Preservation Healthcare.
+
+1143
+02:58:56.200 --> 02:59:04.350
+Jitendra U: Okay, any other question, guys, before we wind up for today? So, we have discussed about these components, so we'll talk about the…
+
+1144
+02:59:04.780 --> 02:59:08.900
+Jitendra U: Other aspects of monitoring, model training, as we progress?
+
+1145
+02:59:09.260 --> 02:59:14.360
+Jitendra U: In the upcoming tutorials, and then we will use this whole analysis to perform.
+
+1146
+02:59:14.540 --> 02:59:18.750
+Jitendra U: But at some point of time, you have to use streaming plus batch both.
+
+1147
+02:59:18.950 --> 02:59:24.320
+Jitendra U: So, this database that we have discussed for batch purpose and streaming purpose, you can use… still use Mongo.
+
+1148
+02:59:35.930 --> 02:59:41.180
+Jitendra U: So, is this concept is clear to everyone, all participants? I can see.
+
+1149
+02:59:42.180 --> 02:59:46.040
+Jitendra U: Only… Okay, 68 participants left, so…
+
+1150
+02:59:46.390 --> 02:59:48.670
+Jitendra U: Are we going good in terms of…
+
+1151
+02:59:49.270 --> 02:59:54.329
+Jitendra U: your understanding on the basics of Python plus databases, plus…
+
+1152
+02:59:55.040 --> 02:59:58.790
+Jitendra U: The tools and technique that you should have under your arsenal.
+
+1153
+02:59:59.870 --> 03:00:05.569
+Jitendra U: Are you falling so far? What… what… it's a painful journey, by the way, right? So there's no…
+
+1154
+03:00:05.800 --> 03:00:08.219
+Jitendra U: easy way to learn things. You have to…
+
+1155
+03:00:08.570 --> 03:00:12.460
+Jitendra U: Stress your mind, and you have to focus, and then you have to devote time.
+
+1156
+03:00:13.620 --> 03:00:17.150
+Jitendra U: It's not ready-made tools, right?
+
+1157
+03:00:17.760 --> 03:00:21.510
+Jitendra U: So we are learning everything in a form of a coding exercise.
+
+1158
+03:00:21.920 --> 03:00:27.269
+Jitendra U: And then, we are also looking for making sure that you have good references.
+
+1159
+03:00:27.610 --> 03:00:33.759
+Jitendra U: And things like that. So make sure that you make good out of these sessions, right? So make sure that you have
+
+1160
+03:00:34.150 --> 03:00:38.980
+Jitendra U: Devoted at least 2 to 3 hours daily after the class, or during the week.
+
+1161
+03:00:45.610 --> 03:00:55.229
+Jitendra U: Yeah, so this is the ML integration, so… so let's say if you would like to create a real-time fraud detection algorithm, right? So what are the components that you need?
+
+1162
+03:00:55.970 --> 03:01:03.370
+Jitendra U: So, the first component that you need is a server where you're going to store the data in the form of event trails.
+
+1163
+03:01:04.120 --> 03:01:12.460
+Jitendra U: So data means, the real-time transaction of your users, their scores, the purpose of transaction, etc.
+
+1164
+03:01:12.790 --> 03:01:19.430
+Jitendra U: So this will be coming under a messaging queue, and then you required a step two to use the historical pattern to train your model.
+
+1165
+03:01:19.720 --> 03:01:25.579
+Jitendra U: to identify these streams. So, let's say you're performing a credit card transaction in some
+
+1166
+03:01:26.230 --> 03:01:32.569
+Jitendra U: outlet. You go van somewhere. Out of the country, let's say, you fly some other country.
+
+1167
+03:01:32.730 --> 03:01:47.930
+Jitendra U: And then you swap your credit card in some of the restaurant or some other purposes. You're shopping for something, right? You're purchasing something, and you're using your credit card for doing this. So how bank will analyze that, whether this transaction is authorized.
+
+1168
+03:01:48.330 --> 03:01:56.859
+Jitendra U: authentic or not. One way they can call you, but are they going to call you every time for every transaction? No. So they should use some intelligence to come up with this output.
+
+1169
+03:01:57.070 --> 03:02:02.909
+Jitendra U: So they're using some intelligence, using your historical transaction pattern that you never visited that country earlier.
+
+1170
+03:02:03.130 --> 03:02:06.419
+Jitendra U: Maybe you're using your travel…
+
+1171
+03:02:07.010 --> 03:02:16.930
+Jitendra U: They might skim through your travel history, that you had traveled, you had booked some airline ticket, and then you fly to some other country, and you use the same credit card to transit.
+
+1172
+03:02:17.100 --> 03:02:24.650
+Jitendra U: Then they will use some idea, like, what's our in that country, what's the purpose, whether that particular merchant is authorized.
+
+1173
+03:02:24.860 --> 03:02:30.940
+Jitendra U: And so on and so forth, and then these features will enable to generate fraud labels on the top of it.
+
+1174
+03:02:31.160 --> 03:02:48.000
+Jitendra U: So, these kind of models is… is not just for one or two users, but these models are aggregated across multiple users. So, you're trying to find out the patterns of an anomi, and you deploy your model, and then you perform a monitoring on the top of it. So, here we are talking about two things, Kafka and
+
+1175
+03:02:48.360 --> 03:02:52.660
+Jitendra U: Prometheus and Airflow, right? So these are all databases.
+
+1176
+03:02:56.560 --> 03:03:00.510
+Jitendra U: Right, so that is what I'm trying to say. So, database is always there in real time.
+
+1177
+03:03:00.980 --> 03:03:06.399
+Jitendra U: any real-world project. A database will never… you will not… get anything.
+
+1178
+03:03:06.930 --> 03:03:10.590
+Jitendra U: You cannot get rid of databases in the real world.
+
+1179
+03:03:11.600 --> 03:03:15.000
+Jitendra U: So, database, you have to learn, continue to learn.
+
+1180
+03:03:15.170 --> 03:03:23.659
+Jitendra U: Every time you will see new terms, Kafka will become something. In future, it may look like elephant, elephant database.
+
+1181
+03:03:24.120 --> 03:03:29.440
+Jitendra U: Right, so you never know what technology will change over a period of time, but the basic will remain the same.
+
+1182
+03:03:29.830 --> 03:03:33.640
+Jitendra U: The name can change, their version can change, there could be some upgrade.
+
+1183
+03:03:34.110 --> 03:03:40.139
+Jitendra U: some things here and there, but the basic will remain the same, that's a plus point. So you have to learn from the basic.
+
+1184
+03:03:43.510 --> 03:03:50.930
+Jitendra U: All right, so with that, I think this is pretty much what we have. So I think I've shared… let me share the compiler for…
+
+1185
+03:03:51.980 --> 03:03:56.780
+Jitendra U: This file as well, let me share the Cassandra file, that means.
+
+1186
+03:04:37.740 --> 03:04:41.540
+Jitendra U: Yes, I'm sharing this file with everyone, so please use this.
+
+1187
+03:04:43.360 --> 03:04:46.870
+Jitendra U: And if you can check if the server is running, then this code should work.
+
+1188
+03:04:47.220 --> 03:04:51.649
+Jitendra U: But sometimes server is down, so I'm not… I'm getting the same error at this moment.
+
+1189
+03:04:53.030 --> 03:04:57.330
+Jitendra U: Okay, so I think I've shared with one user, but let me share with everyone in the meeting.
+
+1190
+03:05:07.900 --> 03:05:14.719
+Jitendra U: Yeah, so you have to practice, that's the only way that you can, become expert. I'm not an expert, I am not saying…
+
+1191
+03:05:15.000 --> 03:05:21.050
+Jitendra U: But yeah, so you have to keep on practice with new concepts and new applications.
+
+1192
+03:05:21.420 --> 03:05:28.130
+Jitendra U: That's the only way that you can able to get into the groove of data science world. This world is competitive, so…
+
+1193
+03:05:28.300 --> 03:05:36.759
+Jitendra U: Make sure that… First, you should fight, and then get some pain. So, like, you're fighting for something.
+
+1194
+03:05:37.400 --> 03:05:40.590
+Jitendra U: So, you have to get beaten by someone first.
+
+1195
+03:05:41.410 --> 03:05:48.900
+Jitendra U: Right? Then only you can learn the skill of surviving. But it's not just surviving the fittest, but it's all about how you become master.
+
+1196
+03:05:49.360 --> 03:05:54.389
+Jitendra U: Of it, right? So, make sure that you understand the basics. So, if you excel the basics.
+
+1197
+03:05:54.650 --> 03:05:59.600
+Jitendra U: I don't think so these things will be that complicated in future.
+
+1198
+03:06:07.790 --> 03:06:11.760
+Jitendra U: Yeah, it's a recording will be available, so make sure that you have a portal access.
+
+1199
+03:06:11.860 --> 03:06:13.150
+Jitendra U: And that's all you need.
+
+1200
+03:06:15.630 --> 03:06:22.290
+Jitendra U: Yeah, the code, you need not to remember. Code, you have to understand the logic, so always make sure that you use this
+
+1201
+03:06:22.670 --> 03:06:24.190
+Jitendra U: Way of writing the code.
+
+1202
+03:06:24.840 --> 03:06:31.780
+Jitendra U: So this is the best way of writing the code, the same way that you're preparing for your 10th examination. You use something called scribbling pads and
+
+1203
+03:06:32.110 --> 03:06:37.849
+Jitendra U: some highlighters, right? So… so those highlighters are serving the purpose here as well in the code.
+
+1204
+03:06:45.200 --> 03:06:51.140
+Jitendra U: So this will allow you to understand what you're doing inside the code. Code can, I think,
+
+1205
+03:06:51.570 --> 03:06:59.679
+Jitendra U: Code can change, the syntax can change, the database can change, but the concept will remain the same. You're storing the data in some NoSQL databases.
+
+1206
+03:06:59.860 --> 03:07:02.419
+Jitendra U: And then you're performing the analysis on the top of it.
+
+1207
+03:07:04.510 --> 03:07:09.510
+Jitendra U: So that concept you have to understand. You need not to mesmerize the syntax.
+
+1208
+03:07:10.120 --> 03:07:13.669
+Jitendra U: You have to understand what is… this create table does.
+
+1209
+03:07:14.000 --> 03:07:17.530
+Jitendra U: What does this insert N2 does? What is the N2 clause?
+
+1210
+03:07:18.890 --> 03:07:31.069
+Jitendra U: It's all this thing you have to not even remember, but yeah, it will come with practice, so if you get more hands-on, you try two or three different examples, you will be able to get it there automatically.
+
+1211
+03:07:33.620 --> 03:07:41.099
+Jitendra U: Yeah, Google Colab is, why I'm using it, because it will allow me to use GPUs, so that's the only reason I'm using it.
+
+1212
+03:07:48.410 --> 03:07:55.109
+Jitendra U: So, Colab is, basically is a good interpreter for deep learning, so we'll use heavily Colab for deep learning.
+
+1213
+03:07:59.780 --> 03:08:06.100
+Jitendra U: So, I'm used to it, that's the reason I'm using it, but otherwise, VoCarium is something which you can use as well.
+
+1214
+03:08:07.970 --> 03:08:12.720
+Jitendra U: All right, guys, so I think, this is great, so we have discussed
+
+1215
+03:08:12.890 --> 03:08:16.630
+Jitendra U: the SQL part, so in the next tutorial, we are going to start with…
+
+1216
+03:08:17.040 --> 03:08:21.920
+Jitendra U: The, the other tutorials, which include more advanced
+
+1217
+03:08:22.400 --> 03:08:30.149
+Jitendra U: Pythonic way of writing Pandas, NumPy, matplot, etc. And then we will try to
+
+1218
+03:08:30.330 --> 03:08:40.720
+Jitendra U: use Pandas as much as we can. And then in between, if we need to switch between SQL and Pandas, we will… we are familiar now, right? At least we know what we need to do.
+
+1219
+03:08:40.910 --> 03:08:43.679
+Jitendra U: So we have a tool now, so it's like you have…
+
+1220
+03:08:44.340 --> 03:08:47.540
+Jitendra U: Cesar, you have, your,
+
+1221
+03:08:47.760 --> 03:08:50.400
+Jitendra U: You know, you have your needle.
+
+1222
+03:08:50.740 --> 03:09:01.910
+Jitendra U: and you have a thread. Now, these three things are serving the purpose of stitching this something, some clothes. So you know what to do when, right? So that's the same fundamental we are running, and learning here.
+
+1223
+03:09:02.220 --> 03:09:08.950
+Jitendra U: So what to… when to use what is something you should be familiar until and unless you know everything.
+
+1224
+03:09:09.470 --> 03:09:14.720
+Jitendra U: You need not to become an expert of everything, you just need to understand the basics, but you should be good in some.
+
+1225
+03:09:15.060 --> 03:09:17.290
+Jitendra U: So Pandas is something you should be good at.
+
+1226
+03:09:17.910 --> 03:09:23.430
+Jitendra U: If you have basic in SQL, but good in Pandas, that should be okay as a data scientist.
+
+1227
+03:09:23.830 --> 03:09:32.280
+Jitendra U: So with that, let me, close the session. I think there's no more questions, so thank you guys for attending the session, and we will have an interaction in the next
+
+1228
+03:09:32.440 --> 03:09:41.130
+Jitendra U: week, and next week will be dedicated to another, exciting package, which is for data frames.
+
+1229
+03:09:41.280 --> 03:09:43.620
+Jitendra U: See you in the next week's tutorial. Thank you.
+

@@ -1,0 +1,5526 @@
+WEBVTT
+
+1
+00:00:08.820 --> 00:00:12.920
+Tech Cert 008: Thank you, everyone, for your patience, and we are live now.
+
+2
+00:01:00.110 --> 00:01:02.380
+Jitendra K: Hello guys, good afternoon, good evening.
+
+3
+00:01:03.000 --> 00:01:06.840
+Jitendra K: So we will start in 2 minutes, just give me a moment.
+
+4
+00:01:07.010 --> 00:01:13.040
+Jitendra K: Just opening my slides, and I can see some participants are still missing, so let them join as well.
+
+5
+00:01:13.580 --> 00:01:15.270
+Jitendra K: And then we can start the fishing.
+
+6
+00:02:04.940 --> 00:02:05.769
+Jitendra K: I'm reading.
+
+7
+00:02:05.990 --> 00:02:08.880
+Jitendra K: Okay, so we'll start with,
+
+8
+00:02:09.070 --> 00:02:12.559
+Jitendra K: The quick recap, what we have learned in the last tutorial.
+
+9
+00:02:12.680 --> 00:02:17.820
+Jitendra K: So we have talked about something called backpropagation and feed-forward neural networks, so…
+
+10
+00:02:18.210 --> 00:02:21.709
+Jitendra K: How many of you guys have practiced it? Is there any doubt?
+
+11
+00:02:21.850 --> 00:02:23.179
+Jitendra K: That you're having.
+
+12
+00:02:25.870 --> 00:02:27.969
+Jitendra K: Any question from the previous session?
+
+13
+00:02:39.450 --> 00:02:41.300
+Jitendra K: No, everything is clear.
+
+14
+00:02:49.510 --> 00:02:54.089
+Jitendra K: Get to review, sir. Okay, that means you haven't revised.
+
+15
+00:03:06.940 --> 00:03:07.990
+Jitendra K: Okay.
+
+16
+00:03:20.190 --> 00:03:26.519
+Jitendra K: Okay, so can you tell me what are the concepts that we have covered, at least? What are the concepts that we have covered so far in deep learning?
+
+17
+00:03:45.240 --> 00:03:51.480
+Jitendra K: So what are the concerts that you have covered, guys? Any, any… VAC propagation, activation function.
+
+18
+00:03:52.850 --> 00:03:56.150
+Jitendra K: Okay, and then several application functions.
+
+19
+00:03:59.730 --> 00:04:04.450
+Jitendra K: So, what are these processes called when we say backpropagation and…
+
+20
+00:04:05.090 --> 00:04:07.300
+Jitendra K: So what are we trying to develop here?
+
+21
+00:04:26.880 --> 00:04:34.199
+Jitendra K: Values of weights… So can't I say that I'm… I'm familiar with the feed-forward neural network training now?
+
+22
+00:04:34.720 --> 00:04:39.780
+Jitendra K: Training the weights is nothing but, training the model, or value of the weights is nothing but when you're training the model.
+
+23
+00:04:40.340 --> 00:04:44.330
+Jitendra K: Right, so you understand how to train a feed-forward neural network.
+
+24
+00:04:44.830 --> 00:04:46.280
+Jitendra K: Is my understanding correct?
+
+25
+00:04:46.450 --> 00:04:51.499
+Jitendra K: Can I assume that you're familiar with understanding how to train a feed-forward neural network?
+
+26
+00:04:57.430 --> 00:05:05.150
+Jitendra K: Okay, so… Alright, so you're familiar with… Training the feed-forward neural network.
+
+27
+00:05:05.860 --> 00:05:07.630
+Jitendra K: Now, in this class.
+
+28
+00:05:11.450 --> 00:05:16.350
+Jitendra K: First and the foremost thing we are going to start with, Some of the essential…
+
+29
+00:05:16.950 --> 00:05:22.330
+Jitendra K: algorithms, like atom optimizers, so we'll start with optimization technique.
+
+30
+00:05:22.810 --> 00:05:29.999
+Jitendra K: So we understand what is gradient descent, we understand the types of gradient descent in neural networks, what is the purpose of gradient descent, we have
+
+31
+00:05:30.670 --> 00:05:33.320
+Jitendra K: A great understanding on those algorithms.
+
+32
+00:05:33.790 --> 00:05:39.879
+Jitendra K: Now, I would like to talk about something called The concepts of momentum.
+
+33
+00:05:40.700 --> 00:05:46.070
+Jitendra K: And, the related tech… related, algorithm that we can able to use, too.
+
+34
+00:05:46.540 --> 00:05:48.950
+Jitendra K: Quantify the outcome.
+
+35
+00:05:54.100 --> 00:05:57.840
+Jitendra K: So, let me… one second, let me open my slide.
+
+36
+00:06:31.970 --> 00:06:34.169
+Jitendra K: Okay, so we are going to talk about…
+
+37
+00:06:34.660 --> 00:06:39.610
+Jitendra K: Let me open one website, and I would like to talk about that website as well.
+
+38
+00:06:39.820 --> 00:06:47.750
+Jitendra K: Which will help you to… Understand some of the important topics in… Deep learning.
+
+39
+00:06:48.200 --> 00:06:50.559
+Jitendra K: So, let me show you that website.
+
+40
+00:06:51.160 --> 00:06:53.779
+Jitendra K: And it's called D2L.
+
+41
+00:06:54.030 --> 00:06:55.069
+Jitendra K: dot AI.
+
+42
+00:06:55.450 --> 00:07:00.899
+Jitendra K: So, if you look into this website, d2l.ai, this website is great.
+
+43
+00:07:01.880 --> 00:07:07.360
+Jitendra K: And you can find so many concepts of deep learning over there. In fact, this is a book.
+
+44
+00:07:07.800 --> 00:07:12.899
+Jitendra K: But if I have to maybe go to the topics that we're covering here.
+
+45
+00:07:20.540 --> 00:07:22.770
+Jitendra K: Yeah, that is what we are going to cover today.
+
+46
+00:07:23.240 --> 00:07:30.239
+Jitendra K: What is gradient descent, what is the type of gradient descent? So, if you go to the chapter of optimization algorithms.
+
+47
+00:07:30.670 --> 00:07:32.689
+Jitendra K: So here you will see all the…
+
+48
+00:07:32.980 --> 00:07:35.259
+Jitendra K: algorithms that I'm going to talk about today.
+
+49
+00:07:35.810 --> 00:07:42.300
+Jitendra K: And then we'll take some examples from this book. So remember, we are going to refer books now, in every class.
+
+50
+00:07:42.710 --> 00:07:46.949
+Jitendra K: Without Book, there would not be anything that we're going to discuss, right?
+
+51
+00:07:47.180 --> 00:07:51.339
+Jitendra K: So this is a book, some good chapters that we are going to utilize.
+
+52
+00:07:51.600 --> 00:07:56.279
+Jitendra K: Now, let me explain what is the crux of this whole book.
+
+53
+00:07:56.890 --> 00:08:00.399
+Jitendra K: So… Let me go back to my whiteboard.
+
+54
+00:08:01.880 --> 00:08:04.460
+Jitendra K: Okay, now we are talking about optimization.
+
+55
+00:08:08.200 --> 00:08:16.860
+Jitendra K: Techniques… to implement… And deep learning.
+
+56
+00:08:19.290 --> 00:08:20.590
+Jitendra K: Neural network.
+
+57
+00:08:22.670 --> 00:08:31.620
+Jitendra K: So, we are talking about optimization. Now, first and foremost thing, you have to understand what is optimization. So, when I say optimization, what is optimization? What is the goal of optimization?
+
+58
+00:08:32.419 --> 00:08:35.920
+Jitendra K: So the goal of optimization is always remain the same.
+
+59
+00:08:36.110 --> 00:08:42.869
+Jitendra K: Even if you're using stochastic gradient descent, gradient descent, item optimizer, or any other algorithm.
+
+60
+00:08:43.330 --> 00:08:50.629
+Jitendra K: The purpose of optimization algorithm is to minimize the loss function for deep learning. So minimization of loss function.
+
+61
+00:09:03.210 --> 00:09:06.720
+Jitendra K: Is the goal of your optimization algorithm.
+
+62
+00:09:07.200 --> 00:09:12.820
+Jitendra K: So when you're minimizing the loss function, You're minimizing the errors.
+
+63
+00:09:15.490 --> 00:09:17.680
+Jitendra K: So, minimization of the loss function.
+
+64
+00:09:18.100 --> 00:09:26.409
+Jitendra K: Is the sense or the goal of optimization, and deep learnings are fundamentally using this technique to optimize your objective.
+
+65
+00:09:28.720 --> 00:09:31.089
+Jitendra K: Right? So whenever you're training your model.
+
+66
+00:09:31.320 --> 00:09:33.740
+Jitendra K: You are going to have training errors.
+
+67
+00:09:34.460 --> 00:09:36.190
+Jitendra K: And these errors are…
+
+68
+00:09:36.900 --> 00:09:42.949
+Jitendra K: When we come along with your back propagations, and then we are going to understand how you're training
+
+69
+00:09:47.230 --> 00:09:52.249
+Jitendra K: parameters… are ongoing. So, the objective function for optimization.
+
+70
+00:09:52.520 --> 00:09:55.780
+Jitendra K: Is to identify, based upon the training dataset.
+
+71
+00:09:56.050 --> 00:09:59.690
+Jitendra K: to reduce the training error. However, the goal of deep learning
+
+72
+00:09:59.850 --> 00:10:02.020
+Jitendra K: It's to reduce the generalization error.
+
+73
+00:10:02.400 --> 00:10:08.340
+Jitendra K: Right? So the core idea here is the optimization will help you to reduce the errors
+
+74
+00:10:08.860 --> 00:10:13.560
+Jitendra K: Or empirical errors in your model while training itself.
+
+75
+00:10:14.320 --> 00:10:20.090
+Jitendra K: So there should be some algorithm that will help us to predict these empirical errors during training.
+
+76
+00:10:22.230 --> 00:10:28.060
+Jitendra K: The first and the foremost thing that we are going to talk about is, what are the different sort of
+
+77
+00:10:30.850 --> 00:10:36.840
+Jitendra K: region in deep learning functions. The first thing that we have here understands what is global minima.
+
+78
+00:10:37.130 --> 00:10:40.160
+Jitendra K: So let's say if I have a function, and this is a function.
+
+79
+00:10:41.990 --> 00:10:43.980
+Jitendra K: where I can write this function.
+
+80
+00:10:44.180 --> 00:10:55.040
+Jitendra K: S… Function of X… Which is… X times… Fossil.
+
+81
+00:10:55.410 --> 00:10:58.820
+Jitendra K: IX. So this is some function that I'm using, right?
+
+82
+00:10:59.650 --> 00:11:04.260
+Jitendra K: And these values of this function is from minus 1 to… Cool.
+
+83
+00:11:06.380 --> 00:11:07.840
+Jitendra K: Real varying numbers.
+
+84
+00:11:09.220 --> 00:11:17.569
+Jitendra K: So when we approximate a local minima, when we approximate this function, you'll find two regions. One is called local minima, and the one… second one is called global minima.
+
+85
+00:11:17.860 --> 00:11:22.180
+Jitendra K: This is important, the objective of deep learning function in this two contexts.
+
+86
+00:11:22.630 --> 00:11:27.499
+Jitendra K: So the objective of Deep Learning Model usually have many local optimas.
+
+87
+00:11:29.260 --> 00:11:30.549
+Jitendra K: as a solution.
+
+88
+00:11:30.750 --> 00:11:34.590
+Jitendra K: So when the numerical solution of an optimizer problem is near
+
+89
+00:11:34.890 --> 00:11:38.360
+Jitendra K: To the local optimal, or local minimal function.
+
+90
+00:11:38.900 --> 00:11:45.280
+Jitendra K: The numerical solution obtained by the final iteration may not be an optimized output.
+
+91
+00:11:45.660 --> 00:11:50.149
+Jitendra K: Although it is having multiple output, in terms of solutions.
+
+92
+00:11:50.390 --> 00:11:57.259
+Jitendra K: But the one that you're pointing it out in… that is in local minima, stuck in local minima, will not be the optimal one.
+
+93
+00:11:57.650 --> 00:12:05.300
+Jitendra K: So, global minima… Is the gradient of the objective function solution, where the solution approaches or becomes zero.
+
+94
+00:12:06.570 --> 00:12:10.620
+Jitendra K: Only some degree of noise might knock the parameter out of the local minima.
+
+95
+00:12:11.090 --> 00:12:13.399
+Jitendra K: So that is where you're going to have…
+
+96
+00:12:14.220 --> 00:12:20.210
+Jitendra K: The natural variation of the gradient over many batches that you are using while training the neural network.
+
+97
+00:12:21.390 --> 00:12:24.050
+Jitendra K: Now, there is one more concept called saddle point.
+
+98
+00:12:24.160 --> 00:12:27.329
+Jitendra K: So, what is the difference between saddle point and local minima?
+
+99
+00:12:28.490 --> 00:12:30.369
+Jitendra K: So this is your saddle point.
+
+100
+00:12:34.210 --> 00:12:38.299
+Jitendra K: And this is different from your local minima and global minima, right?
+
+101
+00:12:38.750 --> 00:12:45.109
+Jitendra K: So when I say saddle point, it's a higher dimension, or even more instidious point.
+
+102
+00:12:46.220 --> 00:12:51.270
+Jitendra K: Which is having the value… Pivot at zero.
+
+103
+00:12:52.510 --> 00:12:56.310
+Jitendra K: Right? So here you can see that, if I'm talking about a saddle point.
+
+104
+00:12:59.120 --> 00:13:04.440
+Jitendra K: These points will help me to… Create a threshold.
+
+105
+00:13:05.430 --> 00:13:08.030
+Jitendra K: A kind of a pinpointed threshold.
+
+106
+00:13:08.840 --> 00:13:13.079
+Jitendra K: Where my function can no longer learn after the
+
+107
+00:13:14.790 --> 00:13:17.829
+Jitendra K: this point of inflection. And that is also a point.
+
+108
+00:13:21.160 --> 00:13:22.000
+Jitendra K: Right?
+
+109
+00:13:22.260 --> 00:13:27.330
+Jitendra K: Similarly, we talked about something called vanishing gradient problem, and
+
+110
+00:13:27.530 --> 00:13:30.450
+Jitendra K: Exploding gradient problems in deep learning neural network.
+
+111
+00:13:30.770 --> 00:13:38.559
+Jitendra K: Now, we have… we understand that these are the… some of the things that will be applied to a deep learning neural network.
+
+112
+00:13:38.800 --> 00:13:39.890
+Jitendra K: But how the…
+
+113
+00:13:40.540 --> 00:13:45.690
+Jitendra K: property of a deep learning neural network looks like. What is the property of a deep learning neural network?
+
+114
+00:13:46.040 --> 00:13:50.330
+Jitendra K: Is it a convex function, concave function? What kind of function it is?
+
+115
+00:13:51.170 --> 00:13:52.880
+Jitendra K: So if we are trying to solve
+
+116
+00:13:53.070 --> 00:14:02.160
+Jitendra K: With the help of a constraint, penalties, etc. And what are the things that we are considering to solve this particular deep learning neural network function?
+
+117
+00:14:02.430 --> 00:14:05.909
+Jitendra K: So, all these things we are going to talk about in today's tutorial. So, first.
+
+118
+00:14:06.370 --> 00:14:09.659
+Jitendra K: And the foremost thing, let's try to revisit Gradient Descent.
+
+119
+00:14:11.120 --> 00:14:13.300
+Jitendra K: Or a one-dimensional gradient function.
+
+120
+00:14:13.930 --> 00:14:22.199
+Jitendra K: So, if I have to write down the one-dimensional gradient descent function, the function will take this form. Function of X, which is your input parameter.
+
+121
+00:14:22.560 --> 00:14:27.240
+Jitendra K: plus… Epsilon, which is your errors, irreversible errors.
+
+122
+00:14:27.490 --> 00:14:29.870
+Jitendra K: It can represent it as F of X.
+
+123
+00:14:31.320 --> 00:14:38.060
+Jitendra K: plus… epsilon times F prime X… Thus…
+
+124
+00:14:42.440 --> 00:14:45.220
+Jitendra K: So this is a first-order approximation function.
+
+125
+00:14:45.830 --> 00:14:52.019
+Jitendra K: Not necessarily it should be differentiable, but this is what the first order derivative of this function looks like.
+
+126
+00:14:52.300 --> 00:14:57.099
+Jitendra K: Or I would say this is the… Post one-dimension gradient descent function.
+
+127
+00:14:57.930 --> 00:15:00.580
+Jitendra K: Now, the purpose of this function
+
+128
+00:15:01.970 --> 00:15:04.539
+Jitendra K: Is to learn from the data.
+
+129
+00:15:06.770 --> 00:15:11.169
+Jitendra K: Now, there are different ways that you're going to implement this function. One is…
+
+130
+00:15:11.540 --> 00:15:15.880
+Jitendra K: with the help of a learning grid. So you will say that my algorithm will start.
+
+131
+00:15:16.360 --> 00:15:18.019
+Jitendra K: With some learning rate.
+
+132
+00:15:18.750 --> 00:15:21.250
+Jitendra K: And then, I would like to find it out.
+
+133
+00:15:21.800 --> 00:15:24.030
+Jitendra K: This function approximation.
+
+134
+00:15:24.880 --> 00:15:27.330
+Jitendra K: By understanding this function, trajectory.
+
+135
+00:15:27.710 --> 00:15:31.669
+Jitendra K: So, learning rate, which is called eta, is a parameter.
+
+136
+00:15:34.330 --> 00:15:45.340
+Jitendra K: which has been set by the algorithmic designers, or deep learning users like you and me. And if we are using a learning rate too small, it will cause this updates
+
+137
+00:15:45.840 --> 00:15:48.289
+Jitendra K: of X to be very slow.
+
+138
+00:15:48.730 --> 00:15:51.690
+Jitendra K: And requiring more iteration to get greater solution.
+
+139
+00:15:55.240 --> 00:15:58.980
+Jitendra K: If you're keeping the learning rate to be very high.
+
+140
+00:15:59.660 --> 00:16:03.670
+Jitendra K: We'll end up into another problem, where your algorithm will overfit.
+
+141
+00:16:04.770 --> 00:16:10.990
+Jitendra K: So this is underfit and overfit scenarios, similar to what we have talked about in machine learning, overfitting and underfitting.
+
+142
+00:16:11.860 --> 00:16:19.760
+Jitendra K: Right? So we do not want our algorithm to be stuck in local minima. Rather, neither it should fall apart into a
+
+143
+00:16:19.900 --> 00:16:20.990
+Jitendra K: subtle point.
+
+144
+00:16:21.630 --> 00:16:24.470
+Jitendra K: The border things is… need to be.
+
+145
+00:16:24.850 --> 00:16:25.980
+Jitendra K: over time.
+
+146
+00:16:27.750 --> 00:16:30.739
+Jitendra K: So that means he required some way or some process.
+
+147
+00:16:30.970 --> 00:16:34.049
+Jitendra K: That you are going to incorporate during your training.
+
+148
+00:16:34.300 --> 00:16:37.379
+Jitendra K: Of deep learning neural network, or Deep Learning Neural Network.
+
+149
+00:16:37.880 --> 00:16:42.760
+Jitendra K: To infer how the error or the losses have been substantiated.
+
+150
+00:16:48.510 --> 00:16:55.960
+Jitendra K: So is this… is this objective is clear to everyone now? Any doubt on this objective? This is, something which we already know.
+
+151
+00:16:56.250 --> 00:17:00.150
+Jitendra K: Any… anything that you would like to ask, please ask right now?
+
+152
+00:17:06.500 --> 00:17:13.500
+Jitendra K: Okay, so when we're solving a gradient descent function, we are taking the features in this form.
+
+153
+00:17:14.300 --> 00:17:22.430
+Jitendra K: X1, X2… X3… up to XN. These are my input features, or XT.
+
+154
+00:17:23.950 --> 00:17:29.590
+Jitendra K: So the objective of this function is to map The real value numbers…
+
+155
+00:17:33.720 --> 00:17:41.029
+Jitendra K: Or real… or my objective is to map the vector into a scalar, corresponding gradient in a multivariate example.
+
+156
+00:17:41.150 --> 00:17:45.799
+Jitendra K: So when I'm creating and solving this function, I will take a partial derivative.
+
+157
+00:17:46.920 --> 00:17:48.460
+Jitendra K: To calculate the errors.
+
+158
+00:17:49.550 --> 00:17:54.299
+Jitendra K: And I will say this partial derivative will be represented like this.
+
+159
+00:18:16.230 --> 00:18:22.380
+Jitendra K: So each partial derivative is now a gradient indicator rate of change of the F function.
+
+160
+00:18:22.590 --> 00:18:24.469
+Jitendra K: at a given point, X.
+
+161
+00:18:24.590 --> 00:18:28.100
+Jitendra K: So that none of the solution will be stuck into local minima.
+
+162
+00:18:28.270 --> 00:18:30.209
+Jitendra K: With respect to his own input.
+
+163
+00:18:31.730 --> 00:18:37.240
+Jitendra K: Right, so I can represent this equation as F of… X plus…
+
+164
+00:18:39.070 --> 00:18:41.600
+Jitendra K: Psi n is equal to F of X.
+
+165
+00:18:43.090 --> 00:18:48.869
+Jitendra K: plus… Eta times delta of f of x.
+
+166
+00:18:50.660 --> 00:18:51.600
+Jitendra K: Less…
+
+167
+00:18:57.510 --> 00:18:59.710
+Jitendra K: This is my irreversible errors.
+
+168
+00:19:00.150 --> 00:19:05.299
+Jitendra K: This is my… Second order term, and this is a first-order term.
+
+169
+00:19:07.890 --> 00:19:14.849
+Jitendra K: So basically, what I'm trying to do here is, I'm just trying to use the… to represent this whole equation with the help of a…
+
+170
+00:19:15.930 --> 00:19:17.170
+Jitendra K: editor function.
+
+171
+00:19:20.660 --> 00:19:26.599
+Jitendra K: Right, so that is what we are doing in gradient descent. Epsilon is errors, you can say. Epsilon
+
+172
+00:19:26.820 --> 00:19:28.999
+Jitendra K: Squared is an irreversible error.
+
+173
+00:19:33.050 --> 00:19:37.610
+Jitendra K: These are irreversible errors, so you cannot reverse the errors any further from the model.
+
+174
+00:19:38.560 --> 00:19:40.769
+Jitendra K: But overall, upseller itself is a never.
+
+175
+00:19:45.830 --> 00:19:47.680
+Jitendra K: So, let's go back.
+
+176
+00:19:49.020 --> 00:19:51.099
+Jitendra K: And then we'll try to understand
+
+177
+00:27:27.740 --> 00:27:33.129
+Jitendra K: Sorry guys, there was some project call, so I have to take that, so let me…
+
+178
+00:27:33.860 --> 00:27:35.340
+Jitendra K: Resume the session.
+
+179
+00:27:39.140 --> 00:27:46.940
+Jitendra K: So, yeah, so we are talking about gradient descent, from the scratch, and then we are going to talk about the different types of gradient descent now.
+
+180
+00:27:47.130 --> 00:27:51.690
+Jitendra K: So, in this book, you can see that I have got different types of gradient descent, and
+
+181
+00:27:51.970 --> 00:27:59.160
+Jitendra K: the techniques that we are going to utilize for the purpose of understanding, the flavors of opinion design.
+
+182
+00:27:59.280 --> 00:28:06.050
+Jitendra K: Now, I'm going to talk about the most important technique, which is time-dependent, which is called stochastic gradient descent.
+
+183
+00:28:06.390 --> 00:28:12.480
+Jitendra K: So, when it says stochastic reading descent, so just try to understand what does the term stochastic mean here.
+
+184
+00:28:13.030 --> 00:28:20.779
+Jitendra K: So, we already know that in deep learning, the objective function is usually the average of the loss for each example in the training dataset.
+
+185
+00:28:21.220 --> 00:28:28.080
+Jitendra K: So, let's say when you're feeding any model with input data, we are training with the help of batch.
+
+186
+00:28:28.740 --> 00:28:31.019
+Jitendra K: We'll say that I have got these
+
+187
+00:28:31.430 --> 00:28:35.429
+Jitendra K: Bunch of data points, which has been split into multiple chunks.
+
+188
+00:28:36.260 --> 00:28:37.820
+Jitendra K: or so-called batch.
+
+189
+00:28:39.840 --> 00:28:43.670
+Jitendra K: And then, I would like to use this average data…
+
+190
+00:28:45.630 --> 00:28:49.720
+Jitendra K: Average of… sorry, I would say loss of each data, and then take an average.
+
+191
+00:28:50.390 --> 00:28:56.920
+Jitendra K: So, given a training dataset of n examples, we assume that F of i, which is my function.
+
+192
+00:28:59.160 --> 00:29:02.420
+Jitendra K: Loss function with respect to the parameter.
+
+193
+00:29:02.650 --> 00:29:04.310
+Jitendra K: Undergoes through a training.
+
+194
+00:29:05.890 --> 00:29:10.220
+Jitendra K: will generalize my losses in this form. Summation of…
+
+195
+00:29:11.680 --> 00:29:14.769
+Jitendra K: If I'm using N batches, I will use AN.
+
+196
+00:29:15.240 --> 00:29:17.059
+Jitendra K: F of I, X.
+
+197
+00:29:18.030 --> 00:29:22.350
+Jitendra K: Now, if I'm taking a derivative, this will look at my errors. I will say F of X.
+
+198
+00:29:22.910 --> 00:29:24.840
+Jitendra K: is equals to 1 over n.
+
+199
+00:29:25.550 --> 00:29:30.190
+Jitendra K: summation of i is equal to 1, 2N.
+
+200
+00:29:30.420 --> 00:29:34.099
+Jitendra K: Delta, or partial derivative, F of i.
+
+201
+00:29:34.380 --> 00:29:40.079
+Jitendra K: X… So if the gradient descent has been used in this calculation.
+
+202
+00:29:40.760 --> 00:29:43.809
+Jitendra K: The computation cost of each variable.
+
+203
+00:29:44.410 --> 00:29:52.329
+Jitendra K: is independent. That means each… Error will be approximated by its own learning rate and other parameters.
+
+204
+00:29:52.860 --> 00:29:55.959
+Jitendra K: Now, once I have this output.
+
+205
+00:29:56.600 --> 00:30:03.549
+Jitendra K: In the form of a function, so I will say this output is time-bound. At a given time.
+
+206
+00:30:03.690 --> 00:30:05.299
+Jitendra K: I can find it out.
+
+207
+00:30:06.300 --> 00:30:09.309
+Jitendra K: The error at a particular dataset.
+
+208
+00:30:09.710 --> 00:30:19.730
+Jitendra K: So, if I have to just say the difference between stochastic gradient descent and gradient descent. So, gradient descent is going to update model parameter using entire data set.
+
+209
+00:30:21.750 --> 00:30:24.089
+Jitendra K: Entire dataset means at one go.
+
+210
+00:30:24.680 --> 00:30:30.239
+Jitendra K: But in case of stochastic gradient descent, it updates the parameter using a single random training example.
+
+211
+00:30:30.540 --> 00:30:37.299
+Jitendra K: So it allows us to have faster execution, frequent iteration, and better local minima evaluation.
+
+212
+00:30:37.700 --> 00:30:40.309
+Jitendra K: Within the model training time.
+
+213
+00:30:40.890 --> 00:30:45.790
+Jitendra K: So, stochastic gradient descent is one of the techniques that you are going to utilize for
+
+214
+00:30:45.940 --> 00:30:48.240
+Jitendra K: Training the neural network model.
+
+215
+00:30:49.500 --> 00:30:58.769
+Jitendra K: Or I would say it's an optimization algorithm that calculates the gradient of the cost function for a single training example, and update the model parameter according to the gradient loss.
+
+216
+00:30:59.250 --> 00:31:08.739
+Jitendra K: And this process will continue with a random selection, or randomly selected training example, until the algorithm reach a predetermined stopping criterias.
+
+217
+00:31:10.610 --> 00:31:14.349
+Jitendra K: So, what is gradient descent? Gradient descent is an optimization technique.
+
+218
+00:31:15.230 --> 00:31:20.049
+Jitendra K: And instead of training individual example, like stochastic gradient descent.
+
+219
+00:31:20.950 --> 00:31:30.460
+Jitendra K: work on full example, and calculate the average gradient of the cost function for the entire dataset. That means each iteration of the algorithm involved updating the model parameter.
+
+220
+00:31:30.580 --> 00:31:33.739
+Jitendra K: Based upon the average gradient of all training examples.
+
+221
+00:31:34.070 --> 00:31:41.930
+Jitendra K: So that means, when you're running gradient descent versus, Stochastic gradient descent.
+
+222
+00:31:43.740 --> 00:31:45.050
+Jitendra K: SGD.
+
+223
+00:31:46.010 --> 00:31:48.939
+Jitendra K: This algorithm will take all time.
+
+224
+00:31:50.240 --> 00:31:53.190
+Jitendra K: and faster… to execute.
+
+225
+00:31:53.700 --> 00:31:57.770
+Jitendra K: This algorithm will… be slow.
+
+226
+00:32:00.150 --> 00:32:01.630
+Jitendra K: and costlier.
+
+227
+00:32:02.500 --> 00:32:03.630
+Jitendra K: to execute.
+
+228
+00:32:04.310 --> 00:32:05.540
+Jitendra K: Because it required?
+
+229
+00:32:05.710 --> 00:32:07.150
+Jitendra K: Lot of parameters.
+
+230
+00:32:07.310 --> 00:32:12.310
+Jitendra K: So, speed, convergence, memory are the three important considerations we are going to…
+
+231
+00:32:14.420 --> 00:32:19.910
+Jitendra K: use to compare these algorithms. Speed, Convergence…
+
+232
+00:32:25.600 --> 00:32:26.929
+Jitendra K: and memory.
+
+233
+00:32:27.080 --> 00:32:28.250
+Jitendra K: requirement.
+
+234
+00:32:29.270 --> 00:32:45.179
+Jitendra K: If I have to talk about stochastic gradient descent, which is faster than gradient descent, because here we are just using one training example for our iteration, whereas gradient descent requires entire data set. So, speed is advantageous, that means you can reduce
+
+235
+00:32:45.460 --> 00:32:54.220
+Jitendra K: The parameters and train the model. Convergence is more in terms of predictability, or this is one of the important criteria.
+
+236
+00:32:54.360 --> 00:32:58.720
+Jitendra K: That will help us to understand The behavior of the model.
+
+237
+00:32:58.970 --> 00:33:07.319
+Jitendra K: The last part is the memory constraint. So, gradient descent required more memory than stochastic, because it stored the entire dataset for each iteration.
+
+238
+00:33:09.240 --> 00:33:10.020
+Jitendra K: Right?
+
+239
+00:33:10.900 --> 00:33:13.330
+Jitendra K: So, we'll try to utilize both.
+
+240
+00:33:14.720 --> 00:33:22.220
+Jitendra K: for some of the advantage and disadvantage, that we are going to discuss. So we are going to use both
+
+241
+00:33:22.610 --> 00:33:24.490
+Jitendra K: When we have a large data set.
+
+242
+00:33:25.150 --> 00:33:28.139
+Jitendra K: Some of the advantages and disadvantages of gradient descent include…
+
+243
+00:33:28.780 --> 00:33:35.910
+Jitendra K: The algorithm is highly… highly accurate. That means the accuracy of this algorithm as compared to slow cross-degree Indecent will be higher.
+
+244
+00:33:36.170 --> 00:33:42.239
+Jitendra K: Second is, you will have a more predictable convergence behavior, unlike stochastic reindecent.
+
+245
+00:33:43.310 --> 00:33:45.330
+Jitendra K: It is also robust to a noise.
+
+246
+00:33:45.450 --> 00:33:51.760
+Jitendra K: That means you can able to make your algorithm more precise, more foolproof, that will learn from the noise.
+
+247
+00:33:52.090 --> 00:33:56.429
+Jitendra K: The only disadvantage is slower convergence and memory requirement.
+
+248
+00:33:57.260 --> 00:34:00.259
+Jitendra K: So… What are the common techniques?
+
+249
+00:34:00.430 --> 00:34:05.990
+Jitendra K: What are the common scenarios in which we are going to prefer stochastic versus gradient descent?
+
+250
+00:34:06.310 --> 00:34:12.900
+Jitendra K: So, I will say stochastic range is commonly used in a scenario where the dataset is large and computational resources limited.
+
+251
+00:34:14.090 --> 00:34:21.039
+Jitendra K: That means you are still using deep learning models, and stochastic reading design will help you to combine
+
+252
+00:34:22.070 --> 00:34:24.619
+Jitendra K: Other types of technique.
+
+253
+00:34:24.820 --> 00:34:27.820
+Jitendra K: So we are going to combine now other types of technique.
+
+254
+00:34:29.190 --> 00:34:33.389
+Jitendra K: which include… Momentum.
+
+255
+00:34:37.940 --> 00:34:41.429
+Jitendra K: And… Adaptive learning rate.
+
+256
+00:34:43.489 --> 00:34:45.170
+Jitendra K: Like an astro gradient.
+
+257
+00:34:50.170 --> 00:34:52.709
+Jitendra K: Right, so these… all algorithms are…
+
+258
+00:34:52.969 --> 00:34:57.260
+Jitendra K: using strok security guardian descent in some shape and form.
+
+259
+00:34:57.770 --> 00:35:00.339
+Jitendra K: But, you're going to get a better result.
+
+260
+00:35:01.510 --> 00:35:03.020
+Jitendra K: better scalability.
+
+261
+00:35:03.660 --> 00:35:08.250
+Jitendra K: So now we are going to talk about momentum as a core technique.
+
+262
+00:35:08.740 --> 00:35:16.700
+Jitendra K: So, momentum… in optimization, or what is the concept of momentum?
+
+263
+00:35:16.850 --> 00:35:20.130
+Jitendra K: In deep learning, that is something which we are going to talk about now.
+
+264
+00:35:20.720 --> 00:35:24.160
+Jitendra K: Now, when you say momentum, so as the name suggests.
+
+265
+00:35:24.410 --> 00:35:27.100
+Jitendra K: We are talking about something called oscillation.
+
+266
+00:35:28.100 --> 00:35:33.210
+Jitendra K: And, we are going to look for some sort of oscillation based upon learning rate.
+
+267
+00:35:33.680 --> 00:35:38.210
+Jitendra K: Right, so momentum optimizer, or I would say momentum in deep learning.
+
+268
+00:35:38.870 --> 00:35:45.350
+Jitendra K: It's a technique that will accelerate the gradient descent by accumulating a velocity error from the pass gradient.
+
+269
+00:35:46.120 --> 00:35:48.019
+Jitendra K: So what is velocity error now?
+
+270
+00:35:50.660 --> 00:35:52.899
+Jitendra K: So, let me explain this with the help of…
+
+271
+00:35:55.930 --> 00:35:59.110
+Jitendra K: One second, I will try to show you some visual…
+
+272
+00:36:16.100 --> 00:36:17.890
+Jitendra K: Okay, so let me show you this.
+
+273
+00:36:19.690 --> 00:36:23.139
+Jitendra K: video, and in this video, I will talk about
+
+274
+00:36:23.990 --> 00:36:28.310
+Jitendra K: two things here. One is my objective, so you can see that
+
+275
+00:36:28.750 --> 00:36:35.530
+Jitendra K: I'm having an error surface. This is my error surface. So, by the way, every algorithm that you're going to use will have an error function.
+
+276
+00:36:35.870 --> 00:36:38.199
+Jitendra K: And these error functions are nothing but…
+
+277
+00:36:38.440 --> 00:36:43.280
+Jitendra K: You can assume it, like, loss function, right?
+
+278
+00:36:43.470 --> 00:36:44.960
+Jitendra K: So, grading descent.
+
+279
+00:36:45.460 --> 00:36:50.980
+Jitendra K: Compute a gradient of the loss function with respect to the model weights and update by using the formulas.
+
+280
+00:36:51.310 --> 00:36:55.430
+Jitendra K: So let's say if I… this is my error function. Let me close this video.
+
+281
+00:36:56.010 --> 00:36:58.499
+Jitendra K: Now I'm going to represent this error function.
+
+282
+00:36:59.220 --> 00:37:00.380
+Jitendra K: In this form.
+
+283
+00:37:01.740 --> 00:37:03.350
+Jitendra K: This is my error function.
+
+284
+00:37:03.500 --> 00:37:05.350
+Jitendra K: Right, so in this error function.
+
+285
+00:37:09.620 --> 00:37:11.340
+Jitendra K: I'm having two points.
+
+286
+00:37:12.920 --> 00:37:14.740
+Jitendra K: Point A and point B.
+
+287
+00:37:16.970 --> 00:37:25.339
+Jitendra K: So, gradient descent, what it does is, gradient descent is a simplest optimization algorithm, which compute a gradient of the loss function with respect to the model weights and update.
+
+288
+00:37:25.740 --> 00:37:34.220
+Jitendra K: Using this formula, W of T, equals to… the weight at the T-1.
+
+289
+00:37:35.070 --> 00:37:36.750
+Jitendra K: minus alpha.
+
+290
+00:37:37.730 --> 00:37:39.669
+Jitendra K: Delta of WT.
+
+291
+00:37:39.890 --> 00:37:41.290
+Jitendra K: Alputting the errors.
+
+292
+00:37:41.580 --> 00:37:49.429
+Jitendra K: So, basically, This is the equation that will help you to understand why Gradient is and converts slowly.
+
+293
+00:37:50.230 --> 00:37:56.470
+Jitendra K: So this is a rewind example where we are giving a function of two variables that should be minimized.
+
+294
+00:37:56.590 --> 00:38:03.790
+Jitendra K: So, Rewind here, you can see in my screen, is an area where the surface is more steep in one dimension than the other.
+
+295
+00:38:03.970 --> 00:38:12.860
+Jitendra K: Some surface are… it's like a water, revine, right? So from this image, you can see that the starting point and the local minimum have different horizontal coordinates.
+
+296
+00:38:13.050 --> 00:38:22.050
+Jitendra K: and almost equal vertical coordinates. So using gradient descent to find a local minima, we like to make this function slowly and oscillate towards the vertical axis.
+
+297
+00:38:22.500 --> 00:38:25.629
+Jitendra K: And these… Bounce back the errors.
+
+298
+00:38:25.820 --> 00:38:33.160
+Jitendra K: Because gradient descent does not store any history about its previous gradient, and making gradient descent more undetermined on each iteration.
+
+299
+00:38:34.640 --> 00:38:39.390
+Jitendra K: And that is where we required something more genuine to solve this problem.
+
+300
+00:38:39.640 --> 00:38:43.429
+Jitendra K: And that technique is called momentum. I'm repeating this again.
+
+301
+00:38:43.950 --> 00:38:49.180
+Jitendra K: So let's say this is like a river, and you're throwing a… Stone in the river.
+
+302
+00:38:50.130 --> 00:38:54.599
+Jitendra K: So, there's a wave which oscillates, and then you find the center of this river.
+
+303
+00:38:55.000 --> 00:39:00.800
+Jitendra K: So the amount of time that you reach, or you take to, reach from the…
+
+304
+00:39:01.130 --> 00:39:02.720
+Jitendra K: From the standing point.
+
+305
+00:39:03.040 --> 00:39:06.310
+Jitendra K: Of the observer, all the way to the center of this river.
+
+306
+00:39:06.600 --> 00:39:13.150
+Jitendra K: Well, it depends upon that… Factors, like damping factors, the force that you're applying to
+
+307
+00:39:13.780 --> 00:39:16.649
+Jitendra K: Put up the initial velocity of the stone.
+
+308
+00:39:16.860 --> 00:39:21.839
+Jitendra K: And of course, it may, depend upon your angle and so many other factors.
+
+309
+00:39:21.950 --> 00:39:28.390
+Jitendra K: that your stone will reach the center, and then it will settle down. So let's say your objective is to reach to this center.
+
+310
+00:39:28.740 --> 00:39:41.219
+Jitendra K: So that is where it is called ravine in an area where the surface is much more steep in one dimension than the other. And from this image, you can see that the starting point and the local minima have different horizontal coordinates.
+
+311
+00:39:41.640 --> 00:39:47.549
+Jitendra K: And are almost equal vertically coordinates. So these vertical coordinates are equal, but horizontal coordinates are different.
+
+312
+00:39:47.800 --> 00:39:51.180
+Jitendra K: this coordinating. Vertical coordinates are equal.
+
+313
+00:39:51.460 --> 00:40:02.109
+Jitendra K: So using gradient descent, if we have to find out the local minima, and we would like to create a local function or loss function, which may slowly oscillate towards the vertical axis.
+
+314
+00:40:02.810 --> 00:40:07.989
+Jitendra K: And then it bounced back because of the gradient or errors.
+
+315
+00:40:08.170 --> 00:40:11.569
+Jitendra K: So your stone will oscillate, and then it reaches.
+
+316
+00:40:11.730 --> 00:40:21.280
+Jitendra K: That means this is where you're going to have several losses. But a stochastic rain decent will not be able to convert these losses, because you are not storing the previous loss
+
+317
+00:40:23.990 --> 00:40:30.979
+Jitendra K: In the function as an input, or a historical… you're not tracking the historic losses in your function.
+
+318
+00:40:31.360 --> 00:40:34.349
+Jitendra K: So, momentum will help us to do this.
+
+319
+00:40:35.610 --> 00:40:44.320
+Jitendra K: So when you're training a deep neural network, we try to minimize the loss function. That's our only objective with respect to model parameter, which is weight and height.
+
+320
+00:40:44.820 --> 00:40:50.779
+Jitendra K: So when we talk about reading descent, it struggles because the optimization surface can be non-convex.
+
+321
+00:40:51.270 --> 00:40:54.289
+Jitendra K: Like this, with multiple local minima.
+
+322
+00:40:54.850 --> 00:40:59.780
+Jitendra K: Or, it can have a flat, subtle regions where the gradients are almost zero.
+
+323
+00:41:00.200 --> 00:41:04.670
+Jitendra K: Or it will have a high curvature, steep slope in one direction, shallow in the other.
+
+324
+00:41:04.870 --> 00:41:08.300
+Jitendra K: So this leads to a slow convergence and oscillation.
+
+325
+00:41:09.100 --> 00:41:15.849
+Jitendra K: So momentum addressed this issue by accumulating the velocity, that is, it will remember the pass gradients
+
+326
+00:41:16.040 --> 00:41:19.840
+Jitendra K: And smooth out the updates. That will help us to train
+
+327
+00:41:20.090 --> 00:41:23.829
+Jitendra K: Or enabling that faster and more stable convergence.
+
+328
+00:41:31.890 --> 00:41:34.670
+Jitendra K: Yeah, horizontal axis is X axis, yes.
+
+329
+00:41:36.290 --> 00:41:46.799
+Jitendra K: So, when you say limitation of momentum, or I would say, what is momentum? So, the idea of momentum is very simple. Why do we need momentum? So, we require momentum
+
+330
+00:41:47.410 --> 00:41:52.260
+Jitendra K: Because the loss function can be… Convex or non-convex?
+
+331
+00:41:52.740 --> 00:41:56.929
+Jitendra K: Meaning it can have multiple valleys, hills, and saddle point.
+
+332
+00:41:57.080 --> 00:42:05.620
+Jitendra K: And without momentum, stochastic gradient descent can stuck in local minima all the time, or spend too much time oscillating, specifically in the region with high curvature.
+
+333
+00:42:06.600 --> 00:42:25.869
+Jitendra K: So, when… when you're applying a momentum, it helps to smooth the oscillation and keep the gradient moving towards the global minima. So think it… think of this like pushing a heavy card down a bumpy hill, and momentum helps the card move in a constant direction, or in a consistent direction, ignoring small bumps along the way.
+
+334
+00:42:26.510 --> 00:42:32.509
+Jitendra K: Another question is… This is all physics concept, but how to use this concept in data science?
+
+335
+00:42:35.180 --> 00:42:37.890
+Jitendra K: So that is something which we would like to talk about now.
+
+336
+00:42:38.740 --> 00:42:43.690
+Jitendra K: So, momentum… can be represented as V of T.
+
+337
+00:42:45.070 --> 00:42:49.120
+Jitendra K: And this is a… factor of beta.
+
+338
+00:42:50.080 --> 00:42:53.870
+Jitendra K: V of P… minus 1.
+
+339
+00:42:54.850 --> 00:42:57.239
+Jitendra K: Plus 1 minus beta.
+
+340
+00:42:59.640 --> 00:43:02.380
+Jitendra K: Delta.
+
+341
+00:43:03.460 --> 00:43:08.569
+Jitendra K: Where theta is… Theta minus V of T.
+
+342
+00:43:09.280 --> 00:43:15.220
+Jitendra K: A momentum add a fraction of the previously updated Waits to the current one.
+
+343
+00:43:16.360 --> 00:43:18.519
+Jitendra K: And mathematically, this is how it's represented.
+
+344
+00:43:18.880 --> 00:43:21.579
+Jitendra K: Where V of T is the velocity.
+
+345
+00:43:21.750 --> 00:43:23.990
+Jitendra K: Directional and speed of the gradient descent.
+
+346
+00:43:24.430 --> 00:43:26.710
+Jitendra K: Beta is the momentum coefficient.
+
+347
+00:43:26.930 --> 00:43:33.240
+Jitendra K: And typically, the values of this coefficient lies between 0.5, to 0.9.
+
+348
+00:43:37.450 --> 00:43:45.310
+Jitendra K: This partial derivative is a gradient of the loss with respect to the parameter theta, and theta is the model parameter, which is weights and the bias.
+
+349
+00:43:46.900 --> 00:43:50.890
+Jitendra K: Now, you're operating… velocity.
+
+350
+00:43:53.250 --> 00:43:56.980
+Jitendra K: to reduce… your errors.
+
+351
+00:43:57.970 --> 00:44:03.620
+Jitendra K: This… fraction that you're using, V of… V of T minus 1.
+
+352
+00:44:04.360 --> 00:44:09.969
+Jitendra K: So this equation will help you to store The previous error.
+
+353
+00:44:12.250 --> 00:44:16.039
+Jitendra K: So this is the… this is how you're tracking the previous error.
+
+354
+00:44:16.290 --> 00:44:19.339
+Jitendra K: as compared to… The current one.
+
+355
+00:44:21.520 --> 00:44:28.660
+Jitendra K: So this combined effect will help the model to speed up when it's moving in the right direction, while slowing down presents off oscillation.
+
+356
+00:44:32.840 --> 00:44:36.249
+Jitendra K: So is this concept is clear, momentum concept is clear?
+
+357
+00:44:37.190 --> 00:44:40.499
+Jitendra K: No, beta will… will change.
+
+358
+00:44:42.180 --> 00:44:44.860
+Jitendra K: So if you're getting a function like this.
+
+359
+00:44:48.280 --> 00:44:51.079
+Jitendra K: And your direction is to reach over here.
+
+360
+00:44:51.630 --> 00:44:55.549
+Jitendra K: Right? Your objective is to reach this. This is a non-convex optimization, right?
+
+361
+00:44:55.990 --> 00:45:00.390
+Jitendra K: So if I'm rolling a sphere here, I may require more effort here.
+
+362
+00:45:02.860 --> 00:45:04.960
+Jitendra K: And less effort here, right?
+
+363
+00:45:05.400 --> 00:45:11.030
+Jitendra K: The same thing applies to this function. But keep a velocity as a constant parameter.
+
+364
+00:45:21.960 --> 00:45:25.260
+Jitendra K: So you have to try and experiment with beta for your model.
+
+365
+00:45:25.450 --> 00:45:30.219
+Jitendra K: But common values between 0.9… 0.5 to 0.9 is acceptable.
+
+366
+00:45:31.480 --> 00:45:36.509
+Jitendra K: So, beta can depend upon your data set, model architectures, errors, etc.
+
+367
+00:45:41.220 --> 00:45:46.930
+Jitendra K: But is the concept of momentum clear to everyone? Why we required momentum versus… Gradient descent.
+
+368
+00:45:48.610 --> 00:45:51.660
+Jitendra K: Any difficulty in understanding momentum?
+
+369
+00:45:58.850 --> 00:46:00.299
+Jitendra K: So, just a quick recap.
+
+370
+00:46:00.490 --> 00:46:05.709
+Jitendra K: When we are… Versus gradient descent, this is what we are doing.
+
+371
+00:46:20.490 --> 00:46:25.870
+Jitendra K: Okay, now let me talk about one more variation of gradient descent, which is called adaptive gradient descent.
+
+372
+00:46:26.150 --> 00:46:30.519
+Jitendra K: or so-called Adaptive Gradient Descent, or ADAR grade.
+
+373
+00:46:35.100 --> 00:46:40.009
+Jitendra K: So, adaptive gradient descent, or ADA grade, is another optimization algorithm
+
+374
+00:46:40.460 --> 00:46:46.090
+Jitendra K: with a motivation to adapt, the learning rate to compute gradient descent. Now, here we are talking about learning rate.
+
+375
+00:46:46.700 --> 00:46:48.810
+Jitendra K: To compute gradient descent.
+
+376
+00:46:51.360 --> 00:46:56.989
+Jitendra K: So, when we're talking about adaptive gradient, or adaptive gradient algorithm.
+
+377
+00:46:58.130 --> 00:47:03.420
+Jitendra K: There might be a situation when, during the training, one component of the weight vector
+
+378
+00:47:04.160 --> 00:47:09.690
+Jitendra K: Will have a large gradient value, while others will have extremely small values.
+
+379
+00:47:10.240 --> 00:47:15.109
+Jitendra K: In terms of weight updates, some nodes may have higher errors, some nodes may have low errors.
+
+380
+00:47:16.500 --> 00:47:24.469
+Jitendra K: So this is… this particular phenomena specifically happened in a case when an infrequent model parameter appeared to be have
+
+381
+00:47:24.840 --> 00:47:26.789
+Jitendra K: Low influence on the prediction.
+
+382
+00:47:27.760 --> 00:47:31.619
+Jitendra K: So it is worth noting that, with frequent parameter.
+
+383
+00:47:32.380 --> 00:47:35.789
+Jitendra K: Updates. Such problem does not occur.
+
+384
+00:47:37.070 --> 00:47:40.900
+Jitendra K: And model will use a lot of predicted signal to come up with an answer.
+
+385
+00:47:41.300 --> 00:47:45.900
+Jitendra K: But since the lot of information from Signal is taken into account for gradient computation.
+
+386
+00:47:46.070 --> 00:47:50.930
+Jitendra K: Gradients are usually adequate, and… may represent…
+
+387
+00:47:52.390 --> 00:47:54.940
+Jitendra K: A correct direction towards local minima.
+
+388
+00:47:55.820 --> 00:47:58.190
+Jitendra K: Right, so adaptive gradient deal with…
+
+389
+00:47:59.440 --> 00:48:03.259
+Jitendra K: Independently adapting the learning rate for each weight component.
+
+390
+00:48:04.080 --> 00:48:08.010
+Jitendra K: So if gradients correspond to a certain vector, or large.
+
+391
+00:48:08.220 --> 00:48:10.899
+Jitendra K: Their respective learning rate will be small.
+
+392
+00:48:12.330 --> 00:48:15.999
+Jitendra K: And inversely, for small gradient, the learning rate will be bigger.
+
+393
+00:48:16.860 --> 00:48:23.110
+Jitendra K: So, Adaptive Gradient will help us to balance between two, Phenomena.
+
+394
+00:48:23.780 --> 00:48:27.550
+Jitendra K: Which is called… Vanishing Radiant.
+
+395
+00:48:31.010 --> 00:48:33.670
+Jitendra K: And… Exploding radiant.
+
+396
+00:48:34.740 --> 00:48:41.119
+Jitendra K: So, if your parameters are… If your errors are high, You're going to add…
+
+397
+00:48:41.800 --> 00:48:44.059
+Jitendra K: Delta error on the high side.
+
+398
+00:48:44.620 --> 00:48:46.980
+Jitendra K: If your errors are low.
+
+399
+00:48:47.380 --> 00:48:54.259
+Jitendra K: you're going to reduce delta errors from the previous example. And if you keep on reducing.
+
+400
+00:48:54.560 --> 00:48:57.970
+Jitendra K: With each iteration, your error will become zero.
+
+401
+00:48:58.490 --> 00:49:03.689
+Jitendra K: So your network parameter will no longer update. So your weights and buys will not change.
+
+402
+00:49:04.420 --> 00:49:08.339
+Jitendra K: Here, your weights and buys are unnecessarily increasing.
+
+403
+00:49:08.790 --> 00:49:10.720
+Jitendra K: It can go up to infinity.
+
+404
+00:49:11.210 --> 00:49:12.509
+Jitendra K: So it can explode.
+
+405
+00:49:13.830 --> 00:49:17.170
+Jitendra K: Here are your gradients, that you're calculating.
+
+406
+00:49:17.800 --> 00:49:20.499
+Jitendra K: Is having a tendency to reach zero.
+
+407
+00:49:21.040 --> 00:49:23.580
+Jitendra K: That means no longer update is required.
+
+408
+00:49:24.600 --> 00:49:31.090
+Jitendra K: So this… both scenarios can be balanced with the help of adaptive gradient. That means you are going to use a parameter called eta.
+
+409
+00:49:32.450 --> 00:49:36.140
+Jitendra K: to infer… these… changes.
+
+410
+00:49:36.770 --> 00:49:39.339
+Jitendra K: So if I have to write down this equation, I can say…
+
+411
+00:49:42.510 --> 00:49:44.379
+Jitendra K: the equation V of T.
+
+412
+00:50:10.550 --> 00:50:14.179
+Jitendra K: So this is a greater advantage of adaptive gradient. Now, in this…
+
+413
+00:50:14.820 --> 00:50:21.780
+Jitendra K: You know, you need, you're not required, or no longer required, to manually adjust the learning rate.
+
+414
+00:50:22.010 --> 00:50:24.500
+Jitendra K: So it is going to adapt itself during training.
+
+415
+00:50:25.940 --> 00:50:31.670
+Jitendra K: Right? So this learning rate will constantly decrease when increasing the number of iterations.
+
+416
+00:50:32.380 --> 00:50:37.919
+Jitendra K: And it will be able to increase if the errors are depleting.
+
+417
+00:50:38.810 --> 00:50:40.909
+Jitendra K: So that is called adaptive gradient.
+
+418
+00:50:41.890 --> 00:50:46.330
+Jitendra K: So, using adaptive gradient, you can improve your ETA, learning rate.
+
+419
+00:50:48.350 --> 00:50:51.769
+Jitendra K: Using Momentum, We are working on beta.
+
+420
+00:50:54.590 --> 00:50:56.720
+Jitendra K: So this is our hyperparameter now.
+
+421
+00:50:57.180 --> 00:50:59.569
+Jitendra K: Using gradient design, we are working on.
+
+422
+00:51:01.090 --> 00:51:03.260
+Jitendra K: Theta. Learning it.
+
+423
+00:51:04.360 --> 00:51:06.430
+Jitendra K: Alright, so these are the three important…
+
+424
+00:51:07.950 --> 00:51:11.019
+Jitendra K: Hyperparameter that we're going to use to train our models.
+
+425
+00:51:11.670 --> 00:51:15.889
+Jitendra K: Now, we will also talk about one more technique called RMS propagation.
+
+426
+00:51:16.940 --> 00:51:20.460
+Jitendra K: Root mean square, propagation.
+
+427
+00:51:23.470 --> 00:51:30.200
+Jitendra K: Now, RMS propagation is kind of an improvement, or I would say this is the…
+
+428
+00:51:31.920 --> 00:51:34.800
+Jitendra K: Plus version of adaptive gradient.
+
+429
+00:51:38.720 --> 00:51:41.840
+Jitendra K: So I would say this is just an improved version of adaptive gradient.
+
+430
+00:51:42.190 --> 00:51:43.570
+Jitendra K: So, RMS
+
+431
+00:51:44.930 --> 00:51:51.860
+Jitendra K: was elaborative as, or elaborated as, improvement over Adaptive Gradient, which tackled the issue of learning rate decay.
+
+432
+00:51:52.030 --> 00:51:53.890
+Jitendra K: Similar to Adaptive Gradient.
+
+433
+00:51:54.040 --> 00:51:59.510
+Jitendra K: RMS prop use a pair of equations for which the weight update is absolutely the same.
+
+434
+00:52:00.150 --> 00:52:03.639
+Jitendra K: So when I'm using an RMS drop, I would say V of T.
+
+435
+00:52:06.070 --> 00:52:10.569
+Jitendra K: is beta times… V of T minus 1.
+
+436
+00:52:11.740 --> 00:52:14.250
+Jitendra K: Plus 1 minus beta.
+
+437
+00:52:16.370 --> 00:52:17.350
+Jitendra K: DO?
+
+438
+00:52:18.180 --> 00:52:19.570
+Jitendra K: W3 square.
+
+439
+00:52:20.130 --> 00:52:25.770
+Jitendra K: where my double of t is equals to… W of T minus 1.
+
+440
+00:52:26.480 --> 00:52:32.069
+Jitendra K: Minus alpha divided by… Under W of T plus epsilon.
+
+441
+00:52:33.030 --> 00:52:33.940
+Jitendra K: CEO.
+
+442
+00:52:34.180 --> 00:52:35.260
+Jitendra K: WP.
+
+443
+00:52:35.740 --> 00:52:40.030
+Jitendra K: So instead of storing a cumulative sum of square gradients.
+
+444
+00:52:40.410 --> 00:52:44.869
+Jitendra K: I'm going to find out exponential moving average.
+
+445
+00:52:47.010 --> 00:52:49.850
+Jitendra K: So that is called RMS propagation.
+
+446
+00:52:50.470 --> 00:52:56.690
+Jitendra K: And because with the exponential moving average, I will be able to put more emphasis on the recent gradient values.
+
+447
+00:52:56.960 --> 00:53:03.619
+Jitendra K: Rather than equally distributing the importance between all the gradient from the first iteration onwards.
+
+448
+00:53:04.200 --> 00:53:06.909
+Jitendra K: So that will make my learning more faster.
+
+449
+00:53:11.900 --> 00:53:12.800
+Jitendra K: Right?
+
+450
+00:53:12.930 --> 00:53:16.770
+Jitendra K: So, basically, what I'm trying to say here is…
+
+451
+00:53:17.830 --> 00:53:22.739
+Jitendra K: Every time when you're choosing the algorithm one over the other, you need to consider two factors.
+
+452
+00:53:25.580 --> 00:53:32.890
+Jitendra K: the complexity, Which is directly proportional to your time it takes to converge.
+
+453
+00:53:33.190 --> 00:53:34.940
+Jitendra K: Second is the parameters.
+
+454
+00:53:37.110 --> 00:53:39.360
+Jitendra K: Which parameter are you operating upon?
+
+455
+00:53:39.990 --> 00:53:47.690
+Jitendra K: We have looked at different optimization algorithms in neural network, and you can consider a combination of momentum, RMS, Prop, ADAM,
+
+456
+00:53:48.170 --> 00:53:54.269
+Jitendra K: Which is… Quite robust and adapt to a large dataset and deep learning neural network.
+
+457
+00:53:54.620 --> 00:53:59.589
+Jitendra K: And moreover, it required straightforward implementation written memory requirement that makes
+
+458
+00:54:00.000 --> 00:54:03.260
+Jitendra K: Your algorithm is a perfect choice for measure of the situation.
+
+459
+00:54:04.140 --> 00:54:10.249
+Jitendra K: So this is what the algorithm works behind the scenes. This is how the algorithm works behind the scene.
+
+460
+00:54:10.550 --> 00:54:17.580
+Jitendra K: In terms of, the concepts that you're going to use to improve your models, or improve your…
+
+461
+00:54:17.840 --> 00:54:20.630
+Jitendra K: Reducing your errors in the models.
+
+462
+00:54:26.740 --> 00:54:30.030
+Jitendra K: So, any question on this, guys? Anything that they would like to ask?
+
+463
+00:54:32.110 --> 00:54:35.569
+Jitendra K: Are you clear so far? Momentum, stochastic, really indecent?
+
+464
+00:54:36.140 --> 00:54:41.929
+Jitendra K: you're able to understand the refined version of Adaptive Gradient, which is RMS prop.
+
+465
+00:54:42.140 --> 00:54:43.329
+Jitendra K: All those things.
+
+466
+00:54:48.880 --> 00:54:50.400
+Jitendra K: Yes and no, guys.
+
+467
+00:54:56.940 --> 00:54:58.719
+Jitendra K: Alright, how about the other?
+
+468
+00:55:20.780 --> 00:55:24.940
+Jitendra K: Alright, so I hope this is explicitly clear to everyone now.
+
+469
+00:55:56.700 --> 00:56:01.800
+Jitendra K: One second, so let me… Open my example now…
+
+470
+00:56:48.360 --> 00:56:53.040
+Jitendra K: Okay, so the last technique that I'm going to talk about is called something called nestro gradient.
+
+471
+00:57:01.240 --> 00:57:05.500
+Jitendra K: So, let me explain this part as well, and then we'll move on to the example.
+
+472
+00:57:07.570 --> 00:57:09.240
+Jitendra K: On a stroke momentum.
+
+473
+00:57:09.720 --> 00:57:10.640
+Jitendra K: So…
+
+474
+00:57:16.350 --> 00:57:19.389
+Jitendra K: I have to use one more slide, one second, let me open that.
+
+475
+00:57:49.020 --> 00:57:54.369
+Jitendra K: Okay, so this is what the difference between momentum-based gradient descent and the stroke accelerator gradient descent.
+
+476
+00:57:54.560 --> 00:57:59.760
+Jitendra K: Now, if you look carefully in these two slides, or this particular diagram.
+
+477
+00:58:00.170 --> 00:58:01.709
+Jitendra K: You can be able to see that.
+
+478
+00:58:05.210 --> 00:58:09.160
+Jitendra K: You can be able to see that in figure number A. Let me use my marker.
+
+479
+00:58:09.310 --> 00:58:16.670
+Jitendra K: And figure number A, which is this, The gradient is negative, because…
+
+480
+00:58:17.480 --> 00:58:24.990
+Jitendra K: by W , which is my initial weight, Increase the losses.
+
+481
+00:58:26.840 --> 00:58:31.789
+Jitendra K: And even updating, when I'm making an update, And second step.
+
+482
+00:58:36.310 --> 00:58:41.750
+Jitendra K: Or the third step, this… Loss is kind of…
+
+483
+00:58:42.130 --> 00:58:44.930
+Jitendra K: Decreasing, and their weights are increasing.
+
+484
+00:58:45.780 --> 00:58:48.470
+Jitendra K: So that means… with…
+
+485
+00:58:48.680 --> 00:58:57.699
+Jitendra K: W0 increase, loss decreases, and even update 2 is positive. You can see that the update is slightly larger than the update 1.
+
+486
+00:58:58.630 --> 00:59:02.329
+Jitendra K: And this is the term momentum, or momentum-based learning.
+
+487
+00:59:03.560 --> 00:59:09.049
+Jitendra K: And you can see that the update number 3 will be bigger than both update number 1 and 2.
+
+488
+00:59:09.490 --> 00:59:11.060
+Jitendra K: Because of momentum.
+
+489
+00:59:11.390 --> 00:59:15.070
+Jitendra K: And all the positive update histories that he's keeping a track.
+
+490
+00:59:15.550 --> 00:59:18.920
+Jitendra K: And update 4 is where the things get interesting.
+
+491
+00:59:19.460 --> 00:59:28.379
+Jitendra K: So in this example, you can see with update 4, in this case, I'm using a vanillar momentum case. Due to positive history, the update overshoot
+
+492
+00:59:28.860 --> 00:59:32.130
+Jitendra K: And the decent recover by doing negative updates.
+
+493
+00:59:33.670 --> 00:59:35.570
+Jitendra K: So it increases the loss.
+
+494
+00:59:39.170 --> 00:59:43.590
+Jitendra K: Right, so here… I'm increasing the loss in the fourth step.
+
+495
+00:59:47.030 --> 00:59:49.820
+Jitendra K: And based upon this momentum-based learning.
+
+496
+00:59:50.460 --> 00:59:52.430
+Jitendra K: I'm going to have this phenomena.
+
+497
+00:59:52.550 --> 00:59:54.489
+Jitendra K: Happen within the model.
+
+498
+00:59:56.620 --> 01:00:03.500
+Jitendra K: But in case of Nestroph, accelerator gradient, You can see that even…
+
+499
+01:00:03.650 --> 01:00:07.400
+Jitendra K: Update happened in two-step, first and partial update in the second step.
+
+500
+01:00:08.270 --> 01:00:13.690
+Jitendra K: Although the loss functions are decreasing, but they're constantly decreasing in 4-step as well.
+
+501
+01:00:14.790 --> 01:00:17.670
+Jitendra K: So that means, when you're performing
+
+502
+01:00:18.430 --> 01:00:24.920
+Jitendra K: A wait update by looking ahead the errors, You should use some margin.
+
+503
+01:00:25.140 --> 01:00:26.689
+Jitendra K: To come up with an answer.
+
+504
+01:00:29.440 --> 01:00:32.320
+Jitendra K: That margin will be controlled by this.
+
+505
+01:00:32.530 --> 01:00:34.179
+Jitendra K: This particular algorithm.
+
+506
+01:00:34.550 --> 01:00:38.639
+Jitendra K: This is a small, small concepts. For every concept, there are new equations, right?
+
+507
+01:00:38.800 --> 01:00:41.980
+Jitendra K: Because… The reason why it is…
+
+508
+01:00:42.120 --> 01:00:44.670
+Jitendra K: These things are challenged for deep learning.
+
+509
+01:00:45.560 --> 01:00:47.949
+Jitendra K: And, as you can see that,
+
+510
+01:00:48.360 --> 01:00:51.270
+Jitendra K: Deep learning has been evolved.
+
+511
+01:00:52.000 --> 01:00:56.220
+Jitendra K: from 2000, I would say, Pro?
+
+512
+01:00:57.740 --> 01:00:59.660
+Jitendra K: Until 2022.
+
+513
+01:01:01.470 --> 01:01:06.270
+Jitendra K: It's still evolving. I'm not saying that it has been becoming mature. It is still…
+
+514
+01:01:06.440 --> 01:01:15.359
+Jitendra K: evolving, but within these 10 years, there's a lot of things which has been happening. So every day, there's a new paper. Every day, there's a new technique. Every day, you will find new mathematical
+
+515
+01:01:15.560 --> 01:01:16.540
+Jitendra K: Challenge.
+
+516
+01:01:16.670 --> 01:01:19.309
+Jitendra K: Every day you will find some new model.
+
+517
+01:01:19.720 --> 01:01:25.100
+Jitendra K: Struggling with some of the techniques, old techniques.
+
+518
+01:01:25.570 --> 01:01:34.700
+Jitendra K: So the… they are trying… the data scientist communities, or so-called, the… The pool of data scientists
+
+519
+01:01:35.680 --> 01:01:43.230
+Jitendra K: who's working as a researcher, who's working as a PhD, who's working as a Kegel data scientist, and so on and so forth.
+
+520
+01:01:43.800 --> 01:01:45.599
+Jitendra K: They are publishing…
+
+521
+01:01:45.810 --> 01:01:53.870
+Jitendra K: new techniques, new mathematical technique to improve the model. So we are just talking about mathematical technique to improve the model. There's so many techniques.
+
+522
+01:01:54.610 --> 01:02:00.539
+Jitendra K: If I have to maybe cover all, it will take at least 50 classes to cover all.
+
+523
+01:02:02.360 --> 01:02:05.099
+Jitendra K: We are talking about only the important techniques.
+
+524
+01:02:05.990 --> 01:02:06.810
+Jitendra K: Right?
+
+525
+01:02:07.800 --> 01:02:12.350
+Jitendra K: So the technique that we are talking about here is… Gradient descent.
+
+526
+01:02:13.990 --> 01:02:15.809
+Jitendra K: Stochastic reading descent.
+
+527
+01:02:16.610 --> 01:02:28.580
+Jitendra K: And then we are talking about how stochastic gradient descent is using momentum R… acceleration-based technique.
+
+528
+01:02:30.300 --> 01:02:32.020
+Jitendra K: To come up with an answer.
+
+529
+01:02:33.340 --> 01:02:35.209
+Jitendra K: Right? This will help us too.
+
+530
+01:02:37.810 --> 01:02:43.210
+Jitendra K: Provide a better look-ahead capability as compared to the previous version.
+
+531
+01:02:47.630 --> 01:02:51.079
+Jitendra K: Right? So basically, the idea here is very simple.
+
+532
+01:02:52.660 --> 01:02:57.350
+Jitendra K: You're going to use… Either of these techniques, one over the other.
+
+533
+01:02:57.790 --> 01:02:58.990
+Jitendra K: To come up with.
+
+534
+01:02:59.760 --> 01:03:00.819
+Jitendra K: the output.
+
+535
+01:03:10.130 --> 01:03:12.119
+Jitendra K: So, I've listed down all the technique.
+
+536
+01:03:12.980 --> 01:03:14.620
+Jitendra K: Let me show you that…
+
+537
+01:03:50.750 --> 01:03:56.920
+Jitendra K: So let me show you the cheat sheet for that. I'm just searching for the cheat sheet for all the optimization technique.
+
+538
+01:03:58.020 --> 01:04:01.260
+Jitendra K: 10 techniques… I don't know.
+
+539
+01:04:01.680 --> 01:04:03.320
+Jitendra K: Keep learning.
+
+540
+01:04:04.110 --> 01:04:05.220
+Jitendra K: Birdie was…
+
+541
+01:04:11.340 --> 01:04:15.399
+Jitendra K: This has been published by Stanford University, so let me show you.
+
+542
+01:04:54.030 --> 01:04:57.580
+Jitendra K: Yeah, so I will share… I will share this cheat sheet with you so that you can…
+
+543
+01:04:57.900 --> 01:05:06.339
+Jitendra K: revised based upon this. This is the cheat sheet that I'm talking about, and it comprises of all the important concepts that we have discussed.
+
+544
+01:05:06.590 --> 01:05:09.700
+Jitendra K: Or maybe, in future, also, we are going to discuss some more.
+
+545
+01:05:09.810 --> 01:05:14.459
+Jitendra K: This cheat sheet will comprise of everything that we are going to use. So this is the one…
+
+546
+01:05:14.580 --> 01:05:19.249
+Jitendra K: Way that you can able to revise and take a help, if needed.
+
+547
+01:05:19.820 --> 01:05:22.150
+Jitendra K: Let me share this with everyone.
+
+548
+01:05:25.520 --> 01:05:26.910
+Jitendra K: Similarly.
+
+549
+01:05:36.340 --> 01:05:39.179
+Jitendra K: This is one of the… GitHub link.
+
+550
+01:05:39.640 --> 01:05:45.460
+Jitendra K: That'll help you to… Get all the parameters that we discussed.
+
+551
+01:05:45.820 --> 01:05:47.630
+Jitendra K: Including the algorithms.
+
+552
+01:05:51.750 --> 01:05:55.979
+Jitendra K: So you can use this sheet as well, the equation that I have wrote.
+
+553
+01:05:56.390 --> 01:06:02.340
+Jitendra K: It's very similar to what we have discussed so far, right? So you can go through the details of these techniques as well.
+
+554
+01:06:03.390 --> 01:06:05.310
+Jitendra K: The last but not the least.
+
+555
+01:06:05.770 --> 01:06:08.210
+Jitendra K: We are going to talk about now the example.
+
+556
+01:06:11.060 --> 01:06:14.869
+Jitendra K: Now, the example that we are going to use, to…
+
+557
+01:06:15.510 --> 01:06:19.919
+Jitendra K: to take into consideration is, we'll have two important factors. One is.
+
+558
+01:06:20.340 --> 01:06:23.110
+Jitendra K: We are going to use the same dataset to train the model.
+
+559
+01:06:23.260 --> 01:06:28.349
+Jitendra K: That means if I'm going to use, let's say, one open source data to train my model.
+
+560
+01:06:28.490 --> 01:06:30.590
+Jitendra K: I will keep my objective function same.
+
+561
+01:06:32.310 --> 01:06:34.800
+Jitendra K: No objective function or loss function, same.
+
+562
+01:06:37.090 --> 01:06:41.719
+Jitendra K: And I will use a set of methods that we have discussed, 1, 2, 3, 4.
+
+563
+01:06:42.150 --> 01:06:43.270
+Jitendra K: etc.
+
+564
+01:06:43.580 --> 01:06:48.130
+Jitendra K: And using this method, we'll compare the losses?
+
+565
+01:06:50.060 --> 01:06:51.899
+Jitendra K: We'll also see the time.
+
+566
+01:06:52.320 --> 01:06:53.980
+Jitendra K: It take to converge.
+
+567
+01:06:55.670 --> 01:06:57.099
+Jitendra K: We'll also see…
+
+568
+01:07:06.790 --> 01:07:08.250
+Jitendra K: Ho?
+
+569
+01:07:09.320 --> 01:07:17.389
+Jitendra K: the model… updates a parameter. What parameters is required to update?
+
+570
+01:07:18.500 --> 01:07:21.639
+Jitendra K: Alright, so we'll talk about these three important MLRIs.
+
+571
+01:07:22.150 --> 01:07:25.160
+Jitendra K: So let's try to look into… the code.
+
+572
+01:07:25.950 --> 01:07:31.769
+Jitendra K: And, I will use Google Colabs, which is providing me GPU. I require GPU for this example.
+
+573
+01:07:32.540 --> 01:07:35.220
+Jitendra K: So let me first go back to my collab.
+
+574
+01:07:47.920 --> 01:07:54.320
+Jitendra K: So we are going to use our MNIST dataset, which is favorite example, Amnest data examples, for solving this.
+
+575
+01:07:55.110 --> 01:07:56.560
+Jitendra K: Challenge, again.
+
+576
+01:07:58.850 --> 01:08:00.130
+Jitendra K: Let me connect.
+
+577
+01:08:06.050 --> 01:08:08.849
+Jitendra K: I will explain the code. Let me first run this.
+
+578
+01:08:11.970 --> 01:08:19.639
+Jitendra K: So, we are going to cover 11 optimization techniques in this code. Let me first list down what are the techniques that we are going to cover.
+
+579
+01:08:20.040 --> 01:08:22.899
+Jitendra K: So, we are covering 11 optimization techniques.
+
+580
+01:08:24.130 --> 01:08:25.439
+Jitendra K: which include…
+
+581
+01:08:29.810 --> 01:08:34.840
+Jitendra K: Okay, let me write down… all our… optimizer technique.
+
+582
+01:08:39.760 --> 01:08:43.489
+Jitendra K: So the first technique that we're going to cover is stochastic gradient descent.
+
+583
+01:08:44.090 --> 01:08:48.070
+Jitendra K: Second is, we are going to use stochastic radiation with momentum.
+
+584
+01:08:52.189 --> 01:08:56.049
+Jitendra K: Third technique that we're going to use is… Let's true.
+
+585
+01:09:01.710 --> 01:09:04.810
+Jitendra K: 4th… Adaptive Gradient.
+
+586
+01:09:05.899 --> 01:09:09.590
+Jitendra K: fifth… Adaptive Delta.
+
+587
+01:09:11.140 --> 01:09:12.090
+Jitendra K: Sixth.
+
+588
+01:09:12.420 --> 01:09:13.690
+Jitendra K: RMS prop.
+
+589
+01:09:15.529 --> 01:09:22.059
+Jitendra K: RMS propagation, Seventh, adaptive momentum, or ADAM.
+
+590
+01:09:24.340 --> 01:09:28.290
+Jitendra K: it… the refined version of Adam, called Adam W.
+
+591
+01:09:30.310 --> 01:09:33.599
+Jitendra K: There's one more refinement of item called any item.
+
+592
+01:09:34.370 --> 01:09:35.279
+Jitendra K: And Adam.
+
+593
+01:09:37.029 --> 01:09:39.710
+Jitendra K: And… Our item.
+
+594
+01:09:41.149 --> 01:09:43.689
+Jitendra K: 11th Adaptive Max.
+
+595
+01:09:48.710 --> 01:09:55.330
+Jitendra K: Okay, so… this is running. In the meantime, let's try to… Look into the code.
+
+596
+01:09:55.790 --> 01:09:56.870
+Jitendra K: In detail.
+
+597
+01:09:57.860 --> 01:10:00.560
+Jitendra K: So, this particular code is going to use PyTorch.
+
+598
+01:10:00.760 --> 01:10:07.589
+Jitendra K: I believe, so I'm going to use everything in PyTorch. I'm not going to write any functions of these algorithms by my own.
+
+599
+01:10:07.750 --> 01:10:12.800
+Jitendra K: So I would rather use Python. So PyTorch provides you all the packages, that is what I'm trying to talk about now.
+
+600
+01:10:13.010 --> 01:10:24.339
+Jitendra K: So PyTouch pretty much provide you all the packages, all the commercial, all the libraries, all the APIs that you require to operate in deep learning, and you really do not require
+
+601
+01:10:24.560 --> 01:10:27.979
+Jitendra K: Any additional packages, apart from PyTorch or TensorFlow?
+
+602
+01:10:33.810 --> 01:10:39.919
+Jitendra K: So, we'll use the same, same package. The first and foremost thing, I have to import a bunch of libraries.
+
+603
+01:10:40.390 --> 01:10:43.920
+Jitendra K: The first and foremost thing, I would like to start with operating system.
+
+604
+01:10:45.090 --> 01:10:49.299
+Jitendra K: for file sharing, so I would like to upload the file from PyTorch.
+
+605
+01:10:53.530 --> 01:11:02.289
+Jitendra K: And I would like to use this PyTorch for the purpose. So, first and foremost thing, I would like to use operating system library for file directory operation.
+
+606
+01:11:02.490 --> 01:11:08.410
+Jitendra K: Second is, I'm going to use time to measure the tailing duration, because I'm going to compare the tailing duration for each algorithm.
+
+607
+01:11:08.610 --> 01:11:13.610
+Jitendra K: So I would say I required a time as a function to measure the training duration
+
+608
+01:11:13.950 --> 01:11:15.819
+Jitendra K: Between the starting and the end.
+
+609
+01:11:16.200 --> 01:11:19.759
+Jitendra K: Warnings for ignorable, suppressing non-critical warning.
+
+610
+01:11:20.600 --> 01:11:24.600
+Jitendra K: I have the TOSH parameter, the main library, and the neural network class.
+
+611
+01:11:25.210 --> 01:11:28.090
+Jitendra K: Which include network layer and loss function.
+
+612
+01:11:28.740 --> 01:11:33.169
+Jitendra K: So I have a function called cross entropy, as a loss function.
+
+613
+01:11:33.440 --> 01:11:36.680
+Jitendra K: Because my classes are multi-dimensional.
+
+614
+01:11:37.070 --> 01:11:41.070
+Jitendra K: So I'm going to use a function of cross entropy, so I'm keeping it as F.
+
+615
+01:11:42.870 --> 01:11:49.779
+Jitendra K: Data Loader class will help me to help me to utilize…
+
+616
+01:11:50.780 --> 01:11:54.410
+Jitendra K: loading the data from Torch, and also helping me, too.
+
+617
+01:11:54.840 --> 01:11:59.929
+Jitendra K: perform the shuffling on the data points. I can do a batching and shuffling using data loaders.
+
+618
+01:12:00.160 --> 01:12:04.540
+Jitendra K: datasets and transform to upload and preprocess my MNIST dataset.
+
+619
+01:12:04.930 --> 01:12:12.020
+Jitendra K: I've got matplot Aggregator, backend to aggregate, allowing plots to save without graphical displays.
+
+620
+01:12:12.620 --> 01:12:18.249
+Jitendra K: I've got plot, Which is for plotting WordPress NumPy for numerical operations.
+
+621
+01:12:18.710 --> 01:12:23.109
+Jitendra K: Some of the global configuration, I'm going to keep it as epoch, number of training.
+
+622
+01:12:23.250 --> 01:12:26.220
+Jitendra K: 5 for shorter demonstration, I'm keeping it short.
+
+623
+01:12:26.460 --> 01:12:29.939
+Jitendra K: Best size, I'm keeping it 256. Device.
+
+624
+01:12:30.250 --> 01:12:38.039
+Jitendra K: automatically switch between the GPU provider if GPU is available, and if it is not, then it will switch to CPU.
+
+625
+01:12:38.430 --> 01:12:42.180
+Jitendra K: Data, I'm keeping it Amnest, so I'm keeping two directories.
+
+626
+01:12:42.500 --> 01:12:44.389
+Jitendra K: Data directory and result directory.
+
+627
+01:12:46.150 --> 01:12:49.330
+Jitendra K: So, this is my dataset, which is uploaded.
+
+628
+01:12:49.860 --> 01:13:01.299
+Jitendra K: Now, I would like to create a transformation on my data, and creating a chain of transformation, converting my data to a PyTorch tensor, and scale the pixel value between 0 to 1.
+
+629
+01:13:02.250 --> 01:13:09.930
+Jitendra K: So I have to normalize this data, and I'm using the mean and standard deviation of Family's data, which will help me to train the model efficiently.
+
+630
+01:13:10.780 --> 01:13:13.690
+Jitendra K: So, first and foremost thing, I'm loading the data.
+
+631
+01:13:14.070 --> 01:13:15.450
+Jitendra K: Splitting the data.
+
+632
+01:13:15.800 --> 01:13:22.620
+Jitendra K: And then… Maybe split them into train, test, and validation samples.
+
+633
+01:13:23.150 --> 01:13:28.850
+Jitendra K: Now, this is my class, MLP, Multile Perceptron class. It's a simple three-layer architecture.
+
+634
+01:13:29.140 --> 01:13:33.589
+Jitendra K: The first… Layer will help me to reshape my input.
+
+635
+01:13:34.190 --> 01:13:41.359
+Jitendra K: Which is 28 cross 28, which is 786 dimension vectors, and failure from 786 to 256.
+
+636
+01:13:41.620 --> 01:13:43.500
+Jitendra K: 256 to 128.
+
+637
+01:13:44.480 --> 01:13:48.079
+Jitendra K: So I'm using a batch normalization and ReLU for each layer.
+
+638
+01:13:49.260 --> 01:13:55.549
+Jitendra K: And I'm also using a dropout for regularization by 20%. So I'm keeping a dropout rate of 20%.
+
+639
+01:13:56.500 --> 01:14:00.099
+Jitendra K: And finally, the output class will have 10
+
+640
+01:14:00.250 --> 01:14:03.870
+Jitendra K: output, 10 class output, that I'm keeping as a 10 neuron.
+
+641
+01:14:04.810 --> 01:14:09.380
+Jitendra K: Now, I have an optimizer definition, so optimizer configurations.
+
+642
+01:14:09.770 --> 01:14:18.570
+Jitendra K: So I'm making a list of dictionary, each describing one optimizer, each dictionary contain name, category… group.
+
+643
+01:14:19.490 --> 01:14:24.350
+Jitendra K: The theory, a small theory of what this… algorithm does.
+
+644
+01:14:24.690 --> 01:14:26.420
+Jitendra K: And how to use this algorithm.
+
+645
+01:14:26.650 --> 01:14:29.210
+Jitendra K: When to use this algorithm, the intuition behind it.
+
+646
+01:14:29.450 --> 01:14:35.649
+Jitendra K: And then you will be able to see, some typical configurations that I'm going to.
+
+647
+01:14:36.040 --> 01:14:40.970
+Jitendra K: used during the training. So you can see that this is a pretty elaborative example that we're going to use.
+
+648
+01:14:42.860 --> 01:14:47.500
+Jitendra K: Can we run parallelly, save time? Okay, sure. Let me share this.
+
+649
+01:14:49.230 --> 01:14:51.480
+Jitendra K: You can run parallelly as well.
+
+650
+01:15:00.220 --> 01:15:03.500
+Jitendra K: This is the link, please download the code and run it parallelly.
+
+651
+01:15:04.400 --> 01:15:10.000
+Jitendra K: TensorFlow is problematic, Python does not compile if version is 3.12.
+
+652
+01:15:10.540 --> 01:15:14.440
+Jitendra K: If you are running local, there could be some incompatibility in…
+
+653
+01:15:14.770 --> 01:15:19.799
+Jitendra K: So don't use, TensorFlow GPU version. Go with CPU version.
+
+654
+01:15:20.980 --> 01:15:26.349
+Jitendra K: Because if you're using a GPU version and your device does not support GPU, it will throw some errors.
+
+655
+01:15:30.320 --> 01:15:32.670
+Jitendra K: Okay, so this is my…
+
+656
+01:15:32.820 --> 01:15:37.940
+Jitendra K: dictionaries that I have considered. Now I'm going to use a main function, training loop.
+
+657
+01:15:38.590 --> 01:15:46.249
+Jitendra K: So I would like to use standard training loop for one epoch, and then setting model.train. That will set the model to training mode.
+
+658
+01:15:46.530 --> 01:15:50.019
+Jitendra K: That will affect the dropout, rationalization, etc.
+
+659
+01:15:50.350 --> 01:15:55.829
+Jitendra K: Now, it will accumulate a loss and accuracy across batches, and return the average accuracy and the loss.
+
+660
+01:15:56.720 --> 01:16:01.169
+Jitendra K: So I'm having the average accuracy and the loss calculation done by this.
+
+661
+01:16:01.890 --> 01:16:07.850
+Jitendra K: Now… I have to compare the optimizer, right? So I have to keep a track of…
+
+662
+01:16:07.990 --> 01:16:11.100
+Jitendra K: these things. Validation loss, training loss.
+
+663
+01:16:11.570 --> 01:16:16.739
+Jitendra K: So that I can be able to find if validation loss versus training loss is having a wider gap.
+
+664
+01:16:17.510 --> 01:16:23.530
+Jitendra K: So the model is… overfit, underfit model, right? So I would like to keep a track of
+
+665
+01:16:24.130 --> 01:16:25.540
+Jitendra K: All these factors.
+
+666
+01:16:26.450 --> 01:16:29.890
+Jitendra K: The ones that have… done this.
+
+667
+01:16:30.780 --> 01:16:34.979
+Jitendra K: Then I would like to create a new model, which will be able to do the comparison.
+
+668
+01:16:39.580 --> 01:16:43.160
+Jitendra K: So, in the summary table, I would like to keep a track of
+
+669
+01:16:44.570 --> 01:16:49.279
+Jitendra K: All the results sorted by final validation accuracy in a descending order.
+
+670
+01:16:49.860 --> 01:16:51.840
+Jitendra K: And maybe I would like to plot.
+
+671
+01:16:52.240 --> 01:16:54.840
+Jitendra K: A simple 3 cross… 3 cross-four grid.
+
+672
+01:16:55.490 --> 01:17:01.990
+Jitendra K: to show all 12 optimizers, or each optimizer, I have to plot training and validation loss over epochs.
+
+673
+01:17:02.340 --> 01:17:07.300
+Jitendra K: And use the optimizer color to… Show the differences.
+
+674
+01:17:08.140 --> 01:17:13.160
+Jitendra K: And then I will put up all the final metrics into a… Graph.
+
+675
+01:17:19.780 --> 01:17:21.940
+Jitendra K: Right, and then finally I've created one.
+
+676
+01:17:22.500 --> 01:17:26.570
+Jitendra K: File, which will give you some general tips, and…
+
+677
+01:17:27.140 --> 01:17:29.780
+Jitendra K: Things that you can able to utilize for the purpose.
+
+678
+01:17:30.060 --> 01:17:34.020
+Jitendra K: Now, this will take some time, so it is running right now in my system.
+
+679
+01:17:34.600 --> 01:17:39.530
+Jitendra K: So, some of the algorithms will wait… will take some good amount of time.
+
+680
+01:17:39.880 --> 01:17:47.430
+Jitendra K: So let's finish this, and then we can see the outcome in a more… prominent manner.
+
+681
+01:17:47.850 --> 01:17:48.610
+Jitendra K: But…
+
+682
+01:17:48.790 --> 01:17:57.540
+Jitendra K: Is the ideas clear? What are we trying to do? And how we are doing it? What are we… what are the problems that we are trying to solve? Is the ideas clear to everyone now?
+
+683
+01:18:04.290 --> 01:18:08.340
+Jitendra K: Just a quick yes and no. Is the idea is clear? What are we doing here?
+
+684
+01:18:30.130 --> 01:18:31.080
+Jitendra K: Yo.
+
+685
+01:18:38.050 --> 01:18:43.590
+Jitendra K: So basically, we are compiling all the techniques here in a single… IPAN program.
+
+686
+01:18:47.110 --> 01:18:49.599
+Jitendra K: So, in a nutshell, you will have only…
+
+687
+01:18:51.320 --> 01:18:53.989
+Jitendra K: 4 or 5 techniques, but in different forms.
+
+688
+01:18:54.770 --> 01:18:56.929
+Jitendra K: The first technique is called stochastic.
+
+689
+01:18:57.070 --> 01:19:02.040
+Jitendra K: Second is momentum, third is Nestro, fourth is adaptive radiant.
+
+690
+01:19:02.430 --> 01:19:05.050
+Jitendra K: Fifth is Adaptive RMS prop.
+
+691
+01:19:06.800 --> 01:19:07.840
+Jitendra K: Or item.
+
+692
+01:19:08.010 --> 01:19:10.270
+Jitendra K: So 1, 2, 3, 4, 5, 6.
+
+693
+01:19:10.400 --> 01:19:14.970
+Jitendra K: Only 6 techniques, and rest of them are… their forms.
+
+694
+01:19:17.560 --> 01:19:20.809
+Jitendra K: Right? They are just forms of updates.
+
+695
+01:19:34.310 --> 01:19:36.769
+Jitendra K: Okay, I think it's still running.
+
+696
+01:19:45.000 --> 01:19:47.020
+Jitendra K: Yes, it will drop out randomly.
+
+697
+01:19:47.980 --> 01:19:53.300
+Jitendra K: So, 20% of the network's parameter. 20% of the nodes, I would say.
+
+698
+01:19:54.760 --> 01:19:56.750
+Jitendra K: Neurons, nodes, you can say.
+
+699
+01:19:57.920 --> 01:19:59.679
+Jitendra K: And this is perfectly random.
+
+700
+01:20:11.620 --> 01:20:14.630
+Jitendra K: Now, you can see that these are all mathematical-driven models.
+
+701
+01:20:15.620 --> 01:20:17.660
+Jitendra K: Everything is maths in deep learning.
+
+702
+01:20:20.650 --> 01:20:23.490
+Jitendra K: But they are small maths, right? It's not like…
+
+703
+01:20:24.200 --> 01:20:28.220
+Jitendra K: You need to become an IATN to understand all these questions.
+
+704
+01:20:31.350 --> 01:20:33.349
+Jitendra K: So, these are general mats.
+
+705
+01:20:34.180 --> 01:20:37.629
+Jitendra K: Some computational rules, some of them are training parameters.
+
+706
+01:20:39.890 --> 01:20:44.009
+Jitendra K: That's why it is first-order derivative. First order, not even second order derivative.
+
+707
+01:20:44.490 --> 01:20:48.299
+Jitendra K: Second-order derivative will become more complex to understand.
+
+708
+01:20:49.420 --> 01:20:54.469
+Jitendra K: first-order derivative functions are easy to understand. You can understand with a simple
+
+709
+01:20:55.210 --> 01:21:02.140
+Jitendra K: notations and mathematics. So, as a deep learning engineer, you need to understand the parameters.
+
+710
+01:21:02.650 --> 01:21:07.790
+Jitendra K: Maths, you can… if you know, which is good. If you don't know, which is also fine.
+
+711
+01:21:12.080 --> 01:21:15.930
+Jitendra K: But you should know which parameter you're using and why.
+
+712
+01:21:20.620 --> 01:21:25.160
+Jitendra K: So let me compare the outcome in a while, and then we can take a break after that.
+
+713
+01:21:25.770 --> 01:21:27.779
+Jitendra K: So I think it is almost done.
+
+714
+01:21:27.900 --> 01:21:31.789
+Jitendra K: AdaptiveMax, the last algorithm it is running.
+
+715
+01:21:33.840 --> 01:21:35.690
+Jitendra K: And I'm keeping it 5POC.
+
+716
+01:21:36.390 --> 01:21:43.399
+Jitendra K: So it should be… Soon completed, and we'll get the graphs and…
+
+717
+01:21:49.100 --> 01:21:54.529
+Jitendra K: Okay, this is done, saving the PNGs. Okay, so let me start with the PNGs first.
+
+718
+01:22:10.850 --> 01:22:13.130
+Jitendra K: So let me download this file.
+
+719
+01:22:15.400 --> 01:22:17.559
+Jitendra K: Download this file as well.
+
+720
+01:22:29.310 --> 01:22:32.889
+Jitendra K: Okay, the first chart that we're going to use for individual losses.
+
+721
+01:22:33.820 --> 01:22:37.600
+Jitendra K: So, indeed, a loss means I would like to validate what is the loss.
+
+722
+01:22:38.780 --> 01:22:40.510
+Jitendra K: Of each algorithm.
+
+723
+01:22:51.550 --> 01:22:53.129
+Jitendra K: So let me explain this.
+
+724
+01:22:54.970 --> 01:23:00.000
+Jitendra K: So here, what we are doing is, we are comparing the loss against ECPOC.
+
+725
+01:23:00.540 --> 01:23:06.510
+Jitendra K: So basically, what we are saying that we need to… we have a data which is same for all algorithms. The data is…
+
+726
+01:23:07.220 --> 01:23:08.959
+Jitendra K: Your time class problem.
+
+727
+01:23:09.270 --> 01:23:11.040
+Jitendra K: Which is Amnest dataset.
+
+728
+01:23:11.940 --> 01:23:13.460
+Jitendra K: So, data is same.
+
+729
+01:23:13.870 --> 01:23:15.800
+Jitendra K: Your cost objective is same.
+
+730
+01:23:18.350 --> 01:23:20.250
+Jitendra K: Your number of epoch is same.
+
+731
+01:23:21.360 --> 01:23:27.309
+Jitendra K: Now, this particular graph show Right, how well the model fits your training data?
+
+732
+01:23:27.500 --> 01:23:28.950
+Jitendra K: Or a validation line.
+
+733
+01:23:29.470 --> 01:23:33.110
+Jitendra K: So this is your training loss, and this is your validation loss, the dotted lines.
+
+734
+01:23:34.050 --> 01:23:39.089
+Jitendra K: So, how to interpret this number? So, the table lists the exact loss value for each optimizer.
+
+735
+01:23:40.840 --> 01:23:49.950
+Jitendra K: So, a decreasing trend is both curves indicating a successful learning. If the validation laws start increasing, while…
+
+736
+01:23:50.050 --> 01:23:53.440
+Jitendra K: Training loss keep decreasing the signal. This signal's overfitting.
+
+737
+01:23:54.400 --> 01:24:05.600
+Jitendra K: And, you can see sometimes you're doing a crossover Sometimes you're getting… The output within the limits.
+
+738
+01:24:05.950 --> 01:24:10.990
+Jitendra K: So the closer this line towards the actual line, the better the model output is.
+
+739
+01:24:11.270 --> 01:24:16.379
+Jitendra K: So I can see that some of the models, like this, Adaptive Max.
+
+740
+01:24:17.170 --> 01:24:19.710
+Jitendra K: Including this, is doing a great job.
+
+741
+01:24:20.340 --> 01:24:27.690
+Jitendra K: Even a stochastic rain decent, and momentum with stochastic reindecent, and even a stroke, Looks like they're all similar.
+
+742
+01:24:28.980 --> 01:24:31.350
+Jitendra K: On the same function, cross-entropy loss.
+
+743
+01:24:33.210 --> 01:24:35.159
+Jitendra K: But here I can see overfitting.
+
+744
+01:24:35.840 --> 01:24:37.050
+Jitendra K: overfitting.
+
+745
+01:24:37.270 --> 01:24:39.420
+Jitendra K: Some partial overfitting here as well.
+
+746
+01:24:40.410 --> 01:24:41.609
+Jitendra K: Here as well.
+
+747
+01:24:41.730 --> 01:24:43.570
+Jitendra K: In adaptive weights.
+
+748
+01:24:46.480 --> 01:24:48.560
+Jitendra K: So that's first graph.
+
+749
+01:24:49.180 --> 01:24:52.739
+Jitendra K: The second graph that we are going to look forward is…
+
+750
+01:24:56.530 --> 01:24:58.540
+Jitendra K: So, we would like to find it out.
+
+751
+01:24:59.190 --> 01:25:03.109
+Jitendra K: How many epoch it takes to improve the overall losses.
+
+752
+01:25:03.240 --> 01:25:06.640
+Jitendra K: How many people… So we are training only with 5 people.
+
+753
+01:25:06.850 --> 01:25:09.720
+Jitendra K: Generally, 5 EPOC is a very low number.
+
+754
+01:25:10.400 --> 01:25:13.400
+Jitendra K: But we get some idea, like, within 5EPOC,
+
+755
+01:25:13.530 --> 01:25:18.540
+Jitendra K: Some of the algorithms are reaching the thresholds much early.
+
+756
+01:25:18.920 --> 01:25:22.469
+Jitendra K: Some are… some of them are taking time. So I can say that
+
+757
+01:25:22.690 --> 01:25:30.930
+Jitendra K: some of the algorithms, including, R atom, Any item, they are… Almost.
+
+758
+01:25:32.340 --> 01:25:33.620
+Jitendra K: overshooting.
+
+759
+01:25:34.120 --> 01:25:35.500
+Jitendra K: This search space.
+
+760
+01:25:35.930 --> 01:25:43.909
+Jitendra K: So here, what I'm trying to do is, in axis, I have got epoch from 1 to 5. Y axis, I'm having a validation accuracy in percentage.
+
+761
+01:25:44.140 --> 01:25:53.730
+Jitendra K: Lower the better. And each optimizer represented by line is via its own color code. So, table lists down the validation losses for each optimizer.
+
+762
+01:25:54.070 --> 01:25:56.270
+Jitendra K: At half interval, half epoch.
+
+763
+01:25:56.730 --> 01:25:58.219
+Jitendra K: All the way to the last.
+
+764
+01:25:58.580 --> 01:26:07.760
+Jitendra K: So, I can say that adaptive max NA atom, RA atom, atom, atom W reached very low loss by epoch 1.5.
+
+765
+01:26:07.980 --> 01:26:13.360
+Jitendra K: While stochastic are indecent, including STD, Momentum, Nestro lags behind.
+
+766
+01:26:13.720 --> 01:26:21.890
+Jitendra K: So, atom show, atom max show faster initial drop, and maintain the lowest Lost throughout the training.
+
+767
+01:26:22.460 --> 01:26:28.589
+Jitendra K: The straw and adaptive gradient also performed pretty well, significant, converging to low final losses.
+
+768
+01:26:28.820 --> 01:26:33.709
+Jitendra K: And also, plain SGD and STD Momentum have the highest losses at every point.
+
+769
+01:26:34.070 --> 01:26:36.290
+Jitendra K: And finally, you can see that,
+
+770
+01:26:36.940 --> 01:26:41.380
+Jitendra K: I can maybe be able to create…
+
+771
+01:26:41.980 --> 01:26:48.240
+Jitendra K: A kind of a comparison between the response… And…
+
+772
+01:26:48.360 --> 01:26:50.460
+Jitendra K: The time it takes to saturate.
+
+773
+01:26:51.630 --> 01:26:54.520
+Jitendra K: Right, so this graph will help me to do this analysis.
+
+774
+01:26:55.020 --> 01:27:00.459
+Jitendra K: The third graph is called final bar comparison, which is much more streamlined in terms of accuracy.
+
+775
+01:27:00.760 --> 01:27:05.590
+Jitendra K: So here, the overall winner is adaptive gradient in terms of validation accuracy.
+
+776
+01:27:05.950 --> 01:27:12.269
+Jitendra K: And I can say that stochastic gradient descent, as I mentioned, it is taking more time, too.
+
+777
+01:27:12.790 --> 01:27:16.950
+Jitendra K: Converge. 91%. Sorry, 91 seconds.
+
+778
+01:27:20.450 --> 01:27:26.410
+Jitendra K: And then, as you move down, you will see that our atom is almost 70,
+
+779
+01:27:26.870 --> 01:27:29.870
+Jitendra K: And this is even 69.2 seconds.
+
+780
+01:27:30.400 --> 01:27:36.309
+Jitendra K: So, this is the training accuracy. So, I have to consider Let's say, Adaptive Gradient.
+
+781
+01:27:36.480 --> 01:27:40.300
+Jitendra K: As my perfect choice, 98.16, which is the maximum.
+
+782
+01:27:40.660 --> 01:27:45.560
+Jitendra K: With a fraction of second, More it took to…
+
+783
+01:27:45.720 --> 01:27:51.309
+Jitendra K: come up with an output. And then improving the accuracy is also fraction, 16 plus 8.
+
+784
+01:27:51.590 --> 01:27:53.030
+Jitendra K: 0.24.
+
+785
+01:27:53.710 --> 01:27:57.639
+Jitendra K: Which is not a major, deterioration.
+
+786
+01:27:58.130 --> 01:28:00.579
+Jitendra K: So overall, I think Adam is the winner.
+
+787
+01:28:01.480 --> 01:28:03.429
+Jitendra K: And their variations are the winner.
+
+788
+01:28:04.770 --> 01:28:05.560
+Jitendra K: Alright?
+
+789
+01:28:07.000 --> 01:28:12.479
+Jitendra K: Because of the way that they had been utilizing the training time, as well as accuracy.
+
+790
+01:28:13.070 --> 01:28:17.740
+Jitendra K: So that's the reason I told you earlier that ADAM is a by default choice for optimization.
+
+791
+01:28:19.400 --> 01:28:22.809
+Jitendra K: Last but not least, we will also try to look into the…
+
+792
+01:28:23.950 --> 01:28:27.200
+Jitendra K: Loss function or loss surface trajectories.
+
+793
+01:28:28.290 --> 01:28:30.559
+Jitendra K: The lost surface trajectory is…
+
+794
+01:28:32.000 --> 01:28:38.479
+Jitendra K: This is a great example. So, this is a non-convex optimization that we are using for this function.
+
+795
+01:28:39.190 --> 01:28:41.539
+Jitendra K: And, this is how it converged.
+
+796
+01:28:41.760 --> 01:28:45.320
+Jitendra K: it… it reach… So, directly.
+
+797
+01:28:47.450 --> 01:28:53.229
+Jitendra K: It reached like this, it reached like this, it reached like this, and it reached like this as well.
+
+798
+01:28:53.950 --> 01:28:55.919
+Jitendra K: Trying to find too many solutions.
+
+799
+01:28:59.030 --> 01:29:01.689
+Jitendra K: There are different ways to reach from A to P.
+
+800
+01:29:03.060 --> 01:29:06.089
+Jitendra K: So these algorithms are showing the path, how to reach.
+
+801
+01:29:08.430 --> 01:29:10.820
+Jitendra K: So they start oscillating in between.
+
+802
+01:29:11.450 --> 01:29:16.550
+Jitendra K: They find multiple solutions unnecessarily, And then come to a conclusion.
+
+803
+01:29:16.880 --> 01:29:20.150
+Jitendra K: Are these solutions unnecessary? It depends.
+
+804
+01:29:20.930 --> 01:29:22.830
+Jitendra K: On the problem complexity.
+
+805
+01:29:28.100 --> 01:29:32.799
+Jitendra K: The last drop that we're going to cover is radar chart, which is typically
+
+806
+01:29:33.430 --> 01:29:35.900
+Jitendra K: I have all the four parameters.
+
+807
+01:29:37.230 --> 01:29:39.319
+Jitendra K: Sorry, 6 parameter, like.
+
+808
+01:29:39.670 --> 01:29:46.850
+Jitendra K: Batching, ease of tuning, convergence, memory efficiency, and… to better the area, better the coverage.
+
+809
+01:29:47.160 --> 01:29:48.600
+Jitendra K: So I can say that.
+
+810
+01:29:48.800 --> 01:29:53.130
+Jitendra K: Adam, again, is showing a better coverage as compared to all other algorithms.
+
+811
+01:29:54.670 --> 01:29:56.359
+Jitendra K: In terms of 6 aspects.
+
+812
+01:29:57.500 --> 01:30:00.639
+Jitendra K: Yes, star means treat a global minima, yes.
+
+813
+01:30:04.220 --> 01:30:11.030
+Jitendra K: So you can see here, the more the area, the better the convergence. The more the area, the better is tuning.
+
+814
+01:30:11.170 --> 01:30:15.740
+Jitendra K: More the idea, better is generalization. More the idea, better is the memory efficiency.
+
+815
+01:30:16.930 --> 01:30:22.719
+Jitendra K: So you can see the area that I'm using here in this… All 11 techniques.
+
+816
+01:30:23.050 --> 01:30:26.780
+Jitendra K: Adam family is showing a great amount of coverage.
+
+817
+01:30:35.230 --> 01:30:36.860
+Jitendra K: Alright, I can say that.
+
+818
+01:30:38.200 --> 01:30:41.740
+Jitendra K: For my recommendation, I can go with Adaptive Momentum.
+
+819
+01:30:49.420 --> 01:30:52.119
+Jitendra K: Which chart? Which chart are you talking about?
+
+820
+01:30:59.080 --> 01:31:06.839
+Jitendra K: Yeah, that is the whole idea, right? So these algorithms are converging faster, some of them are finding too many solutions. That is what I told.
+
+821
+01:31:07.680 --> 01:31:12.359
+Jitendra K: So when you're trying to compare algorithm, you have to compare the complexity of execution as well.
+
+822
+01:31:12.660 --> 01:31:17.059
+Jitendra K: So this is where you are going to have a different trajectory of finding a solution here.
+
+823
+01:31:17.770 --> 01:31:21.790
+Jitendra K: So this algorithm is trying to find multiple solutions before coming up with an answer.
+
+824
+01:31:30.420 --> 01:31:32.620
+Jitendra K: So here I'm saying that I have an answer.
+
+825
+01:31:33.570 --> 01:31:35.210
+Jitendra K: This is the best answer.
+
+826
+01:31:35.600 --> 01:31:36.900
+Jitendra K: Straightforward.
+
+827
+01:31:37.700 --> 01:31:40.149
+Jitendra K: This is even slightly better.
+
+828
+01:31:40.480 --> 01:31:47.879
+Jitendra K: This is… More better, because I'm learning some part of a function as well.
+
+829
+01:31:48.480 --> 01:31:53.879
+Jitendra K: This is similar to the previous example, and this is, like, I'm finding too many solutions.
+
+830
+01:31:55.200 --> 01:32:02.110
+Jitendra K: And here I lost, and then come back, and then finally, by zigzag and all these things, I come here again.
+
+831
+01:32:02.640 --> 01:32:06.210
+Jitendra K: Here, I'm trying to find it out, some solution, like this.
+
+832
+01:32:06.750 --> 01:32:12.880
+Jitendra K: I lost in between, and then come back, and then… Oscillate, and then reach this.
+
+833
+01:32:14.830 --> 01:32:16.319
+Jitendra K: This is an astrol.
+
+834
+01:32:16.450 --> 01:32:23.389
+Jitendra K: But this is one example that we're using, right? It can… Work differently for other example.
+
+835
+01:32:24.760 --> 01:32:30.360
+Jitendra K: But in general speaking, Atom is more optimal as compared to other algorithms.
+
+836
+01:32:30.630 --> 01:32:37.129
+Jitendra K: So that's the reason we are going to use adaptive momentum as one of the crucial techniques for optimization.
+
+837
+01:32:40.790 --> 01:32:46.660
+Jitendra K: Alright guys, so let's take a quick break of 10 minutes, 10-15 minutes, and once we come back.
+
+838
+01:32:46.790 --> 01:32:50.429
+Jitendra K: I want everybody to go through this code again.
+
+839
+01:32:51.750 --> 01:32:55.460
+Jitendra K: I want everybody to run this port on your machine.
+
+840
+01:32:56.150 --> 01:32:59.249
+Jitendra K: And, I will take 15 more minutes.
+
+841
+01:32:59.580 --> 01:33:00.760
+Jitendra K: the spine.
+
+842
+01:33:01.070 --> 01:33:05.059
+Jitendra K: On this quote example, before we move ahead with another topic.
+
+843
+01:33:06.160 --> 01:33:06.860
+Jitendra K: Hmm.
+
+844
+01:33:09.120 --> 01:33:11.769
+Jitendra K: It may vary, maybe slightly, not…
+
+845
+01:33:12.540 --> 01:33:18.530
+Jitendra K: not very high, so it may vary by plus-minus 2%. That should be fine.
+
+846
+01:33:27.710 --> 01:33:31.290
+Jitendra K: Alright guys, so let's take a quick break of 15 minutes, and then we can come back.
+
+847
+01:55:36.880 --> 01:55:40.189
+Jitendra K: Hi guys, I hope you're back. Can we have a quick confirmation?
+
+848
+01:55:50.300 --> 01:55:51.470
+Jitendra K: Okay, great.
+
+849
+01:55:51.810 --> 01:56:00.339
+Jitendra K: So, before we went on to a break, we talked about this example, so I would like you to spend 10 more minutes on this example, read every line.
+
+850
+01:56:00.990 --> 01:56:04.420
+Jitendra K: Including the formulas, including the parameters.
+
+851
+01:56:04.980 --> 01:56:08.649
+Jitendra K: And, let me know what is your thought in this.
+
+852
+01:56:12.680 --> 01:56:15.839
+Jitendra K: So I will take a pause here, and then wait for your revert.
+
+853
+02:00:09.870 --> 02:00:16.950
+Jitendra K: So please go to the code and let me know if there's any question, guys, before we move on to a new topic or any other topic.
+
+854
+02:00:32.880 --> 02:00:36.250
+Jitendra K: No, is vanishing and decay the same method?
+
+855
+02:00:38.090 --> 02:00:45.979
+Jitendra K: Vanishing gradient and decay gradient, you mean to say. There's no decay gradient. It's about vanishing gradient or exploding gradient only.
+
+856
+02:00:47.720 --> 02:00:51.540
+Jitendra K: Decay in weights, which leads to vanishing gradient.
+
+857
+02:00:52.460 --> 02:00:55.339
+Jitendra K: Particular phenomena which leads to a vanishing gradient.
+
+858
+02:01:55.690 --> 02:02:02.059
+Jitendra K: So the intuition is clear to everyone now about these algorithms, the parameters, the mathematical equations.
+
+859
+02:02:02.900 --> 02:02:03.940
+Jitendra K: the code.
+
+860
+02:02:15.560 --> 02:02:16.440
+Jitendra K: Okay.
+
+861
+02:02:16.950 --> 02:02:22.479
+Jitendra K: So we'll move on to the new topic, and we'll talk about something called batch normalization.
+
+862
+02:02:22.980 --> 02:02:31.919
+Jitendra K: And we'll talk about dropout and batch normalization in a very detail-oriented manner, and we'll try to demystify what are these concepts.
+
+863
+02:02:32.310 --> 02:02:33.920
+Jitendra K: The first and foremost thing, what…
+
+864
+02:02:34.130 --> 02:02:38.040
+Jitendra K: slides we are going to refer, we are going to use this book, which I shared.
+
+865
+02:02:38.340 --> 02:02:41.560
+Jitendra K: And we're going to go and explore 8.5.
+
+866
+02:02:42.430 --> 02:02:43.950
+Jitendra K: batch normalization.
+
+867
+02:02:44.280 --> 02:02:46.370
+Jitendra K: And these are the set of,
+
+868
+02:02:46.980 --> 02:02:49.440
+Jitendra K: Factors that we are going to discuss now.
+
+869
+02:02:49.940 --> 02:02:50.760
+Jitendra K: So…
+
+870
+02:02:51.100 --> 02:02:58.400
+Jitendra K: So what… so basically what I'm doing is, I'm taking reference from this book only, right? So that, once you go back, you can…
+
+871
+02:02:59.000 --> 02:03:06.939
+Jitendra K: go to this particular website, and then read this. I'm assuming that you will read it. If you're not reading it, then it's up to you.
+
+872
+02:03:07.140 --> 02:03:08.470
+Jitendra K: Why you're ignoring.
+
+873
+02:03:09.490 --> 02:03:13.010
+Jitendra K: Right? So, with that assumption, let me start.
+
+874
+02:03:14.260 --> 02:03:21.179
+Jitendra K: So, when it comes to deep learning, batch normalization and dropout are the two important phenomenas.
+
+875
+02:03:21.570 --> 02:03:26.919
+Jitendra K: So when we say batch normalization, batch normalization… think of this as a batch of…
+
+876
+02:03:27.790 --> 02:03:31.519
+Jitendra K: Normalization is a method to keep your network or neuron in check.
+
+877
+02:03:32.090 --> 02:03:34.890
+Jitendra K: So, making sure that your network should not
+
+878
+02:03:36.290 --> 02:03:41.939
+Jitendra K: Overwhelming, or it normalized the activation, ensuring the network learns faster and more efficiently.
+
+879
+02:03:42.190 --> 02:03:49.269
+Jitendra K: Dropout, on the other hand, is like a disciplined coach that randomly selects some neurons to sit out of the training.
+
+880
+02:03:49.580 --> 02:03:54.569
+Jitendra K: And prevent network from becoming too reliant on any one neuron, and reducing overfitting.
+
+881
+02:03:55.060 --> 02:04:00.369
+Jitendra K: So batch normalization will help you to reduce underfitting, and
+
+882
+02:04:00.470 --> 02:04:02.759
+Jitendra K: Dropout will help you to reduce overfitting.
+
+883
+02:04:05.130 --> 02:04:08.630
+Jitendra K: So, this is one of the fundamentals. Now, let's try to understand
+
+884
+02:04:09.110 --> 02:04:12.410
+Jitendra K: How to… what are the benefits of batch normalization?
+
+885
+02:04:12.950 --> 02:04:16.940
+Jitendra K: So when you're performing a batch normalization, it will help you to…
+
+886
+02:04:17.040 --> 02:04:20.169
+Jitendra K: Normalize the input of each layer, so that…
+
+887
+02:04:21.000 --> 02:04:25.160
+Jitendra K: You can have a zero and… zero mean and…
+
+888
+02:04:25.400 --> 02:04:30.770
+Jitendra K: One variance that will help you to stabilize and speed up the training parameters.
+
+889
+02:04:31.150 --> 02:04:32.699
+Jitendra K: For faster convergence.
+
+890
+02:04:32.900 --> 02:04:36.689
+Jitendra K: So, some of the benefit that we are going to have with batch normalization includes…
+
+891
+02:04:50.620 --> 02:04:55.050
+Jitendra K: The first… And the foremost thing is convergence.
+
+892
+02:04:55.190 --> 02:04:56.899
+Jitendra K: A faster convergence.
+
+893
+02:05:07.450 --> 02:05:12.560
+Jitendra K: Second… Is you can reduce sensitivity to initialization.
+
+894
+02:05:13.840 --> 02:05:20.080
+Jitendra K: you will reduce… sensitivity…
+
+895
+02:05:24.150 --> 02:05:25.840
+Jitendra K: to initialization.
+
+896
+02:05:31.590 --> 02:05:39.200
+Jitendra K: That means… Your network, or deep neural network, is less likely to be affected by weight initialization technique.
+
+897
+02:05:39.480 --> 02:05:45.230
+Jitendra K: So generally, we are going to talk about weight initialization in the next class, after CNN.
+
+898
+02:05:45.410 --> 02:05:50.280
+Jitendra K: So there are different types of technique. One is called random initialization, which we are using at this moment.
+
+899
+02:05:51.550 --> 02:05:55.539
+Jitendra K: So, random initialization may impact your model.
+
+900
+02:05:56.590 --> 02:05:59.609
+Jitendra K: So we need to have a careful weight initialization scheme.
+
+901
+02:06:00.260 --> 02:06:04.290
+Jitendra K: The third and the most important criteria is it helps your model.
+
+902
+02:06:04.450 --> 02:06:05.740
+Jitendra K: to generalize.
+
+903
+02:06:06.340 --> 02:06:08.110
+Jitendra K: So, better generalization.
+
+904
+02:06:12.840 --> 02:06:14.060
+Jitendra K: is the key.
+
+905
+02:06:14.360 --> 02:06:15.970
+Jitendra K: Using batch normalization.
+
+906
+02:06:17.900 --> 02:06:18.700
+Jitendra K: Right?
+
+907
+02:06:18.960 --> 02:06:23.549
+Jitendra K: Now, let's try to shift gears here. So, we are talking about second technical dropout.
+
+908
+02:06:28.190 --> 02:06:31.700
+Jitendra K: To drop out, Will help you to…
+
+909
+02:06:32.880 --> 02:06:41.290
+Jitendra K: Make your model so learnable during the training, so that you can able to prevent any set of
+
+910
+02:06:41.710 --> 02:06:45.689
+Jitendra K: Neurons, which is highly contributed to mesmerize the patterns.
+
+911
+02:06:46.090 --> 02:06:48.870
+Jitendra K: So during each training iteration, dropout takes
+
+912
+02:06:49.120 --> 02:06:53.340
+Jitendra K: Subtraction of neurons and temporarily remove them from the architecture.
+
+913
+02:06:54.210 --> 02:07:00.439
+Jitendra K: And this introduced some randomness in the learning process, meaning the network can… Really too heavy, or…
+
+914
+02:07:00.550 --> 02:07:04.990
+Jitendra K: I mean, that they cannot rely on too… heavily on one neuron, a single neuron.
+
+915
+02:07:05.230 --> 02:07:09.690
+Jitendra K: Think of this as a team-building exercise. Every neuron has to put its weight
+
+916
+02:07:10.200 --> 02:07:13.999
+Jitendra K: Since it cannot rely on other being around all the time.
+
+917
+02:07:14.400 --> 02:07:17.580
+Jitendra K: When it's time to make prediction, all neurons are back in action.
+
+918
+02:07:18.260 --> 02:07:23.869
+Jitendra K: But their outputs are scaled down to account for the fact that they were randomly drop out.
+
+919
+02:07:24.070 --> 02:07:29.970
+Jitendra K: So let's say if I'm using a dropout of 0.5, that means I'm randomly dropping 50% of the neuron during training.
+
+920
+02:07:30.170 --> 02:07:36.609
+Jitendra K: And during inference, each neuron output is scaled by 0.5 to maintain the overall expected sum of activation.
+
+921
+02:07:36.940 --> 02:07:43.139
+Jitendra K: So, what are the benefits of dropout? So, some of the benefits of dropout is you will reduce overfitting.
+
+922
+02:07:53.800 --> 02:07:59.019
+Jitendra K: Second, and the most important, Your model will become more robust.
+
+923
+02:08:01.990 --> 02:08:06.109
+Jitendra K: The network learned to generalize better, leading to improved performance on unseen data.
+
+924
+02:08:06.730 --> 02:08:10.959
+Jitendra K: Right? So, these are the important… purpose of…
+
+925
+02:08:11.870 --> 02:08:15.040
+Jitendra K: Batch, dropout and batch normalization.
+
+926
+02:08:15.730 --> 02:08:21.139
+Jitendra K: Now, we'll try to understand these two fundamentals on…
+
+927
+02:08:22.370 --> 02:08:27.339
+Jitendra K: some of the existing architectures, like CNN, RNN as well, in the upcoming tutorials.
+
+928
+02:08:27.540 --> 02:08:33.429
+Jitendra K: So we'll use this technique very efficiently, very effectively, to train CNN, RNN, LSTMs.
+
+929
+02:08:33.710 --> 02:08:42.050
+Jitendra K: And even transformers. Transformers use batch normalization as well. So we'll talk about all this fundamental in the upcoming tutorial.
+
+930
+02:08:42.380 --> 02:08:47.230
+Jitendra K: So, the key idea of both the technique, as I mentioned, is to reduce
+
+931
+02:08:48.320 --> 02:08:50.510
+Jitendra K: And let me show you with a GIF.
+
+932
+02:09:05.570 --> 02:09:11.920
+Jitendra K: So this is my dropout. You can see that at a dropout, I'm dropping some random neurons by the percentage.
+
+933
+02:09:12.440 --> 02:09:18.260
+Jitendra K: The first of these dropout layers can help me to make over… help me to avoid overfit model.
+
+934
+02:09:18.600 --> 02:09:25.780
+Jitendra K: And the idea behind Dropout is, I'm going to take a bunch of neurons at every training step.
+
+935
+02:09:25.910 --> 02:09:29.510
+Jitendra K: And try to… Remove them from the architecture.
+
+936
+02:09:30.130 --> 02:09:36.129
+Jitendra K: Similarly, in batch normalization, I'm adding… Different parameters.
+
+937
+02:09:36.600 --> 02:09:41.710
+Jitendra K: Which will help me to avoid overfitting in my… data points.
+
+938
+02:09:41.920 --> 02:09:45.670
+Jitendra K: So both techniques will… Try to…
+
+939
+02:09:45.990 --> 02:09:50.610
+Jitendra K: I would say, complement each other pretty well in the… during the training process.
+
+940
+02:09:50.870 --> 02:09:58.730
+Jitendra K: So these two techniques we are going to use as one of the important parameters to train our models, right? And they are complementing each other pretty well.
+
+941
+02:10:13.400 --> 02:10:21.560
+Jitendra K: Okay, now, I think the concept is clear now. Is any confusion in the concept part? Are you clear with the concept, at least?
+
+942
+02:10:22.230 --> 02:10:24.740
+Jitendra K: What is the purpose of batch normalization and dropout?
+
+943
+02:10:50.660 --> 02:10:54.689
+Jitendra K: Does drop out a factor individual neuron in any negative way?
+
+944
+02:10:56.060 --> 02:11:02.439
+Jitendra K: It will impact your training accuracy if your number of neurons is low, and if you are dropping it out.
+
+945
+02:11:02.620 --> 02:11:05.620
+Jitendra K: So, your learnability will decrease in these scenarios.
+
+946
+02:11:09.140 --> 02:11:12.089
+Jitendra K: So in those scenarios, your learnability will decrease.
+
+947
+02:11:12.580 --> 02:11:15.339
+Jitendra K: So… so that means,
+
+948
+02:11:16.120 --> 02:11:23.020
+Jitendra K: You need to have a proper check on the number of neurons and the percentage that you are using to run this algorithm.
+
+949
+02:11:27.750 --> 02:11:30.800
+Jitendra K: Yeah, it can vary between 30% to 50%.
+
+950
+02:11:31.050 --> 02:11:34.669
+Jitendra K: At times. So, 20% to 50%, it can vary.
+
+951
+02:11:49.360 --> 02:11:52.689
+Jitendra K: Is dropout probability also a hyperparameter to be tuned?
+
+952
+02:11:52.990 --> 02:11:56.810
+Jitendra K: No, it's not a hyperparameter. Dropout is perfectly a random number.
+
+953
+02:12:09.790 --> 02:12:12.300
+Jitendra K: No, we are not dropping layers here, so…
+
+954
+02:12:12.460 --> 02:12:14.919
+Jitendra K: Be very clear what you're saying.
+
+955
+02:12:15.080 --> 02:12:18.130
+Jitendra K: We're not dropping layers, we're dropping neurons from the layer.
+
+956
+02:12:24.930 --> 02:12:31.570
+Jitendra K: Yeah, neurons in the layer. So let's say for this example, if I'm using… some neurons…
+
+957
+02:12:32.140 --> 02:12:36.199
+Jitendra K: And dropping it out. This is how it behaves. The connection will shift.
+
+958
+02:12:49.170 --> 02:12:50.090
+Jitendra K: Yes.
+
+959
+02:12:52.100 --> 02:12:56.660
+Jitendra K: Hidden layer 1, hidden layer 2, you can… this is randomly, so you can…
+
+960
+02:12:56.960 --> 02:13:03.810
+Jitendra K: So right now, if I'm using an output as 3 class, so this main layer will be untouched, right? The output class, or…
+
+961
+02:13:04.150 --> 02:13:05.189
+Jitendra K: it in class.
+
+962
+02:13:26.600 --> 02:13:32.930
+Jitendra K: Alright, so we'll take one example to understand all this concept, and and example…
+
+963
+02:13:33.090 --> 02:13:37.960
+Jitendra K: We will try to understand, did a bit of experimentation.
+
+964
+02:13:38.570 --> 02:13:39.639
+Jitendra K: use case.
+
+965
+02:13:40.030 --> 02:13:43.839
+Jitendra K: And, we will use, the data side…
+
+966
+02:13:44.000 --> 02:13:51.070
+Jitendra K: Which is CIFAR10. CIFAR10 is, I think you're familiar with that data now, which comprises of.
+
+967
+02:13:51.210 --> 02:13:52.589
+Akila Velu: Positive? Yeah, it will be?
+
+968
+02:13:57.310 --> 02:13:59.520
+Jitendra K: So this is our CIFAR data set.
+
+969
+02:14:02.090 --> 02:14:11.390
+Jitendra K: So this is the color images, which talks about some… 10 classes inside these… images.
+
+970
+02:14:11.740 --> 02:14:14.259
+Jitendra K: So we'll use this dataset to train the model.
+
+971
+02:14:15.540 --> 02:14:22.940
+Jitendra K: And, we will try to implement all the technique, including batch normalization and, top-out to…
+
+972
+02:14:25.760 --> 02:14:30.520
+Jitendra K: Complete this tutorial, and then we'll see how we can able to utilize these techniques.
+
+973
+02:14:34.860 --> 02:14:36.640
+Jitendra K: Let me go to my collab.
+
+974
+02:14:38.220 --> 02:14:38.970
+Jitendra K: Ugh.
+
+975
+02:14:39.770 --> 02:14:41.200
+Jitendra K: I will delete this.
+
+976
+02:15:25.430 --> 02:15:33.350
+Jitendra K: Okay, so we're running an experimentation on batch normalization and dropout, so let me rename this as… Bash normalization.
+
+977
+02:15:36.980 --> 02:15:38.049
+Jitendra K: drop out.
+
+978
+02:15:41.210 --> 02:15:42.520
+Jitendra K: Needle knuckle.
+
+979
+02:15:43.600 --> 02:15:45.540
+Jitendra K: Feed-forward neural network.
+
+980
+02:15:46.950 --> 02:15:50.929
+Jitendra K: Okay, so we'll use this, and we are going to use everything with the help of…
+
+981
+02:16:02.880 --> 02:16:05.179
+Jitendra K: We are going to use CIFAR.
+
+982
+02:16:08.970 --> 02:16:10.890
+Jitendra K: I could terminate previous session.
+
+983
+02:16:54.049 --> 02:16:58.120
+Jitendra K: Okay, so I would like to install some of the… Packages.
+
+984
+02:16:59.440 --> 02:17:01.530
+Jitendra K: So I will first install…
+
+985
+02:17:02.120 --> 02:17:05.759
+Jitendra K: Tot, store, vision, matplot. I think this is already there.
+
+986
+02:17:06.730 --> 02:17:09.810
+Jitendra K: Just trying to make sure it is available.
+
+987
+02:17:20.299 --> 02:17:25.939
+Jitendra K: Okay, so once we have installed that, then I would like to show you what are we trying to do with the help of this case study.
+
+988
+02:17:26.430 --> 02:17:29.580
+Jitendra K: So, just a quick recap, we are trying to solve.
+
+989
+02:17:33.150 --> 02:17:34.650
+Jitendra K: these problems…
+
+990
+02:17:39.139 --> 02:17:46.209
+Jitendra K: So we try to understand what normal… batch normalization does, what is normalization, what is batch normalization, one-dimension, two-dimensional form.
+
+991
+02:17:46.440 --> 02:17:47.410
+Dhandapani Paulraj: Bye!
+
+992
+02:17:47.559 --> 02:17:50.229
+Jitendra K: I think somebody's unmuted, let me mute him.
+
+993
+02:17:55.269 --> 02:17:56.109
+Jitendra K: at all.
+
+994
+02:18:00.639 --> 02:18:01.549
+Jitendra K: Okay.
+
+995
+02:18:05.059 --> 02:18:08.599
+Jitendra K: So we are using a batch normalization, and the bunch of
+
+996
+02:18:09.479 --> 02:18:16.589
+Jitendra K: data set from CIFER as well. So, first and foremost thing, I would like to import the libraries. Same libraries
+
+997
+02:18:16.799 --> 02:18:20.129
+Jitendra K: Some… some of them are… you're familiar with.
+
+998
+02:18:20.739 --> 02:18:25.319
+Jitendra K: all the packages you're familiar with, right? So I'm just going to use the same libraries.
+
+999
+02:18:25.499 --> 02:18:30.649
+Jitendra K: I'm going to set up the config predominantly for best size and learning rate now.
+
+1000
+02:18:31.089 --> 02:18:36.289
+Jitendra K: So I will keep the batch size to be 128. Epoch, I'm increasing from 5 to 8.
+
+1001
+02:18:36.639 --> 02:18:39.549
+Jitendra K: And then, remaining thing, I think your family with.
+
+1002
+02:18:40.209 --> 02:18:46.399
+Jitendra K: So I will initialize this. Now I will use the dataset loader from CIFAR, from PyTorch model.
+
+1003
+02:18:47.009 --> 02:18:53.079
+Jitendra K: So, first and the foremost thing, I would like to use the PyTorch model to import a dataset.
+
+1004
+02:18:54.119 --> 02:18:58.739
+Jitendra K: And I would like to go… slightly,
+
+1005
+02:19:04.529 --> 02:19:10.489
+Jitendra K: detail in terms of normalization layer. So I would like to use normalization layer, I would like to construct a normalization layer.
+
+1006
+02:19:11.109 --> 02:19:13.299
+Jitendra K: After the data has been downloaded.
+
+1007
+02:19:13.559 --> 02:19:16.529
+Jitendra K: So I will use my nomination layer, compile this.
+
+1008
+02:19:16.819 --> 02:19:19.819
+Jitendra K: So I have 20 forms, I will explain each one of them.
+
+1009
+02:19:20.979 --> 02:19:22.819
+Jitendra K: Then I would like to use dropout.
+
+1010
+02:19:24.849 --> 02:19:28.479
+Jitendra K: parameters, so I will say these are my top row parameters.
+
+1011
+02:19:30.459 --> 02:19:33.139
+Jitendra K: And finally, I have model definitions.
+
+1012
+02:19:35.219 --> 02:19:40.079
+Jitendra K: And then I will start training the model, and then showing the result in the output.
+
+1013
+02:19:44.399 --> 02:19:45.979
+Jitendra K: So let me run this.
+
+1014
+02:20:01.309 --> 02:20:08.769
+Jitendra K: Okay, while the program is running, let's try to deep dive into this code. What exactly we are trying to talk about here.
+
+1015
+02:20:18.989 --> 02:20:21.499
+Jitendra K: Okay, so let's try to deep dive into the code.
+
+1016
+02:20:22.289 --> 02:20:26.199
+Jitendra K: So the first and foremost thing, again, we are constructing
+
+1017
+02:20:27.519 --> 02:20:30.849
+Jitendra K: class. We are incorporating the neural network class.
+
+1018
+02:20:31.279 --> 02:20:33.829
+Jitendra K: After we have the data now.
+
+1019
+02:20:34.049 --> 02:20:36.799
+Jitendra K: So we're just using the data classes.
+
+1020
+02:20:37.439 --> 02:20:42.629
+Jitendra K: So, the data class include your neural network extension, so that means I'm using
+
+1021
+02:20:43.269 --> 02:20:47.759
+Jitendra K: The inheritance mechanism to import a class and modify the class.
+
+1022
+02:20:48.209 --> 02:20:52.709
+Jitendra K: After the set of data loading functions that I'm using here.
+
+1023
+02:20:52.929 --> 02:20:59.879
+Jitendra K: I'm trying to normalize my 28 cross… so this image is of 3-channel now, because color image is of 3-channel.
+
+1024
+02:21:00.029 --> 02:21:04.089
+Jitendra K: So you will see that I'm using a 3-channel array, rather than 2-channel now.
+
+1025
+02:21:04.659 --> 02:21:11.569
+Jitendra K: So this is one thing that I would like to talk about. Now, what are we trying to do in… after this is, I have got
+
+1026
+02:21:12.419 --> 02:21:14.379
+Jitendra K: The bunch of normalization layer.
+
+1027
+02:21:14.649 --> 02:21:19.009
+Jitendra K: So here, I'm creating a split, a random split, of input
+
+1028
+02:21:19.619 --> 02:21:22.159
+Jitendra K: 4 cross 8 cross 6 cross 6.
+
+1029
+02:21:22.369 --> 02:21:24.419
+Jitendra K: So this talk about number of channels.
+
+1030
+02:21:25.169 --> 02:21:30.619
+Jitendra K: Which is normalization channel, height and width of my channel.
+
+1031
+02:21:30.879 --> 02:21:32.399
+Jitendra K: Including the depth.
+
+1032
+02:21:33.019 --> 02:21:35.379
+Jitendra K: So this is how it will become four-dimensional array.
+
+1033
+02:21:35.859 --> 02:21:43.169
+Jitendra K: So, I will use batch normalization two-dimensional, which will normalize my N, H, and W parameter.
+
+1034
+02:21:43.519 --> 02:21:45.949
+Jitendra K: Number of channels, height and width for each channel.
+
+1035
+02:21:46.339 --> 02:21:53.059
+Jitendra K: Then layer norm, norm, I have got, basically another form, which is called norm2.
+
+1036
+02:21:53.439 --> 02:21:56.749
+Jitendra K: Which normalizes only HNW of my channel.
+
+1037
+02:21:57.559 --> 02:22:00.389
+Jitendra K: So I'm just using a different sort of normalization.
+
+1038
+02:22:01.509 --> 02:22:02.519
+Jitendra K: Now…
+
+1039
+02:22:03.409 --> 02:22:14.939
+Jitendra K: I'm passing X through each layer, which is my input features, which could be a pixel data, through each layer and print the output shape and number of trainable parameters, which is Y and beta, or gamma and beta.
+
+1040
+02:22:16.369 --> 02:22:20.559
+Jitendra K: So these are my trainable parameters for each type of normalization.
+
+1041
+02:22:20.969 --> 02:22:24.719
+Jitendra K: Now, let me explain what are these types of normalization, how are they different.
+
+1042
+02:22:34.449 --> 02:22:41.139
+Jitendra K: So basically, you can see on my screen, I've got… Bash 2 normalization, layer normalization.
+
+1043
+02:22:41.579 --> 02:22:48.079
+Jitendra K: I've got some other, some more types of normalization. So each type of normalization
+
+1044
+02:22:48.449 --> 02:22:53.339
+Jitendra K: Will help me to construct a technique 2?
+
+1045
+02:22:53.559 --> 02:22:55.679
+Jitendra K: Normalize my batch inferences.
+
+1046
+02:22:55.949 --> 02:22:59.909
+Jitendra K: Now, the key idea here is, if I'm using a normalization two-dimension.
+
+1047
+02:23:00.979 --> 02:23:07.669
+Jitendra K: So, trainable parameter is 16. If I'm using a layer normalization, it becomes very gigantic, 576 trainable parameter.
+
+1048
+02:23:08.009 --> 02:23:11.129
+Jitendra K: So, the complexity of your model is increasing.
+
+1049
+02:23:11.929 --> 02:23:16.259
+Jitendra K: Right? So batch 2 normalization has an output shape of 4866.
+
+1050
+02:23:16.999 --> 02:23:22.449
+Jitendra K: So that means it is 16 trainable parameters. 4 plus 4 plus 4 plus 4.
+
+1051
+02:23:22.949 --> 02:23:28.509
+Jitendra K: Now, how it works is, it will apply normalization per channel across batches, and a spatial dimension.
+
+1052
+02:23:28.649 --> 02:23:30.629
+Jitendra K: So, for a given channel C,
+
+1053
+02:23:31.009 --> 02:23:37.929
+Jitendra K: For a given channel C, so there are 3 channels in color image, R… G and B.
+
+1054
+02:23:38.799 --> 02:23:43.719
+Jitendra K: So, for each channel, It computes the mean and variance of
+
+1055
+02:23:45.269 --> 02:23:47.849
+Jitendra K: Number of channel, height and width.
+
+1056
+02:23:50.219 --> 02:23:56.389
+Jitendra K: in the channel for a current mini-batch. So that means there are 16 parameters. So there are 8
+
+1057
+02:23:57.149 --> 02:23:59.329
+Jitendra K: Three channels that we are going to leverage.
+
+1058
+02:23:59.599 --> 02:24:05.419
+Jitendra K: Layer normalization, A 576 training wheel parameter, which is very large.
+
+1059
+02:24:06.999 --> 02:24:13.619
+Jitendra K: So, it will normalize per sample across all features, which is C, HNW.
+
+1060
+02:24:14.849 --> 02:24:16.519
+Jitendra K: Channel height and width.
+
+1061
+02:24:17.749 --> 02:24:23.559
+Jitendra K: So for each sample, it compute the mean and variance over the entire site, which is 8 rows.
+
+1062
+02:24:24.299 --> 02:24:27.869
+Jitendra K: 6 cross 6, which is 288 elements.
+
+1063
+02:24:30.159 --> 02:24:35.179
+Jitendra K: And then it normalizes the parameter. So why 576 parameter?
+
+1064
+02:24:35.679 --> 02:24:37.189
+Jitendra K: Because you have got…
+
+1065
+02:24:37.369 --> 02:24:44.339
+Jitendra K: 8 cross 6 cross 6 multiplied by 2 for each element. There are two parameters, which is called gamma and beta.
+
+1066
+02:24:45.899 --> 02:24:48.199
+Jitendra K: So that means it is going to multiply by 2.
+
+1067
+02:24:49.239 --> 02:24:52.589
+Jitendra K: So typically, we are going to use layer normalization for…
+
+1068
+02:24:53.429 --> 02:24:59.399
+Jitendra K: Some of the advanced architectures, like GPT-based model. GPT-based models are using layer normalization.
+
+1069
+02:25:00.029 --> 02:25:03.099
+Jitendra K: Recurrent neural network is also using batch normalization.
+
+1070
+02:25:03.459 --> 02:25:08.499
+Jitendra K: GPTs, BERT, RNN, and LP tasks, they are all using batch normalization.
+
+1071
+02:25:08.839 --> 02:25:10.229
+Jitendra K: Learn normalization.
+
+1072
+02:25:11.179 --> 02:25:19.949
+Jitendra K: Similarly, I've got instant normalization two-dimensional vector, so it normalizes per channel, per sample across a spatial dimension, which is your height and width.
+
+1073
+02:25:22.039 --> 02:25:28.949
+Jitendra K: Right? So, similarly, you have got last group normalization, which is, again, forming a group
+
+1074
+02:25:29.309 --> 02:25:32.169
+Jitendra K: Or 8 rows, which contain exactly one channel.
+
+1075
+02:25:32.499 --> 02:25:40.019
+Jitendra K: So this is how the normalization, scenarios operate in a deep neural network. So we'll try to see the output now.
+
+1076
+02:25:40.299 --> 02:25:41.219
+Jitendra K: From the…
+
+1077
+02:25:41.789 --> 02:25:46.359
+Jitendra K: From the execution that we have made, right? So this is a normalization that we are having.
+
+1078
+02:25:46.629 --> 02:25:48.649
+Jitendra K: So, what we are going to do next is…
+
+1079
+02:25:50.739 --> 02:25:56.219
+Jitendra K: I have the normalization now. Now, I would like to also use a debt dropout as my factor.
+
+1080
+02:25:56.459 --> 02:25:57.459
+Jitendra K: So I've got…
+
+1081
+02:25:59.669 --> 02:26:07.379
+Jitendra K: Number of channels is, RGB array. For an image, you have 3 channels. Color image, you will have 3 channels. For black and white, you will have…
+
+1082
+02:26:07.559 --> 02:26:08.669
+Jitendra K: Two channels.
+
+1083
+02:26:12.869 --> 02:26:16.269
+Jitendra K: Okay, you mean to say how I define it to be n is equal to 4?
+
+1084
+02:26:16.909 --> 02:26:18.949
+Jitendra K: The input tensor, you mean to say, right?
+
+1085
+02:26:20.019 --> 02:26:27.179
+Jitendra K: Okay, so… It's just a… You can say, an educated guess.
+
+1086
+02:26:27.789 --> 02:26:34.389
+Jitendra K: Right, so I'm taking… an educated guess, depending upon the complexity of the problem that I'm trying to solve.
+
+1087
+02:26:36.789 --> 02:26:40.129
+Jitendra K: Now, this is the dimension of my input tensor.
+
+1088
+02:26:40.899 --> 02:26:44.159
+Jitendra K: So, Anna goes to 4 replant mini batches of 4 images.
+
+1089
+02:26:44.549 --> 02:26:47.089
+Jitendra K: That means the tensor will use…
+
+1090
+02:26:47.689 --> 02:26:50.339
+Jitendra K: These four factors to synthetically input.
+
+1091
+02:26:50.999 --> 02:26:55.779
+Jitendra K: And, perform the normalization. So n is equal to 4 means a small mini batch.
+
+1092
+02:26:56.619 --> 02:26:59.109
+Jitendra K: of 4. It's not a channel.
+
+1093
+02:26:59.559 --> 02:27:04.239
+Jitendra K: And it will run per channel. So, energy cost to 4 means a small mini batch size.
+
+1094
+02:27:04.859 --> 02:27:07.909
+Jitendra K: C is equal to 8 means number of channel feature map.
+
+1095
+02:27:08.869 --> 02:27:13.099
+Jitendra K: So this is something which we are going to get clear with the CNN architecture.
+
+1096
+02:27:13.609 --> 02:27:23.279
+Jitendra K: So, this is where the CNN architecture will come into play. Let's hold for a while, and once I complete CNN, then you will be able to understand what are these factors.
+
+1097
+02:27:28.969 --> 02:27:34.709
+Jitendra K: Alright, so after that, what we are going to do next is, we are going to use a dropout rate.
+
+1098
+02:27:35.989 --> 02:27:38.779
+Jitendra K: Creation as well.
+
+1099
+02:27:38.939 --> 02:27:41.039
+Jitendra K: So I would like to create a dropout rate.
+
+1100
+02:27:42.059 --> 02:27:44.219
+Jitendra K: Creation using this…
+
+1101
+02:27:50.359 --> 02:27:51.149
+Jitendra K: No.
+
+1102
+02:27:51.439 --> 02:27:53.759
+Jitendra K: So this is my dropout rate.
+
+1103
+02:27:54.259 --> 02:27:57.399
+Jitendra K: So, I would like to consider dropout rate of…
+
+1104
+02:27:58.339 --> 02:28:09.739
+Jitendra K: 20 to 30% in my layer. Now, this is a complete image processing model, so I'm using a CNN architecture, so I will not cover this part, why I'm… what I'm doing in CNN.
+
+1105
+02:28:10.029 --> 02:28:13.989
+Jitendra K: But I would rather focus only on batch normalization and dropout… output.
+
+1106
+02:28:17.779 --> 02:28:20.549
+Jitendra K: Okay, so let me show you the result, I think it has been run.
+
+1107
+02:28:22.919 --> 02:28:24.609
+Jitendra K: Let me close this…
+
+1108
+02:28:33.399 --> 02:28:37.939
+Jitendra K: Okay, so… So this is our results.
+
+1109
+02:28:39.569 --> 02:28:43.469
+Jitendra K: Result on batch normalization, result on dropout.
+
+1110
+02:28:44.529 --> 02:28:47.179
+Jitendra K: So, you said, which is best?
+
+1111
+02:28:48.019 --> 02:28:50.869
+Jitendra K: To select, this is the output that we are going to use.
+
+1112
+02:28:51.239 --> 02:28:57.559
+Jitendra K: Now, one of the most important things is we are using five types of batch normalization, and you can see that the overfit gap
+
+1113
+02:28:57.749 --> 02:29:04.109
+Jitendra K: While applying the batch normalization, which is for overfitting, I'm getting a lease error.
+
+1114
+02:29:04.219 --> 02:29:07.219
+Jitendra K: So I will say that if my errors are less.
+
+1115
+02:29:08.849 --> 02:29:11.699
+Jitendra K: That means my validation accuracy is close to…
+
+1116
+02:29:13.819 --> 02:29:16.009
+Jitendra K: Training accuracy, I will prefer that model.
+
+1117
+02:29:17.189 --> 02:29:19.409
+Jitendra K: So this experiment will show you
+
+1118
+02:29:19.839 --> 02:29:25.739
+Jitendra K: a glimpse of how different normalization techniques and dropout rate factor training of small CNN model
+
+1119
+02:29:26.199 --> 02:29:31.139
+Jitendra K: Which is using a CFI… CIFAR10 datasets to run.
+
+1120
+02:29:31.649 --> 02:29:37.659
+Jitendra K: So, batch normalization achieved the highest validation accuracy, which is 65.25.
+
+1121
+02:29:38.279 --> 02:29:41.999
+Jitendra K: And training accuracy is 60.27, with a gap of 4.98.
+
+1122
+02:29:42.409 --> 02:29:45.939
+Jitendra K: So it achieved the highest validation accuracy, but large margin.
+
+1123
+02:29:47.109 --> 02:29:50.799
+Jitendra K: So this confirms that it's a kind of a go-to choice for CNN.
+
+1124
+02:29:51.149 --> 02:29:53.149
+Jitendra K: With a batch size of 128.
+
+1125
+02:29:54.249 --> 02:29:58.099
+Jitendra K: The second thing is, I've got instance normalization.
+
+1126
+02:29:59.009 --> 02:30:04.459
+Jitendra K: But it trails back nomination by 9%, almost by 9%.
+
+1127
+02:30:05.279 --> 02:30:10.689
+Jitendra K: But the… Gap, in terms of overfitting criteria, is much, much less.
+
+1128
+02:30:15.509 --> 02:30:17.689
+Jitendra K: Right, so maybe I can go with this.
+
+1129
+02:30:19.139 --> 02:30:22.299
+Jitendra K: Type of normalization to deal with this objective.
+
+1130
+02:30:22.809 --> 02:30:25.389
+Jitendra K: Now, the dropout rate, if you look carefully.
+
+1131
+02:30:26.639 --> 02:30:29.889
+Jitendra K: The best validation accuracy has been achieved with no dropout.
+
+1132
+02:30:31.139 --> 02:30:34.919
+Jitendra K: Percentage of dropout I'm tracking, 0%.
+
+1133
+02:30:36.159 --> 02:30:38.349
+Jitendra K: So, validation accuracy and training accuracy.
+
+1134
+02:30:39.369 --> 02:30:43.999
+Jitendra K: It's coming out to be 73 and 75, and a gap of 1.90.
+
+1135
+02:30:44.199 --> 02:30:51.249
+Jitendra K: But this model is overfit. Can we overfit? They suggested that on a specific task, Which…
+
+1136
+02:30:51.379 --> 02:30:56.369
+Jitendra K: I'm using, with 10K training images, 10,000 training images.
+
+1137
+02:30:56.639 --> 02:31:01.739
+Jitendra K: Bash normalization already present, additional dropout is unnecessary, and actually harmful.
+
+1138
+02:31:02.099 --> 02:31:08.509
+Jitendra K: The batch normalization itself provided a regulation effect, and adding dropout pushed the model into underfitting territories.
+
+1139
+02:31:08.949 --> 02:31:17.199
+Jitendra K: That is very evident from this output. That means I have to use both a technique quite judicially.
+
+1140
+02:31:17.489 --> 02:31:23.569
+Jitendra K: And then… I have to find it out, maybe a way that will help me to…
+
+1141
+02:31:23.709 --> 02:31:25.819
+Jitendra K: Operate on both simultaneously.
+
+1142
+02:31:26.489 --> 02:31:36.199
+Jitendra K: Similarly, if I look into P10% dropout, the model accuracy drop, 20% dropout, a further drop, 30% OT and 50.
+
+1143
+02:31:36.649 --> 02:31:40.019
+Jitendra K: So, my 50% is almost underfit.
+
+1144
+02:31:40.879 --> 02:31:47.499
+Jitendra K: 100, 0% dropout is almost overfit. So I need to find a balance between the two strategies.
+
+1145
+02:31:50.809 --> 02:31:59.779
+Jitendra K: Right? The dropout rate above 0.3 lead to a sharp drop in accuracy, confirming that this architecture and dataset has high dropout, which is detrimental.
+
+1146
+02:32:00.349 --> 02:32:05.489
+Jitendra K: So… so why dropout is, kind of, you know.
+
+1147
+02:32:06.499 --> 02:32:14.069
+Jitendra K: Push back here. The model already used batch narration, which regularized. To drop out, add extra regularization parameters.
+
+1148
+02:32:14.749 --> 02:32:22.219
+Jitendra K: So the training site is comprised of 10K images, but the model capsidity is 700 parameters, 700,000 parameters.
+
+1149
+02:32:22.519 --> 02:32:29.699
+Jitendra K: Which might be appropriate without dropout. The dropout forced neuron to be more robust, but if the network is already well regularized.
+
+1150
+02:32:30.039 --> 02:32:33.199
+Jitendra K: It may simply reduce capsidity unnecessarily.
+
+1151
+02:32:34.629 --> 02:32:36.729
+Jitendra K: The final decision guide.
+
+1152
+02:32:37.559 --> 02:32:42.279
+Jitendra K: You have to follow is, you have to compare your experimentation.
+
+1153
+02:32:42.439 --> 02:32:48.059
+Jitendra K: Whether you really require dropout, along with regularization, Or… not.
+
+1154
+02:32:48.269 --> 02:32:51.889
+Jitendra K: So I think somebody is asking why 0.5 go to 0.
+
+1155
+02:32:52.399 --> 02:32:58.869
+Jitendra K: What is a typical range? So this is a typical range. This is how you can perform an experimentation on deep neural network.
+
+1156
+02:33:00.279 --> 02:33:03.799
+Jitendra K: So, any question on this slide, guys? Anything that you would like to ask?
+
+1157
+02:33:07.409 --> 02:33:14.049
+Jitendra K: I think there are some output which has been generated in the form of a graph, so let's try to look into that as well.
+
+1158
+02:33:16.169 --> 02:33:18.539
+Jitendra K: Okay, over for diagnostic.
+
+1159
+02:33:31.869 --> 02:33:34.169
+Jitendra K: Yeah, so gap between training and test.
+
+1160
+02:33:34.339 --> 02:33:35.699
+Jitendra K: is increasing.
+
+1161
+02:33:36.909 --> 02:33:42.639
+Jitendra K: And, some batch normalization technique is… Proving to be very good.
+
+1162
+02:33:43.149 --> 02:33:46.779
+Jitendra K: So this is instance normalization, which is fit for my purpose.
+
+1163
+02:33:49.979 --> 02:33:56.879
+Jitendra K: So, let me share this notebook with you guys, and I want everybody to run this notebook, go line by line, understand its code.
+
+1164
+02:33:56.989 --> 02:33:58.649
+Jitendra K: Understanding the library.
+
+1165
+02:33:59.069 --> 02:34:00.369
+Jitendra K: try to…
+
+1166
+02:34:03.399 --> 02:34:04.719
+Jitendra K: look forward.
+
+1167
+02:34:04.849 --> 02:34:05.769
+Jitendra K: For each.
+
+1168
+02:34:05.999 --> 02:34:06.999
+Jitendra K: line.
+
+1169
+02:34:07.179 --> 02:34:12.799
+Jitendra K: And let me know if there's any question. So this is very important now, so please run this code.
+
+1170
+02:34:13.549 --> 02:34:20.149
+Jitendra K: Try to go through the code line by line, understand the output, and let me know if there's any question.
+
+1171
+02:34:23.449 --> 02:34:27.909
+Jitendra K: I'm just going on mute, I will wait for your… Response.
+
+1172
+02:37:56.369 --> 02:38:02.319
+Jitendra K: I've shared the notebook as well, so both your notebook and this OneNote have been shared.
+
+1173
+02:38:03.069 --> 02:38:08.619
+Jitendra K: And even the book I've already provided you the reference, what book we are referring to.
+
+1174
+02:40:50.149 --> 02:40:52.779
+Jitendra K: Please let me know when… once you are able to run this.
+
+1175
+02:40:53.099 --> 02:40:54.519
+Jitendra K: And send a code.
+
+1176
+02:41:03.339 --> 02:41:07.509
+Jitendra K: Before we move on to the quiz, the last part of today's tutorial class.
+
+1177
+02:41:15.159 --> 02:41:19.599
+Jitendra K: How about professor lectures? Are you guys… Watching them.
+
+1178
+02:41:21.809 --> 02:41:32.309
+Jitendra K: Are you getting any… Regarding any, what should I say?
+
+1179
+02:41:32.449 --> 02:41:35.769
+Jitendra K: Benefit of watching them, or they are two basics?
+
+1180
+02:41:39.769 --> 02:41:40.709
+Jitendra K: Okay.
+
+1181
+02:41:52.489 --> 02:41:54.249
+Jitendra K: They are good, okay, great.
+
+1182
+02:41:56.289 --> 02:42:02.879
+Jitendra K: They're not… Tying the theory to practical example. Yeah, that's the biggest link which is missing.
+
+1183
+02:42:14.229 --> 02:42:17.419
+Jitendra K: So that means you have to fill the gap by self-study.
+
+1184
+02:42:18.219 --> 02:42:22.839
+Jitendra K: So you have to maybe take some good books as a reference as well.
+
+1185
+02:42:29.269 --> 02:42:32.739
+Jitendra K: It's just a theory elaborating the mess behind each technique.
+
+1186
+02:42:34.379 --> 02:42:38.369
+Jitendra K: My lectures are better, deep learning English, I feel like a little rushed, okay?
+
+1187
+02:42:38.869 --> 02:42:44.979
+Jitendra K: The practical question talks about practical things, and no way to know how to answer without asking randomly.
+
+1188
+02:42:45.859 --> 02:42:52.929
+Jitendra K: Yeah, I agree. So, it sounds like they are more theoretical, right? All the tutorials which has been uploaded in LMS.
+
+1189
+02:42:53.599 --> 02:42:57.139
+Jitendra K: they're all… Theoretical lectures, right?
+
+1190
+02:42:58.859 --> 02:43:03.139
+Jitendra K: You don't have, sufficient understanding on…
+
+1191
+02:43:03.809 --> 02:43:07.199
+Jitendra K: So why don't you complain about it, if it is the case?
+
+1192
+02:43:07.469 --> 02:43:09.449
+Jitendra K: On the quality of lectures.
+
+1193
+02:43:11.809 --> 02:43:15.169
+Jitendra K: But I'm not encouraging, by the way, but I'm just asking in general.
+
+1194
+02:43:19.159 --> 02:43:22.839
+Jitendra K: The coordinator is… forget about coordinator. Think of…
+
+1195
+02:43:23.529 --> 02:43:27.649
+Jitendra K: Your betterment. I'm here for your betterment, not for coordinator betterment.
+
+1196
+02:43:28.029 --> 02:43:31.099
+Jitendra K: I don't, have any issues?
+
+1197
+02:43:31.199 --> 02:43:32.589
+Jitendra K: He or she is listening.
+
+1198
+02:43:39.549 --> 02:43:42.189
+Jitendra K: Oh, there should be some adjustment, right?
+
+1199
+02:43:42.799 --> 02:43:46.019
+Jitendra K: If you're feeling that, the tutorials from
+
+1200
+02:43:46.509 --> 02:43:50.179
+Jitendra K: Professor's Astute Hereticals. Why don't you ask them to introduce some…
+
+1201
+02:43:51.149 --> 02:43:55.859
+Jitendra K: Practical sessions as well, along with the cases that they are taking in the lectures.
+
+1202
+02:44:01.579 --> 02:44:09.479
+Jitendra K: Okay, nevertheless, okay, so… So let's move on to the last part of today's tutorial.
+
+1203
+02:44:15.179 --> 02:44:18.329
+Jitendra K: Yeah, these all questions, you can park it to the…
+
+1204
+02:44:18.889 --> 02:44:22.309
+Jitendra K: to the emails of Amarus, and they will help you.
+
+1205
+02:44:22.719 --> 02:44:25.429
+Jitendra K: I have no idea about reading in.
+
+1206
+02:44:26.209 --> 02:44:27.479
+Jitendra K: Who does the greeting?
+
+1207
+02:44:31.219 --> 02:44:36.939
+Jitendra K: Alright, so let's start with the quiz, and we have a series of 10 questions to be answered.
+
+1208
+02:44:38.169 --> 02:44:44.609
+Jitendra K: And we will go systematically So, the equation we have written already, so just take a reference.
+
+1209
+02:44:44.889 --> 02:44:49.389
+Jitendra K: So, what is the core updated rule of wearing less stochastic gradient descent problem?
+
+1210
+02:45:08.709 --> 02:45:13.389
+Jitendra K: Theta is equals to theta minus eta delta of L.
+
+1211
+02:45:13.499 --> 02:45:15.609
+Jitendra K: Theta, which is right answer.
+
+1212
+02:45:19.189 --> 02:45:20.689
+Jitendra K: This is a correct answer.
+
+1213
+02:45:20.859 --> 02:45:23.659
+Jitendra K: So, I appreciate your focus.
+
+1214
+02:45:24.469 --> 02:45:26.369
+Jitendra K: That you are able to understand this.
+
+1215
+02:45:27.099 --> 02:45:28.739
+Jitendra K: So, it has your learning rate.
+
+1216
+02:45:29.249 --> 02:45:34.119
+Jitendra K: L is your loss function, theta is your weight parameters. Weight and bias parameter.
+
+1217
+02:45:34.479 --> 02:45:40.889
+Jitendra K: And you're updating the weights and bias along with theta, or eta. This is eta, in Greek,
+
+1218
+02:45:41.479 --> 02:45:48.069
+Jitendra K: There's no Roman character, this is a Greek character. So, eta is your character, and which is learning rate.
+
+1219
+02:45:49.569 --> 02:45:54.909
+Jitendra K: So let's move on to the next question. Which optimizer fixes the broken weight decay coupling in atom?
+
+1220
+02:45:55.239 --> 02:45:58.079
+Jitendra K: And now, the standard choice for training the LLM.
+
+1221
+02:46:00.319 --> 02:46:02.569
+Jitendra K: I think this is… I haven't covered yet.
+
+1222
+02:46:03.479 --> 02:46:06.099
+Jitendra K: But the answer is C, which is correct.
+
+1223
+02:46:06.589 --> 02:46:10.659
+Jitendra K: So, Adam, weights decoupled weight decay from adaptive gradient.
+
+1224
+02:46:11.489 --> 02:46:13.549
+Jitendra K: And this is one of the ways that,
+
+1225
+02:46:14.279 --> 02:46:16.859
+Jitendra K: Your BERT model, GPT model, has been trained.
+
+1226
+02:46:17.329 --> 02:46:20.609
+Jitendra K: Even the visual information transformers will use this.
+
+1227
+02:46:23.439 --> 02:46:28.889
+Jitendra K: Okay, Nastrophe accelerator gradient energy differs from standard momentum by doing what?
+
+1228
+02:46:29.939 --> 02:46:31.889
+Jitendra K: So this is everything we have discussed.
+
+1229
+02:46:37.159 --> 02:46:37.949
+Jitendra K: Yep.
+
+1230
+02:46:39.259 --> 02:46:40.929
+Jitendra K: How about everybody else?
+
+1231
+02:46:42.419 --> 02:46:47.549
+Jitendra K: I can see few users are… Pretty good in answering this.
+
+1232
+02:46:49.229 --> 02:46:50.449
+Jitendra K: How about others?
+
+1233
+02:46:51.599 --> 02:46:53.879
+Jitendra K: Can you guys at least give it a try?
+
+1234
+02:46:59.589 --> 02:47:02.609
+Jitendra K: Okay, B… look ahead position.
+
+1235
+02:47:03.399 --> 02:47:06.689
+Jitendra K: That means we are maintaining some sort of memory.
+
+1236
+02:47:08.649 --> 02:47:11.209
+Jitendra K: Right? So this is the right answer.
+
+1237
+02:47:14.329 --> 02:47:21.789
+Jitendra K: Adaptive gradient main weakness… that leads to the betterment, and the betterment is RMS propagation.
+
+1238
+02:47:22.399 --> 02:47:24.639
+Jitendra K: And adaptive delta being developed.
+
+1239
+02:47:25.219 --> 02:47:27.729
+Jitendra K: So what is the drawback of adaptive gradient?
+
+1240
+02:47:32.129 --> 02:47:34.449
+Jitendra K: So, you can visit the equation again.
+
+1241
+02:47:49.529 --> 02:47:53.129
+Jitendra K: This is right answer, by the way, it's too slow on sparse data.
+
+1242
+02:47:53.419 --> 02:47:56.679
+Jitendra K: But if you look into the most appropriate answer, it's C.
+
+1243
+02:47:57.939 --> 02:48:00.289
+Jitendra K: So, it talks about why it is slow.
+
+1244
+02:48:00.559 --> 02:48:04.259
+Jitendra K: Because it accumulates a square gradient and grow monotonically.
+
+1245
+02:48:04.409 --> 02:48:08.529
+Jitendra K: That leads to… learning rate, to be decay.
+
+1246
+02:48:08.709 --> 02:48:13.289
+Jitendra K: The answer is… B and C both, but I will prefer C.
+
+1247
+02:48:14.399 --> 02:48:15.909
+Jitendra K: So this is a tricky question.
+
+1248
+02:48:16.079 --> 02:48:22.559
+Jitendra K: The previous one. Now, we are talking about… okay, I will skip this part as well, because we haven't talked about
+
+1249
+02:48:24.099 --> 02:48:24.909
+Jitendra K: this?
+
+1250
+02:48:25.269 --> 02:48:27.669
+Jitendra K: Okay, now, moving on to batch normalization.
+
+1251
+02:48:28.499 --> 02:48:32.549
+Jitendra K: So, batch normalization, normalize activation function over which dimension in this code?
+
+1252
+02:48:36.369 --> 02:48:40.169
+Jitendra K: So you can see that I'm taking 3 parameters, C, H, and W.
+
+1253
+02:48:46.279 --> 02:48:47.179
+Jitendra K: Or an…
+
+1254
+02:48:51.929 --> 02:49:00.499
+Jitendra K: Yes, so the code itself registered, we are training on CHNW, and this is something which we are going to talk about in CNN as well.
+
+1255
+02:49:00.789 --> 02:49:06.939
+Jitendra K: But just to give you a hint, they are… Pre-computed weights across channel.
+
+1256
+02:49:07.699 --> 02:49:10.189
+Jitendra K: Which has been break down into tiny batches.
+
+1257
+02:49:12.049 --> 02:49:18.349
+Jitendra K: I will move on to the seventh question. You are a training at trans… okay, let me ignore this part as well.
+
+1258
+02:49:19.509 --> 02:49:26.609
+Jitendra K: Oh, yeah, I think this is what we have discussed. So, let's say you're training a transformer language model GPT style. Which normalization should you use, and why?
+
+1259
+02:49:39.019 --> 02:49:41.429
+Jitendra K: C, group normalization.
+
+1260
+02:49:46.399 --> 02:49:52.649
+Jitendra K: B, instance normalization. Instance normalization, in our previous use case, provide a better result.
+
+1261
+02:49:53.119 --> 02:49:55.289
+Jitendra K: But I think you missed the slide.
+
+1262
+02:49:56.199 --> 02:49:57.939
+Jitendra K: That is group normalization.
+
+1263
+02:49:58.369 --> 02:50:01.929
+Jitendra K: It handles variable batch size, which is good for text data.
+
+1264
+02:50:07.709 --> 02:50:10.529
+Jitendra K: Here, Learnation, that's surprising.
+
+1265
+02:50:17.299 --> 02:50:19.879
+Jitendra K: I think it should be grouped, not layer.
+
+1266
+02:50:20.079 --> 02:50:22.049
+Jitendra K: I will make a correction in this.
+
+1267
+02:50:25.279 --> 02:50:32.729
+Jitendra K: Okay, question number 8. Group normalization was developed primarily to solve the limitation of batch normalization. What are the problems faced by?
+
+1268
+02:50:33.779 --> 02:50:35.489
+Jitendra K: Group normalization technique.
+
+1269
+02:50:57.839 --> 02:51:00.709
+Jitendra K: The correct answer is… B.
+
+1270
+02:51:01.969 --> 02:51:09.699
+Jitendra K: Because good normalization… When the batch size is very small, Specifically for high resolution images.
+
+1271
+02:51:10.429 --> 02:51:12.619
+Jitendra K: It will become too noisy.
+
+1272
+02:51:12.819 --> 02:51:14.029
+Jitendra K: to be useful.
+
+1273
+02:51:14.919 --> 02:51:21.329
+Jitendra K: Because it split the channel into variable batches. So, if you're splitting the noise into various channels.
+
+1274
+02:51:21.769 --> 02:51:26.909
+Jitendra K: Yes, opening a… Warm of, bag of worms, right?
+
+1275
+02:51:27.369 --> 02:51:29.699
+Jitendra K: That means you have to avoid this.
+
+1276
+02:51:35.919 --> 02:51:39.919
+Jitendra K: Okay, I think this has also not been covered, so I will write down the answer.
+
+1277
+02:51:40.969 --> 02:51:43.089
+Jitendra K: And move on to the next part.
+
+1278
+02:51:47.039 --> 02:51:51.289
+Jitendra K: Okay, now this is a… this is one of the… again, the tricky question.
+
+1279
+02:51:51.529 --> 02:51:56.529
+Jitendra K: Your model has been trained, And you're receiving accuracy of 95%.
+
+1280
+02:51:57.179 --> 02:52:04.319
+Jitendra K: And validation accuracy of 65%. So, training accuracy is 95, validation accuracy is 65. Clearly, there's a overfit.
+
+1281
+02:52:04.759 --> 02:52:11.189
+Jitendra K: After 20 epoch, you use batch normalization with no dropout. P equals to 0.
+
+1282
+02:52:12.239 --> 02:52:16.889
+Jitendra K: What is the first action that you will take to reduce this overfitting?
+
+1283
+02:52:28.639 --> 02:52:29.789
+Jitendra K: Excellent.
+
+1284
+02:52:31.059 --> 02:52:36.259
+Jitendra K: Those who are saying C, They are… Right?
+
+1285
+02:52:36.829 --> 02:52:43.469
+Jitendra K: So you will try experimenting with the things, right? Now you understand how to… Join bash normalization width.
+
+1286
+02:52:43.989 --> 02:52:47.019
+Jitendra K: drop out. So it has to be experimentation.
+
+1287
+02:52:47.709 --> 02:52:53.189
+Jitendra K: So you're going to use hyperparameter fine-tuning, and we'll talk about hyperparameter fine-tuning with
+
+1288
+02:52:53.869 --> 02:52:58.499
+Jitendra K: with deep learning as well. So, hyperparameter…
+
+1289
+02:52:58.629 --> 02:53:01.609
+Jitendra K: That means you are going to use dropout in a
+
+1290
+02:53:02.149 --> 02:53:06.289
+Jitendra K: Form of a list of numbers, not at a one parameter.
+
+1291
+02:53:06.669 --> 02:53:11.529
+Jitendra K: And then your algorithm will decide which one is giving more appropriate output.
+
+1292
+02:53:12.519 --> 02:53:14.549
+Jitendra K: For a particular problem.
+
+1293
+02:53:15.109 --> 02:53:17.849
+Jitendra K: And that will help you to construct.
+
+1294
+02:53:18.529 --> 02:53:22.919
+Jitendra K: this hole… Architecture more foolproof.
+
+1295
+02:53:26.339 --> 02:53:31.319
+Jitendra K: So I think this is pretty much what we have for today, guys. So let me share this quiz, and
+
+1296
+02:53:31.709 --> 02:53:35.569
+Jitendra K: We are done for today, so we had talked about several
+
+1297
+02:53:36.579 --> 02:53:41.699
+Jitendra K: Techniques, including optimization, including regularization, including dropout.
+
+1298
+02:53:43.149 --> 02:53:48.259
+Jitendra K: So, today's class is, kind of… Overwhelming, I agree.
+
+1299
+02:53:48.669 --> 02:53:56.389
+Jitendra K: But, you have to go… first thing you have to do is, after this class, once you have your break and whatever, if you're going for dinner.
+
+1300
+02:53:56.619 --> 02:53:57.809
+Jitendra K: Please come back.
+
+1301
+02:53:58.119 --> 02:54:01.539
+Jitendra K: Spent 3 hours on these slides, and…
+
+1302
+02:54:01.759 --> 02:54:05.079
+Jitendra K: At least 2-3 hours on the book as well.
+
+1303
+02:54:05.359 --> 02:54:08.439
+Jitendra K: The topic that you need to read from the book.
+
+1304
+02:54:11.649 --> 02:54:14.609
+Jitendra K: Include Chapter 8.5.
+
+1305
+02:54:22.949 --> 02:54:25.819
+Jitendra K: 8.5 after that, you have to…
+
+1306
+02:54:26.339 --> 02:54:34.279
+Jitendra K: Read 12.4, 12.3, 12.5, 12.6, 12.7, 12.8,
+
+1307
+02:54:35.049 --> 02:54:37.439
+Jitendra K: And all the way to 12.11.
+
+1308
+02:54:38.669 --> 02:54:43.029
+Jitendra K: This is important, if you miss this part, You will miss the bus.
+
+1309
+02:54:44.499 --> 02:54:47.079
+Jitendra K: Make sure that you revise this concept.
+
+1310
+02:54:48.079 --> 02:54:50.929
+Jitendra K: So everything is very detailed in this book.
+
+1311
+02:54:54.259 --> 02:54:56.369
+Jitendra K: Right, with the small examples.
+
+1312
+02:54:56.489 --> 02:55:04.619
+Jitendra K: Very, very small example, very small, specific example. You can skip examples, by the way, because we have a different example that we have utilized.
+
+1313
+02:55:05.409 --> 02:55:07.409
+Jitendra K: We can skip examples in this.
+
+1314
+02:55:08.469 --> 02:55:12.979
+Jitendra K: You can read the theory, and then revisit the example that I have shared with you.
+
+1315
+02:55:13.419 --> 02:55:15.589
+Jitendra K: And that way, you can be able to connect the dots.
+
+1316
+02:55:15.819 --> 02:55:18.099
+Jitendra K: You can connect the dots by saying that, okay.
+
+1317
+02:55:18.279 --> 02:55:22.339
+Jitendra K: I know how to use, the enterprise-grade port.
+
+1318
+02:55:22.589 --> 02:55:25.289
+Jitendra K: Not a toy dataset, not a small example.
+
+1319
+02:55:25.719 --> 02:55:32.559
+Jitendra K: But I would like to use, some good code reference after absorbing all the theories from this book.
+
+1320
+02:55:32.729 --> 02:55:36.149
+Jitendra K: So just try to absorb the theory part of it, and then…
+
+1321
+02:55:36.489 --> 02:55:42.749
+Jitendra K: you can able to correlate the concept again. So these parameters are slightly sensitive.
+
+1322
+02:55:43.179 --> 02:55:49.329
+Jitendra K: Theta, beta, gamma, delta… Right? So you should understand what are these…
+
+1323
+02:55:49.789 --> 02:55:53.389
+Jitendra K: parameters, because I'm going to use these parameters
+
+1324
+02:55:53.739 --> 02:56:00.929
+Jitendra K: in hyperparameter tuning, in deep learning neural network, from the next to next class onwards. Even CNN have
+
+1325
+02:56:01.189 --> 02:56:06.159
+Jitendra K: these parameters. So you'll get confused why we are using beta, why we are using theta.
+
+1326
+02:56:06.279 --> 02:56:09.439
+Jitendra K: So I don't want you to lose in that Greek terminologies.
+
+1327
+02:56:10.529 --> 02:56:15.129
+Jitendra K: So make sure that you revise this after, after your break.
+
+1328
+02:56:15.429 --> 02:56:20.289
+Jitendra K: Just spend 2 hours, couple of hours, 1 hour for code, 2 hours for theory, and then…
+
+1329
+02:56:20.539 --> 02:56:26.389
+Jitendra K: I think you will be good, with this concept. So, again, 12th.
+
+1330
+02:56:27.729 --> 02:56:31.529
+Jitendra K: And 8th chapter, which is 8.5.
+
+1331
+02:56:32.359 --> 02:56:34.219
+Jitendra K: You need to cover today.
+
+1332
+02:56:37.819 --> 02:56:43.489
+Jitendra K: So with that, thank you guys for attending this session, and after this, I think let me launch the poll as well.
+
+1333
+02:56:43.879 --> 02:56:47.789
+Jitendra K: So, you can rate the poll on a higher side.
+
+1334
+02:56:48.019 --> 02:56:52.489
+Jitendra K: If you feel… sorry, I will… And this poll.
+
+1335
+02:56:56.019 --> 02:56:58.179
+Jitendra K: Let me launch the last poll.
+
+1336
+02:57:11.189 --> 02:57:17.369
+Jitendra K: Yeah, so I've launched the poll, so please rate on the higher side if you feel that this particular class is of great use for you.
+
+1337
+02:57:20.459 --> 02:57:23.249
+Jitendra K: So I want everybody to participate in this poll.
+
+1338
+02:57:41.349 --> 02:57:46.809
+Jitendra K: So, we'll go very systematic in deep learning. I know deep learning is a lost world for many.
+
+1339
+02:57:47.259 --> 02:57:50.879
+Jitendra K: So, we have to take references, no other choice.
+
+1340
+02:57:51.169 --> 02:57:55.179
+Jitendra K: Some good book references, some good reading materials, some good examples.
+
+1341
+02:57:55.549 --> 02:58:00.719
+Jitendra K: That's how you can overcome this fear of deep learning. Otherwise, it will remain scary for you guys.
+
+1342
+02:58:00.859 --> 02:58:05.279
+Jitendra K: So, we have to take good references. So, this book is good for this topic.
+
+1343
+02:58:05.449 --> 02:58:09.099
+Jitendra K: Next topic, if I'm going to use CNN, then I will prefer a different book.
+
+1344
+02:58:09.819 --> 02:58:13.529
+Jitendra K: This book is not good for CNN, so I will refer a different book for CNN.
+
+1345
+02:58:32.129 --> 02:58:36.369
+Jitendra K: Okay, so I hope everybody's participating in the poll.
+
+1346
+02:58:36.769 --> 02:58:41.529
+Jitendra K: So thanks for the feedback, and it was really thrilled to see such numbers.
+
+1347
+02:58:45.789 --> 02:58:51.729
+Jitendra K: Okay, so the homework for you is you have to revisit the code, you have to revisit this topic from the book.
+
+1348
+02:58:52.079 --> 02:58:56.889
+Jitendra K: And then, most probably, you have to, ask question in the next class.
+
+1349
+02:58:59.089 --> 02:58:59.859
+Jitendra K: Yeah.
+
+1350
+02:59:00.259 --> 02:59:06.179
+Jitendra K: So, as a teacher, I can advise you, for… I can motivate you to learn more things.
+
+1351
+02:59:07.039 --> 02:59:11.589
+Jitendra K: And, once you understand the topic, right, it's all about
+
+1352
+02:59:12.269 --> 02:59:20.119
+Jitendra K: Maybe a simple terminology is, you understand the basics, right? What is the basics of neural network? What are the building blocks?
+
+1353
+02:59:20.999 --> 02:59:25.479
+Jitendra K: Then, it's all about how many good reference material you're taking care.
+
+1354
+02:59:26.489 --> 02:59:30.489
+Jitendra K: So, the mathematics and all will definitely gonna be…
+
+1355
+02:59:31.099 --> 02:59:32.869
+Jitendra K: We are going to help you here.
+
+1356
+02:59:33.249 --> 02:59:36.729
+Jitendra K: Like, what techniques these neural networks are using and all.
+
+1357
+02:59:38.109 --> 02:59:42.719
+Jitendra K: But I can also provide you good examples, which I'm doing in every class.
+
+1358
+02:59:44.829 --> 02:59:47.329
+Jitendra K: But to bind these two things.
+
+1359
+02:59:48.589 --> 02:59:53.819
+Jitendra K: there's a lost world, right? So the concept… with the code.
+
+1360
+02:59:54.779 --> 02:59:59.089
+Jitendra K: So you're running… you're trying to implement a concept along with the code.
+
+1361
+02:59:59.579 --> 03:00:05.739
+Jitendra K: So I provided you a good reference write-up over there. So, you can see the write-ups are very detailed.
+
+1362
+03:00:06.119 --> 03:00:08.319
+Jitendra K: Detailed enough to understand the code.
+
+1363
+03:00:08.649 --> 03:00:12.849
+Jitendra K: So please use that opportunity to understand the code again, and then…
+
+1364
+03:00:13.389 --> 03:00:19.419
+Jitendra K: If you feel that some part is not clear, then you can anytime ask a question in the next tutorial.
+
+1365
+03:00:20.559 --> 03:00:26.359
+Jitendra K: So these write-up will help you, right, to understand what each steps are doing, how to choose.
+
+1366
+03:00:26.889 --> 03:00:33.469
+Jitendra K: what's the dropout, abbreviations and all, right? And what are the different signals, how to interpret that?
+
+1367
+03:00:33.849 --> 03:00:37.719
+Jitendra K: These things will help you to become good data science, or good deep learning expert.
+
+1368
+03:00:38.029 --> 03:00:43.349
+Jitendra K: Because… Everybody will know that water is concept.
+
+1369
+03:00:43.459 --> 03:00:46.689
+Jitendra K: At the end of, some… some time, right?
+
+1370
+03:00:46.799 --> 03:00:54.239
+Jitendra K: But how to choose the right set of technique is something you should be able to understand while implementing the code, at a code level only.
+
+1371
+03:00:54.719 --> 03:00:58.169
+Jitendra K: If you know how to implement, because this is gonna be…
+
+1372
+03:00:58.289 --> 03:01:02.919
+Jitendra K: One of the important questions which your interviewer is going to ask if you're applying for an interview, or…
+
+1373
+03:01:03.079 --> 03:01:07.729
+Jitendra K: looking for a role in ML Deep Learning. The interview will ask these questions.
+
+1374
+03:01:08.499 --> 03:01:13.189
+Jitendra K: And then only it will decide whether you're a right fit or wrong fit for your organization.
+
+1375
+03:01:15.869 --> 03:01:21.849
+Jitendra K: to make sure… If you're preparing for FANG, Facebook, Amazon, Netflix.
+
+1376
+03:01:22.559 --> 03:01:26.449
+Jitendra K: Or even for startups, these questions will appear.
+
+1377
+03:01:27.729 --> 03:01:34.619
+Jitendra K: In, system design round, or… Maybe in, coding ground.
+
+1378
+03:01:35.629 --> 03:01:37.709
+Jitendra K: This question will definitely going to appear.
+
+1379
+03:01:38.709 --> 03:01:43.649
+Jitendra K: So make sure that you fully, fully utilize these classes to an extent, and understand
+
+1380
+03:01:43.889 --> 03:01:46.129
+Jitendra K: The nitty-gritties of each and every concept.
+
+1381
+03:01:46.689 --> 03:01:54.439
+Jitendra K: So with that, thank you guys for attending this session, and it was a pleasure to have an interaction. We'll meet in the next tutorial with some more exciting stuff. Thank you.
+

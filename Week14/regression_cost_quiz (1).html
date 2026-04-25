@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regression Cost Functions Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quiz-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 10px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-card {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .question-card.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question-number {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .option:hover {
+            background: #f0f0ff;
+            border-color: #667eea;
+            transform: translateX(5px);
+        }
+
+        .option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .option label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            animation: correctPulse 0.5s ease;
+        }
+
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes correctPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .explanation {
+            display: none;
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            animation: slideDown 0.3s ease;
+        }
+
+        .explanation.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 500px;
+            }
+        }
+
+        .explanation h4 {
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+
+        .explanation p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .results {
+            display: none;
+            text-align: center;
+        }
+
+        .results.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 30px auto;
+            font-size: 3em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .score-label {
+            font-size: 0.3em;
+            margin-top: 10px;
+        }
+
+        .performance {
+            font-size: 1.5em;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .restart-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 50px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .restart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="header">
+            <h1>🎯 Regression Cost Functions Quiz</h1>
+            <p>Test your knowledge on MSE, MAE, Huber, and Quantile Loss</p>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div id="quizContent">
+            <!-- Question 1 -->
+            <div class="question-card active" data-question="1">
+                <div class="question-number">Question 1 of 10</div>
+                <div class="question-text">
+                    What does MSE stand for, and how does it penalize errors?
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q1" id="q1a" value="a">
+                        <label for="q1a">Mean Standard Error - penalizes all errors equally</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" id="q1b" value="b">
+                        <label for="q1b">Mean Squared Error - penalizes large errors more heavily (quadratic)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" id="q1c" value="c">
+                        <label for="q1c">Maximum Squared Error - only considers the largest error</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" id="q1d" value="d">
+                        <label for="q1d">Mean Statistical Error - uses logarithmic penalties</label>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h4>✅ Correct Answer: B</h4>
+                    <p><strong>Mean Squared Error (MSE)</strong> uses the formula: <span class="code">MSE = (1/n) × Σ(y_true - y_pred)²</span></p>
+                    <p>Because errors are <strong>squared</strong>, large mistakes are penalized much more heavily. For example, an error of 10 contributes 100 to the loss, while an error of 2 only contributes 4. This makes MSE very sensitive to outliers.</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-card" data-question="2">
+                <div class="question-number">Question 2 of 10</div>
+                <div class="question-text">
+                    If your dataset has outliers due to measurement errors, which loss function would be most robust?
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q2" id="q2a" value="a">
+                        <label for="q2a">MSE (L2 Loss) - it will fit all points accurately</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" id="q2b" value="b">
+                        <label for="q2b">MAE (L1 Loss) - it treats all errors equally and ignores outliers</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" id="q2c" value="c">
+                        <label for="q2c">R² Score - it measures variance explained</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" id="q2d" value="d">
+                        <label for="q2d">Quantile Loss (τ=0.5) - it predicts percentiles</label>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h4>✅ Correct Answer: B</h4>
+                    <p><strong>MAE (Mean Absolute Error)</strong> uses linear penalties: <span class="code">MAE = (1/n) × Σ|y_true - y_pred|</span></p>
+                    <p>Unlike MSE which squares errors, MAE treats a 10-unit error as exactly 10× worse than a 1-unit error. This makes it <strong>robust to outliers</strong> because extreme values don't dominate the loss function. MAE predicts the <strong>median</strong>, which naturally ignores outliers.</p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-card" data-question="3">
+                <div class="question-number">Question 3 of 10</div>
+                <div class="question-text">
+                    What does Huber Loss do that makes it a "hybrid" approach?
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q3" id="q3a" value="a">
+                        <label for="q3a">It randomly switches between MSE and MAE during training</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" id="q3b" value="b">
+                        <label for="q3b">It uses MSE for small errors and MAE for large errors (controlled by δ)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" id="q3c" value="c">
+                        <label for="q3c">It combines predictions from two separate models</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" id="q3d" value="d">
+                        <label for="q3d">It uses exponential penalties for all error sizes</label>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h4>✅ Correct Answer: B</h4>
+                    <p><strong>Huber Loss</strong> intelligently transitions between MSE and MAE based on a threshold δ (delta):</p>
+                    <p>• When <span class="code">|error| ≤ δ</span>: Uses <span class="code">0.5 × error²</span> (MSE) for precision</p>
+                    <p>• When <span class="code">|error| > δ</span>: Uses <span class="code">δ × |error| - 0.5×δ²</span> (MAE) for robustness</p>
+                    <p>This gives you the <strong>best of both worlds</strong>: accurate on normal data, robust to outliers!</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-card" data-question="4">
+                <div class="question-number">Question 4 of 10</div>
+                <div class="question-text">
+                    What does the R² (R-squared) score measure?
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q4" id="q4a" value="a">
+                        <label for="q4a">The average prediction error in the same units as the target variable</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" id="q4b" value="b">
+                        <label for="q4b">The correlation coefficient between predictions and actual values</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" id="q4c" value="c">
+                        <label for="q4c">The proportion of variance in the target variable explained by the model</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" id="q4d" value="d">
+                        <label for="q4d">The squared value of the regression coefficient</label>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h4>✅ Correct Answer: C</h4>
+                    <p><strong>R² Score</strong> ranges from 0 to 1 (or negative if model is worse than baseline) and measures: <span class="code">R² = 1 - (SS_residual / SS_total)</span></p>
+                    <p>Interpretation:</p>
+                    <p>• R² = 0.85 means your model explains <strong>85% of the variance</strong> in the data</p>
+                    <p>• The remaining 15% is due to noise, missing features, or randomness</p>
+                    <p>• R² = 1.0 would be a perfect model (rarely achieved in practice)</p>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question-card" data-question="5">
+                <div class="question-number">Question 5 of 10</div>
+                <div class="question-text">
+                    In Quantile Regression with τ = 0.9 (90th percentile), what does the model predict?
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q5" id="q5a" value="a">
+                        <label for="q5a">The average value across all data points</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" id="q5b" value="b">
+                        <label for="q5b">A value where 90% of actual outcomes fall below this prediction</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" id="q5c" value="c">
+                        <label for="q5c">A value with 90% prediction accuracy</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" id="q5d" value="d">
+                        <label for="q5d">90% of the maximum possible value</label>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h4>✅ Correct Answer: B</h4>
+                    <p><strong>Quantile Regression (τ=0.9)</strong> predicts the <strong>90th percentile</strong>, meaning:</p>
+                    <p>• 90% of actual values will be <strong>at or below</strong> this prediction</p>
+                    <p>• Only 10% will exceed it</p>
+                    <p>• This is an <strong>optimistic upper bound</strong> - useful for SLA guarantees</p>
+                    <p><strong>Example:</strong> "Your package will arrive in 5 days or less (90% confidence)"</p>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question-card" data-question="6">
+                <div class="question-number">Question 6 of 10</div>
+                <div class="question-text">
+                    Your model has Train MSE = 10 and Test MSE = 120. What does this indicate?
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q6" id="q6a" value="a">
+                        <label for="q6a">Perfect generalization - the model performs well</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" id="q6b" value="b">
+                        <label for="q6b">Underfitting - the model is too simple</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" id="q6c" value="c">
+                        <label for="q6c">Severe overfitting - the model memorized training data</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" id="q6d" value="d">
+                        <label for="q6d">The model is production-ready and reliable</label>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h4>✅ Correct Answer: C</h4>
+                    <p><strong>12× gap</strong> between train and test performance is a <strong>huge red flag</strong>!</p>
+                    <p>Healthy ratios:</p>
+                    <p>• 0.9-1.1× = Excellent generalization ✅</p>
+                    <p>• 1.1-1.5× = Good (slight overfitting) ✅</p>
+                    <p>• 1.5-2.0× = Warning (needs attention) ⚠️</p>
+                    <p>• 2.0-12.0× = Severe overfitting (like your case!) ❌</p>
+                    <p><strong>Fix:</strong> Remove outliers, add more data, use regularization, or cross-validation</p>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question-card" data-question="7">
+                <div class="question-number">Question 7 of 10</div>
+                <div class="question-text">
+                    Which loss function predicts the MEDIAN instead of the MEAN?
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q7" id="q7a" value="a">
+                        <label for="q7a">MSE (Mean Squared Error)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" id="q7b" value="b">
+                        <label for="q7b">MAE (Mean Absolute Error) / Quantile(τ=0.5)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" id="q7c" value="c">
+                        <label for="q7c">Huber Loss</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" id="q7d" value="d">
+                        <label for="q7d">R² Score</label>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h4>✅ Correct Answer: B</h4>
+                    <p><strong>MAE minimizes absolute deviations</strong>, which mathematically leads to predicting the <strong>median</strong>.</p>
+                    <p><strong>Why this matters:</strong></p>
+                    <p>• Data: [10, 20, 25, 30, 1000] (outlier!)</p>
+                    <p>• Mean = 217 (skewed by outlier)</p>
+                    <p>• Median = 25 (robust to outlier)</p>
+                    <p>MAE and Quantile(τ=0.5) are equivalent and both predict the median, making them ideal for skewed distributions!</p>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question-card" data-question="8">
+                <div class="question-number">Question 8 of 10</div>
+                <div class="question-text">
+                    What is the δ (delta) parameter in Huber Loss typically set to?
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q8" id="q8a" value="a">
+                        <label for="q8a">0.5 (very aggressive MAE switching)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" id="q8b" value="b">
+                        <label for="q8b">1.35 (default, 95% statistical efficiency)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" id="q8c" value="c">
+                        <label for="q8c">5.0 (very conservative, almost pure MSE)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" id="q8d" value="d">
+                        <label for="q8d">10.0 (maximum robustness)</label>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h4>✅ Correct Answer: B</h4>
+                    <p><strong>δ = 1.35</strong> is the default because it achieves <strong>95% statistical efficiency</strong> compared to MSE on Gaussian data.</p>
+                    <p>How to choose δ:</p>
+                    <p>• <strong>δ = 1.0</strong>: More robust (switches to MAE sooner) - use if 5-10% outliers</p>
+                    <p>• <strong>δ = 1.35</strong>: Balanced (default) - optimal for most cases</p>
+                    <p>• <strong>δ = 2.0</strong>: Less robust (stays in MSE longer) - use for clean data</p>
+                    <p>Smaller δ = more like MAE, Larger δ = more like MSE</p>
+                </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question-card" data-question="9">
+                <div class="question-number">Question 9 of 10</div>
+                <div class="question-text">
+                    You need to predict delivery times with an SLA guarantee ("95% arrive within X days"). Which approach is best?
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q9" id="q9a" value="a">
+                        <label for="q9a">Use MSE and multiply the prediction by 1.05</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" id="q9b" value="b">
+                        <label for="q9b">Use MAE for the most accurate average</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" id="q9c" value="c">
+                        <label for="q9c">Use Quantile Regression with τ = 0.95 (95th percentile)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" id="q9d" value="d">
+                        <label for="q9d">Use Huber Loss for robustness</label>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h4>✅ Correct Answer: C</h4>
+                    <p><strong>Quantile Regression (τ=0.95)</strong> directly predicts the <strong>95th percentile</strong>.</p>
+                    <p><strong>Why this works:</strong></p>
+                    <p>• Predicting "5 days" means 95% of deliveries arrive in ≤5 days</p>
+                    <p>• Only 5% will be late (acceptable for SLA)</p>
+                    <p>• This is mathematically optimal - you can't do better!</p>
+                    <p><strong>Wrong approaches:</strong> Multiplying MSE predictions by constants doesn't capture the true uncertainty distribution.</p>
+                </div>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question-card" data-question="10">
+                <div class="question-number">Question 10 of 10</div>
+                <div class="question-text">
+                    When would you choose MSE over Huber Loss in production?
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q10" id="q10a" value="a">
+                        <label for="q10a">Always - MSE is always better than Huber</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" id="q10b" value="b">
+                        <label for="q10b">When you have guaranteed clean data and want maximum precision</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" id="q10c" value="c">
+                        <label for="q10c">When you have many outliers in your data</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" id="q10d" value="d">
+                        <label for="q10d">Never - Huber is always superior</label>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h4>✅ Correct Answer: B</h4>
+                    <p><strong>Choose MSE when:</strong></p>
+                    <p>✅ Data is guaranteed clean (no outliers)</p>
+                    <p>✅ You want maximum precision (lowest possible error)</p>
+                    <p>✅ Large errors are genuinely important to penalize heavily</p>
+                    <p>✅ Example: Calibrated sensor data in a controlled environment</p>
+                    <p><strong>Choose Huber when:</strong></p>
+                    <p>✅ Data quality is uncertain (production systems)</p>
+                    <p>✅ You need robustness against occasional bad data</p>
+                    <p>✅ You want "insurance" without sacrificing much precision</p>
+                    <p><strong>Reality:</strong> Huber is usually the safer choice in production! Only use pure MSE if you're 100% confident in data quality.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="results">
+            <h2>🎉 Quiz Complete!</h2>
+            <div class="score-circle">
+                <div id="scoreDisplay">0/10</div>
+                <div class="score-label">Score</div>
+            </div>
+            <div class="performance" id="performanceText"></div>
+            <button class="restart-btn" onclick="restartQuiz()">🔄 Retake Quiz</button>
+        </div>
+
+        <div class="navigation">
+            <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>← Previous</button>
+            <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Next →</button>
+            <button class="btn btn-primary" id="submitBtn" onclick="submitQuiz()" style="display:none;">Submit Quiz 🎯</button>
+        </div>
+    </div>
+
+    <script>
+        const answers = {
+            q1: 'b', q2: 'b', q3: 'b', q4: 'c', q5: 'b',
+            q6: 'c', q7: 'b', q8: 'b', q9: 'c', q10: 'b'
+        };
+
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionsAnswered = new Set();
+
+        function updateProgress() {
+            const progress = (currentQuestion / 10) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function showQuestion(questionNum) {
+            document.querySelectorAll('.question-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            document.querySelector(`[data-question="${questionNum}"]`).classList.add('active');
+            
+            currentQuestion = questionNum;
+            updateProgress();
+            updateButtons();
+        }
+
+        function updateButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            prevBtn.disabled = currentQuestion === 1;
+
+            if (currentQuestion === 10) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'inline-block';
+            } else {
+                nextBtn.style.display = 'inline-block';
+                submitBtn.style.display = 'none';
+            }
+        }
+
+        function nextQuestion() {
+            const currentCard = document.querySelector(`[data-question="${currentQuestion}"]`);
+            const selectedOption = currentCard.querySelector('input[type="radio"]:checked');
+
+            if (!selectedOption) {
+                alert('Please select an answer before continuing!');
+                return;
+            }
+
+            if (!questionsAnswered.has(currentQuestion)) {
+                checkAnswer(currentQuestion);
+                questionsAnswered.add(currentQuestion);
+            }
+
+            if (currentQuestion < 10) {
+                showQuestion(currentQuestion + 1);
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 1) {
+                showQuestion(currentQuestion - 1);
+            }
+        }
+
+        function checkAnswer(questionNum) {
+            const questionCard = document.querySelector(`[data-question="${questionNum}"]`);
+            const selectedOption = questionCard.querySelector('input[type="radio"]:checked');
+            
+            if (!selectedOption) return;
+
+            const questionKey = selectedOption.name;
+            const userAnswer = selectedOption.value;
+            userAnswers[questionKey] = userAnswer;
+
+            const correctAnswer = answers[questionKey];
+            const allOptions = questionCard.querySelectorAll('.option');
+
+            allOptions.forEach(option => {
+                const radio = option.querySelector('input[type="radio"]');
+                radio.disabled = true;
+                option.style.cursor = 'not-allowed';
+
+                if (radio.value === correctAnswer) {
+                    option.classList.add('correct');
+                } else if (radio.value === userAnswer && userAnswer !== correctAnswer) {
+                    option.classList.add('incorrect');
+                }
+            });
+
+            const explanation = questionCard.querySelector('.explanation');
+            explanation.classList.add('show');
+        }
+
+        function submitQuiz() {
+            const currentCard = document.querySelector(`[data-question="${currentQuestion}"]`);
+            const selectedOption = currentCard.querySelector('input[type="radio"]:checked');
+
+            if (!selectedOption) {
+                alert('Please answer the current question before submitting!');
+                return;
+            }
+
+            if (!questionsAnswered.has(currentQuestion)) {
+                checkAnswer(currentQuestion);
+                questionsAnswered.add(currentQuestion);
+            }
+
+            let score = 0;
+            for (let key in answers) {
+                if (userAnswers[key] === answers[key]) {
+                    score++;
+                }
+            }
+
+            displayResults(score);
+        }
+
+        function displayResults(score) {
+            document.getElementById('quizContent').style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.results').classList.add('show');
+
+            document.getElementById('scoreDisplay').textContent = score + '/10';
+
+            let performanceText = '';
+            let emoji = '';
+
+            if (score === 10) {
+                emoji = '🏆';
+                performanceText = 'Perfect Score! You are a Regression Loss Function Master!';
+            } else if (score >= 8) {
+                emoji = '🌟';
+                performanceText = 'Excellent! You have a strong understanding of regression cost functions!';
+            } else if (score >= 6) {
+                emoji = '👍';
+                performanceText = 'Good job! You understand the basics. Review the explanations to improve!';
+            } else if (score >= 4) {
+                emoji = '📚';
+                performanceText = 'Not bad! Keep studying - focus on the differences between loss functions.';
+            } else {
+                emoji = '💪';
+                performanceText = 'Keep learning! Review the explanations and try again!';
+            }
+
+            document.getElementById('performanceText').innerHTML = emoji + ' ' + performanceText;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 1;
+            userAnswers = {};
+            questionsAnswered = new Set();
+
+            document.querySelectorAll('.question-card').forEach(card => {
+                card.querySelectorAll('.option').forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                    option.style.cursor = 'pointer';
+                    const radio = option.querySelector('input[type="radio"]');
+                    radio.disabled = false;
+                    radio.checked = false;
+                });
+                card.querySelector('.explanation').classList.remove('show');
+            });
+
+            document.getElementById('quizContent').style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.results').classList.remove('show');
+
+            showQuestion(1);
+        }
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                if (!this.querySelector('input[type="radio"]').disabled) {
+                    this.querySelector('input[type="radio"]').checked = true;
+                }
+            });
+        });
+
+        updateProgress();
+        updateButtons();
+    </script>
+</body>
+</html>

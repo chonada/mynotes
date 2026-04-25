@@ -1,0 +1,5806 @@
+WEBVTT
+
+1
+00:00:53.520 --> 00:00:56.379
+Jitendra K: Hey guys, good evening, good afternoon.
+
+2
+00:00:56.770 --> 00:01:03.800
+Jitendra K: And warm welcome to another exciting module on machine learning. So we are going to start with something called ensemble Technique.
+
+3
+00:01:04.560 --> 00:01:11.620
+Jitendra K: So, in the last tutorial, just a quick recap, what we have learned is, we talked about decision tree as one of the first basic model.
+
+4
+00:01:12.590 --> 00:01:18.840
+Jitendra K: And, we have understood what is DC entry is all about, what are the parameters of dysentry, how to construct a decision tree.
+
+5
+00:01:19.190 --> 00:01:24.049
+Jitendra K: Now we'll shift our focus towards more advanced algorithm, which is called ensemble Technique.
+
+6
+00:01:28.230 --> 00:01:39.069
+Jitendra K: So, what we are going to do is, we will start with the basics of ensemble. I will talk about predominantly three techniques that we are going to use for Ensemble, learning algorithm.
+
+7
+00:01:39.840 --> 00:01:45.380
+Jitendra K: So, we will understand how Ensemble will solve different sort of problems.
+
+8
+00:01:45.750 --> 00:01:49.420
+Jitendra K: So, we are going to talk about 3 important techniques in ensemble learning.
+
+9
+00:01:50.940 --> 00:01:52.959
+Jitendra K: Which is called bagging.
+
+10
+00:02:02.230 --> 00:02:03.430
+Jitendra K: boosting…
+
+11
+00:02:06.990 --> 00:02:08.229
+Jitendra K: and stacking.
+
+12
+00:02:12.730 --> 00:02:17.150
+Jitendra K: So, these all three algorithms comes under the criteria of ensemble learning.
+
+13
+00:02:20.070 --> 00:02:22.539
+Jitendra K: So, let me start with bagging.
+
+14
+00:02:22.760 --> 00:02:27.459
+Jitendra K: So, bagging, as the name suggests, we are creating a bag of models.
+
+15
+00:02:28.150 --> 00:02:34.720
+Jitendra K: Right? And in some… basically, we are trying to combine multiple weak learners to become one strong learner.
+
+16
+00:02:35.320 --> 00:02:38.259
+Jitendra K: So, bagging means bootstrap aggregation.
+
+17
+00:02:39.400 --> 00:02:46.769
+Jitendra K: So, bagging is a full form for boost trap aggregation, so do not confuse with boosting and bagging when you heard this term.
+
+18
+00:02:47.110 --> 00:02:49.130
+Jitendra K: This stands for Bootstrap.
+
+19
+00:02:50.130 --> 00:02:51.420
+Jitendra K: aggregation.
+
+20
+00:02:55.380 --> 00:02:59.110
+Jitendra K: So this is always confusing that we are talking about bootstrap.
+
+21
+00:02:59.370 --> 00:03:01.870
+Jitendra K: It should be a part of boosting, but that's not the case.
+
+22
+00:03:02.500 --> 00:03:07.010
+Jitendra K: It's a part of a bagging technique, right? So what bagging does internally is…
+
+23
+00:03:07.600 --> 00:03:15.179
+Jitendra K: You're going to use several weak learners. Several weak learners in the form of any models, let's say decision tree, right?
+
+24
+00:03:15.440 --> 00:03:19.950
+Jitendra K: And then, you're going to perform a technique.
+
+25
+00:03:20.240 --> 00:03:28.250
+Jitendra K: By which, you are going to subsample the original data, And create multiple models.
+
+26
+00:03:29.280 --> 00:03:32.049
+Jitendra K: So, in a nutshell, let's say I'm having…
+
+27
+00:03:35.620 --> 00:03:37.269
+Jitendra K: I'm training a model.
+
+28
+00:03:37.730 --> 00:03:43.979
+Jitendra K: with this dataset. And this dataset, let's say I'm using this dataset for… fraud detection.
+
+29
+00:03:46.710 --> 00:03:48.740
+Jitendra K: So I will have two classes.
+
+30
+00:03:50.040 --> 00:03:54.110
+Jitendra K: Either it is gonna be 0, non-fraud, or 1 fraud.
+
+31
+00:03:55.070 --> 00:03:57.040
+Jitendra K: Fraud transaction screening.
+
+32
+00:03:57.210 --> 00:04:01.019
+Jitendra K: Right? So I have a bunch of data. Let's say I've got some 70…
+
+33
+00:04:01.630 --> 00:04:03.909
+Jitendra K: Thousand rows to train the model.
+
+34
+00:04:04.030 --> 00:04:11.060
+Jitendra K: Out of which I've got… 1500 transactions as fraud.
+
+35
+00:04:11.720 --> 00:04:15.980
+Jitendra K: And remaining 65… Or I would say, rather.
+
+36
+00:04:16.690 --> 00:04:23.169
+Jitendra K: 55,000… sorry, 69… 68,750 sample.
+
+37
+00:04:23.630 --> 00:04:28.109
+Jitendra K: as non-fraud. So it's a pretty big amount of data that we are using.
+
+38
+00:04:28.570 --> 00:04:34.139
+Jitendra K: Now, this data will be in a form for rows and columns, right? You agree on this part, so this will be a rows and column.
+
+39
+00:04:34.310 --> 00:04:36.529
+Jitendra K: Now, here, what I'm trying to do is…
+
+40
+00:04:36.780 --> 00:04:41.389
+Jitendra K: I'm trying to create a method called subsampling from the original dataset.
+
+41
+00:04:41.960 --> 00:04:49.659
+Jitendra K: And I will create a bootstrap samples. So this is my bootstrap sample 1, bootstrap sample 2, bootstrap sample 3.
+
+42
+00:04:50.740 --> 00:04:52.449
+Jitendra K: I can go up to any number.
+
+43
+00:04:54.450 --> 00:05:01.189
+Jitendra K: And each bootstrap sample, I'm just trying to simply put Onside the model.
+
+44
+00:05:01.300 --> 00:05:08.769
+Jitendra K: And these subsets now treat it as an independent dataset, on which I'm going to execute several machine learning models.
+
+45
+00:05:09.700 --> 00:05:12.239
+Jitendra K: And then try to make a prediction on the top of it.
+
+46
+00:05:13.490 --> 00:05:16.250
+Jitendra K: So this is where I'm going to aggregate
+
+47
+00:05:16.500 --> 00:05:21.630
+Jitendra K: The data points, or a model solution, For several weak learners.
+
+48
+00:05:21.730 --> 00:05:26.930
+Jitendra K: and compute a final prediction. Maybe I will use voting classifications.
+
+49
+00:05:27.320 --> 00:05:31.620
+Jitendra K: I would like to vote that I would like to give higher preference to this model.
+
+50
+00:05:32.430 --> 00:05:40.249
+Jitendra K: 30% preference to this model, 20% preference to this model. So I will say 50%, I will go with this model. Whatever he says is correct.
+
+51
+00:05:40.790 --> 00:05:43.639
+Jitendra K: Because the technique that I'm using is trustworthy.
+
+52
+00:05:43.990 --> 00:05:51.060
+Jitendra K: Second model, I will go with 30%. Third, I will go with 40%, 20% remaining. Or I can change equal proportion as well.
+
+53
+00:05:51.540 --> 00:05:57.950
+Jitendra K: So I will be able to use anything which I will go with, or I can go with a maximum voting classification.
+
+54
+00:05:58.130 --> 00:06:05.249
+Jitendra K: That means majority of the model, who's whatever is predicting, I will go with that. So out of 3, if 2 says this is fraud transaction.
+
+55
+00:06:05.510 --> 00:06:08.400
+Jitendra K: I will go with that, right? It's like a jury of judges.
+
+56
+00:06:08.650 --> 00:06:14.459
+Jitendra K: So I will be able to make predictions based upon averaging, weighting average, weighted average, voting, etc.
+
+57
+00:06:14.860 --> 00:06:16.680
+Jitendra K: Now, this is your bagging model.
+
+58
+00:06:16.870 --> 00:06:22.170
+Jitendra K: Now, can you note that this bagging model is invoking parallelly?
+
+59
+00:06:22.780 --> 00:06:24.930
+Jitendra K: That means you need not to wait upon…
+
+60
+00:06:26.310 --> 00:06:31.109
+Jitendra K: Once you split your data, you need not to wait for one model to execute.
+
+61
+00:06:31.380 --> 00:06:35.469
+Jitendra K: and then pass it to another model. So this is parallel processing.
+
+62
+00:06:35.990 --> 00:06:43.660
+Jitendra K: So, bagging mechanism enable parallel stream of processing in terms of model training. So, the main aim of bagging method is to reduce
+
+63
+00:06:44.160 --> 00:06:46.210
+Jitendra K: Variance of your data.
+
+64
+00:06:47.750 --> 00:06:50.330
+Jitendra K: So, wagging works on reduction of variance.
+
+65
+00:06:51.180 --> 00:06:52.830
+Jitendra K: This is very important.
+
+66
+00:06:53.080 --> 00:06:56.579
+Jitendra K: So, when they're using… Buys video instead of.
+
+67
+00:06:57.140 --> 00:06:59.770
+Jitendra K: Remember that curve? Bias variants trade-off?
+
+68
+00:07:01.430 --> 00:07:03.149
+Jitendra K: So you have to operate on this.
+
+69
+00:07:05.350 --> 00:07:09.790
+Jitendra K: So if your model is 2 bias, Two-way high variance.
+
+70
+00:07:09.920 --> 00:07:13.989
+Jitendra K: Right? It is an incorrect model. You will have overfitting and underfitting.
+
+71
+00:07:14.610 --> 00:07:21.730
+Jitendra K: both scenarios into consideration. But if your model is able to capitalize by some mechanism, To reduce the variance.
+
+72
+00:07:22.190 --> 00:07:24.040
+Jitendra K: So the answer lies in Bootstrap.
+
+73
+00:07:24.940 --> 00:07:26.920
+Jitendra K: Aggregation, which is bagging method.
+
+74
+00:07:27.620 --> 00:07:32.910
+Jitendra K: Right? So basically, you are going to choose ensemble classifier with a high variance and low bias.
+
+75
+00:07:33.690 --> 00:07:36.010
+Jitendra K: And you are going to increase the complexity.
+
+76
+00:07:36.190 --> 00:07:38.650
+Jitendra K: Of this model, with many trainable parameters.
+
+77
+00:07:39.270 --> 00:07:43.770
+Jitendra K: So, the technique, that we are going to talk about is, in this tutorial.
+
+78
+00:07:45.360 --> 00:07:52.259
+Jitendra K: So there are names to these models. So when we talk about bootstrap aggregation, there's an automatic model called Random Forest.
+
+79
+00:07:57.050 --> 00:08:00.489
+Jitendra K: So, random forest is a type of bagging model.
+
+80
+00:08:02.450 --> 00:08:05.629
+Jitendra K: So this is the first type of bagging model that we're going to learn today.
+
+81
+00:08:06.240 --> 00:08:08.750
+Jitendra K: Now, this random forest is a bagging model.
+
+82
+00:08:09.520 --> 00:08:14.899
+Jitendra K: There is one more matter model. There are several model models, which is called back decision tree.
+
+83
+00:08:20.670 --> 00:08:24.150
+Jitendra K: The third model is called Extra Decision Tree, or extra trees.
+
+84
+00:08:30.690 --> 00:08:33.299
+Jitendra K: That comes under the same family of bagging.
+
+85
+00:08:33.770 --> 00:08:37.950
+Jitendra K: But the most important model that we are going to talk today is Random Forest.
+
+86
+00:08:38.590 --> 00:08:42.969
+Jitendra K: Which is… Gonna be very, very useful for solving this.
+
+87
+00:08:43.270 --> 00:08:44.100
+Jitendra K: technique.
+
+88
+00:08:44.490 --> 00:08:50.939
+Jitendra K: Now, before we move on to bagging model, sorry, random forest model, let's try to understand bagging as well. Sorry, boosting as well.
+
+89
+00:08:51.570 --> 00:08:56.140
+Jitendra K: So there's a term called… Bagging, which stands for…
+
+90
+00:08:56.800 --> 00:09:02.870
+Jitendra K: Bootstrap aggregation. So, B stands for Bootstrap samples, and aggregating those samples solution.
+
+91
+00:09:03.140 --> 00:09:05.549
+Jitendra K: It's something you're doing with the help of?
+
+92
+00:09:06.230 --> 00:09:09.459
+Jitendra K: Voting classifications, or average out on those votes.
+
+93
+00:09:10.540 --> 00:09:12.310
+Jitendra K: Now, let's talk about boosting.
+
+94
+00:09:15.670 --> 00:09:20.030
+Jitendra K: So, as compared to bagging, boosting is a different technique.
+
+95
+00:09:20.870 --> 00:09:25.100
+Jitendra K: So, when you say boosting the model, Right?
+
+96
+00:09:25.470 --> 00:09:26.669
+Jitendra K: So here.
+
+97
+00:09:26.970 --> 00:09:33.279
+Jitendra K: We are also using a same concept, of weak learners, so this is pictorial representation of boosting.
+
+98
+00:09:33.540 --> 00:09:36.300
+Jitendra K: So, boosting is another ensemble learning technique.
+
+99
+00:09:36.480 --> 00:09:38.549
+Jitendra K: That may work.
+
+100
+00:09:39.360 --> 00:09:41.939
+Jitendra K: Slightly different from bagging.
+
+101
+00:09:42.660 --> 00:09:47.199
+Jitendra K: The difference is, instead of parallel processing, we are going with a sequential modeling.
+
+102
+00:09:47.910 --> 00:09:53.940
+Jitendra K: The sequential processing of the dataset will occur. So the first classifier will feed with the entire dataset.
+
+103
+00:09:54.050 --> 00:09:57.370
+Jitendra K: Instead of samples, I will use the entire dataset.
+
+104
+00:09:58.870 --> 00:10:02.200
+Jitendra K: The first classifier will analyze, predict.
+
+105
+00:10:02.760 --> 00:10:06.679
+Jitendra K: And then, it produced certain results.
+
+106
+00:10:08.400 --> 00:10:14.520
+Jitendra K: You will have the false positive labels, which is going to be feedback to the second classifier.
+
+107
+00:10:15.010 --> 00:10:24.019
+Jitendra K: The second classifier, or Classification Model 2, will focus on the problematic areas of feature space and learn an approximation distance boundary.
+
+108
+00:10:24.890 --> 00:10:31.529
+Jitendra K: Right? And then, it will compute, further compute your data, and then look for misclassified data points.
+
+109
+00:10:31.950 --> 00:10:36.839
+Jitendra K: And then pass on to the classification number 3. So the aim of this model is to boost
+
+110
+00:10:37.500 --> 00:10:40.799
+Jitendra K: Reduce the bias… Towards the class.
+
+111
+00:10:42.970 --> 00:10:48.289
+Jitendra K: So, it will help you to reduce a bias towards the class. So, at times, your model
+
+112
+00:10:48.690 --> 00:10:53.860
+Jitendra K: May have a characteristic that it may be slightly biased towards your majority classes.
+
+113
+00:10:55.150 --> 00:10:57.760
+Jitendra K: Number of labels that you are using to train the model.
+
+114
+00:10:58.490 --> 00:11:06.229
+Jitendra K: So there's the classifier that we are choosing here, Will… Work on reduction of biases.
+
+115
+00:11:07.810 --> 00:11:10.179
+Jitendra K: Right? So, previous model.
+
+116
+00:11:11.130 --> 00:11:15.869
+Jitendra K: Which is bagging, we are reducing variance, and here we are reducing the balancedness in the model.
+
+117
+00:11:16.450 --> 00:11:22.320
+Jitendra K: So, it is ideally choose, or ideally fit for a scenario when you have low variance and high bias.
+
+118
+00:11:23.190 --> 00:11:26.540
+Jitendra K: Some of the important machine learning algorithms that we are going to talk about.
+
+119
+00:11:26.660 --> 00:11:33.880
+Jitendra K: in the upcoming tutorial is adaptive boosting, Or call Ada Boost.
+
+120
+00:11:39.860 --> 00:11:44.740
+Jitendra K: We'll talk about stochastic gradient descent, OCD?
+
+121
+00:11:45.660 --> 00:11:49.630
+Jitendra K: We'll talk about Gradient Boosting Machine GBM model.
+
+122
+00:11:52.160 --> 00:12:01.050
+Jitendra K: We'll also talk about extreme gradient boosting, We'll talk about… Large EBM.
+
+123
+00:12:03.050 --> 00:12:07.830
+Jitendra K: So these are a set of algorithms, but remember, when we talk about biasness versus variance.
+
+124
+00:12:10.140 --> 00:12:12.950
+Jitendra K: It is very important to decide which
+
+125
+00:12:13.130 --> 00:12:16.170
+Jitendra K: Type of classifier solution you are choosing, and why.
+
+126
+00:12:17.290 --> 00:12:20.889
+Jitendra K: The third type of model training is called stacking.
+
+127
+00:12:21.390 --> 00:12:25.340
+Jitendra K: As our name says, a stack, stack of layers, or stack of models.
+
+128
+00:12:27.010 --> 00:12:32.159
+Jitendra K: So, when you say stacking, Sorry, this is Tech King…
+
+129
+00:12:32.800 --> 00:12:35.680
+Jitendra K: Yeah, this is stacking. So when you say stacking.
+
+130
+00:12:36.260 --> 00:12:41.429
+Jitendra K: So you can see that I'm having a stack of Meta learners and classifiers.
+
+131
+00:12:41.980 --> 00:12:46.890
+Jitendra K: So the idea is, the stacking is another technique, or another ensemble method.
+
+132
+00:12:47.130 --> 00:12:53.870
+Jitendra K: That involve creating bootstrap data subset, just like bagging ensemble machines, and training multiple models.
+
+133
+00:12:54.530 --> 00:12:59.010
+Jitendra K: But here, the output of such models are used as an input to another classifier.
+
+134
+00:12:59.610 --> 00:13:01.290
+Jitendra K: It is called Meta Classifier.
+
+135
+00:13:01.710 --> 00:13:07.010
+Jitendra K: which finally predict the sample. So the intuition behind using two layers of classification is.
+
+136
+00:13:07.420 --> 00:13:11.050
+Jitendra K: To determine whether training data have been appropriately learned or not.
+
+137
+00:13:11.240 --> 00:13:19.480
+Jitendra K: For example, if I'm using image classification model, I have an image for animals, like, cat, dog, wolf…
+
+138
+00:13:20.090 --> 00:13:26.790
+Jitendra K: So the classifier will begin By distinguished cat and dogs, and not between dogs and wolves.
+
+139
+00:13:27.300 --> 00:13:32.099
+Jitendra K: So the meta classifier present in the second layer will be able to capture this behavior from classifier 1.
+
+140
+00:13:32.910 --> 00:13:37.959
+Jitendra K: So, the meta-classifier will work like an intelligent, model.
+
+141
+00:13:38.200 --> 00:13:43.980
+Jitendra K: Which will take a feedback from the previous model, and then… Generalize the output.
+
+142
+00:13:44.480 --> 00:13:48.699
+Jitendra K: To the most important, or… Sorry, to distinguish the classes.
+
+143
+00:13:50.750 --> 00:13:54.249
+Jitendra K: So, this is where you are going to have one family of models.
+
+144
+00:13:54.680 --> 00:13:58.440
+Jitendra K: And another family of models, which may be different from this family.
+
+145
+00:13:59.160 --> 00:14:07.440
+Jitendra K: Right? It's like you're two doctors. So, you take one opinion about your symptoms, and then you went to second doctor.
+
+146
+00:14:08.360 --> 00:14:11.600
+Jitendra K: So, your second doctor will use the previous opinion.
+
+147
+00:14:12.570 --> 00:14:15.939
+Jitendra K: And then, in introspect, the patient condition.
+
+148
+00:14:16.760 --> 00:14:25.350
+Jitendra K: Right? And then try to provide you the drugs, diagnostics, treatment that will fit 4?
+
+149
+00:14:25.860 --> 00:14:28.189
+Jitendra K: Curating those diseases.
+
+150
+00:14:31.600 --> 00:14:41.090
+Jitendra K: The fourth type of model, which is recent, in, I would say in the… GPT error.
+
+151
+00:14:41.650 --> 00:14:45.580
+Jitendra K: Which is called Mixture of Expert. So this is also in sample models.
+
+152
+00:14:45.720 --> 00:14:46.650
+Jitendra K: MOE.
+
+153
+00:14:46.750 --> 00:14:51.740
+Jitendra K: So, mixture of experts is also a… genre of ensemble model.
+
+154
+00:14:52.530 --> 00:14:55.609
+Jitendra K: So, in mixture of Expert, what we are doing is…
+
+155
+00:15:00.650 --> 00:15:05.730
+Jitendra K: We are taking… different classifiers.
+
+156
+00:15:06.470 --> 00:15:12.510
+Jitendra K: And you can see that… When different classifiers are trained on other part of the feature space.
+
+157
+00:15:13.600 --> 00:15:24.010
+Jitendra K: Right? Then you will get a maximum patterns… Learn from the model.
+
+158
+00:15:25.010 --> 00:15:30.680
+Jitendra K: And when you learn the patterns from these models, you can combine them linearly to make a final prediction.
+
+159
+00:15:31.580 --> 00:15:35.090
+Jitendra K: So it's like, you have,
+
+160
+00:15:35.800 --> 00:15:45.479
+Jitendra K: one problem that you're trying to solve, but different department who's working on this. So each department is an expert in solving certain problems. But at the end of the day, your organization won't revenue.
+
+161
+00:15:46.120 --> 00:15:52.390
+Jitendra K: They will say that I will simply go with revenue. If the revenue has been generated by these employees.
+
+162
+00:15:53.430 --> 00:15:56.930
+Jitendra K: then they are good. If not, then they are bad.
+
+163
+00:15:57.680 --> 00:16:01.969
+Jitendra K: Right, so this is what organization does. Organization only works on revenue.
+
+164
+00:16:02.230 --> 00:16:03.380
+Jitendra K: Nothing else.
+
+165
+00:16:03.780 --> 00:16:09.949
+Jitendra K: So, this is a linear combination of these models, and then try to generalize the output to make final prediction.
+
+166
+00:16:10.960 --> 00:16:16.159
+Jitendra K: Similarly, the fifth model, It's called voting, majority of the voting.
+
+167
+00:16:16.590 --> 00:16:18.850
+Jitendra K: Very similar to bagging.
+
+168
+00:16:18.960 --> 00:16:20.470
+Jitendra K: Instead of…
+
+169
+00:16:23.670 --> 00:16:27.520
+Jitendra K: Instead of using, let's say, the…
+
+170
+00:16:27.680 --> 00:16:32.439
+Jitendra K: Weighted average, I will say majority of the voting will be the classic output classifier.
+
+171
+00:16:32.910 --> 00:16:41.839
+Jitendra K: So these are the 5 or 6 techniques that will help you to reduce the bias and the variance in your model, right? So when you say, what exactly we are trying to do.
+
+172
+00:16:42.030 --> 00:16:47.820
+Jitendra K: Using this model, why we are learning so complex algorithm when we have decient tree and random forest.
+
+173
+00:16:48.310 --> 00:16:53.299
+Jitendra K: So the key idea is syntry and random forest have some limitation when it comes to
+
+174
+00:16:54.100 --> 00:16:57.989
+Jitendra K: Reduction of your biasness and variance inside the model.
+
+175
+00:16:59.660 --> 00:17:07.790
+Jitendra K: So, do you definitely required the model… Which is having low bias.
+
+176
+00:17:07.980 --> 00:17:09.330
+Jitendra K: and low variance.
+
+177
+00:17:11.369 --> 00:17:14.710
+Jitendra K: And you required your targeting for this kind of model.
+
+178
+00:17:15.010 --> 00:17:19.400
+Jitendra K: But at the end of the day, you achieve… Something like this.
+
+179
+00:17:21.369 --> 00:17:23.669
+Jitendra K: Or maybe even the worst of the worst model.
+
+180
+00:17:24.670 --> 00:17:25.480
+Jitendra K: Right?
+
+181
+00:17:26.060 --> 00:17:30.529
+Jitendra K: So basically, in these scenarios, You have to train your model.
+
+182
+00:17:31.410 --> 00:17:39.470
+Jitendra K: with some… Advanced statistical technique that will help you to construct the model to achieve better results.
+
+183
+00:17:39.980 --> 00:17:44.529
+Jitendra K: So the key idea is, when you're talking about bias and variance.
+
+184
+00:17:44.720 --> 00:17:46.419
+Jitendra K: You're trying to reduce the error.
+
+185
+00:17:46.660 --> 00:17:48.539
+Jitendra K: What are errors in the model?
+
+186
+00:17:48.970 --> 00:17:51.150
+Jitendra K: Errors like R-square values.
+
+187
+00:17:51.320 --> 00:17:52.800
+Jitendra K: Mean square errors.
+
+188
+00:17:53.190 --> 00:17:56.339
+Jitendra K: Classification prediction errors, like accuracy.
+
+189
+00:17:56.540 --> 00:18:00.220
+Jitendra K: So you're working on error functions, and error functions…
+
+190
+00:18:01.670 --> 00:18:06.319
+Jitendra K: will work on features. So you're fitting the feature X. Input is your X.
+
+191
+00:18:06.650 --> 00:18:12.160
+Jitendra K: And then you're measuring how much your actual value is debiting from the predicted value.
+
+192
+00:18:13.340 --> 00:18:15.569
+Jitendra K: Right? So that is called a bias term.
+
+193
+00:18:18.400 --> 00:18:20.909
+Jitendra K: Then you have got a reducible error.
+
+194
+00:18:23.650 --> 00:18:25.499
+Jitendra K: So this is your variance.
+
+195
+00:18:26.020 --> 00:18:28.270
+Jitendra K: Which is natural tendency of your data.
+
+196
+00:18:35.040 --> 00:18:38.159
+Jitendra K: So this is the estimated value of F of X.
+
+197
+00:18:39.850 --> 00:18:41.520
+Jitendra K: And this will be a square.
+
+198
+00:18:41.630 --> 00:18:43.250
+Jitendra K: So this is your variance.
+
+199
+00:18:44.170 --> 00:18:50.600
+Jitendra K: And then there's something called irreducible error, which is sigma E. This error you cannot reduce, you have to live with this error.
+
+200
+00:18:50.910 --> 00:18:53.350
+Jitendra K: That means this is your data tendency.
+
+201
+00:18:53.750 --> 00:18:55.319
+Jitendra K: Which cannot be reduced.
+
+202
+00:18:56.000 --> 00:18:57.260
+Jitendra K: So basically.
+
+203
+00:18:58.030 --> 00:19:04.609
+Jitendra K: To understand what really goes behind an assembled model, we need to first understand what caused error in the model.
+
+204
+00:19:05.030 --> 00:19:11.660
+Jitendra K: So the error emerging from any model can be broken down into three components. Bias, variance, and IR, irreducible error.
+
+205
+00:19:11.980 --> 00:19:18.270
+Jitendra K: So, buys others is useful to quantify how much, on an average, are the predicted values
+
+206
+00:19:18.380 --> 00:19:23.600
+Jitendra K: different from the actual value. When I say on an average, I'm taking a squared term.
+
+207
+00:19:24.220 --> 00:19:26.240
+Jitendra K: To reduce any negative errors.
+
+208
+00:19:26.650 --> 00:19:32.489
+Jitendra K: Similarly, a high bias error means we have an underperforming model, which keep on missing important trend.
+
+209
+00:19:34.010 --> 00:19:38.049
+Jitendra K: Right? So, when you say bias, bias towards one type of a class.
+
+210
+00:19:38.460 --> 00:19:44.619
+Jitendra K: Variants, on the other hand, Quantify how the prediction made on a same observation.
+
+211
+00:19:44.970 --> 00:19:46.490
+Jitendra K: Different from each other.
+
+212
+00:19:46.900 --> 00:19:49.310
+Jitendra K: A high-variance model will overfit.
+
+213
+00:19:49.790 --> 00:19:53.939
+Jitendra K: And a low variance, or I would say low, high-bias model with underfit.
+
+214
+00:19:54.860 --> 00:19:59.660
+Jitendra K: So, when we say overfitting and underfitting, these are two important phenomena now.
+
+215
+00:20:00.140 --> 00:20:05.940
+Jitendra K: Now, when you say overfitting and underfitting, both are… Problem associated with the data.
+
+216
+00:20:06.580 --> 00:20:12.720
+Jitendra K: And the model choice that you're making to… Train your data.
+
+217
+00:20:13.160 --> 00:20:13.950
+Jitendra K: Right?
+
+218
+00:20:14.100 --> 00:20:20.869
+Jitendra K: So when you're looking into the scope of modeling, You're working on complexities.
+
+219
+00:20:21.190 --> 00:20:23.320
+Jitendra K: parameters. Search space.
+
+220
+00:20:23.890 --> 00:20:30.880
+Jitendra K: So as the model complexity increased with the more parameter, more search space, more computation capacity.
+
+221
+00:20:31.190 --> 00:20:33.419
+Jitendra K: You end up into complexity.
+
+222
+00:20:34.210 --> 00:20:35.410
+Jitendra K: Against that error.
+
+223
+00:20:35.590 --> 00:20:39.220
+Jitendra K: So if you are using a too complex model like neural network.
+
+224
+00:20:39.780 --> 00:20:42.070
+Jitendra K: And it's still not giving you good result.
+
+225
+00:20:42.420 --> 00:20:44.119
+Jitendra K: It is of no use for you.
+
+226
+00:20:44.520 --> 00:20:48.199
+Jitendra K: Right? If neural network you are using with several GPUs.
+
+227
+00:20:48.380 --> 00:20:52.420
+Jitendra K: And you're trying to reduce errors, and still, you're struggling.
+
+228
+00:20:53.660 --> 00:20:59.560
+Jitendra K: Because of any reason, Right? Your data is not… Perfect, you have limited data.
+
+229
+00:21:00.480 --> 00:21:03.659
+Jitendra K: There could be a number of reasons why your model is not performing great.
+
+230
+00:21:04.230 --> 00:21:05.040
+Jitendra K: Right?
+
+231
+00:21:05.290 --> 00:21:11.010
+Jitendra K: But basically, if I have to talk about complexity, I'm talking about… Number of layers.
+
+232
+00:21:15.030 --> 00:21:16.400
+Jitendra K: parameters…
+
+233
+00:21:20.370 --> 00:21:29.930
+Jitendra K: Search space… And… Total trainable parameter.
+
+234
+00:21:32.170 --> 00:21:35.750
+Jitendra K: And the last but not the least, I'm also talking about data quality.
+
+235
+00:21:40.070 --> 00:21:43.380
+Jitendra K: Now, these errors, as you know, is of three types.
+
+236
+00:21:43.690 --> 00:21:50.290
+Jitendra K: Radiance… buys… and sigma E, which is irreducible.
+
+237
+00:21:50.780 --> 00:21:54.230
+Jitendra K: Now, here you can see that I have an operating region. So, buys…
+
+238
+00:21:57.500 --> 00:22:00.809
+Jitendra K: Higher the complexity of the model, lower the bias.
+
+239
+00:22:01.740 --> 00:22:08.320
+Jitendra K: Higher the complexity of the model, higher the variance, And this is total error.
+
+240
+00:22:08.710 --> 00:22:10.900
+Jitendra K: So I would like to operate in this region.
+
+241
+00:22:11.840 --> 00:22:15.470
+Jitendra K: where I need… Low bias and low variance model.
+
+242
+00:22:17.260 --> 00:22:20.079
+Jitendra K: So for that, I would like to use.
+
+243
+00:22:20.530 --> 00:22:21.660
+Jitendra K: Boat technique.
+
+244
+00:22:22.630 --> 00:22:29.140
+Jitendra K: Which is Bootstrap aggregation and Bootstrap, I would say boosting models.
+
+245
+00:22:32.780 --> 00:22:38.679
+Jitendra K: Right? So… Let's try to look into bagging how the split of data has been occurred.
+
+246
+00:22:38.920 --> 00:22:42.209
+Jitendra K: So when you say bagging model, the split of data occurred like this.
+
+247
+00:22:42.590 --> 00:22:47.400
+Jitendra K: So, you have an original data set, then you're going to split them into multiple subsets.
+
+248
+00:22:47.650 --> 00:22:56.360
+Jitendra K: And then each subset will create different tree, the CN tree, if you are using random forest. It will create one tree, two, three, three, three.
+
+249
+00:22:56.950 --> 00:22:58.430
+Jitendra K: Tree number N.
+
+250
+00:22:58.620 --> 00:23:04.050
+Jitendra K: And then each tree will generate some output, and then you are going to combine the output of the classifier.
+
+251
+00:23:04.620 --> 00:23:08.769
+Jitendra K: So, in a nutshell, each tree will be as different as possible.
+
+252
+00:23:09.040 --> 00:23:11.019
+Jitendra K: From the original tree.
+
+253
+00:23:11.490 --> 00:23:17.200
+Jitendra K: So, I will say this tree and this tree are two different trees, because they're operating on different columns.
+
+254
+00:23:19.040 --> 00:23:22.089
+Jitendra K: Remember, when we're creating a dysentery, you start with a node.
+
+255
+00:23:22.750 --> 00:23:26.799
+Jitendra K: Or entropy. And then as you move towards the leaf node.
+
+256
+00:23:26.920 --> 00:23:31.340
+Jitendra K: you're reducing the entropy. That means… your model…
+
+257
+00:23:33.610 --> 00:23:37.990
+Jitendra K: By the time you reach the leaf node, your entropy will be zero.
+
+258
+00:23:38.670 --> 00:23:44.809
+Jitendra K: Right? So that is what we have learned. Similarly, information gain we have talked about, that they are an interchangeable term.
+
+259
+00:23:45.300 --> 00:23:53.720
+Jitendra K: So by the time you're creating a DC entry, you're operating with the most impure node to begin with. So you will say that this is a most impure node.
+
+260
+00:23:54.050 --> 00:24:00.770
+Jitendra K: Why we are choosing most impure node? Because of… the entropy.
+
+261
+00:24:01.090 --> 00:24:03.920
+Jitendra K: So I would like to start with the most random data points.
+
+262
+00:24:04.260 --> 00:24:08.039
+Jitendra K: So that I can split. So, what do you mean by random data points?
+
+263
+00:24:08.290 --> 00:24:10.229
+Jitendra K: So let's say I'm asking you.
+
+264
+00:24:13.740 --> 00:24:14.840
+Jitendra K: to invest.
+
+265
+00:24:15.500 --> 00:24:18.380
+Jitendra K: 1,000 US dollar in the stock market.
+
+266
+00:24:22.170 --> 00:24:30.980
+Jitendra K: And I'm giving you several options. Go for Tesla, go for Google, go for Facebook, Microsoft.
+
+267
+00:24:32.930 --> 00:24:35.349
+Jitendra K: Or US, capital stocks.
+
+268
+00:24:35.520 --> 00:24:37.420
+Jitendra K: maybe JPMC and…
+
+269
+00:24:37.570 --> 00:24:48.339
+Jitendra K: Bank of America, buy these shares. So you've got several options. I will give you last 5-year trends as well, which is stock is booming, which stock is, depreciating.
+
+270
+00:24:48.680 --> 00:24:53.139
+Jitendra K: So you will get a lot of, input from me, right, as a brokerage firm.
+
+271
+00:24:53.290 --> 00:24:58.010
+Jitendra K: I'm also giving you assets, like, you can invest in gold, silver, etc, right?
+
+272
+00:24:58.170 --> 00:25:03.179
+Jitendra K: And I'm forecasting that this all-market is gonna be sky-high in the upcoming tutorial.
+
+273
+00:25:03.550 --> 00:25:12.010
+Jitendra K: upcoming, months. So, you will be slightly biased towards the decision which you have already taken.
+
+274
+00:25:12.370 --> 00:25:20.399
+Jitendra K: Right? So you will be biased towards certain types of assets, which you already deal with. You will say that I invest in Facebook. Let me continue with that.
+
+275
+00:25:20.840 --> 00:25:28.159
+Jitendra K: Maybe I will split 50-50 to Tesla and 50 to Facebook, and then I invest. That will make your decision.
+
+276
+00:25:28.290 --> 00:25:41.480
+Jitendra K: less error-prone, right? So basically, when you start with any decision, you start with uncertainty assumption, that this is uncertain. If I'm investing on Google, I will have a less certainty that I will get a return.
+
+277
+00:25:41.800 --> 00:25:44.520
+Jitendra K: Because sometimes shares might be inflated.
+
+278
+00:25:44.980 --> 00:25:45.780
+Jitendra K: Right?
+
+279
+00:25:45.960 --> 00:25:49.480
+Jitendra K: So you will not get a clear picture. So you will start with some assumptions.
+
+280
+00:25:50.110 --> 00:25:57.500
+Jitendra K: In data world, we call this uncertainty in the form of a Randomness in the data.
+
+281
+00:25:58.000 --> 00:25:58.800
+Jitendra K: Right?
+
+282
+00:25:59.110 --> 00:26:04.110
+Jitendra K: So imagine that you have… you're trying to create a model.
+
+283
+00:26:05.090 --> 00:26:09.140
+Jitendra K: And you have certain features, which is a column of your data points.
+
+284
+00:26:09.510 --> 00:26:14.370
+Jitendra K: So you will start with those columns to begin with, which is the most impure.
+
+285
+00:26:14.590 --> 00:26:21.969
+Jitendra K: That means there's no clear pattern in the data. You start with the most complex Feature to begin with.
+
+286
+00:26:22.390 --> 00:26:26.539
+Jitendra K: And then, depending upon that feature, you start creating condition.
+
+287
+00:26:27.440 --> 00:26:39.809
+Jitendra K: And as you move towards The depth of the tree, you will see The tree start… Losing the randomness.
+
+288
+00:26:40.390 --> 00:26:45.909
+Jitendra K: That means the point, data point that you are using here will have a clear distinguished criteria.
+
+289
+00:26:46.570 --> 00:26:47.860
+Jitendra K: on the classes.
+
+290
+00:26:48.020 --> 00:26:56.089
+Jitendra K: Right? So you were able to get the most pure node as you move towards the node to the child node of the tree. And that is something which we have learned.
+
+291
+00:26:57.270 --> 00:27:04.720
+Jitendra K: Now, similar concepts apply in boosting, where you are going to split your data rather than tree, and each tree will construct
+
+292
+00:27:04.900 --> 00:27:07.809
+Jitendra K: Based upon different types of columns.
+
+293
+00:27:08.090 --> 00:27:14.139
+Jitendra K: And it's to start constructing the tree with the same property. So the property of the tree will not change here.
+
+294
+00:27:14.970 --> 00:27:21.059
+Jitendra K: It's all about data, which has been changing. So you're changing the data, try to make sure that they are different.
+
+295
+00:27:21.350 --> 00:27:24.950
+Jitendra K: So you cannot say that D1 and D2 are trained on same columns.
+
+296
+00:27:25.350 --> 00:27:29.910
+Jitendra K: It will be different. And then each tree will be constructing differently.
+
+297
+00:27:30.080 --> 00:27:36.040
+Jitendra K: And at the end of this tree, construction, which is parallel, You will get an output.
+
+298
+00:27:36.740 --> 00:27:41.230
+Jitendra K: from East Tree, During the inference.
+
+299
+00:27:41.540 --> 00:27:47.829
+Jitendra K: And let's say if one tree is saying this is non-fraud, this is fraud, this is non-fraud, this is fraud.
+
+300
+00:27:49.910 --> 00:27:52.500
+Jitendra K: Right? So this is a tiebreaker scenario for me.
+
+301
+00:27:52.650 --> 00:27:57.080
+Jitendra K: But let's say if I'm saying this is non-fraud. So I will go with the majority of the voting.
+
+302
+00:27:57.450 --> 00:28:01.490
+Jitendra K: So I will say this is 0, because 3 trees are saying this is 0.
+
+303
+00:28:01.730 --> 00:28:09.909
+Jitendra K: And the 4 tree, only it is saying it is 1, because of some reason, so I will go with the majority of the warning, by saying it is actually 0.
+
+304
+00:28:11.030 --> 00:28:17.450
+Jitendra K: Right? So this is how the decient, sorry, random forest or boosting model works internally.
+
+305
+00:28:18.000 --> 00:28:27.780
+Jitendra K: I will come to random forest in a while, because random forest is slightly complex. It's not that simple that you're thinking. Like, you construct multiple trees, and then you call it a random forest.
+
+306
+00:28:27.960 --> 00:28:34.490
+Jitendra K: Renderforce works on reduction of too many things, including out-of-bag errors, We'll talk about,
+
+307
+00:28:35.890 --> 00:28:40.189
+Jitendra K: different other types of hyperparameter that has been used to construct random forest.
+
+308
+00:28:41.020 --> 00:28:46.710
+Jitendra K: So, in the boosting technique, we perform…
+
+309
+00:28:46.840 --> 00:28:51.300
+Jitendra K: the sequential learning, right? So when you say sequential learning of the model.
+
+310
+00:28:51.710 --> 00:28:54.750
+Jitendra K: One model will wait for the other model to finish.
+
+311
+00:28:55.090 --> 00:28:58.879
+Jitendra K: And then it combines the output to make prediction.
+
+312
+00:28:59.440 --> 00:29:02.209
+Jitendra K: So basically, the idea of,
+
+313
+00:29:03.390 --> 00:29:07.880
+Jitendra K: Boosting model is very different as compared to bagging model.
+
+314
+00:29:08.690 --> 00:29:09.490
+Jitendra K: Right?
+
+315
+00:29:11.090 --> 00:29:14.930
+Jitendra K: So, this is where… You are going to utilize…
+
+316
+00:29:15.410 --> 00:29:20.469
+Jitendra K: Boosting, or solving, and converting your weak learners to a strong learners.
+
+317
+00:29:21.080 --> 00:29:26.859
+Jitendra K: So, weak learner and strong learner is too important concepts in machine learning. So, weak learner, I would say.
+
+318
+00:29:27.520 --> 00:29:31.800
+Jitendra K: Assume it, like… The… having some sort of misclassification.
+
+319
+00:29:32.540 --> 00:29:35.790
+Jitendra K: Right? So they are weak models, but when you're generating.
+
+320
+00:29:35.910 --> 00:29:39.539
+Jitendra K: The combined prediction from boosting, you will get a better model.
+
+321
+00:29:41.650 --> 00:29:42.460
+Jitendra K: Right?
+
+322
+00:29:42.590 --> 00:29:49.310
+Jitendra K: So it's like you're refining your output, With iterative approach.
+
+323
+00:29:51.250 --> 00:29:53.300
+Jitendra K: Before you're making a final prediction.
+
+324
+00:29:59.080 --> 00:30:06.329
+Jitendra K: Now, what is the difference between bagging and boosting? So, as I mentioned, bagging and boosting aims different cost objective.
+
+325
+00:30:06.790 --> 00:30:11.440
+Jitendra K: So bagging aims to decrease variance. It will not work on bias.
+
+326
+00:30:12.080 --> 00:30:15.229
+Jitendra K: But boosting tried to decrease bias, not a variance.
+
+327
+00:30:15.740 --> 00:30:22.519
+Jitendra K: So, bagging tried to solve the overfitting problem. Boosting has been used to avoid overfitting… underfitting.
+
+328
+00:30:23.560 --> 00:30:24.700
+Jitendra K: Not over 14.
+
+329
+00:30:26.020 --> 00:30:35.290
+Jitendra K: So, in the case of bagging, each model is built independently, but in case of boosting, each new model is influenced by the performance of the previous build model.
+
+330
+00:30:36.410 --> 00:30:43.789
+Jitendra K: In bagging, there are different data sets, subsets, which has been drawn randomly with replacement from the entire training dataset.
+
+331
+00:30:44.080 --> 00:30:50.290
+Jitendra K: But in case of boosting, every new subset contained the element that were misclassified by the previous model.
+
+332
+00:30:51.070 --> 00:30:55.320
+Jitendra K: From the classifier, High variance, which is unstable model.
+
+333
+00:30:56.210 --> 00:31:00.390
+Jitendra K: So, when you see high variance, apply bagging.
+
+334
+00:31:00.920 --> 00:31:03.350
+Jitendra K: When you see high buys, go for boosting.
+
+335
+00:31:04.860 --> 00:31:09.720
+Jitendra K: So, I will tell you, you cannot able to explain variance of the data.
+
+336
+00:31:13.000 --> 00:31:14.869
+Jitendra K: So you have to go with boosting.
+
+337
+00:31:15.000 --> 00:31:16.979
+Jitendra K: Many times, you have to go with boosting.
+
+338
+00:31:17.440 --> 00:31:22.799
+Jitendra K: Bagging is also important, because the nature of data will have high variance.
+
+339
+00:31:23.100 --> 00:31:31.999
+Jitendra K: But first and foremost thing, you have to understand, if I'm going to fit both models together, will it create any ambiguity? The answer is no, it will not.
+
+340
+00:31:33.010 --> 00:31:38.409
+Jitendra K: So it's… is it better to use both technique? The answer is yes. You can use both techniques.
+
+341
+00:31:39.660 --> 00:31:43.560
+Jitendra K: Right? And then try to improve the overall accuracy of your model.
+
+342
+00:31:45.590 --> 00:31:51.820
+Jitendra K: Is it clear to everyone, before we move on to random forest now, is the background is clear what we are learning?
+
+343
+00:31:52.380 --> 00:31:58.360
+Jitendra K: what is, bagging, boosting, stacking, and mixture of experts. I think I can see…
+
+344
+00:31:59.490 --> 00:32:05.519
+Jitendra K: Okay, there's a question, can I re-explain mixture of Export? So, mixture of Expert is just like…
+
+345
+00:32:07.480 --> 00:32:17.120
+Jitendra K: you're having different departments, right? So, if I'm saying mixture of experts, model in Sambel, so basically.
+
+346
+00:32:17.350 --> 00:32:25.270
+Jitendra K: You can see here, That I'm using a different classifier. Classifier 1, classifier 2, and classifier 3.
+
+347
+00:32:26.210 --> 00:32:30.569
+Jitendra K: So the key idea of a mixture of expert model is to
+
+348
+00:32:31.320 --> 00:32:36.419
+Jitendra K: use the linear combination of the three with the help of weighted distribution. So I will say.
+
+349
+00:32:36.700 --> 00:32:43.720
+Jitendra K: W1, Model 1, plus W2… Model 2.
+
+350
+00:32:44.050 --> 00:32:46.260
+Jitendra K: plus W3 Model 3.
+
+351
+00:32:46.540 --> 00:32:50.619
+Jitendra K: And then I will say it's a linear combination of my whole model.
+
+352
+00:32:50.900 --> 00:32:55.970
+Jitendra K: That will use to output, or generate an output for my problem statement.
+
+353
+00:32:56.250 --> 00:33:03.030
+Jitendra K: So the key idea of mixture of expert model is each model operates independently.
+
+354
+00:33:03.280 --> 00:33:09.360
+Jitendra K: But at the end, you're combining the output with the help of… Weighted distribution criteria.
+
+355
+00:33:09.660 --> 00:33:14.070
+Jitendra K: Now, you may ask, how did I come with this weighted distribution?
+
+356
+00:33:16.200 --> 00:33:25.349
+Jitendra K: So, you can consider this like a hyperparameter. So, you can try to fine-tune this hyperparameter by saying that I will start with equal proportional weights.
+
+357
+00:33:25.700 --> 00:33:31.160
+Jitendra K: Of each expert, and then I will adjust the weights with every misclassification.
+
+358
+00:33:32.070 --> 00:33:37.679
+Jitendra K: So basically, the idea is, when you're using such model, expert model.
+
+359
+00:33:37.990 --> 00:33:41.770
+Jitendra K: You're going to use a gated network, or gated model, gating technique.
+
+360
+00:33:42.050 --> 00:33:50.159
+Jitendra K: So a model is used to interpret a prediction made by each expert, and add it to decide what expert to trust for a given input.
+
+361
+00:33:50.420 --> 00:34:03.389
+Jitendra K: And this is called gating model. So, or a gating network. So this will be useful in neural networks, mostly neural network training. We are not going to use this technique in machine learning.
+
+362
+00:34:04.490 --> 00:34:17.070
+Jitendra K: Right? Because we already have stacking, banging, and boosting, which is sufficient enough to solve the problem, but this technique will be used by deep learning and advanced transformers. And that's the reason you have seen a mixture of expert in
+
+363
+00:34:17.830 --> 00:34:19.139
+Jitendra K: Deepseek.
+
+364
+00:34:19.290 --> 00:34:22.929
+Jitendra K: the first proposal, right? So they are using a mixture of expert.
+
+365
+00:34:23.100 --> 00:34:24.690
+Jitendra K: So what mixture of expert?
+
+366
+00:34:24.929 --> 00:34:28.460
+Jitendra K: behind the scene is doing in Deep Sea Giz.
+
+367
+00:34:28.659 --> 00:34:35.359
+Jitendra K: They have a variety of trainable parameters, so they use each trainable parameter dedicated to one type of architecture.
+
+368
+00:34:35.719 --> 00:34:40.779
+Jitendra K: And they, work on different mechanisms.
+
+369
+00:34:41.590 --> 00:34:47.429
+Jitendra K: So, each mechanism will be dedicated based upon your query, the query that you're running.
+
+370
+00:34:47.960 --> 00:34:51.870
+Jitendra K: Generate some insight, or you're searching for something.
+
+371
+00:34:52.330 --> 00:35:00.799
+Jitendra K: So each mixture of expert model will be called at runtime, so that you can reduce the search space complexity.
+
+372
+00:35:01.440 --> 00:35:04.879
+Jitendra K: And you will get a output more accurate.
+
+373
+00:35:06.590 --> 00:35:13.149
+Jitendra K: Alright, so these are a technique which is there in machine learning and deep learning and even advanced gen AI.
+
+374
+00:35:13.530 --> 00:35:14.890
+Jitendra K: So…
+
+375
+00:35:15.280 --> 00:35:26.990
+Jitendra K: the concept will remain same if you apply this technique in deep learning, machine learning, or gen AI. The concept will not change. Only the purpose of using the technique will change.
+
+376
+00:35:27.670 --> 00:35:32.969
+Jitendra K: Right? So, the parameter can change. The way that you're using… sorry.
+
+377
+00:35:33.830 --> 00:35:38.119
+Jitendra K: So, so basically, if you're using any technique.
+
+378
+00:35:38.990 --> 00:35:47.070
+Jitendra K: on fitting the data points, that will remain same. The technique will remain the same. Only the implementation part will change.
+
+379
+00:35:47.360 --> 00:35:50.459
+Jitendra K: So if you're implementing for Gen AI,
+
+380
+00:35:50.570 --> 00:35:57.890
+Jitendra K: You will have a different set of libraries, different sort of databases, a different set of, I would say, startups.
+
+381
+00:35:58.480 --> 00:36:04.569
+Jitendra K: But if you are using it for machine learning, then you will have a different set of setup, because machine learning, we are operating with slightly…
+
+382
+00:36:05.730 --> 00:36:13.749
+Jitendra K: I would say, slightly structured data, right? Mostly structured data we are using for machine learning. But when we talk about deep learning.
+
+383
+00:36:14.030 --> 00:36:21.260
+Jitendra K: U tends to fit unstructured data, like images, text, we talked about,
+
+384
+00:36:22.000 --> 00:36:26.820
+Jitendra K: Frequency-based analysis, voice modulation, so these will become very complex patterns.
+
+385
+00:36:27.020 --> 00:36:29.369
+Jitendra K: That your model is trying to learn from it.
+
+386
+00:36:29.630 --> 00:36:36.390
+Jitendra K: So, the problem that we are solving with machine learning and deep learning are entirely different. Can we solve all problems of
+
+387
+00:36:37.180 --> 00:36:40.790
+Jitendra K: Machine learning with the help of deep learning.
+
+388
+00:36:41.370 --> 00:36:50.970
+Jitendra K: The answer is, it depends. You can solve, yes. You can solve all problems that you have, maybe solved in machine learning with help of deep learning.
+
+389
+00:36:51.450 --> 00:36:53.150
+Jitendra K: But it's like,
+
+390
+00:36:53.480 --> 00:36:59.000
+Jitendra K: If you're using a simple problems and try to use deep learning, it will be too costly.
+
+391
+00:36:59.720 --> 00:37:05.989
+Jitendra K: So instead of using deep learning, you're going… we're still going with machine learning. That's the reason… only reason why machine learning is still there.
+
+392
+00:37:06.420 --> 00:37:11.239
+Jitendra K: Otherwise, if computes and, servers are cheap.
+
+393
+00:37:11.770 --> 00:37:14.930
+Jitendra K: Nobody is going to use a machine learning algorithm, for sure.
+
+394
+00:37:16.030 --> 00:37:25.569
+Jitendra K: Right? So just because computation and hardware is costly, you still see machine learning implementation at organizational level. But anyway,
+
+395
+00:37:26.360 --> 00:37:30.529
+Jitendra K: Here we are not criticizing machine learning by any purpose.
+
+396
+00:37:30.760 --> 00:37:41.100
+Jitendra K: The only thing is, I just want to give you the factual information. So now we will start with random forest as a model. So, first, let me explain what is random forest.
+
+397
+00:37:41.420 --> 00:37:43.559
+Jitendra K: And we will take our mathematical…
+
+398
+00:37:43.940 --> 00:37:50.739
+Jitendra K: deep drive on this technique. So… because random forest, as my name suggests, it's a group of trees.
+
+399
+00:37:50.930 --> 00:37:52.450
+Jitendra K: Or a dense forest.
+
+400
+00:37:52.960 --> 00:38:00.420
+Jitendra K: So we'll try to understand random forest, basically from first principle perspective, and try to look into
+
+401
+00:38:00.990 --> 00:38:07.639
+Jitendra K: several core modules which involve inside Random Forest. So let's the first and foremost thing.
+
+402
+00:38:07.900 --> 00:38:10.549
+Jitendra K: Let's try to understand what is a random forest.
+
+403
+00:38:11.880 --> 00:38:14.349
+Jitendra K: So, as the name suggests, Random Forest, as I mentioned.
+
+404
+00:38:14.700 --> 00:38:17.520
+Jitendra K: You're going to have a group of decision tree.
+
+405
+00:38:18.370 --> 00:38:22.110
+Jitendra K: That you are going to use to construct A forest.
+
+406
+00:38:22.610 --> 00:38:29.140
+Jitendra K: So, a group of decentry will have different data sets that you're operating, because it comes from the family of bagging.
+
+407
+00:38:29.490 --> 00:38:32.400
+Jitendra K: So, bagging bootstrap aggregation. That means…
+
+408
+00:38:32.520 --> 00:38:37.100
+Jitendra K: Each decision tree will operate on different data sets. That's the first and the foremost thing.
+
+409
+00:38:37.350 --> 00:38:45.630
+Jitendra K: of random forest. That each tree will be as… different… Compared to other tree.
+
+410
+00:38:46.770 --> 00:38:55.369
+Jitendra K: Now, Random Forest is a supervised learning algorithm. That means you are going to pass data labels, and you can use Random Forest for regression or classification.
+
+411
+00:38:56.140 --> 00:39:00.669
+Jitendra K: Now, this comes under bagging. That means the bagging ensemble technique.
+
+412
+00:39:01.250 --> 00:39:07.570
+Jitendra K: So, when you say bagging, That means we are talking about bootstrap samples as well.
+
+413
+00:39:09.620 --> 00:39:11.379
+Jitendra K: Now, this is a technique.
+
+414
+00:39:11.830 --> 00:39:15.470
+Jitendra K: Core technique which has been used by random forest, bootstrap samples.
+
+415
+00:39:15.970 --> 00:39:22.670
+Jitendra K: So, random forests utilize the concept of bagging. It creates a multiple training dataset by random subsampling.
+
+416
+00:39:22.930 --> 00:39:25.320
+Jitendra K: Or random sampling with replacement.
+
+417
+00:39:26.640 --> 00:39:32.530
+Jitendra K: Right? That means some data point may be included in multiple training set, while others might not be included at all.
+
+418
+00:39:34.020 --> 00:39:36.350
+Jitendra K: That means, let's say you have 1000 rows.
+
+419
+00:39:41.750 --> 00:39:43.150
+Jitendra K: With some column.
+
+420
+00:39:45.640 --> 00:39:49.060
+Jitendra K: And you're choosing the first 900 rows.
+
+421
+00:39:50.620 --> 00:39:57.249
+Jitendra K: with all permutation combination of your columns, to train the three models. 1, 2, and 3.
+
+422
+00:39:57.750 --> 00:40:03.069
+Jitendra K: But you're not incorporating the remaining 100 rows, which is left over.
+
+423
+00:40:03.230 --> 00:40:11.309
+Jitendra K: So this kind of leftover will be considered as out-of-bag errors. We'll talk about how to improve the model with the help of out-of-bag errors.
+
+424
+00:40:11.760 --> 00:40:12.890
+Jitendra K: Mathologists.
+
+425
+00:40:13.330 --> 00:40:18.069
+Jitendra K: So, the first and foremost thing, The random forest use…
+
+426
+00:40:18.370 --> 00:40:22.159
+Jitendra K: The concept of bagging, and it creates a multiple training dataset.
+
+427
+00:40:22.420 --> 00:40:31.199
+Jitendra K: by random sampling with replacement from the original data. That means some data point may be included in multiple trading sets, while others might not be included.
+
+428
+00:40:31.530 --> 00:40:38.379
+Jitendra K: So the step of row sampling with replacement is referred as bootstrapping. The bootstrapping is a resampling technique.
+
+429
+00:40:38.660 --> 00:40:43.659
+Jitendra K: Where multiple datasets are created by random sampling with replacement from the original data.
+
+430
+00:40:46.140 --> 00:40:49.080
+Jitendra K: Now, the second step is, you're going to build this entry.
+
+431
+00:40:49.790 --> 00:40:53.080
+Jitendra K: So, for each training data sample, you are going to create a decision tree.
+
+432
+00:40:53.230 --> 00:41:00.739
+Jitendra K: And this decision tree uses the same algorithm, but considers different random subset of features at each split point.
+
+433
+00:41:01.120 --> 00:41:08.390
+Jitendra K: So this randomness will help to prevent a tree from becoming over-corrected or overfit with any specific feature.
+
+434
+00:41:08.770 --> 00:41:14.550
+Jitendra K: Because remember, when we talk about DC entry, one of the drawbacks of decentry is, it is overfit.
+
+435
+00:41:15.090 --> 00:41:16.319
+Jitendra K: Highly overfit.
+
+436
+00:41:18.300 --> 00:41:26.249
+Jitendra K: Right? So decision trees are highly overfit, and to avoid overfitting, We are using Rhinoforest.
+
+437
+00:41:28.900 --> 00:41:38.100
+Jitendra K: Now, the third point is you're going to make an aggregation, or prediction. So, when a new data point needs to be classified, or a value predicted, it is passed through all this entry in the forest.
+
+438
+00:41:38.240 --> 00:41:42.389
+Jitendra K: And each tree makes its own prediction based upon the learned rules.
+
+439
+00:41:43.030 --> 00:41:50.539
+Jitendra K: And then it uses a voting for classification tasks. The final voting or final predictions typically made by majority of the vote.
+
+440
+00:41:50.690 --> 00:41:57.009
+Jitendra K: And the class that received the majority of the vote from the individual tree will become overall prediction for the forest.
+
+441
+00:41:57.440 --> 00:42:02.720
+Jitendra K: For regression task, the final prediction, you're going to use average of the prediction from all the trees.
+
+442
+00:42:05.250 --> 00:42:13.009
+Jitendra K: Now, the advantage of using this approach is you will have a high accuracy, because you are constructing and reducing the variance in your data.
+
+443
+00:42:13.920 --> 00:42:17.420
+Jitendra K: Right? So your accuracy automatically increased.
+
+444
+00:42:18.110 --> 00:42:21.020
+Jitendra K: You will achieve an excellent predictor performance.
+
+445
+00:42:21.700 --> 00:42:26.079
+Jitendra K: Especially when you are using a jury's instead of single decision tree.
+
+446
+00:42:26.340 --> 00:42:30.450
+Jitendra K: The robustness of This method will be increased.
+
+447
+00:42:30.950 --> 00:42:36.460
+Jitendra K: So you can reduce variance and make your model less susceptible to overfit.
+
+448
+00:42:36.830 --> 00:42:44.350
+Jitendra K: You can be able to handle missing data. Random forest can effectively handle missing data values without requiring a spatial impetition technique.
+
+449
+00:42:44.650 --> 00:42:48.240
+Jitendra K: And that is why it is one of the favorite algorithms for many data scientists.
+
+450
+00:42:48.710 --> 00:42:51.429
+Jitendra K: Because you need not to worry too much about missing data.
+
+451
+00:42:53.230 --> 00:42:56.090
+Jitendra K: It also used feature importance, so you can…
+
+452
+00:42:56.270 --> 00:42:59.150
+Jitendra K: Sort the features at the last.
+
+453
+00:42:59.430 --> 00:43:04.890
+Jitendra K: And you will see, using SHAP and other provision, which features is important.
+
+454
+00:43:05.560 --> 00:43:15.390
+Jitendra K: Random forest can be effectively applied to large data sets due to its parallelizable nature. That means you can be able to use large data sets, thousand samples, million samples to train.
+
+455
+00:43:18.150 --> 00:43:25.489
+Jitendra K: So… Basically, a random forest, is nothing but… it's a group of decision tree.
+
+456
+00:43:26.520 --> 00:43:31.299
+Jitendra K: So, when you say random forest, the property of this entry is still valid.
+
+457
+00:43:31.810 --> 00:43:36.830
+Jitendra K: Right? There's no change in the property of this entry. There's no change in the way that,
+
+458
+00:43:38.750 --> 00:43:42.070
+Jitendra K: Maybe we'll take an example to understand missing data and all.
+
+459
+00:43:42.390 --> 00:43:48.439
+Jitendra K: So, we haven't, okay, so when you say… Random Forest,
+
+460
+00:43:48.810 --> 00:43:55.780
+Jitendra K: We are talking about the same fundamental as we learn in decision tree, for creating the split, for creating the…
+
+461
+00:43:56.300 --> 00:44:02.740
+Jitendra K: nodes for creating the root node to parent node typology. The rules will remain the same.
+
+462
+00:44:03.610 --> 00:44:07.339
+Jitendra K: So the foundation of random forest lies in decent tree itself.
+
+463
+00:44:07.720 --> 00:44:09.950
+Jitendra K: But dysentry is the simplest model.
+
+464
+00:44:10.910 --> 00:44:11.750
+Jitendra K: Right?
+
+465
+00:44:12.360 --> 00:44:17.439
+Jitendra K: But still… Random Forest is nothing but a group of this entry.
+
+466
+00:44:21.460 --> 00:44:26.560
+Jitendra K: So let's try to understand what are the different terminologies that you should understand.
+
+467
+00:44:26.820 --> 00:44:31.389
+Jitendra K: Or mathematically, how you can able to excel random forest algorithm.
+
+468
+00:44:31.830 --> 00:44:37.249
+Jitendra K: So let me talk about… how you're going to use Rhinoforest classifier.
+
+469
+00:44:37.440 --> 00:44:43.109
+Jitendra K: And what are the mathematical parameters that you should learn to demystify a random forest, right? Because…
+
+470
+00:44:43.310 --> 00:44:47.239
+Jitendra K: This will help you to work on many advanced use cases.
+
+471
+00:44:48.120 --> 00:44:53.770
+Jitendra K: So, first and the foremost thing, let me explain, some of the concepts that we have already learned.
+
+472
+00:44:54.270 --> 00:45:01.409
+Jitendra K: So we talked about these concepts, we understand what is Guinea, what is entropy, what is cost objective, what is…
+
+473
+00:45:01.560 --> 00:45:05.680
+Jitendra K: Mean square errors, etc. We already know all these points. Just a quick recap.
+
+474
+00:45:06.240 --> 00:45:10.880
+Jitendra K: When we talk about these fundamentals, we say.
+
+475
+00:45:12.020 --> 00:45:17.360
+Jitendra K: we already state that I can able to interchange gain, information gain.
+
+476
+00:45:20.820 --> 00:45:24.000
+Jitendra K: So, I can say gain of my system.
+
+477
+00:45:24.540 --> 00:45:28.219
+Jitendra K: T and X, where T is my target variable, X is my feature.
+
+478
+00:45:29.080 --> 00:45:33.229
+Jitendra K: I can replace this with entropy, so I will say entropy of target.
+
+479
+00:45:34.790 --> 00:45:39.070
+Jitendra K: Minus entropy of… Target given feature.
+
+480
+00:45:39.700 --> 00:45:51.940
+Jitendra K: So basically, what I'm trying to say is, information gain is used within the… with the split of the data using entropy. It has been calculated as a decrease in entropy after a dataset has been split on each attribute.
+
+481
+00:45:52.270 --> 00:45:54.609
+Jitendra K: So, with every split, you are
+
+482
+00:45:55.110 --> 00:45:58.110
+Jitendra K: Increasing the information gain and reducing the entropy.
+
+483
+00:45:59.630 --> 00:46:07.720
+Jitendra K: So, random forest construct… On individual trees, which are shallow learners or weak learners.
+
+484
+00:46:08.040 --> 00:46:13.500
+Jitendra K: And when you aggregate these shallow learners or weak learners, you achieved D.
+
+485
+00:46:13.950 --> 00:46:18.390
+Jitendra K: highest… Accuracy in terms of fitment criteria.
+
+486
+00:46:19.310 --> 00:46:23.570
+Jitendra K: Now, I'm going to talk about, our random forest.
+
+487
+00:46:25.240 --> 00:46:30.950
+Jitendra K: calculate a node impurities, or importance using Guinea importance, or Guinea impurity.
+
+488
+00:46:31.630 --> 00:46:38.589
+Jitendra K: Assume that you're working on only two child nodes. That means you will have either 0 or 1 binary tree.
+
+489
+00:46:39.560 --> 00:46:42.850
+Jitendra K: So… I will write down the formulas.
+
+490
+00:46:42.980 --> 00:46:48.189
+Jitendra K: So that we can, once we start practicing using scikit-learn, these formulas should be clear.
+
+491
+00:46:48.820 --> 00:46:55.839
+Jitendra K: So I'm showing you implementation by scikit-learn, because that's a class that we are going to use, sklearn.
+
+492
+00:46:57.750 --> 00:47:03.309
+Jitendra K: To implement a module, Call Random Forest.
+
+493
+00:47:04.000 --> 00:47:07.050
+Jitendra K: So if I'm implementing a module random forest classifier.
+
+494
+00:47:07.170 --> 00:47:09.670
+Jitendra K: By default, it will be random forest classifier.
+
+495
+00:47:10.060 --> 00:47:14.390
+Jitendra K: But if I'm using RFR, it will become Retnaforest regressor.
+
+496
+00:47:17.400 --> 00:47:21.070
+Jitendra K: And this one I will use for regression purposes.
+
+497
+00:47:23.930 --> 00:47:26.440
+Jitendra K: And this one I will use for classification.
+
+498
+00:47:28.880 --> 00:47:31.499
+Jitendra K: So, assume that I'm working on two-class problem.
+
+499
+00:47:31.720 --> 00:47:38.110
+Jitendra K: And I'm constructing… multiple… the CN3.
+
+500
+00:47:38.370 --> 00:47:40.440
+Jitendra K: To come up with a final conclusion.
+
+501
+00:47:40.870 --> 00:47:42.339
+Jitendra K: This is my tree one.
+
+502
+00:47:43.170 --> 00:47:44.919
+Jitendra K: This is my tree, too.
+
+503
+00:47:50.810 --> 00:47:52.540
+Jitendra K: This is my tree 3.
+
+504
+00:48:02.730 --> 00:48:04.690
+Jitendra K: Right, so there are many solutions.
+
+505
+00:48:05.050 --> 00:48:13.639
+Jitendra K: So, basically, what I'm trying to do is, I'm trying to combine them. What is each syntry, I'm going to calculate the node impurities, or node importance, using Guinea.
+
+506
+00:48:14.210 --> 00:48:19.659
+Jitendra K: And I'm assuming that I have only two childs. That means it's a binary problem that I'm trying to solve.
+
+507
+00:48:20.090 --> 00:48:22.389
+Jitendra K: So I will say that number of…
+
+508
+00:48:25.100 --> 00:48:27.460
+Jitendra K: So I will first write down the equations.
+
+509
+00:48:28.290 --> 00:48:31.989
+Jitendra K: So I'll say number of IJ is equals to…
+
+510
+00:48:33.370 --> 00:48:37.020
+Jitendra K: weighted impurity of, sorry, node J,
+
+511
+00:48:41.330 --> 00:48:42.730
+Jitendra K: C of J.
+
+512
+00:48:44.460 --> 00:48:56.550
+Jitendra K: minus W left, of J, multiplied by C left, of J.
+
+513
+00:48:56.850 --> 00:49:04.080
+Jitendra K: minus W right, J multiply by C right of…
+
+514
+00:49:05.880 --> 00:49:09.149
+Jitendra K: G. So, in a nutshell, what I'm trying to do is…
+
+515
+00:49:09.460 --> 00:49:13.310
+Jitendra K: I'm trying to understand the importance of node J.
+
+516
+00:49:15.210 --> 00:49:18.019
+Jitendra K: By calculating this weighted sample of
+
+517
+00:49:19.110 --> 00:49:22.420
+Jitendra K: a weighted number of samples that's reaching the node J.
+
+518
+00:49:28.590 --> 00:49:34.590
+Jitendra K: And I'm using, the impurities At a particular note.
+
+519
+00:49:34.710 --> 00:49:35.470
+Jitendra K: G.
+
+520
+00:49:36.050 --> 00:49:40.039
+Jitendra K: And then I will create a left subnode and right subnode.
+
+521
+00:49:40.480 --> 00:49:43.750
+Jitendra K: Based upon this impurity calculation.
+
+522
+00:49:44.200 --> 00:49:45.920
+Jitendra K: So, the idea is…
+
+523
+00:49:49.740 --> 00:49:52.279
+Jitendra K: I would like to decide which feature is important.
+
+524
+00:49:52.920 --> 00:49:53.940
+Jitendra K: to split.
+
+525
+00:49:55.310 --> 00:49:56.859
+Jitendra K: Based upon this formula.
+
+526
+00:49:57.550 --> 00:50:01.460
+Jitendra K: That will be summation of… J notes…
+
+527
+00:50:05.260 --> 00:50:11.750
+Jitendra K: all features… belongs to… And I…
+
+528
+00:50:12.310 --> 00:50:15.190
+Jitendra K: Divide by summation of all nodes.
+
+529
+00:50:16.190 --> 00:50:18.469
+Jitendra K: Connected to NFL.
+
+530
+00:50:19.690 --> 00:50:21.490
+Jitendra K: So basically, I would like to…
+
+531
+00:50:21.620 --> 00:50:24.620
+Jitendra K: Benchmark the feature importance based upon entropy.
+
+532
+00:50:25.050 --> 00:50:27.730
+Jitendra K: I will say that I will go with the highest impure node.
+
+533
+00:50:28.170 --> 00:50:34.319
+Jitendra K: And I will consider this as a top node, and then I will further break down this into multiple chunks.
+
+534
+00:50:34.520 --> 00:50:36.369
+Jitendra K: Before I can arrive to a result.
+
+535
+00:50:38.300 --> 00:50:39.080
+Jitendra K: Right?
+
+536
+00:50:39.390 --> 00:50:40.660
+Jitendra K: So, basically.
+
+537
+00:50:46.210 --> 00:50:50.300
+Jitendra K: your decision tree will be construct… sorry, your random forest will be constructed.
+
+538
+00:50:50.750 --> 00:50:55.879
+Jitendra K: with this simple analogy. So you are going to start with sample with replacement.
+
+539
+00:50:56.550 --> 00:51:02.189
+Jitendra K: At each level, you construct multiple decision trees. All of them are different from each other.
+
+540
+00:51:02.380 --> 00:51:04.429
+Jitendra K: And then you combine them.
+
+541
+00:51:04.570 --> 00:51:06.019
+Jitendra K: On the output.
+
+542
+00:51:06.370 --> 00:51:10.180
+Jitendra K: So, in a nutshell, what we are doing is, we are learning multiple features.
+
+543
+00:51:11.070 --> 00:51:14.670
+Jitendra K: So each algorithm, or each, I would say, each,
+
+544
+00:51:16.550 --> 00:51:19.909
+Jitendra K: Tree that you're operating will have… will have different features.
+
+545
+00:51:20.240 --> 00:51:21.060
+Jitendra K: Right?
+
+546
+00:51:21.340 --> 00:51:26.790
+Jitendra K: So, each features will be different from Each tree construction.
+
+547
+00:51:37.600 --> 00:51:38.430
+Jitendra K: Right?
+
+548
+00:51:38.700 --> 00:51:43.369
+Jitendra K: So what we can do now is, we will take an example to understand this.
+
+549
+00:51:43.810 --> 00:51:50.690
+Jitendra K: And I have to talk about a few more advanced concepts of random forests, including reduction of auto-bag errors.
+
+550
+00:51:50.870 --> 00:51:56.010
+Jitendra K: And how to tackle these split criterias, right? And then we'll talk about hyperparameters.
+
+551
+00:51:56.600 --> 00:52:01.079
+Jitendra K: Because hyperparameters in random forest is different from decientry.
+
+552
+00:52:01.760 --> 00:52:09.670
+Jitendra K: But the concept will remain same. You're operating on multiple dysentry, and you might have a similar sort of hyperparameter that you have used in decentry.
+
+553
+00:52:09.900 --> 00:52:16.639
+Jitendra K: But here we are talking about group of decision tree, not just single decision tree. That is where the hyperparameter name will change.
+
+554
+00:52:17.520 --> 00:52:21.140
+Jitendra K: Right, so we'll take an example to understand random forest first.
+
+555
+00:52:21.450 --> 00:52:27.150
+Jitendra K: So Random Forest, as I mentioned, we are going to use scikit-learn. So I'm going to heavily use scikit-learn.
+
+556
+00:52:27.420 --> 00:52:32.490
+Jitendra K: to create Random Forest. And, this is one of the advanced libraries that we're going to use.
+
+557
+00:52:32.780 --> 00:52:42.640
+Jitendra K: to train the model. So… I will still go with, scikit-learn to solve my… problem.
+
+558
+00:52:43.060 --> 00:52:53.210
+Jitendra K: And I'll also talk about why missing data is not a problem in Random Forest. So we'll try to use such dataset, which is having missing values as well. And then we'll comment on the accuracies and…
+
+559
+00:52:54.780 --> 00:52:56.390
+Jitendra K: Other aspect of the things.
+
+560
+00:53:07.400 --> 00:53:09.690
+Jitendra K: Let me quickly open my collab.
+
+561
+00:54:03.100 --> 00:54:08.550
+Jitendra K: One second, let me quickly… Okay, reply this, and then I will… okay.
+
+562
+00:54:08.730 --> 00:54:11.120
+Jitendra K: Now, let me open this, Google Cool app.
+
+563
+00:54:54.440 --> 00:55:02.439
+Jitendra K: So we're learning about Rhino-first algorithm, in a nutshell, so we will take some example on… first on a classification, and then move on to regression.
+
+564
+00:55:02.690 --> 00:55:08.329
+Jitendra K: So first, try to understand and demystify what exactly this classification model does in Random Forest.
+
+565
+00:55:08.720 --> 00:55:13.729
+Jitendra K: So, first and the foremost thing, that I have to do is to implement random forest.
+
+566
+00:55:14.490 --> 00:55:22.450
+Jitendra K: or reuse the random forest, which is there in the Python community. So I will go with a second option, because if you have to rewrite random forest.
+
+567
+00:55:22.800 --> 00:55:28.669
+Jitendra K: I have to do a bit of, research and then write random forests from the scratch.
+
+568
+00:55:29.260 --> 00:55:34.369
+Jitendra K: Handle all the exception which has been there, and then, combine
+
+569
+00:55:34.550 --> 00:55:36.739
+Jitendra K: Multiple modules to make it generic.
+
+570
+00:55:37.530 --> 00:55:38.370
+Jitendra K: Right?
+
+571
+00:55:39.220 --> 00:55:46.570
+Jitendra K: So instead of that, I'm going to use scikit-learn to To use the pre-existing modules.
+
+572
+00:55:46.820 --> 00:55:49.559
+Jitendra K: Which is there in the random forest, right?
+
+573
+00:55:49.720 --> 00:55:53.369
+Jitendra K: So, first and foremost thing, I would like to show you how to import.
+
+574
+00:55:54.380 --> 00:55:58.820
+Jitendra K: Random Forest class… From scikit-learn, right?
+
+575
+00:56:00.400 --> 00:56:02.680
+Jitendra K: Or is there any other model that I can use?
+
+576
+00:56:02.950 --> 00:56:07.840
+Jitendra K: So first, I would say… I will go to From.
+
+577
+00:56:08.090 --> 00:56:11.310
+Jitendra K: scikit-learn.essemble.
+
+578
+00:56:11.510 --> 00:56:13.609
+Jitendra K: No, it's a part of an assemble class.
+
+579
+00:56:13.940 --> 00:56:18.750
+Jitendra K: I would like to import random… Forest.
+
+580
+00:56:19.490 --> 00:56:21.160
+Jitendra K: Glass seafire.
+
+581
+00:56:25.360 --> 00:56:27.510
+Jitendra K: Now, this is a class that I'm going to use.
+
+582
+00:56:34.540 --> 00:56:38.579
+Jitendra K: Okay, so this is, good enough. I'm able to import it.
+
+583
+00:56:38.770 --> 00:56:40.550
+Jitendra K: Now, since it's a class.
+
+584
+00:56:40.700 --> 00:56:45.880
+Jitendra K: So I have to also create an object to operate on this class. I will say RF,
+
+585
+00:56:46.450 --> 00:56:49.710
+Jitendra K: Render first classifier, and a bunch of parameters.
+
+586
+00:56:50.150 --> 00:56:53.709
+Jitendra K: So, the first parameter that I'm going to pass is number of trees.
+
+587
+00:56:54.320 --> 00:56:57.670
+Jitendra K: So I will say number of trees, I will make it as a default.
+
+588
+00:56:57.830 --> 00:56:59.090
+Jitendra K: Keep it 100.
+
+589
+00:56:59.730 --> 00:57:05.559
+Jitendra K: Number of estimator is nothing but number of trees. Maximum depth of the tree, I will go up to 5 level.
+
+590
+00:57:05.930 --> 00:57:15.219
+Jitendra K: I will talk about this minimum sample split again, but this is another hyperparameter. So basically, you're going to initialize an object instead of hyperparameter.
+
+591
+00:57:15.710 --> 00:57:21.090
+Jitendra K: And I will not say this is a hyperparameter, but it's an argument that you're passing to a random forest class.
+
+592
+00:57:21.540 --> 00:57:26.500
+Jitendra K: Because hyperparameter, generally, you are going to use optimal values.
+
+593
+00:57:27.080 --> 00:57:34.560
+Jitendra K: So these are default values, I would say, that I'm beginning with. But as you progress, then you can change these values with more optimal ranges.
+
+594
+00:57:35.350 --> 00:57:38.700
+Jitendra K: And then, once you create an object, then you fit your data.
+
+595
+00:57:39.860 --> 00:57:41.350
+Jitendra K: By calling this method.
+
+596
+00:57:42.410 --> 00:57:48.450
+Jitendra K: And then you will make a prediction, Y underscore predict, RF.predict.
+
+597
+00:57:48.900 --> 00:57:52.280
+Jitendra K: X test. These are the simple steps that you need to take.
+
+598
+00:57:52.710 --> 00:57:54.730
+Jitendra K: To construct a random forest.
+
+599
+00:57:55.360 --> 00:58:02.080
+Jitendra K: Now… How to do that? That is something which we are going to now talk about.
+
+600
+00:58:02.530 --> 00:58:07.040
+Jitendra K: Now, what are the different ways in which we can try and test it in a forest?
+
+601
+00:58:07.290 --> 00:58:09.750
+Jitendra K: So, we will take some small example.
+
+602
+00:58:09.930 --> 00:58:15.730
+Jitendra K: To first understand, What is Random Forest, and how Random Forest Classifier works?
+
+603
+00:58:18.190 --> 00:58:21.509
+Jitendra K: with the help of Toy Dataset from Scikit-learn.
+
+604
+00:58:23.070 --> 00:58:26.930
+Jitendra K: So let me quickly do that. Let me comment this out.
+
+605
+00:58:27.710 --> 00:58:30.000
+Jitendra K: So I've got random forest class now.
+
+606
+00:58:30.170 --> 00:58:31.559
+Jitendra K: In my namespace.
+
+607
+00:58:31.990 --> 00:58:40.490
+Jitendra K: I will go with the same dataset, Iris Dataflowers, so I will say… from… scikit-learn.
+
+608
+00:58:41.240 --> 00:58:42.170
+Jitendra K: Thought.
+
+609
+00:58:44.430 --> 00:58:45.690
+Jitendra K: Data threats.
+
+610
+00:58:47.020 --> 00:58:49.039
+Jitendra K: import or load.
+
+611
+00:58:53.030 --> 00:58:56.079
+Jitendra K: Alright, it's… Or load Iris.
+
+612
+00:58:58.680 --> 00:58:59.670
+Jitendra K: dataset.
+
+613
+00:59:01.500 --> 00:59:06.279
+Jitendra K: We'll also import… Train, test, split, and accuracies.
+
+614
+00:59:06.740 --> 00:59:11.399
+Jitendra K: Just to begin my model training, adequate set of parameters.
+
+615
+00:59:11.780 --> 00:59:17.950
+Jitendra K: Now, I've got a data X and Y. As you know that this is a pretty balanced data set, 50-50.
+
+616
+00:59:18.330 --> 00:59:24.560
+Jitendra K: labels… For each class, this is quite a good dataset.
+
+617
+00:59:27.140 --> 00:59:31.409
+Jitendra K: Now, I will split my data, load my data, and consider the labels.
+
+618
+00:59:31.970 --> 00:59:37.639
+Jitendra K: Then I would like to split my data into X train, Next test.
+
+619
+00:59:38.520 --> 00:59:43.899
+Jitendra K: wire train and wire test, and I'm keeping the ratio To be 1H to 4.
+
+620
+00:59:44.530 --> 00:59:46.350
+Jitendra K: I would say random state.
+
+621
+00:59:47.090 --> 00:59:48.070
+Jitendra K: 42.
+
+622
+00:59:48.920 --> 00:59:50.360
+Jitendra K: So this is my model.
+
+623
+00:59:50.590 --> 00:59:52.499
+Jitendra K: Oh, sorry, this is my data points.
+
+624
+00:59:53.110 --> 00:59:57.259
+Jitendra K: Now, we'll create a model object by saying random forest.
+
+625
+00:59:59.510 --> 01:00:02.529
+Jitendra K: RF is equals to random forest.
+
+626
+01:00:03.560 --> 01:00:07.520
+Jitendra K: Classification, number of estimator, I will keep it to be 100.
+
+627
+01:00:11.590 --> 01:00:13.349
+Jitendra K: I will say random state.
+
+628
+01:00:13.700 --> 01:00:18.709
+Jitendra K: 342… Keep it minimal.
+
+629
+01:00:19.350 --> 01:00:23.649
+Jitendra K: then I would like to fit my model, RF.train.
+
+630
+01:00:27.530 --> 01:00:29.880
+Jitendra K: Explain why train.
+
+631
+01:00:34.720 --> 01:00:38.579
+Jitendra K: Okay, this is train… this is fit.
+
+632
+01:00:39.320 --> 01:00:41.379
+Jitendra K: This is fit method.
+
+633
+01:00:42.090 --> 01:00:43.619
+Jitendra K: I'll fit this method.
+
+634
+01:00:43.890 --> 01:00:48.300
+Jitendra K: Let's create a random forest object, so it has been stored in this… Boom.
+
+635
+01:00:48.690 --> 01:00:52.280
+Jitendra K: So this is my random forest object. Now I will say wirepredict.
+
+636
+01:00:55.550 --> 01:01:01.650
+Jitendra K: I mean, I'm predicting… on the unseen data, and I'm using Xtest.
+
+637
+01:01:02.610 --> 01:01:09.550
+Jitendra K: And then I will comment on the accuracy. So I will say accuracy of my model, is…
+
+638
+01:01:09.740 --> 01:01:11.649
+Jitendra K: Given by accuracy score.
+
+639
+01:01:12.760 --> 01:01:19.030
+Jitendra K: Which is difference between Y test and Y predicted, and I will put it. So it is giving 100% accuracy.
+
+640
+01:01:20.060 --> 01:01:23.789
+Jitendra K: Which is good, for my purpose.
+
+641
+01:01:24.320 --> 01:01:33.090
+Jitendra K: But remember, this is a very tall data set, maybe the accuracy will differ for real-time use cases, but at least it is more accurate than
+
+642
+01:01:33.410 --> 01:01:38.109
+Jitendra K: logistic regression, Additionally that we have learned in the…
+
+643
+01:01:38.300 --> 01:01:41.449
+Jitendra K: Earlier losses, with the same data sets.
+
+644
+01:01:45.340 --> 01:01:46.160
+Jitendra K: Right?
+
+645
+01:01:46.550 --> 01:01:49.110
+Jitendra K: So, what I'm going to do next is…
+
+646
+01:01:49.580 --> 01:01:53.300
+Jitendra K: We are going to solve some more complex problems.
+
+647
+01:01:54.420 --> 01:02:07.560
+Jitendra K: So, first and the foremost thing, I have to show you how random Sample with substitution, works.
+
+648
+01:02:07.700 --> 01:02:09.130
+Jitendra K: In Random Forest.
+
+649
+01:02:10.450 --> 01:02:11.840
+Jitendra K: With an example.
+
+650
+01:02:14.220 --> 01:02:16.920
+Jitendra K: So that you should at least know the concepts.
+
+651
+01:02:18.590 --> 01:02:23.580
+Jitendra K: So, we are talking about how to… why sample substitution is important.
+
+652
+01:02:29.050 --> 01:02:29.920
+Jitendra K: Right?
+
+653
+01:02:32.120 --> 01:02:35.000
+Jitendra K: So, I will show you with some simple example.
+
+654
+01:02:36.370 --> 01:02:42.629
+Jitendra K: And, I will demonstrate… The key ideas of auto-bag errors.
+
+655
+01:02:43.570 --> 01:02:48.339
+Jitendra K: And, random forest with sub… sorry, random sample with substitution.
+
+656
+01:03:08.950 --> 01:03:12.579
+Jitendra K: Okay, so let me quickly generate some synthetic data.
+
+657
+01:03:15.820 --> 01:03:18.270
+Jitendra K: So first, I will generate some synthetic data.
+
+658
+01:03:20.130 --> 01:03:24.889
+Jitendra K: And, let me make it, 500 samples, to be very…
+
+659
+01:03:26.310 --> 01:03:29.720
+Jitendra K: Precise width. I will create some synthetic samples.
+
+660
+01:03:30.940 --> 01:03:34.059
+Jitendra K: And I will create 500 samples to begin.
+
+661
+01:03:35.280 --> 01:03:36.860
+Jitendra K: Sorry, this is…
+
+662
+01:03:41.820 --> 01:03:43.900
+Jitendra K: So I will create 500 samples.
+
+663
+01:03:45.150 --> 01:03:51.140
+Jitendra K: Now, once I have 500 sample, I would like to… Demonstrate bootstrapping sample.
+
+664
+01:03:51.730 --> 01:03:58.100
+Jitendra K: So let me show you… how actually Bootstrap Extractor works.
+
+665
+01:03:58.910 --> 01:04:03.219
+Jitendra K: So I'm going to pick up… Few samples from the data.
+
+666
+01:04:05.930 --> 01:04:08.720
+Jitendra K: So you can see that this data is…
+
+667
+01:04:08.860 --> 01:04:13.320
+Jitendra K: that I'm using is randomly generated and randomly extracted.
+
+668
+01:04:14.170 --> 01:04:18.850
+Jitendra K: So, for history, When you're performing this kind of analysis.
+
+669
+01:04:19.390 --> 01:04:22.720
+Jitendra K: About 63% of the sample has been used.
+
+670
+01:04:25.380 --> 01:04:30.909
+Jitendra K: But remaining 37% has been left over, although you have a data, but you are not able to utilize it.
+
+671
+01:04:31.860 --> 01:04:33.720
+Jitendra K: So this is called auto-bag errors.
+
+672
+01:04:34.390 --> 01:04:36.759
+Jitendra K: Right? So when you start training the model.
+
+673
+01:04:37.400 --> 01:04:42.040
+Jitendra K: With 63% of the data, which is a good approach, 63%,
+
+674
+01:04:42.650 --> 01:04:45.020
+Jitendra K: Is sufficient enough to train the model.
+
+675
+01:04:45.400 --> 01:04:51.639
+Jitendra K: But here we are talking about what if the remaining 37% of our data have some issue.
+
+676
+01:04:51.800 --> 01:04:54.569
+Jitendra K: So you have to also calculate the auto-bag errors.
+
+677
+01:04:55.860 --> 01:04:59.720
+Jitendra K: So there's a way that you can be able to identify the auto-back error by running
+
+678
+01:05:00.080 --> 01:05:02.490
+Jitendra K: Test accuracy versus auto bag.
+
+679
+01:05:02.850 --> 01:05:04.090
+Jitendra K: Error accuracy.
+
+680
+01:05:05.150 --> 01:05:12.760
+Jitendra K: So if you're going to, you'll see that AutoBag accuracy is close to a test accuracy. So it shows reliable error estimate.
+
+681
+01:05:14.890 --> 01:05:15.750
+Jitendra K: Right?
+
+682
+01:05:16.060 --> 01:05:18.669
+Jitendra K: I'm talking in general, Pankaj.
+
+683
+01:05:19.380 --> 01:05:24.350
+Jitendra K: In general, it is going to use 63% of the data, so I'm not passing any hard numbers.
+
+684
+01:05:25.680 --> 01:05:28.409
+Jitendra K: So, I will show you the auto-bag errors.
+
+685
+01:05:29.070 --> 01:05:37.580
+Jitendra K: With some… List… So let's say I've got 1, 2, 3, 4, 5 element.
+
+686
+01:05:38.480 --> 01:05:42.100
+Jitendra K: So, these are my 5 data points that I'm fitting to my random forest.
+
+687
+01:05:42.770 --> 01:05:50.220
+Jitendra K: And I would like to fit my model object on these parameters and estimating the Remaining leftovers.
+
+688
+01:05:51.560 --> 01:05:54.960
+Jitendra K: So you can see that for each tree that I'm constructing.
+
+689
+01:05:56.410 --> 01:06:02.960
+Jitendra K: I'm reducing the out-of-bag error by some percentage. If I increase the number of trees, I'm utilizing…
+
+690
+01:06:03.220 --> 01:06:05.300
+Jitendra K: Number of data points, judicially.
+
+691
+01:06:06.320 --> 01:06:10.020
+Jitendra K: So our auto bag error decreases as the number of tree increases.
+
+692
+01:06:10.690 --> 01:06:13.130
+Jitendra K: Right? That is one way that you can think of.
+
+693
+01:06:13.470 --> 01:06:14.280
+Jitendra K: Right?
+
+694
+01:06:14.490 --> 01:06:16.680
+Jitendra K: Another thing is…
+
+695
+01:06:17.210 --> 01:06:23.419
+Jitendra K: Is it always advisable to use a large tree? It will increase the complexity of your algorithm, for sure.
+
+696
+01:06:23.670 --> 01:06:25.960
+Jitendra K: Because you have to create multiple trees.
+
+697
+01:06:26.340 --> 01:06:29.400
+Jitendra K: And that's why we are going to talk about hyperparameters.
+
+698
+01:06:29.980 --> 01:06:37.000
+Jitendra K: And we will use still what level we should grow the tree, how many trees we should construct to reduce the outer bag errors.
+
+699
+01:06:37.580 --> 01:06:44.780
+Jitendra K: So everything that you are going to work in Random Forest is in the context of out-of-bag error reduction. That is what I'm trying to say.
+
+700
+01:06:49.070 --> 01:06:49.890
+Jitendra K: Right?
+
+701
+01:06:50.170 --> 01:06:54.590
+Jitendra K: So, this is one of the objectives of your random forest.
+
+702
+01:06:56.020 --> 01:06:57.800
+Jitendra K: To reduce auto-bag error.
+
+703
+01:07:00.900 --> 01:07:04.770
+Jitendra K: Is it always a class value, the sample data? It is always…
+
+704
+01:07:05.470 --> 01:07:12.140
+Jitendra K: It depends, right? If you're constructing 100 trees with 1 million data points, it may.
+
+705
+01:07:12.590 --> 01:07:16.859
+Jitendra K: Left over 37%, but if you're constructing with 10,000 data points.
+
+706
+01:07:16.980 --> 01:07:19.009
+Jitendra K: Under a tree, it may differ.
+
+707
+01:07:21.180 --> 01:07:23.369
+Jitendra K: It depends upon your data volume.
+
+708
+01:07:24.600 --> 01:07:25.550
+Jitendra K: as well.
+
+709
+01:07:27.320 --> 01:07:30.019
+Jitendra K: But generally, you have to get out of bag error with this.
+
+710
+01:07:30.390 --> 01:07:32.289
+Jitendra K: Using one simple line of code.
+
+711
+01:07:33.750 --> 01:07:35.440
+Jitendra K: And you have to benchmark.
+
+712
+01:07:36.910 --> 01:07:43.489
+Jitendra K: If you're using 1000 tree or 100 trees, what is the auto-bag error, and what is the reduction if you increase the tree?
+
+713
+01:07:43.950 --> 01:07:48.499
+Jitendra K: So that you can find some viable numbers and operate on that.
+
+714
+01:07:53.930 --> 01:08:04.650
+Jitendra K: So, the mathematics is clear what exactly we are trying to do with random sample with substitution. So, random sample with substitution does not track anything. You will not say that I have use.
+
+715
+01:08:04.860 --> 01:08:08.410
+Jitendra K: this sample… So maybe it's like that.
+
+716
+01:08:08.960 --> 01:08:18.490
+Jitendra K: let's say I'm giving a very simple example. I've got… C1, C2… C3… C4, C5.
+
+717
+01:08:18.649 --> 01:08:20.640
+Jitendra K: Columns. Features.
+
+718
+01:08:21.399 --> 01:08:27.790
+Jitendra K: I've got row 1… Row 2, Row 3, Row 4…
+
+719
+01:08:28.359 --> 01:08:30.489
+Jitendra K: Maybe I can add one more row 5.
+
+720
+01:08:31.540 --> 01:08:33.830
+Jitendra K: Okay, this is called 5 Cross 5 grid.
+
+721
+01:08:34.649 --> 01:08:36.700
+Jitendra K: So, in this 5 cross-5 grid.
+
+722
+01:08:36.850 --> 01:08:41.009
+Jitendra K: I have two choices. Either I can train my model with all data points.
+
+723
+01:08:41.680 --> 01:08:43.859
+Jitendra K: And, create a DCN tree.
+
+724
+01:08:45.260 --> 01:08:48.410
+Jitendra K: Or, I can say, I would like to select
+
+725
+01:08:48.880 --> 01:08:53.450
+Jitendra K: Sample with substitution. So I will say that let's go with 3 columns.
+
+726
+01:08:54.229 --> 01:08:57.130
+Jitendra K: Use all the rows, and create DT1.
+
+727
+01:09:01.279 --> 01:09:06.189
+Jitendra K: In the second iteration, I will go with these three columns.
+
+728
+01:09:07.300 --> 01:09:10.379
+Jitendra K: all roles… And I will create DT2.
+
+729
+01:09:13.840 --> 01:09:21.580
+Jitendra K: In the third iteration, I can go with these three columns, all rows, And I will create DT3.
+
+730
+01:09:23.880 --> 01:09:35.029
+Jitendra K: So when I'm saying all rows, that means I'm not leaving any leftover. But as soon as I say sample with substitution, I'm restricting the rows as well. So I will say R1 to R4.
+
+731
+01:09:35.520 --> 01:09:37.729
+Jitendra K: This is totally random, right, by the way?
+
+732
+01:09:38.630 --> 01:09:48.490
+Jitendra K: So I'm saying R1 to R4, and R1 to R4 here. So that is where auto-bag errors will come, right? Because I'm not utilizing R5 to construct.
+
+733
+01:09:49.770 --> 01:09:53.169
+Jitendra K: And this is 20% of my data, which is high number.
+
+734
+01:09:56.760 --> 01:09:59.320
+Jitendra K: Right? So my idea is to reduce this as well.
+
+735
+01:09:59.750 --> 01:10:03.130
+Jitendra K: So I would like to utilize this R5 to train my model.
+
+736
+01:10:03.850 --> 01:10:08.710
+Jitendra K: Because my R5 may have different data sets, which may explain the variance a bit better.
+
+737
+01:10:12.570 --> 01:10:17.490
+Jitendra K: So the overall idea is to reduce variance, Plus auto-bag errors.
+
+738
+01:10:21.000 --> 01:10:22.840
+Jitendra K: And that is your objective.
+
+739
+01:10:23.550 --> 01:10:24.270
+Jitendra K: off.
+
+740
+01:10:24.400 --> 01:10:25.629
+Jitendra K: Random Forest.
+
+741
+01:10:39.130 --> 01:10:41.280
+Jitendra K: Now we'll talk about how to do that.
+
+742
+01:10:43.750 --> 01:10:47.760
+Jitendra K: Right? So, we will… Create a…
+
+743
+01:10:48.510 --> 01:10:51.730
+Jitendra K: Kind of, tutorial to solve this problem.
+
+744
+01:10:52.920 --> 01:10:59.100
+Jitendra K: And the tutorial will be very deep and elaborative, so just, focus on…
+
+745
+01:11:00.030 --> 01:11:07.199
+Jitendra K: the concept, because the data points, anyway, we are going to use IRIS, So, dataset I'm not,
+
+746
+01:11:07.890 --> 01:11:11.849
+Jitendra K: Changing right now, because we're learning concepts, so let's stick with the basics.
+
+747
+01:11:12.380 --> 01:11:14.410
+Jitendra K: So I'll go with RS dataset again.
+
+748
+01:11:15.630 --> 01:11:23.610
+Jitendra K: So, I will import all the files, all the modules, And check if my data… is present…
+
+749
+01:11:24.350 --> 01:11:26.139
+Jitendra K: Then I will use my data.
+
+750
+01:11:34.420 --> 01:11:37.760
+Jitendra K: So I'm loading IRIS dataset. These are the samples of my arrays.
+
+751
+01:11:38.440 --> 01:11:44.190
+Jitendra K: Now, in the section 2, I will look into the entropy and the information gain calculation of random forest.
+
+752
+01:11:44.540 --> 01:11:50.589
+Jitendra K: So I've created, several functions that will help you to understand the entropy and information gain.
+
+753
+01:11:51.020 --> 01:11:53.929
+Jitendra K: So, let me compile these functions.
+
+754
+01:11:54.970 --> 01:12:02.909
+Jitendra K: So, okay, so this is where I'm getting some sort of output. So, these mathematical formulas I'm just using
+
+755
+01:12:03.310 --> 01:12:05.450
+Jitendra K: Very similar to what we have discussed.
+
+756
+01:12:05.830 --> 01:12:09.340
+Jitendra K: In the whiteboard, right?
+
+757
+01:12:09.470 --> 01:12:13.270
+Jitendra K: What is entropy and what is information gain, and what is the relationship between the two?
+
+758
+01:12:13.600 --> 01:12:18.949
+Jitendra K: So here, I'm saying that the most impure node that I'm going to use is, or begin with, is patrol length.
+
+759
+01:12:19.720 --> 01:12:24.809
+Jitendra K: And the threshold is 4.3, and the entropy of this node is 1.5.
+
+760
+01:12:25.470 --> 01:12:29.250
+Jitendra K: So I've got several significant values.
+
+761
+01:12:29.720 --> 01:12:32.310
+Jitendra K: To consider the child node.
+
+762
+01:12:33.070 --> 01:12:34.790
+Jitendra K: And these are the classes.
+
+763
+01:12:37.000 --> 01:12:43.020
+Jitendra K: And then I'm calculating the entropy. So, let me explain what this inform… sorry, what this calculation does.
+
+764
+01:12:44.300 --> 01:12:47.070
+Jitendra K: So, if I have to explain you by simple terms…
+
+765
+01:12:47.950 --> 01:12:51.050
+Jitendra K: Right? So we are calculating the entropy at each level.
+
+766
+01:12:52.230 --> 01:12:54.910
+Jitendra K: At each level of a decent reconstruct.
+
+767
+01:12:58.070 --> 01:12:58.940
+Jitendra K: Right?
+
+768
+01:12:59.480 --> 01:13:03.750
+Jitendra K: So, basically, the idea is, when we are cons… when we are considering.
+
+769
+01:13:04.240 --> 01:13:07.069
+Jitendra K: these calculation. We are looking for…
+
+770
+01:13:07.700 --> 01:13:11.919
+Jitendra K: The level of a dysentery, or the level of a particular model.
+
+771
+01:13:13.780 --> 01:13:18.860
+Jitendra K: So here, I'm showing that how information gain has been computed for dysentery split.
+
+772
+01:13:19.230 --> 01:13:21.129
+Jitendra K: Using the feature called Paddle Length.
+
+773
+01:13:21.910 --> 01:13:33.949
+Jitendra K: So, here I'm saying that my information gain is nothing but… It's a difference of… Entropy of the parent.
+
+774
+01:13:35.690 --> 01:13:38.029
+Jitendra K: Minus entropy of the child.
+
+775
+01:13:38.350 --> 01:13:39.230
+Jitendra K: node.
+
+776
+01:13:41.760 --> 01:13:46.989
+Jitendra K: So, entropy of the parent means before split, and entropy of the child means after split.
+
+777
+01:13:47.740 --> 01:13:51.799
+Jitendra K: So basically, the goal of this syntry is to find the maximum information gain.
+
+778
+01:13:52.080 --> 01:14:00.410
+Jitendra K: So, parent entropy that I'm getting before split, Satosa has 31 sample, Versicolor has 37, Virginica has 37.
+
+779
+01:14:00.860 --> 01:14:06.639
+Jitendra K: So I'm fitting the probability of predicting these classes, and these are the numbers that I'm getting.
+
+780
+01:14:07.130 --> 01:14:10.509
+Jitendra K: Because remember, the entropy formula is H of S,
+
+781
+01:14:10.840 --> 01:14:14.799
+Jitendra K: is equals to minus P of i log of P .
+
+782
+01:14:15.410 --> 01:14:18.220
+Jitendra K: And then I'm plugging these values, and I'm getting these numbers.
+
+783
+01:14:18.590 --> 01:14:23.480
+Jitendra K: So if I look into the parent entropy, which is 1.58, the child entropy is reduced.
+
+784
+01:14:23.760 --> 01:14:24.950
+Jitendra K: At each class.
+
+785
+01:14:25.610 --> 01:14:29.760
+Jitendra K: That means… I'm trying to create a split criteria.
+
+786
+01:14:30.100 --> 01:14:35.960
+Jitendra K: So I'm saying that… I'm keeping a threshold of pattern length to be 4.3cm.
+
+787
+01:14:36.360 --> 01:14:42.569
+Jitendra K: So if the pattern length… Is less than 4.3 centimeter.
+
+788
+01:14:43.380 --> 01:14:45.690
+Jitendra K: Consider this node as a left child.
+
+789
+01:14:46.100 --> 01:14:51.519
+Jitendra K: If pattern length is greater than… 4.5, 4.3 centimeter.
+
+790
+01:14:51.930 --> 01:14:54.100
+Jitendra K: Then consider this as a right child.
+
+791
+01:14:56.390 --> 01:15:04.410
+Jitendra K: Right? So each node has a different class distribution based upon that. So my left entropy would be high.
+
+792
+01:15:05.100 --> 01:15:08.430
+Jitendra K: Than the right entropy, because of the impurities.
+
+793
+01:15:10.180 --> 01:15:11.970
+Jitendra K: Right? And the class proportion.
+
+794
+01:15:12.290 --> 01:15:15.929
+Jitendra K: So that is how decentry has been constructed internally.
+
+795
+01:15:16.500 --> 01:15:21.880
+Jitendra K: So, basically, the idea is, you're going to balance it out, the criterias?
+
+796
+01:15:22.540 --> 01:15:28.640
+Jitendra K: We are going to balance it out, the improving in… sorry, you're going to look forward for…
+
+797
+01:15:28.920 --> 01:15:31.889
+Jitendra K: Increasing the information gain at each level.
+
+798
+01:15:32.780 --> 01:15:35.589
+Jitendra K: They're going to decrease the entropy at each level.
+
+799
+01:15:36.280 --> 01:15:47.460
+Jitendra K: And then, based upon this, We are going to operate on… multiple… node characteristics.
+
+800
+01:15:47.960 --> 01:15:50.000
+Jitendra K: That will help you to improve the model.
+
+801
+01:16:00.180 --> 01:16:01.720
+Jitendra K: So, any question on this?
+
+802
+01:16:06.850 --> 01:16:08.489
+Jitendra K: Any question, anything?
+
+803
+01:16:09.730 --> 01:16:13.139
+Jitendra K: Can I share this code with you, if you guys want to try this out?
+
+804
+01:16:18.420 --> 01:16:23.740
+Jitendra K: Alright, let me share this code, and let's take 10 minutes to run this.
+
+805
+01:16:24.090 --> 01:16:26.210
+Jitendra K: So once you complete, please let me know.
+
+806
+01:16:27.300 --> 01:16:32.080
+Jitendra K: We will use some complex example. The idea, as I mentioned.
+
+807
+01:16:32.220 --> 01:16:34.120
+Jitendra K: We have to first learn basics.
+
+808
+01:16:35.710 --> 01:16:42.909
+Jitendra K: And once we excel through the basics, you're comfortable with the terminologies, then we'll move on to the real-time value use cases.
+
+809
+01:17:38.910 --> 01:17:45.629
+Jitendra K: Okay, I have to show you the Guinea empiricity calculation as well, then we will move on to the execution part.
+
+810
+01:17:45.940 --> 01:17:49.040
+Jitendra K: Sorry, I forgot, just because of the flow.
+
+811
+01:17:49.260 --> 01:17:52.539
+Jitendra K: So, also, I have to show you the Guinea impurity calculation.
+
+812
+01:17:53.010 --> 01:17:56.280
+Jitendra K: So, this is the Guinea impurity at each class.
+
+813
+01:17:56.500 --> 01:17:58.729
+Jitendra K: And then I would like to talk about the…
+
+814
+01:17:58.910 --> 01:18:01.709
+Jitendra K: Criterias, how this entry has been constructed.
+
+815
+01:18:02.040 --> 01:18:07.150
+Jitendra K: And also, I would like to show you the importance and different auto-back error reduction.
+
+816
+01:18:07.440 --> 01:18:09.300
+Jitendra K: That has been taken care of by this.
+
+817
+01:18:09.680 --> 01:18:11.049
+Jitendra K: kind of forest model.
+
+818
+01:18:15.630 --> 01:18:23.060
+Jitendra K: Now, this is a very important calculation, because I'm considering all three factors, Guinea, entropy, information gain, and bootstrap probability.
+
+819
+01:18:23.810 --> 01:18:29.440
+Jitendra K: I can explain you each one by one. Let me go into the… full mode.
+
+820
+01:18:31.520 --> 01:18:36.929
+Jitendra K: Okay, so I think this is clear to everyone that what are the features that we are going to target.
+
+821
+01:18:37.400 --> 01:18:43.539
+Jitendra K: Right, so this… there's no doubt about, features part. So we are having 4 features, 3 classes.
+
+822
+01:18:44.220 --> 01:18:47.599
+Jitendra K: Right? An equal proportion of samples for each class.
+
+823
+01:18:47.800 --> 01:18:50.939
+Jitendra K: So, I… I don't think so there's any confusion in that part.
+
+824
+01:18:51.730 --> 01:18:54.969
+Jitendra K: Now, the question is, which particular feature
+
+825
+01:18:55.520 --> 01:18:57.649
+Jitendra K: Is gonna be a parent node.
+
+826
+01:18:57.810 --> 01:18:59.380
+Jitendra K: Who will be the leader?
+
+827
+01:19:01.730 --> 01:19:03.660
+Jitendra K: for creating the decision tree.
+
+828
+01:19:03.880 --> 01:19:12.260
+Jitendra K: So, the answer is simple, those who is the most impure node, or data point, we will start with that as a leader, or parent node.
+
+829
+01:19:14.600 --> 01:19:18.269
+Jitendra K: Right? So we'll say that this is the most impure node, so let's begin with that.
+
+830
+01:19:19.660 --> 01:19:24.939
+Jitendra K: And the… Criteria for measuring the impurity is entropy.
+
+831
+01:19:26.220 --> 01:19:28.779
+Jitendra K: So we are using entropy. H.
+
+832
+01:19:35.010 --> 01:19:39.769
+Jitendra K: So the first step that you're getting is, you're using a thresholds.
+
+833
+01:19:40.350 --> 01:19:42.630
+Jitendra K: To construct this decision tree.
+
+834
+01:19:43.090 --> 01:19:45.180
+Jitendra K: So, the dysentery will look like this.
+
+835
+01:19:46.340 --> 01:19:50.710
+Jitendra K: So, when you're building a dysentery, you're looking for left node and the right node.
+
+836
+01:19:51.420 --> 01:19:57.130
+Jitendra K: So, the pattern length is less than 2.5cm, 2.45cm.
+
+837
+01:19:57.690 --> 01:20:01.550
+Jitendra K: You're saying that it is highly likely that this is class 0.
+
+838
+01:20:04.360 --> 01:20:11.440
+Jitendra K: If the pattern length is greater than the other criteria, then you're going to split and benchmark other two parameters.
+
+839
+01:20:12.330 --> 01:20:17.199
+Jitendra K: And if both conditions satisfied, it is highly likely it is class 1, which is Satosa.
+
+840
+01:20:20.020 --> 01:20:20.930
+Jitendra K: Right?
+
+841
+01:20:21.060 --> 01:20:25.809
+Jitendra K: So the core idea of construction of these trees are very simple.
+
+842
+01:20:27.340 --> 01:20:32.089
+Jitendra K: The algorithm is evaluating every feature to find the optimum split for a decision tree.
+
+843
+01:20:32.500 --> 01:20:38.490
+Jitendra K: So, it tests various thresholds, calculate the information gain at each threshold, select a threshold which is maximum gain.
+
+844
+01:20:39.540 --> 01:20:40.840
+Jitendra K: So basically.
+
+845
+01:20:40.990 --> 01:20:48.219
+Jitendra K: It is calculating information gain at every level by saying, information gain is equals to entropy of the parent.
+
+846
+01:20:49.350 --> 01:20:56.310
+Jitendra K: minus entropy, or a weighted average of the Chi's entropy.
+
+847
+01:20:59.620 --> 01:21:01.679
+Jitendra K: So, information gain has to be…
+
+848
+01:21:02.120 --> 01:21:04.759
+Jitendra K: High for better separation of the class.
+
+849
+01:21:06.440 --> 01:21:10.899
+Jitendra K: Right? If I'm asking you to look for investment decision.
+
+850
+01:21:12.100 --> 01:21:16.329
+Jitendra K: Google versus, let's say, some XYZ startup.
+
+851
+01:21:18.270 --> 01:21:20.779
+Jitendra K: XYZ startup is giving you 50…
+
+852
+01:21:21.000 --> 01:21:24.259
+Jitendra K: Dollar extra, in terms of forecasting.
+
+853
+01:21:25.040 --> 01:21:30.470
+Jitendra K: And Google is giving you $50 less. So you will still go with Google, because it's a trustworthy company for you.
+
+854
+01:21:30.910 --> 01:21:33.690
+Jitendra K: Right? Just $50 does not make any sense for you.
+
+855
+01:21:35.050 --> 01:21:39.889
+Jitendra K: Right, in that case. So that's uncertainty that you have to remove when you're choosing these notes.
+
+856
+01:21:40.590 --> 01:21:46.569
+Jitendra K: So make sure that the class separation should be high, to make your decisions more foolproof.
+
+857
+01:21:47.820 --> 01:21:52.620
+Jitendra K: You're rejecting an offer, took offer company you got. One company is offering you…
+
+858
+01:21:52.930 --> 01:21:56.050
+Jitendra K: Noida, another company is offering you Bangalore.
+
+859
+01:21:57.110 --> 01:22:01.160
+Jitendra K: 3 days work from home. Another company offer you 2 days work from home.
+
+860
+01:22:02.000 --> 01:22:08.669
+Jitendra K: One company is offering you 50 lakh per annum, second company is offering you 55 lakh per annum in Bangalore.
+
+861
+01:22:09.260 --> 01:22:17.690
+Jitendra K: Then you are going to compare pros and cons, traffic, quality of life, quality of air if you're moving to Gurga and Sierra.
+
+862
+01:22:18.230 --> 01:22:23.610
+Jitendra K: We will definitely look for all this, and then decide. I will go with a low package, but I need a…
+
+863
+01:22:24.020 --> 01:22:27.379
+Jitendra K: Good hygiene, and… good living standards.
+
+864
+01:22:27.940 --> 01:22:29.790
+Jitendra K: Right, so that depends upon your…
+
+865
+01:22:30.080 --> 01:22:32.699
+Jitendra K: Approach, and, the kind of…
+
+866
+01:22:33.250 --> 01:22:36.540
+Jitendra K: Information that you have to make a decision.
+
+867
+01:22:36.660 --> 01:22:42.829
+Jitendra K: So we are giving all the information to our random forest, so that it can try to separate the class as much as it can.
+
+868
+01:22:42.980 --> 01:22:44.719
+Jitendra K: So there are different ways, right?
+
+869
+01:22:44.840 --> 01:22:48.329
+Jitendra K: So these are the steps that has been taken care by Random Forest.
+
+870
+01:22:48.440 --> 01:22:49.950
+Jitendra K: To come up with this number.
+
+871
+01:22:50.460 --> 01:22:56.920
+Jitendra K: So just run this program, And let me know, your comfort level in understanding this.
+
+872
+01:22:57.240 --> 01:23:04.940
+Jitendra K: And then we'll take a break afterwards, and then we'll take some more examples on bagging models now.
+
+873
+01:23:05.530 --> 01:23:11.630
+Jitendra K: So, Rhinoforest, I think I have to cover one more example, and then we'll take,
+
+874
+01:23:13.020 --> 01:23:20.950
+Jitendra K: when we… then we move on to another technique. Let's take, 10 more minutes to run this example. I will be on mute.
+
+875
+01:23:21.160 --> 01:23:23.460
+Jitendra K: And let me know if there's any query.
+
+876
+01:34:28.480 --> 01:34:34.090
+Jitendra K: I hope, you're clear. Number three, the number of estimated are the same, yes.
+
+877
+01:34:35.320 --> 01:34:38.349
+Jitendra K: So, I think, if you're able to run this,
+
+878
+01:34:39.760 --> 01:34:43.609
+Jitendra K: Let's take a 20 minutes break, and then once we come back.
+
+879
+01:34:45.290 --> 01:34:48.609
+Jitendra K: Then we will start with some more example on Random Forest.
+
+880
+01:34:48.800 --> 01:34:53.460
+Jitendra K: So let's try to, finish Random Forest, and,
+
+881
+01:34:54.320 --> 01:34:59.720
+Jitendra K: One more algorithm, which is… maybe ExeeBoost we'll discuss today.
+
+882
+01:35:00.090 --> 01:35:09.310
+Jitendra K: But if not, then we will take a deep dive on random forest classification regression models. So that is the most important discussion that I have to make.
+
+883
+01:35:09.660 --> 01:35:13.250
+Jitendra K: All right, let's take a quick 20 minutes break, and then we'll start the session again. Thank you.
+
+884
+02:02:51.180 --> 02:02:54.429
+Jitendra K: Hi guys, I hope you're back, and we have a quick confirmation.
+
+885
+02:03:01.870 --> 02:03:11.250
+Jitendra K: Alright, so… Okay, so let's, let's do another thing. So, I'm going to talk about another model.
+
+886
+02:03:11.670 --> 02:03:17.909
+Jitendra K: And, we will use, this time, regression model from random forest classif… sorry, random forest class.
+
+887
+02:03:18.570 --> 02:03:21.469
+Jitendra K: And I will show you how Random Forest,
+
+888
+02:03:23.960 --> 02:03:27.500
+Jitendra K: a regressor works, right? So we'll talk about regression model.
+
+889
+02:03:27.880 --> 02:03:35.159
+Jitendra K: And, we will talk about, one more important library, which is called Feature Importance in Random Forest.
+
+890
+02:03:35.380 --> 02:03:40.949
+Jitendra K: So I will talk about feature importance, because feature importance, if you are able to understand.
+
+891
+02:03:41.170 --> 02:03:43.759
+Jitendra K: He was able to get, more…
+
+892
+02:03:44.370 --> 02:03:48.100
+Jitendra K: intuitive feature. You will be able to create more intuitive feature for your algorithm.
+
+893
+02:03:48.340 --> 02:03:58.219
+Jitendra K: So, we will try to look into renderforest regressor, along with feature importance, depiction from the model, right? So, for that, I'm going to use,
+
+894
+02:03:59.180 --> 02:04:01.930
+Jitendra K: scikit-learn open source data again.
+
+895
+02:04:02.540 --> 02:04:08.489
+Jitendra K: And, we will go with house price data set, which is available, most of the housing price data set.
+
+896
+02:04:08.720 --> 02:04:10.190
+Jitendra K: So let me go back.
+
+897
+02:04:10.510 --> 02:04:13.170
+Jitendra K: And this time, we are learning Random Forest.
+
+898
+02:04:18.500 --> 02:04:21.750
+Jitendra K: regression… model.
+
+899
+02:04:55.540 --> 02:05:01.760
+Jitendra K: Okay, so I will go with the housing pricing data set, and I'm going to use California.
+
+900
+02:05:02.220 --> 02:05:05.390
+Jitendra K: I think, second…
+
+901
+02:05:22.150 --> 02:05:25.929
+Jitendra K: And this is what I'm going to show it to you, permutation importance.
+
+902
+02:05:26.860 --> 02:05:29.140
+Jitendra K: So I will load this dataset.
+
+903
+02:05:29.400 --> 02:05:31.890
+Jitendra K: into Panda's data frame.
+
+904
+02:05:32.650 --> 02:05:37.609
+Jitendra K: I'll fetch the data via this method, fetch California Housing Data API.
+
+905
+02:05:37.920 --> 02:05:40.089
+Jitendra K: Let's split my data into X and Y.
+
+906
+02:05:40.600 --> 02:05:50.760
+Jitendra K: So my feature comprised of… these factors, which I think we already discussed, Many times.
+
+907
+02:05:51.580 --> 02:05:56.980
+Jitendra K: So these are the features of my algorithm, which include a target feature.
+
+908
+02:05:57.700 --> 02:06:06.269
+Jitendra K: And the input features, which include medium income, growth, house age, average rooms, average bedroom population, average occupancy.
+
+909
+02:06:07.200 --> 02:06:13.890
+Jitendra K: coordinates, and the target variable is median housing-wise, housing value that we would like to predict from this.
+
+910
+02:06:14.020 --> 02:06:15.030
+Jitendra K: Analysis.
+
+911
+02:06:15.690 --> 02:06:20.009
+Jitendra K: So we will do this analysis on these data samples.
+
+912
+02:06:20.490 --> 02:06:23.929
+Jitendra K: Now, I would like to train my random forest regressor, so instead of…
+
+913
+02:06:24.070 --> 02:06:29.549
+Jitendra K: classifier, I would like to import, regressor. That's the only change that you are going to make.
+
+914
+02:06:30.110 --> 02:06:32.450
+Jitendra K: Remaining thing will remain as it is.
+
+915
+02:06:32.750 --> 02:06:35.350
+Jitendra K: That means you're fitting the method, and…
+
+916
+02:06:36.030 --> 02:06:37.889
+Jitendra K: Other stuff will remain as it is.
+
+917
+02:06:39.390 --> 02:06:47.889
+Jitendra K: So, the models start training, I'm keeping the number of estimator to be 100, number of, the random state, I'm keeping it 42 for recreatability purpose.
+
+918
+02:06:48.190 --> 02:06:55.359
+Jitendra K: And this is the number of jobs. As you know, that Random Forest works on parallel concept. So, basically, you can construct 3 parallelly.
+
+919
+02:06:55.630 --> 02:07:00.399
+Jitendra K: So I'm trying to construct a tree here, parallelly, by saying that this
+
+920
+02:07:00.860 --> 02:07:03.749
+Jitendra K: Particle parameter number of parallel threads.
+
+921
+02:07:04.010 --> 02:07:05.480
+Jitendra K: A number of jobs.
+
+922
+02:07:05.860 --> 02:07:15.429
+Jitendra K: Is, non-zero, or non… Positive integer, so it depends upon the availability of my GPUs and CPUs.
+
+923
+02:07:15.570 --> 02:07:18.379
+Jitendra K: Which will be utilized for training this model.
+
+924
+02:07:23.260 --> 02:07:24.100
+Jitendra K: Right?
+
+925
+02:07:24.300 --> 02:07:31.959
+Jitendra K: So this is what, The Rhinoforest object being generated now.
+
+926
+02:07:32.110 --> 02:07:35.759
+Jitendra K: Now, I would like to calculate a random forest regressor.
+
+927
+02:07:36.800 --> 02:07:40.050
+Jitendra K: So here I will say that I have a random forest fit method.
+
+928
+02:07:40.290 --> 02:07:45.770
+Jitendra K: That I will call, and I would like to create a feature importance. Sorry, I would like to train my model.
+
+929
+02:07:45.940 --> 02:07:47.160
+Jitendra K: Based upon that.
+
+930
+02:07:59.600 --> 02:08:01.010
+Jitendra K: So let me run this.
+
+931
+02:08:07.330 --> 02:08:09.000
+Jitendra K: So this is my fit object.
+
+932
+02:08:10.120 --> 02:08:12.010
+Jitendra K: Now, the most important thing is…
+
+933
+02:08:12.500 --> 02:08:15.719
+Jitendra K: What is the accuracy of the model, and which feature has been used, too?
+
+934
+02:08:16.540 --> 02:08:20.539
+Jitendra K: consider as the most important feature. Now, when we say importance feature.
+
+935
+02:08:22.070 --> 02:08:26.530
+Jitendra K: So when you say important feature, that means we are looking for the most impure node.
+
+936
+02:08:26.930 --> 02:08:27.740
+Jitendra K: Right?
+
+937
+02:08:28.110 --> 02:08:32.580
+Jitendra K: And, the most important node in this example is median income group.
+
+938
+02:08:32.680 --> 02:08:35.150
+Jitendra K: Followed by every occupation, and so on and so forth.
+
+939
+02:08:35.400 --> 02:08:43.009
+Jitendra K: So we'll use this dataset, or so called this particular example, to understand if I have to get the feature importance.
+
+940
+02:08:43.370 --> 02:08:45.479
+Jitendra K: Or permutation importance.
+
+941
+02:08:45.630 --> 02:08:49.709
+Jitendra K: Right? I can able to get easily from Random Forest, class.
+
+942
+02:08:50.450 --> 02:08:55.140
+Jitendra K: So there's a difference between permutation importance and feature importance, so let me clarify this.
+
+943
+02:08:56.810 --> 02:08:59.379
+Jitendra K: So I'm using a permutation importance now.
+
+944
+02:09:06.480 --> 02:09:11.509
+Jitendra K: Oh, I think I forgot that we have to use two separate notebooks, but I will separate it.
+
+945
+02:09:25.800 --> 02:09:32.260
+Jitendra K: Okay, so you can see that, feature importance and permutation importance are two different, yielding two different results.
+
+946
+02:09:32.580 --> 02:09:37.080
+Jitendra K: So, feature importance is based upon the entropy, or I would say impurity.
+
+947
+02:09:37.390 --> 02:09:42.339
+Jitendra K: So every time a feature is created, when you are splitting, you're calculating the impurity.
+
+948
+02:09:42.950 --> 02:09:52.180
+Jitendra K: But in case of permutation importance, it measures the model performance on validation tests. So here, we are calculating the model performance in terms of
+
+949
+02:09:52.430 --> 02:09:55.000
+Jitendra K: Baseline accuracy, or R-square values.
+
+950
+02:09:55.210 --> 02:09:58.540
+Jitendra K: So, what it does is… It will…
+
+951
+02:09:59.490 --> 02:10:03.559
+Jitendra K: Drop certain features, which is deteriorating the model performance.
+
+952
+02:10:03.790 --> 02:10:05.369
+Jitendra K: And then sort it out.
+
+953
+02:10:06.470 --> 02:10:13.850
+Jitendra K: you are getting a kind of a direct cost function that you are going to use to operate on this model, right? So that is called permutation importance.
+
+954
+02:10:14.540 --> 02:10:19.299
+Jitendra K: although they are serving the same purpose, I mean, you're trying to sort the features.
+
+955
+02:10:19.530 --> 02:10:21.540
+Jitendra K: But with different provisioning.
+
+956
+02:10:22.190 --> 02:10:24.420
+Jitendra K: Right? Here, you're working on a target.
+
+957
+02:10:26.180 --> 02:10:27.930
+Jitendra K: Objective, directly.
+
+958
+02:10:28.120 --> 02:10:30.390
+Jitendra K: And here you are talking about overall model.
+
+959
+02:10:31.340 --> 02:10:35.519
+Jitendra K: Right? So let me… split this notebook.
+
+960
+02:10:42.500 --> 02:10:46.270
+Jitendra K: Let me first save this full notebook, and let me delete.
+
+961
+02:11:30.870 --> 02:11:32.920
+Jitendra K: Okay, so this is your new code.
+
+962
+02:11:34.230 --> 02:11:35.529
+Jitendra K: for regression.
+
+963
+02:11:53.500 --> 02:11:56.259
+Jitendra K: Okay, please use this notebook and let me know your thought.
+
+964
+02:12:09.710 --> 02:12:16.379
+Jitendra K: Okay, so we'll start with the random forest hyperparameter tuning. Before that, let's start to finish this regression.
+
+965
+02:12:16.810 --> 02:12:19.570
+Jitendra K: Then we move on to hyperparameter tuning, because…
+
+966
+02:12:19.840 --> 02:12:22.460
+Jitendra K: If you create random forest, well and good.
+
+967
+02:12:22.880 --> 02:12:30.570
+Jitendra K: But if you do not understand what is the parameters to fine-tune random forest, that's as terrible as you don't know anything about random forest.
+
+968
+02:12:31.060 --> 02:12:35.459
+Jitendra K: Right? So we will have to excel the hyperparameter tutorial.
+
+969
+02:12:38.310 --> 02:12:42.490
+Jitendra K: List… first try to understand what is the list of hyperparameters of random forest.
+
+970
+02:12:42.870 --> 02:12:45.119
+Jitendra K: And then, we will take one example.
+
+971
+02:12:57.890 --> 02:13:05.050
+Jitendra K: We will use cross-validation, we will also go for… Great search.
+
+972
+02:13:06.830 --> 02:13:07.740
+Jitendra K: And…
+
+973
+02:13:21.130 --> 02:13:26.029
+Jitendra K: So first, run this example for regression, and let me know once you're ready, so that we can discuss about…
+
+974
+02:13:29.620 --> 02:13:31.120
+Jitendra K: Hyperparameter tuning.
+
+975
+02:13:31.320 --> 02:13:36.189
+Jitendra K: And for hyperparameter, we will use great… Randomize and optioner.
+
+976
+02:13:36.520 --> 02:13:43.250
+Jitendra K: So, I would like to introduce you to Optuna… hyperparameter model.
+
+977
+02:13:44.370 --> 02:13:47.639
+Jitendra K: So if you're not aware about Optina, it's a Bayesian optimization.
+
+978
+02:13:49.070 --> 02:13:52.800
+Jitendra K: And it's an open source framework for hyperparameter tuning.
+
+979
+02:13:53.710 --> 02:14:00.469
+Jitendra K: So… It involved a lot of… There's a lot of,
+
+980
+02:14:01.480 --> 02:14:03.899
+Jitendra K: I would say, traction around this tool.
+
+981
+02:14:04.880 --> 02:14:08.269
+Jitendra K: So, we will use this tool to perform some analysis.
+
+982
+02:14:09.230 --> 02:14:12.299
+Jitendra K: And the analysis that we are going to perform is just hyperparameter tuning.
+
+983
+02:14:12.740 --> 02:14:17.240
+Jitendra K: So let's quickly finish this regression, and then we move on to optional.
+
+984
+02:15:08.010 --> 02:15:12.920
+Jitendra K: Let me change the… the source…
+
+985
+02:15:23.930 --> 02:15:28.129
+Jitendra K: Yeah, first complete the regression model, and let me know once you're ready.
+
+986
+02:19:59.580 --> 02:20:03.780
+Jitendra K: After fitting the data, the inference pipeline is running in the same way.
+
+987
+02:21:14.740 --> 02:21:18.459
+Jitendra K: So let me know once you're done, guys. I'm just waiting for…
+
+988
+02:21:24.200 --> 02:21:27.639
+Jitendra K: Okay, how about the others? Are you falling so far?
+
+989
+02:21:28.080 --> 02:21:30.050
+Jitendra K: Able to run and execute this code?
+
+990
+02:21:35.250 --> 02:21:38.200
+Jitendra K: Yeah, I can see a few thumbs up, two thumbs up.
+
+991
+02:21:40.210 --> 02:21:43.649
+Jitendra K: About the others, I can say 58 participants in the class.
+
+992
+02:21:44.050 --> 02:21:46.550
+Jitendra K: Are you following so far, the tutorial?
+
+993
+02:21:47.430 --> 02:21:51.140
+Jitendra K: Is it, helpful to remove your…
+
+994
+02:21:56.820 --> 02:21:58.960
+Jitendra K: Are you still scared with this quote?
+
+995
+02:22:16.760 --> 02:22:21.400
+Jitendra K: So, is it clear to everyone? Can we have a quick, thumbs up, yes, no?
+
+996
+02:22:26.790 --> 02:22:27.710
+Jitendra K: Okay.
+
+997
+02:22:30.240 --> 02:22:31.830
+Jitendra K: Alright, okay, great.
+
+998
+02:22:32.230 --> 02:22:38.969
+Jitendra K: So, we'll move ahead. So, we have understood how to create a random forest classified fires, right? So, we understand
+
+999
+02:22:39.220 --> 02:22:42.740
+Jitendra K: The basic mechanism of fitting data to random forest classifier.
+
+1000
+02:22:42.950 --> 02:22:47.289
+Jitendra K: Now we will talk about fine-tuning the hyperparameters. So…
+
+1001
+02:22:47.840 --> 02:22:51.869
+Jitendra K: This is important for two reasons. Once you have, created
+
+1002
+02:22:52.550 --> 02:22:56.529
+Jitendra K: the model, then after model creation, you have
+
+1003
+02:22:58.230 --> 02:23:01.129
+Jitendra K: To check whether your model overfit or underfit.
+
+1004
+02:23:01.560 --> 02:23:06.690
+Jitendra K: So once you see that your model is overfitting and underfitting, or having both characteristics.
+
+1005
+02:23:06.970 --> 02:23:08.910
+Jitendra K: Then you move on to the third.
+
+1006
+02:23:09.220 --> 02:23:12.130
+Jitendra K: Most important step, called hyperparameter tuning.
+
+1007
+02:23:13.250 --> 02:23:15.959
+Jitendra K: So, for that, I'm going to use,
+
+1008
+02:23:16.950 --> 02:23:19.829
+Jitendra K: Several ways to fine-tune the model.
+
+1009
+02:23:20.220 --> 02:23:26.769
+Jitendra K: I will use Bayesian, I will use grid search, I will use, random Search CV.
+
+1010
+02:23:27.490 --> 02:23:32.670
+Jitendra K: to perform this fine-tuning. So for that, I required to import certain packages.
+
+1011
+02:23:33.140 --> 02:23:36.440
+Jitendra K: Define certain cost functions and, work on.
+
+1012
+02:23:36.870 --> 02:23:40.030
+Jitendra K: The parameter of, the fine-tuning.
+
+1013
+02:23:40.240 --> 02:23:42.540
+Jitendra K: From the, model perspective.
+
+1014
+02:23:42.890 --> 02:23:47.969
+Jitendra K: So I would like to first import all the modules, including grid search, randomized search.
+
+1015
+02:23:48.190 --> 02:23:52.769
+Jitendra K: And then there's an optional package that I'm going to use for…
+
+1016
+02:23:53.340 --> 02:23:59.209
+Jitendra K: performing this analysis, along with, I have to import this…
+
+1017
+02:23:59.710 --> 02:24:01.849
+Jitendra K: Before that, I have to install.
+
+1018
+02:24:17.160 --> 02:24:18.859
+Jitendra K: This has been installed.
+
+1019
+02:24:20.810 --> 02:24:22.490
+Jitendra K: And imported as well.
+
+1020
+02:24:23.320 --> 02:24:27.270
+Jitendra K: Okay, so once I… install and import, I will…
+
+1021
+02:24:27.400 --> 02:24:32.999
+Jitendra K: load the data. So the data that I'm going to use now, in this case study, is a banking data now.
+
+1022
+02:24:33.230 --> 02:24:37.930
+Jitendra K: So I'm going to use a bank… loan… dataset.
+
+1023
+02:24:38.170 --> 02:24:43.099
+Jitendra K: Which is available in UCI repository, and this is a credit card data set.
+
+1024
+02:24:43.260 --> 02:24:46.490
+Jitendra K: Which talks about several attributes, including…
+
+1025
+02:24:46.600 --> 02:24:51.279
+Jitendra K: Customer ID, balance, gender, education level, marital status.
+
+1026
+02:24:52.070 --> 02:24:58.649
+Jitendra K: Age of the customer, how many types of payment he's doing, what is the previous bill amount, etc.
+
+1027
+02:24:58.850 --> 02:25:03.540
+Jitendra K: And then, based upon that, I would like to predict the…
+
+1028
+02:25:04.400 --> 02:25:18.019
+Jitendra K: basically, if I have a new application for credit card, and I have a similar customer who is having a good payback option, can I offer a credit card to the new customer application, or reject that application? So, I've got two classes.
+
+1029
+02:25:18.960 --> 02:25:24.220
+Jitendra K: By default, they are… not, they are… they are, I would say.
+
+1030
+02:25:24.740 --> 02:25:32.560
+Jitendra K: They are, normal customers, and I've got some fraud customers who's not paying back the credit card bill on time.
+
+1031
+02:25:32.780 --> 02:25:39.199
+Jitendra K: So I've got 22% of the data which is having fraud, and remaining 78% of the data which is non-fraud.
+
+1032
+02:25:39.590 --> 02:25:43.940
+Jitendra K: So this is our Landing Club loan default data set that I'm going to use.
+
+1033
+02:25:44.670 --> 02:25:48.240
+Jitendra K: And the features, as I mentioned, I'm going to use these features.
+
+1034
+02:25:48.950 --> 02:25:50.770
+Jitendra K: I've renamed the columns.
+
+1035
+02:25:51.080 --> 02:25:52.719
+Jitendra K: And these are my features now.
+
+1036
+02:25:53.570 --> 02:26:00.130
+Jitendra K: So, when you are applying for any credit card or loan, these are the credit history which has been evaluated by the bank.
+
+1037
+02:26:00.570 --> 02:26:05.220
+Jitendra K: So we are seeing all this… attributes…
+
+1038
+02:26:05.370 --> 02:26:08.060
+Jitendra K: And then decide whether to offer a loan or not.
+
+1039
+02:26:09.220 --> 02:26:17.590
+Jitendra K: Right? Very similar use cases that you are using for home loan or any other type of loan application. Even car loan will go for
+
+1040
+02:26:17.950 --> 02:26:21.010
+Jitendra K: UNCYCL loan will go for this validation.
+
+1041
+02:26:21.710 --> 02:26:23.010
+Jitendra K: So…
+
+1042
+02:26:23.140 --> 02:26:31.100
+Jitendra K: let me use the first method called grid searchCV, and GridSourceCV I'm going to use to fine-tune my hyperparameter.
+
+1043
+02:26:31.580 --> 02:26:34.710
+Jitendra K: So, first and foremost thing, I would like to use GridSearch CV.
+
+1044
+02:26:35.130 --> 02:26:37.339
+Jitendra K: for doing this analysis, so I will say that
+
+1045
+02:26:37.490 --> 02:26:45.160
+Jitendra K: I've got a number of estimated, the number of tree, in a range of 100 to 200 and 300, so I will mark these options.
+
+1046
+02:26:45.470 --> 02:26:55.720
+Jitendra K: the maximum depth of the tree, which is nothing but till what level the tree can grow, I'm keeping it there. The maximum split per ratio. At a class level, I'm keeping it this.
+
+1047
+02:26:56.000 --> 02:27:00.159
+Jitendra K: The minimum sample leave, I'm keeping it to be 1, 2, and 4.
+
+1048
+02:27:00.390 --> 02:27:08.490
+Jitendra K: I'm creating a maximum feature by transforming those features into log or square root. This is linear, this is nonlinear.
+
+1049
+02:27:08.590 --> 02:27:14.039
+Jitendra K: So I'm… Keeping both options. Bootstrap sample, I'm keeping it to be true or false.
+
+1050
+02:27:14.320 --> 02:27:16.409
+Jitendra K: So, by default, I will keep it true.
+
+1051
+02:27:16.510 --> 02:27:21.759
+Jitendra K: If it is true, it is a random forest project, otherwise it will become a deep tree method.
+
+1052
+02:27:22.010 --> 02:27:24.520
+Jitendra K: So that's the difference between Deep Tree and Random Forest.
+
+1053
+02:27:25.940 --> 02:27:34.679
+Jitendra K: So if I'm keeping the bootstrap option to be true, it will become a random forest. If I'm keeping it to be false, it will become deep tree. Another algorithm for bagging.
+
+1054
+02:27:35.460 --> 02:27:37.639
+Jitendra K: So let me compile this.
+
+1055
+02:27:38.900 --> 02:27:41.719
+Jitendra K: And it will start grid search. It will take a while.
+
+1056
+02:27:42.270 --> 02:27:45.299
+Jitendra K: The second method that I'm going to use is random search.
+
+1057
+02:27:51.010 --> 02:27:54.689
+Jitendra K: I will… Talk about the differences.
+
+1058
+02:27:55.240 --> 02:27:59.010
+Jitendra K: In the upcoming tutorial, but in this tutorial, I will keep it simple.
+
+1059
+02:27:59.320 --> 02:28:02.509
+Jitendra K: The third method that I'm going to use is Optuna.
+
+1060
+02:28:03.200 --> 02:28:06.240
+Jitendra K: which is a Bayesian search. It will take further time.
+
+1061
+02:28:06.450 --> 02:28:07.370
+Jitendra K: Run.
+
+1062
+02:28:08.390 --> 02:28:10.789
+Jitendra K: And then I will compare all the three methods.
+
+1063
+02:28:10.960 --> 02:28:17.429
+Jitendra K: So let me first explain what are we trying to parameterize, and what are we trying to fine-tune, right?
+
+1064
+02:28:17.720 --> 02:28:23.609
+Jitendra K: So, basically, we have a set of hyperparameter, right? We have a set of hyperparameter.
+
+1065
+02:28:23.880 --> 02:28:30.960
+Jitendra K: The set of hyperparameter that we are talking about in Random Forest include number of estimator, which is number of trees. By default, it is 100.
+
+1066
+02:28:31.290 --> 02:28:38.909
+Jitendra K: So, as far as the random forest class, by default, your number of trees will be 100. You can increase, decrease, whatever you feel.
+
+1067
+02:28:39.060 --> 02:28:40.880
+Jitendra K: Depending upon this parameter.
+
+1068
+02:28:41.140 --> 02:28:45.770
+Jitendra K: the maximum depth That means if I'm constructing a tree.
+
+1069
+02:28:46.290 --> 02:28:48.899
+Jitendra K: I would like to reach the maximum depth of…
+
+1070
+02:28:49.980 --> 02:28:55.000
+Jitendra K: Based upon these numbers. So I will say I would like to achieve turn trees.
+
+1071
+02:28:55.130 --> 02:28:58.519
+Jitendra K: From the initial node level, go up to 10 level.
+
+1072
+02:29:00.460 --> 02:29:03.710
+Jitendra K: Right? So that is called number of depth.
+
+1073
+02:29:04.190 --> 02:29:11.119
+Jitendra K: The minimum sample split that are required at each level, the number of samples that are required, should have at least two samples.
+
+1074
+02:29:11.450 --> 02:29:14.360
+Jitendra K: 5 samples, or 10 samples, to split.
+
+1075
+02:29:14.760 --> 02:29:19.119
+Jitendra K: So, if I'm taking two samples, the impurity level for this sample will be low.
+
+1076
+02:29:19.790 --> 02:29:26.120
+Jitendra K: If I'm taking 5 samples, the impurity will become high. If I'm even taking 10 samples, the impurity will be, again, high.
+
+1077
+02:29:26.300 --> 02:29:30.950
+Jitendra K: So I'm keeping the minimum sample split criteria to be based upon this.
+
+1078
+02:29:31.290 --> 02:29:40.520
+Jitendra K: Minimum sample leaf, that means, if I reach to a leaf node, it should have 3 nodes, 4 nodes, 2 nodes, depends upon my class.
+
+1079
+02:29:41.060 --> 02:29:50.050
+Jitendra K: So I'm trying to solve, right now, a problem which is binary classification. Either I'm going to give a loan, lend a loan, or say no.
+
+1080
+02:29:50.710 --> 02:29:56.170
+Jitendra K: So this is a binary classification problem. So leaf node should be 2, but let's see what model has to come up with.
+
+1081
+02:29:57.530 --> 02:30:02.769
+Jitendra K: Maximum features, again, this is a transformation, so square root versus log.
+
+1082
+02:30:03.290 --> 02:30:08.670
+Jitendra K: So I would say square root is linear, and log is nonlinear, it comes with a cost.
+
+1083
+02:30:09.660 --> 02:30:14.580
+Jitendra K: So… It is a complex transformation versus simple transformation.
+
+1084
+02:30:15.620 --> 02:30:17.010
+Jitendra K: We will compare this.
+
+1085
+02:30:19.010 --> 02:30:25.240
+Jitendra K: And bootstrap, as I mentioned, if it is zero, it means it will be your… Deep Tree?
+
+1086
+02:30:25.710 --> 02:30:27.280
+Jitendra K: This is a deep tree.
+
+1087
+02:30:27.720 --> 02:30:30.009
+Jitendra K: And if it is 1, it has become random forest.
+
+1088
+02:30:31.550 --> 02:30:37.260
+Jitendra K: Random forest works on reduction of variance, And out of bag error.
+
+1089
+02:30:37.480 --> 02:30:43.430
+Jitendra K: But in this case, deep free work on only reduction of variance, not on out of bag, because they are not shuffling your data.
+
+1090
+02:30:44.820 --> 02:30:49.539
+Jitendra K: Right, so that's the difference between… The two methods, bootstrap.
+
+1091
+02:30:49.850 --> 02:30:52.010
+Jitendra K: To be true and booster to be false.
+
+1092
+02:30:52.930 --> 02:31:01.480
+Jitendra K: So these are our parameters now, right? A parameter to your model. Which model? Which has been created by scikit-learn. And who has created this model?
+
+1093
+02:31:01.860 --> 02:31:07.430
+Jitendra K: mostly Stanford and MIT graduates, or some other data scientists from open source community.
+
+1094
+02:31:07.810 --> 02:31:17.889
+Jitendra K: Right? And they have gone through a thorough approvals on these models, and after several reviews, yeah, this become open source. So you cannot say this model is not good.
+
+1095
+02:31:18.120 --> 02:31:21.450
+Jitendra K: Your approach should be good. Model is already fixed.
+
+1096
+02:31:21.750 --> 02:31:24.510
+Jitendra K: Now, you cannot change data, you cannot change model.
+
+1097
+02:31:24.950 --> 02:31:28.920
+Jitendra K: Now, what else you can change, right, if you're not getting result?
+
+1098
+02:31:29.090 --> 02:31:31.999
+Jitendra K: The third option is, you have to change your hyperparameter.
+
+1099
+02:31:33.880 --> 02:31:35.970
+Jitendra K: So, hyperparameter fine-tuning.
+
+1100
+02:31:36.420 --> 02:31:40.830
+Jitendra K: Is the most important criteria that you should consider while
+
+1101
+02:31:41.780 --> 02:31:47.790
+Jitendra K: making your model more enriched, right? Because you cannot change the model. Model is… Fixed.
+
+1102
+02:31:49.530 --> 02:31:51.159
+Jitendra K: Your data is fixed.
+
+1103
+02:31:54.030 --> 02:32:05.570
+Jitendra K: You have committed to your business that data is good. Now, you cannot say over the mail that, oh, no, that data is not good. I feel that data is missing something. They will understand your cooking up the story because you're not getting good results.
+
+1104
+02:32:05.920 --> 02:32:10.209
+Jitendra K: So to get a better result, now you have to work hard on getting this hyperparameter fine-tuned.
+
+1105
+02:32:10.790 --> 02:32:16.040
+Jitendra K: You have to understand the model, you have to understand the approach, decide on…
+
+1106
+02:32:16.360 --> 02:32:20.939
+Jitendra K: Maybe a couple of approaches, or more, maybe 5 or 6 experiments.
+
+1107
+02:32:21.600 --> 02:32:27.050
+Jitendra K: And then try which experiment is fitting to your purpose. And that's the job of data scientists.
+
+1108
+02:32:27.330 --> 02:32:30.349
+Jitendra K: That's the only job of data scientists at this moment.
+
+1109
+02:32:31.220 --> 02:32:35.320
+Jitendra K: All the model has been written, all the business problem has been…
+
+1110
+02:32:35.780 --> 02:32:38.899
+Jitendra K: Created, data is fixed, model is fixed.
+
+1111
+02:32:39.300 --> 02:32:42.950
+Jitendra K: The only thing that you are going to talk about is your approach to solve the problem.
+
+1112
+02:32:44.040 --> 02:32:47.849
+Jitendra K: How did you approach that problem? That will decide your carrier.
+
+1113
+02:32:50.930 --> 02:32:54.969
+Jitendra K: If your approach is proper reasoning-based, proper
+
+1114
+02:32:55.240 --> 02:32:58.760
+Jitendra K: understandable, we performed a very good, thorough EDA.
+
+1115
+02:32:59.300 --> 02:33:03.450
+Jitendra K: And you understand your features, you transform your features judicially.
+
+1116
+02:33:03.590 --> 02:33:06.670
+Jitendra K: You remove the noise, you clean your data.
+
+1117
+02:33:06.920 --> 02:33:12.529
+Jitendra K: Everything you have done pretty well, but at the end of the day, your algorithm choice is different.
+
+1118
+02:33:13.010 --> 02:33:16.349
+Jitendra K: You're trying to solve the problem with,
+
+1119
+02:33:17.420 --> 02:33:21.280
+Jitendra K: Without understanding, on the tunable parameter.
+
+1120
+02:33:21.620 --> 02:33:26.639
+Jitendra K: And you just plug in… plug in playing the equations, so it's not going to serve any purpose.
+
+1121
+02:33:27.160 --> 02:33:33.850
+Jitendra K: Because first thing, you will not get confidence to explain your result to stakeholders. All those stakeholders are non-technical.
+
+1122
+02:33:34.480 --> 02:33:39.779
+Jitendra K: But they can sends… from the data.
+
+1123
+02:33:40.750 --> 02:33:44.100
+Jitendra K: They will ask you a simple question. Can you give me the feature importance?
+
+1124
+02:33:45.160 --> 02:33:55.189
+Jitendra K: of a credit card loan application. And if you're saying that, the age is one of the criteria, they will straightforward dump your model into garbage.
+
+1125
+02:33:56.400 --> 02:33:59.660
+Jitendra K: Because your model is not good to predict the right features.
+
+1126
+02:34:00.230 --> 02:34:03.929
+Jitendra K: Because age does not have any correlation with the loan application.
+
+1127
+02:34:04.360 --> 02:34:09.139
+Jitendra K: Right? Even I can see millionaires, 60 years and above. They're taking loans.
+
+1128
+02:34:09.490 --> 02:34:17.489
+Jitendra K: It's just applicable for… Corporate clients, which is working on some… some institutions, some job.
+
+1129
+02:34:18.190 --> 02:34:22.440
+Jitendra K: Then it will matter, and it will be correlated with different other features.
+
+1130
+02:34:22.740 --> 02:34:23.870
+Jitendra K: Like, salary.
+
+1131
+02:34:27.110 --> 02:34:31.689
+Jitendra K: So, first and foremost thing, you have to gain confidence, what are you trying to solve, and how you're solving.
+
+1132
+02:34:32.260 --> 02:34:36.760
+Jitendra K: Right? So if you're solving the problem, With a distinguished approach.
+
+1133
+02:34:38.480 --> 02:34:43.080
+Jitendra K: Right? With proper reasoning, then you will get a right answer, for sure.
+
+1134
+02:34:43.880 --> 02:34:52.349
+Jitendra K: It's not a magic box, right? You will get the right answer, because you know what you are trying to solve, how you're trying to solve, how you're explaining your variables.
+
+1135
+02:34:52.720 --> 02:34:56.490
+Jitendra K: How you're artifacting or feature engineering your variables.
+
+1136
+02:34:56.740 --> 02:35:01.390
+Jitendra K: What are a different component that you're trying to use to optimize the algorithm?
+
+1137
+02:35:01.800 --> 02:35:06.119
+Jitendra K: And then you come up with a plan and approach, and then you fit your data to it.
+
+1138
+02:35:06.730 --> 02:35:11.330
+Jitendra K: There could be issue with the data, I do not deny that part. There's a lot of issue with the data.
+
+1139
+02:35:12.100 --> 02:35:18.290
+Jitendra K: But… This is the first thing that you have to sort it out before reaching to the model phase.
+
+1140
+02:35:19.050 --> 02:35:24.280
+Jitendra K: So if you are… Worry too much about… worry about data quality, don't start with any modeling.
+
+1141
+02:35:26.420 --> 02:35:32.150
+Jitendra K: Right? If you commit that your data is good, now you start with modeling, then the expectation will be sky high.
+
+1142
+02:35:32.450 --> 02:35:35.340
+Jitendra K: Then you have no choice but to complete the project.
+
+1143
+02:35:36.740 --> 02:35:41.649
+Jitendra K: So make sure that whenever you're making any agreement with business, whoever you're working with.
+
+1144
+02:35:41.930 --> 02:35:44.700
+Jitendra K: You should have a thorough understanding on your data.
+
+1145
+02:35:45.300 --> 02:35:47.629
+Jitendra K: Understand the quality of the data.
+
+1146
+02:35:49.600 --> 02:35:51.530
+Jitendra K: Understanding your features.
+
+1147
+02:35:55.040 --> 02:35:58.990
+Jitendra K: Good understanding on the business, use cases?
+
+1148
+02:35:59.960 --> 02:36:07.639
+Jitendra K: And then start with modeling. If you jump onto a model because you feel that this is the most exciting stuff that you can do, believe me, it is not
+
+1149
+02:36:08.860 --> 02:36:10.880
+Jitendra K: It is going to be very painful.
+
+1150
+02:36:12.170 --> 02:36:16.710
+Jitendra K: Because you have to explain the output to business stakeholders every time.
+
+1151
+02:36:18.700 --> 02:36:23.359
+Jitendra K: Right? And you cannot do much, because this is not in your control.
+
+1152
+02:36:23.640 --> 02:36:25.409
+Jitendra K: You can control this part.
+
+1153
+02:36:26.190 --> 02:36:28.419
+Jitendra K: You cannot control this part anymore.
+
+1154
+02:36:29.000 --> 02:36:30.820
+Jitendra K: So you're left with this part only.
+
+1155
+02:36:31.430 --> 02:36:32.290
+Jitendra K: Right?
+
+1156
+02:36:32.530 --> 02:36:40.019
+Jitendra K: So… If you're getting 50% accuracy, hyperparameter tuning can max give you 70%, not more than that.
+
+1157
+02:36:41.480 --> 02:36:42.679
+Jitendra K: Max to max.
+
+1158
+02:36:43.190 --> 02:36:49.039
+Jitendra K: Right? So, make sure that, first, you have a thorough understanding on this part.
+
+1159
+02:36:49.630 --> 02:36:51.309
+Jitendra K: And then move on to this part.
+
+1160
+02:36:52.700 --> 02:36:55.789
+Jitendra K: Alright, so this is important because,
+
+1161
+02:36:57.610 --> 02:37:01.999
+Jitendra K: I'm just talking in terms of industrial experience, so this is usual traps.
+
+1162
+02:37:02.880 --> 02:37:09.369
+Jitendra K: Right? And if you're learning… if you're… if you're participating in competition, then the stories are different.
+
+1163
+02:37:09.960 --> 02:37:14.120
+Jitendra K: when you're performing, let's say, a case study on Kegel.
+
+1164
+02:37:15.510 --> 02:37:20.700
+Jitendra K: So, if you're joining a competition on Kegel, the data is curated by someone.
+
+1165
+02:37:21.440 --> 02:37:26.040
+Jitendra K: The data quality has been checked by Kegel Community before it becomes a problem statement.
+
+1166
+02:37:26.370 --> 02:37:30.929
+Jitendra K: And they deliberately introduce some noise factors to the data, which is fine.
+
+1167
+02:37:32.650 --> 02:37:34.819
+Jitendra K: So they will have some noise in the data.
+
+1168
+02:37:35.190 --> 02:37:37.440
+Jitendra K: But it has been thoroughly evaluated.
+
+1169
+02:37:38.670 --> 02:37:42.329
+Jitendra K: And then they will try to look into your approach to solve the problem.
+
+1170
+02:37:42.880 --> 02:37:44.520
+Jitendra K: And that is what Kegel does.
+
+1171
+02:37:45.120 --> 02:37:57.340
+Jitendra K: And then they will be able to qualify the winners based upon two factors… the problem… That you solve.
+
+1172
+02:37:58.610 --> 02:38:00.880
+Jitendra K: How many subproblems that you solved?
+
+1173
+02:38:01.800 --> 02:38:06.550
+Jitendra K: What is the accuracy of the model, or whatever cost function you are using?
+
+1174
+02:38:07.270 --> 02:38:15.180
+Jitendra K: And… How complex your model is in terms of space and time complexity, with all the constraints satisfied.
+
+1175
+02:38:16.350 --> 02:38:19.460
+Jitendra K: And then they will say that this model, this particular solution is…
+
+1176
+02:38:20.220 --> 02:38:23.660
+Jitendra K: Potential, or you will win some prizes.
+
+1177
+02:38:24.150 --> 02:38:25.330
+Jitendra K: On the top of it.
+
+1178
+02:38:25.930 --> 02:38:31.020
+Jitendra K: So that is how they are two different things, right? When you're working for a real-time project.
+
+1179
+02:38:31.540 --> 02:38:33.430
+Jitendra K: Don't go with Kegel mindset.
+
+1180
+02:38:35.020 --> 02:38:38.900
+Jitendra K: If you're working for Kegel, don't go with Project Mindset, as simple as that.
+
+1181
+02:38:39.260 --> 02:38:40.060
+Jitendra K: Right?
+
+1182
+02:38:40.910 --> 02:38:47.589
+Jitendra K: So, with these two things, this dataset that we are using, You can say that…
+
+1183
+02:38:47.960 --> 02:38:50.639
+Jitendra K: Okay, this is still running, grid searches always.
+
+1184
+02:39:53.220 --> 02:39:58.429
+Jitendra K: Okay, so for this, particular problem, there are 539 codes submitted.
+
+1185
+02:39:58.660 --> 02:40:04.350
+Jitendra K: And they are talking about… We're talking about the relevance.
+
+1186
+02:40:05.120 --> 02:40:06.680
+Jitendra K: It's one of the criteria.
+
+1187
+02:40:07.190 --> 02:40:12.870
+Jitendra K: And if I look into relevance, I can see some of the notebooks has been recently updated as well.
+
+1188
+02:40:13.030 --> 02:40:15.819
+Jitendra K: So let's see what they're trying to solve.
+
+1189
+02:40:28.050 --> 02:40:30.359
+Jitendra K: Okay, very good solution, I would say.
+
+1190
+02:40:33.880 --> 02:40:40.930
+Jitendra K: quite detailed features… Then they are trying 3 models and comparing them.
+
+1191
+02:40:41.840 --> 02:40:44.610
+Jitendra K: Which is… Very good approach.
+
+1192
+02:40:47.270 --> 02:40:53.140
+Jitendra K: And finally, they are running the… Hyperparameter tuning with random forest.
+
+1193
+02:40:53.730 --> 02:40:56.499
+Jitendra K: Which will give us this pipeline.
+
+1194
+02:41:00.280 --> 02:41:01.190
+Jitendra K: Awesome.
+
+1195
+02:41:01.940 --> 02:41:04.389
+Jitendra K: This is auto-bag reduction.
+
+1196
+02:41:05.550 --> 02:41:11.619
+Jitendra K: AUC78… And there's a lot of false positives.
+
+1197
+02:41:16.820 --> 02:41:19.730
+Jitendra K: And after that, you have quarter.
+
+1198
+02:41:20.030 --> 02:41:25.350
+Jitendra K: Baseline model. So this is a baseline model that he has created, and then these are the feature importance.
+
+1199
+02:41:25.900 --> 02:41:32.490
+Jitendra K: But anyway, what I'm trying to show is, this is a very similar example that we're… in fact, the same example that we're trying to solve.
+
+1200
+02:41:32.700 --> 02:41:41.730
+Jitendra K: But this guy in Kegel has solved this differently. Let's look into the best solution. This is recently summit, so let me look into the best solution.
+
+1201
+02:41:50.320 --> 02:41:53.589
+Jitendra K: No, the same solution is Spot as well, okay?
+
+1202
+02:41:55.410 --> 02:41:57.539
+Jitendra K: Because of recency, I think.
+
+1203
+02:41:59.320 --> 02:42:04.120
+Jitendra K: Let me check… comment one.
+
+1204
+02:42:05.300 --> 02:42:06.889
+Jitendra K: So, 6 years ago.
+
+1205
+02:42:08.470 --> 02:42:10.150
+Jitendra K: They're solved with SVM.
+
+1206
+02:42:12.100 --> 02:42:14.719
+Jitendra K: Okay, just a different example.
+
+1207
+02:42:20.850 --> 02:42:23.729
+Jitendra K: This is with boosting models.
+
+1208
+02:42:24.850 --> 02:42:27.899
+Jitendra K: I would like to use Random Forest.
+
+1209
+02:42:56.030 --> 02:43:02.590
+Jitendra K: Yeah, so these are beautiful solutions, so very thorough EDA, and then they create pipelines and solve this problem.
+
+1210
+02:43:02.740 --> 02:43:10.510
+Jitendra K: So this is how the real-world data science problem works, right? It's in a notebook instance, but when you convert this into module, then it's a different story.
+
+1211
+02:43:10.820 --> 02:43:13.250
+Jitendra K: So these are very good solutions, I would say.
+
+1212
+02:43:15.430 --> 02:43:20.609
+Jitendra K: But our solution is also good. Because we are trying…
+
+1213
+02:43:21.120 --> 02:43:24.900
+Jitendra K: To solve this with a third angle, that means…
+
+1214
+02:43:25.240 --> 02:43:27.550
+Jitendra K: We're not generating any new features.
+
+1215
+02:43:27.730 --> 02:43:30.750
+Jitendra K: But we'd rather fit the same data set and try to…
+
+1216
+02:43:31.040 --> 02:43:36.040
+Jitendra K: fine-tune the model. So this is all about approach, right? So you have three approaches.
+
+1217
+02:43:36.510 --> 02:43:39.030
+Jitendra K: First, you generate more features.
+
+1218
+02:43:40.760 --> 02:43:42.760
+Jitendra K: You eliminate some features.
+
+1219
+02:43:44.230 --> 02:43:46.039
+Jitendra K: Which is highly correlated.
+
+1220
+02:43:46.160 --> 02:43:48.750
+Jitendra K: etc. You cluster the features.
+
+1221
+02:43:49.610 --> 02:43:57.139
+Jitendra K: you perform some more recursive feature elimination as an algorithm, right? And then try to fit in the model these features.
+
+1222
+02:43:57.390 --> 02:44:05.379
+Jitendra K: What we are doing, since we are learning, how to fine-tune random forests, so we are learning in that manner, irrespective of the
+
+1223
+02:44:05.850 --> 02:44:11.109
+Jitendra K: efficacy of this model, whatever we are going to get, we are just trying to learn this, right? But…
+
+1224
+02:44:11.700 --> 02:44:22.820
+Jitendra K: To make your model successful, you should do all these things as well. You should know what feature you're using, why you're using, can you try more features, etc. This is very, very important.
+
+1225
+02:44:23.430 --> 02:44:26.279
+Jitendra K: For the success criteria of data science.
+
+1226
+02:44:31.890 --> 02:44:35.250
+Jitendra K: I think it will take some time. I will share the code.
+
+1227
+02:44:35.720 --> 02:44:38.289
+Jitendra K: So that you can try and run in your machine.
+
+1228
+02:44:42.040 --> 02:44:46.169
+Jitendra K: Yeah, I will share that link. Let me share the code.
+
+1229
+02:45:51.770 --> 02:45:56.600
+Jitendra K: So I hope, this, tutorial is clear to everyone, so…
+
+1230
+02:45:57.390 --> 02:46:00.940
+Jitendra K: What are we trying to solve, and how we are solving, right?
+
+1231
+02:46:01.560 --> 02:46:04.580
+Jitendra K: So, this is important, for two reasons.
+
+1232
+02:46:05.440 --> 02:46:09.279
+Jitendra K: You can see when DCN3 has been tried 9 years ago.
+
+1233
+02:46:10.110 --> 02:46:12.580
+Jitendra K: And this is in our programming.
+
+1234
+02:46:14.140 --> 02:46:16.420
+Jitendra K: I would like to check the result.
+
+1235
+02:46:17.270 --> 02:46:18.989
+Jitendra K: So this should be overfit.
+
+1236
+02:47:32.460 --> 02:47:34.540
+Jitendra K: So I hope, this is clear.
+
+1237
+02:48:03.840 --> 02:48:08.739
+Jitendra K: So, let's try to revisit what we have learned so far. So, we start with…
+
+1238
+02:48:09.160 --> 02:48:14.860
+Jitendra K: the basics of, ensemble. We understand there are 3 or 4 techniques of ensemble learning.
+
+1239
+02:48:15.310 --> 02:48:17.240
+Jitendra K: Applicable to data science.
+
+1240
+02:48:18.220 --> 02:48:22.990
+Jitendra K: Then we move on to wire ensemble, wire different techniques.
+
+1241
+02:48:23.510 --> 02:48:28.410
+Jitendra K: Then we talked about bagging, boosting, and stacking as the three important techniques.
+
+1242
+02:48:28.770 --> 02:48:32.400
+Jitendra K: Mixture of experts and, what are they trying to solve?
+
+1243
+02:48:32.880 --> 02:48:40.539
+Jitendra K: Then once we understand that we are trying to reduce bias and variance in the data, and then we talk about the approach.
+
+1244
+02:48:40.790 --> 02:48:43.570
+Jitendra K: So we understand the first approach, which is called bagging.
+
+1245
+02:48:44.550 --> 02:48:46.920
+Jitendra K: Which is time for Bootstrap Aggregation.
+
+1246
+02:48:48.740 --> 02:48:55.799
+Jitendra K: And here we are using two techniques. One is… Sample with substitution.
+
+1247
+02:49:00.320 --> 02:49:03.869
+Jitendra K: And the second one technique is, we are also using…
+
+1248
+02:49:11.750 --> 02:49:13.530
+Jitendra K: Auto bag reduction.
+
+1249
+02:49:18.970 --> 02:49:21.760
+Jitendra K: In the, shuffling criterias.
+
+1250
+02:49:22.340 --> 02:49:24.019
+Jitendra K: So, after that.
+
+1251
+02:49:24.250 --> 02:49:29.390
+Jitendra K: We understand that there are different ways in which we can train random forests. One is,
+
+1252
+02:49:31.150 --> 02:49:40.850
+Jitendra K: By creating a lot of intuitive features, Second is… by controlling Your hyperparameter.
+
+1253
+02:49:43.320 --> 02:49:44.080
+Jitendra K: Right?
+
+1254
+02:49:44.550 --> 02:49:50.569
+Jitendra K: So… So, we understand random forest, from, the grassroot
+
+1255
+02:49:50.900 --> 02:49:53.969
+Jitendra K: how Random Forest works internally, and what is the…
+
+1256
+02:49:54.560 --> 02:49:56.920
+Jitendra K: Criteria of evaluation for random forest.
+
+1257
+02:49:57.570 --> 02:50:03.120
+Jitendra K: So I think this is, explicitly clear. Random forest will not create any confusion now anymore.
+
+1258
+02:50:05.020 --> 02:50:10.640
+Jitendra K: So we understand the difference between random forest classifier and repressor as well.
+
+1259
+02:50:13.730 --> 02:50:17.210
+Jitendra K: So, any question, anything that you would like to ask?
+
+1260
+02:50:17.650 --> 02:50:23.599
+Jitendra K: Before we can wind up for today, because I have to just cover Random Forest. For new class, I have to…
+
+1261
+02:50:23.820 --> 02:50:25.320
+Jitendra K: create a…
+
+1262
+02:50:26.130 --> 02:50:34.650
+Jitendra K: Clear understanding on gradient descent, that's the reason I'm not going to take this right now, because if you do not know gradient descent, you will not be able to understand.
+
+1263
+02:50:34.920 --> 02:50:36.620
+Jitendra K: Anything around XGBoost?
+
+1264
+02:50:38.550 --> 02:50:40.289
+Jitendra K: Which is extreme radiant boosting.
+
+1265
+02:50:41.010 --> 02:50:43.299
+Jitendra K: And this is one of the favorite algorithms.
+
+1266
+02:50:43.680 --> 02:50:45.250
+Jitendra K: Or my data scientist.
+
+1267
+02:50:46.660 --> 02:50:48.869
+Jitendra K: And here, we are going to talk about boosting.
+
+1268
+02:50:49.070 --> 02:50:53.160
+Jitendra K: And boosting is a very different technique as compared to bagging.
+
+1269
+02:50:54.460 --> 02:51:02.240
+Jitendra K: Right? So bagging, boosting, and stacking are the three techniques that we're going to talk about. And stacking is very rarely used, so you can ignore this.
+
+1270
+02:51:02.810 --> 02:51:05.489
+Jitendra K: Posting and bagging are the two important algorithms.
+
+1271
+02:51:05.700 --> 02:51:07.390
+Jitendra K: In any ensemble learning.
+
+1272
+02:51:07.580 --> 02:51:13.580
+Jitendra K: Even mixture of expert and all, they are conceptually available, but it is not applicable in data science.
+
+1273
+02:51:13.830 --> 02:51:16.420
+Jitendra K: So your focus should be on bagging and boosting only.
+
+1274
+02:51:17.140 --> 02:51:20.919
+Jitendra K: If you understand bagging, Boosting will be easy.
+
+1275
+02:51:21.130 --> 02:51:26.099
+Jitendra K: If you do not understand bagging and you're directly jumped to boosting, it will…
+
+1276
+02:51:26.680 --> 02:51:33.200
+Jitendra K: You should not… you should not be able to understand anything from boosting perspective, then. Make sure that you have a clear understanding on bagging.
+
+1277
+02:51:33.600 --> 02:51:41.509
+Jitendra K: Then we'll move on to boosting, and then we'll see the two techniques, how they are differentiating. ExitBoost is a very good algorithm.
+
+1278
+02:51:42.010 --> 02:51:46.740
+Jitendra K: it promote… Scalabilities, it promote.
+
+1279
+02:51:47.080 --> 02:51:52.739
+Jitendra K: Parallelism, it promote, different memory management internally as a part of module.
+
+1280
+02:51:53.040 --> 02:51:59.729
+Jitendra K: And that's the reason this algorithm is very, very useful, and it can solve a lot of complex challenges in the recent past.
+
+1281
+02:52:02.050 --> 02:52:06.500
+Jitendra K: But it's a gradient-based learning, so it's always costly, as compared to
+
+1282
+02:52:07.960 --> 02:52:15.360
+Jitendra K: the previous method, including random forest. So if I say random forest training cost versus exit boost training cost.
+
+1283
+02:52:15.640 --> 02:52:17.279
+Jitendra K: It is almost 2 times.
+
+1284
+02:52:24.680 --> 02:52:30.809
+Jitendra K: And at times, you will see that random forest is giving better results and XZBoost. At times, I'm saying.
+
+1285
+02:52:31.910 --> 02:52:36.700
+Jitendra K: Right? But, you can… Use it for that purpose.
+
+1286
+02:52:46.780 --> 02:52:54.840
+Jitendra K: Yeah, I know. So basically, you have to either enable Collab Enterprise, Or…
+
+1287
+02:52:55.140 --> 02:53:01.829
+Jitendra K: If you have CoLab Enterprise, then it's well and good. If you are using… how many of you are planning to purchase?
+
+1288
+02:53:02.290 --> 02:53:07.209
+Jitendra K: Colab Enterprise. Colab Pro. Don't go for Enterprise, at least go for Pro.
+
+1289
+02:53:09.460 --> 02:53:16.550
+Jitendra K: So if you're planning to go for Pro, that's good, because it will use in deep learning as well, hardware exploration.
+
+1290
+02:53:23.950 --> 02:53:28.930
+Jitendra K: Otherwise, there are other ways that we can work out, there's a pod, run pod.
+
+1291
+02:53:29.360 --> 02:53:33.100
+Jitendra K: That we can use, which is slightly cheaper as compared to Google Colab.
+
+1292
+02:53:33.600 --> 02:53:35.540
+Jitendra K: So if you log into Runport.
+
+1293
+02:53:39.310 --> 02:53:43.909
+Jitendra K: There's Vast AI as well, so let me first show you RunPod.
+
+1294
+02:53:50.770 --> 02:53:57.080
+Jitendra K: But, make sure that, whatever you're using, you're tracking as well. Otherwise, I… Don't think,
+
+1295
+02:53:57.880 --> 02:53:59.690
+Jitendra K: Vocarium does not have GPU.
+
+1296
+02:54:03.920 --> 02:54:08.459
+Jitendra K: It says, no cost restraint, don't know for people live or working. Okay.
+
+1297
+02:54:10.700 --> 02:54:17.459
+Jitendra K: Yeah, so I think they will ask for your university IDs and all, so just get registered and see how it works.
+
+1298
+02:54:19.340 --> 02:54:22.230
+Jitendra K: So, Runport is, again, a good platform.
+
+1299
+02:54:22.340 --> 02:54:25.410
+Jitendra K: This vast.ai is also a good platform that you can use.
+
+1300
+02:54:25.770 --> 02:54:35.180
+Jitendra K: You can start using these… So, pricing is cheaper here, I think it is few cents for RTX.
+
+1301
+02:54:36.070 --> 02:54:40.900
+Jitendra K: I can rent it on an hourly basis, so if I'm learning, let's say, running
+
+1302
+02:54:41.470 --> 02:54:43.590
+Jitendra K: 2 models for 3 hours.
+
+1303
+02:54:44.020 --> 02:54:49.169
+Jitendra K: It will cost me… Not more than 1.5 US dollars per day.
+
+1304
+02:54:49.920 --> 02:54:53.690
+Jitendra K: 30 to 45, 50 US dollar maximum, maybe.
+
+1305
+02:54:55.420 --> 02:54:59.499
+Jitendra K: S200 is a great CPU, but it is high cost.
+
+1306
+02:55:03.540 --> 02:55:06.519
+Jitendra K: This is how you're going to use.
+
+1307
+02:55:07.700 --> 02:55:09.060
+Jitendra K: the GPUs.
+
+1308
+02:55:09.160 --> 02:55:13.580
+Jitendra K: on demand basis. Our second thing is, you can go for gaming laptop.
+
+1309
+02:55:14.270 --> 02:55:20.680
+Jitendra K: So, you can purchase a gaming laptop. I have a gaming laptop, which I'm running right now, so I have an RTX machine.
+
+1310
+02:55:29.590 --> 02:55:33.239
+Jitendra K: So my RTX is 4090, I think, this one.
+
+1311
+02:55:41.080 --> 02:55:47.470
+Jitendra K: Yeah, so I have… even advance, I forward 3050, I purchased. Yeah, I have 3050.
+
+1312
+02:55:49.100 --> 02:55:54.200
+Jitendra K: So this is 3050, same family, 3090.
+
+1313
+02:55:56.760 --> 02:56:01.920
+Jitendra K: But, since my laptop is 5 years old, so… It's now…
+
+1314
+02:56:02.580 --> 02:56:05.979
+Jitendra K: You can see that even the GPU that I'm using is 16GB.
+
+1315
+02:56:06.190 --> 02:56:07.720
+Jitendra K: VRAM nuts.
+
+1316
+02:56:08.630 --> 02:56:11.939
+Jitendra K: Almost, I would say, outdated.
+
+1317
+02:56:13.680 --> 02:56:21.110
+Jitendra K: But if you start using… Run ports, or… Google Collab.
+
+1318
+02:56:21.460 --> 02:56:23.579
+Jitendra K: Maybe a few starting to have to invest.
+
+1319
+02:56:23.710 --> 02:56:27.059
+Jitendra K: If you are planning to purchase laptop, it will say of 2 lakh.
+
+1320
+02:56:27.630 --> 02:56:32.140
+Jitendra K: So, instead of 2 lakh investment, I would say go for RunPod.
+
+1321
+02:56:32.670 --> 02:56:36.769
+Jitendra K: You will not burn not more than 5,000 to 7,000.
+
+1322
+02:56:36.990 --> 02:56:37.950
+Jitendra K: INR.
+
+1323
+02:56:39.090 --> 02:56:45.269
+Jitendra K: As a gamer, I'm crying, okay, our source of power wing, yeah, that's correct, yeah. So, gamer, if you are playing games.
+
+1324
+02:56:45.630 --> 02:56:48.670
+Jitendra K: So, don't play games, use for deep learning.
+
+1325
+02:56:49.500 --> 02:56:53.929
+Jitendra K: Even if you buy a gaming laptop, That is my advice.
+
+1326
+02:56:54.690 --> 02:56:55.840
+Jitendra K: Huh, yeah.
+
+1327
+02:56:56.150 --> 02:56:58.869
+Jitendra K: Is AMD… AMD radar on? Any…
+
+1328
+02:56:59.210 --> 02:57:05.249
+Jitendra K: AMD will also serve any… most sort of purpose, but as you know, NVIDIA has created a monopoly…
+
+1329
+02:57:05.960 --> 02:57:10.709
+Jitendra K: So… the better… player now is NVIDIA.
+
+1330
+02:57:11.890 --> 02:57:15.220
+Jitendra K: Amd will still be helpful.
+
+1331
+02:57:16.000 --> 02:57:22.640
+Jitendra K: I mean, you will not feel much difference, to be very honest, but they have created a monopoly on libraries.
+
+1332
+02:57:23.120 --> 02:57:25.979
+Jitendra K: Food architecture. That's the only challenge.
+
+1333
+02:57:26.940 --> 02:57:30.580
+Jitendra K: And I don't know what Intel, AMD are doing when Nvidia is rising.
+
+1334
+02:57:32.310 --> 02:57:35.449
+Jitendra K: They are sleeping or what, I don't know. Just like Nokia.
+
+1335
+02:57:42.040 --> 02:57:46.540
+Jitendra K: There should be some competition, for sure, because it becomes a vendor-agnostic solution now.
+
+1336
+02:57:47.940 --> 02:57:49.760
+Jitendra K: Yeah, Intel is sleeping, I know.
+
+1337
+02:57:56.670 --> 02:58:01.689
+Jitendra K: MacBook Pro M1 with 32GB RAM. That's interesting, if you have good RAM.
+
+1338
+02:58:02.180 --> 02:58:04.379
+Jitendra K: Will you still run deep learning model?
+
+1339
+02:58:05.190 --> 02:58:07.830
+Jitendra K: The answer is yes, you can still run.
+
+1340
+02:58:08.020 --> 02:58:10.200
+Jitendra K: 32GB RAM is decent.
+
+1341
+02:58:11.350 --> 02:58:18.239
+Jitendra K: So that means you have to disable GPU option and then run this model. That is also okay.
+
+1342
+02:58:20.810 --> 02:58:24.230
+Jitendra K: That is also fine, if you have 32GB and higher RAM.
+
+1343
+02:58:29.820 --> 02:58:36.440
+Jitendra K: The only, issue with the GPU is… sorry, the only purpose of GPU is…
+
+1344
+02:58:36.890 --> 02:58:45.099
+Jitendra K: when you're running more number of threats, like in XBoost or in some other advanced algorithm, deep learning, you require more computation power.
+
+1345
+02:58:46.560 --> 02:58:52.520
+Jitendra K: So, the threat pool, the kind of parallelism that it promotes.
+
+1346
+02:58:52.800 --> 02:58:57.169
+Jitendra K: will be… clearly, you will see the value in using GPU.
+
+1347
+02:58:57.530 --> 02:59:00.900
+Jitendra K: RAM is like a heap, right? So…
+
+1348
+02:59:01.260 --> 02:59:08.730
+Jitendra K: It, it may be able to accelerate your data processing, but training and inference will depend upon GPU.
+
+1349
+02:59:09.040 --> 02:59:14.050
+Jitendra K: But still, there's a way that you can use the same heap memory to improve that
+
+1350
+02:59:14.910 --> 02:59:21.320
+Jitendra K: memory management among the threads. That is where VRAM will be useful, but yeah, we can try that.
+
+1351
+02:59:21.780 --> 02:59:26.880
+Jitendra K: If you have 32GB RAM, I will see… I will ask you to show me…
+
+1352
+02:59:27.530 --> 02:59:31.370
+Jitendra K: the runtime against the GPU, and then we can compare.
+
+1353
+02:59:31.500 --> 02:59:33.349
+Jitendra K: But yes, it's possible.
+
+1354
+02:59:35.630 --> 02:59:39.469
+Jitendra K: we can compare the runtime with some machines who's having GPU.
+
+1355
+02:59:44.480 --> 02:59:53.060
+Jitendra K: Alright, so my suggestion is go for GoLab Pro if you have an restaurant option. If you're a student, then go for it.
+
+1356
+02:59:54.550 --> 02:59:58.479
+Jitendra K: Yeah, Trump invested $9 billion in Intel.
+
+1357
+02:59:58.850 --> 03:00:00.540
+Jitendra K: Okay, interesting.
+
+1358
+03:00:03.350 --> 03:00:10.519
+Jitendra K: Yeah, he might… be investing, from Venezuela, Recoveries, you will have money.
+
+1359
+03:00:10.890 --> 03:00:12.550
+Jitendra K: So you can invest anywhere.
+
+1360
+03:00:15.740 --> 03:00:16.520
+Jitendra K: Yep.
+
+1361
+03:00:16.910 --> 03:00:20.370
+Jitendra K: Yeah, for crypto mining, he might be interested.
+
+1362
+03:00:20.640 --> 03:00:23.080
+Jitendra K: Because he's trying to promote a lot of things.
+
+1363
+03:00:35.220 --> 03:00:41.149
+Jitendra K: Yeah, AI Coach… I don't know if AI Coach have NVIDIA drivers? Anybody know AI Coach have NVIDIA?
+
+1364
+03:00:47.390 --> 03:00:51.800
+Jitendra K: Did they provide any option for on-prem GPUs?
+
+1365
+03:01:20.590 --> 03:01:23.750
+Jitendra K: Oh, they just sort, like, it's like a Kegel, okay?
+
+1366
+03:01:25.100 --> 03:01:31.010
+Jitendra K: But there should be some accelerator. Even Kegel provides accelerator, so if you log into Kaggle, you will see.
+
+1367
+03:01:31.300 --> 03:01:34.949
+Jitendra K: GPU accelerator in the cable. So yeah, that's another solution.
+
+1368
+03:01:35.370 --> 03:01:39.040
+Jitendra K: K will also provide you accelerator, so you can create your account.
+
+1369
+03:01:39.930 --> 03:01:43.110
+Jitendra K: And then there's a hardware accelerator that you can enable, too.
+
+1370
+03:01:43.910 --> 03:01:46.270
+Jitendra K: add… to your Jupyter server.
+
+1371
+03:01:49.660 --> 03:01:53.169
+Jitendra K: I think that is another way that you can be able to use it.
+
+1372
+03:02:06.940 --> 03:02:12.170
+Jitendra K: I think the most cheaper solution is RunPod and Google Colab. So, RunPod is a few cents.
+
+1373
+03:02:12.410 --> 03:02:14.939
+Jitendra K: If you're doing it, let's say…
+
+1374
+03:02:15.790 --> 03:02:18.450
+Jitendra K: If you're looking for more, cheaper solution, then…
+
+1375
+03:02:19.320 --> 03:02:21.850
+Jitendra K: Go for secondhand, gaming laptop.
+
+1376
+03:02:22.260 --> 03:02:25.370
+Jitendra K: That's the only thing that I can suggest.
+
+1377
+03:02:26.310 --> 03:02:29.760
+Jitendra K: So more cheaper option, I don't think so it's available.
+
+1378
+03:02:39.810 --> 03:02:43.289
+Jitendra K: There's Thunder Compute and Tensor Dock as well.
+
+1379
+03:02:44.180 --> 03:02:53.000
+Jitendra K: But I would say… This is top 7 on-demand GPUs that you can… Cheers.
+
+1380
+03:02:57.370 --> 03:02:59.970
+Jitendra K: Oh, that's great. AI Compute Prize List.
+
+1381
+03:03:07.860 --> 03:03:12.620
+Jitendra K: Oh, that's awesome. Okay, this is, 768…
+
+1382
+03:03:13.850 --> 03:03:18.150
+Jitendra K: Am I AMDs, all AMDs, let me go with NVIDIA.
+
+1383
+03:03:19.740 --> 03:03:28.739
+Jitendra K: S200… flop size… 32-bit size, maximum 4.
+
+1384
+03:03:28.980 --> 03:03:32.339
+Jitendra K: Oh, that is very costly, 1020.
+
+1385
+03:03:34.280 --> 03:03:38.459
+Jitendra K: 6 months reserve price per hour is $8.36 per hour.
+
+1386
+03:03:39.510 --> 03:03:47.770
+Jitendra K: That's pretty huge. 24… This is, I think this is even worse, worst of the worst GPU.
+
+1387
+03:03:48.530 --> 03:03:50.439
+Jitendra K: If you are looking for H…
+
+1388
+03:03:51.710 --> 03:03:55.480
+Jitendra K: series, and H200 is the latest.
+
+1389
+03:03:55.970 --> 03:04:01.340
+Jitendra K: And then, if you're looking for… A400, 800…
+
+1390
+03:04:01.960 --> 03:04:05.070
+Jitendra K: With 80GB decent memory, this is the best.
+
+1391
+03:04:05.910 --> 03:04:09.570
+Jitendra K: 12-month reserve price. Reserve price means you have to pay 12 months.
+
+1392
+03:04:09.830 --> 03:04:14.049
+Jitendra K: Even if you're not using, it will be… Protecting from your credit card.
+
+1393
+03:04:15.570 --> 03:04:18.490
+Jitendra K: So I will still go for monthly per hour.
+
+1394
+03:04:18.860 --> 03:04:19.930
+Jitendra K: on demand.
+
+1395
+03:04:20.330 --> 03:04:28.570
+Jitendra K: So whenever you feel that excited about deep learning, then go for it. If you're feeling that, okay, let me purchase, and then I will learn it.
+
+1396
+03:04:29.030 --> 03:04:37.800
+Jitendra K: then don't invest. If you're feeling that, okay, I'm going to learn, and I'm excited to learn and run something meaningful, then go for it. Even if you are solving some…
+
+1397
+03:04:38.250 --> 03:04:43.609
+Jitendra K: Non-company or, maybe non, non, production use cases.
+
+1398
+03:04:50.680 --> 03:04:59.840
+Jitendra K: Yeah, but, you know the population of India, right? So, when two CR people join, And start using…
+
+1399
+03:05:00.480 --> 03:05:03.330
+Jitendra K: the GPU, they will stop the next day.
+
+1400
+03:05:07.200 --> 03:05:08.569
+Jitendra K: So that's an issue.
+
+1401
+03:05:11.990 --> 03:05:18.960
+Jitendra K: Collab on Demand seems to be okay. Yeah, collab on Demand is okay. I mean, it's the cheapest solution as well, so you can go for it.
+
+1402
+03:05:24.480 --> 03:05:32.470
+Jitendra K: But go for on-demand, just in case if you feel, and then you can attach this instance to any notebook as well.
+
+1403
+03:05:32.820 --> 03:05:38.990
+Jitendra K: Which is fine. And if you're using company laptops, your company offers you decent cloud infrastructure.
+
+1404
+03:05:39.530 --> 03:05:47.419
+Jitendra K: Google Vertex, Azure, Sagemaker, AWS SageMaker, or anything of similar sort?
+
+1405
+03:05:47.640 --> 03:05:52.320
+Jitendra K: You can use that for learning purpose. You can say to your manager that I'm running some projects.
+
+1406
+03:05:53.040 --> 03:05:59.079
+Jitendra K: And you can create your own space to learn. I think enterprise solution is 70 times cheaper than…
+
+1407
+03:05:59.470 --> 03:06:05.439
+Jitendra K: non-enterprise one, so that's the… you will not track, for sure. These are simple things.
+
+1408
+03:06:11.620 --> 03:06:22.299
+Jitendra K: Alright, so I think, this is some of the alternatives, so we will try to, definitely, once we start deep learning, then these things have to be discussed. I will try to see if,
+
+1409
+03:06:22.570 --> 03:06:26.880
+Jitendra K: Vocarium Lab offers something, as a GPU accelerator or not.
+
+1410
+03:06:27.080 --> 03:06:30.690
+Jitendra K: I'm sure that there are some GPX later for Gen AI.
+
+1411
+03:06:30.850 --> 03:06:35.370
+Jitendra K: But I have to check for machine learning if they are introducing anything, but I don't think so it is…
+
+1412
+03:06:36.010 --> 03:06:45.449
+Jitendra K: If you feel that you should ask, then don't wait for my instruction, go and write a mail to Vocarium Lab, and ask them to provide GPU enablement.
+
+1413
+03:06:46.120 --> 03:06:50.249
+Jitendra K: Because I think, at least you can ask for deep learning.
+
+1414
+03:06:53.240 --> 03:07:01.379
+Jitendra K: All right, so I think this is pretty much what we have for today, so let me just, launch the poll, and then I think we are done for the lecture, so…
+
+1415
+03:07:01.590 --> 03:07:15.009
+Jitendra K: We have understand random forest from the scratch, ensemble technique, and a lot of things that we are going to do. In the next tutorial, we are going to focus only and only on boosting. The boosting, again, is one of the favorite topics for data science.
+
+1416
+03:07:15.330 --> 03:07:19.320
+Jitendra K: And if you understand boosting, 90% of your data science
+
+1417
+03:07:20.590 --> 03:07:28.979
+Jitendra K: model will be through, because 95%, I would say, you are going to use Random Forest, XZBoost, LightGBM,
+
+1418
+03:07:29.480 --> 03:07:33.830
+Jitendra K: Or maybe, at max, you will go with,
+
+1419
+03:07:37.170 --> 03:07:38.710
+Jitendra K: logistic regression.
+
+1420
+03:07:39.490 --> 03:07:45.110
+Jitendra K: Right? So these 4 or 5 techniques, if you understand clearly, then it will make your life easy.
+
+1421
+03:07:45.480 --> 03:07:46.819
+Jitendra K: As a data scientist.
+
+1422
+03:07:48.440 --> 03:07:55.549
+Jitendra K: Nobody is using SVM for classification purpose, to be very honest and very precise. I do not use SVM.
+
+1423
+03:07:56.620 --> 03:07:58.380
+Jitendra K: In my… any of my projects.
+
+1424
+03:08:02.090 --> 03:08:07.630
+Jitendra K: GridSearch is still running, is it normal? Yes, it is normal, because it is trying multiple solutions.
+
+1425
+03:08:08.600 --> 03:08:14.520
+Jitendra K: So this is normal. You can see it disconnected as well. I think this is a previous… okay.
+
+1426
+03:08:14.960 --> 03:08:20.459
+Jitendra K: GridSearch will take, it's very exo- extensive, grid search is quite extensive.
+
+1427
+03:08:21.230 --> 03:08:26.659
+Jitendra K: So you are creating, many solutions and then comparing with it. So it's a brute force.
+
+1428
+03:08:41.890 --> 03:08:45.710
+Jitendra K: Yeah, so you can see GPU has not been enabled, but still is going.
+
+1429
+03:08:46.570 --> 03:08:49.180
+Jitendra K: It's ongoing. I think it's stuck in grid search.
+
+1430
+03:08:51.030 --> 03:08:54.610
+Jitendra K: I think it may take 8 hours to 10 hours to complete.
+
+1431
+03:09:00.300 --> 03:09:06.270
+Jitendra K: Yeah, so I would… I would expect everybody to just record your elapsed time once you complete
+
+1432
+03:09:06.750 --> 03:09:08.850
+Jitendra K: This notebook, and let me know.
+
+1433
+03:09:09.490 --> 03:09:14.849
+Jitendra K: So that's, pros and cons of grid search. So, grid search is, very extensive.
+
+1434
+03:09:17.580 --> 03:09:25.860
+Jitendra K: So it'll literally try all possible use cases, with all combinations. It'll say, let's start with 100, then 10, 2, 1, square root.
+
+1435
+03:09:26.000 --> 03:09:32.540
+Jitendra K: Let's say 120 to 1 square root, and it will say 1321 square root.
+
+1436
+03:09:32.690 --> 03:09:35.249
+Jitendra K: This is the kind of grid he's creating.
+
+1437
+03:09:36.240 --> 03:09:41.289
+Jitendra K: Let's try, literally trial every… each and every possible solution, and then come with an answer.
+
+1438
+03:09:42.310 --> 03:09:45.569
+Jitendra K: It's a very honest algorithm. Do not find shortcuts.
+
+1439
+03:09:49.620 --> 03:09:50.520
+Jitendra K: Yes.
+
+1440
+03:09:51.010 --> 03:09:53.230
+Jitendra K: Oh, 432 combination, okay.
+
+1441
+03:09:54.300 --> 03:09:57.359
+Jitendra K: So this is, why this is exhaustive.
+
+1442
+03:09:59.750 --> 03:10:03.889
+Jitendra K: But, I think I've overestimated these numbers, which…
+
+1443
+03:10:04.600 --> 03:10:06.590
+Jitendra K: May be good, which may not be good.
+
+1444
+03:10:06.750 --> 03:10:09.479
+Jitendra K: But I'm running this into Compute Server.
+
+1445
+03:10:11.500 --> 03:10:23.639
+Jitendra K: All right, so let's try this and see the results, and I think that is for it for today. So, we will discuss ExeeBoost and other important algorithms, random forest being the most important.
+
+1446
+03:10:24.000 --> 03:10:33.169
+Jitendra K: And then other three methods is equally important, because you never know what, what is… you're going to solve. Is it going to solve… you're going to solve variance problem or bias problem?
+
+1447
+03:10:33.870 --> 03:10:39.219
+Jitendra K: So that remain, a question in front of you, so you might have to try both.
+
+1448
+03:10:40.720 --> 03:10:42.340
+Jitendra K: And see which one is best.
+
+1449
+03:10:44.460 --> 03:10:50.620
+Jitendra K: Right? Okay, with that, thank you for attending the session, and we will meet in the next tutorial for the next,
+
+1450
+03:10:51.180 --> 03:10:52.030
+Jitendra K: topic.
+
+1451
+03:10:52.270 --> 03:10:53.050
+Jitendra K: Thank you.
+

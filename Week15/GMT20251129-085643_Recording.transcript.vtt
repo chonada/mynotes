@@ -1,0 +1,5822 @@
+WEBVTT
+
+1
+00:00:01.830 --> 00:00:03.570
+Jitendra K: You can see it's from current…
+
+2
+00:00:04.050 --> 00:00:09.070
+Jitendra K: A few candidates are joining in, then we can start the session. Just bear with me for two more minutes.
+
+3
+00:01:51.320 --> 00:01:54.200
+Jitendra K: Alright guys, I think we can start the session.
+
+4
+00:01:54.490 --> 00:01:59.650
+Jitendra K: So again, welcome to the week number 16, sorry, 15.
+
+5
+00:01:59.860 --> 00:02:06.080
+Jitendra K: So we're going to start with the paradigms of machine learning and probabilistical model for classification.
+
+6
+00:02:06.410 --> 00:02:09.780
+Jitendra K: So we have already completed, several…
+
+7
+00:02:10.389 --> 00:02:12.780
+Jitendra K: A machine learning model, including regression.
+
+8
+00:02:13.040 --> 00:02:16.020
+Jitendra K: Now, we'll talk about something more interesting and more…
+
+9
+00:02:16.760 --> 00:02:20.419
+Jitendra K: I think, which is a key attraction for industry.
+
+10
+00:02:20.690 --> 00:02:22.439
+Jitendra K: Which is called Classification Model.
+
+11
+00:02:22.650 --> 00:02:29.340
+Jitendra K: So we'll talk about the classification model from the beginning. We will understand what are the types of classification model that we are going to learn.
+
+12
+00:02:29.620 --> 00:02:33.380
+Jitendra K: We will understand how to evaluate the classification model as well.
+
+13
+00:02:33.820 --> 00:02:38.860
+Jitendra K: So, the first and foremost thing we will do is, we would like to understand how to evaluate a classification model.
+
+14
+00:02:39.470 --> 00:02:45.610
+Jitendra K: Before that, we have to understand a few nitty-gritties of modeling, which include how to design a model.
+
+15
+00:02:45.810 --> 00:02:49.380
+Jitendra K: And what are the types of model that we are going to cover in this tutorial?
+
+16
+00:02:50.000 --> 00:02:55.580
+Jitendra K: So let me go back to my… Sorry, this is different.
+
+17
+00:02:56.130 --> 00:02:59.249
+Jitendra K: Yeah, let me go back to my slides.
+
+18
+00:02:59.800 --> 00:03:02.629
+Jitendra K: So we're going to start with the classification modeling.
+
+19
+00:03:07.520 --> 00:03:11.159
+Jitendra K: And this comes under… supervised learning.
+
+20
+00:03:20.010 --> 00:03:23.330
+Jitendra K: So, we are going to talk about several types of classification models.
+
+21
+00:03:23.620 --> 00:03:24.859
+Jitendra K: We'll begin with…
+
+22
+00:03:29.620 --> 00:03:31.430
+Jitendra K: supervised learners…
+
+23
+00:03:42.200 --> 00:03:47.030
+Jitendra K: And we are going to start with something called… Logistic regression.
+
+24
+00:03:59.460 --> 00:04:01.550
+Jitendra K: We'll talk about decision trees.
+
+25
+00:04:09.440 --> 00:04:11.360
+Jitendra K: We'll talk about Random Forest.
+
+26
+00:04:18.959 --> 00:04:24.629
+Jitendra K: We'll talk about support vector machine, which is one of the core algorithms that we are going to learn.
+
+27
+00:04:26.020 --> 00:04:28.689
+Jitendra K: We'll also talk about XZBoost.
+
+28
+00:04:29.820 --> 00:04:31.470
+Jitendra K: Extreme gradient boosting.
+
+29
+00:04:34.340 --> 00:04:37.999
+Jitendra K: We also talk about bagging and boosting algorithm.
+
+30
+00:04:41.610 --> 00:04:43.880
+Jitendra K: during Random Forward Discussion.
+
+31
+00:04:49.360 --> 00:04:54.159
+Jitendra K: And last but not the least, we'll also talk about… The nave vice.
+
+32
+00:04:55.920 --> 00:05:01.780
+Jitendra K: And… multi-level perceptron.
+
+33
+00:05:03.380 --> 00:05:07.430
+Jitendra K: So these are the algorithms that we are going to start with, and from multi-level perceptron.
+
+34
+00:05:07.570 --> 00:05:09.310
+Jitendra K: We'll start with deep learning.
+
+35
+00:05:14.120 --> 00:05:18.170
+Jitendra K: And then deep learning, as your name suggests, deep learning is very deep.
+
+36
+00:05:18.640 --> 00:05:20.549
+Jitendra K: So, I will not talk about this part.
+
+37
+00:05:21.050 --> 00:05:23.100
+Jitendra K: But we'll discuss until this part.
+
+38
+00:05:24.230 --> 00:05:32.380
+Jitendra K: So, we'll start with logistic regression, LR, DT, RF, SVM, XGB, and NB, native pies.
+
+39
+00:05:32.630 --> 00:05:38.449
+Jitendra K: So these are 1, 2, 3, 4, 5, 6 algorithms that we are going to understand and try to
+
+40
+00:05:38.840 --> 00:05:46.209
+Jitendra K: make it more proactive. Now, one important thing that I would like to talk about, so there's something called quantum mechanics, or quantum…
+
+41
+00:05:46.790 --> 00:05:49.529
+Jitendra K: Computing, which is coming along now, right?
+
+42
+00:05:49.760 --> 00:05:55.230
+Jitendra K: So, when we talk about quantum computing, so these algorithms will also be a part of your quantum computing.
+
+43
+00:05:55.630 --> 00:05:57.860
+Jitendra K: machine learning algorithm. So make sure that
+
+44
+00:05:58.290 --> 00:06:02.769
+Jitendra K: You should understand the basics mathematics of this, and then
+
+45
+00:06:03.010 --> 00:06:08.479
+Jitendra K: Maybe in future, if you're learning quantum computing, then these tutorials are definitely going to help you.
+
+46
+00:06:09.040 --> 00:06:13.990
+Jitendra K: Right? So, because the basics will not change, even if you are using quantum computing, or maybe…
+
+47
+00:06:14.590 --> 00:06:21.379
+Jitendra K: in… maybe in some decades, you will use… start using nanocomputing, right? So, who knows, right?
+
+48
+00:06:21.560 --> 00:06:26.760
+Jitendra K: So these concepts will not change, the mathematics will not change, the mathematics will remain the same, right?
+
+49
+00:06:26.900 --> 00:06:33.889
+Jitendra K: Only the technology, the way that you're running the algorithm will change. So make sure that you focus on mathematics, even if you do not understand all.
+
+50
+00:06:34.310 --> 00:06:36.020
+Jitendra K: Just have focus.
+
+51
+00:06:36.380 --> 00:06:39.019
+Jitendra K: On the mathematical equations.
+
+52
+00:06:39.270 --> 00:06:40.609
+Jitendra K: The discussion.
+
+53
+00:06:40.890 --> 00:06:47.209
+Jitendra K: Even if you are not able to understand 100% of it, that's fine. If you're learning 30, 20,
+
+54
+00:06:47.320 --> 00:06:49.700
+Jitendra K: 25%, that's perfectly fine.
+
+55
+00:06:50.150 --> 00:06:54.110
+Jitendra K: Right? So make sure that you understand the rational behind
+
+56
+00:06:54.550 --> 00:06:57.819
+Jitendra K: The mathematical frameworks of using these equations.
+
+57
+00:06:58.350 --> 00:07:09.379
+Jitendra K: KNN is also a part of it, it's not K… Yeah, KNN will also be a part of it. So KNN, kNearest Neighbor, we will also use for supervised learning, understanding.
+
+58
+00:07:09.810 --> 00:07:16.549
+Jitendra K: So we'll use 1, 2, 3, 4, 5, 6, 6 algorithms, 6 or 7 algorithms to discuss on this aspect.
+
+59
+00:07:16.980 --> 00:07:24.660
+Jitendra K: Now, once you start MLP, then your track will change to deep learning, right? So, right now, we are talking about supervised learning.
+
+60
+00:07:24.990 --> 00:07:27.840
+Jitendra K: And, in the modern-day computing.
+
+61
+00:07:27.960 --> 00:07:34.819
+Jitendra K: 90% of the problem can be solved with the help of supervised learning. 90%. Only 10% can be deep learning approach.
+
+62
+00:07:35.910 --> 00:07:40.689
+Jitendra K: when I talk about a traditional software programming, right? When you're using…
+
+63
+00:07:40.860 --> 00:07:46.499
+Jitendra K: Any machine learning project, so 90% of the project can be help… can be solved with the help of supervised learning.
+
+64
+00:07:46.750 --> 00:07:52.430
+Jitendra K: And 10% depends upon your model performance. Then you can think of using more complex
+
+65
+00:07:53.140 --> 00:07:59.880
+Jitendra K: a deep learning architecture to solve the same problem. But if you're able to solve the problem with supervised learning, that's perfectly fine.
+
+66
+00:08:01.150 --> 00:08:07.660
+Jitendra K: Now, what is supervised learning, and why it is called supervised learning? Supervised learning, as the name suggests, it comes under supervision.
+
+67
+00:08:08.190 --> 00:08:12.719
+Jitendra K: So the name suggests, supervision means, you're going to have a labels.
+
+68
+00:08:13.210 --> 00:08:18.299
+Jitendra K: So, you are going to use the labels and train the algorithm with the help of labeling data.
+
+69
+00:08:18.730 --> 00:08:30.469
+Jitendra K: So when I say labels, it can be your output labels, it can be your predicted labels, it can be your vibe predictors, any name you can assign to it.
+
+70
+00:08:30.880 --> 00:08:34.619
+Jitendra K: Right, so classification… sorry, regression in a nutshell.
+
+71
+00:08:34.850 --> 00:08:41.779
+Jitendra K: It's all about creating a range of… predicting a range of variables, but here we are predicting the class.
+
+72
+00:08:42.700 --> 00:08:45.519
+Jitendra K: The supervised learning is nothing but system approach.
+
+73
+00:08:45.800 --> 00:08:52.610
+Jitendra K: Right? So, which is having… The label data to train on the model.
+
+74
+00:08:52.950 --> 00:08:58.980
+Jitendra K: Alright, a supervised learning approach, is nothing, but it will give you… the…
+
+75
+00:08:59.680 --> 00:09:02.740
+Jitendra K: Pretty label and the layman data to solve the problem.
+
+76
+00:09:03.260 --> 00:09:05.400
+Jitendra K: Now, when we talk about
+
+77
+00:09:06.420 --> 00:09:15.269
+Jitendra K: The variable of interest, the defined characteristics of which we are using the data, where each input is paired with its correct input label.
+
+78
+00:09:15.500 --> 00:09:23.079
+Jitendra K: So this is where you're going to have a learning process, and the algorithm will analyze the label training data, identify the patterns and correlation.
+
+79
+00:09:23.270 --> 00:09:28.489
+Jitendra K: And then adjust its internal parameter to minimize the difference between its predicted and the actual value.
+
+80
+00:09:29.140 --> 00:09:33.289
+Jitendra K: Right? So it's like, you are preparing for an exam by joining a coaching.
+
+81
+00:09:33.530 --> 00:09:36.479
+Jitendra K: So your trainer will give you mock test.
+
+82
+00:09:36.690 --> 00:09:38.960
+Jitendra K: Your trainer will give you the right direction.
+
+83
+00:09:39.160 --> 00:09:47.550
+Jitendra K: Right? So, as a trainer, I'm here trying to help you to make sure that you understand the concepts of machine learning and excel it with the hands-on experiences.
+
+84
+00:09:47.680 --> 00:09:54.190
+Jitendra K: So, so that's the reason I'm giving an example. We are having a discussion, we are having a Q&A.
+
+85
+00:09:54.530 --> 00:09:58.969
+Jitendra K: But machine learning does not use Q&A, right? They do not reason it around on the data.
+
+86
+00:09:59.180 --> 00:10:04.269
+Jitendra K: So machine learning does not reason, right? So, they will not ask any questions like a human.
+
+87
+00:10:04.540 --> 00:10:12.319
+Jitendra K: So, what they did is they use a label and try to remember that how the 1 looks like and 0 looks like. That's the simplest answer.
+
+88
+00:10:12.500 --> 00:10:13.940
+Jitendra K: That I can able to give.
+
+89
+00:10:14.280 --> 00:10:19.000
+Jitendra K: So it will be able to identify the patterns, and try to understand those patterns, and generate awaits.
+
+90
+00:10:19.330 --> 00:10:21.310
+Jitendra K: Mathematically, to understand
+
+91
+00:10:21.450 --> 00:10:25.530
+Jitendra K: what is 1 and what is 0? As simple as that. And if there's a new data comes.
+
+92
+00:10:25.940 --> 00:10:30.529
+Jitendra K: It'll see from the past pattern and say that this looks like 0, this looks like 1.
+
+93
+00:10:31.310 --> 00:10:38.390
+Jitendra K: As simple as that, right? So basically, so what you're trying to do is, you're just trying to utilize models
+
+94
+00:10:38.650 --> 00:10:41.989
+Jitendra K: To perform the analysis on the top of it.
+
+95
+00:10:43.660 --> 00:10:48.689
+Jitendra K: Right? So… Think about your first experience riding a bicycle.
+
+96
+00:10:49.170 --> 00:10:54.419
+Jitendra K: So when you're riding the bicycle, you wobbles, you spills, and then you make adjustment for the perfect ride.
+
+97
+00:10:54.810 --> 00:11:00.260
+Jitendra K: So let's explore the psychology of it. So the brain is like a machine learning expert, which receives signal.
+
+98
+00:11:00.440 --> 00:11:03.039
+Jitendra K: In a form of metamorphic injuries.
+
+99
+00:11:03.520 --> 00:11:08.760
+Jitendra K: Metamorphical injuries, and then adjust to ensure the futuristic rights are safe.
+
+100
+00:11:09.320 --> 00:11:15.139
+Jitendra K: So, picture a scenario where You effortlessly master cycle from the start.
+
+101
+00:11:15.570 --> 00:11:18.870
+Jitendra K: No hiccups, no bumps, no need to… for bandage.
+
+102
+00:11:19.530 --> 00:11:29.839
+Jitendra K: So you're learning from the challenge, or having a smooth initial experience. So the brain is like a computer, or a grand coding adventure, which learns from the feedback. So our brain learns from the feedback.
+
+103
+00:11:30.270 --> 00:11:35.920
+Jitendra K: It's a blend of a trial error and the touch of magic, all guided by the capita…
+
+104
+00:11:36.040 --> 00:11:38.780
+Jitendra K: Weighting partners known as mathematics.
+
+105
+00:11:39.160 --> 00:11:45.729
+Jitendra K: So basically, same way supervised learning is a type of machine learning, where the algorithm is trained on the labeled data set.
+
+106
+00:11:45.950 --> 00:11:53.280
+Jitendra K: And the algorithm purpose is to learn the data patterns, to make the prediction or decision-making on a new or unseen data.
+
+107
+00:11:53.610 --> 00:11:58.789
+Jitendra K: So let's say you're training the model to understand spam emails based upon label data.
+
+108
+00:11:59.050 --> 00:12:07.369
+Jitendra K: So, once you provide any new scenarios in the form of an email, the output of the model will predict that whether it is a spam or a ham.
+
+109
+00:12:07.690 --> 00:12:14.039
+Jitendra K: Or that type, right? So that is where we are going to utilize supervised learning machines for that.
+
+110
+00:12:14.350 --> 00:12:23.390
+Jitendra K: So, supervised learning machine, or supervised learning is a machine learning technique that is widely used in various fields, like finance, healthcare, insurance, marketing.
+
+111
+00:12:24.070 --> 00:12:30.730
+Jitendra K: Social media, e-commerce, it can be used in… Fleet management.
+
+112
+00:12:31.100 --> 00:12:37.960
+Jitendra K: So it is a form of a machine learning in which algorithms train on a label data to make prediction or decision based upon the input data.
+
+113
+00:12:38.270 --> 00:12:40.990
+Jitendra K: So, in a supervised learning, the algorithm learns to map
+
+114
+00:12:41.930 --> 00:12:44.439
+Jitendra K: Input and output as a mathematical function.
+
+115
+00:12:44.820 --> 00:12:52.050
+Jitendra K: And this mapping is learned from the label dataset, which comprise of maybe a 2-class, 3-class, right? And then based upon that.
+
+116
+00:12:52.190 --> 00:12:54.330
+Jitendra K: You're going to perform the analysis.
+
+117
+00:12:57.130 --> 00:12:58.510
+Jitendra K: Alright, so…
+
+118
+00:13:01.630 --> 00:13:07.960
+Jitendra K: So, what we are going to do next is, we will take… some example…
+
+119
+00:13:11.430 --> 00:13:17.339
+Jitendra K: And we will start with the logistic regression to begin with. So we'll start with logistic regression, and then we will start
+
+120
+00:13:17.640 --> 00:13:25.480
+Jitendra K: working on the mathematical foundation of logistic regression. Once we complete logistic regression, we will move on to some coding example.
+
+121
+00:13:25.870 --> 00:13:37.129
+Jitendra K: And from coding example, we will also start leveraging the cost function, how to evaluate a supervised learning algorithm. And that is the main motive of today's discussion.
+
+122
+00:13:37.310 --> 00:13:39.969
+Jitendra K: So first, we will understand logistic regression.
+
+123
+00:13:40.740 --> 00:13:42.399
+Jitendra K: From… from the in-depth.
+
+124
+00:13:42.680 --> 00:13:47.810
+Jitendra K: And then, we will start… Taking some code on logistic regression.
+
+125
+00:13:47.990 --> 00:13:55.109
+Jitendra K: And I will use, maybe an insurance claim data.
+
+126
+00:13:55.700 --> 00:13:58.619
+Jitendra K: To perform the logistic regression, and then…
+
+127
+00:13:59.250 --> 00:14:04.089
+Jitendra K: We will evaluate the model, and then we'll see how the model behaves.
+
+128
+00:14:04.490 --> 00:14:08.230
+Jitendra K: If we are going to perform the core analysis on the top of it.
+
+129
+00:14:09.120 --> 00:14:16.859
+Jitendra K: So let's start with the in-depth intuition of logistic regression from Very basics to comprehensive guidelines.
+
+130
+00:14:17.180 --> 00:14:21.349
+Jitendra K: So when I say logistic regression, so logistic regression is a method.
+
+131
+00:14:22.000 --> 00:14:23.569
+Jitendra K: Which will follow.
+
+132
+00:14:24.380 --> 00:14:28.249
+Jitendra K: the mathematical function in the form of a saturation curve, or S-curve.
+
+133
+00:14:28.820 --> 00:14:33.440
+Jitendra K: So, what logistic regression does is… so… It's like…
+
+134
+00:14:34.320 --> 00:14:38.240
+Jitendra K: A method for predicting the binary outcome, where you are going to have
+
+135
+00:14:38.610 --> 00:14:41.760
+Jitendra K: The outcome in the form of a yes or no, true or false.
+
+136
+00:14:41.980 --> 00:14:44.340
+Jitendra K: Which is as opposed to linear regression.
+
+137
+00:14:44.440 --> 00:14:47.840
+Jitendra K: So in linear regression, we have seen that we are trying to predict the range.
+
+138
+00:14:48.190 --> 00:14:50.509
+Jitendra K: Right? By saying that the house price
+
+139
+00:14:52.730 --> 00:14:57.460
+Jitendra K: Will be in a range of… 1.5 CR.
+
+140
+00:14:59.060 --> 00:15:03.350
+Jitendra K: to 1.7 CR for 3 BHK flat in Pune.
+
+141
+00:15:04.190 --> 00:15:04.990
+Jitendra K: Right?
+
+142
+00:15:05.100 --> 00:15:12.180
+Jitendra K: Similarly, we are saying that, the stock price can grow up by… 2%.
+
+143
+00:15:13.110 --> 00:15:16.760
+Jitendra K: 2… 2 point… 2%.
+
+144
+00:15:17.630 --> 00:15:19.430
+Jitendra K: In the upcoming week.
+
+145
+00:15:19.830 --> 00:15:24.440
+Jitendra K: We talk about a GDP… Rate of a country.
+
+146
+00:15:25.660 --> 00:15:28.419
+Jitendra K: Which will increase by X percent to Y percent.
+
+147
+00:15:29.120 --> 00:15:35.919
+Jitendra K: Fraction of X percent. We talk about population index, Employment rate. Unemployment rate.
+
+148
+00:15:38.960 --> 00:15:43.949
+Jitendra K: So on and so forth, right? So these are the different types of method that we use.
+
+149
+00:15:44.180 --> 00:15:45.969
+Jitendra K: To generate an indexes.
+
+150
+00:15:46.320 --> 00:15:53.130
+Jitendra K: And these indexes are useful for understanding macroeconomic Uncertainties.
+
+151
+00:15:53.830 --> 00:16:01.110
+Jitendra K: To create a financial planning, to take a decision. If you are going to invest on stock price.
+
+152
+00:16:01.300 --> 00:16:08.299
+Jitendra K: based upon this decision, then you will certainly look for better returns, right? And then only you will invest.
+
+153
+00:16:09.330 --> 00:16:21.320
+Jitendra K: Similarly, you will look for house price before making your budget, because you are going to plan too many things, taking a loan, taking a mortgage, a lot of things are there, right, when you're buying a house.
+
+154
+00:16:21.620 --> 00:16:28.010
+Jitendra K: So you will see whether I should adjust my budget, should I plan 2BHK instead of 3 BHK, and so on and so forth.
+
+155
+00:16:28.350 --> 00:16:34.980
+Jitendra K: So it's like a well… so this is where we are going to use linear regression for, where our outcome variable is continuous in nature.
+
+156
+00:16:35.240 --> 00:16:37.489
+Jitendra K: But when we talk about logistic regression.
+
+157
+00:16:38.130 --> 00:16:41.800
+Jitendra K: We are predicting the binary outcome in the form of a 0 and 1 only.
+
+158
+00:16:43.690 --> 00:16:47.289
+Jitendra K: So you can see that this saturation curve have the data points.
+
+159
+00:16:47.760 --> 00:16:53.290
+Jitendra K: Which is… between… 0 and 1. And on the line, you can see the green dots.
+
+160
+00:16:53.960 --> 00:16:56.980
+Jitendra K: And along the curve, you're seeing 3 dots.
+
+161
+00:17:00.840 --> 00:17:04.260
+Jitendra K: Right, which are the saturation values and the threshold values.
+
+162
+00:17:05.069 --> 00:17:13.279
+Jitendra K: So when you're trying to predict the outcome, or continuous outcome, the logistic function will convert any input with a real value to a number between 0 to 1.
+
+163
+00:17:13.790 --> 00:17:16.799
+Jitendra K: And it will serve as a foundation for logistic regression model.
+
+164
+00:17:18.000 --> 00:17:21.609
+Jitendra K: Now, if I have to just denote this function.
+
+165
+00:17:25.200 --> 00:17:29.150
+Jitendra K: I can say this function is nothing but… This is a sigmoid function.
+
+166
+00:17:29.730 --> 00:17:34.349
+Jitendra K: Right, and the sigmoid function equation can be written as sigma of Z.
+
+167
+00:17:36.210 --> 00:17:41.760
+Jitendra K: It equals to 1 over 1 plus… exponential of minus X.
+
+168
+00:17:42.430 --> 00:17:47.089
+Jitendra K: What I can say, if I have to take a transpose, I will say Z is equals 2,
+
+169
+00:17:47.930 --> 00:17:49.470
+Jitendra K: W of T.
+
+170
+00:17:49.870 --> 00:17:51.609
+Jitendra K: X plus B.
+
+171
+00:17:52.490 --> 00:17:58.590
+Jitendra K: And this is the equation that I'm going to use for sigmoid functions. So Z denotes the classification line.
+
+172
+00:17:58.990 --> 00:18:00.870
+Jitendra K: Here is the classification line.
+
+173
+00:18:01.360 --> 00:18:06.170
+Jitendra K: And this is quite analogous to linear regression line. And E is the natural log.
+
+174
+00:18:06.450 --> 00:18:09.310
+Jitendra K: The sigmoid function values get closer to 1,
+
+175
+00:18:09.500 --> 00:18:15.119
+Jitendra K: or closer to 0, as X moves toward positive and negative infinity, respectively.
+
+176
+00:18:15.590 --> 00:18:20.539
+Jitendra K: In other words, it means that a data point which is farther away from the classification line
+
+177
+00:18:21.320 --> 00:18:24.970
+Jitendra K: Or classification, scenarios.
+
+178
+00:18:25.440 --> 00:18:32.220
+Jitendra K: They are… yield more confident prediction, and the probability of that prediction approaches to 1 or 0.
+
+179
+00:18:32.660 --> 00:18:36.030
+Jitendra K: However, there are several important properties that should be mentioned.
+
+180
+00:18:36.400 --> 00:18:38.819
+Jitendra K: The first property is called nonlinearity.
+
+181
+00:18:39.460 --> 00:18:45.609
+Jitendra K: So the relationship between input and output is not a straight line, since it is a sigmoid function, which is a nonlinear function.
+
+182
+00:18:45.720 --> 00:18:48.839
+Jitendra K: Second, the output value of the sigmoid function, follow a…
+
+183
+00:18:50.270 --> 00:18:56.499
+Jitendra K: As you can see here, with a positive and negative infinite, Approaching towards it.
+
+184
+00:18:56.750 --> 00:19:02.930
+Jitendra K: So, sigmoid function, why we are using here it? Because it is differentiable, which employs that, which implies that.
+
+185
+00:19:03.200 --> 00:19:09.340
+Jitendra K: It's derivative that can be utilized for optimization tasks, like determining the function maximum and the minimum value.
+
+186
+00:19:12.960 --> 00:19:16.739
+Jitendra K: So, let me check, I can see some questions, one second…
+
+187
+00:19:18.180 --> 00:19:19.780
+Jitendra K: Let's check what is the cushion.
+
+188
+00:19:25.140 --> 00:19:29.130
+Jitendra K: Do we need to remember all this formula? No. We need not to remember this formula.
+
+189
+00:19:31.940 --> 00:19:34.030
+Jitendra K: You just make a note and then forgot.
+
+190
+00:19:34.580 --> 00:19:35.529
+Jitendra K: That's fine.
+
+191
+00:19:37.490 --> 00:19:43.540
+Jitendra K: Alright, so we'll talk about… the… logistic regression.
+
+192
+00:19:43.690 --> 00:19:47.220
+Jitendra K: Maybe, difference between linear regression and logistic regression.
+
+193
+00:19:47.550 --> 00:19:50.330
+Jitendra K: Now, let me talk about these two curves.
+
+194
+00:19:51.290 --> 00:19:57.509
+Jitendra K: So here you can see that I'm representing a linear regression, and here I'm representing a logic regression, which is a saturated curve.
+
+195
+00:19:58.120 --> 00:20:06.529
+Jitendra K: So, the idea is, when I'm representing this equation, Z is equal to, WX plus P.
+
+196
+00:20:08.950 --> 00:20:10.830
+Jitendra K: I will say G offset.
+
+197
+00:20:12.170 --> 00:20:13.909
+Jitendra K: is Y prime.
+
+198
+00:20:15.810 --> 00:20:18.530
+Jitendra K: Function of weights and biased.
+
+199
+00:20:19.540 --> 00:20:25.990
+Jitendra K: effects… Which is equals to 1 over 1 plus E res to power minus that.
+
+200
+00:20:27.730 --> 00:20:33.290
+Jitendra K: So, G of Z is the predicted value, W is the slope, Or a coefficient.
+
+201
+00:20:33.620 --> 00:20:36.220
+Jitendra K: And X is the independent variable.
+
+202
+00:20:37.850 --> 00:20:40.359
+Jitendra K: B, that I'm passing on here.
+
+203
+00:20:40.530 --> 00:20:42.680
+Jitendra K: Is a constant or the intercept.
+
+204
+00:20:43.740 --> 00:20:50.769
+Jitendra K: So, in logistic regression, we diffuse to define cost function compared to linear regression, due to have multiple
+
+205
+00:20:51.720 --> 00:20:53.210
+Jitendra K: convex functions.
+
+206
+00:20:54.080 --> 00:21:00.050
+Jitendra K: So the idea is… Idea that, the logistic regression follows is…
+
+207
+00:21:00.310 --> 00:21:04.440
+Jitendra K: So if I have to give you a very simple understanding of logistic regression.
+
+208
+00:21:05.080 --> 00:21:08.890
+Jitendra K: We are trying to predict the probability of a class
+
+209
+00:21:10.330 --> 00:21:17.469
+Jitendra K: or a probability of a default class. For example, let's say if we are modeling if a person will get a promotion based upon their performance.
+
+210
+00:21:18.780 --> 00:21:21.860
+Jitendra K: Then the first class should be a person will get a promotion.
+
+211
+00:21:22.550 --> 00:21:30.020
+Jitendra K: And the logistic regression would return as… probability of… Promotion.
+
+212
+00:21:32.200 --> 00:21:33.230
+Jitendra K: Why?
+
+213
+00:21:34.820 --> 00:21:36.380
+Jitendra K: Against performers.
+
+214
+00:21:41.310 --> 00:21:43.119
+Jitendra K: Given the performance.
+
+215
+00:21:43.290 --> 00:21:46.100
+Jitendra K: If the company is fair, no politics.
+
+216
+00:21:47.010 --> 00:21:49.449
+Jitendra K: Right? And then we can add a biased term politics.
+
+217
+00:21:50.460 --> 00:21:59.179
+Jitendra K: So performance… so we will say that a person will get a promotion, and the knowledge declaration could be written as probability of a promotion, given a person's performance.
+
+218
+00:21:59.380 --> 00:22:01.759
+Jitendra K: More formally, inviting this equation.
+
+219
+00:22:02.150 --> 00:22:07.999
+Jitendra K: So, another way, we'll say that to determine the probability that X belongs to a default class.
+
+220
+00:22:08.360 --> 00:22:17.210
+Jitendra K: which is 1. We will re-return this as P of… Y… equals to 1, given X.
+
+221
+00:22:19.020 --> 00:22:19.790
+Jitendra K: Right?
+
+222
+00:22:20.090 --> 00:22:24.550
+Jitendra K: So, basically, Logistic regression has a linear approach.
+
+223
+00:22:25.150 --> 00:22:30.720
+Jitendra K: But the prediction that you are making has been transformed using logistic function.
+
+224
+00:22:31.510 --> 00:22:36.490
+Jitendra K: Because of this, we cannot no longer understand a prediction as a linear combination.
+
+225
+00:22:37.010 --> 00:22:43.550
+Jitendra K: But we'd rather say that this equation will be represented as exponential of Your?
+
+226
+00:22:43.850 --> 00:22:48.039
+Jitendra K: coefficients… Which determine the performance.
+
+227
+00:22:52.160 --> 00:22:56.770
+Jitendra K: The performance can be based upon your contribution to the project.
+
+228
+00:22:57.710 --> 00:23:01.740
+Jitendra K: The cost saving that you make, in the project.
+
+229
+00:23:02.340 --> 00:23:11.549
+Jitendra K: how effectively you drive the client escalation. It can be the new initiative that you're taking in Gen AI, machine learning, etc.
+
+230
+00:23:11.830 --> 00:23:21.589
+Jitendra K: And of course, the appreciation that you're getting from your peers, clients, etc. And that is totally a performance, right? I'm, again.
+
+231
+00:23:22.030 --> 00:23:24.489
+Jitendra K: Not considering biasness.
+
+232
+00:23:25.850 --> 00:23:28.640
+Jitendra K: Fair company I'm talking about, right? Fair trials.
+
+233
+00:23:29.060 --> 00:23:31.599
+Jitendra K: So we can change this equation by saying that
+
+234
+00:23:32.010 --> 00:23:36.710
+Jitendra K: Let's take a log of n, natural log of n, on both sides.
+
+235
+00:23:43.440 --> 00:23:48.179
+Jitendra K: So this equation will become… B0 plus B1 of X.
+
+236
+00:23:51.790 --> 00:23:57.969
+Jitendra K: Right? So this is what… the Decian boundary of the class looks like.
+
+237
+00:23:58.670 --> 00:24:05.010
+Jitendra K: So basically, when you're applying this equation, To a logistic regression function.
+
+238
+00:24:05.240 --> 00:24:06.639
+Jitendra K: You will get this curve.
+
+239
+00:24:07.150 --> 00:24:09.599
+Jitendra K: When you're applying this equation, you will get this curve.
+
+240
+00:24:09.850 --> 00:24:12.560
+Jitendra K: Now, remember, this curve is having a decient boundary.
+
+241
+00:24:12.920 --> 00:24:13.840
+Jitendra K: Which is?
+
+242
+00:24:13.950 --> 00:24:15.500
+Jitendra K: Based upon the threshold.
+
+243
+00:24:15.710 --> 00:24:21.220
+Jitendra K: And this threshold, by default, Position at 0.5.
+
+244
+00:24:21.500 --> 00:24:22.990
+Jitendra K: So, can I say that?
+
+245
+00:24:23.410 --> 00:24:33.310
+Jitendra K: The probability of a class… to be 1, Depends upon this threshold.
+
+246
+00:24:34.010 --> 00:24:42.780
+Jitendra K: If this threshold is… Greater than or equal to 0.5.
+
+247
+00:24:44.410 --> 00:24:53.230
+Jitendra K: The probability of a class will be 0, When threshold… It's less than 0.5.
+
+248
+00:24:54.070 --> 00:24:55.479
+Jitendra K: Let's find this region.
+
+249
+00:25:03.650 --> 00:25:04.410
+Jitendra K: Right?
+
+250
+00:25:04.600 --> 00:25:13.319
+Jitendra K: So if our threshold is 0.5, and our prediction function written, let's say, 0.75, we will classify this observation as positive, or class 1.
+
+251
+00:25:13.970 --> 00:25:19.039
+Jitendra K: And if our prediction was 0.3, we would classify the observation as negative, or 0+.
+
+252
+00:25:19.840 --> 00:25:21.599
+Jitendra K: So that is called decision boundary.
+
+253
+00:25:22.270 --> 00:25:23.870
+Jitendra K: Now, in machine learning.
+
+254
+00:25:24.590 --> 00:25:31.239
+Jitendra K: You need to understand the loss function. We have talked about loss function in regression, mean square error, R squared.
+
+255
+00:25:31.400 --> 00:25:32.630
+Jitendra K: RMSE.
+
+256
+00:25:33.160 --> 00:25:33.850
+Jitendra K: Map.
+
+257
+00:25:34.200 --> 00:25:37.809
+Jitendra K: Right? So… When you talk about…
+
+258
+00:25:38.070 --> 00:25:41.450
+Jitendra K: logistic regression. We will also use something
+
+259
+00:25:41.840 --> 00:25:46.410
+Jitendra K: In terms of determining the overall efficacy of the algorithm.
+
+260
+00:25:49.940 --> 00:25:53.520
+Jitendra K: So the cost function of… logistic regression.
+
+261
+00:25:54.170 --> 00:25:57.290
+Jitendra K: will be represented like H of theta.
+
+262
+00:25:59.660 --> 00:26:00.810
+Jitendra K: of facts.
+
+263
+00:26:01.500 --> 00:26:05.269
+Jitendra K: And this has been represented with the help of a global function.
+
+264
+00:26:05.720 --> 00:26:09.909
+Jitendra K: called G theta transpose of X.
+
+265
+00:26:12.750 --> 00:26:15.050
+Jitendra K: And this has been represented as Z.
+
+266
+00:26:15.990 --> 00:26:17.560
+Jitendra K: Theta of T.
+
+267
+00:26:18.040 --> 00:26:18.820
+Jitendra K: X.
+
+268
+00:26:19.330 --> 00:26:27.589
+Jitendra K: I can see… the function G of Z is equal to 1 over 1 plus exponential of minus Z.
+
+269
+00:26:28.470 --> 00:26:31.749
+Jitendra K: So this is a hypothetical representation of logistic function.
+
+270
+00:26:32.220 --> 00:26:35.439
+Jitendra K: So your hypothesis for logistic function is this.
+
+271
+00:26:36.600 --> 00:26:37.540
+Jitendra K: Nope.
+
+272
+00:26:37.660 --> 00:26:43.139
+Jitendra K: You have a hypothesis, I can represent this equation H of theta again.
+
+273
+00:26:43.930 --> 00:26:45.679
+Jitendra K: In simplified format.
+
+274
+00:26:46.340 --> 00:26:48.120
+Jitendra K: H of theta of X.
+
+275
+00:26:48.250 --> 00:26:53.200
+Jitendra K: is equals to… theta naught plus…
+
+276
+00:26:53.330 --> 00:26:55.869
+Jitendra K: theta 1 of X, which is similar to beta naught.
+
+277
+00:26:57.250 --> 00:27:01.339
+Jitendra K: W1X plus bias, right? So I can represent in this form.
+
+278
+00:27:01.890 --> 00:27:11.699
+Jitendra K: Now, your goal of this equation is to minimize… J… Theta naught?
+
+279
+00:27:12.220 --> 00:27:13.830
+Jitendra K: And theta, 1.
+
+280
+00:27:16.330 --> 00:27:22.960
+Jitendra K: So… This is your goal, and to perform this goal, we are going to convert this equation
+
+281
+00:27:26.120 --> 00:27:27.650
+Jitendra K: as 1 over M.
+
+282
+00:27:28.350 --> 00:27:32.909
+Jitendra K: Summation of… I is equals to 1 to M.
+
+283
+00:27:35.740 --> 00:27:36.650
+Jitendra K: Cost?
+
+284
+00:27:36.850 --> 00:27:38.259
+Jitendra K: S Tao.
+
+285
+00:27:39.510 --> 00:27:40.570
+Jitendra K: XI.
+
+286
+00:27:41.750 --> 00:27:44.950
+Jitendra K: YA. So this will be a cost function now.
+
+287
+00:27:46.870 --> 00:27:47.600
+Jitendra K: Right?
+
+288
+00:27:47.710 --> 00:27:50.629
+Jitendra K: So I will say the cost function will take two forms.
+
+289
+00:27:51.440 --> 00:27:56.790
+Jitendra K: The first form will be if… Y is equals to 1.
+
+290
+00:27:56.970 --> 00:27:58.560
+Jitendra K: It will take this form.
+
+291
+00:27:59.990 --> 00:28:04.219
+Jitendra K: It will take the another form, sorry, it will take another form.
+
+292
+00:28:15.300 --> 00:28:18.590
+Jitendra K: It's reverse exponential if y is equal to 0.
+
+293
+00:28:18.750 --> 00:28:23.020
+Jitendra K: So it will start to tense towards 0, and here it tends towards 1.
+
+294
+00:28:23.230 --> 00:28:28.380
+Jitendra K: So I can say, my cost function, Becoming a square error function.
+
+295
+00:28:28.980 --> 00:28:32.159
+Jitendra K: So, J of… theta naught.
+
+296
+00:28:32.750 --> 00:28:33.940
+Jitendra K: Theta 1.
+
+297
+00:28:34.460 --> 00:28:36.610
+Jitendra K: is equals to 1 over 2M.
+
+298
+00:28:37.550 --> 00:28:40.450
+Jitendra K: Summation of… i is equal to 1.
+
+299
+00:28:42.240 --> 00:28:43.770
+Jitendra K: Ash of theta.
+
+300
+00:28:44.050 --> 00:28:49.900
+Jitendra K: X of I… minus Y of I, Holy Square.
+
+301
+00:28:50.720 --> 00:28:53.969
+Jitendra K: So this is your cost function for logistic regression.
+
+302
+00:28:54.480 --> 00:29:00.150
+Jitendra K: So basically, what are you trying to do is, this is a cause function you want to learn.
+
+303
+00:29:00.820 --> 00:29:04.420
+Jitendra K: and implement against the algorithm.
+
+304
+00:29:06.600 --> 00:29:13.809
+Jitendra K: Right? So, the function that we are using is J theta and plotting the J theta we'll find.
+
+305
+00:29:14.270 --> 00:29:15.600
+Jitendra K: Local Optima?
+
+306
+00:29:16.230 --> 00:29:18.209
+Jitendra K: Right? And then try to use…
+
+307
+00:29:18.820 --> 00:29:22.429
+Jitendra K: The derivative of this to find the global minima.
+
+308
+00:29:22.650 --> 00:29:25.709
+Jitendra K: And that is what logistic regression does inside it.
+
+309
+00:29:26.360 --> 00:29:28.070
+Jitendra K: Right, so logistic regression.
+
+310
+00:29:28.420 --> 00:29:33.590
+Jitendra K: We'll try to utilize these mathematical principles To find it out.
+
+311
+00:29:33.700 --> 00:29:36.140
+Jitendra K: The probability, or log of odds.
+
+312
+00:29:39.440 --> 00:29:42.250
+Jitendra K: And that's why we're taking a natural log transformation.
+
+313
+00:29:42.460 --> 00:29:45.349
+Jitendra K: Now, the question would be why we are taking a natural law.
+
+314
+00:29:45.470 --> 00:29:50.880
+Jitendra K: you may ask why we are taking a natural log. Why can't we take some other… transformation.
+
+315
+00:29:51.770 --> 00:29:59.850
+Jitendra K: Now, the answer to it is the log function, or the logit function, transform the probability into a range of minus infinity to plus infinity.
+
+316
+00:30:00.740 --> 00:30:08.360
+Jitendra K: So the logit function only When you're taking a log function, it will transform the probability
+
+317
+00:30:09.040 --> 00:30:14.810
+Jitendra K: Into a range of value from minus infinity to plus infinity, and this makes it possible to the model
+
+318
+00:30:15.710 --> 00:30:21.789
+Jitendra K: This will… this makes it possible to model the relationship between the predictor X and the log odds
+
+319
+00:30:22.960 --> 00:30:27.650
+Jitendra K: That you plug in, in a linear… regression technique.
+
+320
+00:30:28.430 --> 00:30:35.390
+Jitendra K: So in logistic regression, the log function, or the logit function, is used to relate the linear combination of the predictors
+
+321
+00:30:35.570 --> 00:30:40.110
+Jitendra K: And the coefficients of the log odds of the event occurrence.
+
+322
+00:30:40.900 --> 00:30:44.459
+Jitendra K: This is very important. So, in logistic regression.
+
+323
+00:30:44.620 --> 00:30:51.929
+Jitendra K: You're saying, I'm taking a log, natural log, of a probiotical function.
+
+324
+00:30:52.900 --> 00:31:01.130
+Jitendra K: which will determine… the class… Given X… Right? And…
+
+325
+00:31:01.440 --> 00:31:03.069
+Jitendra K: What are you trying to predict?
+
+326
+00:31:03.550 --> 00:31:06.050
+Jitendra K: You're trying to predict the relationship between the…
+
+327
+00:31:07.080 --> 00:31:11.759
+Jitendra K: X and Y, using this equation, which is a linear regression equation line.
+
+328
+00:31:12.330 --> 00:31:17.290
+Jitendra K: Right? But what logic division does is… It will…
+
+329
+00:31:17.470 --> 00:31:22.179
+Jitendra K: Use a logit function to relate the linear combination of the predictors.
+
+330
+00:31:23.660 --> 00:31:27.519
+Jitendra K: And coefficient to the log odd of the event occurrence.
+
+331
+00:31:28.410 --> 00:31:31.280
+Jitendra K: So these coefficients, beta naught, beta 1, beta 2,
+
+332
+00:31:31.550 --> 00:31:35.550
+Jitendra K: They are becoming weights associated with each predictor.
+
+333
+00:31:36.310 --> 00:31:40.189
+Jitendra K: And this equation represents a linear relationship between the predictor X,
+
+334
+00:31:40.580 --> 00:31:46.759
+Jitendra K: and the log of the event Y. Now, this is important. When you're reading this equation, you should say that
+
+335
+00:31:47.290 --> 00:31:48.630
+Jitendra K: I'm still…
+
+336
+00:31:48.980 --> 00:31:56.399
+Jitendra K: using a linear relationship between my input variables, but I'm taking a log transformation on the probability of output.
+
+337
+00:31:56.650 --> 00:31:59.520
+Jitendra K: Or, probability of the log of event.
+
+338
+00:32:00.190 --> 00:32:02.070
+Jitendra K: A log of odd of that event.
+
+339
+00:32:02.440 --> 00:32:08.129
+Jitendra K: So when I say log of odd of that event, I'm talking about probability of that event to be 1.
+
+340
+00:32:11.190 --> 00:32:16.339
+Jitendra K: Now, the question is, why lock transformation? So, as I mentioned, the log transformation allows
+
+341
+00:32:16.590 --> 00:32:20.389
+Jitendra K: Logistic regression to model the relationship between the predictor
+
+342
+00:32:20.540 --> 00:32:24.640
+Jitendra K: And the probability of the event occurring in a linear fashion.
+
+343
+00:32:27.120 --> 00:32:30.220
+Jitendra K: And this is essential for fitting the model.
+
+344
+00:32:30.800 --> 00:32:36.270
+Jitendra K: to determine… the… the, coefficients
+
+345
+00:32:36.560 --> 00:32:38.670
+Jitendra K: Which will come from this equation.
+
+346
+00:32:42.300 --> 00:32:45.609
+Jitendra K: Right? So this is what logistic regression does for us.
+
+347
+00:32:46.210 --> 00:32:50.420
+Jitendra K: Now, we'll try to look into how to use logistic regression.
+
+348
+00:32:50.620 --> 00:32:53.899
+Jitendra K: And, how to interpret the outcome of a logistic regression.
+
+349
+00:32:54.340 --> 00:32:59.510
+Jitendra K: So basically, the foundation of logic regression, the basic purpose of logic regression is…
+
+350
+00:33:00.130 --> 00:33:06.849
+Jitendra K: It is designed for a binary classification problem, where the outcome variable of interest can be of two class, 0 or 1.
+
+351
+00:33:07.130 --> 00:33:13.729
+Jitendra K: And instead of predicting the continuous variables, or continuous value, knowledge degradation predicts the probability that a given input
+
+352
+00:33:14.100 --> 00:33:16.190
+Jitendra K: May belongs to a particular class.
+
+353
+00:33:17.970 --> 00:33:25.250
+Jitendra K: And we are using a transformation, which is a cornerstone of logistic regression, and it transforms any real value number
+
+354
+00:33:25.440 --> 00:33:27.360
+Jitendra K: Into a value of 0 to 1.
+
+355
+00:33:27.750 --> 00:33:32.000
+Jitendra K: And that is very suitable for… probabilistical estimation.
+
+356
+00:33:34.380 --> 00:33:37.139
+Jitendra K: Now, what is the training process of logistic regression?
+
+357
+00:33:37.610 --> 00:33:44.720
+Jitendra K: So the objective in logistic regression is to maximize the likelihood that the observed data come from the predicted probability.
+
+358
+00:33:45.070 --> 00:33:50.850
+Jitendra K: So, most common cause function associated with logistic regression is called cross-entropy loss.
+
+359
+00:33:52.470 --> 00:33:57.969
+Jitendra K: So we'll use a cross entropy loss to determine the outcome of the logistic regression.
+
+360
+00:34:00.140 --> 00:34:07.130
+Jitendra K: Now, what is cross entropy loss? So, these terms may confuse you, since you're maybe hearing for the very first time.
+
+361
+00:34:08.040 --> 00:34:12.179
+Jitendra K: Before understanding the cross entropy, you have to understand entropy.
+
+362
+00:34:13.290 --> 00:34:18.029
+Jitendra K: So, entropy is a measurement of the system stability, or system effectiveness.
+
+363
+00:34:18.699 --> 00:34:27.179
+Jitendra K: So, you might have heard about, this term in thermodynamics, entropy of… Entelpy, entropy, right?
+
+364
+00:34:27.500 --> 00:34:36.309
+Jitendra K: So, when we talk about entropy, cross-entropy, So, let's… Let's take an example.
+
+365
+00:34:37.630 --> 00:34:46.030
+Jitendra K: So when you're trying to create any binary classification, Right? You are saying that… In any binary classification.
+
+366
+00:34:47.139 --> 00:34:50.149
+Jitendra K: You're trying to predict how many 1s are coming as 1,
+
+367
+00:34:50.340 --> 00:34:53.249
+Jitendra K: And how many zeros are coming at zero? As simple as that.
+
+368
+00:34:53.560 --> 00:34:58.010
+Jitendra K: And then you can create how many ones are coming as zeros, how many zeros are coming as ones.
+
+369
+00:34:58.650 --> 00:34:59.929
+Jitendra K: Vice versa as well.
+
+370
+00:35:00.080 --> 00:35:03.160
+Jitendra K: So this is your true positive, this is your false positive.
+
+371
+00:35:04.050 --> 00:35:08.059
+Jitendra K: So before… Jumping into the log loss…
+
+372
+00:35:08.590 --> 00:35:10.990
+Jitendra K: So once you develop a machine learning model.
+
+373
+00:35:11.730 --> 00:35:13.180
+Jitendra K: You will look for a result.
+
+374
+00:35:13.280 --> 00:35:21.180
+Jitendra K: Because ultimately, you're trying to produce some tangible outcome from the model. It's not for fun, right? So you're creating some model for some business purpose.
+
+375
+00:35:21.580 --> 00:35:26.919
+Jitendra K: You're not just using model for fun, right? Like, you're learning mathematics, so I'm using model.
+
+376
+00:35:27.760 --> 00:35:31.590
+Jitendra K: So there has to be some business… Problem that you're solving.
+
+377
+00:35:31.700 --> 00:35:33.619
+Jitendra K: By fitting the model on the top of it.
+
+378
+00:35:34.250 --> 00:35:36.910
+Jitendra K: So let's say you're using a model to…
+
+379
+00:35:37.740 --> 00:35:39.489
+Jitendra K: Perform a sanction on the loan.
+
+380
+00:35:45.850 --> 00:35:50.019
+Jitendra K: Loan application from the user, or you're distributing a credit card to the user.
+
+381
+00:35:51.120 --> 00:35:52.529
+Jitendra K: Credit card also takes.
+
+382
+00:35:52.940 --> 00:35:54.300
+Jitendra K: application take…
+
+383
+00:35:54.430 --> 00:36:00.739
+Jitendra K: binary outcome. Either you will get a credit card, or you will not. They will not say, I'm giving you 50% credit card.
+
+384
+00:36:01.520 --> 00:36:09.260
+Jitendra K: Right? Nobody will give you 50% credit card. They will say, either I will approve your credit card equation or reject your credit card equation.
+
+385
+00:36:09.650 --> 00:36:13.220
+Jitendra K: Similarly, when you're filing a medical bill, they will either
+
+386
+00:36:15.030 --> 00:36:17.840
+Jitendra K: Maybe approve your request or reject your request.
+
+387
+00:36:18.230 --> 00:36:20.430
+Jitendra K: So here, we are talking about
+
+388
+00:36:20.600 --> 00:36:22.639
+Jitendra K: A function in the form of a binary outcome.
+
+389
+00:36:24.680 --> 00:36:34.490
+Jitendra K: So what is binary cross entropy or log loss? So binary cross entropy is a loss function to measure a difference between predicted binary outcome and the actual binary labels.
+
+390
+00:36:34.720 --> 00:36:38.609
+Jitendra K: So it quantifies a dissimilarity between the probabilical distribution.
+
+391
+00:36:39.950 --> 00:36:45.869
+Jitendra K: By penalizing inaccurate prediction. And we are going to use Cross entropy for…
+
+392
+00:36:46.600 --> 00:36:52.090
+Jitendra K: binary classification. So binary crescentropy, or binary loss, log loss, or…
+
+393
+00:36:52.490 --> 00:36:57.600
+Jitendra K: is a common reuse loss function in machine learning, particularly in binary classification.
+
+394
+00:36:58.220 --> 00:37:04.599
+Jitendra K: Where we would like to find out a dissimilarity between the predicted probability distribution and the true binary labels of a dataset.
+
+395
+00:37:11.120 --> 00:37:11.910
+Jitendra K: Right?
+
+396
+00:37:12.110 --> 00:37:15.190
+Jitendra K: So… So let me take an example.
+
+397
+00:37:16.020 --> 00:37:18.509
+Jitendra K: So, let me take an example.
+
+398
+00:37:21.810 --> 00:37:23.740
+Jitendra K: Let's say I have a dataset like this.
+
+399
+00:37:27.990 --> 00:37:32.050
+Jitendra K: So here, I'm talking about several IDs and the actual values.
+
+400
+00:37:32.480 --> 00:37:36.839
+Jitendra K: And here I'm getting the predicted probability. So anything which is greater than
+
+401
+00:37:38.030 --> 00:37:41.760
+Jitendra K: or equal to 0.5, I will consider it to be class 1.
+
+402
+00:37:44.480 --> 00:37:49.529
+Jitendra K: And anything which is lesser than 0.5, I will consider it to be class 0.
+
+403
+00:37:50.470 --> 00:37:54.090
+Jitendra K: So I will say that this is class actual one and predicted one.
+
+404
+00:37:54.410 --> 00:37:58.460
+Jitendra K: This is actual unpredicted 1, actual unpredicted 1, actual 0.
+
+405
+00:37:58.930 --> 00:38:01.590
+Jitendra K: Predicted 1, actual 0, predicted 1.
+
+406
+00:38:02.140 --> 00:38:06.419
+Jitendra K: Actual 1 predicted 0. Actual 1 predicted 0.
+
+407
+00:38:06.890 --> 00:38:08.949
+Jitendra K: Actual zero, predicted zero.
+
+408
+00:38:15.390 --> 00:38:20.220
+Jitendra K: Right? But let's say I've improved the model, and now it's giving me some different result.
+
+409
+00:38:21.200 --> 00:38:23.190
+Jitendra K: So it gave me this result now.
+
+410
+00:38:23.860 --> 00:38:26.670
+Jitendra K: So I've got predicted probability and the corrected probability.
+
+411
+00:38:27.960 --> 00:38:31.709
+Jitendra K: So, now you may question, what are corrected probability?
+
+412
+00:38:32.380 --> 00:38:37.279
+Jitendra K: So it is the probability that a particular observation belongs to its original class.
+
+413
+00:38:39.500 --> 00:38:41.330
+Jitendra K: So I'm using this probability.
+
+414
+00:38:41.640 --> 00:38:48.889
+Jitendra K: To find it out, that… a particular observation belongs to its original class. So, as shown in this
+
+415
+00:38:49.330 --> 00:38:54.449
+Jitendra K: that, table, you can see ID number 6, which is a customer ID, maybe.
+
+416
+00:38:54.560 --> 00:38:56.480
+Jitendra K: Belongs to a Class 1.
+
+417
+00:38:56.780 --> 00:38:59.729
+Jitendra K: Hence, is predictive probability and corrected probability the same?
+
+418
+00:39:04.140 --> 00:39:12.580
+Jitendra K: On the other hand, If you look into ID8, ID8 here.
+
+419
+00:39:14.490 --> 00:39:15.719
+Jitendra K: You can see that.
+
+420
+00:39:16.420 --> 00:39:20.990
+Jitendra K: the… Class 1 is 0.56.
+
+421
+00:39:21.800 --> 00:39:25.849
+Jitendra K: Where the corrected probability, To the class is 0.
+
+422
+00:39:26.210 --> 00:39:27.780
+Jitendra K: Which is 0.44.
+
+423
+00:39:29.500 --> 00:39:32.200
+Jitendra K: So if I take a log of corrected probability.
+
+424
+00:39:33.770 --> 00:39:35.920
+Jitendra K: So I will get this answer, this output.
+
+425
+00:39:36.070 --> 00:39:38.489
+Jitendra K: This is the log of corrected probability.
+
+426
+00:39:39.000 --> 00:39:48.990
+Jitendra K: Now, we calculate a log of value for each of the corrected probabilities. The reason being, behind using the log is, the log value offers less penalty for small differences
+
+427
+00:39:49.220 --> 00:39:52.289
+Jitendra K: Between the predicted probability and the corrected probability.
+
+428
+00:39:52.540 --> 00:39:55.169
+Jitendra K: When the difference is large, the penalty will be higher.
+
+429
+00:39:55.910 --> 00:39:59.979
+Jitendra K: So we have calculated a log value of all the corrected probabilities.
+
+430
+00:40:00.630 --> 00:40:04.380
+Jitendra K: Since all the corrected probabilities lies between 0 to 1.
+
+431
+00:40:05.320 --> 00:40:07.939
+Jitendra K: So the log values are negative here.
+
+432
+00:40:08.450 --> 00:40:16.060
+Jitendra K: So I can say, in order to compensate this negative value, we will consider a negative And our equation…
+
+433
+00:40:16.370 --> 00:40:19.790
+Jitendra K: And we write an equation like this. Summation of…
+
+434
+00:40:20.260 --> 00:40:23.330
+Jitendra K: data points from 1 to N.
+
+435
+00:40:23.980 --> 00:40:27.630
+Jitendra K: And taking a log of corrected probability, P .
+
+436
+00:40:28.210 --> 00:40:31.659
+Jitendra K: So I'll denote this function as a log loss function.
+
+437
+00:40:31.970 --> 00:40:37.150
+Jitendra K: So the value of negative loss, or the value of negative average of the corrected probability.
+
+438
+00:40:37.450 --> 00:40:41.799
+Jitendra K: Will come out to be… Our log loss function.
+
+439
+00:40:50.050 --> 00:40:52.220
+Jitendra K: Right? So basically.
+
+440
+00:40:52.840 --> 00:40:56.989
+Jitendra K: This is the formula that we are going to use for log loss, and this is the actual…
+
+441
+00:40:57.430 --> 00:41:00.330
+Jitendra K: Cost function of your logistic regression as well.
+
+442
+00:41:00.820 --> 00:41:03.730
+Jitendra K: So the intuition is… your model.
+
+443
+00:41:04.200 --> 00:41:16.080
+Jitendra K: When it is training on the data, It will try to… use… this slope… To regress.
+
+444
+00:41:17.050 --> 00:41:18.609
+Jitendra K: Around a 2 class.
+
+445
+00:41:19.220 --> 00:41:23.560
+Jitendra K: And try to reduce the error, or the log loss, of the…
+
+446
+00:41:23.940 --> 00:41:27.110
+Jitendra K: Probability of finding the log of odds.
+
+447
+00:41:27.530 --> 00:41:31.380
+Jitendra K: And that's why it is called… logistic regression.
+
+448
+00:41:34.730 --> 00:41:40.679
+Jitendra K: Right? So basically, what are you trying to do is, you're just performing a wait update.
+
+449
+00:41:41.010 --> 00:41:42.630
+Jitendra K: Using this function.
+
+450
+00:41:43.020 --> 00:41:46.950
+Jitendra K: And then, reducing the uncertainty of incorrect prediction.
+
+451
+00:41:47.960 --> 00:41:50.950
+Jitendra K: And that is what logistic regression does in a nutshell.
+
+452
+00:41:52.340 --> 00:41:55.750
+Jitendra K: So, logistic regression is a supervised learning algorithm.
+
+453
+00:41:56.850 --> 00:42:00.630
+Jitendra K: And the mathematical intuition behind logistic regression is very simple.
+
+454
+00:42:01.030 --> 00:42:03.959
+Jitendra K: It used a nonlinear transformation.
+
+455
+00:42:04.130 --> 00:42:13.940
+Jitendra K: By applying a log of… natural log on the Y, which is trying to determine the log of odds.
+
+456
+00:42:14.400 --> 00:42:21.580
+Jitendra K: And try to use the beta's coefficients, beta 0, beta 1, to ensure…
+
+457
+00:42:21.700 --> 00:42:25.079
+Jitendra K: The binary cross entropy should be minimal.
+
+458
+00:42:26.120 --> 00:42:29.349
+Jitendra K: In terms of predicting the log of odds.
+
+459
+00:42:40.020 --> 00:42:42.629
+Jitendra K: Right? So this is what logistic regression does for you.
+
+460
+00:42:43.110 --> 00:42:48.630
+Jitendra K: So, in a very simple term, if you have to just, understand this.
+
+461
+00:42:49.410 --> 00:42:55.470
+Jitendra K: The simplest explanation of logic regression is… It's a mathematical model.
+
+462
+00:42:56.190 --> 00:42:57.030
+Jitendra K: Right?
+
+463
+00:42:57.280 --> 00:43:02.199
+Jitendra K: which use… Log loss as a primary objective.
+
+464
+00:43:02.580 --> 00:43:04.719
+Jitendra K: To differentiate the class boundary.
+
+465
+00:43:05.590 --> 00:43:07.649
+Jitendra K: Simpler definition of logistic regression.
+
+466
+00:43:09.860 --> 00:43:11.569
+Jitendra K: Right? And how it is doing?
+
+467
+00:43:11.990 --> 00:43:15.349
+Jitendra K: That is something which you can be able to explain with the help of.
+
+468
+00:43:15.600 --> 00:43:17.450
+Jitendra K: nonlinear transformation.
+
+469
+00:43:18.260 --> 00:43:23.620
+Jitendra K: And with the help of nonlinear transformation, the thing that I explained, You can determine that.
+
+470
+00:43:27.410 --> 00:43:34.679
+Jitendra K: What are you referring to, log of odds? So, log of odds, you can consider it to be one class. Log of, I will say, favorable.
+
+471
+00:43:35.060 --> 00:43:39.810
+Jitendra K: classes, when I'm saying the loan application got passed, which is a favorable classes.
+
+472
+00:43:40.050 --> 00:43:48.459
+Jitendra K: When a loan application gets rejected, it's a log of odd. So what is the log of odd of rejecting that loan application? That is what we are trying to determine.
+
+473
+00:43:58.770 --> 00:44:06.249
+Jitendra K: So that is what logistic regression is very useful for. And believe me, logistic regression is not a new algorithm.
+
+474
+00:44:06.750 --> 00:44:08.370
+Jitendra K: It's hundreds of years old.
+
+475
+00:44:09.530 --> 00:44:11.089
+Jitendra K: Even 200 years of older.
+
+476
+00:44:12.560 --> 00:44:17.759
+Jitendra K: Yes, we can use for class, multi-class as well. I will come into it a while.
+
+477
+00:44:18.210 --> 00:44:26.070
+Jitendra K: But the idea is… The logistic regression will use…
+
+478
+00:44:26.590 --> 00:44:34.680
+Jitendra K: The mathematical framework that we have just discussed for any type of problems, be it binary, be it multicategorical, etc.
+
+479
+00:44:41.570 --> 00:44:47.060
+Jitendra K: Now, let me take… Some more advanced discussion on logistic regression.
+
+480
+00:44:51.280 --> 00:44:57.659
+Jitendra K: Odd of class A is equal to probability of class A divided by 1 minus probability of class A.
+
+481
+00:44:58.050 --> 00:44:59.240
+Jitendra K: Low of 3rd.
+
+482
+00:45:00.400 --> 00:45:03.970
+Jitendra K: Yes, you have to take a log at D… LHS.
+
+483
+00:45:06.170 --> 00:45:08.649
+Jitendra K: So you have to take a log at the left-hand side.
+
+484
+00:45:15.020 --> 00:45:16.360
+Jitendra K: Okay, now…
+
+485
+00:45:17.020 --> 00:45:23.179
+Jitendra K: Let me talk about a key assumption of logistic regression, and let's try to understand some more mathematical
+
+486
+00:45:23.520 --> 00:45:25.100
+Jitendra K: Formulas into it.
+
+487
+00:45:25.490 --> 00:45:31.409
+Jitendra K: Now, I think this is clear, quite clear. You're able to understand the core problem that we are trying to solve with the help of logistic regression.
+
+488
+00:45:31.930 --> 00:45:33.270
+Jitendra K: You understand?
+
+489
+00:45:34.450 --> 00:45:36.199
+Jitendra K: What we would like to predict?
+
+490
+00:45:38.100 --> 00:45:40.129
+Jitendra K: Right, so these two things are clear.
+
+491
+00:45:40.710 --> 00:45:45.440
+Jitendra K: Now, we say that we are trying to predict the log of odd, and it should be between 0 to 1.
+
+492
+00:45:45.880 --> 00:45:52.779
+Jitendra K: But we are using… this relationship… And using a transformation.
+
+493
+00:45:53.390 --> 00:45:55.440
+Jitendra K: To categorize this as a function.
+
+494
+00:45:55.790 --> 00:45:58.060
+Jitendra K: Now, till this point, everything is fine.
+
+495
+00:45:58.870 --> 00:46:04.110
+Jitendra K: Now, the… the real… Struggle comes…
+
+496
+00:46:04.680 --> 00:46:09.550
+Jitendra K: When we are using the function to map between minus infinity to plus infinity, or 0 to 1?
+
+497
+00:46:10.050 --> 00:46:14.139
+Jitendra K: So it's a monotonically increasing function. What is monotonically increasing function?
+
+498
+00:46:15.230 --> 00:46:16.550
+Jitendra K: Which may grow.
+
+499
+00:46:19.340 --> 00:46:20.750
+Jitendra K: asynchronously.
+
+500
+00:46:23.240 --> 00:46:26.920
+Jitendra K: Right? So, monotronically increasing function like parabolas.
+
+501
+00:46:27.230 --> 00:46:33.419
+Jitendra K: Which will have a derivative associated with them. So you can derive, you can take a differentiation of these functions.
+
+502
+00:46:34.900 --> 00:46:38.439
+Jitendra K: So why we are taking a differentiation? Because we would like to find out the…
+
+503
+00:46:39.460 --> 00:46:41.560
+Jitendra K: Value at a particular instance.
+
+504
+00:46:42.010 --> 00:46:46.670
+Jitendra K: And that is called differentiation. So when you're trying to use a differentiation.
+
+505
+00:46:47.170 --> 00:46:49.659
+Jitendra K: You're trying to calculate the point in time.
+
+506
+00:46:51.830 --> 00:46:57.840
+Jitendra K: Like, Newton Discover… Calculus for… accelerations.
+
+507
+00:46:59.460 --> 00:47:03.349
+Jitendra K: He would like to find out the planetary motion. He would like to find it out
+
+508
+00:47:03.470 --> 00:47:06.960
+Jitendra K: What is the position of a particular planet at a particular time?
+
+509
+00:47:08.700 --> 00:47:11.440
+Jitendra K: So the calculus solves that issue.
+
+510
+00:47:11.620 --> 00:47:15.469
+Jitendra K: Specifically, the differential calculus I'm talking about, not the integral one.
+
+511
+00:47:15.950 --> 00:47:20.470
+Jitendra K: The differential calculus is used to solve the point-in-time calculation.
+
+512
+00:47:21.370 --> 00:47:29.379
+Jitendra K: So when you talk about any monotonically increasing function, by taking a prime, or a derivative of that function, you will be able to find out
+
+513
+00:47:29.880 --> 00:47:31.050
+Jitendra K: The point in time.
+
+514
+00:47:34.090 --> 00:47:36.880
+Jitendra K: So when you model this equation.
+
+515
+00:47:38.000 --> 00:47:39.989
+Jitendra K: When you're trying to model this equation.
+
+516
+00:47:45.250 --> 00:47:49.760
+Jitendra K: For input features, so your input feature can be many, X1 to XN.
+
+517
+00:47:50.870 --> 00:47:57.069
+Jitendra K: Right? So you can able to take any input feature, any number of input features, there's no limit.
+
+518
+00:47:57.410 --> 00:48:02.020
+Jitendra K: So, input feature is your, data points or attributes.
+
+519
+00:48:05.840 --> 00:48:06.630
+Jitendra K: Right?
+
+520
+00:48:07.310 --> 00:48:12.320
+Jitendra K: Now… When we talk about these data points.
+
+521
+00:48:12.650 --> 00:48:15.409
+Jitendra K: I'm representing these data points as awaits.
+
+522
+00:48:16.400 --> 00:48:20.680
+Jitendra K: And I'm saying that I would like to create a model We shall predict.
+
+523
+00:48:21.610 --> 00:48:23.210
+Jitendra K: The probability of an odd.
+
+524
+00:48:23.820 --> 00:48:32.890
+Jitendra K: by taking a transformation on these models, these input weights, which is called coefficient of determination. Now, assume these weights are, like.
+
+525
+00:48:33.900 --> 00:48:38.520
+Jitendra K: your decision-making points. So let's say when you're… Going for a movie.
+
+526
+00:48:39.180 --> 00:48:41.349
+Jitendra K: When you're going to watch a movie.
+
+527
+00:48:41.740 --> 00:48:43.699
+Jitendra K: What are your decision criterias?
+
+528
+00:48:45.460 --> 00:48:49.540
+Jitendra K: Some of the decision criteria could be, it could be a favorite actor movie.
+
+529
+00:48:49.870 --> 00:48:53.739
+Jitendra K: So you will go for first day for sure. Even the movie disastrous.
+
+530
+00:48:53.860 --> 00:48:56.280
+Jitendra K: You'll still buy a ticket and then go for it.
+
+531
+00:48:56.910 --> 00:49:02.539
+Jitendra K: If you're not a fan by, then you will wait for the water… what do you call it?
+
+532
+00:49:03.050 --> 00:49:05.009
+Jitendra K: Word of mouth publicity.
+
+533
+00:49:05.300 --> 00:49:08.240
+Jitendra K: You will hear from Critic Reviews, you will read
+
+534
+00:49:08.650 --> 00:49:15.819
+Jitendra K: The… what do you… where did you book that ticket from? Book my show, and then you will see…
+
+535
+00:49:15.990 --> 00:49:20.150
+Jitendra K: how the users from Book My Show are saying. You will read some
+
+536
+00:49:20.650 --> 00:49:23.850
+Jitendra K: blogs from Facebook, or some, some…
+
+537
+00:49:24.130 --> 00:49:27.919
+Jitendra K: blocks, and then… or maybe there are different YouTube channels.
+
+538
+00:49:28.300 --> 00:49:30.880
+Jitendra K: Critic reviews they are doing. Every day.
+
+539
+00:49:32.300 --> 00:49:36.400
+Jitendra K: Right, so you will just watch those videos, and then you decide whether to go for it or not.
+
+540
+00:49:37.200 --> 00:49:40.010
+Jitendra K: Otherwise, you will wait for our Netflix,
+
+541
+00:49:40.270 --> 00:49:44.640
+Jitendra K: So once the movie will come into Netflix, or some other OTT platform.
+
+542
+00:49:46.190 --> 00:49:48.960
+Jitendra K: Right? So, this is how we decide.
+
+543
+00:49:49.340 --> 00:49:53.300
+Jitendra K: So there are different types of weights that we are thinking of in real world.
+
+544
+00:49:54.930 --> 00:49:59.190
+Jitendra K: So let's say we are giving some more weights to word of mouth publicity.
+
+545
+00:49:59.310 --> 00:50:01.630
+Jitendra K: Then we are giving more weight to the YouTube.
+
+546
+00:50:02.640 --> 00:50:13.739
+Jitendra K: what do you call, critic reviews, and we will also understand the source of the channel. There are a lot of fake channels which is there in YouTube, but we understand which channel is trustworthy, which channel is not.
+
+547
+00:50:14.740 --> 00:50:18.950
+Jitendra K: That's why it is called paid promotion these days, because they have been paid for doing this.
+
+548
+00:50:19.990 --> 00:50:23.519
+Jitendra K: So, all I'm trying to say is, there are different weights.
+
+549
+00:50:24.370 --> 00:50:28.230
+Jitendra K: These weights are non-deterministic, and they are different.
+
+550
+00:50:28.660 --> 00:50:33.069
+Jitendra K: So we are trying to regress on these reads using this mathematical function.
+
+551
+00:50:33.240 --> 00:50:35.650
+Jitendra K: But remember, this is a linear combination.
+
+552
+00:50:36.430 --> 00:50:40.929
+Jitendra K: At the linear combination, we are transforming by logit function.
+
+553
+00:50:41.260 --> 00:50:45.610
+Jitendra K: So this function will take a… saturation, or…
+
+554
+00:50:46.050 --> 00:50:48.609
+Jitendra K: What do you call? Sigmoid curve shape?
+
+555
+00:50:49.660 --> 00:51:00.790
+Jitendra K: And when we are trying to saturate, we are training the model To predict this, Using the log of…
+
+556
+00:51:01.760 --> 00:51:03.710
+Jitendra K: This programmatical function.
+
+557
+00:51:04.560 --> 00:51:09.199
+Jitendra K: So basically, in a simple term, the cross entropy
+
+558
+00:51:10.120 --> 00:51:14.130
+Jitendra K: comes from maximum likelihood Estimation, MLE, right?
+
+559
+00:51:14.370 --> 00:51:18.330
+Jitendra K: And it's assuming that each… Observation are independent.
+
+560
+00:51:18.920 --> 00:51:20.629
+Jitendra K: And then you're using this form.
+
+561
+00:51:21.360 --> 00:51:24.310
+Jitendra K: And this is a multiplicative form against the…
+
+562
+00:51:24.920 --> 00:51:36.440
+Jitendra K: So this… this symbol is for multiplication, so you're using the individual probability, or log of probability of each feature, and the impact of each feature on Y.
+
+563
+00:51:38.010 --> 00:51:45.039
+Jitendra K: Right? And then, when you're training with this… Sort of fundamental.
+
+564
+00:51:45.470 --> 00:51:50.640
+Jitendra K: You can take a… Derivative or partial derivative of your cost function.
+
+565
+00:51:50.790 --> 00:51:52.380
+Jitendra K: To calculate the errors.
+
+566
+00:51:53.990 --> 00:51:59.829
+Jitendra K: So when you're taking the gradient, or the error, We are going to utilize…
+
+567
+00:52:00.760 --> 00:52:03.790
+Jitendra K: You were able to find out the errors from this equation.
+
+568
+00:52:03.980 --> 00:52:08.000
+Jitendra K: And you will plug in this error, To regularize here.
+
+569
+00:52:09.410 --> 00:52:13.949
+Jitendra K: model… efficacies. So you may work on
+
+570
+00:52:14.240 --> 00:52:17.420
+Jitendra K: Overfitting, underfitting, or simultaneously both?
+
+571
+00:52:17.980 --> 00:52:24.239
+Jitendra K: So that's the whole idea of logic regression behind the scenes. So this is how complicated logic regression is.
+
+572
+00:52:24.490 --> 00:52:28.990
+Jitendra K: Although it sounds very simple algorithm, but this is what the mathematics behind the scene.
+
+573
+00:52:29.510 --> 00:52:35.110
+Jitendra K: So if I have to talk about logic regression, It follows certain property.
+
+574
+00:52:35.720 --> 00:52:41.650
+Jitendra K: So, the property that it follows is the range of sigma upside.
+
+575
+00:52:42.640 --> 00:52:47.100
+Jitendra K: will be between… 0 to 1?
+
+576
+00:52:49.170 --> 00:52:50.300
+Jitendra K: for all.
+
+577
+00:52:51.050 --> 00:52:53.230
+Jitendra K: Z belongs to real number.
+
+578
+00:52:55.540 --> 00:52:59.039
+Jitendra K: It's a symmetric function, so I can say sigma of minus that.
+
+579
+00:52:59.850 --> 00:53:02.700
+Jitendra K: Is equals to 1 minus sigma Z.
+
+580
+00:53:05.280 --> 00:53:12.219
+Jitendra K: And if I'm taking a limit, Z tends to infinity.
+
+581
+00:53:13.380 --> 00:53:17.390
+Jitendra K: my sigma of Z will become… 1?
+
+582
+00:53:18.340 --> 00:53:23.270
+Jitendra K: my limit… Z tends to minus infinity.
+
+583
+00:53:23.500 --> 00:53:24.940
+Jitendra K: It will take zero.
+
+584
+00:53:25.870 --> 00:53:28.399
+Jitendra K: And this is a monotonic increasing function.
+
+585
+00:53:28.550 --> 00:53:31.929
+Jitendra K: So I can use this function by taking a derivative.
+
+586
+00:53:32.690 --> 00:53:40.890
+Jitendra K: So basically, the cross-entropy major difference between the two probiotical distribution For true, And for predicted distribution queue.
+
+587
+00:53:43.230 --> 00:53:47.330
+Jitendra K: So the whole idea of… Training the logistic regression.
+
+588
+00:53:47.690 --> 00:53:50.840
+Jitendra K: Is to find the gradient with respect to the weights.
+
+589
+00:53:54.290 --> 00:53:58.830
+Jitendra K: And then, when you're using a gradient, you're calculating the errors.
+
+590
+00:53:59.590 --> 00:54:02.070
+Jitendra K: And when you're using those errors.
+
+591
+00:54:02.560 --> 00:54:08.650
+Jitendra K: You're improving the model prediction, because you're penalizing the errors for misclassification.
+
+592
+00:54:08.780 --> 00:54:11.420
+Jitendra K: And how the errors will be calculated inside it.
+
+593
+00:54:12.060 --> 00:54:14.270
+Jitendra K: Remember the labels that you're passing.
+
+594
+00:54:19.170 --> 00:54:21.109
+Jitendra K: Right? So it will be able to understand
+
+595
+00:54:21.480 --> 00:54:24.360
+Jitendra K: The predicted probability against those labels.
+
+596
+00:54:24.700 --> 00:54:31.139
+Jitendra K: And try to combine the adaptive learning to shift the parameters.
+
+597
+00:54:31.990 --> 00:54:33.499
+Jitendra K: And that's what it is called.
+
+598
+00:54:34.170 --> 00:54:36.570
+Jitendra K: Logistic regression.
+
+599
+00:54:39.190 --> 00:54:48.970
+Jitendra K: Right? Okay, so I think, I will share this one with you as well. So again, as I mentioned, in order to remember all this mathematical form.
+
+600
+00:54:49.100 --> 00:54:52.909
+Jitendra K: All you need to do is just need to understand the core problem that you are trying to solve.
+
+601
+00:54:53.450 --> 00:54:56.130
+Jitendra K: I understand the function relationship.
+
+602
+00:54:56.400 --> 00:55:04.760
+Jitendra K: And then you may be looking for the concept, what is cross entropy, and what is the cost of logistic regression, when you are implementing this formula.
+
+603
+00:55:05.140 --> 00:55:07.890
+Jitendra K: So let's try to work on logistic regression.
+
+604
+00:55:08.170 --> 00:55:14.520
+Jitendra K: And I will… I'm going to write a program, To explain logistic regression.
+
+605
+00:55:17.680 --> 00:55:23.750
+Jitendra K: And I will implement without… package.
+
+606
+00:55:24.120 --> 00:55:25.730
+Jitendra K: I will not use any package.
+
+607
+00:55:26.050 --> 00:55:29.129
+Jitendra K: And then we'll implement knowledge regression from the scratch.
+
+608
+00:55:29.400 --> 00:55:34.460
+Jitendra K: And then we'll see how we can able to see the mathematical functions inside it.
+
+609
+00:55:35.190 --> 00:55:38.350
+Jitendra K: And I'm going to use open source data.
+
+610
+00:55:41.290 --> 00:55:43.409
+Jitendra K: For diabetics.
+
+611
+00:55:46.190 --> 00:55:50.890
+Jitendra K: And let's see how it works. So let me go back to my… Google Collab.
+
+612
+00:56:56.600 --> 00:56:59.379
+Jitendra K: Okay, so we'll start with importing of the packages.
+
+613
+00:57:08.560 --> 00:57:12.070
+Jitendra K: So I'll import… Numbai.
+
+614
+00:57:13.210 --> 00:57:14.400
+Jitendra K: Pandas…
+
+615
+00:57:17.730 --> 00:57:19.290
+Jitendra K: Matt Blossy Born.
+
+616
+00:57:19.880 --> 00:57:22.129
+Jitendra K: Now, we'll also use scikit-learn.
+
+617
+00:57:24.810 --> 00:57:34.240
+Jitendra K: data sets… And I will import… Search… Phone number.
+
+618
+00:57:45.730 --> 00:57:47.550
+Jitendra K: So I'm psychic to learn.
+
+619
+00:57:48.530 --> 00:57:56.460
+Jitendra K: dot model selections… I will import test strain, but I will not import logistic regression.
+
+620
+00:57:57.200 --> 00:57:58.920
+Jitendra K: I would rather implement it.
+
+621
+00:57:59.620 --> 00:58:01.409
+Jitendra K: And then we'll talk about D.
+
+622
+00:58:02.390 --> 00:58:03.830
+Jitendra K: How to test this.
+
+623
+00:58:05.570 --> 00:58:07.539
+Jitendra K: Okay, now I will create a class.
+
+624
+00:58:17.200 --> 00:58:18.759
+Jitendra K: I will create a class.
+
+625
+00:58:23.250 --> 00:58:24.860
+Jitendra K: Called logistic regression.
+
+626
+00:58:25.950 --> 00:58:28.750
+Jitendra K: And let me explain what this class comprises of.
+
+627
+00:58:29.420 --> 00:58:33.189
+Jitendra K: This class comprises of all the functions that we have just discussed.
+
+628
+00:58:34.970 --> 00:58:37.879
+Jitendra K: The mathematical function that we have just discussed here.
+
+629
+00:58:38.640 --> 00:58:45.660
+Jitendra K: So… I will explain, the first and the foremost thing that we are doing is…
+
+630
+00:58:46.410 --> 00:58:48.680
+Jitendra K: We are implementing this function.
+
+631
+00:58:51.190 --> 00:58:57.810
+Jitendra K: The probability of log of odds using the standard format of Health Assurance.
+
+632
+00:58:58.270 --> 00:59:02.809
+Jitendra K: Where sigma of z is my function, transformation, function.
+
+633
+00:59:03.120 --> 00:59:06.040
+Jitendra K: And I'm applying a sigmoid transformation.
+
+634
+00:59:06.460 --> 00:59:09.899
+Jitendra K: The loss function is your categorical cross entropy.
+
+635
+00:59:10.070 --> 00:59:12.590
+Jitendra K: Or binary categorical Crossentropy.
+
+636
+00:59:12.850 --> 00:59:20.660
+Jitendra K: And this will be represented like this, and the gradient will be the error at a particular instance.
+
+637
+00:59:21.040 --> 00:59:24.120
+Jitendra K: And this algorithm will use a constructor.
+
+638
+00:59:24.280 --> 00:59:26.480
+Jitendra K: Where I have a learning rate eta.
+
+639
+00:59:26.920 --> 00:59:33.170
+Jitendra K: Number of iterations it will take to run, the model is 1000, and the regulation parameter is lasso.
+
+640
+00:59:33.940 --> 00:59:40.820
+Jitendra K: So this is what I'm doing here, and then you will see the series of equations again to find D.
+
+641
+00:59:41.030 --> 00:59:45.970
+Jitendra K: Regularization and computing the gradients, or minimizing the errors.
+
+642
+00:59:46.080 --> 00:59:49.569
+Jitendra K: And then the fit method that will perform this whole analysis.
+
+643
+00:59:49.920 --> 00:59:55.290
+Jitendra K: So, behind the scenes, this is what logistic regression does for you. So I've just created my own function.
+
+644
+00:59:55.420 --> 00:59:58.650
+Jitendra K: to do this analysis, rather than relying on scikit-learn.
+
+645
+00:59:58.760 --> 01:00:00.230
+Jitendra K: That is what I'm trying to say.
+
+646
+01:00:00.490 --> 01:00:02.210
+Jitendra K: Now, I would like to evaluate…
+
+647
+01:00:05.610 --> 01:00:06.700
+Jitendra K: the model.
+
+648
+01:00:09.400 --> 01:00:15.889
+Jitendra K: by using accuracy recall, F1 score, and ROCUC metrics.
+
+649
+01:00:16.490 --> 01:00:19.330
+Jitendra K: And this is what I look, the output looks like.
+
+650
+01:00:19.800 --> 01:00:22.380
+Jitendra K: Then I will start preparing the dataset.
+
+651
+01:00:24.020 --> 01:00:26.490
+Jitendra K: And I'm going to use diabetic data set.
+
+652
+01:00:30.690 --> 01:00:32.719
+Jitendra K: Which is an open source data.
+
+653
+01:00:34.880 --> 01:00:37.130
+Jitendra K: And then start training my algorithm.
+
+654
+01:00:42.840 --> 01:00:45.769
+Jitendra K: Okay, confusion matrix is not defined.
+
+655
+01:04:20.810 --> 01:04:28.859
+Jitendra K: Okay, it does work, so let me explain the code, what are we trying to do? So first, let me explain the data points. So the data that we are using for this analysis…
+
+656
+01:04:34.690 --> 01:04:41.019
+Jitendra K: It's a diabetic data set, which is… we have already used multiple times, so this is a diabetic data set.
+
+657
+01:04:41.400 --> 01:04:45.840
+Jitendra K: Where, you will have… A several patient history.
+
+658
+01:04:46.060 --> 01:04:47.869
+Jitendra K: Based upon different dimension.
+
+659
+01:04:48.130 --> 01:04:50.919
+Jitendra K: And then we have, the output.
+
+660
+01:04:51.140 --> 01:04:55.430
+Jitendra K: Which is… Diabetic and non-diabetic as a patient output.
+
+661
+01:04:55.640 --> 01:04:58.490
+Jitendra K: So, we'll use this dataset to predict
+
+662
+01:05:00.520 --> 01:05:06.999
+Jitendra K: The outcome of a new historical data, or new patient records.
+
+663
+01:05:07.140 --> 01:05:13.270
+Jitendra K: To predict whether… what is the likelihood of that patient, or that particular row, to be?
+
+664
+01:05:14.660 --> 01:05:16.559
+Jitendra K: Diabetic or non-diabetic?
+
+665
+01:05:16.730 --> 01:05:21.349
+Jitendra K: Right? So, what we are doing is… We are training.
+
+666
+01:05:21.520 --> 01:05:26.650
+Jitendra K: The modern and actual… 0 and 1, and try to predict the outcome.
+
+667
+01:05:27.970 --> 01:05:29.159
+Jitendra K: In terms of?
+
+668
+01:05:29.460 --> 01:05:30.540
+Jitendra K: log loss.
+
+669
+01:05:31.240 --> 01:05:36.140
+Jitendra K: Right, so the idea is… The whole idea of this whole equation is…
+
+670
+01:05:36.540 --> 01:05:40.570
+Jitendra K: We are trying to run this model in different iterations.
+
+671
+01:05:41.760 --> 01:05:46.050
+Jitendra K: And based upon this iteration, We are trying to figure it out.
+
+672
+01:05:46.650 --> 01:05:50.410
+Jitendra K: The model performance against prediction.
+
+673
+01:05:51.600 --> 01:05:59.440
+Jitendra K: What are the things that we are using? We are using accuracy, precision, recall, F1 score, and ROCUC to predict the outcome of interest.
+
+674
+01:06:00.240 --> 01:06:04.170
+Jitendra K: Now, I will talk about this part.
+
+675
+01:06:04.920 --> 01:06:06.469
+Jitendra K: And this part.
+
+676
+01:06:06.890 --> 01:06:13.880
+Jitendra K: So this is where your training loss is… kind of… reducing.
+
+677
+01:06:14.280 --> 01:06:18.659
+Jitendra K: With a higher number of iteration. So you can see that after 200 iterations.
+
+678
+01:06:18.950 --> 01:06:22.650
+Jitendra K: Your training loss is kind of stagnated, does not change at all.
+
+679
+01:06:23.390 --> 01:06:29.639
+Jitendra K: Similarly, the area under the curve is 83%, which is fair enough in terms of this model.
+
+680
+01:06:29.940 --> 01:06:36.249
+Jitendra K: Now, we'll talk about how to read these metrics, right? So this is where we are going to talk heavily about today.
+
+681
+01:06:36.500 --> 01:06:40.330
+Jitendra K: What are the different types of cost functions to evaluate the classification?
+
+682
+01:06:40.440 --> 01:06:49.879
+Jitendra K: So when we talk about any type of classification algorithm, We'll start with… Understanding the cost.
+
+683
+01:06:53.910 --> 01:07:05.020
+Jitendra K: function. So, for our first algorithm called LR, logistic regression, We are talking about categorical
+
+684
+01:07:09.170 --> 01:07:12.910
+Jitendra K: Cross… entropy.
+
+685
+01:07:16.820 --> 01:07:17.910
+Jitendra K: No.
+
+686
+01:07:18.060 --> 01:07:24.850
+Jitendra K: In general, We will use… The metrics like accuracy.
+
+687
+01:07:27.360 --> 01:07:28.610
+Jitendra K: precision.
+
+688
+01:07:32.170 --> 01:07:37.210
+Jitendra K: Recall… F1 score.
+
+689
+01:07:38.050 --> 01:07:39.680
+Jitendra K: R-O-C-A-U-C.
+
+690
+01:07:41.130 --> 01:07:43.890
+Jitendra K: To calculate the model output.
+
+691
+01:07:44.250 --> 01:07:48.539
+Jitendra K: Let me explain what is, all this matrix talks about.
+
+692
+01:07:49.150 --> 01:07:51.950
+Jitendra K: So let me talk about, first, precision.
+
+693
+01:07:52.550 --> 01:07:58.520
+Jitendra K: Recall, accuracy… AUC ROC will come later.
+
+694
+01:07:58.870 --> 01:08:03.450
+Jitendra K: But, let me talk about what these metrics is all about.
+
+695
+01:08:04.010 --> 01:08:08.050
+Jitendra K: Now, when we talk about these classification metrics, Right?
+
+696
+01:08:08.170 --> 01:08:14.800
+Jitendra K: So these are becoming your evaluation metrics for classification model, or they are the performance scorecard of your model.
+
+697
+01:08:16.080 --> 01:08:21.989
+Jitendra K: Right? So, when you talk about any classification model, we are thinking of classes.
+
+698
+01:08:23.319 --> 01:08:24.359
+Jitendra K: So…
+
+699
+01:08:25.660 --> 01:08:31.349
+Jitendra K: In any classification scenario, let's say, if I'm giving you a very simple example, let's say I've created an algorithm.
+
+700
+01:08:31.990 --> 01:08:36.750
+Jitendra K: Return mine, the email as spam versus not spam.
+
+701
+01:08:37.790 --> 01:08:42.150
+Jitendra K: So, classification matrix is all about predicting the class, given the label.
+
+702
+01:08:43.630 --> 01:08:46.670
+Jitendra K: So in binary classification, there are only two possible outcomes.
+
+703
+01:08:48.430 --> 01:08:51.470
+Jitendra K: In multi-class, you may have more than two classes.
+
+704
+01:08:52.640 --> 01:09:00.000
+Jitendra K: So, the most common binary classification example could be the email spam, or normal email, or a spam.
+
+705
+01:09:01.279 --> 01:09:08.899
+Jitendra K: So, when we talk about… the… The, criterias to evaluate.
+
+706
+01:09:09.600 --> 01:09:14.390
+Jitendra K: We will call… These things…
+
+707
+01:09:18.819 --> 01:09:20.020
+Jitendra K: True positive.
+
+708
+01:09:23.090 --> 01:09:24.299
+Jitendra K: True negative.
+
+709
+01:09:25.790 --> 01:09:27.229
+Jitendra K: False positive.
+
+710
+01:09:28.060 --> 01:09:29.310
+Jitendra K: And false negative.
+
+711
+01:09:29.840 --> 01:09:34.929
+Jitendra K: And these are your… Parameters to evaluate the algorithm.
+
+712
+01:09:35.490 --> 01:09:41.070
+Jitendra K: Now, when I say true positive cases, that means model predicted the positive class.
+
+713
+01:09:42.859 --> 01:09:45.820
+Jitendra K: And both actual and the predicted class are positive.
+
+714
+01:09:47.779 --> 01:09:52.309
+Jitendra K: So let's say I've got 10 emails. I'm trying to identify 100 emails.
+
+715
+01:09:53.490 --> 01:09:55.979
+Jitendra K: And I've got 10 emails.
+
+716
+01:09:57.490 --> 01:09:59.140
+Jitendra K: Labeled as spam.
+
+717
+01:10:00.280 --> 01:10:01.929
+Jitendra K: And actually, they are spam.
+
+718
+01:10:03.380 --> 01:10:05.170
+Jitendra K: That means a good prediction.
+
+719
+01:10:06.330 --> 01:10:10.739
+Jitendra K: True negative… Model correctly predict the negative class.
+
+720
+01:10:13.030 --> 01:10:15.159
+Jitendra K: So, prediction and actual both are negative.
+
+721
+01:10:15.810 --> 01:10:17.640
+Jitendra K: That means I can say both are.
+
+722
+01:10:18.310 --> 01:10:19.070
+Jitendra K: Ham.
+
+723
+01:10:20.430 --> 01:10:22.789
+Jitendra K: All 10 email are ham.
+
+724
+01:10:23.050 --> 01:10:24.330
+Jitendra K: 90, sorry.
+
+725
+01:10:26.160 --> 01:10:27.439
+Jitendra K: Right? Remaining 1.
+
+726
+01:10:28.480 --> 01:10:31.420
+Jitendra K: But there could be high chances that my model
+
+727
+01:10:31.720 --> 01:10:37.669
+Jitendra K: give a wrong prediction of the negative class. They are predicting positive as negative, and negative as positive.
+
+728
+01:10:38.110 --> 01:10:46.699
+Jitendra K: So maybe it will come under this scenario, sort of 10, two emails… were classified as.
+
+729
+01:10:48.580 --> 01:10:50.220
+Jitendra K: But they are actually spam.
+
+730
+01:10:52.470 --> 01:10:57.730
+Jitendra K: And true negative is the opposite, so out of 90 remaining, I can say 20 are coming as.
+
+731
+01:10:58.910 --> 01:10:59.920
+Jitendra K: Spam.
+
+732
+01:11:00.420 --> 01:11:01.999
+Jitendra K: But they are actually ham.
+
+733
+01:11:04.270 --> 01:11:07.700
+Jitendra K: Right? So this is what your model does in a nutshell.
+
+734
+01:11:08.210 --> 01:11:11.409
+Jitendra K: So when you talk about TPR, true positive capture rate.
+
+735
+01:11:16.720 --> 01:11:17.910
+Jitendra K: TPR.
+
+736
+01:11:20.440 --> 01:11:25.180
+Jitendra K: We'll say it's a true positive divided by… Actual positives.
+
+737
+01:11:28.050 --> 01:11:34.170
+Jitendra K: Which is true positive divided by… True positive plus false negative.
+
+738
+01:11:39.390 --> 01:11:43.230
+Jitendra K: FNR… False negative rate.
+
+739
+01:11:43.580 --> 01:11:47.280
+Jitendra K: F1 divided by… TP+.
+
+740
+01:11:47.390 --> 01:11:48.220
+Jitendra K: Open.
+
+741
+01:11:50.280 --> 01:11:52.430
+Jitendra K: False negative or actual positive.
+
+742
+01:11:53.650 --> 01:11:55.670
+Jitendra K: TNR, true negative rate.
+
+743
+01:11:57.820 --> 01:12:01.790
+Jitendra K: TN divided by… TN plus…
+
+744
+01:12:06.400 --> 01:12:07.470
+Jitendra K: FPR…
+
+745
+01:12:10.620 --> 01:12:16.719
+Jitendra K: False positive divided by… True negative plus… False closet.
+
+746
+01:12:18.600 --> 01:12:24.930
+Jitendra K: So… So, basically, I can say that… This is the ratios, right?
+
+747
+01:12:25.240 --> 01:12:31.260
+Jitendra K: Now, if I have to define, the actual… definition of…
+
+748
+01:12:32.310 --> 01:12:38.500
+Jitendra K: Precision Recall F1 score. Then let me explain what these terms… talk about.
+
+749
+01:12:39.070 --> 01:12:41.330
+Jitendra K: Now, when we talk about any type of
+
+750
+01:12:42.040 --> 01:12:46.659
+Jitendra K: machine learning algorithm. You will hear these terminologies, FNR, TFR,
+
+751
+01:12:47.480 --> 01:12:52.399
+Jitendra K: true positive capture rate, false positive capture rate, right? So basically.
+
+752
+01:12:53.470 --> 01:12:55.780
+Jitendra K: You have to first take…
+
+753
+01:12:56.420 --> 01:12:59.290
+Jitendra K: And define which class you would like to.
+
+754
+01:12:59.540 --> 01:13:05.890
+Jitendra K: classify. So here, in this case, I will say definitely, if I'm going to predict a spam as a spam.
+
+755
+01:13:06.450 --> 01:13:10.000
+Jitendra K: That makes my model… Pretty good.
+
+756
+01:13:10.110 --> 01:13:15.039
+Jitendra K: If I'm predicting some… HAM as a spam, that is okay.
+
+757
+01:13:15.360 --> 01:13:19.169
+Jitendra K: Advice that these are models over-capturing, but not under-capturing.
+
+758
+01:13:19.480 --> 01:13:28.049
+Jitendra K: So, first and the foremost thing when you're deciding on these metrics, You have to be… Maybe stick…
+
+759
+01:13:28.590 --> 01:13:29.629
+Jitendra K: to one view.
+
+760
+01:13:29.830 --> 01:13:34.530
+Jitendra K: which particular proportion It's solving your business need.
+
+761
+01:13:35.530 --> 01:13:37.559
+Jitendra K: Alright, so this thing you have to first.
+
+762
+01:13:38.270 --> 01:13:45.910
+Jitendra K: may be determined. And then, once you determine that, Then…
+
+763
+01:13:46.090 --> 01:13:48.640
+Jitendra K: You will think of these metrics.
+
+764
+01:14:02.670 --> 01:14:05.860
+Jitendra K: One second, guys, I think I just lost your chat window.
+
+765
+01:15:19.930 --> 01:15:22.639
+Jitendra K: Yeah, we'll talk about that precision and recall only.
+
+766
+01:15:23.150 --> 01:15:32.179
+Jitendra K: So that is something which I'm trying to explain. So basically, what I'm trying to say is, first and foremost thing, when you're dealing with any cost function, you have to fix your…
+
+767
+01:15:32.710 --> 01:15:35.129
+Jitendra K: Interest? Like, what are you trying to predict?
+
+768
+01:15:35.960 --> 01:15:40.319
+Jitendra K: Then… Then you have to proceed with these definitions.
+
+769
+01:15:40.530 --> 01:15:43.489
+Jitendra K: So let's say, if I'm taking another example.
+
+770
+01:15:44.360 --> 01:15:48.870
+Jitendra K: let's say, imagine that I'm working on loan distribution. So…
+
+771
+01:15:49.270 --> 01:15:52.649
+Jitendra K: The loan application will be either pass or fail.
+
+772
+01:15:54.460 --> 01:15:56.180
+Jitendra K: So, the data scientist…
+
+773
+01:15:59.670 --> 01:16:03.790
+Jitendra K: Your model will be tested against all the past applications.
+
+774
+01:16:05.560 --> 01:16:14.810
+Jitendra K: Right? So if you're saying that, my application is, giving… 100 loans.
+
+775
+01:16:15.710 --> 01:16:21.150
+Jitendra K: to a customer. My model is recommending to provide 100 loan, 100 customer out of 1000.
+
+776
+01:16:21.840 --> 01:16:26.189
+Jitendra K: And out of 1,000 customers, you're offering loan to 100 customer.
+
+777
+01:16:27.400 --> 01:16:31.340
+Jitendra K: Right? So out of this 100 customers, 50 are defaulters.
+
+778
+01:16:33.020 --> 01:16:35.420
+Jitendra K: And 50, pay back the loan on time.
+
+779
+01:16:36.280 --> 01:16:38.119
+Jitendra K: That means your model is not good.
+
+780
+01:16:40.460 --> 01:16:45.209
+Jitendra K: Right? You should give only… These 50-person loans.
+
+781
+01:16:47.360 --> 01:16:49.969
+Jitendra K: Right? So that means your model is not effective.
+
+782
+01:16:50.480 --> 01:16:56.230
+Jitendra K: So that will determine your model efficacy. But business will test before. It will say that.
+
+783
+01:16:56.390 --> 01:17:00.449
+Jitendra K: Your model is giving 50-50 response.
+
+784
+01:17:01.600 --> 01:17:06.380
+Jitendra K: Let me test… How many customers, historically.
+
+785
+01:17:07.150 --> 01:17:10.740
+Jitendra K: Get approval or rejection for that home loan request.
+
+786
+01:17:12.850 --> 01:17:14.589
+Jitendra K: And then only they will say that.
+
+787
+01:17:14.880 --> 01:17:16.659
+Jitendra K: We will use your model or not.
+
+788
+01:17:18.500 --> 01:17:20.160
+Jitendra K: So that's the whole idea of…
+
+789
+01:17:21.510 --> 01:17:26.700
+Jitendra K: True positive and false positive. So first, you have to define what is true positive and what is false positive.
+
+790
+01:17:27.200 --> 01:17:28.150
+Jitendra K: in here.
+
+791
+01:17:28.600 --> 01:17:31.710
+Jitendra K: In your, domain agnostic problems.
+
+792
+01:17:32.050 --> 01:17:36.500
+Jitendra K: So once you define that, Then you are going to start with…
+
+793
+01:17:37.370 --> 01:17:43.809
+Jitendra K: The model, building process, and, you will try to think into, in terms of,
+
+794
+01:17:44.030 --> 01:17:47.930
+Jitendra K: What is the proportion of model in terms of performance criteria?
+
+795
+01:17:57.340 --> 01:18:00.579
+Jitendra K: Right, so this is what you're going to utilize.
+
+796
+01:18:01.010 --> 01:18:03.989
+Jitendra K: As a performance card of your model.
+
+797
+01:18:09.850 --> 01:18:13.119
+Jitendra K: Now, let me explain what is precision recall.
+
+798
+01:18:13.620 --> 01:18:16.989
+Jitendra K: So both precision and recalls are very crucial for algorithm.
+
+799
+01:18:17.460 --> 01:18:22.250
+Jitendra K: Now, if I have to talk about the precision…
+
+800
+01:18:23.590 --> 01:18:32.510
+Jitendra K: The precision are nothing but you're trying to determine Precision… How precisely your algorithm
+
+801
+01:18:34.600 --> 01:18:39.319
+Jitendra K: Is determining the true positive against all the positives.
+
+802
+01:18:42.250 --> 01:18:48.920
+Jitendra K: So that means… How precise is your algorithm is to give Yes.
+
+803
+01:18:49.800 --> 01:18:56.190
+Jitendra K: To the potential loan lenders… Against the defaulters.
+
+804
+01:18:56.870 --> 01:18:58.920
+Jitendra K: From the historical data I'm talking about.
+
+805
+01:19:01.690 --> 01:19:10.820
+Jitendra K: Similarly, recall… Recall will say, out of the total positive, What percentage are predicted positive?
+
+806
+01:19:11.930 --> 01:19:16.549
+Jitendra K: So the same as true positive, capture rate. So I will say true positive divided by…
+
+807
+01:19:17.160 --> 01:19:23.729
+Jitendra K: True positive plus false negative. Instead of false positive, I will say false negative. That's the only change here.
+
+808
+01:19:29.130 --> 01:19:37.360
+Jitendra K: So… let's say if I'm creating a credit card, Fraud detection algorithm.
+
+809
+01:19:37.990 --> 01:19:39.479
+Jitendra K: I'm creating a score.
+
+810
+01:19:40.690 --> 01:19:46.199
+Jitendra K: So, the score will be a fair transaction against a fair transaction. They are true negative.
+
+811
+01:19:46.630 --> 01:19:50.740
+Jitendra K: Because I would like to predict fraud transaction.
+
+812
+01:19:53.720 --> 01:19:55.140
+Jitendra K: as true positive.
+
+813
+01:19:55.600 --> 01:19:57.390
+Jitendra K: This will be reciprocal.
+
+814
+01:19:57.790 --> 01:20:00.409
+Jitendra K: So here I'm saying fair transaction is true negative.
+
+815
+01:20:01.240 --> 01:20:06.479
+Jitendra K: The true negative capture rate is my fare transaction. So, probability of predicting the fraud is 1.
+
+816
+01:20:08.440 --> 01:20:11.940
+Jitendra K: And the probability of predicting zero is normal.
+
+817
+01:20:13.510 --> 01:20:17.410
+Jitendra K: So this is first thing that I have to do, labeling your outcome.
+
+818
+01:20:18.210 --> 01:20:22.040
+Jitendra K: Then I will go into this. What is true positive, what is true negative?
+
+819
+01:20:22.730 --> 01:20:25.830
+Jitendra K: For true negative, I'm saying fair transaction to fair transaction.
+
+820
+01:20:27.040 --> 01:20:29.370
+Jitendra K: Fair to fair. It's 2 negative.
+
+821
+01:20:31.070 --> 01:20:38.080
+Jitendra K: fraud to fear, if I'm saying the actual transaction is a fraud, but my prediction is saying it is normal.
+
+822
+01:20:38.360 --> 01:20:40.339
+Jitendra K: That's a false negative.
+
+823
+01:20:42.400 --> 01:20:45.280
+Jitendra K: Similarly, if I'm… my transaction is fair.
+
+824
+01:20:45.870 --> 01:20:49.690
+Jitendra K: But it is predicting as fraud, it's a false positive.
+
+825
+01:20:51.650 --> 01:20:56.210
+Jitendra K: The transition is fraud, and my algorithm is also predicting fraud, it's a true positive.
+
+826
+01:20:57.040 --> 01:21:06.489
+Jitendra K: So with this definition, I can… Predict, precision, recall, And then, harmonic mean.
+
+827
+01:21:08.640 --> 01:21:11.530
+Jitendra K: Of precision and Recall, which is called…
+
+828
+01:21:13.210 --> 01:21:18.120
+Jitendra K: 2PR by P plus R, which is called F1 score.
+
+829
+01:21:18.390 --> 01:21:20.509
+Jitendra K: Now, why we are calculating FN score?
+
+830
+01:21:21.240 --> 01:21:27.940
+Jitendra K: Sometimes… You don't have… sufficient understanding on which function should I use.
+
+831
+01:21:28.410 --> 01:21:36.290
+Jitendra K: So, in those scenarios, you can go with F1 score. So, F1 score is a harmonic mean of precision recall. It takes both false positive.
+
+832
+01:21:36.480 --> 01:21:40.479
+Jitendra K: And false negative into account, the effort performed well on imbalanced data.
+
+833
+01:21:41.830 --> 01:21:46.450
+Jitendra K: So when you have a huge imbalance, because normally speaking, let's say if I'm giving
+
+834
+01:21:46.590 --> 01:21:48.859
+Jitendra K: If I'm asking you to create this model.
+
+835
+01:21:50.130 --> 01:21:56.669
+Jitendra K: So the data point that you are going to obtain will have a huge class imbalance, because fraud transactions are rare.
+
+836
+01:21:57.100 --> 01:22:00.780
+Jitendra K: So I will say that you will have 100,000 transactions.
+
+837
+01:22:02.580 --> 01:22:06.250
+Jitendra K: 1000 transaction, out of which you will get 1% fraud.
+
+838
+01:22:06.480 --> 01:22:08.289
+Jitendra K: Or maybe even lesser than that.
+
+839
+01:22:09.210 --> 01:22:12.089
+Jitendra K: So there's a huge class imbalance in your data.
+
+840
+01:22:13.000 --> 01:22:20.019
+Jitendra K: Now, to come up with an evaluation strategy, your class will be biased towards true positive, so you have to reduce that.
+
+841
+01:22:20.200 --> 01:22:22.789
+Jitendra K: And that's what I'm going to use F1score for.
+
+842
+01:22:25.600 --> 01:22:32.600
+Jitendra K: So let's do one thing, we will revisit the code again. Let's take a quick 15 minutes break.
+
+843
+01:22:32.760 --> 01:22:34.829
+Jitendra K: And then we'll start the session.
+
+844
+01:22:35.150 --> 01:22:40.920
+Jitendra K: So, I will share the code with you, and I will ask you to implement and run this as well, in the meantime.
+
+845
+01:22:41.230 --> 01:22:48.760
+Jitendra K: So, please do see the code, and let me know if you feel any question. Let me share the code first.
+
+846
+01:22:54.930 --> 01:22:57.239
+Jitendra K: But again, as I mentioned, in order to be…
+
+847
+01:22:57.490 --> 01:23:00.919
+Jitendra K: Too much worry about the mathematics of logistic regression.
+
+848
+01:23:01.060 --> 01:23:02.670
+Jitendra K: You have to understand the concept.
+
+849
+01:23:02.920 --> 01:23:03.670
+Jitendra K: Right?
+
+850
+01:23:03.970 --> 01:23:06.539
+Jitendra K: So I will share that Word file as well.
+
+851
+01:23:06.960 --> 01:23:08.050
+Jitendra K: Which we have.
+
+852
+01:23:08.750 --> 01:23:09.910
+Jitendra K: Created…
+
+853
+01:23:50.690 --> 01:23:54.180
+Jitendra K: Okay, so please use, these two files, and
+
+854
+01:23:54.460 --> 01:24:01.400
+Jitendra K: Just take a 15 minutes break, and after the break, we'll discuss the… Code solution.
+
+855
+01:24:01.790 --> 01:24:02.560
+Jitendra K: Thank you.
+
+856
+01:48:28.620 --> 01:48:30.649
+Jitendra K: Hi guys, I hope you're back.
+
+857
+01:48:31.980 --> 01:48:33.769
+Jitendra K: Can we have a quick confirmation?
+
+858
+01:48:41.140 --> 01:48:43.200
+Jitendra K: Alright, thanks for the confirmation, folks.
+
+859
+01:48:43.660 --> 01:48:52.990
+Jitendra K: So there was a question, from Shashank, between 0 to 1, what is the probability of an interviewer asked us to implement logistic regression.
+
+860
+01:48:53.610 --> 01:48:56.000
+Jitendra K: From the scratch, when you're applying for the job.
+
+861
+01:48:56.420 --> 01:49:04.439
+Jitendra K: Yeah, so it depends upon what kind of interview profile that you're going to apply for, right? So, if I have to give you
+
+862
+01:49:05.590 --> 01:49:12.820
+Jitendra K: The probability in terms of, data science role against senior data science role, if you're into 10-plus year bracket.
+
+863
+01:49:12.980 --> 01:49:23.009
+Jitendra K: Then there's a highly likely chance, 50% and above, that the interviewer might ask to derive you… ask you to write the equation for logistic regression… derivation.
+
+864
+01:49:23.470 --> 01:49:29.059
+Jitendra K: If you're applying for 10 plus year, maybe… More than, more than that.
+
+865
+01:49:29.300 --> 01:49:32.800
+Jitendra K: Then there's a… maybe 10% chance, it's not more than that.
+
+866
+01:49:33.190 --> 01:49:40.750
+Jitendra K: So, it depends upon what profile you're applying, which company you're applying, specifically the top tech companies.
+
+867
+01:49:41.410 --> 01:49:47.320
+Jitendra K: May start whiteboarding session, so… They might ask you to write.
+
+868
+01:49:48.610 --> 01:49:50.529
+Jitendra K: Maybe they will ask you to…
+
+869
+01:49:50.780 --> 01:49:55.690
+Jitendra K: At least write, the cross entropy, category cross-entropy functions.
+
+870
+01:49:56.280 --> 01:50:00.519
+Jitendra K: And then, they will try to justify the fact that how will you
+
+871
+01:50:01.050 --> 01:50:04.990
+Jitendra K: How well you know the concepts. So that is what they are going to test against.
+
+872
+01:50:05.170 --> 01:50:12.960
+Jitendra K: They will test for your concept, not… Not for, maybe,
+
+873
+01:50:13.080 --> 01:50:18.030
+Jitendra K: your skills, but they will definitely go to test the concept, how well you know the concept.
+
+874
+01:50:19.200 --> 01:50:24.820
+Jitendra K: Alright, so… I think my collab is crashing, I don't know why.
+
+875
+01:50:59.360 --> 01:51:01.209
+Jitendra K: This thing… one second…
+
+876
+01:51:47.010 --> 01:51:53.590
+Jitendra K: Okay, so we'll start with this again. So, as I mentioned, I'm going to go line by line for this code.
+
+877
+01:51:56.070 --> 01:52:00.320
+Jitendra K: So, we have, 485 line of code written for this.
+
+878
+01:52:01.280 --> 01:52:04.730
+Jitendra K: Right, so let's try to debug what we have written so far.
+
+879
+01:52:05.060 --> 01:52:06.760
+Jitendra K: Or debrief, not debug.
+
+880
+01:52:09.630 --> 01:52:14.410
+Jitendra K: So the idea is, we are writing logic regression without an E.
+
+881
+01:52:15.160 --> 01:52:18.340
+Jitendra K: library. So we are not using any library at this moment.
+
+882
+01:52:19.880 --> 01:52:26.630
+Jitendra K: Right, so we are using… The logistic regression without any library.
+
+883
+01:52:27.090 --> 01:52:36.420
+Jitendra K: So the idea is, we are starting with the import, NumPy, matplot, For creating visualization and plots.
+
+884
+01:52:36.750 --> 01:52:40.959
+Jitendra K: So I could data learn to load the diabetic data sets. Train, test, split.
+
+885
+01:52:41.370 --> 01:52:48.800
+Jitendra K: To split data into training and test sets, standard skillet to standardize the feature, mean, and standard deviation to be 0 and 1, respectively.
+
+886
+01:52:49.300 --> 01:52:51.090
+Jitendra K: Then I have a constructor.
+
+887
+01:52:51.310 --> 01:52:53.290
+Jitendra K: Now, you know the job of constructor?
+
+888
+01:52:53.660 --> 01:52:56.419
+Jitendra K: Is to initialize the object.
+
+889
+01:52:56.870 --> 01:52:59.219
+Jitendra K: At a time of class initialization.
+
+890
+01:52:59.570 --> 01:53:05.050
+Jitendra K: So I'm passing… 4 parameters, in fact, 5. Learning rate, which is as…
+
+891
+01:53:05.440 --> 01:53:09.910
+Jitendra K: The learning rate for my algorithm to differentiate the errors, alpha.
+
+892
+01:53:10.390 --> 01:53:13.180
+Jitendra K: Number of iteration, number of training epochs.
+
+893
+01:53:13.580 --> 01:53:15.840
+Jitendra K: So, you remember, we had talked about
+
+894
+01:53:16.390 --> 01:53:20.879
+Jitendra K: gradient. So here, we are going to use one algorithm called gradient descent.
+
+895
+01:53:21.210 --> 01:53:27.879
+Jitendra K: And that algorithm will help us to find out the rate of change of errors, and analogous to rate of change of error.
+
+896
+01:53:28.020 --> 01:53:29.630
+Jitendra K: It will try to fit.
+
+897
+01:53:29.930 --> 01:53:31.489
+Jitendra K: your cost function.
+
+898
+01:53:31.770 --> 01:53:36.179
+Jitendra K: In the proportion of error, and it will penalize the model for heavy errors.
+
+899
+01:53:36.680 --> 01:53:43.749
+Jitendra K: And then try to make sure that your learning rate will be improved. So, similar to… Your gym instructor.
+
+900
+01:53:44.230 --> 01:53:45.560
+Jitendra K: He's asking you to lift.
+
+901
+01:53:45.670 --> 01:53:46.780
+Jitendra K: Small weight.
+
+902
+01:53:48.460 --> 01:53:53.500
+Jitendra K: And then, it gradually increases, right? So that you can able to…
+
+903
+01:53:53.650 --> 01:54:00.169
+Jitendra K: learn the best posture, best way of doing the exercise, right? So that you can gain muscle mass.
+
+904
+01:54:00.460 --> 01:54:05.370
+Jitendra K: So that is the objective of GEM, right? So instructor objective is to make sure that
+
+905
+01:54:06.870 --> 01:54:10.920
+Jitendra K: It will not, feel…
+
+906
+01:54:12.180 --> 01:54:23.170
+Jitendra K: or you will not lift a heavyweight at the beginning, because you will get an injury, right? Very easily. If you're lifting 100KG in the day one, you will be getting injury, for sure.
+
+907
+01:54:23.380 --> 01:54:36.569
+Jitendra K: So, it will start gradually increasing the weight, and then as you posture making… as you're getting strength and getting acquainted with the posture, it will increase your learning rate. So that's the whole idea of learning rate in terms of errors.
+
+908
+01:54:36.770 --> 01:54:42.379
+Jitendra K: So if I increase the learning rate by high value, there's a high chances of committing the error.
+
+909
+01:54:43.670 --> 01:54:52.489
+Jitendra K: So it's the step size of gradient descent alpha, which is learning rate. Number of iteration, number of training epochs, that means I'm running this algorithm in 1000 epoch.
+
+910
+01:54:52.670 --> 01:55:00.239
+Jitendra K: Regularization, as you already know, this is the Lausan Ridge regression that we are going to use for model penalties.
+
+911
+01:55:00.680 --> 01:55:06.589
+Jitendra K: The lambda, which is the regulation strength parameter, which is 0, which is, again, 1 risk to power.
+
+912
+01:55:07.120 --> 01:55:08.950
+Jitendra K: 1 into 10 times per minus 2.
+
+913
+01:55:09.170 --> 01:55:15.400
+Jitendra K: regulation strength parameter, and the lambda is verbose, which I'm keeping it to be true, so I would like to print
+
+914
+01:55:15.800 --> 01:55:17.609
+Jitendra K: During the training process.
+
+915
+01:55:18.480 --> 01:55:21.639
+Jitendra K: Now, this is my parameter, and I'm initializing this.
+
+916
+01:55:23.650 --> 01:55:25.330
+Jitendra K: Now, my sigmoid function…
+
+917
+01:55:25.620 --> 01:55:33.710
+Jitendra K: Mathematically, it will map any value to a range of 0 to 1, so I'm just passing the sigmoid and clipping the values.
+
+918
+01:55:34.930 --> 01:55:40.510
+Jitendra K: Then I'm using a parameter initializer for… loss computation.
+
+919
+01:55:40.910 --> 01:55:43.880
+Jitendra K: And I'm… here, I'm initializing the random weights.
+
+920
+01:55:44.200 --> 01:55:47.930
+Jitendra K: Small random values, initialize bias to 0.
+
+921
+01:55:49.210 --> 01:55:52.830
+Jitendra K: then I'm calculating across… Entropy loss.
+
+922
+01:55:53.720 --> 01:55:57.800
+Jitendra K: I'm clipping the value to be log 0, which make…
+
+923
+01:55:58.080 --> 01:56:01.519
+Jitendra K: This whole computation laws to be undefined.
+
+924
+01:56:02.820 --> 01:56:09.430
+Jitendra K: So I'm clipping the value to be above 0, maybe 0.0001, at least to begin with.
+
+925
+01:56:09.950 --> 01:56:17.010
+Jitendra K: So, I'm adding a regulation parameter in terms of… L2 and L1.
+
+926
+01:56:17.970 --> 01:56:20.230
+Jitendra K: Then I'm using a fit method.
+
+927
+01:56:20.670 --> 01:56:23.100
+Jitendra K: That will compute a gradient and then fit.
+
+928
+01:56:23.540 --> 01:56:29.730
+Jitendra K: So this will be a forward pass, it will measure how wrong the predictions are, and backward pass, computer gradient.
+
+929
+01:56:29.910 --> 01:56:33.609
+Jitendra K: Now, let me show you the… how logistic regression works.
+
+930
+01:56:37.910 --> 01:56:39.280
+Jitendra K: Behind the scene.
+
+931
+01:56:46.910 --> 01:56:48.470
+Jitendra K: Let me show you.
+
+932
+01:57:09.200 --> 01:57:12.160
+Jitendra K: So this is how large iteration works behind the scenes.
+
+933
+01:57:37.610 --> 01:57:41.299
+Jitendra K: Now, you can see this is a mathematical function, which is working on
+
+934
+01:57:43.080 --> 01:57:46.730
+Jitendra K: Creating a decision boundary between the data points. And how it does?
+
+935
+01:57:47.140 --> 01:57:52.100
+Jitendra K: It is using a transformation by projecting the data points to a higher dimension scale.
+
+936
+01:57:52.480 --> 01:57:59.320
+Jitendra K: So basically, the idea is, to create a decient boundary, logistic regression, use…
+
+937
+01:58:00.600 --> 01:58:05.889
+Jitendra K: the trainable parameters. You can see these parameters are weights, the beta coefficients.
+
+938
+01:58:06.210 --> 01:58:10.780
+Jitendra K: That is gonna be increased or decreased to fit the best line.
+
+939
+01:58:11.410 --> 01:58:13.670
+Jitendra K: Right? On the top of this.
+
+940
+01:58:15.080 --> 01:58:18.470
+Jitendra K: asymptomatic… curves, right?
+
+941
+01:58:18.610 --> 01:58:22.860
+Jitendra K: So the idea is, we are going to fit the LR using gradient descent.
+
+942
+01:58:23.600 --> 01:58:32.710
+Jitendra K: And, the gradient descent will work on three methods. Forward pass, In the forward pass…
+
+943
+01:58:34.490 --> 01:58:38.470
+Jitendra K: Let me show you the GIF for that as well. Radiant Descent GIF.
+
+944
+01:58:39.410 --> 01:58:43.720
+Jitendra K: I don't want to show you in the first class, but I have no choice.
+
+945
+01:59:00.290 --> 01:59:03.700
+Jitendra K: Now, this is your gradient descent algorithm, how it works.
+
+946
+01:59:04.250 --> 01:59:09.320
+Jitendra K: So you can see that you have got… the errors…
+
+947
+01:59:09.920 --> 01:59:15.820
+Jitendra K: Which is your objective functions, so these are your… Hills.
+
+948
+01:59:16.540 --> 01:59:20.810
+Jitendra K: And, this is a non-convex optimization problem.
+
+949
+01:59:21.390 --> 01:59:24.599
+Jitendra K: So, in simple terms, what is non-convex convex?
+
+950
+01:59:24.960 --> 01:59:29.889
+Jitendra K: So, in a very simple term, if I have to just… Give you an answer.
+
+951
+01:59:31.530 --> 01:59:35.209
+Jitendra K: The convex and non-convex optimization.
+
+952
+01:59:35.950 --> 01:59:41.239
+Jitendra K: is depending upon the complexity of your use case, right? So, generally speaking.
+
+953
+01:59:41.880 --> 01:59:48.339
+Jitendra K: You're going to work on non-convex. Even if you do not know if you're working on non-convex or convex, that's perfectly fine.
+
+954
+01:59:48.860 --> 01:59:53.139
+Jitendra K: But in general, you're going to solve non-convex optimization problems.
+
+955
+01:59:53.800 --> 01:59:55.980
+Jitendra K: So when you're trying to solve this problem.
+
+956
+01:59:57.120 --> 02:00:00.170
+Jitendra K: Your objective is to find this global minima.
+
+957
+02:00:00.370 --> 02:00:01.380
+Jitendra K: All the time.
+
+958
+02:00:01.820 --> 02:00:07.230
+Jitendra K: Or some of your data point may be stuck in local minima. It is stuck here, so that is the error.
+
+959
+02:00:08.060 --> 02:00:13.080
+Jitendra K: So what Gradient Descent does is, it will try to make sure that
+
+960
+02:00:15.460 --> 02:00:18.020
+Jitendra K: It will able to proportionate your error.
+
+961
+02:00:18.930 --> 02:00:23.910
+Jitendra K: By learning from this, Rate.
+
+962
+02:00:24.500 --> 02:00:26.020
+Jitendra K: And then adapt.
+
+963
+02:00:26.140 --> 02:00:27.660
+Jitendra K: To that learning rate.
+
+964
+02:00:27.860 --> 02:00:30.930
+Jitendra K: To ensure that, you will find
+
+965
+02:00:31.280 --> 02:00:36.370
+Jitendra K: the global minima for all your data points, and that is what Gradient Descent does.
+
+966
+02:00:36.590 --> 02:00:41.389
+Jitendra K: In a simple… Mathematical terms.
+
+967
+02:00:41.710 --> 02:00:47.730
+Jitendra K: So what it does is, it converts your algorithm into… iteration.
+
+968
+02:00:48.630 --> 02:00:50.659
+Jitendra K: So it computes the forward pass.
+
+969
+02:00:51.340 --> 02:00:52.419
+Jitendra K: The first pass.
+
+970
+02:00:53.510 --> 02:00:59.549
+Jitendra K: Fast pass means… You start with… The first pass?
+
+971
+02:01:00.580 --> 02:01:05.579
+Jitendra K: Or maybe I can show you this example. You first pass, you find some error.
+
+972
+02:01:06.100 --> 02:01:10.930
+Jitendra K: You calculate how long… how much wrong prediction your model is making.
+
+973
+02:01:11.510 --> 02:01:17.529
+Jitendra K: And then you compute a gradient and update the parameter, so that you can move in the direction that reduces this loss.
+
+974
+02:01:17.710 --> 02:01:22.690
+Jitendra K: If I shift this sphere to fall like this, It will definitely go into.
+
+975
+02:01:22.800 --> 02:01:23.940
+Jitendra K: Settle here.
+
+976
+02:01:24.250 --> 02:01:27.360
+Jitendra K: Right? So that's the whole idea of forward pass.
+
+977
+02:01:27.570 --> 02:01:30.070
+Jitendra K: Backward pass, and parameter update.
+
+978
+02:01:30.600 --> 02:01:36.140
+Jitendra K: And to track this, I'm using… The prediction probability.
+
+979
+02:01:36.300 --> 02:01:37.840
+Jitendra K: evaluation metrics.
+
+980
+02:01:39.270 --> 02:01:42.989
+Jitendra K: Now, I would like to use the evaluation matrix, and then calculate
+
+981
+02:01:43.440 --> 02:01:46.280
+Jitendra K: The probability that random positive example
+
+982
+02:01:47.140 --> 02:01:54.150
+Jitendra K: use to predict the outcome. And here, what we are predicting, we are predicting Out of these parameters…
+
+983
+02:01:58.260 --> 02:02:00.090
+Jitendra K: Out of these parameters.
+
+984
+02:02:12.040 --> 02:02:20.740
+Jitendra K: how to determine a patient is having a diabetic or non-diabetic? Because if you're predicting a diabetic much early, you can cure it.
+
+985
+02:02:21.100 --> 02:02:21.890
+Jitendra K: Back then.
+
+986
+02:02:22.510 --> 02:02:29.579
+Jitendra K: If you're predicting a diabetic at a later stage, there's a high chances that There's a huge loss
+
+987
+02:02:29.860 --> 02:02:32.429
+Jitendra K: Already happened in the patient body.
+
+988
+02:02:33.520 --> 02:02:38.290
+Jitendra K: You know that diabetes is killing the cells, inside the body.
+
+989
+02:02:39.130 --> 02:02:42.500
+Jitendra K: Right, so diabetes… and India is a capital of diabetes now.
+
+990
+02:02:43.570 --> 02:02:53.280
+Jitendra K: Just because of our habit, We are eating fast food, we are drinking, Pepsi, Coca-Cola's, etc, right? So…
+
+991
+02:02:53.540 --> 02:02:57.279
+Jitendra K: We are used to these regimes now. We're not exercising.
+
+992
+02:02:58.200 --> 02:03:00.700
+Jitendra K: We are just sitting on long hours.
+
+993
+02:03:01.580 --> 02:03:04.569
+Jitendra K: Right? So all these things are leading to…
+
+994
+02:03:05.470 --> 02:03:09.659
+Jitendra K: Maybe partially or fully develop a diabetic disease inside the body.
+
+995
+02:03:09.890 --> 02:03:17.699
+Jitendra K: And once the patient has been diagnosed with diabetes, then the only remediation he have, or he or she have, is to cure it.
+
+996
+02:03:18.200 --> 02:03:22.199
+Jitendra K: With following good regime, following good diet, following medicines.
+
+997
+02:03:23.350 --> 02:03:30.209
+Jitendra K: Right? So if you predict a diabetic early as a doctor, then you're saving the life of a patient.
+
+998
+02:03:30.800 --> 02:03:33.310
+Jitendra K: You're also saving, the amount of…
+
+999
+02:03:36.970 --> 02:03:38.010
+Jitendra K: damaged.
+
+1000
+02:03:38.260 --> 02:03:40.740
+Jitendra K: That can be overturned.
+
+1001
+02:03:43.380 --> 02:03:47.549
+Jitendra K: by early diagnostic of the diabetes, right? So it can be cured.
+
+1002
+02:03:48.240 --> 02:03:52.239
+Jitendra K: not just with Madison, because Madison does not claim that they will…
+
+1003
+02:03:52.690 --> 02:04:00.409
+Jitendra K: treat diabetes. They are claiming that they will improve your condition of diabetics. Nobody in the world is claiming that I can cure a diabetes.
+
+1004
+02:04:02.300 --> 02:04:03.110
+Jitendra K: Right?
+
+1005
+02:04:03.540 --> 02:04:05.249
+Jitendra K: It's not curable disease.
+
+1006
+02:04:05.740 --> 02:04:07.160
+Jitendra K: You have to live with it.
+
+1007
+02:04:07.890 --> 02:04:10.760
+Jitendra K: But… You can improve.
+
+1008
+02:04:12.390 --> 02:04:14.250
+Jitendra K: Right? So that is the whole idea of it.
+
+1009
+02:04:14.530 --> 02:04:20.559
+Jitendra K: So here we are talking about which feature is important to predict the diabetic. And if we predict early.
+
+1010
+02:04:20.930 --> 02:04:24.249
+Jitendra K: With a higher confidence, we'll save the life of a patient.
+
+1011
+02:04:25.800 --> 02:04:31.520
+Jitendra K: Right? So, similar to cancer cells. If you predict early, the chances of survival is high.
+
+1012
+02:04:32.650 --> 02:04:34.609
+Jitendra K: So, same thing we are applying here.
+
+1013
+02:04:34.780 --> 02:04:42.980
+Jitendra K: So, we are creating a learnable features, learnable weight features, and try to regress around those features to create a decent boundary between the classes.
+
+1014
+02:04:43.310 --> 02:04:46.789
+Jitendra K: And once we create this, We will be able to see…
+
+1015
+02:04:46.980 --> 02:04:48.899
+Jitendra K: How well the model is predicting.
+
+1016
+02:04:49.190 --> 02:04:54.080
+Jitendra K: So we are using this method To train the model.
+
+1017
+02:04:54.200 --> 02:04:58.959
+Jitendra K: On the data, and then we have a bunch of these computational metrics.
+
+1018
+02:04:59.530 --> 02:05:06.650
+Jitendra K: Now let's try to revisit what we have discussed so far. We talked about something called Precision Recall FN Score.
+
+1019
+02:05:09.140 --> 02:05:11.300
+Jitendra K: Right? Or even accuracy.
+
+1020
+02:05:12.580 --> 02:05:15.139
+Jitendra K: Or ROC, AUC, or FN score.
+
+1021
+02:05:15.500 --> 02:05:24.350
+Jitendra K: So if I have to explain in a very layman term, with an example, Let me show you again.
+
+1022
+02:05:24.750 --> 02:05:30.070
+Jitendra K: What I mean by all these factors, so-called your report card of the model.
+
+1023
+02:05:30.270 --> 02:05:33.750
+Jitendra K: So let's say… I'm giving you…
+
+1024
+02:05:35.630 --> 02:05:38.489
+Jitendra K: some scenario, let's say COVID-19 testing.
+
+1025
+02:05:40.190 --> 02:05:40.970
+Jitendra K: Right?
+
+1026
+02:05:41.380 --> 02:05:46.260
+Jitendra K: So let's say I have created a machine, Or maybe I've…
+
+1027
+02:05:46.560 --> 02:05:50.569
+Jitendra K: created a scenario for COVID-19 testing. Imagine that we have a COVID test.
+
+1028
+02:05:50.910 --> 02:05:56.239
+Jitendra K: I checked thousands of people, or thousand people, And see what actually happened.
+
+1029
+02:06:01.170 --> 02:06:01.980
+Jitendra K: Right?
+
+1030
+02:06:02.140 --> 02:06:06.090
+Jitendra K: So let me show you… the calculation.
+
+1031
+02:06:06.660 --> 02:06:10.760
+Jitendra K: the permutation combination that I'm going to utilize, I will write down
+
+1032
+02:06:11.530 --> 02:06:15.529
+Jitendra K: this, and then I can show you, how it behaves.
+
+1033
+02:06:16.020 --> 02:06:18.659
+Jitendra K: So let me go back to my Word file.
+
+1034
+02:06:26.100 --> 02:06:30.280
+Jitendra K: Okay, so let's say I have a… COVID testing.
+
+1035
+02:06:30.410 --> 02:06:36.599
+Jitendra K: Imagine that we have developed a COVID test that checked 1,000 patients, or 1,000 people, and tried to see what actually happened.
+
+1036
+02:06:37.670 --> 02:06:43.060
+Jitendra K: Now, here… there are two things that can happen. One is… I can have…
+
+1037
+02:06:45.560 --> 02:06:52.630
+Jitendra K: a thousand people actually have COVID, which are sick, and 900 people does not have COVID. They are healthy. That means I've got
+
+1038
+02:06:52.960 --> 02:06:54.309
+Jitendra K: the actual labels.
+
+1039
+02:06:55.090 --> 02:07:00.390
+Jitendra K: These are the actual labels, so 1… 10% people are affected by COVID.
+
+1040
+02:07:00.620 --> 02:07:02.930
+Jitendra K: And the remaining 90% are healthy.
+
+1041
+02:07:03.400 --> 02:07:09.749
+Jitendra K: So let's say we conduct a test, and then a test is saying that 120 people are positive, 880 peoples are negative.
+
+1042
+02:07:10.320 --> 02:07:15.119
+Jitendra K: Now, 120 out of which proportion are… Positive, I don't know.
+
+1043
+02:07:15.500 --> 02:07:20.430
+Jitendra K: Whether it is coming all 100 patients under this, Or maybe…
+
+1044
+02:07:20.640 --> 02:07:23.449
+Jitendra K: Partially, it is also covering this. I don't know.
+
+1045
+02:07:23.890 --> 02:07:27.020
+Jitendra K: And the task is saying 880 people are negative as well.
+
+1046
+02:07:28.720 --> 02:07:34.040
+Jitendra K: So, in reality, I have got 80 patients, Which are sick.
+
+1047
+02:07:34.860 --> 02:07:36.930
+Jitendra K: And 20 are coming as negative.
+
+1048
+02:07:40.110 --> 02:07:49.400
+Jitendra K: the healthy person are coming as… Positive, which is 40, And 860 are actually negative.
+
+1049
+02:07:51.890 --> 02:07:52.620
+Jitendra K: Pardon?
+
+1050
+02:07:53.180 --> 02:07:59.920
+Jitendra K: So, basically what I'm trying to do is, I'm just calculating the total ratio.
+
+1051
+02:08:00.550 --> 02:08:01.960
+Jitendra K: And at least 200.
+
+1052
+02:08:03.240 --> 02:08:09.159
+Jitendra K: So here, if I'm creating a table of configure metrics, my true positive cases are 80,
+
+1053
+02:08:09.570 --> 02:08:11.439
+Jitendra K: False positive are 20.
+
+1054
+02:08:11.610 --> 02:08:15.869
+Jitendra K: to test, which has been missed, 26 people, which is dangerous, because I will…
+
+1055
+02:08:16.170 --> 02:08:22.299
+Jitendra K: Definitely want to not spread COVID beyond this point. So they are most dangerous cases.
+
+1056
+02:08:22.650 --> 02:08:28.449
+Jitendra K: False positive cases which have been tested wrongly. Actually, they are healthy people, but I'm saying they are
+
+1057
+02:08:29.080 --> 02:08:36.629
+Jitendra K: Coming to be, non-healthy, so it will create a worry and panic around those 40 people.
+
+1058
+02:08:36.900 --> 02:08:40.419
+Jitendra K: They will start taking precaution, they will isolate themselves.
+
+1059
+02:08:40.920 --> 02:08:43.440
+Jitendra K: Follow some diet, medicines, etc.
+
+1060
+02:08:44.390 --> 02:08:51.759
+Jitendra K: However, true negative is 860, that means their model's predicting correctly. 860 as healthy as healthy people.
+
+1061
+02:08:52.000 --> 02:08:54.539
+Jitendra K: So, this is the most dangerous…
+
+1062
+02:08:56.230 --> 02:08:59.129
+Jitendra K: point, because these 20 people will spread the COVID.
+
+1063
+02:08:59.780 --> 02:09:02.819
+Jitendra K: Because the test is saying that you don't have a COVID.
+
+1064
+02:09:03.010 --> 02:09:05.080
+Jitendra K: So go and enjoy your life.
+
+1065
+02:09:05.350 --> 02:09:08.289
+Jitendra K: And they will enjoy their life by spreading the COVID.
+
+1066
+02:09:08.630 --> 02:09:13.059
+Jitendra K: So that means this is actually the most dangerous
+
+1067
+02:09:16.690 --> 02:09:21.430
+Jitendra K: samples… That I'm going to look for. So in this situation.
+
+1068
+02:09:22.090 --> 02:09:25.509
+Jitendra K: False positive is the most drastic
+
+1069
+02:09:27.190 --> 02:09:31.010
+Jitendra K: Impact it can create on my overall testing kit.
+
+1070
+02:09:31.680 --> 02:09:38.769
+Jitendra K: So this is the testing kit. Let's say you launch a testing kit, there's a lot of type of testing kit which has been launched during COVID.
+
+1071
+02:09:38.880 --> 02:09:40.860
+Jitendra K: There's a NASL,
+
+1072
+02:09:41.310 --> 02:09:50.660
+Jitendra K: sample collector, then you are collecting temperature, you are doing heat scanning. So there are different ways in which, even doing X-rays, right?
+
+1073
+02:09:50.840 --> 02:09:55.760
+Jitendra K: of the moving people. You're checking whether they have,
+
+1074
+02:09:56.300 --> 02:10:05.759
+Jitendra K: some dizziness, or some side sort of feverish condition, etc. And then they predict whether it is predicted by COVID, or affected by COVID or not.
+
+1075
+02:10:05.960 --> 02:10:12.729
+Jitendra K: So let's say you have created a kind of a nestle swap test kit.
+
+1076
+02:10:13.200 --> 02:10:15.640
+Jitendra K: And you're selling this to government.
+
+1077
+02:10:15.930 --> 02:10:19.800
+Jitendra K: Now… Out of this result, the government
+
+1078
+02:10:20.260 --> 02:10:23.129
+Jitendra K: We're definitely going to reject your kit.
+
+1079
+02:10:23.640 --> 02:10:31.750
+Jitendra K: Because your kit is giving 20 patients as false negative. If it is Maybe.
+
+1080
+02:10:32.090 --> 02:10:37.050
+Jitendra K: 4 or 5, then it is still permissible, but 20 is a very big amount.
+
+1081
+02:10:38.490 --> 02:10:44.069
+Jitendra K: Now, if I have to calculate the accuracy, so the definition for my accuracy would be how often is the text
+
+1082
+02:10:44.760 --> 02:10:48.489
+Jitendra K: Overall correct coming… and sorry, how the test…
+
+1083
+02:10:49.030 --> 02:10:59.990
+Jitendra K: is coming correct overall. So that means I'm calculating total true positives… true positive divided by total population sample.
+
+1084
+02:11:00.500 --> 02:11:06.139
+Jitendra K: The total true positive that I'm calculating, including true negative, is 80 plus 860.
+
+1085
+02:11:06.350 --> 02:11:07.960
+Jitendra K: This diagonal matrix.
+
+1086
+02:11:08.430 --> 02:11:13.079
+Jitendra K: So it will be 940 divided by 1,000, which would be 94%.
+
+1087
+02:11:13.410 --> 02:11:17.719
+Jitendra K: So that means my model is committing 6% error.
+
+1088
+02:11:20.010 --> 02:11:22.070
+Jitendra K: And 94% it is accurate.
+
+1089
+02:11:22.930 --> 02:11:25.040
+Jitendra K: So, in plain English, I will say that…
+
+1090
+02:11:28.400 --> 02:11:31.430
+Jitendra K: Everyone is healthy, all the time.
+
+1091
+02:11:31.980 --> 02:11:34.480
+Jitendra K: It would be 90% accurate.
+
+1092
+02:11:35.370 --> 02:11:42.129
+Jitendra K: Right? So that's why… Accuracy alone can be misleading when you have a huge class imbalance.
+
+1093
+02:11:42.240 --> 02:11:44.610
+Jitendra K: So if you are taking into this proportion.
+
+1094
+02:11:46.040 --> 02:11:48.520
+Jitendra K: Right? So let's say if I change the class…
+
+1095
+02:11:49.210 --> 02:11:52.119
+Jitendra K: to 50-50. So this number will increase.
+
+1096
+02:11:53.000 --> 02:11:56.709
+Jitendra K: And the accuracy will decrease. So this is very highly sensitive.
+
+1097
+02:11:57.060 --> 02:11:58.720
+Jitendra K: to your class.
+
+1098
+02:11:59.360 --> 02:12:00.340
+Jitendra K: Ratio.
+
+1099
+02:12:03.160 --> 02:12:05.520
+Jitendra K: So you cannot trust on accuracy.
+
+1100
+02:12:05.980 --> 02:12:07.719
+Jitendra K: To predict your model outcome.
+
+1101
+02:12:08.560 --> 02:12:09.710
+Jitendra K: So what else?
+
+1102
+02:12:09.910 --> 02:12:11.660
+Jitendra K: So we will have precision.
+
+1103
+02:12:11.900 --> 02:12:15.040
+Jitendra K: So we'll say total true positive divided by all positive.
+
+1104
+02:12:15.290 --> 02:12:18.990
+Jitendra K: Not total true positive, just true positive divided by all positive.
+
+1105
+02:12:19.390 --> 02:12:25.790
+Jitendra K: The precision will say that out of the total 2 positive, how many are predicted as 2 positive? So I'm saying 67% cases.
+
+1106
+02:12:26.280 --> 02:12:32.740
+Jitendra K: So, in a simple term, I'm saying, when a test says you're sick, That means I'm claiming
+
+1107
+02:12:33.720 --> 02:12:36.070
+Jitendra K: The confidence to be 67%.
+
+1108
+02:12:37.860 --> 02:12:40.300
+Jitendra K: So, remaining 33% are the errors.
+
+1109
+02:12:42.720 --> 02:12:46.580
+Jitendra K: So it can lead to… Few false alarms.
+
+1110
+02:12:47.420 --> 02:12:49.140
+Jitendra K: A lot of false alarms.
+
+1111
+02:12:51.600 --> 02:12:59.170
+Jitendra K: So, precision… We'll also be highly sensitive to The ratio of your class.
+
+1112
+02:13:00.990 --> 02:13:08.049
+Jitendra K: So, recall is also called as sensitivity Balancer, or a parameter.
+
+1113
+02:13:08.770 --> 02:13:11.710
+Jitendra K: So it will say, out of the sick people, how many did we catch?
+
+1114
+02:13:13.190 --> 02:13:21.389
+Jitendra K: So to say… True positive divided by all actual sick people, which is 100, and we are predicting 80.
+
+1115
+02:13:21.710 --> 02:13:22.810
+Jitendra K: 80%.
+
+1116
+02:13:23.640 --> 02:13:28.359
+Jitendra K: But we missed 20%. So high recall, we catch more sick people good.
+
+1117
+02:13:28.800 --> 02:13:33.980
+Jitendra K: But here, we are missing… Some 20% cases.
+
+1118
+02:13:34.290 --> 02:13:38.950
+Jitendra K: Which can create another cluster of COVID.
+
+1119
+02:13:39.360 --> 02:13:40.190
+Jitendra K: for us.
+
+1120
+02:13:41.780 --> 02:13:45.989
+Jitendra K: Right? So this is what… Recall is a sensitivity parameter.
+
+1121
+02:13:46.700 --> 02:13:52.149
+Jitendra K: So this parameter is very useful when your class is highly imbalanced.
+
+1122
+02:13:52.850 --> 02:13:55.189
+Jitendra K: Because here you're talking about only
+
+1123
+02:13:55.990 --> 02:14:00.059
+Jitendra K: Total true positive divided by actual, true positive.
+
+1124
+02:14:00.960 --> 02:14:03.540
+Jitendra K: Break the true positive divided by actual true positive.
+
+1125
+02:14:04.470 --> 02:14:09.900
+Jitendra K: So that means you're working on… The improve of the…
+
+1126
+02:14:10.040 --> 02:14:11.950
+Jitendra K: Cost function of the model itself.
+
+1127
+02:14:12.740 --> 02:14:19.729
+Jitendra K: Now, F1 score will balance between the two, so it will create a harmonic mean of precision recall, and you can see that
+
+1128
+02:14:19.970 --> 02:14:22.339
+Jitendra K: It deteriorate the recall.
+
+1129
+02:14:22.760 --> 02:14:25.949
+Jitendra K: Where we are getting 80%, I would say 73%.
+
+1130
+02:14:26.570 --> 02:14:31.480
+Jitendra K: So, in plain English, it'll say that our balance score considering both false alarm and missed cases.
+
+1131
+02:14:31.610 --> 02:14:38.700
+Jitendra K: False alarm means how many healthy patients you are claiming to be, COVID. Having COVID.
+
+1132
+02:14:39.540 --> 02:14:42.820
+Jitendra K: So, considering the both population sample.
+
+1133
+02:14:43.250 --> 02:14:47.090
+Jitendra K: How many of them are false positive, and how many of them are?
+
+1134
+02:14:50.650 --> 02:14:51.809
+Jitendra K: True negative.
+
+1135
+02:14:53.040 --> 02:14:55.069
+Jitendra K: Oh, false negative. FN.
+
+1136
+02:14:55.970 --> 02:15:00.500
+Jitendra K: So why harmonic mean? Because it… Punishes extreme imbalance.
+
+1137
+02:15:00.720 --> 02:15:02.480
+Jitendra K: And even it can work.
+
+1138
+02:15:02.700 --> 02:15:05.790
+Jitendra K: Pretty well to fine-tune your recall.
+
+1139
+02:15:08.610 --> 02:15:11.270
+Jitendra K: Now, when I talk about AUC ROC,
+
+1140
+02:15:11.450 --> 02:15:14.779
+Jitendra K: which is called Regional Operating Characteristic Area Under the Curve.
+
+1141
+02:15:15.300 --> 02:15:18.750
+Jitendra K: So, it will plot… the output.
+
+1142
+02:15:19.270 --> 02:15:21.550
+Jitendra K: In terms of a mathematical function.
+
+1143
+02:15:22.070 --> 02:15:26.960
+Jitendra K: Now, this mathematical function will provide you
+
+1144
+02:15:27.570 --> 02:15:30.989
+Jitendra K: The sensitivity analysis of your model.
+
+1145
+02:15:32.440 --> 02:15:36.230
+Jitendra K: Now… Let me explain this in a more…
+
+1146
+02:15:37.150 --> 02:15:41.140
+Jitendra K: plain English, that if you're going to use AUCROC,
+
+1147
+02:15:41.430 --> 02:15:44.200
+Jitendra K: So what are the things that you're going to operate?
+
+1148
+02:15:45.360 --> 02:15:49.050
+Jitendra K: So, ROC, you see the performance metrics.
+
+1149
+02:15:49.200 --> 02:15:51.109
+Jitendra K: For a binary classification model.
+
+1150
+02:15:51.450 --> 02:15:56.280
+Jitendra K: And that measures the ability to distinguish the class across all possible thresholds.
+
+1151
+02:15:59.350 --> 02:16:00.200
+Jitendra K: Right?
+
+1152
+02:16:00.560 --> 02:16:10.210
+Jitendra K: So, when you're using AUC ROC, You're just looking for… The overall model performance.
+
+1153
+02:16:10.980 --> 02:16:13.829
+Jitendra K: So what a receiver operating characteristic does is…
+
+1154
+02:16:14.700 --> 02:16:16.769
+Jitendra K: It will give you the graph like this.
+
+1155
+02:16:19.710 --> 02:16:24.690
+Jitendra K: So, the area under this graph… So this is a 50%.
+
+1156
+02:16:25.200 --> 02:16:27.880
+Jitendra K: This area, the white one, is 50%.
+
+1157
+02:16:29.010 --> 02:16:32.760
+Jitendra K: So, remaining… It's something which you would like to calculate.
+
+1158
+02:16:33.320 --> 02:16:39.090
+Jitendra K: So we'll say that this area… 50% plus 29.
+
+1159
+02:16:39.400 --> 02:16:41.749
+Jitendra K: Which is 79% total area.
+
+1160
+02:16:44.360 --> 02:16:47.320
+Jitendra K: Is covered by your model.
+
+1161
+02:16:50.270 --> 02:16:54.859
+Jitendra K: And here I'm talking about false positive rate versus true positive rate.
+
+1162
+02:16:55.490 --> 02:16:58.720
+Jitendra K: And that is called Receiver Operating Characteristics.
+
+1163
+02:17:00.090 --> 02:17:01.510
+Jitendra K: How much signal?
+
+1164
+02:17:02.100 --> 02:17:07.130
+Jitendra K: It received to differentiate your true positive versus False positive.
+
+1165
+02:17:07.799 --> 02:17:09.760
+Jitendra K: So it's like on your mobile device.
+
+1166
+02:17:11.280 --> 02:17:17.980
+Jitendra K: Your mobile depends upon compatibility. So let's say your mobile is 5G compatible versus 4G compatible.
+
+1167
+02:17:19.520 --> 02:17:24.350
+Jitendra K: So that is your hardware constraint, because Ambani is sending all the signals.
+
+1168
+02:17:24.520 --> 02:17:25.590
+Jitendra K: From the tower.
+
+1169
+02:17:25.850 --> 02:17:28.330
+Jitendra K: But your mobile is not compatible, too.
+
+1170
+02:17:28.540 --> 02:17:30.019
+Jitendra K: Capture all the signal.
+
+1171
+02:17:30.950 --> 02:17:34.359
+Jitendra K: I cannot complain, Gio, that your signals are fading.
+
+1172
+02:17:35.120 --> 02:17:40.619
+Jitendra K: Because of, my device incompatibility. You have to change your device. You have to change your model.
+
+1173
+02:17:41.959 --> 02:17:46.839
+Jitendra K: Right? So this is what… Receiver operating characteristics talks about.
+
+1174
+02:17:47.510 --> 02:17:55.430
+Jitendra K: The CCO orbiting Characteristics means… It will give you the quick glimpse are…
+
+1175
+02:17:55.719 --> 02:17:58.869
+Jitendra K: The quick snapshot of your model.
+
+1176
+02:17:59.209 --> 02:18:00.200
+Jitendra K: output.
+
+1177
+02:18:00.469 --> 02:18:05.839
+Jitendra K: In terms of… the… In terms of how well your model is doing.
+
+1178
+02:18:07.150 --> 02:18:13.930
+Jitendra K: Right? Similarly, you can able to find it out, the sensitivity of the model to capture.
+
+1179
+02:18:15.110 --> 02:18:20.780
+Jitendra K: Now, there are some scenarios that we have to talk about now. So, let's say your model is giving…
+
+1180
+02:18:21.809 --> 02:18:23.469
+Jitendra K: the perfect ROC.
+
+1181
+02:18:24.360 --> 02:18:26.629
+Jitendra K: So you will see the perfect ROC like this.
+
+1182
+02:18:26.850 --> 02:18:29.009
+Jitendra K: 100% effective model.
+
+1183
+02:18:29.160 --> 02:18:33.779
+Jitendra K: All true negative are coming as true negative, all true positive are coming as true positive.
+
+1184
+02:18:34.150 --> 02:18:37.850
+Jitendra K: This area, if I extend it here, it is 100%.
+
+1185
+02:18:39.400 --> 02:18:40.230
+Jitendra K: Effective.
+
+1186
+02:18:40.709 --> 02:18:42.309
+Jitendra K: 100% model.
+
+1187
+02:18:45.620 --> 02:18:51.509
+Jitendra K: So this is the characteristics of a 100% model. All true positive are true positive, all true negative are true negative.
+
+1188
+02:18:52.090 --> 02:18:56.450
+Jitendra K: So AUC will be 1. Area under the curve will be 1. And this is the ROC curve.
+
+1189
+02:18:58.900 --> 02:19:05.079
+Jitendra K: So… In a normal scenario, I may get output like this.
+
+1190
+02:19:05.870 --> 02:19:09.989
+Jitendra K: Where some proportion of my errors are here.
+
+1191
+02:19:10.200 --> 02:19:13.260
+Jitendra K: Where some true negatives are false negatives.
+
+1192
+02:19:13.950 --> 02:19:16.299
+Jitendra K: Some true positives are false positives.
+
+1193
+02:19:17.350 --> 02:19:20.049
+Jitendra K: So I will say this is my error rate.
+
+1194
+02:19:20.400 --> 02:19:22.539
+Jitendra K: This area, the black area.
+
+1195
+02:19:22.920 --> 02:19:23.930
+Jitendra K: This is the error.
+
+1196
+02:19:30.990 --> 02:19:32.900
+Jitendra K: The complete overlap.
+
+1197
+02:19:35.440 --> 02:19:38.979
+Jitendra K: That means your model Is not able to.
+
+1198
+02:19:40.889 --> 02:19:44.670
+Jitendra K: classify anything. So here, we have a perfect overlap.
+
+1199
+02:19:45.420 --> 02:19:50.410
+Jitendra K: There's no way the model will be able to distinguish a positive from a negative at any threshold.
+
+1200
+02:19:50.620 --> 02:19:54.879
+Jitendra K: In this case, the ROC is straight diagonal, and AUC is 0.5.
+
+1201
+02:19:57.910 --> 02:19:58.710
+Jitendra K: Right?
+
+1202
+02:19:58.970 --> 02:20:03.030
+Jitendra K: The other case could be… All your…
+
+1203
+02:20:03.220 --> 02:20:07.680
+Jitendra K: True positive is coming as false positive, all your false positives coming as true positive.
+
+1204
+02:20:08.260 --> 02:20:10.069
+Jitendra K: That can also be possible.
+
+1205
+02:20:10.760 --> 02:20:13.189
+Jitendra K: So that means your model is 0% effective.
+
+1206
+02:20:15.480 --> 02:20:17.870
+Jitendra K: So I would say, when you have a choice.
+
+1207
+02:20:21.220 --> 02:20:26.279
+Jitendra K: to find out The wrong model, this is the most dangerous situation.
+
+1208
+02:20:27.820 --> 02:20:33.830
+Jitendra K: Because your model does not have any learnable parameter. Here itself, you're learning, you're at least learning the model.
+
+1209
+02:20:34.130 --> 02:20:37.830
+Jitendra K: Although 0% effective. But this is the most dangerous scenario.
+
+1210
+02:20:42.730 --> 02:20:50.669
+Jitendra K: Right? So this is the concept of AUC and ROC. So when you say AUC, ROC, A under the operating characteristics.
+
+1211
+02:20:50.860 --> 02:20:52.920
+Jitendra K: So here we are talking about D.
+
+1212
+02:20:53.590 --> 02:20:56.400
+Jitendra K: model… Sensitivity.
+
+1213
+02:20:56.880 --> 02:20:57.660
+Jitendra K: N.
+
+1214
+02:20:57.900 --> 02:21:01.540
+Jitendra K: Specificness to differentiate the classes.
+
+1215
+02:21:07.600 --> 02:21:09.370
+Jitendra K: So, any question on this point?
+
+1216
+02:21:10.460 --> 02:21:12.029
+Jitendra K: Any question on this?
+
+1217
+02:21:17.240 --> 02:21:20.720
+Jitendra K: I think I've shared the code, you guys want to try this out?
+
+1218
+02:21:22.400 --> 02:21:29.000
+Jitendra K: Let me know if there's an issue, or are you able to understand, Code.
+
+1219
+02:21:31.700 --> 02:21:34.349
+Jitendra K: Can you just do one thing for me?
+
+1220
+02:21:34.590 --> 02:21:37.020
+Jitendra K: Can you open the Word file and the code?
+
+1221
+02:21:37.220 --> 02:21:39.030
+Jitendra K: And go parallelly in both.
+
+1222
+02:21:40.170 --> 02:21:45.839
+Jitendra K: Just try to understand the mathematical concept, and then see the code, what this code is doing.
+
+1223
+02:21:46.730 --> 02:21:50.060
+Jitendra K: Try to understand each and every function of this code.
+
+1224
+02:21:50.930 --> 02:21:56.620
+Jitendra K: And then… Maybe, just see if there's anything missing.
+
+1225
+02:22:06.300 --> 02:22:08.879
+Jitendra K: From this point, until 194.
+
+1226
+02:22:16.010 --> 02:22:18.530
+Jitendra K: Yeah, I will exple… I will share that as well.
+
+1227
+02:22:57.320 --> 02:23:02.619
+Jitendra K: So please use both, sorry, the first file, logistic regression and the quote file that I've shared.
+
+1228
+02:23:02.880 --> 02:23:06.790
+Jitendra K: Evaluation metrics, you can able to take it after the class.
+
+1229
+02:23:07.530 --> 02:23:11.229
+Jitendra K: So, first, focus on logistic regression concept.
+
+1230
+02:23:11.660 --> 02:23:13.870
+Jitendra K: Because here we are learning 3 concepts.
+
+1231
+02:23:15.050 --> 02:23:17.160
+Jitendra K: Versus logistic regression itself.
+
+1232
+02:23:19.830 --> 02:23:22.110
+Jitendra K: The second is evaluation criteria.
+
+1233
+02:23:33.890 --> 02:23:38.319
+Jitendra K: Let's just take, 10 to 15 minutes, and let me know once you're ready.
+
+1234
+02:23:40.910 --> 02:23:43.950
+Jitendra K: Understand the code, understand the data, understand the concept.
+
+1235
+02:23:44.700 --> 02:23:48.830
+Jitendra K: try to… Look from the deeper angle.
+
+1236
+02:23:49.450 --> 02:23:52.320
+Jitendra K: And then come back here with your question, if any.
+
+1237
+02:28:36.290 --> 02:28:38.080
+Jitendra K: That is a transpose.
+
+1238
+02:28:39.740 --> 02:28:41.410
+Jitendra K: Look at our transpose function.
+
+1239
+02:28:42.050 --> 02:28:43.710
+Jitendra K: Mathematical transpose.
+
+1240
+02:34:47.290 --> 02:34:57.949
+Jitendra K: Yeah, so these two functions, scalar.fitTransformation and scalar.transformation, has been used to scaling the parameters in terms of mean and standard deviation.
+
+1241
+02:34:58.170 --> 02:35:00.770
+Jitendra K: So, we are applying the transformation
+
+1242
+02:35:01.050 --> 02:35:06.459
+Jitendra K: To all the features to make it as a similar scale on training data.
+
+1243
+02:35:06.770 --> 02:35:14.739
+Jitendra K: And during application, we are making sure that they will be on the same scale, so that our training data will learn the distribution effectively.
+
+1244
+02:35:15.280 --> 02:35:21.590
+Jitendra K: So, when we are fitting the transformation, So, we are not…
+
+1245
+02:35:22.400 --> 02:35:27.790
+Jitendra K: Fitting the transformation on test data, because this will create a data leakage.
+
+1246
+02:35:28.210 --> 02:35:31.040
+Jitendra K: So, the idea is scalar.transform.
+
+1247
+02:35:31.540 --> 02:35:37.090
+Jitendra K: We'll apply the previous computed parameter from training fit to scale the data, and does not recompute.
+
+1248
+02:35:37.580 --> 02:35:41.890
+Jitendra K: to avoid data leakage. So the test data must be scaled using a stat stick.
+
+1249
+02:35:42.200 --> 02:35:44.390
+Jitendra K: From the training set only.
+
+1250
+02:35:44.880 --> 02:35:48.029
+Jitendra K: So, that is what we are doing here. So, fit transform.
+
+1251
+02:35:48.590 --> 02:35:54.720
+Jitendra K: for training data, and transform for test validation. So that's a two different function that we're applying.
+
+1252
+02:35:58.670 --> 02:36:01.599
+Jitendra K: So this fit transformation will learn from training.
+
+1253
+02:36:01.760 --> 02:36:03.459
+Jitendra K: And it will apply to test.
+
+1254
+02:36:39.520 --> 02:36:41.870
+Jitendra K: No, we are not forecasting anything here.
+
+1255
+02:36:43.510 --> 02:36:48.610
+Jitendra K: We are learning the distribution by applying it. We are not forecasting the distribution.
+
+1256
+02:36:53.090 --> 02:36:58.179
+Jitendra K: So, scaling… okay, so what does scaling means? So, you can see that there are different…
+
+1257
+02:36:58.760 --> 02:37:00.610
+Jitendra K: Features that we are using.
+
+1258
+02:37:02.090 --> 02:37:10.270
+Jitendra K: So, if you look into this input, We have got age, gender, BMI.
+
+1259
+02:37:10.370 --> 02:37:16.340
+Jitendra K: Blood pressure, and then all the extreme values for… The serum test.
+
+1260
+02:37:17.020 --> 02:37:23.160
+Jitendra K: The serum test, when you're performing a serum test, it will calculate the millimole per liter.
+
+1261
+02:37:23.900 --> 02:37:27.320
+Jitendra K: Of the sugar level inside the patient.
+
+1262
+02:37:28.460 --> 02:37:32.469
+Jitendra K: BMI… what is the unit of BMI? I don't know. Let me check.
+
+1263
+02:37:33.130 --> 02:37:34.820
+Jitendra K: BMI unit…
+
+1264
+02:37:38.040 --> 02:37:41.050
+Jitendra K: BMI is in kg per meter square.
+
+1265
+02:37:41.320 --> 02:37:44.010
+Jitendra K: Right, so you have different units for BMI.
+
+1266
+02:37:44.280 --> 02:37:49.929
+Jitendra K: Blood pressure should be in… force per area.
+
+1267
+02:37:50.190 --> 02:37:54.020
+Jitendra K: millimeter mercury… So these are different units.
+
+1268
+02:37:54.160 --> 02:37:58.440
+Jitendra K: You have to convert each unit into same scale, right? That's the whole idea of feature scaling.
+
+1269
+02:38:02.120 --> 02:38:05.419
+Jitendra K: I could not understand that if the log of order is linear.
+
+1270
+02:38:06.060 --> 02:38:11.190
+Jitendra K: So while we cannot do multiple regression, while grading descent has been used?
+
+1271
+02:38:11.510 --> 02:38:17.409
+Jitendra K: The regression will give you the range of probability. How will you differentiate the range of probability?
+
+1272
+02:38:17.990 --> 02:38:22.290
+Jitendra K: It'll give you an answer that this patient looks like 50% to 70%.
+
+1273
+02:38:23.430 --> 02:38:24.440
+Jitendra K: Diabetic.
+
+1274
+02:38:24.880 --> 02:38:33.010
+Jitendra K: Are you going to send this report to the patient, and then say, I'm a doctor, and I'm giving you 50% or 70% estimate that you have a diabet?
+
+1275
+02:38:34.970 --> 02:38:36.030
+Jitendra K: No, right?
+
+1276
+02:38:38.930 --> 02:38:42.970
+Jitendra K: So that means you have to apply a transformation to come up with a binary outcome.
+
+1277
+02:38:46.260 --> 02:38:50.559
+Jitendra K: As a teacher, can I say that you are 50% to 70% data scientist?
+
+1278
+02:38:56.470 --> 02:38:59.919
+Jitendra K: No, right? So that is where we need the transformation.
+
+1279
+02:39:04.370 --> 02:39:07.479
+Jitendra K: Yes, so fit transformation got you the same scale, that's correct.
+
+1280
+02:39:07.610 --> 02:39:11.330
+Jitendra K: It will scale your parameter into the same scale.
+
+1281
+02:39:26.370 --> 02:39:28.569
+Jitendra K: Alright, any other question apart from this?
+
+1282
+02:39:29.850 --> 02:39:32.980
+Jitendra K: Anything that you would like to ask, or any doubt?
+
+1283
+02:39:33.500 --> 02:39:34.939
+Jitendra K: on this approach.
+
+1284
+02:39:36.830 --> 02:39:40.609
+Jitendra K: Are you clear with, the concept of logistic regression now?
+
+1285
+02:39:41.070 --> 02:39:42.700
+Jitendra K: How comfortable are you?
+
+1286
+02:39:43.180 --> 02:39:44.750
+Jitendra K: In a regression scale.
+
+1287
+02:39:56.680 --> 02:39:57.970
+Jitendra K: 0.8.
+
+1288
+02:39:58.920 --> 02:40:00.530
+Jitendra K: I will consider, okay.
+
+1289
+02:40:02.700 --> 02:40:04.020
+Jitendra K: How about the others?
+
+1290
+02:40:09.530 --> 02:40:10.310
+Jitendra K: Good.
+
+1291
+02:40:10.420 --> 02:40:11.610
+Jitendra K: Okay, binary.
+
+1292
+02:40:19.160 --> 02:40:22.750
+Jitendra K: So how should I find the accuracy of this? Until and unless you vote.
+
+1293
+02:40:23.110 --> 02:40:27.420
+Jitendra K: Shall I assume that everybody's rest? How many participants are there?
+
+1294
+02:40:29.040 --> 02:40:30.120
+Jitendra K: 53.
+
+1295
+02:40:31.330 --> 02:40:36.400
+Jitendra K: So, out of 53, only 2 people… Have a clear understanding.
+
+1296
+02:40:37.470 --> 02:40:40.579
+Jitendra K: Garmit, okay, 80%, again, 1.
+
+1297
+02:40:41.490 --> 02:40:44.299
+Jitendra K: Only 3 people have understanding, and the remaining…
+
+1298
+02:40:47.340 --> 02:40:48.080
+Jitendra K: Okay.
+
+1299
+02:40:52.270 --> 02:40:55.600
+Jitendra K: Okay, let's look into our 10 samples. What's 10 sample?
+
+1300
+02:40:57.290 --> 02:41:02.669
+Jitendra K: Okay, 1, 2, 3, 4, 5… trying to understand.
+
+1301
+02:41:04.140 --> 02:41:06.080
+Jitendra K: 6… 7…
+
+1302
+02:41:14.180 --> 02:41:14.900
+Jitendra K: Okay.
+
+1303
+02:41:16.420 --> 02:41:17.300
+Jitendra K: 8.
+
+1304
+02:41:20.020 --> 02:41:20.900
+Jitendra K: 9…
+
+1305
+02:41:28.560 --> 02:41:29.810
+Jitendra K: Maybe last?
+
+1306
+02:41:30.310 --> 02:41:31.160
+Jitendra K: Okay.
+
+1307
+02:41:31.770 --> 02:41:33.750
+Jitendra K: 10, 11, 12. Okay, great.
+
+1308
+02:41:34.090 --> 02:41:37.150
+Jitendra K: So, 12 people are voted, and I can see,
+
+1309
+02:41:38.470 --> 02:41:45.699
+Jitendra K: I can find a sentiment, as well as I can understand The thresholds, so out of…
+
+1310
+02:41:46.990 --> 02:41:49.269
+Jitendra K: Predominantly 14, 15 people.
+
+1311
+02:41:50.040 --> 02:41:55.920
+Jitendra K: 12 has been voted that they understand, the concept above 50%, so I will consider that.
+
+1312
+02:41:56.540 --> 02:42:02.119
+Jitendra K: Some of them are boundary scenarios, so I will say they are zero, which is okay.
+
+1313
+02:42:02.650 --> 02:42:06.080
+Jitendra K: They will need to revise and then come back, which is perfectly fine.
+
+1314
+02:42:06.360 --> 02:42:11.010
+Jitendra K: So, that will be your homework, so I need everybody to go back.
+
+1315
+02:42:11.390 --> 02:42:13.180
+Jitendra K: And download this book.
+
+1316
+02:42:15.590 --> 02:42:18.389
+Jitendra K: Or maybe purchase this book. There's no…
+
+1317
+02:42:19.000 --> 02:42:21.490
+Jitendra K: You know, harm in investing yourself.
+
+1318
+02:42:26.740 --> 02:42:28.709
+Jitendra K: Let me show you the book.
+
+1319
+02:42:36.670 --> 02:42:39.610
+Jitendra K: So, you need to purchase this book.
+
+1320
+02:42:47.750 --> 02:42:49.589
+Jitendra K: Gavin P. Murphy.
+
+1321
+02:42:55.830 --> 02:42:59.389
+Jitendra K: You can download this, I'll share this as well.
+
+1322
+02:43:09.030 --> 02:43:11.079
+Jitendra K: This is the Bible of machine learning.
+
+1323
+02:43:27.640 --> 02:43:29.380
+Jitendra K: So let me share this book.
+
+1324
+02:43:32.220 --> 02:43:34.210
+Jitendra K: So, you need to go to this chapter.
+
+1325
+02:43:47.770 --> 02:43:48.840
+Jitendra K: Number 8.
+
+1326
+02:43:50.280 --> 02:43:55.450
+Jitendra K: And, just… Read… 245, 247.
+
+1327
+02:43:57.310 --> 02:44:09.280
+Jitendra K: to… 52… And we are yet to discuss multi-class, so 252, and then… Most probably… go for…
+
+1328
+02:44:10.160 --> 02:44:12.779
+Jitendra K: 268, and 269.
+
+1329
+02:44:13.690 --> 02:44:16.109
+Jitendra K: Right? So these pages you have to read.
+
+1330
+02:44:16.380 --> 02:44:22.140
+Jitendra K: And here you will be able to see, a lot of… Mathematical jargon, derivation.
+
+1331
+02:44:22.860 --> 02:44:27.499
+Jitendra K: So don't get… confused with this, so I've just precisely…
+
+1332
+02:44:28.430 --> 02:44:30.879
+Jitendra K: Provide you all the things that you required.
+
+1333
+02:44:32.040 --> 02:44:37.739
+Jitendra K: To understand logistic regression, So… This is more advanced.
+
+1334
+02:44:38.700 --> 02:44:41.919
+Jitendra K: As compared to what we have discussed, so…
+
+1335
+02:44:42.510 --> 02:44:45.799
+Jitendra K: That's the reason I'm saying this is a Bible. You will feel lost.
+
+1336
+02:44:48.800 --> 02:44:55.730
+Jitendra K: So make sure that… Okay, you can see that this is, what, somehow mathematical.
+
+1337
+02:44:59.600 --> 02:45:01.570
+Jitendra K: Yeah, so you have to read this…
+
+1338
+02:45:05.060 --> 02:45:06.310
+Jitendra K: Until here.
+
+1339
+02:45:06.840 --> 02:45:08.900
+Jitendra K: And the steepest gradient descent.
+
+1340
+02:45:09.120 --> 02:45:10.910
+Jitendra K: the concept that I explained.
+
+1341
+02:45:11.100 --> 02:45:13.700
+Jitendra K: We'll revisit this concept again.
+
+1342
+02:45:14.120 --> 02:45:16.840
+Jitendra K: Don't look into neuron method, how to find it.
+
+1343
+02:45:17.930 --> 02:45:21.510
+Jitendra K: Solution for convex function, don't… Read this.
+
+1344
+02:45:22.320 --> 02:45:24.480
+Jitendra K: This is a mathematical derivation.
+
+1345
+02:45:25.910 --> 02:45:28.999
+Jitendra K: don't go into Quashin or Newton, or…
+
+1346
+02:45:30.100 --> 02:45:32.320
+Jitendra K: You can still refer to Ariel 2.
+
+1347
+02:45:33.270 --> 02:45:36.280
+Jitendra K: Multiclass, you can ignore for time being.
+
+1348
+02:45:38.580 --> 02:45:41.820
+Jitendra K: Laplace, Gaussian, this you can ignore.
+
+1349
+02:45:42.400 --> 02:45:44.749
+Jitendra K: Monte Carlo simulation you can ignore.
+
+1350
+02:45:45.070 --> 02:45:47.409
+Jitendra K: All those things you can ignore.
+
+1351
+02:45:47.740 --> 02:45:50.729
+Jitendra K: You can read this stochastic optimization.
+
+1352
+02:45:51.450 --> 02:45:52.600
+Jitendra K: If you need.
+
+1353
+02:45:52.860 --> 02:45:57.520
+Jitendra K: And… Empirical methods you can ignore.
+
+1354
+02:45:58.750 --> 02:46:03.029
+Jitendra K: All this thing you can ignore, and then Bayshian also you can ignore.
+
+1355
+02:46:03.730 --> 02:46:05.470
+Jitendra K: And finally, you can read this.
+
+1356
+02:46:10.970 --> 02:46:12.389
+Jitendra K: So that's one thing.
+
+1357
+02:46:12.810 --> 02:46:15.230
+Jitendra K: If you still want to learn more.
+
+1358
+02:46:16.540 --> 02:46:19.999
+Jitendra K: More hungry for more mathematical derivation.
+
+1359
+02:46:20.540 --> 02:46:23.070
+Jitendra K: then… Refer to the slides.
+
+1360
+02:46:39.630 --> 02:46:44.069
+Jitendra K: the Stanford… Website, you will see this…
+
+1361
+02:46:52.570 --> 02:46:55.659
+Jitendra K: This is what I have prepared, for the slides.
+
+1362
+02:46:56.310 --> 02:47:02.549
+Jitendra K: So this you can use as a learning material. Remember when you're learning logic regression, give…
+
+1363
+02:47:04.350 --> 02:47:08.900
+Jitendra K: More stress to regularization, because it automatically choose the regularization internally.
+
+1364
+02:47:10.660 --> 02:47:17.400
+Jitendra K: So… You should revisit the regularization technique. I think we haven't discussed regularization yet.
+
+1365
+02:47:17.720 --> 02:47:21.480
+Jitendra K: So I have to discuss regularization, again, and then…
+
+1366
+02:47:21.900 --> 02:47:25.429
+Jitendra K: you will get more understanding on regularization, L1 and L2.
+
+1367
+02:47:25.860 --> 02:47:30.599
+Jitendra K: But, just try to look from the theoretical perspective. That is fine.
+
+1368
+02:47:31.730 --> 02:47:33.799
+Jitendra K: To at least have someone day off.
+
+1369
+02:47:38.060 --> 02:47:42.680
+Jitendra K: Yeah, the complex formula… Okay, so how to read this?
+
+1370
+02:47:45.230 --> 02:47:56.450
+Jitendra K: Now, you need to understand all the formulas. These are notations, right? So… so basically, we are using notation to summarize these objectives.
+
+1371
+02:47:57.170 --> 02:47:59.679
+Jitendra K: So these are mathematical notations, right?
+
+1372
+02:47:59.920 --> 02:48:01.959
+Jitendra K: So we are saying that I have got…
+
+1373
+02:48:02.060 --> 02:48:08.739
+Jitendra K: The loss function of cross entropy and I'm fitting the method.
+
+1374
+02:48:10.140 --> 02:48:16.049
+Jitendra K: Which is, depending upon my feature, X of I, And the weight's theta.
+
+1375
+02:48:16.410 --> 02:48:19.700
+Jitendra K: So that I can able to… Improve.
+
+1376
+02:48:21.060 --> 02:48:22.739
+Jitendra K: the predicted values.
+
+1377
+02:48:23.030 --> 02:48:26.290
+Jitendra K: So, once you read this, Then try to…
+
+1378
+02:48:26.740 --> 02:48:31.770
+Jitendra K: Create a memory map that this function… L talks about loss.
+
+1379
+02:48:33.210 --> 02:48:37.879
+Jitendra K: As a parameter of… Inputs, weights, and the output.
+
+1380
+02:48:39.450 --> 02:48:43.020
+Jitendra K: And then you are using a summation. That means a linear summation.
+
+1381
+02:48:43.800 --> 02:48:45.469
+Jitendra K: So what are you trying to sum up?
+
+1382
+02:48:46.660 --> 02:48:47.870
+Jitendra K: You're summing up.
+
+1383
+02:48:48.690 --> 02:48:54.019
+Jitendra K: Minimum values… of weights… As an argument.
+
+1384
+02:48:54.560 --> 02:49:02.850
+Jitendra K: And try to create a logistic regression, which will have two important factors… Which is W and beta.
+
+1385
+02:49:03.140 --> 02:49:07.400
+Jitendra K: So the goal is to find a set of weight which minimizes this whole loss function.
+
+1386
+02:49:08.380 --> 02:49:12.099
+Jitendra K: And we are calculating the average value, so that means it is 1 by M.
+
+1387
+02:49:15.050 --> 02:49:21.109
+Jitendra K: So, it's difficult to understand… remember this formula, but to understand this formula, you have to read this
+
+1388
+02:49:21.510 --> 02:49:23.319
+Jitendra K: Maybe at least 5 times.
+
+1389
+02:49:23.680 --> 02:49:25.770
+Jitendra K: Then you will be able to understand this formula.
+
+1390
+02:49:27.900 --> 02:49:34.149
+Jitendra K: So that is how you should learn, the mathematical notation. So mathematical notation, simply.
+
+1391
+02:49:34.570 --> 02:49:36.540
+Jitendra K: You can look into this.
+
+1392
+02:49:38.330 --> 02:49:40.560
+Jitendra K: Greek symbols.
+
+1393
+02:49:42.540 --> 02:49:43.930
+Jitendra K: In maths.
+
+1394
+02:50:00.030 --> 02:50:07.359
+Jitendra K: And here you will find a dictionary of each and every symbol. Like, what is the purpose of alpha, beta, sigma.
+
+1395
+02:50:07.970 --> 02:50:13.159
+Jitendra K: this… Summation, upper sigma.
+
+1396
+02:50:13.380 --> 02:50:14.500
+Jitendra K: And all those things.
+
+1397
+02:50:14.990 --> 02:50:19.940
+Jitendra K: Right, so machine learning algorithm will interchange these terms. So you can see theta.
+
+1398
+02:50:20.040 --> 02:50:25.509
+Jitendra K: So I will not say theta is, weights here, right? So theta is something else here, in Greek symbol.
+
+1399
+02:50:25.790 --> 02:50:30.440
+Jitendra K: But it's a variable, so they are using variable based upon their own choice.
+
+1400
+02:50:33.380 --> 02:50:37.280
+Jitendra K: Yeah, we'll talk about scikitlan Keras once we start working on that.
+
+1401
+02:50:41.580 --> 02:50:46.689
+Jitendra K: So, so… Yeah, so this is what you need to…
+
+1402
+02:50:47.020 --> 02:50:52.280
+Jitendra K: Understand. So there's a book called Sebastian Rasha that you can be able to use for deep learning.
+
+1403
+02:51:01.740 --> 02:51:03.339
+Jitendra K: This book you can use.
+
+1404
+02:51:09.260 --> 02:51:18.870
+Jitendra K: If you want, more in-depth books for deep learning than there are many deep learning books.
+
+1405
+02:51:22.510 --> 02:51:26.590
+Jitendra K: But this focus… Again, a Bible of deep learning.
+
+1406
+02:51:33.400 --> 02:51:36.510
+Jitendra K: Ian God Fellow. So this book is awesome.
+
+1407
+02:51:37.660 --> 02:51:40.920
+Jitendra K: Must you have the hardcover, you will… See you.
+
+1408
+02:51:41.320 --> 02:51:42.320
+Jitendra K: the value.
+
+1409
+02:51:44.180 --> 02:51:47.770
+Jitendra K: Alright, so I think, this is what we have for today.
+
+1410
+02:51:48.120 --> 02:51:55.410
+Jitendra K: And I think I've shared all the code and all the material with you guys, so the homework for you is to maybe go through the Stanford slide.
+
+1411
+02:51:56.490 --> 02:52:00.849
+Jitendra K: So, now the question is… Do we really need to…
+
+1412
+02:52:00.990 --> 02:52:04.480
+Jitendra K: Remember all these mathematical formulas and concepts.
+
+1413
+02:52:05.320 --> 02:52:06.779
+Jitendra K: The answer is no.
+
+1414
+02:52:07.960 --> 02:52:12.800
+Jitendra K: Now, the second question could be, do you need to implement a logic regression from the scratch?
+
+1415
+02:52:13.520 --> 02:52:20.110
+Jitendra K: Is any… chances that… You need to implement a logistic regression from the scratch. The answer is no.
+
+1416
+02:52:22.340 --> 02:52:28.049
+Jitendra K: You need not to even… write any formulas for the Roisky regression.
+
+1417
+02:52:28.360 --> 02:52:30.059
+Jitendra K: You just need to use packages.
+
+1418
+02:52:31.370 --> 02:52:35.500
+Jitendra K: So the packages will help you to implement the logistic regression from the scratch.
+
+1419
+02:52:36.390 --> 02:52:40.470
+Jitendra K: So the… the short answer is… Again.
+
+1420
+02:52:40.910 --> 02:52:48.029
+Jitendra K: You need to become a good data scientist or bad data scientist, that is your objective, or you would like to become a software programmer as a data scientist.
+
+1421
+02:52:48.470 --> 02:52:50.680
+Jitendra K: So if you're a software programmer.
+
+1422
+02:52:50.880 --> 02:52:53.990
+Jitendra K: You know which package should I use to run the logistic regression?
+
+1423
+02:52:54.370 --> 02:52:58.949
+Jitendra K: But… Behind the scene, what is happening… If you know…
+
+1424
+02:52:59.410 --> 02:53:01.840
+Jitendra K: Then it will differentiate you from the software engineer.
+
+1425
+02:53:02.410 --> 02:53:05.589
+Jitendra K: The second important thing is, you have to also…
+
+1426
+02:53:07.260 --> 02:53:14.189
+Jitendra K: look on to the evaluation criterias of classification. So we'll continue to explore the evaluation criteria.
+
+1427
+02:53:14.290 --> 02:53:15.590
+Jitendra K: It's just the beginning.
+
+1428
+02:53:20.300 --> 02:53:23.650
+Jitendra K: Yes, in build function, we are going to use, scikit-learn.
+
+1429
+02:53:23.820 --> 02:53:30.840
+Jitendra K: So, simplest… big way that we're going to import any logistic regression is by using scikit-learn.
+
+1430
+02:53:31.000 --> 02:53:33.040
+Jitendra K: So we'll just use a scikit-learn.
+
+1431
+02:53:33.220 --> 02:53:37.780
+Jitendra K: And scikit-learn will import the logistic regression class. So I will say…
+
+1432
+02:53:51.210 --> 02:53:55.570
+Jitendra K: So I will simply say, import.
+
+1433
+02:54:03.150 --> 02:54:09.379
+Jitendra K: I will simply say, from scikit-learn, linear model, import loss segregation class.
+
+1434
+02:54:10.030 --> 02:54:11.439
+Jitendra K: Oh, this is a class.
+
+1435
+02:54:16.970 --> 02:54:20.289
+Jitendra K: Which will have all the methods that we have written by ourselves.
+
+1436
+02:54:36.760 --> 02:54:42.869
+Jitendra K: Alright, so this is pretty much what we have for today, guys. So, any question before we wind up for today?
+
+1437
+02:54:43.500 --> 02:54:49.180
+Jitendra K: If there's no question, there's a poll, so please rate on the higher side if you feel that this session is useful.
+
+1438
+02:54:49.840 --> 02:54:53.519
+Jitendra K: Anyway, mathematics, as I mentioned.
+
+1439
+02:54:53.950 --> 02:54:58.489
+Jitendra K: It's something which you even understand 10% of it in the class, that's fine.
+
+1440
+02:54:59.730 --> 02:55:01.720
+Jitendra K: So, there are ways to work out.
+
+1441
+02:55:01.900 --> 02:55:04.039
+Jitendra K: So there's no need to worry.
+
+1442
+02:55:04.440 --> 02:55:08.889
+Jitendra K: About mathematics, you can see that we can solve this programmatically.
+
+1443
+02:55:10.530 --> 02:55:15.189
+Jitendra K: So, at least you understand the steps, execution, criterias.
+
+1444
+02:55:15.710 --> 02:55:21.620
+Jitendra K: inbuilt functions, and how to implement a logic regression from the scratch. That is the whole idea of it.
+
+1445
+02:55:25.200 --> 02:55:29.510
+Jitendra K: Alright, so I hope you enjoy this session. So, can we launch a poll?
+
+1446
+02:55:34.280 --> 02:55:36.720
+Jitendra K: Yeah, so there's a poll launch, please,
+
+1447
+02:55:38.070 --> 02:55:44.139
+Jitendra K: Right on the higher side, if you feel that this session is important, and then you get a very good insight on logistic regression.
+
+1448
+02:55:44.310 --> 02:55:45.660
+Jitendra K: Along with D.
+
+1449
+02:55:46.740 --> 02:55:48.379
+Jitendra K: Functions that we have discussed.
+
+1450
+02:56:43.930 --> 02:56:46.729
+Jitendra K: Yeah, I can share your drawing board as well.
+
+1451
+02:57:06.660 --> 02:57:09.140
+Jitendra K: Sure, thank you, everyone. Thanks for…
+
+1452
+02:57:09.970 --> 02:57:12.380
+Jitendra K: Joining, and then it was a great session.
+
+1453
+02:57:14.260 --> 02:57:16.309
+Jitendra K: Thank you for your feedback as well.
+
+1454
+02:57:17.100 --> 02:57:19.400
+Jitendra K: And… Yep.
+
+1455
+02:57:21.860 --> 02:57:24.079
+Jitendra K: Thank you, and have a pleasant evening ahead. Thanks.
+

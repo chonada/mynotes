@@ -1,0 +1,3922 @@
+WEBVTT
+
+1
+00:00:18.370 --> 00:00:20.090
+Jitendra U: Hi guys, good afternoon.
+
+2
+00:00:21.150 --> 00:00:24.210
+Jitendra U: And welcome to another module.
+
+3
+00:00:25.040 --> 00:00:30.930
+Jitendra U: So before we kickstart the session, let me have a screen share, and then I will…
+
+4
+00:00:31.150 --> 00:00:34.479
+Jitendra U: Ask you to confirm whether you're able to see my screen or not.
+
+5
+00:00:34.750 --> 00:00:37.759
+Jitendra U: Kane, can you please confirm if you're able to see my screen?
+
+6
+00:00:37.880 --> 00:00:39.880
+Jitendra U: And hear me loud and clear.
+
+7
+00:00:42.130 --> 00:00:45.449
+Jitendra U: Alright, thank you folks, for the confirmation.
+
+8
+00:00:45.700 --> 00:00:52.170
+Jitendra U: So, this is week number 9, and we are going to talk about some more interesting use cases that has been there.
+
+9
+00:00:52.410 --> 00:00:55.070
+Jitendra U: For the purpose of, applied
+
+10
+00:00:55.210 --> 00:00:59.929
+Jitendra U: AI and their applications, right? So we'll talk about the conversational AI,
+
+11
+00:01:00.090 --> 00:01:06.100
+Jitendra U: from today, and we will talk about what are the applications of AI and ML that we can be able to solve with the help of a real-world
+
+12
+00:01:06.300 --> 00:01:07.520
+Jitendra U: scenarios.
+
+13
+00:01:08.110 --> 00:01:09.560
+Jitendra U: So…
+
+14
+00:01:11.530 --> 00:01:20.300
+Jitendra U: So, this is the first tutorial on text analytics. So, this is gonna be a basic of text analytics. We'll not deep dive into the…
+
+15
+00:01:20.400 --> 00:01:24.440
+Jitendra U: Actual text analytics, which is much more… complex.
+
+16
+00:01:24.720 --> 00:01:32.289
+Jitendra U: But we'll just scratch the surface in this tutorial, right? We will try to understand the gist of text analytics, what exactly the text analytics is all about.
+
+17
+00:01:32.440 --> 00:01:40.960
+Jitendra U: So, as you know that we are having a lot of use cases of text analytics. So, we are surrounded by chatbots, we are surrounded by AI, machine learning.
+
+18
+00:01:41.090 --> 00:01:46.809
+Jitendra U: Algorithms, and then we have different sort of powerful toolkits that will help us to
+
+19
+00:01:47.070 --> 00:01:52.069
+Jitendra U: Give, different sort of recommendation by analyzing our unstructured data.
+
+20
+00:01:52.450 --> 00:02:00.050
+Jitendra U: So when we talk about the application of AI and ML in solving NLP-based solutions, NLP stands for Natural Language Processing.
+
+21
+00:02:00.240 --> 00:02:07.139
+Jitendra U: So this is one of the branches of, I would say, statistics or analytics, which will help us to solve unstructured data.
+
+22
+00:02:07.600 --> 00:02:10.290
+Jitendra U: So let's take an example. Let's say I have a…
+
+23
+00:02:11.370 --> 00:02:17.509
+Jitendra U: I would like to find out some reviews, right? I'm reading some review, right? I would like to find out
+
+24
+00:02:17.750 --> 00:02:21.329
+Jitendra U: Whether the review is positive, negative, or neutral.
+
+25
+00:02:21.340 --> 00:02:32.590
+Jitendra U: So, as a human, I can do that, because I know English, I know any other regional-specific language, so I can read it and then able to quantify this. But what if I have to train machine to do so?
+
+26
+00:02:32.590 --> 00:02:42.710
+Jitendra U: Right? So that is where we are going to perform something called sentiment analysis, and I will talk about what are the packages, what sort of data you require to solve such challenge.
+
+27
+00:02:43.840 --> 00:02:50.879
+Jitendra U: We'll also try to create a simple chatbot interface that will help us to answer queries, and I will talk about
+
+28
+00:02:51.040 --> 00:02:54.309
+Jitendra U: If I have to create a very simple chatbot, and what are the…
+
+29
+00:02:54.600 --> 00:02:58.179
+Jitendra U: things that I need, right? So that is something which we are going to talk about.
+
+30
+00:02:58.570 --> 00:03:05.690
+Jitendra U: Then we'll talk about language translation, that means we will also try to look into if I have to do a machine translation end-to-end.
+
+31
+00:03:06.020 --> 00:03:12.020
+Jitendra U: Then what are the things that are required? So machine translation means I would like to convert English to German, German to…
+
+32
+00:03:12.150 --> 00:03:19.060
+Jitendra U: French, French to Italian, etc, right? So all these things I'm going to have, based upon the translation logic.
+
+33
+00:03:20.000 --> 00:03:21.380
+Jitendra U: That I'm going to build.
+
+34
+00:03:21.780 --> 00:03:27.569
+Jitendra U: Now, first and the foremost thing, when you talk about NLP, right, overview of NLP, NLP
+
+35
+00:03:27.740 --> 00:03:30.619
+Jitendra U: Is kind of one of the emerging
+
+36
+00:03:31.180 --> 00:03:40.140
+Jitendra U: science from the last decade, right? Over 10 years, or 20 years of time, and LPA has been taking a long leap
+
+37
+00:03:40.720 --> 00:03:47.799
+Jitendra U: a good evaluation, right? So… so if I have to talk about advanced use cases of NLP, I need not to talk about
+
+38
+00:03:48.150 --> 00:03:58.039
+Jitendra U: the one specific scenarios, right? So, NLP, you can find a lot of use cases in every world. Specifically, some of the tasks, like.
+
+39
+00:03:58.650 --> 00:04:05.789
+Jitendra U: Generating human-like data, providing accurate real-time language translation, creating advanced chatbot, making virtual assistant.
+
+40
+00:04:06.070 --> 00:04:12.800
+Jitendra U: you are all an expert in doing so, right? You're using Siri, you're using Chatbot, you're using Gemini, you're using…
+
+41
+00:04:14.320 --> 00:04:26.180
+Jitendra U: ChatGPT write codes, review codes, review your Facebook comments, analyzing the data. You're doing everything with chatbots these days, right? So that is where the
+
+42
+00:04:26.660 --> 00:04:40.689
+Jitendra U: this is the power of text analytics, right? So these chatbots, conversational AI, behind the scene, they are all using text analytics, right? So, it's not just about text generation, but it is also about text translation.
+
+43
+00:04:41.130 --> 00:04:48.739
+Jitendra U: Right, so there are four different types of models that you're going to have when you're dealing with NLP-based problem solving.
+
+44
+00:04:48.870 --> 00:05:02.769
+Jitendra U: It'll start with text generation, that means you can be able to automatically create content, like article summary reports. You can able to summarize the content, maybe condensing the long document to a key point summary. You can perform machine translation.
+
+45
+00:05:03.490 --> 00:05:10.139
+Jitendra U: You can do content categorization, classifications. Let's say if I have a customer support call records.
+
+46
+00:05:10.410 --> 00:05:12.960
+Jitendra U: Or social media blogs, post.
+
+47
+00:05:13.080 --> 00:05:22.300
+Jitendra U: Then I would like to define whether it is a positive or negative sentiment from the users, right? All these things I can be able to do with the help of an LP-based machine learning algorithm.
+
+48
+00:05:22.570 --> 00:05:30.140
+Jitendra U: I can also perform some sort of topic mining, survey analysis, information extraction, retrieval with the help of Chatbot.
+
+49
+00:05:30.790 --> 00:05:33.010
+Jitendra U: So, one of the important
+
+50
+00:05:33.640 --> 00:05:38.930
+Jitendra U: things that I would like to talk about is the packages which we are going to utilize to solve this problem.
+
+51
+00:05:39.700 --> 00:05:51.880
+Jitendra U: So, some of the powerful packages, like NLTK, Spakey, transformer-based packages, we are going to talk about, and as I mentioned, we are just scratching the surface. We are not going to deep dive into NLP yet.
+
+52
+00:05:52.900 --> 00:05:57.300
+Jitendra U: So, just to give you the context of NLP, that this is some of the
+
+53
+00:05:58.010 --> 00:06:01.589
+Jitendra U: You know, solve the sciences which exist.
+
+54
+00:06:01.820 --> 00:06:07.689
+Jitendra U: Now, let me talk about some of the top NLP use cases in 2024 and 25.
+
+55
+00:06:08.420 --> 00:06:17.410
+Jitendra U: So, one of the top-not-use cases for NLP is… the emerging… LLM capabilities.
+
+56
+00:06:18.690 --> 00:06:32.120
+Jitendra U: So NLP powers the conversational capabilities of LLM models, large language models, like generative transformer, GPTs, as well as it is creating chatbots and voice assistants, like Siri, Alexa, etc.
+
+57
+00:06:32.340 --> 00:06:48.470
+Jitendra U: So beyond that, NLP underpins key technologies such as optical character recognition, speech recognition, sentiment analysis, language translation, text summarization, and autocompletion in search engine, which is playing a very critical role in everyday tasks.
+
+58
+00:06:48.870 --> 00:06:52.429
+Jitendra U: So let's say if you're dealing with voice assistant, and you have,
+
+59
+00:06:52.620 --> 00:07:02.489
+Jitendra U: Google Assistant, Amazon Alexa, Apple City, and these are some of the conversational AI chatbots that will help you to get the clear answer.
+
+60
+00:07:03.910 --> 00:07:11.250
+Jitendra U: Now, when we talk about NLP use automatic speech recognition technology, so basically what it does is, when you're speaking.
+
+61
+00:07:11.370 --> 00:07:21.440
+Jitendra U: communicating with these, so-called devices, it will be able to use internally ASR. ASR stands for Automatic Speech Recognition Technology.
+
+62
+00:07:21.620 --> 00:07:24.940
+Jitendra U: So, this particular technology will help…
+
+63
+00:07:25.120 --> 00:07:28.589
+Jitendra U: The algorithm to convert audio input into a text.
+
+64
+00:07:29.800 --> 00:07:41.690
+Jitendra U: And then it's sent to a voice assistant that can process your ASR data, speech-to-text, by analyzing the audio signal, and it is able to identify the speech pattern, the frequency modulation of your speech.
+
+65
+00:07:42.560 --> 00:07:48.650
+Jitendra U: And that is the whole idea of the global industry. So, the global voice industry.
+
+66
+00:07:48.900 --> 00:08:06.620
+Jitendra U: is projected to grow around 40 billion by 2027. Imagine the potential in this. 2027, just two years from now. I mean, not more than maybe one and a half year from now. We are projecting 40 billion market adoption for an LP-based voice assistant chatbots.
+
+67
+00:08:07.090 --> 00:08:14.719
+Jitendra U: So the adoption of IoT, smart devices, smart e-commerce, versus strength is gonna be freaking out everywhere.
+
+68
+00:08:17.160 --> 00:08:24.629
+Jitendra U: So, voice shopping itself is close to 40 billion market valuation, $5 billion in UK by the end of 2025.
+
+69
+00:08:24.920 --> 00:08:31.540
+Jitendra U: Call center business have started to have really leverage voice center in customer services to reduce operational costs already.
+
+70
+00:08:31.660 --> 00:08:45.169
+Jitendra U: And as of 2024, 2025, 5 billion devices worldwide has been operated in the voice assistant chatbot, and 1.8 billion people use that technology regularly, and this is pretty huge numbers.
+
+71
+00:08:45.680 --> 00:09:01.840
+Jitendra U: Similarly, application of voice assistant. I need lots… needless to say that, your expert, as I mentioned, you have all the tasks that you can perform, including translation, including finding the route from your car you're driving, to… I asked for playing the music.
+
+72
+00:09:01.840 --> 00:09:11.499
+Jitendra U: And all everything that you're doing, right? This is all the tasks that we are performing with the help of Voice Assistant, but Voice Assistant can be able to do a lot of other tasks eventually.
+
+73
+00:09:11.590 --> 00:09:17.060
+Jitendra U: As a part of, not just, commercial, but also non-commercial part.
+
+74
+00:09:20.470 --> 00:09:28.169
+Jitendra U: And, one of the important ideas for NLP is in medicine science as well. So there are different drug
+
+75
+00:09:28.620 --> 00:09:35.059
+Jitendra U: There are different types of, drug treatment, also called, drug…
+
+76
+00:09:35.190 --> 00:09:43.019
+Jitendra U: Commercials, which has been involved, heavily use of NLP. So, the classical example is our COVID vaccine creation.
+
+77
+00:09:43.230 --> 00:09:46.559
+Jitendra U: With the help of that. So, you have, let's say.
+
+78
+00:09:47.000 --> 00:09:51.690
+Jitendra U: You have tons and tons of… medical data.
+
+79
+00:09:51.820 --> 00:09:55.049
+Jitendra U: All in text format, all in image format.
+
+80
+00:09:55.340 --> 00:09:57.319
+Jitendra U: And what you're using is…
+
+81
+00:09:57.510 --> 00:10:08.250
+Jitendra U: You're using the powerful set of algorithms to process that data and try to identify the genomic sequencing on the top of it. And then you're trying to simulate all the drugs test.
+
+82
+00:10:08.450 --> 00:10:09.809
+Jitendra U: In the NLP.
+
+83
+00:10:10.040 --> 00:10:16.290
+Jitendra U: By understanding how this drug is going to impact certain types of genes on a human species.
+
+84
+00:10:16.540 --> 00:10:21.710
+Jitendra U: And that's the power of NLP by which we can able to get these, approvals pretty fast.
+
+85
+00:10:24.400 --> 00:10:31.460
+Jitendra U: So, needless to say, NLP is everywhere, because we as a human speak, listen, write.
+
+86
+00:10:31.790 --> 00:10:34.490
+Jitendra U: Right? In local language, in English.
+
+87
+00:10:34.710 --> 00:10:42.179
+Jitendra U: Or in some other languages, right? So, we are not using any alien technology to communicate, right? We are not using…
+
+88
+00:10:42.370 --> 00:10:52.030
+Jitendra U: Some telepathy to communicate, right? So we are still using voice and signals and written text to communicate.
+
+89
+00:10:52.170 --> 00:11:07.430
+Jitendra U: So that's the whole idea of NLP. So NLP can be able to solve all the signals that you're generating from your cognitive capabilities within as a human, and then NLP can be able to unfold everything, right? So that's the whole idea of NLP-based
+
+90
+00:11:07.550 --> 00:11:20.279
+Jitendra U: transaction. Now, what are the different prototype or use cases of NLP? And that is important to understand, right? So, in the case of financial segment, NLP play a very important role.
+
+91
+00:11:20.450 --> 00:11:21.790
+Jitendra U: to extract
+
+92
+00:11:21.910 --> 00:11:30.570
+Jitendra U: Different sort of reports, trends, market condition, market risk. And also, they would like to identify the customer concern from the voice log.
+
+93
+00:11:31.640 --> 00:11:43.729
+Jitendra U: Similarly, in healthcare, I would like to identify symptom, disease, drug interaction from medical reports. For marketing claims, I would like to analyze customer sentiment, competitive trends, etc, based upon that.
+
+94
+00:11:44.290 --> 00:11:47.590
+Jitendra U: For search engines like Google, I need, let's to say.
+
+95
+00:11:48.320 --> 00:11:51.410
+Jitendra U: Google Gemini has been integrated in all the
+
+96
+00:11:51.520 --> 00:12:02.619
+Jitendra U: Google capability, just because of that competitive advantage, right? They would like to make sure that Google search is an old-school technique now, if you're searching in the website in a browser.
+
+97
+00:12:03.210 --> 00:12:17.259
+Jitendra U: you are doing something older school way, right? Now, it has been changed. Now, Google offers you Gemini as one of the powerful tools by which you can be able to generalize your search, context, give the intent.
+
+98
+00:12:17.360 --> 00:12:20.749
+Jitendra U: And it'll give you an answer in a very precise manner.
+
+99
+00:12:21.550 --> 00:12:30.769
+Jitendra U: So how does that whole system perform? So that's where the real power of information extraction and machine translation comes into play.
+
+100
+00:12:33.140 --> 00:12:35.019
+Jitendra U: Similarly, when we talk about
+
+101
+00:12:35.280 --> 00:12:51.360
+Jitendra U: let's say I have to focus on some of the sentiment analysis to solve, trading strategies, right? Because sentiments play a pretty pivotal role in trading strategies, so you have different macroeconomic variables, several factors.
+
+102
+00:12:51.660 --> 00:12:55.120
+Jitendra U: Which is very determinant in terms of understanding financial risk.
+
+103
+00:12:55.330 --> 00:12:58.829
+Jitendra U: And without NLP, you cannot be able to convert them into numbers.
+
+104
+00:13:00.420 --> 00:13:03.730
+Jitendra U: Right? So let's say Donald Trump tweets…
+
+105
+00:13:04.890 --> 00:13:10.799
+Jitendra U: You know, when Donald Trump tweets, what kind of uncertainty treats in the market.
+
+106
+00:13:11.450 --> 00:13:14.139
+Jitendra U: Right, so that is the whole idea of…
+
+107
+00:13:14.300 --> 00:13:21.420
+Jitendra U: Understanding the repercussion from someone who is writing a tweet, Making a decision.
+
+108
+00:13:21.660 --> 00:13:24.210
+Jitendra U: How many sectors it is going to impact.
+
+109
+00:13:24.710 --> 00:13:27.219
+Jitendra U: For such job risk, it will create
+
+110
+00:13:27.680 --> 00:13:39.170
+Jitendra U: how many unemployment indexes will change, what's the GDP impact, etc, you can be able to do with the help of sentiment detection algorithms. So that means you're doing a social listening.
+
+111
+00:13:39.340 --> 00:13:43.260
+Jitendra U: To understand that trend on the market condition.
+
+112
+00:13:43.600 --> 00:13:51.979
+Jitendra U: So we'll do an analysis in today's tutorial, and I will talk about some of the important packages that we are going to use to solve this challenge.
+
+113
+00:13:52.240 --> 00:13:57.620
+Jitendra U: And I'm going to use Google Colab For writing this code.
+
+114
+00:14:00.540 --> 00:14:04.249
+Jitendra U: And the first and the foremost thing we are going to solve is the sentiment analyzer.
+
+115
+00:14:05.150 --> 00:14:12.230
+Jitendra U: So, let me show you the data first, and then we'll talk about this particular… algorithm.
+
+116
+00:14:13.050 --> 00:14:14.860
+Jitendra U: So, let me show you the data.
+
+117
+00:14:16.460 --> 00:14:18.660
+Jitendra U: So this is the data that we're going to solve.
+
+118
+00:14:20.900 --> 00:14:22.050
+Jitendra U: or use.
+
+119
+00:14:24.740 --> 00:14:35.650
+Jitendra U: So there are a bunch of reviews from Amazon. So you can see here, there are a bunch of reviews from Amazon, and these are Amazon products which has been liked and disliked by the customer.
+
+120
+00:14:35.920 --> 00:14:41.410
+Jitendra U: So if it is positive review, I will say 1. If it is a negative review, I will say 0, right?
+
+121
+00:14:41.580 --> 00:14:48.050
+Jitendra U: So this is, all about reviews that I'm having. So the review says, this is a silly game and can be frustrating.
+
+122
+00:14:48.590 --> 00:14:54.139
+Jitendra U: sorry, positive… Super fun, okay, this is a positive review.
+
+123
+00:14:54.340 --> 00:15:04.089
+Jitendra U: There's a really cool game, there are a bunch of levels, you can find Golden Eggs, super fun, right? This is a silly game and can be frustrating, but a lot of fun, and definitely recommend just a fun time.
+
+124
+00:15:04.460 --> 00:15:06.570
+Jitendra U: So it's still a positive review.
+
+125
+00:15:06.960 --> 00:15:14.750
+Jitendra U: This is a terrific game and ad, on pads, hour of fun, my grandkids love it, great entertainment, we watch it.
+
+126
+00:15:14.930 --> 00:15:20.490
+Jitendra U: long lines. So this is, again, positive review. I have some negative reviews as well.
+
+127
+00:15:21.340 --> 00:15:22.550
+Jitendra U: It says…
+
+128
+00:15:24.840 --> 00:15:32.629
+Jitendra U: It keeps telling me my payment method needs a US credit card, even though I already have what I can do. It's really frustrating.
+
+129
+00:15:32.930 --> 00:15:34.929
+Jitendra U: To use this app.
+
+130
+00:15:36.030 --> 00:15:43.790
+Jitendra U: Similarly, you can see the game is stupid and the graphics are primitive. I want to remove from my Kindle, I want more games like Popping Star that involve
+
+131
+00:15:43.990 --> 00:15:46.000
+Jitendra U: cerebral activities.
+
+132
+00:15:46.900 --> 00:15:51.789
+Jitendra U: So, these are a mix of reviews, but I have two classes to solve, 1 and 0.
+
+133
+00:15:52.100 --> 00:15:58.619
+Jitendra U: And there are plenty of reviews here. So what we are going to do is, we are going to use this sentiment analyzer
+
+134
+00:15:58.820 --> 00:16:06.190
+Jitendra U: a tool, And we will create a simple algorithm to learn from this.
+
+135
+00:16:06.880 --> 00:16:12.780
+Jitendra U: And then, if a new sentiment arrived, then we were able to classify them into 1 and 0.
+
+136
+00:16:13.330 --> 00:16:19.209
+Jitendra U: The first and foremost thing, I would like to import the packages, so I would like to import the packages, including
+
+137
+00:16:19.320 --> 00:16:25.019
+Jitendra U: Pandas, NumPy, Matplot, Seabon, usual ones, scikit-learn for training web module.
+
+138
+00:16:25.280 --> 00:16:34.899
+Jitendra U: For prediction, this is a binary problem that I'm solving, so it's a binary predictor, 1 and 0. So I would like to import all the packages which I need to…
+
+139
+00:16:35.150 --> 00:16:37.180
+Jitendra U: Find the efficacy of my model.
+
+140
+00:16:41.280 --> 00:16:43.099
+Jitendra U: Alright, so once I've done that…
+
+141
+00:16:45.870 --> 00:16:48.989
+Jitendra U: Okay, ignore what must be string.
+
+142
+00:16:55.440 --> 00:16:58.579
+Jitendra U: Now, let me set up this style for visualization.
+
+143
+00:17:04.470 --> 00:17:08.959
+Jitendra U: Okay, now I would like to load the data. So the data that I'm going to use…
+
+144
+00:17:11.569 --> 00:17:13.480
+Jitendra U: It's from the same file.
+
+145
+00:17:15.130 --> 00:17:17.830
+Jitendra U: raw GitHub user, the same file I'm using.
+
+146
+00:17:18.390 --> 00:17:19.910
+Jitendra U: Which I just clicked.
+
+147
+00:17:21.750 --> 00:17:23.549
+Jitendra U: So let me read this file.
+
+148
+00:17:28.870 --> 00:17:33.749
+Jitendra U: Now, once I read this file, I would like to perform…
+
+149
+00:17:34.480 --> 00:17:41.900
+Jitendra U: the column renaming. That means there's a few columns which talks about reviews and…
+
+150
+00:17:42.130 --> 00:17:44.859
+Jitendra U: The output as positive and negative sentiment.
+
+151
+00:17:45.080 --> 00:17:49.159
+Jitendra U: So I would like to convert the review text, my first column.
+
+152
+00:17:50.650 --> 00:17:53.960
+Jitendra U: As review and positive as sentiment.
+
+153
+00:17:59.440 --> 00:18:02.950
+Jitendra U: Now, I will perform some bit of data exploration. I would like to check
+
+154
+00:18:03.370 --> 00:18:06.340
+Jitendra U: How many positive and how many negative reviews are there?
+
+155
+00:18:06.690 --> 00:18:11.000
+Jitendra U: what's the sample size, etc. So let me run this.
+
+156
+00:18:12.520 --> 00:18:18.059
+Jitendra U: So I've got… One 15,000 positive review, 4,000 negative reviews.
+
+157
+00:18:19.880 --> 00:18:23.969
+Jitendra U: So the percentage distribution is 76% of my data is positive.
+
+158
+00:18:24.330 --> 00:18:26.939
+Jitendra U: 24% of my data is negatively reviewed.
+
+159
+00:18:28.630 --> 00:18:32.329
+Jitendra U: Now, I will perform the tax preprocessing on the data.
+
+160
+00:18:32.620 --> 00:18:37.070
+Jitendra U: So I would like to find out the most common words, abbreviations.
+
+161
+00:18:37.450 --> 00:18:40.629
+Jitendra U: I would like to check the class distribution, etc.
+
+162
+00:18:40.870 --> 00:18:43.099
+Jitendra U: So for that, I would like to run this cell.
+
+163
+00:18:43.410 --> 00:18:53.909
+Jitendra U: which will tell me how many classes which I already run, percentage which I already know. I would like to check the proportion of missing values as well. Let's say there are some
+
+164
+00:18:54.470 --> 00:19:05.500
+Jitendra U: bit of missing values, maybe in either of the two columns. Sometimes my reviews are null, sometimes my sentiment scores are null, but I can see there's no missing values.
+
+165
+00:19:06.610 --> 00:19:12.869
+Jitendra U: I'm just trying to put up the sample value for positive review and negative review simultaneously.
+
+166
+00:19:16.870 --> 00:19:25.120
+Jitendra U: Now, I think I'm ready with splitting the data, so once I split my data, then I can able to convert this into test and train data set.
+
+167
+00:19:31.010 --> 00:19:34.660
+Jitendra U: A clean review, whether it is run or not.
+
+168
+00:20:02.960 --> 00:20:04.140
+Jitendra U: Check this…
+
+169
+00:20:55.300 --> 00:20:56.330
+Jitendra U: Okay.
+
+170
+00:20:56.540 --> 00:21:02.370
+Jitendra U: So I have to do a bit of cleaning, and then I have to apply this plate. Now, let me explain what I did in cleaning.
+
+171
+00:21:02.730 --> 00:21:09.229
+Jitendra U: So, I can see… you can see on my screen, I'm importing the dictionary collection.
+
+172
+00:21:10.120 --> 00:21:13.139
+Jitendra U: And then I'm importing a counter, so this is a dictionary.
+
+173
+00:21:13.360 --> 00:21:17.480
+Jitendra U: And also, I'm importing a package called RE, which stands for Regular Expression.
+
+174
+00:21:17.950 --> 00:21:20.929
+Jitendra U: Now, what I'm trying to do is, I'm trying to clean my text.
+
+175
+00:21:21.100 --> 00:21:23.279
+Jitendra U: Now, tax cleaning is very important.
+
+176
+00:21:23.550 --> 00:21:27.530
+Jitendra U: Because you can see that some of the data have special character like this.
+
+177
+00:21:28.540 --> 00:21:32.489
+Jitendra U: Some of them are uppercase, some of them are lowercase.
+
+178
+00:21:32.690 --> 00:21:42.500
+Jitendra U: I have, colons, commas… A cost of us… dashes.
+
+179
+00:21:42.950 --> 00:21:51.560
+Jitendra U: And, some spell check errors as well. So I would like to make sure that when I'm cleaning the data, I would convert the data into lowercase, all lowercase.
+
+180
+00:21:51.970 --> 00:21:54.979
+Jitendra U: And I would like to remove the special characters like this.
+
+181
+00:21:58.840 --> 00:22:00.370
+Jitendra U: Including ampersand.
+
+182
+00:22:00.660 --> 00:22:02.689
+Jitendra U: I would like to remove these characters.
+
+183
+00:22:02.820 --> 00:22:11.200
+Jitendra U: then I would like to split my data as a unigram, that means each Word… is a unigram.
+
+184
+00:22:11.760 --> 00:22:21.139
+Jitendra U: And then I apply this whole technique to all my data points. And once I apply, you can see that I'm also printing common words.
+
+185
+00:22:21.770 --> 00:22:25.680
+Jitendra U: So you can see, I appeared 20,000…
+
+186
+00:22:25.980 --> 00:22:28.980
+Jitendra U: 2 lakh, I think, 203,000 times.
+
+187
+00:22:30.950 --> 00:22:32.420
+Jitendra U: 20,000, sorry.
+
+188
+00:22:33.240 --> 00:22:36.969
+Jitendra U: Right? Similarly, I can see that, the…
+
+189
+00:22:37.670 --> 00:22:41.350
+Jitendra U: Filler word D, the proposition, is coming 18,000 times.
+
+190
+00:22:42.140 --> 00:22:43.839
+Jitendra U: And then so on and so forth.
+
+191
+00:22:44.190 --> 00:22:49.870
+Jitendra U: So, basically, You can see here, I have.
+
+192
+00:22:50.980 --> 00:22:55.010
+Jitendra U: Try to create a unique technique.
+
+193
+00:22:55.650 --> 00:23:00.820
+Jitendra U: To ensure that my data is… Clean before fitting.
+
+194
+00:23:00.930 --> 00:23:02.220
+Jitendra U: 20 algorithm.
+
+195
+00:23:06.500 --> 00:23:15.289
+Jitendra U: Right? So that is very, very important, and that is what we are going to do. Is there any way to filter, okay, type of bad data, or make sense out of it?
+
+196
+00:23:15.430 --> 00:23:24.199
+Jitendra U: Yeah, so if you are using non-English characters, like Mixin, then you have to utilize a UTF-8 style of English.
+
+197
+00:23:24.410 --> 00:23:26.320
+Jitendra U: You have to scan whether the word is…
+
+198
+00:23:26.630 --> 00:23:29.989
+Jitendra U: is in the English context or not, and then you can remove it.
+
+199
+00:23:30.100 --> 00:23:31.700
+Jitendra U: So there's a way to do so.
+
+200
+00:23:32.970 --> 00:23:36.619
+Jitendra U: Would we lose some sentiment or meaning by removing special characters?
+
+201
+00:23:36.970 --> 00:23:42.560
+Jitendra U: Certainly, yes, it will, because these are important for joining the sentences.
+
+202
+00:23:43.920 --> 00:23:48.730
+Jitendra U: But these words, these fillers, or so-called special character, does not…
+
+203
+00:23:48.980 --> 00:23:52.529
+Jitendra U: make much sense to the model. For a human, it is.
+
+204
+00:23:53.040 --> 00:23:54.960
+Jitendra U: But for a model, it will not.
+
+205
+00:23:58.360 --> 00:24:01.120
+Jitendra U: Alright, so I'm going to split my data in two.
+
+206
+00:24:01.800 --> 00:24:03.260
+Jitendra U: Training and test.
+
+207
+00:24:03.490 --> 00:24:05.209
+Jitendra U: That means I'm going to convert.
+
+208
+00:24:05.320 --> 00:24:10.500
+Jitendra U: 20% of my data into test, and remaining 80% into train.
+
+209
+00:24:10.880 --> 00:24:19.150
+Jitendra U: So, what is the size left with? I'm left with… I'm leaving with 12,000 Data points from this file.
+
+210
+00:24:19.460 --> 00:24:25.320
+Jitendra U: Which is going to be part of my training, out of which, 3,814.
+
+211
+00:24:25.710 --> 00:24:30.619
+Jitendra U: rows… Which is a part of test data.
+
+212
+00:24:30.900 --> 00:24:33.300
+Jitendra U: And coming as sentiment, 0.
+
+213
+00:24:33.600 --> 00:24:37.410
+Jitendra U: Sorry, which is coming up part of a train data, which is having a 7.0.
+
+214
+00:24:37.620 --> 00:24:43.459
+Jitendra U: Now, for test data, I'm using remaining 20% of the proportion.
+
+215
+00:24:46.010 --> 00:24:49.300
+Jitendra U: And this is the bifurcation of that proportion.
+
+216
+00:24:50.700 --> 00:24:53.710
+Jitendra U: So far, so good. So, nothing fancy.
+
+217
+00:24:53.940 --> 00:24:56.940
+Jitendra U: We import the data, we clean the data, we split the data.
+
+218
+00:24:57.460 --> 00:25:01.730
+Jitendra U: Now, I would like to build… a classifier.
+
+219
+00:25:02.840 --> 00:25:09.859
+Jitendra U: So I'm going to talk about the first package that we're going to use to create a classifier is text blob.
+
+220
+00:25:11.020 --> 00:25:16.170
+Jitendra U: The text blob is our package, Which will have…
+
+221
+00:25:17.120 --> 00:25:23.759
+Jitendra U: The internal functionality to predict which sentiment… which sentence is positive and which sentence is negative.
+
+222
+00:25:24.580 --> 00:25:25.960
+Jitendra U: Let me run this.
+
+223
+00:25:36.290 --> 00:25:37.370
+Jitendra U: Alright?
+
+224
+00:25:37.910 --> 00:25:42.559
+Jitendra U: I will talk about second method that I'm going to use. It's from scikit-learn.
+
+225
+00:25:42.870 --> 00:25:49.490
+Jitendra U: which use TFIDF. TF IDF stands for Term Frequency Inverse Document Frequency. So let me run this as well.
+
+226
+00:25:59.260 --> 00:26:02.159
+Jitendra U: Now, I would like to make some prediction on unseen data.
+
+227
+00:26:03.500 --> 00:26:04.940
+Jitendra U: Let me make this…
+
+228
+00:26:11.780 --> 00:26:13.919
+Jitendra U: I would like to evaluate the model.
+
+229
+00:26:25.760 --> 00:26:28.749
+Jitendra U: The model is 90% accurate, which is great.
+
+230
+00:26:30.890 --> 00:26:36.990
+Jitendra U: Now, I would like to see… The distribution of my data.
+
+231
+00:26:41.650 --> 00:26:44.229
+Jitendra U: So I would like to create some visualization on the top of it.
+
+232
+00:26:45.540 --> 00:26:52.139
+Jitendra U: So you can see it is showing me how many classes is coming as false positive. Sorry, this is…
+
+233
+00:26:52.540 --> 00:26:54.810
+Jitendra U: False positive and true negative classes.
+
+234
+00:26:54.960 --> 00:26:58.660
+Jitendra U: And accordingly, I'm benchmarking the four metrics.
+
+235
+00:26:58.840 --> 00:27:03.050
+Jitendra U: That will help me to identify the… Efficacy of a model.
+
+236
+00:27:03.860 --> 00:27:09.349
+Jitendra U: Similarly, my model is having 80%, sorry, 90% coverage in terms of ROC.
+
+237
+00:27:11.310 --> 00:27:15.960
+Jitendra U: Now, the most important aspect is, I would like to test my model on unseen data.
+
+238
+00:27:18.390 --> 00:27:24.510
+Jitendra U: So let's say I train the model, I deploy the model, now my model has to be trained… test on the unseen data.
+
+239
+00:27:24.820 --> 00:27:28.009
+Jitendra U: Which is nothing but the customer concerns and stuff like that.
+
+240
+00:27:35.750 --> 00:27:37.710
+Jitendra U: Okay, 64…
+
+241
+00:27:51.500 --> 00:27:53.020
+Jitendra U: Let me close this.
+
+242
+00:28:03.070 --> 00:28:05.090
+Jitendra U: Okay, so I have got…
+
+243
+00:28:08.320 --> 00:28:17.529
+Jitendra U: some unseen data sets. So let's say I'm looking for this review. I trained my model, now I'm trying to test my model. I would like to check how my model performed.
+
+244
+00:28:17.950 --> 00:28:23.859
+Jitendra U: So I'm writing one review as a human, that this movie was absolutely amazing, I love every second of it.
+
+245
+00:28:27.680 --> 00:28:35.960
+Jitendra U: It is an IMDB movies recommendation kind of scenarios. So, how IMDb classify the outcome in positive and negative?
+
+246
+00:28:36.290 --> 00:28:44.070
+Jitendra U: sentences, that is what we are trying to learn from here. Similarly, second tweet talks about terrible film, completely waste of time and money.
+
+247
+00:28:44.210 --> 00:28:48.369
+Jitendra U: The plot was okay, but for the meat, acting was superb.
+
+248
+00:28:48.930 --> 00:28:54.229
+Jitendra U: boring and predictable, wouldn't not recommend a masterpiece, best movie of the year.
+
+249
+00:28:56.240 --> 00:29:04.569
+Jitendra U: So the… it looks like the first one is positive, second one is negative, third one is positive, fourth one is negative, and fifth one is positive.
+
+250
+00:29:08.510 --> 00:29:14.469
+Jitendra U: So you can see how nicely it is giving the output, positive, negative, positive, negative, and positive.
+
+251
+00:29:15.740 --> 00:29:24.960
+Jitendra U: And it is also showing you the confidence, like, it looks like 51.1%, 97% positive. Remaining percentage are negative as well.
+
+252
+00:29:26.370 --> 00:29:33.560
+Jitendra U: Right, so when it has to be neutral, then you have to consider both positive and negative are same. I mean, 50-50%.
+
+253
+00:29:33.820 --> 00:29:36.779
+Jitendra U: In that scenario, you can consider the output as a neutral.
+
+254
+00:29:42.100 --> 00:29:45.389
+Jitendra U: I would like to share this notebook with everyone.
+
+255
+00:29:46.710 --> 00:29:55.710
+Jitendra U: And this talks about a too important package called Spakey, Plus… DFIDF.
+
+256
+00:29:58.830 --> 00:30:00.350
+Jitendra U: Using an LTK.
+
+257
+00:30:01.160 --> 00:30:04.589
+Jitendra U: So I want everybody to run this, and let me know.
+
+258
+00:30:05.250 --> 00:30:06.440
+Jitendra U: Your thoughts?
+
+259
+00:30:07.890 --> 00:30:10.040
+Jitendra U: Shall I share this notebook with everyone?
+
+260
+00:30:15.420 --> 00:30:18.190
+Jitendra U: Alright, so I request everyone to run this.
+
+261
+00:30:18.940 --> 00:30:22.399
+Jitendra U: And let me know your thoughts. I will be waiting for your confirmation, guys.
+
+262
+00:30:25.240 --> 00:30:28.269
+Jitendra U: Yeah, I will come back to text cleaning again.
+
+263
+00:36:36.600 --> 00:36:38.040
+Jitendra U: Is it done, guys?
+
+264
+00:36:46.050 --> 00:36:47.370
+Jitendra U: Alright, great.
+
+265
+00:36:48.620 --> 00:36:57.820
+Jitendra U: So, we have seen that with few lines of code, we are able to run this complex challenge to identify the sentiment in any rating review.
+
+266
+00:36:57.980 --> 00:37:03.659
+Jitendra U: So imagine the scale of this particular solution. You have sentiment review everywhere now.
+
+267
+00:37:03.860 --> 00:37:07.409
+Jitendra U: In your e-commerce website, in your,
+
+268
+00:37:08.250 --> 00:37:11.549
+Jitendra U: Day-to-day operations, you provide a lot of
+
+269
+00:37:11.710 --> 00:37:18.259
+Jitendra U: feedback about the product that you purchase. You also write reviews around Movies that you watch.
+
+270
+00:37:18.420 --> 00:37:25.450
+Jitendra U: the item that you purchased, etc, right? So this is all things which comes under sentiment analytics.
+
+271
+00:37:27.100 --> 00:37:28.160
+Jitendra U: All right.
+
+272
+00:37:28.880 --> 00:37:37.769
+Jitendra U: So, let me go back to the question. I think somebody have asked, and I know how to clean the data.
+
+273
+00:37:37.880 --> 00:37:41.760
+Jitendra U: So, data cleansing… is basically…
+
+274
+00:37:43.190 --> 00:37:51.369
+Jitendra U: Here, we are performing a data cleaning, so we are creating using a function. This is the function that we are using, text cleaning, clean text function.
+
+275
+00:37:52.370 --> 00:37:58.710
+Jitendra U: This function takes data points as a row dataset. Each row will be passed to this function.
+
+276
+00:38:00.200 --> 00:38:00.990
+Jitendra U: Sorry.
+
+277
+00:38:01.320 --> 00:38:03.910
+Jitendra U: So the first and foremost thing that we are doing here
+
+278
+00:38:04.030 --> 00:38:08.639
+Jitendra U: Is to convert the input data stream to a lower character.
+
+279
+00:38:08.870 --> 00:38:10.240
+Jitendra U: Word sequence?
+
+280
+00:38:11.370 --> 00:38:14.030
+Jitendra U: And if I'm finding any special characters.
+
+281
+00:38:15.130 --> 00:38:19.810
+Jitendra U: like, question mark, a cost office for the stop, I will remove it.
+
+282
+00:38:21.220 --> 00:38:30.539
+Jitendra U: I will also remove the extra white space in the sentence, so that I should make a consistency in storing this whole data point.
+
+283
+00:38:31.070 --> 00:38:35.339
+Jitendra U: And that's exactly what I did, and then finally come up with the answer.
+
+284
+00:38:38.050 --> 00:38:43.510
+Jitendra U: So this is about sentiment analytics, right? So, sentiment analytics play a very significant role
+
+285
+00:38:43.770 --> 00:38:48.209
+Jitendra U: In every day, or every activity that you're trying to.
+
+286
+00:38:48.340 --> 00:38:49.479
+Jitendra U: work upon.
+
+287
+00:38:53.080 --> 00:38:58.910
+Jitendra U: Now, can somebody give me an idea, what have you learned in the LMS last week?
+
+288
+00:38:59.240 --> 00:39:01.980
+Jitendra U: What other use cases have you learned in LMS?
+
+289
+00:39:02.860 --> 00:39:04.409
+Jitendra U: Along with professors.
+
+290
+00:39:09.450 --> 00:39:10.700
+Jitendra U: Any idea?
+
+291
+00:39:11.180 --> 00:39:14.949
+Jitendra U: Anybody would like to discuss who has reviewed the code and walk through?
+
+292
+00:39:15.050 --> 00:39:16.230
+Jitendra U: the contents?
+
+293
+00:39:36.100 --> 00:39:38.209
+Jitendra U: What's the last week's content, guys?
+
+294
+00:39:38.700 --> 00:39:40.220
+Jitendra U: Any particular topic?
+
+295
+00:39:40.860 --> 00:39:42.089
+Jitendra U: that you learn.
+
+296
+00:39:42.220 --> 00:39:43.360
+Jitendra U: Promile's?
+
+297
+00:39:49.430 --> 00:39:51.380
+Jitendra U: Fury on NLP, okay.
+
+298
+00:39:53.340 --> 00:39:54.310
+Jitendra U: Alright.
+
+299
+00:40:01.870 --> 00:40:03.600
+Jitendra U: Understood. Okay, sure.
+
+300
+00:40:04.060 --> 00:40:09.189
+Jitendra U: So, this is where we are trying to do a practical hands-on session, just to ensure.
+
+301
+00:40:09.530 --> 00:40:11.930
+Jitendra U: Now, from theory, we're moving to practical.
+
+302
+00:40:13.970 --> 00:40:20.240
+Jitendra U: We will use another use cases from sentiment analysis to… creating…
+
+303
+00:40:21.080 --> 00:40:24.390
+Jitendra U: Machine translation, or some more advanced
+
+304
+00:40:25.020 --> 00:40:28.150
+Jitendra U: chatbots… I will talk about that part.
+
+305
+00:40:37.480 --> 00:40:39.870
+Jitendra U: Let me flash my code.
+
+306
+00:41:42.900 --> 00:41:44.839
+Jitendra U: I will explain the code in a while.
+
+307
+00:42:33.910 --> 00:42:37.340
+Jitendra U: Okay, so this is what I'm getting,
+
+308
+00:42:38.890 --> 00:42:41.689
+Jitendra U: Okay, so this is a dialogue State chatbot.
+
+309
+00:42:43.880 --> 00:42:46.950
+Jitendra U: Okay, so here you can see that I'm creating this chatbot.
+
+310
+00:42:48.220 --> 00:42:51.509
+Jitendra U: Which will have a certain conversation.
+
+311
+00:42:54.620 --> 00:42:58.019
+Jitendra U: About certain topics that we are… put forth.
+
+312
+00:42:58.980 --> 00:42:59.810
+Jitendra U: Right?
+
+313
+00:43:00.280 --> 00:43:05.970
+Jitendra U: So, basically, You can see this chatbot is having a conversational history.
+
+314
+00:43:09.600 --> 00:43:14.210
+Jitendra U: It looks like not a very decent chatbot.
+
+315
+00:43:14.450 --> 00:43:16.499
+Jitendra U: But at least it is showing some result.
+
+316
+00:43:21.550 --> 00:43:25.500
+Jitendra U: Right, so how this conversational AI has been created, this chatbot has been created.
+
+317
+00:43:25.920 --> 00:43:30.190
+Jitendra U: Let's try to look from the… approach perspective.
+
+318
+00:43:30.460 --> 00:43:37.259
+Jitendra U: And then we can think of improving in the later part of the classes, the upcoming classes, right? So let's try to look into the…
+
+319
+00:43:37.470 --> 00:43:41.690
+Jitendra U: code. So here, you don't have to worry too much about the code that I write.
+
+320
+00:43:42.250 --> 00:43:48.690
+Jitendra U: You just need to understand that the packages which are useful to write this code, right? So, for chatbot creation.
+
+321
+00:43:48.920 --> 00:43:52.880
+Jitendra U: I'm going to use the powerful package called Torch.
+
+322
+00:43:53.030 --> 00:43:55.109
+Jitendra U: And transformer architectures.
+
+323
+00:43:55.630 --> 00:44:01.039
+Jitendra U: And these are two important packages that I'm going to utilize. Now, why Torch and white transformers?
+
+324
+00:44:01.450 --> 00:44:07.199
+Jitendra U: These are advanced NLP-based packages, right? So Torch will provide you an ecosystem to write
+
+325
+00:44:07.820 --> 00:44:13.600
+Jitendra U: Deep learning codes. Transformer will provide you the attention mechanism that you need.
+
+326
+00:44:13.900 --> 00:44:19.360
+Jitendra U: To drive the chatbots, because chatbot depends upon the intent classification.
+
+327
+00:44:19.620 --> 00:44:31.929
+Jitendra U: And when you're writing a query, it becomes a kind of an intent classification model. So, for solving the intent, you require transformer packages. So, once I have these two commercials.
+
+328
+00:44:32.130 --> 00:44:36.909
+Jitendra U: Then here, you can see that I'm using a model called Dialog GPT Small.
+
+329
+00:44:37.330 --> 00:44:40.090
+Jitendra U: And this is a small model from Microsoft.
+
+330
+00:44:40.260 --> 00:44:52.500
+Jitendra U: Dialog GPT, similar to ChatGPT model. But it is not that great model, and you can see from the output as well. So it is generating some answers, few answers, but not to a great extent.
+
+331
+00:44:53.240 --> 00:45:01.629
+Jitendra U: But the most important aspect that I would like to talk about is, when you're creating a chatbot, you have to think of an interface.
+
+332
+00:45:02.100 --> 00:45:06.250
+Jitendra U: So, in this interface, I'm passing the input.
+
+333
+00:45:06.770 --> 00:45:08.890
+Jitendra U: From the query, user query.
+
+334
+00:45:09.190 --> 00:45:15.210
+Jitendra U: And then, generating the output via… model that I just called.
+
+335
+00:45:15.750 --> 00:45:24.250
+Jitendra U: Right, so this particular model will initialize a chatbot, run an interactive output, and generate the data points to me.
+
+336
+00:45:24.700 --> 00:45:29.609
+Jitendra U: That's the most important and the most considered aspect of chatbots.
+
+337
+00:45:33.510 --> 00:45:40.860
+Jitendra U: Now, I will talk about the second and the most fundamental concept of solving
+
+338
+00:45:41.200 --> 00:45:44.030
+Jitendra U: the NLP problem, which is called part of speech.
+
+339
+00:45:44.610 --> 00:45:56.009
+Jitendra U: So, part of speech… is… Nothing but the characteristics of your word or sentences In a grammatical manner.
+
+340
+00:45:56.320 --> 00:45:59.999
+Jitendra U: The part of speech is a concept that we are using in grammars.
+
+341
+00:46:00.650 --> 00:46:06.270
+Jitendra U: So when you say part of speech, taggers, or P-U-S taggers, is a process of making the word
+
+342
+00:46:06.390 --> 00:46:16.270
+Jitendra U: in a text, as correspond to a particular POS in the English context. So, in English, we have these POS,
+
+343
+00:46:17.070 --> 00:46:23.890
+Jitendra U: We have nouns… Singular nouns, plural nouns. We have verb in a base form.
+
+344
+00:46:24.010 --> 00:46:29.950
+Jitendra U: In a past tense form, we have adjective, we have propositions, we have determiners.
+
+345
+00:46:30.240 --> 00:46:38.209
+Jitendra U: We have so many other conjunctions, etc. Right? Articles, then you have vowels, etc. They're all part of speech.
+
+346
+00:46:39.000 --> 00:46:46.240
+Jitendra U: Now, when you're trying to read any sentence, and then convert these… Words into the root word.
+
+347
+00:46:46.520 --> 00:46:56.839
+Jitendra U: you have to still consider a package, and this package is called an LTK. So, we are going to use an LTK package, which stands for Natural Language Toolkit. So, an LTK is a package
+
+348
+00:46:57.140 --> 00:47:03.339
+Jitendra U: which is returned, and very thoroughly written. It's a very powerful package that will help you to convert.
+
+349
+00:47:03.520 --> 00:47:22.759
+Jitendra U: your sentence into POS tagging. That means you're tagging your sentence by splitting each root words, and try to find it out which one is proposition, which one is verb, which is vowel, which is noun, which is article, which is conjunctions, etc, right? So, the purpose is
+
+350
+00:47:22.830 --> 00:47:27.170
+Jitendra U: You're trying to create a flow…
+
+351
+00:47:28.930 --> 00:47:35.410
+Jitendra U: Or so-called intent classification based upon the Context of your input.
+
+352
+00:47:35.520 --> 00:47:37.999
+Jitendra U: Because if you're not able to identify
+
+353
+00:47:38.240 --> 00:47:44.250
+Jitendra U: The main character, or so-called word in the whole sentence, or a corpus of data.
+
+354
+00:47:44.690 --> 00:47:50.530
+Jitendra U: then you're not able to find efficiently the intent of a user. So, first and foremost thing, you have to identify
+
+355
+00:47:50.910 --> 00:47:57.530
+Jitendra U: What is the query from the user, and according to the query you're going to work on, whole synthesis.
+
+356
+00:47:58.350 --> 00:48:02.790
+Jitendra U: So, first and the foremost thing I would like to do is to download the NLTK
+
+357
+00:48:03.640 --> 00:48:08.769
+Jitendra U: modules, and for that, I'm going to import Tree Bank Corpus.
+
+358
+00:48:09.640 --> 00:48:13.359
+Jitendra U: So what is Tree Bank Corpus? Let me show you the tree bank corpus.
+
+359
+00:49:00.720 --> 00:49:02.949
+Jitendra U: Okay, let me show you the Trebank Corpus.
+
+360
+00:49:20.740 --> 00:49:23.190
+Jitendra U: So this is a tree bank corpus that I'm talking about.
+
+361
+00:49:23.710 --> 00:49:26.980
+Jitendra U: It is having different types of, annotations.
+
+362
+00:49:27.380 --> 00:49:31.110
+Jitendra U: different sort of part of speech tagging, and this is called Tree of Corpus.
+
+363
+00:49:31.240 --> 00:49:34.870
+Jitendra U: So when we talk about Tree of Corpus, We are downloading this.
+
+364
+00:49:35.730 --> 00:49:36.530
+Jitendra U: Right?
+
+365
+00:49:36.770 --> 00:49:45.200
+Jitendra U: So basically, in a nutshell, what I'm trying to do here is, I'm trying to make sure that my sentence that I'm reading from these texts
+
+366
+00:49:45.430 --> 00:49:51.720
+Jitendra U: should be able to perform and implement a POS tiger, And then try to solve…
+
+367
+00:49:52.360 --> 00:49:57.980
+Jitendra U: I split my sentences into… different grammatical phrases.
+
+368
+00:49:58.320 --> 00:50:01.239
+Jitendra U: And that is what I'm trying to do with the help of this package.
+
+369
+00:50:01.700 --> 00:50:04.930
+Jitendra U: Now, let me run this end-to-end.
+
+370
+00:50:50.710 --> 00:50:52.669
+Jitendra U: Let me just modify this.
+
+371
+00:51:40.790 --> 00:51:43.780
+Jitendra U: Multiplers, but let me download all.
+
+372
+00:51:50.710 --> 00:51:52.959
+Jitendra U: Okay, finally I received something.
+
+373
+00:51:53.580 --> 00:51:56.650
+Jitendra U: So… yeah, so this is what I'm talking about.
+
+374
+00:51:57.050 --> 00:52:01.910
+Jitendra U: So this is my original sentence. We say the quick brown fox jumps over the lazy dog.
+
+375
+00:52:02.140 --> 00:52:09.460
+Jitendra U: So in this particular sentence, I have certain filler, something, something called natural pauses, like full stop, etc.
+
+376
+00:52:09.720 --> 00:52:18.380
+Jitendra U: And then, I would like to convert this whole sentence into… multiple… grammatical,
+
+377
+00:52:18.860 --> 00:52:24.049
+Jitendra U: conjunctions, right? So here you can see that I start with the determiners.
+
+378
+00:52:24.210 --> 00:52:31.720
+Jitendra U: This is my determinant, which is D. Quick is nothing but if I have to look into the context of JJ.
+
+379
+00:52:32.500 --> 00:52:35.760
+Jitendra U: So, here, DJ is an objective.
+
+380
+00:52:36.420 --> 00:52:41.489
+Jitendra U: And then I'm also using nouns, proportions, etc, right? So this is what…
+
+381
+00:52:41.640 --> 00:52:47.300
+Jitendra U: You can see that I'm using a POS taggers on this sentence, and this sentence
+
+382
+00:52:47.460 --> 00:52:50.989
+Jitendra U: It's determining how this whole context looks like.
+
+383
+00:52:52.400 --> 00:52:53.210
+Jitendra U: Right?
+
+384
+00:52:53.770 --> 00:53:00.920
+Jitendra U: So, let me share this code with everyone, and I want you to run the three codes that I shared.
+
+385
+00:53:01.520 --> 00:53:09.340
+Jitendra U: Chatbot, part you can skip if you're not able to understand it, because this is complex code.
+
+386
+00:53:09.710 --> 00:53:15.589
+Jitendra U: So I want you to focus on the two important packages, Speaky and LTK, and now we are talking about
+
+387
+00:53:16.610 --> 00:53:20.970
+Jitendra U: The third package… Which is PUS.
+
+388
+00:53:22.670 --> 00:53:27.370
+Jitendra U: So let me share this… Bored with everyone.
+
+389
+00:53:27.890 --> 00:53:31.160
+Jitendra U: I want you to run this, and let me know your thoughts.
+
+390
+00:53:37.410 --> 00:53:39.390
+Jitendra U: So I'll wait for your response, guys.
+
+391
+00:53:39.850 --> 00:53:41.970
+Jitendra U: So just run this, take your time.
+
+392
+00:53:42.520 --> 00:53:43.740
+Jitendra U: And then let me know.
+
+393
+00:53:43.890 --> 00:53:44.960
+Jitendra U: the outcome.
+
+394
+00:53:50.320 --> 00:53:57.020
+Jitendra U: I think the first one you already run. Now, this is the second one that we are trying to run. The chatbot and this part, this part.
+
+395
+00:56:56.500 --> 00:57:00.109
+Jitendra U: I'm not sure what is your question, semantic analytics program.
+
+396
+00:57:07.770 --> 00:57:12.540
+Jitendra U: This is a week 9 of, of the class cohort.
+
+397
+00:57:14.020 --> 00:57:18.879
+Jitendra U: This is the week number 9 of August cohort Batch. Are you talking about… are you part of this batch?
+
+398
+00:57:25.390 --> 00:57:31.219
+Jitendra U: Another file that I shared, yeah, this is a file which talks about POS, or part of switch tagging.
+
+399
+00:57:31.820 --> 00:57:35.690
+Jitendra U: And creating of chatbot, and the third concept that we have learned.
+
+400
+00:57:35.940 --> 00:57:40.279
+Jitendra U: Is how to create the sentiment analytics.
+
+401
+00:57:40.650 --> 00:57:41.919
+Jitendra U: He didn't speaky.
+
+402
+00:57:54.950 --> 00:57:57.160
+Jitendra U: Are you able to run this, Sal?
+
+403
+00:58:06.910 --> 00:58:09.560
+Jitendra U: This error is fine, you can ignore it.
+
+404
+00:58:10.740 --> 00:58:13.440
+Jitendra U: But are you able to run this trial until this point?
+
+405
+00:58:22.200 --> 00:58:25.850
+Jitendra U: Okay, so I think, you're missing on packages, that's the reason.
+
+406
+00:58:39.820 --> 00:58:45.869
+Jitendra U: Yeah, so you don't have packages, I think, in your machine. You have to import the packages, install the packages.
+
+407
+00:58:46.400 --> 00:58:51.979
+Jitendra U: So use the command to install the packages as well, and you will have to track the errors.
+
+408
+00:58:52.700 --> 00:58:54.559
+Jitendra U: This is the command that you have to use.
+
+409
+00:59:22.500 --> 00:59:24.479
+Jitendra U: How many of you are able to run this?
+
+410
+01:00:11.330 --> 01:00:15.400
+Jitendra U: Okay, multiple error, but are you not, comfortable in debugging the error?
+
+411
+01:00:16.280 --> 01:00:20.620
+Jitendra U: Okay, so… Okay, so…
+
+412
+01:00:32.750 --> 01:00:37.380
+Jitendra U: And where exactly you're running, that is also important. Are you running in CoLab?
+
+413
+01:00:37.910 --> 01:00:39.369
+Jitendra U: Where exactly you're running?
+
+414
+01:00:40.760 --> 01:00:44.579
+Jitendra U: So, show me the output of these two things.
+
+415
+01:00:54.490 --> 01:00:56.900
+Jitendra U: Can you run these two lines and show me the output?
+
+416
+01:01:33.040 --> 01:01:35.440
+Jitendra U: Okay, great, Deepak, so you're able to run?
+
+417
+01:01:37.030 --> 01:01:41.739
+Jitendra U: Okay… Then where exactly you're getting the error? In which line?
+
+418
+01:01:56.970 --> 01:02:01.149
+Jitendra U: Okay, let's go one by one. So, I would request everybody to first run this.
+
+419
+01:02:02.660 --> 01:02:03.940
+Jitendra U: Can you run this?
+
+420
+01:02:06.560 --> 01:02:09.169
+Jitendra U: Yeah, there are dependency errors that I can see here.
+
+421
+01:02:10.640 --> 01:02:12.270
+Jitendra U: So read the error first.
+
+422
+01:02:12.420 --> 01:02:15.349
+Jitendra U: You have to run this command, nltk.download.
+
+423
+01:02:16.000 --> 01:02:18.869
+Jitendra U: Average perceptron tagger, so you run this command.
+
+424
+01:02:44.780 --> 01:02:52.049
+Jitendra U: Alright, so those who are able to run, they have to have some debugging skills is important when you're working in Python.
+
+425
+01:02:52.320 --> 01:03:05.440
+Jitendra U: So, that's what I was trying to emphasize, that when you're running a code, you will get some errors in terms of package, compatibilities, etc. So, to ensure that, your understanding on debugging is very, very clear.
+
+426
+01:03:06.950 --> 01:03:10.949
+Jitendra U: No, NLTK… Your spelling is incorrect.
+
+427
+01:03:12.900 --> 01:03:14.420
+Jitendra U: It should be an LTK.
+
+428
+01:04:01.670 --> 01:04:06.490
+Jitendra U: Yeah, can we go step by step? So let me know if you're able to run until this point.
+
+429
+01:04:07.630 --> 01:04:10.720
+Jitendra U: And after that, you have to create a sentence pair.
+
+430
+01:04:11.060 --> 01:04:13.419
+Jitendra U: Pass that sentence pay as a token.
+
+431
+01:04:13.690 --> 01:04:18.530
+Jitendra U: and then call the PUSTagger function, Just to find out D.
+
+432
+01:04:19.580 --> 01:04:21.460
+Jitendra U: Art of speech, text.
+
+433
+01:05:11.830 --> 01:05:18.610
+Jitendra U: Alright, so, word tokenize is in the error. Word tokenizer, where did you get the word tokenizer?
+
+434
+01:05:19.290 --> 01:05:20.990
+Jitendra U: You're not through an error.
+
+435
+01:05:22.200 --> 01:05:24.629
+Jitendra U: If you install this completely.
+
+436
+01:05:32.160 --> 01:05:37.530
+Jitendra U: All right, so those who are able to run, please, I…
+
+437
+01:05:37.740 --> 01:05:43.410
+Jitendra U: On those who are not able to run, please try it after the class. I think you just need to debug certain errors.
+
+438
+01:05:43.720 --> 01:05:59.519
+Jitendra U: Alright, so let's move on. So, we will talk about a two important concepts called stamming and lammatization. Now, stamming and lemmatization is to convert the word into a root word. That means we are performing a stamming.
+
+439
+01:06:00.960 --> 01:06:04.349
+Jitendra U: And limit… limitation means we are finding the Lie mass.
+
+440
+01:06:04.690 --> 01:06:09.320
+Jitendra U: Right? So… so, like, these are two important concepts that we're going to learn.
+
+441
+01:06:09.580 --> 01:06:16.069
+Jitendra U: in this tutorial, which is called stamming and lemmatization. So, stamming means you are going to convert
+
+442
+01:06:16.620 --> 01:06:19.100
+Jitendra U: Let me show you an example.
+
+443
+01:06:21.080 --> 01:06:24.779
+Jitendra U: So, basically, you're converting the word into a base form.
+
+444
+01:06:25.150 --> 01:06:28.030
+Jitendra U: So, for example, I have a word like this.
+
+445
+01:06:28.510 --> 01:06:29.460
+Jitendra U: Running.
+
+446
+01:06:30.640 --> 01:06:33.300
+Jitendra U: Wolves… geese.
+
+447
+01:06:35.150 --> 01:06:42.310
+Jitendra U: eating, right? So I would like to convert the… ING, the suffix.
+
+448
+01:06:43.180 --> 01:06:49.560
+Jitendra U: Of these words, which is talking about a verb the running verb… Right?
+
+449
+01:06:49.700 --> 01:06:54.719
+Jitendra U: To the root format of the sentence, or the so-called word, as run.
+
+450
+01:06:55.430 --> 01:06:58.099
+Jitendra U: So, walls will become, which is a plural.
+
+451
+01:06:58.550 --> 01:07:00.900
+Jitendra U: Of the cent… of the word wall.
+
+452
+01:07:01.630 --> 01:07:07.769
+Jitendra U: And then running is a root word for run, geese is a root word for GWS.
+
+453
+01:07:08.390 --> 01:07:12.370
+Jitendra U: So, I would like to convert… Cheers!
+
+454
+01:07:12.490 --> 01:07:19.609
+Jitendra U: With the help of stammers, Now, why it is important to convert and use stemming?
+
+455
+01:07:19.770 --> 01:07:26.280
+Jitendra U: So… When you're using a tax cleaning, Right? In an LP base.
+
+456
+01:07:27.110 --> 01:07:34.180
+Jitendra U: pipelines, or so-called NLP-based use cases, so you often have to deal with converting
+
+457
+01:07:36.110 --> 01:07:41.179
+Jitendra U: Are you still on the step number 5 on the screen? Not sure. Are you able to see this, guys?
+
+458
+01:07:42.120 --> 01:07:43.150
+Jitendra U: Stammer?
+
+459
+01:07:43.450 --> 01:07:45.010
+Jitendra U: How many of you are able to see?
+
+460
+01:07:51.810 --> 01:07:56.759
+Jitendra U: Alright, so I think there's some issue with your Deepak, your system, so please re-login.
+
+461
+01:07:57.660 --> 01:07:59.790
+Jitendra U: I think there's some issue with your system.
+
+462
+01:08:00.790 --> 01:08:08.099
+Jitendra U: Alright, so we will talk about stammers, right? So, stammers means we are going to convert
+
+463
+01:08:08.390 --> 01:08:10.449
+Jitendra U: The word into the root word.
+
+464
+01:08:10.760 --> 01:08:12.960
+Jitendra U: That means we are cutting the stem.
+
+465
+01:08:14.180 --> 01:08:16.690
+Jitendra U: Or we are shrinking the word to the root word.
+
+466
+01:08:17.040 --> 01:08:18.429
+Jitendra U: That is for stamming.
+
+467
+01:08:18.729 --> 01:08:23.210
+Jitendra U: And why it is important? Because you have to identify
+
+468
+01:08:24.040 --> 01:08:27.590
+Jitendra U: The meaning of that whole sentence, instead of…
+
+469
+01:08:28.120 --> 01:08:33.170
+Jitendra U: focusing on the verb part of it. So when you're trying to look for, let's say.
+
+470
+01:08:33.700 --> 01:08:36.120
+Jitendra U: When you're trying to define
+
+471
+01:08:37.100 --> 01:08:43.539
+Jitendra U: What is a verb, by the way? What is the difference between a verb and a noun? So if I have to go with a very plain English…
+
+472
+01:08:43.790 --> 01:08:46.490
+Jitendra U: Text, verb defined, and activity.
+
+473
+01:08:46.979 --> 01:08:54.279
+Jitendra U: Right? Verb… If I have to give a verb definition, is nothing but… It's,
+
+474
+01:08:55.370 --> 01:09:04.229
+Jitendra U: is a word that's used to describe an action, right? A state on an occurrence, or a main part of the predicate of a sentence, right?
+
+475
+01:09:04.359 --> 01:09:11.169
+Jitendra U: But it is not symbolizing the root word. So here I'm representing the word in a different form.
+
+476
+01:09:12.010 --> 01:09:21.670
+Jitendra U: So it's an action, right? So I'm trying to define an action, or so-called, describe the state or occurrence, and the main part of the predicate sentence.
+
+477
+01:09:21.770 --> 01:09:24.359
+Jitendra U: That is what Verb used to do.
+
+478
+01:09:24.590 --> 01:09:30.499
+Jitendra U: So basically, it's a compound, between the two sentences, and then I'm creating this as a verb.
+
+479
+01:09:30.920 --> 01:09:41.699
+Jitendra U: If you describe the action, right? So the idea is, if I have to find the original meaning of the sentences, or so-called words, then I have to remove
+
+480
+01:09:41.920 --> 01:09:43.609
+Jitendra U: the suffixes.
+
+481
+01:09:45.100 --> 01:09:50.110
+Jitendra U: Right? That means I have to create a stamming technique
+
+482
+01:09:50.350 --> 01:09:52.840
+Jitendra U: That will able to remove these.
+
+483
+01:09:54.560 --> 01:09:55.750
+Jitendra U: Suffixes.
+
+484
+01:09:56.110 --> 01:10:00.200
+Jitendra U: And that is what stamming can do for you. So stamming is a very powerful
+
+485
+01:10:00.570 --> 01:10:06.170
+Jitendra U: Tool that will help you to clean the text and convert the text into root formats.
+
+486
+01:10:06.880 --> 01:10:16.040
+Jitendra U: Lammatization, So that means they are called as lemurs, So, Lima is, based upon…
+
+487
+01:10:16.690 --> 01:10:21.929
+Jitendra U: the dictionary form of the word, so let's say I would like to give you an example.
+
+488
+01:10:22.380 --> 01:10:31.209
+Jitendra U: on Limas, So… Limas, or lemmas, Or nothing but…
+
+489
+01:10:31.700 --> 01:10:36.650
+Jitendra U: let's say I have a word like… bats… it will become bat.
+
+490
+01:10:37.200 --> 01:10:42.030
+Jitendra U: And the result will become resolved, which is more accurate as timing. So basically, I'm…
+
+491
+01:10:42.210 --> 01:10:46.510
+Jitendra U: Using the sentence original word. So if I have to compare…
+
+492
+01:10:46.750 --> 01:10:50.900
+Jitendra U: The lamatization versus timing process, and which one is better.
+
+493
+01:10:51.470 --> 01:11:03.300
+Jitendra U: So let me explain it very clearly. So if I have to give you a very clear definition of lamutization versus stemming, both is performing the same thing. That means I'm just trying to convert my word into a root format.
+
+494
+01:11:03.740 --> 01:11:08.490
+Jitendra U: But, lammatization does it more efficiently.
+
+495
+01:11:08.990 --> 01:11:12.000
+Jitendra U: The reason being is, it is using something called Limas.
+
+496
+01:11:12.640 --> 01:11:18.939
+Jitendra U: So… Both are text normalization techniques to reduce word to a common-based form.
+
+497
+01:11:19.100 --> 01:11:21.040
+Jitendra U: But they are doing it in a different manner.
+
+498
+01:11:21.330 --> 01:11:29.570
+Jitendra U: So, stamming is a crude, rule-based process, so stamming will look for a pattern in it. So, it will say that I have an ING.
+
+499
+01:11:29.720 --> 01:11:31.290
+Jitendra U: pattern, I will remove it.
+
+500
+01:11:31.620 --> 01:11:39.249
+Jitendra U: I've got… ES, which is lunar form of wall, I will be able to remove it.
+
+501
+01:11:39.540 --> 01:11:47.880
+Jitendra U: So, to use the… Rule-based technique, to… Frame a particular word.
+
+502
+01:11:48.140 --> 01:11:53.309
+Jitendra U: On the other hand, Lima is a more sophisticated process that uses a dictionary like WordNet.
+
+503
+01:11:53.550 --> 01:11:57.880
+Jitendra U: And consider words part of a speech to return the actual base form.
+
+504
+01:11:58.510 --> 01:12:00.390
+Jitendra U: That means it is using a lookup.
+
+505
+01:12:00.670 --> 01:12:06.500
+Jitendra U: From a dictionary, and then converting, by understanding the meaning of that particular word.
+
+506
+01:12:06.900 --> 01:12:15.380
+Jitendra U: before converting. And WordNet is a very powerful lexical dictionary.
+
+507
+01:12:15.790 --> 01:12:18.180
+Jitendra U: That we are going to utilize for…
+
+508
+01:12:20.950 --> 01:12:27.410
+Jitendra U: cleaning these particular sentences. So you can see that this is a very powerful dictionary that we have.
+
+509
+01:12:34.680 --> 01:12:41.930
+Jitendra U: Right, and this is a reference manual you can be able to use. You can be able to understand lexographical, morphological.
+
+510
+01:12:42.340 --> 01:12:51.540
+Jitendra U: All these are important terms in an LP world. We'll discuss about this part in the upcoming tutorials, not now. We'll park it for now.
+
+511
+01:12:52.050 --> 01:12:56.089
+Jitendra U: But we'll just try to learn the concept, basic concepts.
+
+512
+01:12:56.540 --> 01:13:03.270
+Jitendra U: Now, as you can see, that each sentence that I'm using to train my model, or creating some sort of,
+
+513
+01:13:04.220 --> 01:13:06.140
+Jitendra U: basic text analytics.
+
+514
+01:13:06.650 --> 01:13:10.459
+Jitendra U: I'm using too many fillers, or stop words.
+
+515
+01:13:11.220 --> 01:13:15.680
+Jitendra U: And stop words is always… Terrible.
+
+516
+01:13:16.000 --> 01:13:18.639
+Jitendra U: Because they are considered to be filler.
+
+517
+01:13:18.990 --> 01:13:26.280
+Jitendra U: But they don't have any meaning. They're just joining the two sentences, but they're not carrying any meaning. And it stop words like this.
+
+518
+01:13:29.670 --> 01:13:32.559
+Jitendra U: Alright, so let me remove the stop words.
+
+519
+01:13:33.030 --> 01:13:36.439
+Jitendra U: And you can see that it is showing me that these words are negative.
+
+520
+01:13:37.270 --> 01:13:38.810
+Jitendra U: But actually, they are not.
+
+521
+01:13:39.180 --> 01:13:41.320
+Jitendra U: So let me show you the result again.
+
+522
+01:13:53.500 --> 01:13:55.339
+Jitendra U: Yeah, so if you look into…
+
+523
+01:13:55.720 --> 01:13:58.890
+Jitendra U: The top 20-word index positive sentences.
+
+524
+01:13:59.040 --> 01:14:02.870
+Jitendra U: So I can see that it is coming as proposition, like, 2 and the.
+
+525
+01:14:03.190 --> 01:14:06.760
+Jitendra U: Determinant like the it, and this is…
+
+526
+01:14:07.080 --> 01:14:12.069
+Jitendra U: So, actually, it does not carry any meaning, but they are coming as positive and negative, just because
+
+527
+01:14:12.260 --> 01:14:15.220
+Jitendra U: They are frequently present in my data.
+
+528
+01:14:16.840 --> 01:14:20.290
+Jitendra U: So automatically, my model will assume that they are positive sentences.
+
+529
+01:14:22.530 --> 01:14:26.639
+Jitendra U: That means my model is creating a biasness towards these top words.
+
+530
+01:14:27.490 --> 01:14:33.359
+Jitendra U: So I have to remove that. So when you're cleaning the stop words, from the…
+
+531
+01:14:34.080 --> 01:14:44.000
+Jitendra U: from the NLP best practices, So I'm going to run… The stopper removal package.
+
+532
+01:14:44.990 --> 01:14:47.530
+Jitendra U: by saying, I would like to create
+
+533
+01:14:48.080 --> 01:14:51.240
+Jitendra U: A stop words removal in English context.
+
+534
+01:14:51.740 --> 01:14:55.880
+Jitendra U: And it will remove all these top words, like, proposition.
+
+535
+01:14:58.900 --> 01:15:06.400
+Jitendra U: adjective… Determinants from my… Sentence.
+
+536
+01:15:09.960 --> 01:15:13.999
+Jitendra U: Right? So this is where I'm going to clean my sentence without stop words.
+
+537
+01:15:14.880 --> 01:15:19.180
+Jitendra U: Now, we'll talk about one more important part called name entity recognition.
+
+538
+01:15:20.080 --> 01:15:32.240
+Jitendra U: Now, when we talk about name anti-recognition, Name entity is actually… Entity-like organization, person, And some more entities, right?
+
+539
+01:15:32.480 --> 01:15:37.070
+Jitendra U: So basically, name and identity recognition is very important. So let's say I have a word like this.
+
+540
+01:15:37.500 --> 01:15:41.339
+Jitendra U: I'm saying Apple International is looking to buy a UK stock.
+
+541
+01:15:46.160 --> 01:15:50.680
+Jitendra U: in, to fund a startup in London, Worth 1 billion.
+
+542
+01:15:53.930 --> 01:15:56.090
+Jitendra U: Right, so this is what my query is.
+
+543
+01:15:56.860 --> 01:16:03.880
+Jitendra U: Now, to make sure that this query We're able to resolve…
+
+544
+01:16:04.140 --> 01:16:06.120
+Jitendra U: A so-called a table to do.
+
+545
+01:16:07.100 --> 01:16:17.369
+Jitendra U: The… Analysis… by removing Or by converting the entities into organization.
+
+546
+01:16:17.790 --> 01:16:25.300
+Jitendra U: geopolitical, etc, I have to use… the Name Entity Recognition Toolkit.
+
+547
+01:16:25.660 --> 01:16:28.240
+Jitendra U: So NER model will help me to do so.
+
+548
+01:16:28.620 --> 01:16:32.469
+Jitendra U: So this model will say that an apple is not a fruit.
+
+549
+01:16:33.010 --> 01:16:38.049
+Jitendra U: But it is rather an organization, because apple is a fruit as well in the English dictionary.
+
+550
+01:16:38.700 --> 01:16:43.289
+Jitendra U: So… So, basically, what I'm trying to do here is…
+
+551
+01:16:43.500 --> 01:16:48.009
+Jitendra U: I'm creating an entity based upon the nearest words.
+
+552
+01:16:52.440 --> 01:16:55.730
+Jitendra U: And then decide what entities should tag.
+
+553
+01:16:56.200 --> 01:16:58.500
+Jitendra U: Let me re-run this example.
+
+554
+01:17:01.620 --> 01:17:04.079
+Jitendra U: So I'm going to run this example…
+
+555
+01:17:07.670 --> 01:17:09.660
+Jitendra U: Okay, I have to download…
+
+556
+01:17:21.090 --> 01:17:23.860
+Jitendra U: Okay, so you can see the apple is a purse.
+
+557
+01:17:24.090 --> 01:17:25.350
+Jitendra U: Is it a noun?
+
+558
+01:17:25.550 --> 01:17:26.850
+Jitendra U: augmentation.
+
+559
+01:17:27.310 --> 01:17:28.720
+Jitendra U: Is it a verb?
+
+560
+01:17:29.510 --> 01:17:32.560
+Jitendra U: And then, so on and so forth. A is a determinant.
+
+561
+01:17:32.860 --> 01:17:37.209
+Jitendra U: noun, and, which is a UK country.
+
+562
+01:17:37.640 --> 01:17:39.340
+Jitendra U: Now and again, startup.
+
+563
+01:17:39.730 --> 01:17:44.090
+Jitendra U: Indetermini minors, geography, this is GP.
+
+564
+01:17:44.630 --> 01:17:49.810
+Jitendra U: So, I'm talking about, geopolitical entity, which is GP.
+
+565
+01:17:50.270 --> 01:17:57.110
+Jitendra U: Right, so you can see that it is able to convert very clearly that Apple is in organization here, not a fruit.
+
+566
+01:17:58.200 --> 01:18:02.700
+Jitendra U: And that is the whole idea of using name identity recognition.
+
+567
+01:18:03.090 --> 01:18:10.850
+Jitendra U: So, name entity recognition itself says that I required some mechanism to identify the Word. Type.
+
+568
+01:18:12.160 --> 01:18:21.229
+Jitendra U: And depending upon that word type, I will be able to use lexicals, like grammatical rules, to give certain weightage to each.
+
+569
+01:18:22.400 --> 01:18:28.600
+Jitendra U: Right? Just like, imagine you're solving… Some… you're writing some essay.
+
+570
+01:18:29.360 --> 01:18:32.719
+Jitendra U: So when you're writing an essay, you always think of two things.
+
+571
+01:18:33.690 --> 01:18:41.080
+Jitendra U: One is… How efficiently you're writing? What's your thought process?
+
+572
+01:18:42.010 --> 01:18:46.019
+Jitendra U: So, let's say you're writing an essay on a certain topic, you always think of
+
+573
+01:18:46.820 --> 01:18:54.439
+Jitendra U: what are you writing, logically? The second thing that you always think is how you're writing grammatically.
+
+574
+01:18:55.070 --> 01:18:58.690
+Jitendra U: Is it grammatically correct? Grammatical,
+
+575
+01:19:00.270 --> 01:19:05.150
+Jitendra U: Incorrect, then you're taking… you're going to make a course correction on the top of it.
+
+576
+01:19:06.990 --> 01:19:10.900
+Jitendra U: And that is where you're going to get some penalties…
+
+577
+01:19:11.290 --> 01:19:14.949
+Jitendra U: While evaluating those assays that we submitted.
+
+578
+01:19:15.830 --> 01:19:20.259
+Jitendra U: Right, so same thing applies here. As a machine, I'm trying to translate
+
+579
+01:19:20.920 --> 01:19:27.000
+Jitendra U: not just the meaning of the phrases, but also I would like to make sure that my machine learning algorithm
+
+580
+01:19:27.150 --> 01:19:31.260
+Jitendra U: We'll have sufficient tools to identify
+
+581
+01:19:32.310 --> 01:19:35.089
+Jitendra U: The lexicals which is present in my sentence.
+
+582
+01:19:36.860 --> 01:19:39.159
+Jitendra U: And these tools are very, very important.
+
+583
+01:19:39.490 --> 01:19:40.680
+Jitendra U: to perform.
+
+584
+01:19:40.830 --> 01:19:42.640
+Jitendra U: the broader analysis.
+
+585
+01:19:46.370 --> 01:19:47.899
+Jitendra U: Any question on this?
+
+586
+01:19:48.030 --> 01:19:50.229
+Jitendra U: Any question on lamatization, stamming?
+
+587
+01:19:51.010 --> 01:19:52.679
+Jitendra U: Stop word removal.
+
+588
+01:20:24.550 --> 01:20:29.050
+Jitendra U: For all this critical operation, there's a Python library, then what is the role of ML programmer?
+
+589
+01:20:29.180 --> 01:20:32.590
+Jitendra U: But who will run these, libraries, if you're not there?
+
+590
+01:20:35.120 --> 01:20:36.870
+Jitendra U: Will it run automatically?
+
+591
+01:20:50.180 --> 01:20:56.109
+Jitendra U: So you have to write a program, right, to make this… As in, workflows.
+
+592
+01:20:56.520 --> 01:21:00.620
+Jitendra U: If we need both timing and limitation, just one is enough as it's repetitive.
+
+593
+01:21:00.980 --> 01:21:07.199
+Jitendra U: You can use lamutization if you have, to make a choice, but it will be slightly slower than stemming.
+
+594
+01:21:07.740 --> 01:21:12.469
+Jitendra U: If you have pretty user intensives. So, when you have a huge amount of corpus.
+
+595
+01:21:12.910 --> 01:21:17.350
+Jitendra U: And, you have a time-bounded, task, then you can go for stamming.
+
+596
+01:21:17.460 --> 01:21:21.749
+Jitendra U: But if you have ample amount of time, you can still go with lamatization.
+
+597
+01:21:24.580 --> 01:21:28.080
+Jitendra U: Could we run by removing INCs from sentences?
+
+598
+01:21:28.560 --> 01:21:31.999
+Jitendra U: That is timing, right? So, that is what is timing does.
+
+599
+01:21:34.170 --> 01:21:37.269
+Jitendra U: I mean, we'll only collaboration is desperate need.
+
+600
+01:21:38.280 --> 01:21:47.089
+Jitendra U: Yeah, so that is where, I mean, the important aspect is you can learn by doing only. If I just teach you these are the packages, then what are you going to do?
+
+601
+01:21:47.220 --> 01:21:50.420
+Jitendra U: with those packages. I can name thousands of packages.
+
+602
+01:21:50.850 --> 01:21:55.219
+Jitendra U: which one… which is going to be used, I will… if I leave up to you.
+
+603
+01:21:55.600 --> 01:22:00.540
+Jitendra U: Then you will not… You will be in dilemma, which one should I use?
+
+604
+01:22:07.140 --> 01:22:12.179
+Jitendra U: Yes. So, Apple International, if you look into this part.
+
+605
+01:22:13.710 --> 01:22:17.620
+Jitendra U: Yeah, we can have a… we can even write… let me write…
+
+606
+01:22:23.860 --> 01:22:25.330
+Jitendra U: Let me remove this.
+
+607
+01:22:26.140 --> 01:22:27.769
+Jitendra U: And let's see what it does.
+
+608
+01:22:35.380 --> 01:22:38.940
+Jitendra U: There's still… unknown.
+
+609
+01:22:42.360 --> 01:22:45.259
+Jitendra U: Right? So that's the whole idea, the nearest word.
+
+610
+01:22:45.530 --> 01:22:48.090
+Jitendra U: Is something which is very, very important.
+
+611
+01:22:48.560 --> 01:22:53.380
+Jitendra U: So, the nearest word… international…
+
+612
+01:22:53.540 --> 01:22:59.749
+Jitendra U: combined together with Apple is giving a hint that the previous word is an organization.
+
+613
+01:23:01.980 --> 01:23:03.879
+Jitendra U: And that is called lexical Search.
+
+614
+01:23:10.580 --> 01:23:18.980
+Jitendra U: Right, so without surroundings, without surrounding words, this whole model will not be able to predict Anything meaningful.
+
+615
+01:23:21.270 --> 01:23:26.170
+Jitendra U: Alright, so I think, this is what we have for PUS Taggers.
+
+616
+01:23:26.550 --> 01:23:28.620
+Jitendra U: Now, let me move on to the slides.
+
+617
+01:23:28.830 --> 01:23:37.290
+Jitendra U: So we talked about sentiment analysis, we talked about, how to create emotional detection using spakey.
+
+618
+01:23:38.340 --> 01:23:43.270
+Jitendra U: about, some… IMDB data start.
+
+619
+01:23:43.830 --> 01:23:47.810
+Jitendra U: And finally, we understand what library to be utilized for what purpose.
+
+620
+01:23:47.970 --> 01:23:52.110
+Jitendra U: So we have load the libraries, and we have performed the… task.
+
+621
+01:23:52.490 --> 01:23:56.700
+Jitendra U: We have created one simple chatbot on a pre-trained transformers.
+
+622
+01:23:57.110 --> 01:24:02.109
+Jitendra U: And, we have seen that the chatbot is just responding on the user query.
+
+623
+01:24:02.740 --> 01:24:06.240
+Jitendra U: So… now what we are going to do next is…
+
+624
+01:24:11.620 --> 01:24:14.599
+Jitendra U: We'll take some more examples to understand.
+
+625
+01:24:15.690 --> 01:24:17.210
+Jitendra U: So let me create…
+
+626
+01:24:22.740 --> 01:24:25.350
+Jitendra U: Let me create some more examples.
+
+627
+01:25:25.160 --> 01:25:29.100
+Jitendra U: So let me… Write down some more…
+
+628
+01:25:29.870 --> 01:25:35.750
+Jitendra U: advanced packages. So, we talked about… Staffords…
+
+629
+01:25:36.070 --> 01:25:47.779
+Jitendra U: I would like to create a sample corpus, and then I would like to show you the representation of those words for topic modeling. So let's say I would like to find out about topic modeling. So topic modeling is very, very important.
+
+630
+01:25:48.210 --> 01:25:56.860
+Jitendra U: So, topic modeling is like, you're… you're trying to infer a topic of interest by reading some Books.
+
+631
+01:25:57.490 --> 01:26:02.790
+Jitendra U: Alright, so let's assume that I'm giving you a book without any topic, without any headers.
+
+632
+01:26:03.030 --> 01:26:06.389
+Jitendra U: Then, as a reader, you will still be able to find a topic.
+
+633
+01:26:06.530 --> 01:26:07.940
+Jitendra U: By reading the book.
+
+634
+01:26:08.180 --> 01:26:12.799
+Jitendra U: Right? The same way we're performing a topic modeling using
+
+635
+01:26:14.170 --> 01:26:20.929
+Jitendra U: the state-of-the-art NLP-based model, and try to identify what's the central topic on this. So let's say
+
+636
+01:26:22.830 --> 01:26:24.880
+Jitendra U: Okay, I have to install Chansim.
+
+637
+01:27:38.520 --> 01:27:41.139
+Jitendra U: Alright, so first, let me show you before it runs.
+
+638
+01:27:41.420 --> 01:27:47.880
+Jitendra U: So, I'm creating a doc Which talks about different, sort of, Topics…
+
+639
+01:27:48.020 --> 01:27:52.699
+Jitendra U: Here I'm talking about AI, here I'm talking about deep learning, here I'm talking about NLP.
+
+640
+01:27:52.880 --> 01:27:56.110
+Jitendra U: reinforcement learning and computer vision. So these are my topics.
+
+641
+01:27:56.390 --> 01:28:01.809
+Jitendra U: And then, what I'm trying to do is, I'm trying to perform some text cleaning, tokenization of my topic.
+
+642
+01:28:01.940 --> 01:28:21.270
+Jitendra U: And then calling one algorithm called LDA, which is called Direct Allocation. So, I will not talk about this algorithm, because this is not a part of our curriculum at this moment, but we will discuss this algorithm in more detail in the upcoming cohorts. But I just want to show you how this
+
+643
+01:28:21.820 --> 01:28:23.449
+Jitendra U: Topic modeling works.
+
+644
+01:28:36.930 --> 01:28:39.859
+Jitendra U: Okay, so you can see that top word per topic.
+
+645
+01:28:40.030 --> 01:28:44.419
+Jitendra U: So it says that I've got vision, object, scene, machine learning.
+
+646
+01:28:44.540 --> 01:28:49.969
+Jitendra U: as a top 5 topic that I'm able to infer. The second topic, which is generating.
+
+647
+01:28:50.110 --> 01:28:54.689
+Jitendra U: But the second word is Artificial Word Intelligence Transform Language.
+
+648
+01:28:54.820 --> 01:28:59.890
+Jitendra U: Alright, so basically, in a nutshell, what I'm trying to say is, this particular model, LDA,
+
+649
+01:29:00.200 --> 01:29:15.170
+Jitendra U: We're able to perform some internal calculation and determine what sort of topic should I assign to a sentence, right? So it's like you're labeling a data with a topic, so the model can do it for you, instead of you writing anything on the top of it.
+
+650
+01:29:16.310 --> 01:29:19.479
+Jitendra U: Okay, so similarly, I would like to find it out.
+
+651
+01:29:19.580 --> 01:29:22.929
+Jitendra U: The word similarity, and that is called word-to-back.
+
+652
+01:29:23.260 --> 01:29:27.329
+Jitendra U: Now, let me explain how the word has been processed by a machine learning model.
+
+653
+01:29:27.750 --> 01:29:29.960
+Jitendra U: So when you're using a sentence.
+
+654
+01:29:30.110 --> 01:29:33.529
+Jitendra U: in any machine learning NLP-based projects.
+
+655
+01:29:33.670 --> 01:29:38.840
+Jitendra U: The first and the foremost thing, what it does is, it will convert your sentence, or a word.
+
+656
+01:29:39.260 --> 01:29:42.139
+Jitendra U: into a vector. Now, what is a vector?
+
+657
+01:29:42.950 --> 01:29:45.970
+Jitendra U: So, vector… is an entity.
+
+658
+01:29:49.240 --> 01:29:51.240
+Jitendra U: Assume that this is my vector point.
+
+659
+01:29:51.480 --> 01:29:53.380
+Jitendra U: So, vector is an entity.
+
+660
+01:29:56.060 --> 01:30:03.190
+Jitendra U: Which will have… certain… Meaning… Hang.
+
+661
+01:30:04.690 --> 01:30:05.830
+Jitendra U: distance.
+
+662
+01:30:06.590 --> 01:30:09.969
+Jitendra U: So I'm saying that I've got a bunch of words.
+
+663
+01:30:10.290 --> 01:30:16.589
+Jitendra U: which are very similar to each other, so that means these words are similar to each other, right? So I will create a cluster
+
+664
+01:30:16.810 --> 01:30:20.360
+Jitendra U: to store them. I will say that these words should belong to this cluster.
+
+665
+01:30:21.160 --> 01:30:29.710
+Jitendra U: Similarly, I can say that the boards which are similar, should belong to another cluster, Like this.
+
+666
+01:30:30.170 --> 01:30:37.249
+Jitendra U: Now, this cluster have two things, two important properties. I'm grouping the similar words into Cluster one.
+
+667
+01:30:38.170 --> 01:30:40.480
+Jitendra U: And similar world into cluster 2.
+
+668
+01:30:41.060 --> 01:30:46.560
+Jitendra U: But they have direction, As well as magnitude.
+
+669
+01:30:49.240 --> 01:30:58.470
+Jitendra U: So I can say that they are having some sort of trigonometrical property, and this trigonometrical property is called cosine similarity.
+
+670
+01:31:00.340 --> 01:31:07.759
+Jitendra U: Right, so cosine similarity is the right phrase that we are going to use to represent this vector in a high-dimensional space.
+
+671
+01:31:09.840 --> 01:31:16.409
+Jitendra U: So, the reason why we are storing this as a vector, because your machine learning algorithm, your ML algorithms.
+
+672
+01:31:16.680 --> 01:31:18.840
+Jitendra U: Cannot understand text.
+
+673
+01:31:20.870 --> 01:31:26.469
+Jitendra U: It has to be represented numerically only. So when you're using a numerical calculation.
+
+674
+01:31:28.280 --> 01:31:32.330
+Jitendra U: Then only you're going to apply a machine learning algorithm on the top of this data.
+
+675
+01:31:42.420 --> 01:31:43.280
+Jitendra U: Right?
+
+676
+01:31:43.560 --> 01:31:47.559
+Jitendra U: So this is what the input search space looks like.
+
+677
+01:31:48.030 --> 01:31:59.899
+Jitendra U: So when you're searching for any character, when you're dealing with such sort of calculation, you're converting those into vectors, and then search. So vectors are numerical representation of your word.
+
+678
+01:32:00.570 --> 01:32:03.720
+Jitendra U: So you're representing your word in numerical format.
+
+679
+01:32:04.120 --> 01:32:15.000
+Jitendra U: But how did you preserve these words? Because there's no just one word, two words, but there are thousands and lots of words that you're going to deal with. So you're going to use embedding models to preserve them.
+
+680
+01:32:16.000 --> 01:32:24.430
+Jitendra U: And these embedding models will be useful for a variety of purposes. One is, you are going to save the space of search.
+
+681
+01:32:24.810 --> 01:32:33.990
+Jitendra U: Because all these similar words are in the same cluster. So if I have a root word with, say, one word.
+
+682
+01:32:34.680 --> 01:32:38.179
+Jitendra U: Try to, like, identify how many synonyms I'm having.
+
+683
+01:32:38.940 --> 01:32:43.600
+Jitendra U: And I can use these synonyms for giving the response.
+
+684
+01:32:45.650 --> 01:32:57.140
+Jitendra U: Similarly, I will have a cosine 180 degree angle between the root word and the opposite word from this cluster, and these two words I can be able to correlate with a user query.
+
+685
+01:33:01.680 --> 01:33:04.240
+Jitendra U: So I think we are done, half an hour…
+
+686
+01:33:04.370 --> 01:33:07.199
+Jitendra U: Already, so let's take a quick 15 minutes break.
+
+687
+01:33:07.440 --> 01:33:10.380
+Jitendra U: And once we come back, then we will cover…
+
+688
+01:33:10.700 --> 01:33:14.000
+Jitendra U: some more essential, techniques on NLP.
+
+689
+01:33:14.760 --> 01:33:18.479
+Jitendra U: And I would like to talk about a few more stuffs.
+
+690
+01:33:19.070 --> 01:33:23.690
+Jitendra U: in NLP and, text processing, Which is…
+
+691
+01:33:24.460 --> 01:33:31.870
+Jitendra U: how to test these models as well, so we'll talk about that part. Let's take a quick break, and then we'll cover this part.
+
+692
+01:33:33.070 --> 01:33:33.930
+Jitendra U: Thank you.
+
+693
+01:33:49.220 --> 01:33:53.840
+Jitendra U: Yeah, so, one second. Guys, are you still there?
+
+694
+01:34:00.520 --> 01:34:05.730
+Jitendra U: So let's try to cut short this break for 10 minutes, because this session will be early.
+
+695
+01:34:05.910 --> 01:34:16.249
+Jitendra U: We will terminate this session early, so half an hour early. So, the break timing is just 10 minutes. So, let's complete a 10 minutes break, and then we'll come back.
+
+696
+01:48:33.810 --> 01:48:36.700
+Jitendra U: Alright guys, I hope, you're here.
+
+697
+01:48:36.960 --> 01:48:38.799
+Jitendra U: Can we have a quick confirmation?
+
+698
+01:48:51.480 --> 01:48:54.020
+Jitendra U: Alright, thank you, thanks for the confirmation, guys.
+
+699
+01:48:54.340 --> 01:49:01.349
+Jitendra U: So, what we are going to do next is, we will continue our discussion with, NLP-based programming.
+
+700
+01:49:01.620 --> 01:49:05.169
+Jitendra U: And I would like to show you one demo, where…
+
+701
+01:49:05.620 --> 01:49:07.820
+Jitendra U: We are going to use NLP…
+
+702
+01:49:08.970 --> 01:49:11.140
+Jitendra U: Let me show you that demo first.
+
+703
+01:49:13.940 --> 01:49:15.350
+Jitendra U: One second…
+
+704
+01:49:44.230 --> 01:49:48.470
+Jitendra U: Okay, so let me… Show you that demo.
+
+705
+01:50:06.630 --> 01:50:12.960
+Jitendra U: So let's say… I would like to create a model
+
+706
+01:50:13.440 --> 01:50:20.490
+Jitendra U: that will able to generate some classification on the top of my sentences, right? So, let's say I would like to perform.
+
+707
+01:50:20.870 --> 01:50:28.410
+Jitendra U: the… output… In which I can be able to represent the two classes as positive and negative.
+
+708
+01:50:28.690 --> 01:50:32.540
+Jitendra U: Right? We have seen that we can able to utilize a simple model to do so.
+
+709
+01:50:32.660 --> 01:50:38.770
+Jitendra U: But what if I have to create a model using algorithms, right? So basically, what I'm trying to do is.
+
+710
+01:50:38.880 --> 01:50:42.930
+Jitendra U: I'm trying to utilize this dataset, which is having a mixed bag of
+
+711
+01:50:44.000 --> 01:50:54.110
+Jitendra U: labels, including tech and finance, so I'm saying that if this particular module, or this particular sentence talks about
+
+712
+01:50:54.520 --> 01:50:55.240
+Jitendra U: tech…
+
+713
+01:50:56.580 --> 01:51:03.130
+Jitendra U: technology that I will consider to be Level 1. If this is other way around, I will consider this as…
+
+714
+01:51:03.300 --> 01:51:10.050
+Jitendra U: finance, right? So these are the two topics that I'm going to have, and then based upon these two topics, I would like to train
+
+715
+01:51:10.180 --> 01:51:26.400
+Jitendra U: a model, and then design a model to come up with a classification output. So I would like to ensure that I have a full capability to identify whether this model is working correctly or not, right? That is what I'm trying to solve now.
+
+716
+01:51:26.690 --> 01:51:30.559
+Jitendra U: So let me go back to my notebook, and then…
+
+717
+01:51:31.700 --> 01:51:35.029
+Jitendra U: Oh, I'm not sharing the screen? Okay, okay, sorry.
+
+718
+01:51:35.790 --> 01:51:37.270
+Jitendra U: Let me reshare…
+
+719
+01:51:41.640 --> 01:51:44.539
+Jitendra U: Yeah, I think this is now clear with everyone.
+
+720
+01:51:52.280 --> 01:52:03.380
+Jitendra U: Alright, so here, what we are trying to achieve is, we are trying to learn and apply all the concept that we have just acquired, right? So the first and foremost thing is, I have our data points, the text data.
+
+721
+01:52:03.510 --> 01:52:09.839
+Jitendra U: And in these data science points, I have got two labels, two classes. The first class talks about
+
+722
+01:52:10.010 --> 01:52:17.669
+Jitendra U: If this sentence, or this particular verbiage, is speaking about some technical stuff, then I will call it as a tech.
+
+723
+01:52:18.420 --> 01:52:24.890
+Jitendra U: If the… Topic is related with the finance or bank, then it is a finance topic, right?
+
+724
+01:52:25.060 --> 01:52:32.669
+Jitendra U: So, what I'm going to do is, I would like to find it out, the efficacy of this model, in terms of generating the output classified.
+
+725
+01:52:32.910 --> 01:52:35.579
+Jitendra U: Using, precision and recall.
+
+726
+01:52:35.980 --> 01:52:40.389
+Jitendra U: Right, so I would like to fine-tune the model based upon these metrics, let's say.
+
+727
+01:52:40.670 --> 01:52:45.960
+Jitendra U: And that is what I'm trying to talk about in terms of executing this model.
+
+728
+01:52:47.850 --> 01:52:50.060
+Jitendra U: Okay, I think there's some issue…
+
+729
+01:53:02.180 --> 01:53:04.069
+Jitendra U: Let me just fix it.
+
+730
+01:54:22.800 --> 01:54:25.230
+Jitendra U: Just give me a moment, I'm just fixing this error.
+
+731
+01:56:03.770 --> 01:56:05.899
+Jitendra U: Okay, so I'm able to do that.
+
+732
+01:56:06.070 --> 01:56:28.530
+Jitendra U: So, basically, what I'm trying to do is, I'm trying to ensure that I have enough visibility on this model, right? So, when you're trying to create a model, you always have to think from best practices. Similarly, the same practice apply on NLP World as well. So, when you're trying to solve an NLP-based model, you often deal with unstructured data like this. And let's say, given
+
+733
+01:56:28.530 --> 01:56:34.049
+Jitendra U: given this particular challenge, I have two things to solve. The first and foremost thing is, I would like to ensure that
+
+734
+01:56:34.410 --> 01:56:40.449
+Jitendra U: the data that I'm handling should able to classify… I can able to classify this particular data.
+
+735
+01:56:40.560 --> 01:56:48.550
+Jitendra U: Into two important considerations, which is, it should be either tech or non-tech finance-based topic.
+
+736
+01:56:48.610 --> 01:57:07.529
+Jitendra U: And then, based upon that, I will be able to do this analysis. So what I'm trying to do is, I'm trying to train my algorithm on these two labels. So it's like a pattern now. Now, remember I talked about vectors, right? So basically, what you're trying to do is, you're trying to convert your data into vectors, and each vector will be trained
+
+737
+01:57:07.830 --> 01:57:09.130
+Jitendra U: As a token.
+
+738
+01:57:09.730 --> 01:57:24.000
+Jitendra U: And then these token will be parsed inside this algorithm called TFIDF, right? And based upon this algorithm, it will be able to generalize the outcome using a certain patterns. So it's like…
+
+739
+01:57:24.200 --> 01:57:31.759
+Jitendra U: let's say, when you're reading a phrase, right, like this, you will see some of the technical words, like NLP, AI,
+
+740
+01:57:31.800 --> 01:57:46.950
+Jitendra U: OpenAI occurs, that means these are main contextual words inside your sentence. And based upon these contextual words, this model will be able to interpret that here we are talking about some tech
+
+741
+01:57:47.260 --> 01:57:49.980
+Jitendra U: Solution, or some tech provision.
+
+742
+01:57:50.200 --> 01:58:02.189
+Jitendra U: Similarly, here we are talking about stock market. So, stock market is a financial domain agnostic word, and we are going to use stock market as a financial terminology to interpret that it's a financial stock market.
+
+743
+01:58:02.680 --> 01:58:17.429
+Jitendra U: Reinforcement learning, again, a technology, the Federal Reserve Bank, which is, again, a financial institution, right? So basically, what I'm trying to do is, I'm trying to train my model on the top of it, and then try to see how efficiently my model has been run.
+
+744
+01:58:17.600 --> 01:58:33.370
+Jitendra U: So this is what I'm getting as a part of my model outcome, in terms of precision and recall, and now this is important that I'm getting the top 20 features which has been used to determine the word into different category.
+
+745
+01:58:33.430 --> 01:58:42.229
+Jitendra U: So you can see for financial domain, word corpus, I've got financial analyst, Finance, Federal Reserve, Economy.
+
+746
+01:58:42.420 --> 01:58:47.879
+Jitendra U: As a more contextual word, in case of… technology, I'm having deep learning.
+
+747
+01:58:48.670 --> 01:59:04.999
+Jitendra U: As one of the important, technical, or frameworks, or frameworks, like, as the most technical, important questions, right? So, this is the top 20 features that has been used by my algorithm to predict and depict the two words. It's like…
+
+748
+01:59:07.410 --> 01:59:17.370
+Jitendra U: you're training some nursery kid about the topic of interest, right? So you're giving rhymes to him. So he mesmerized the rhymes.
+
+749
+01:59:17.450 --> 01:59:29.849
+Jitendra U: by understanding the sequence of the rhyme. Without understanding the meaning, the child will still remember the rhyme, right? So that same way that we are using here is a model that will interpret this
+
+750
+01:59:30.110 --> 01:59:31.590
+Jitendra U: internal…
+
+751
+01:59:31.880 --> 01:59:39.900
+Jitendra U: Words and converting into vectors, and then each vector will have different weights on which we are going to differentiate the output.
+
+752
+01:59:41.760 --> 01:59:43.830
+Jitendra U: Right, so differentiation is the output.
+
+753
+01:59:43.980 --> 01:59:50.569
+Jitendra U: And you can see that how nicely it is interpreting the output on the basis of this. Now, the question is,
+
+754
+01:59:53.950 --> 01:59:56.040
+Jitendra U: if I have to increase the topics.
+
+755
+01:59:56.350 --> 01:59:59.030
+Jitendra U: From 1 to 2 to 50.
+
+756
+01:59:59.220 --> 02:00:06.189
+Jitendra U: Do I need more data? So the answer is yes. They're very data-hungry models, so you require a good amount of data to train your model.
+
+757
+02:00:06.290 --> 02:00:09.640
+Jitendra U: And then come up with a conclusion, right? So that is where…
+
+758
+02:00:10.010 --> 02:00:26.709
+Jitendra U: you are creating a kind of an observability pattern on your top of your NLP-based model. So the model will become more observable. That means you are going to identify what's the input, what is the output, and how the model decides which topic to be tagged to a particular
+
+759
+02:00:27.290 --> 02:00:29.990
+Jitendra U: Word or frequency-based distribution.
+
+760
+02:00:32.510 --> 02:00:35.790
+Jitendra U: So, any question on this? Anything that you would like to ask?
+
+761
+02:00:38.660 --> 02:00:43.980
+Jitendra U: Yeah, this chart is called SHAP, so it talks about the features in a ranked manner.
+
+762
+02:00:44.150 --> 02:00:50.190
+Jitendra U: So, top word, The top embedding, the top word that you're seeing is the most affected
+
+763
+02:00:50.400 --> 02:00:52.209
+Jitendra U: So on a scale of high to low.
+
+764
+02:00:52.440 --> 02:00:56.389
+Jitendra U: So it'll show you the top 20 features which have been selected by the algorithm.
+
+765
+02:00:56.740 --> 02:00:58.080
+Jitendra U: Using the rank.
+
+766
+02:01:05.060 --> 02:01:09.490
+Jitendra U: Alright, so any other question, guys? Are you, are you clear with,
+
+767
+02:01:09.590 --> 02:01:13.260
+Jitendra U: Are you getting the gist? I know that this is a hard topic.
+
+768
+02:01:13.370 --> 02:01:20.250
+Jitendra U: But yeah, are you getting some out… some insight on the NLP part? Like, how to solve NLP? I think you guys itself has requested
+
+769
+02:01:20.470 --> 02:01:25.080
+Jitendra U: the LMS content team that I need NLP and all these topics, right?
+
+770
+02:01:26.570 --> 02:01:33.950
+Jitendra U: How many of you have requested, by the way? Can you raise your hand? How many of you requested that NLP should be a part of initial curriculum?
+
+771
+02:01:45.010 --> 02:01:46.840
+Jitendra U: So, NLP is a hard topic.
+
+772
+02:01:48.030 --> 02:01:49.560
+Jitendra U: It's not an easy topic.
+
+773
+02:01:51.540 --> 02:01:53.069
+Jitendra U: It's an advanced topic.
+
+774
+02:02:01.020 --> 02:02:04.440
+Jitendra U: So here, we are just talking about the basics of NLP.
+
+775
+02:02:04.710 --> 02:02:12.259
+Jitendra U: We are yet to cover a lot of grounds in LP. It's just, as I mentioned again and again, we are just scratching the surface at this moment.
+
+776
+02:02:26.980 --> 02:02:32.749
+Jitendra U: Alright, so I think, we understand what NLP does, and, we have…
+
+777
+02:02:33.040 --> 02:02:41.100
+Jitendra U: got some good idea about NLP. Like, NLP stands for Natural Language Processing, and it's a purely a text-based processing technique.
+
+778
+02:02:41.290 --> 02:02:46.150
+Jitendra U: Where we are going to use several amount of, tax data.
+
+779
+02:02:46.250 --> 02:02:49.820
+Jitendra U: To perform the output, right?
+
+780
+02:02:50.090 --> 02:02:53.280
+Jitendra U: Now, let me talk about, another interesting
+
+781
+02:02:54.220 --> 02:03:05.040
+Jitendra U: use case of NLP, which is Q&A, right? So when you talk about Q&A or question and answering system creation, then how NLP can be able to help us?
+
+782
+02:03:05.420 --> 02:03:08.490
+Jitendra U: So, I like this slide, so I just want to show you…
+
+783
+02:03:09.710 --> 02:03:19.299
+Jitendra U: what is question and answering system, and then we'll take it from here. So when we talk about Q&A, or question and answering system in NLP world.
+
+784
+02:03:19.450 --> 02:03:21.879
+Jitendra U: We are often talking about how
+
+785
+02:03:22.120 --> 02:03:30.130
+Jitendra U: the user will ask a question, right? So basically, one of the oldest NLP tasks is to get a potential answer.
+
+786
+02:03:30.260 --> 02:03:32.659
+Jitendra U: So when you're asking a question.
+
+787
+02:03:33.140 --> 02:03:36.580
+Jitendra U: to a model, like ChatGPT or any other model.
+
+788
+02:03:37.820 --> 02:03:42.930
+Jitendra U: Internally, the search engine will convert your query as well as query into a vector.
+
+789
+02:03:43.690 --> 02:03:46.579
+Jitendra U: Right, so the query will be converted to a vector.
+
+790
+02:03:47.490 --> 02:03:57.389
+Jitendra U: Vector means numerical notation of your questions, right? So, the numerical question… Will we break down?
+
+791
+02:03:57.760 --> 02:04:01.540
+Jitendra U: In two vectors, which is a representation of your
+
+792
+02:04:03.630 --> 02:04:07.419
+Jitendra U: Question itself. So you can see that this question looks logical.
+
+793
+02:04:07.520 --> 02:04:09.539
+Jitendra U: I'm asking, what do worms eat?
+
+794
+02:04:11.070 --> 02:04:15.869
+Jitendra U: The potential answers are warm meat grass, hoards with warm meat grass.
+
+795
+02:04:17.420 --> 02:04:19.810
+Jitendra U: Now, these are two different answers.
+
+796
+02:04:23.880 --> 02:04:28.380
+Jitendra U: Right? So you can see that how logically it has been arranged in my memory.
+
+797
+02:04:28.990 --> 02:04:34.450
+Jitendra U: My question is also logically breakdown, so I'm saying what It forms.
+
+798
+02:04:35.250 --> 02:04:38.480
+Jitendra U: But my original question is, what do eat… worms eat?
+
+799
+02:04:46.740 --> 02:04:47.580
+Jitendra U: Right?
+
+800
+02:04:47.990 --> 02:04:54.370
+Jitendra U: So, this is something which I would like to talk about. So, this is where…
+
+801
+02:04:55.400 --> 02:05:02.729
+Jitendra U: The whole idea of NLP is a merge. That means you are going to perform a lexical search on these semantic queries.
+
+802
+02:05:03.300 --> 02:05:08.119
+Jitendra U: And lexical search is very, very important when you're working on some common
+
+803
+02:05:08.410 --> 02:05:13.169
+Jitendra U: types of modern systems, like chat GPTs and stuff, right?
+
+804
+02:05:13.450 --> 02:05:22.109
+Jitendra U: So let me show you… how ChatGPT works internally, right? So, let's say I'm writing a simple query.
+
+805
+02:05:27.370 --> 02:05:33.899
+Jitendra U: and asking… What… who is the president of the United States?
+
+806
+02:05:39.480 --> 02:05:42.450
+Jitendra U: So, I would like to show you all the steps.
+
+807
+02:05:44.500 --> 02:05:50.040
+Jitendra U: that ChatGPT takes… To answer this question.
+
+808
+02:05:52.350 --> 02:05:54.160
+Jitendra U: And this is a very simple question.
+
+809
+02:05:58.150 --> 02:05:59.690
+Jitendra U: So let me show you the steps.
+
+810
+02:06:02.530 --> 02:06:04.599
+Jitendra U: Let me go back to my whiteboard.
+
+811
+02:06:15.070 --> 02:06:21.479
+Jitendra U: Okay, so my question is… Who is the president?
+
+812
+02:06:22.050 --> 02:06:24.710
+Jitendra U: of United States of America.
+
+813
+02:06:25.730 --> 02:06:32.270
+Jitendra U: Now, here, I'm not talking about the current president or anything. I haven't passed anything. Who's the current president of.
+
+814
+02:06:32.620 --> 02:06:38.120
+Jitendra U: United States of America, I'm not mentioning any point. That means it should be able to understand
+
+815
+02:06:39.310 --> 02:06:45.179
+Jitendra U: And this is called logical interpretation of the query. It will be able to break down my query like this.
+
+816
+02:06:46.160 --> 02:06:50.119
+Jitendra U: I'm talking about NKTS US GP,
+
+817
+02:06:52.810 --> 02:06:57.989
+Jitendra U: And I will… I'm looking for a designation called President, And I'm asking who is.
+
+818
+02:07:00.440 --> 02:07:02.250
+Jitendra U: It's a present tense, yes.
+
+819
+02:07:02.600 --> 02:07:07.349
+Jitendra U: But model will not know it's a present tense, right? It will be able to simply break down
+
+820
+02:07:07.470 --> 02:07:10.070
+Jitendra U: My question, in a logical manner.
+
+821
+02:07:10.380 --> 02:07:11.650
+Jitendra U: So I'm using…
+
+822
+02:07:15.240 --> 02:07:16.070
+Jitendra U: Right?
+
+823
+02:07:16.210 --> 02:07:18.029
+Jitendra U: So it really felt nice.
+
+824
+02:07:18.180 --> 02:07:19.040
+Jitendra U: D…
+
+825
+02:07:20.570 --> 02:07:29.190
+Jitendra U: phrase, and read the user query. The input is, who is the president of USA? That means I'm… the first and foremost thing, what it does is it'll recognize the intent.
+
+826
+02:07:29.550 --> 02:07:33.730
+Jitendra U: That means it will recognize that I'm talking about
+
+827
+02:07:34.610 --> 02:07:38.389
+Jitendra U: A short factual question asking for the name public figure.
+
+828
+02:07:40.370 --> 02:07:47.400
+Jitendra U: The second thing is, it will decide Whether the question is time-sensitive, or not.
+
+829
+02:07:48.510 --> 02:07:50.910
+Jitendra U: And that is where the tenses and the…
+
+830
+02:07:51.020 --> 02:07:55.429
+Jitendra U: time calculation will come. Question about the current office folders.
+
+831
+02:07:55.560 --> 02:08:05.210
+Jitendra U: They're time-sensitive, so they change with election, right? So that is where I would like to consult with a VAP, rather than relying on internal knowledge.
+
+832
+02:08:05.830 --> 02:08:08.019
+Jitendra U: So it will call a tool…
+
+833
+02:08:08.790 --> 02:08:14.470
+Jitendra U: Google API to search who's the current president of the United States.
+
+834
+02:08:18.010 --> 02:08:18.860
+Jitendra U: Right?
+
+835
+02:08:18.990 --> 02:08:25.400
+Jitendra U: And then… It will fetch the information, and perform.
+
+836
+02:08:25.770 --> 02:08:27.049
+Jitendra U: the ground check.
+
+837
+02:08:31.540 --> 02:08:33.299
+Jitendra U: And then it will respond.
+
+838
+02:08:33.880 --> 02:08:42.719
+Jitendra U: So you can see that these are a series of steps that it took to answer a simple question like this. And you're getting the answer in a fraction of a second.
+
+839
+02:08:43.880 --> 02:08:48.970
+Jitendra U: And that is the whole idea of… These conversational chatbots.
+
+840
+02:08:50.650 --> 02:08:57.800
+Jitendra U: Right, so what it does… It will use a server where your model is hosted.
+
+841
+02:08:59.240 --> 02:09:03.510
+Jitendra U: And this is you, you're running… the query…
+
+842
+02:09:04.620 --> 02:09:07.099
+Jitendra U: And this query will hit this engine.
+
+843
+02:09:07.570 --> 02:09:12.390
+Jitendra U: This engine will hit a tool, Web search…
+
+844
+02:09:15.600 --> 02:09:19.419
+Jitendra U: It expands your query internally, query expansion.
+
+845
+02:09:25.370 --> 02:09:27.329
+Jitendra U: And then you will get an answer.
+
+846
+02:09:32.690 --> 02:09:37.220
+Jitendra U: Alright, so this is how this pipeline works behind the scenes.
+
+847
+02:09:38.190 --> 02:09:45.419
+Jitendra U: Right, so that's the whole purpose of using NLP-based Query mining, processing engine.
+
+848
+02:09:50.030 --> 02:09:53.020
+Jitendra U: And this is applicable for transformer-based models as well.
+
+849
+02:10:02.150 --> 02:10:05.089
+Jitendra U: What is source space? I didn't get your source space.
+
+850
+02:10:11.870 --> 02:10:14.520
+Jitendra U: No, it will not edit this information in the report.
+
+851
+02:10:16.890 --> 02:10:19.169
+Jitendra U: It will not add, in the report.
+
+852
+02:10:19.890 --> 02:10:26.290
+Jitendra U: It will add in your session query. So, session query will be… Utilized for its purpose.
+
+853
+02:10:29.330 --> 02:10:34.889
+Jitendra U: Alright, so this is how the internal mechanism of ChatGPT works, but let's say when you're creating an app.
+
+854
+02:10:36.020 --> 02:10:43.519
+Jitendra U: Where you're creating an app, When you are using your own models, when you are using your own documents.
+
+855
+02:10:43.780 --> 02:10:48.040
+Jitendra U: Which is your private documents, or so-called
+
+856
+02:10:48.700 --> 02:10:52.210
+Jitendra U: Proprietary documents in your organization.
+
+857
+02:10:52.390 --> 02:10:55.699
+Jitendra U: Then what will be our… what will be our approach to train the model?
+
+858
+02:10:56.540 --> 02:11:03.409
+Jitendra U: So let's say you've got organization documents, a bunch of organization documents, and you would like to create a chatbot on the top of it to answer this.
+
+859
+02:11:03.900 --> 02:11:07.490
+Jitendra U: So what are you going to do? You're going to use something called RAG.
+
+860
+02:11:08.340 --> 02:11:11.209
+Jitendra U: Retrieval augment generation process.
+
+861
+02:11:11.750 --> 02:11:19.030
+Jitendra U: Which is one of the sophisticated pipelines that will help to enrich the external embeddings.
+
+862
+02:11:21.350 --> 02:11:26.749
+Jitendra U: Now, these are all embedding models, right? So, what are embeddings? Embeddings store your vectors.
+
+863
+02:11:27.450 --> 02:11:29.680
+Jitendra U: In a form of relationship mapping.
+
+864
+02:11:30.680 --> 02:11:34.660
+Jitendra U: Right, so imagine… ChatGPT is nothing but…
+
+865
+02:11:35.270 --> 02:11:39.699
+Jitendra U: It has been trained on millions or billions of internet data points.
+
+866
+02:11:41.280 --> 02:11:49.520
+Jitendra U: And who has created data points? We human. We create websites, we write Wikipedia, we write in Quora, we write in Facebook, we write in…
+
+867
+02:11:49.630 --> 02:11:55.710
+Jitendra U: blogger, microblogger. So we human-generated data, a lot of data has been generated by humans over the past
+
+868
+02:11:56.440 --> 02:12:09.059
+Jitendra U: how many years WWW has been launched, I think it's 90… okay, let's say 98, Google has launched in 98. From 98 till…
+
+869
+02:12:09.280 --> 02:12:13.129
+Jitendra U: 2028, we'll complete almost 30 years.
+
+870
+02:12:13.280 --> 02:12:14.390
+Jitendra U: cooperation.
+
+871
+02:12:17.490 --> 02:12:24.050
+Jitendra U: Right? 30… within the 30 years of operation, we have generated petabytes of data.
+
+872
+02:12:28.240 --> 02:12:31.439
+Jitendra U: And this data has been utilized to train the model.
+
+873
+02:12:32.440 --> 02:12:38.109
+Jitendra U: Including your chat GPT, including your Anthropic, including your whatever model you're using.
+
+874
+02:12:39.390 --> 02:12:47.310
+Jitendra U: Right? So, this is where… The data is open source and public, In Google Domain.
+
+875
+02:12:47.610 --> 02:12:54.510
+Jitendra U: But what I'm saying is, when you're using a data in your organization level, it is not public, it's a private data.
+
+876
+02:12:55.040 --> 02:13:08.260
+Jitendra U: So when you have a private data, you have to train your algorithm based upon that, and that is something called rack-based embeddings that you are going to utilize for that purpose. So you're going to create a pipeline that will train on the rack, and then generate an answer.
+
+877
+02:13:08.890 --> 02:13:12.180
+Jitendra U: Based upon the context and the user queries.
+
+878
+02:13:24.020 --> 02:13:32.129
+Jitendra U: Right? So, what I'm trying to say is, when you talk about NLP-based applications, the limits are endless.
+
+879
+02:13:32.490 --> 02:13:40.470
+Jitendra U: from the very basic topic modeling to all the way to the chat GPT, The limits are endless.
+
+880
+02:13:40.670 --> 02:13:46.480
+Jitendra U: Like, you can apply an LP in… Many forms and shapes.
+
+881
+02:13:59.760 --> 02:14:03.370
+Jitendra U: Now, let me talk about some more business use cases in NLP world.
+
+882
+02:14:03.760 --> 02:14:12.009
+Jitendra U: So, so, basically, NLP industry is growing In leaps and bounds.
+
+883
+02:14:12.490 --> 02:14:15.210
+Jitendra U: So, you can see it's an exponential growth.
+
+884
+02:14:16.950 --> 02:14:27.140
+Jitendra U: Over a period of last, several years, just 8 years. It has been becoming, almost 43,000…
+
+885
+02:14:28.870 --> 02:14:34.080
+Jitendra U: Billion industry from 3,000 billion industry.
+
+886
+02:14:35.850 --> 02:14:40.900
+Jitendra U: So it is becoming almost $43.9 billion in industry now.
+
+887
+02:14:41.050 --> 02:14:49.529
+Jitendra U: Right? So the NLP is basically… is all about… performing… the basics…
+
+888
+02:14:49.810 --> 02:15:04.960
+Jitendra U: the basics that we have just learned and explored, which include name entity recognition, part of speech tagging, extractive summary, abstractive summary, etc, 21 classification. All these things are becoming very, very useful for the purpose of
+
+889
+02:15:05.760 --> 02:15:10.999
+Jitendra U: Making sure that these algorithms are getting more advanced day by day.
+
+890
+02:15:11.960 --> 02:15:12.790
+Jitendra U: Right?
+
+891
+02:15:13.000 --> 02:15:21.660
+Jitendra U: So, in simple terms, if I have to say, the core capability of NLP comes from…
+
+892
+02:15:22.210 --> 02:15:24.500
+Jitendra U: These specialized data models.
+
+893
+02:15:26.630 --> 02:15:27.390
+Jitendra U: Right?
+
+894
+02:15:27.550 --> 02:15:40.770
+Jitendra U: Now, on the top of the spatialized data model, you get more advanced models, like transform-based architecture. There's architectural change. An architectural change leads to a lot of recent development in NLP.
+
+895
+02:15:46.050 --> 02:15:51.350
+Jitendra U: So, I will talk about one more important use case about language translation.
+
+896
+02:15:57.490 --> 02:16:01.400
+Jitendra U: So, a language translation I'm going to convert…
+
+897
+02:16:02.360 --> 02:16:04.279
+Jitendra U: a French word to a German.
+
+898
+02:16:08.330 --> 02:16:16.220
+Jitendra U: Or vice versa, right? So I would like to show you how this particular language translation works behind the scene.
+
+899
+02:16:16.530 --> 02:16:21.210
+Jitendra U: So I would like to show you a demo which will be able to convert English to French and French to English.
+
+900
+02:16:22.640 --> 02:16:30.520
+Jitendra U: And then, based upon that, we will see how, behind the scenes this particular model works, and what is the core package that we are going to use.
+
+901
+02:16:39.860 --> 02:16:42.000
+Jitendra U: Let me write down a demo.
+
+902
+02:16:46.780 --> 02:16:48.089
+Jitendra U: Let me go back…
+
+903
+02:16:59.100 --> 02:17:02.389
+Jitendra U: So first, let me import these packages.
+
+904
+02:17:20.620 --> 02:17:25.840
+Jitendra U: Yeah, it will support Indian language as well. It will support regional language, Indian language.
+
+905
+02:17:26.450 --> 02:17:27.420
+Jitendra U: as well.
+
+906
+02:17:27.650 --> 02:17:35.540
+Jitendra U: But you need a specific… translator model for doing so. So here I'm using Opus French-to-English model.
+
+907
+02:17:38.290 --> 02:17:39.660
+Jitendra U: for translation.
+
+908
+02:18:27.340 --> 02:18:28.950
+Jitendra U: Alright, so you can see that.
+
+909
+02:18:29.330 --> 02:18:32.509
+Jitendra U: How nicely it is converting English to a French.
+
+910
+02:18:35.090 --> 02:18:37.070
+Jitendra U: And also French to English.
+
+911
+02:18:38.900 --> 02:18:43.219
+Jitendra U: It is making the bidirectional translation consistency pretty good.
+
+912
+02:18:47.379 --> 02:18:50.130
+Jitendra U: Alright, so all I have to do is I have to just import
+
+913
+02:18:50.450 --> 02:18:53.530
+Jitendra U: These packages, which are very powerful models.
+
+914
+02:18:53.940 --> 02:18:57.359
+Jitendra U: And then creating a pipeline to run this model.
+
+915
+02:18:58.559 --> 02:19:03.299
+Jitendra U: And they are all a part of a transformer-based architecture, and transformer architecture
+
+916
+02:19:03.760 --> 02:19:15.299
+Jitendra U: I will not discuss in this class, because it's very complex if I start this discussion. But anyway, this is, assume this is a Python package, and in Python package, you're importing a pipeline.
+
+917
+02:19:15.400 --> 02:19:17.929
+Jitendra U: And from pipeline, you're translating.
+
+918
+02:19:18.520 --> 02:19:20.030
+Jitendra U: Using these models.
+
+919
+02:19:21.150 --> 02:19:26.650
+Jitendra U: Alright, so this model translation… Is something which we are able to do
+
+920
+02:19:27.190 --> 02:19:32.870
+Jitendra U: when we are running English to French translation, functionality in NLP.
+
+921
+02:19:42.360 --> 02:19:45.570
+Jitendra U: Right, so you can see that, how easily we are able to do that.
+
+922
+02:19:47.580 --> 02:19:55.299
+Jitendra U: So how easily we are able to do that with few lines of code, just 40 to 30 lines of code, we are able to do this advanced translation.
+
+923
+02:19:58.470 --> 02:20:08.599
+Jitendra U: This will not support OCR. OCR is a vision transformer, so here we are talking about sentence transformers. So, vision transformer is different. OCR will be supported by vision transformers.
+
+924
+02:20:09.040 --> 02:20:11.349
+Jitendra U: Which we are going to learn in next tutorial.
+
+925
+02:20:17.650 --> 02:20:20.530
+Jitendra U: But this is what the translation looks like.
+
+926
+02:20:20.650 --> 02:20:22.580
+Jitendra U: So, any question on translation?
+
+927
+02:20:25.360 --> 02:20:27.790
+Jitendra U: Yes, RAG model also use transformer.
+
+928
+02:20:33.500 --> 02:20:36.569
+Jitendra U: Any question, guys, on this?
+
+929
+02:20:44.400 --> 02:20:49.290
+Jitendra U: So, we have seen some exciting, modules in NLP.
+
+930
+02:20:49.430 --> 02:20:50.960
+Jitendra U: And I hope,
+
+931
+02:20:51.410 --> 02:21:02.680
+Jitendra U: you enjoy this session, right? Because this is something you have asked, so I was not supporting that I should teach NLP in class number 5 or 6, but since you have requested that we need
+
+932
+02:21:02.810 --> 02:21:06.669
+Jitendra U: To have a refresher of everything. So this is what the refresher looks like.
+
+933
+02:21:14.860 --> 02:21:18.139
+Jitendra U: You have to go to the API description of Transformer.
+
+934
+02:21:19.410 --> 02:21:21.219
+Jitendra U: And then you can able to see this.
+
+935
+02:21:25.160 --> 02:21:29.340
+Jitendra U: Yeah, I think previous classes asked this, that we need a refresher.
+
+936
+02:21:33.270 --> 02:21:37.060
+Jitendra U: So, this is how the refresher looks like. So, NLP is an advanced topic.
+
+937
+02:21:43.670 --> 02:21:51.659
+Jitendra U: Alright, so, just want to quick recap what we have learned so far. So, we have just learned the NLP, right? How the NLP word looks like.
+
+938
+02:21:51.990 --> 02:21:55.269
+Jitendra U: Yes, we'll cover this into NLP, a deep…
+
+939
+02:21:55.710 --> 02:21:59.310
+Jitendra U: analysis. So this is just, basics of an LP.
+
+940
+02:21:59.720 --> 02:22:05.000
+Jitendra U: So we have understood how NLP works, what are the different components of NLP,
+
+941
+02:22:05.140 --> 02:22:22.009
+Jitendra U: natural language processing. We understand how to perform the text cleansing, how to perform POS tagging, we understand how to perform sentiment analysis. We have talked about how to prepare our data by cleaning the data, and then train the model on the top of this data.
+
+942
+02:22:22.400 --> 02:22:28.429
+Jitendra U: We've also talked about, how to utilize POS taggers to find out the
+
+943
+02:22:29.010 --> 02:22:32.120
+Jitendra U: Part of speech tagging as a part of a lexical search.
+
+944
+02:22:32.260 --> 02:22:36.919
+Jitendra U: We've also talked about how to utilize the model
+
+945
+02:22:40.110 --> 02:22:49.000
+Jitendra U: For various tasks, including, lemmatization, stamming, etc, that will convert.
+
+946
+02:22:49.190 --> 02:22:55.930
+Jitendra U: the word to a root word, right? We've also talked about how to perform language translation with the help of an LP.
+
+947
+02:22:57.320 --> 02:23:06.800
+Jitendra U: So I think this is a decent introduction that we have covered as a part of NLP, and then we also talked about topic modeling, how to perform a topic modeling using LDA.
+
+948
+02:23:07.310 --> 02:23:11.820
+Jitendra U: Right, so all this thing that we have discussed so far in this tutorial will be…
+
+949
+02:23:12.200 --> 02:23:17.109
+Jitendra U: basically going to be continuing another module, the advanced module of NLP.
+
+950
+02:23:19.900 --> 02:23:23.230
+Jitendra U: Yeah, that is what I'm talking about. So, can you write this…
+
+951
+02:23:23.690 --> 02:23:27.520
+Jitendra U: To the team, and then ask them to change the pedagogy?
+
+952
+02:23:28.590 --> 02:23:31.129
+Jitendra U: I'm with you on this.
+
+953
+02:23:39.530 --> 02:23:43.810
+Jitendra U: Yeah, so once we cover this topic, then we'll again revisit the ADA part of it.
+
+954
+02:24:06.060 --> 02:24:11.419
+Jitendra U: Yeah, I agree, I agree, completely agree, but this is a part of a curriculum, so I cannot help.
+
+955
+02:24:11.850 --> 02:24:12.840
+Jitendra U: Either…
+
+956
+02:24:13.670 --> 02:24:20.020
+Jitendra U: So please write back to the content management team, and they will help you to reshuffle these topics back
+
+957
+02:24:21.000 --> 02:24:25.159
+Jitendra U: Because, this is a break of flow, I agree with your point.
+
+958
+02:24:27.070 --> 02:24:28.819
+Jitendra U: Yeah, let me share the code.
+
+959
+02:24:56.330 --> 02:24:59.210
+Jitendra U: Yes, this file, I have all examples that you required.
+
+960
+02:25:05.610 --> 02:25:10.090
+Jitendra U: There's one more session on Vision Transformer, the vision part of it, how to solve
+
+961
+02:25:10.630 --> 02:25:18.499
+Jitendra U: The image-based problem, video-based problem, and frequency-based problems. Voice-based waste detection.
+
+962
+02:25:18.960 --> 02:25:24.720
+Jitendra U: That will give you some sort of understanding. The next week, we will have that session.
+
+963
+02:25:24.910 --> 02:25:31.220
+Jitendra U: So that will also, again, give you some more understanding on how to deal with unstructured data, like voice.
+
+964
+02:25:31.380 --> 02:25:33.540
+Jitendra U: Image, text, and video.
+
+965
+02:25:39.860 --> 02:25:40.720
+Jitendra U: Yup.
+
+966
+02:25:41.140 --> 02:25:43.660
+Jitendra U: No, this Thursday we don't have any class.
+
+967
+02:25:58.030 --> 02:26:01.499
+Jitendra U: Okay, so yeah, that means you have some intersession.
+
+968
+02:26:02.140 --> 02:26:03.939
+Jitendra U: In that, you're gonna discuss this.
+
+969
+02:26:08.750 --> 02:26:15.030
+Jitendra U: But I believe you enjoy the session, because you at least get a gist of NLP. So NLP is not easy.
+
+970
+02:26:15.770 --> 02:26:19.369
+Jitendra U: Right? First and foremost thing you have to understand, NLP is not a cakewalk.
+
+971
+02:26:19.940 --> 02:26:23.380
+Jitendra U: So you have to ensure that, you should understand the basics.
+
+972
+02:26:23.800 --> 02:26:26.080
+Jitendra U: And then move into the advanced topic.
+
+973
+02:26:38.470 --> 02:26:41.309
+Jitendra U: Yeah, so they just take it as a refresher.
+
+974
+02:26:42.440 --> 02:26:52.979
+Jitendra U: And then… We will discuss, the in-depth module In the upcoming tutorials.
+
+975
+02:26:53.670 --> 02:27:02.009
+Jitendra U: So this is just a basic refresher of NLP, nothing else, right? But at least you got a gist of what are the packages, commercial.
+
+976
+02:27:02.670 --> 02:27:07.320
+Jitendra U: And, python ways to write these modules.
+
+977
+02:27:16.200 --> 02:27:29.469
+Jitendra U: All right, so I think, we are closing, 30 minutes prior, guys, so… so thank you for attending this class, and we will meet in the next discussion, and we'll talk about some more exciting stuff on…
+
+978
+02:27:29.980 --> 02:27:35.810
+Jitendra U: the… The tax and vision transformers, and that will be another…
+
+979
+02:27:36.120 --> 02:27:42.889
+Jitendra U: important consideration for vision transformers. So thank you for attending this class, and it was a pleasure to have an interaction.
+
+980
+02:27:43.170 --> 02:27:43.970
+Jitendra U: Thank you.
+

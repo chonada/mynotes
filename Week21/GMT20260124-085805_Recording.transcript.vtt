@@ -1,0 +1,5766 @@
+WEBVTT
+
+1
+00:00:15.200 --> 00:00:20.019
+Jitendra K: Hey guys, just give a couple of more minutes, we can start, participants are joining.
+
+2
+00:01:26.930 --> 00:01:31.119
+Jitendra K: Alright, Guys, I hope you're doing well.
+
+3
+00:01:31.660 --> 00:01:36.629
+Jitendra K: Just a quick check if my screen is visible to everyone, are you able to see the slides?
+
+4
+00:01:41.690 --> 00:01:43.710
+Jitendra K: Alright, thank you for the confirmation.
+
+5
+00:01:44.350 --> 00:01:51.549
+Jitendra K: So this is week number 21, and we are going to start with a new topic called decision tree, and this is one of the
+
+6
+00:01:52.340 --> 00:01:58.820
+Jitendra K: I would say we are going to start with a new algorithm, new set of algorithms, which is called dys-entry classifiers.
+
+7
+00:01:59.240 --> 00:02:08.409
+Jitendra K: And, in the… this particular cohort, we will study what are a decision tree, what are the different criterias of establishing a decision tree.
+
+8
+00:02:08.810 --> 00:02:14.610
+Jitendra K: When we say in data science, decision tree is… I would say the…
+
+9
+00:02:14.830 --> 00:02:18.760
+Jitendra K: Base algorithm for so many other machine learning algorithms.
+
+10
+00:02:18.990 --> 00:02:23.349
+Jitendra K: So we'll talk about Ensemble in week number 22, that means next class.
+
+11
+00:02:23.620 --> 00:02:29.249
+Jitendra K: But before that, let's try to understand the basics of dysentery and try to get hands-on with dysentry.
+
+12
+00:02:29.740 --> 00:02:39.220
+Jitendra K: Now, when I say decision tree, it's another algorithm that we are going to talk about in today's tutorial. So, when we say decision tree, it's a kind of tree-based model.
+
+13
+00:02:39.390 --> 00:02:49.700
+Jitendra K: which will have certain condition inhibit inside it, right? So when we say DC entry, there are different types of DC entry. Classifier, we will talk about that in a while.
+
+14
+00:02:49.820 --> 00:02:54.510
+Jitendra K: But let's try to understand first what is DC entry. So, DC entry is a set of algorithm
+
+15
+00:02:55.710 --> 00:02:59.090
+Jitendra K: Which is come under supervised learning approach.
+
+16
+00:02:59.660 --> 00:03:03.550
+Jitendra K: So, this is another supervised learning approach. That means you have to find out
+
+17
+00:03:03.870 --> 00:03:07.960
+Jitendra K: The labels associated with your data when you're training the model.
+
+18
+00:03:08.180 --> 00:03:17.479
+Jitendra K: So whenever we talk about supervised learning models, so we are training with label data, right? That means we are supervising that particular model with a labeled data training.
+
+19
+00:03:17.750 --> 00:03:28.559
+Jitendra K: So a decent tree is a supervised machine learning algorithm that has been used for predicting a category, or even predicting a numerical value. That means we can use this particular algorithm for
+
+20
+00:03:28.760 --> 00:03:31.130
+Jitendra K: Classification, as well as for regression.
+
+21
+00:03:31.710 --> 00:03:40.330
+Jitendra K: So the idea is, it used a conditional flowchart, just like a tree structure, that mimics the human reasoning.
+
+22
+00:03:40.830 --> 00:03:48.120
+Jitendra K: Now, if I have to give you an idea of a decision tree, so let's take a real-world example. Let's say you're trying to take a decision.
+
+23
+00:03:49.000 --> 00:03:52.209
+Jitendra K: So, imagine that you have got
+
+24
+00:03:52.770 --> 00:03:56.650
+Jitendra K: Some amount, some handsome amount of bonus from your company.
+
+25
+00:03:57.470 --> 00:04:01.100
+Jitendra K: And you would like to purchase… a car.
+
+26
+00:04:01.330 --> 00:04:02.250
+Jitendra K: Right?
+
+27
+00:04:02.920 --> 00:04:07.569
+Jitendra K: So, let's say you've got some X amount of money, From your company?
+
+28
+00:04:09.310 --> 00:04:11.119
+Jitendra K: And you would like to buy a car.
+
+29
+00:04:11.910 --> 00:04:25.070
+Jitendra K: Now, how will you decide which car you would like to buy? So, you might be looking for some luxury cars, or you're targeting some… maybe a second-hand car as well, maybe, if you're not affording it.
+
+30
+00:04:26.020 --> 00:04:43.090
+Jitendra K: You might be looking for different specifications, the manufacturers of that particular car, the kind of accessories that it has, the mileage, mph, horsepower, cylinders, other types of input configuration you would like to look forward.
+
+31
+00:04:43.280 --> 00:04:53.890
+Jitendra K: And then, once you convince, after a test drive and all, visiting a showroom and then, then you decide that I would like to go with this car, right? Because of certain characteristics.
+
+32
+00:04:53.990 --> 00:05:05.710
+Jitendra K: Which are coming under your decision criterias, right? And you will say that I would not go for this option. Similarly, if you are looking for a book, a simple book, right, on a machine learning.
+
+33
+00:05:06.030 --> 00:05:08.140
+Jitendra K: you visit an Amazon store.
+
+34
+00:05:09.020 --> 00:05:13.890
+Jitendra K: over a website, and then you look for several options. So you might came across several books.
+
+35
+00:05:14.000 --> 00:05:18.380
+Jitendra K: Which is of different author, different topics, different subjects.
+
+36
+00:05:18.780 --> 00:05:36.480
+Jitendra K: And as you browse through the content, table of content, there's a… there's a way that you can be able to look into the top table of content. You can see the ratings of that book, you can see the reviews from that book, you will be able to hear from communities, trainers, etc, that this book is highly
+
+37
+00:05:36.870 --> 00:05:43.949
+Jitendra K: recommended for data science, right? Like, Tom Michel, or… there's a book from Tom Michel, which is very famous for data science.
+
+38
+00:05:44.100 --> 00:05:52.190
+Jitendra K: So let's say you would like to go with a word-of-mouth publicity, and then you decide that I would like to purchase this book, right? Or download this book, or pay for this book.
+
+39
+00:05:52.490 --> 00:05:58.579
+Jitendra K: Whatever way that you would like to read, Amazon, Kindle, or maybe any other types of browser-based models.
+
+40
+00:05:58.850 --> 00:06:04.930
+Jitendra K: So, you would like to take a decision based upon certain conditions. So, there's always a condition associated with your decision.
+
+41
+00:06:05.210 --> 00:06:09.130
+Jitendra K: So this condition will help you to navigate to your final
+
+42
+00:06:10.080 --> 00:06:15.770
+Jitendra K: decision-making process, right? So there are different sides, sort of,
+
+43
+00:06:16.880 --> 00:06:22.949
+Jitendra K: Conditional looping on which we are taking decisions in our day-to-day life.
+
+44
+00:06:23.450 --> 00:06:31.690
+Jitendra K: So when we are representing this kind of conditional statement, they are probabilical transactions, transitions, right? So when we say decision tree.
+
+45
+00:06:32.070 --> 00:06:39.399
+Jitendra K: So, here we are using the core structure of decision-making process, where the topmost node represent the entire data set.
+
+46
+00:06:40.190 --> 00:06:45.509
+Jitendra K: And that first decision point, Where the node has been split.
+
+47
+00:06:46.330 --> 00:06:50.689
+Jitendra K: Will be coming under your scenarios of
+
+48
+00:06:51.570 --> 00:06:54.120
+Jitendra K: Your information that you're trying to.
+
+49
+00:06:54.680 --> 00:06:57.080
+Jitendra K: potentially evaluate.
+
+50
+00:06:57.640 --> 00:07:04.339
+Jitendra K: Right? So basically, if a decient… if I have to just give you a very simple analog decient tree, so you can think this off.
+
+51
+00:07:04.780 --> 00:07:09.590
+Jitendra K: As a… maybe a simple… Travis structure, which we'll have.
+
+52
+00:07:10.420 --> 00:07:17.050
+Jitendra K: The different types of conditional statement to it, that you're passing to it, with the help of data now.
+
+53
+00:07:17.510 --> 00:07:25.389
+Jitendra K: So, when we say the help of a data, that means here… you're going to start with a root node, where you are going to pass all data points.
+
+54
+00:07:25.580 --> 00:07:29.409
+Jitendra K: So here, I'm going to use all data points as an input.
+
+55
+00:07:30.330 --> 00:07:32.339
+Jitendra K: Then I'm going to split my data.
+
+56
+00:07:32.820 --> 00:07:35.699
+Jitendra K: At a node level, which is my decision node.
+
+57
+00:07:36.440 --> 00:07:40.949
+Jitendra K: And then I would like to reach… several sub-nodes.
+
+58
+00:07:42.020 --> 00:07:48.250
+Jitendra K: And then finally, I will reach the leaf node, which is my actual decision, which could be a binary yes.
+
+59
+00:07:48.480 --> 00:07:49.799
+Jitendra K: Or a binary null.
+
+60
+00:07:50.060 --> 00:07:52.710
+Jitendra K: Right? Or it could be, if it's continuous.
+
+61
+00:07:53.190 --> 00:08:01.609
+Jitendra K: then it will get a numerical value at the last node. So the idea of decision tree is very simple. You are going to represent this kind of transition
+
+62
+00:08:02.030 --> 00:08:08.680
+Jitendra K: along with your data point, to reach this leaf node. We are going to reach this leaf node based upon this condition.
+
+63
+00:08:09.320 --> 00:08:17.499
+Jitendra K: So, let's take an example of a real-world use cases for decentry that will help us to solve some of the typical financial
+
+64
+00:08:18.050 --> 00:08:24.889
+Jitendra K: Or, some of the Typical e-commerce-based problem statement, or even medical diagnostic.
+
+65
+00:08:25.320 --> 00:08:29.350
+Jitendra K: To solve the problem that this entry can solve is credit risk evaluation.
+
+66
+00:08:29.850 --> 00:08:33.740
+Jitendra K: So basically, if you would like to evaluate the potential
+
+67
+00:08:34.250 --> 00:08:37.699
+Jitendra K: client, which has been applied for credit card.
+
+68
+00:08:38.700 --> 00:08:43.499
+Jitendra K: And then, depending upon those credit card details that he furnished.
+
+69
+00:08:43.789 --> 00:08:52.030
+Jitendra K: about when it is trying to onboard, when you're trying to onboard a client, right? He will provide you several details about their income, their age.
+
+70
+00:08:52.360 --> 00:08:58.739
+Jitendra K: Their portfolios, their past loan histories, etc. And then he will apply for a credit card.
+
+71
+00:08:59.160 --> 00:09:02.520
+Jitendra K: So, or maybe you will have a bank account associated with that customer.
+
+72
+00:09:02.680 --> 00:09:08.059
+Jitendra K: So, based upon the civil score, based upon different, options, you will evaluate the potential
+
+73
+00:09:09.860 --> 00:09:18.139
+Jitendra K: of that particular client to payback. So you're predicting the probability of payback. You're assuming that credit card will be used by the customer, right?
+
+74
+00:09:18.260 --> 00:09:21.900
+Jitendra K: So you're predicting the probability of payback, that particular amount.
+
+75
+00:09:22.240 --> 00:09:24.240
+Jitendra K: The probability of default.
+
+76
+00:09:24.790 --> 00:09:29.980
+Jitendra K: It's just a reciprocal term here we are using. So we are saying probability of default should be low.
+
+77
+00:09:30.610 --> 00:09:33.629
+Jitendra K: Then only I will offer a credit card to this customer.
+
+78
+00:09:33.840 --> 00:09:36.470
+Jitendra K: So I'm predicting the probability of a default.
+
+79
+00:09:37.020 --> 00:09:41.060
+Jitendra K: for a credit card application, and depending upon that, I will take a decision.
+
+80
+00:09:41.330 --> 00:09:46.750
+Jitendra K: And there are so many factors on which I will take a decision. Some of the factors include demographics.
+
+81
+00:09:47.130 --> 00:09:53.999
+Jitendra K: income… Their past loans, civil scores, any other credit card.
+
+82
+00:09:54.120 --> 00:10:00.419
+Jitendra K: Any kind of other loans, etc. And then you will take a decision to consolidate a score on the top of it.
+
+83
+00:10:00.880 --> 00:10:16.009
+Jitendra K: So you will use the historical data to train the model. Like, you might have a different sort of historical data on which these decisions have been taken already by someone, right? Maybe a resource manager or a bank executives who are doing it manually.
+
+84
+00:10:16.310 --> 00:10:22.229
+Jitendra K: So that will become a label for your model, and you're trying to mimic the same decision with the help of algorithm.
+
+85
+00:10:22.750 --> 00:10:25.820
+Jitendra K: And that's the reason it is coming under decaying tree.
+
+86
+00:10:27.650 --> 00:10:28.730
+Jitendra K: Alright.
+
+87
+00:10:28.960 --> 00:10:35.950
+Jitendra K: Will the tree be for each factor? We'll talk about all these criterias, how the tree has been constructed. First, understand the basics of the second tree.
+
+88
+00:10:37.000 --> 00:10:44.919
+Jitendra K: Okay, so when we say decision tree, we have a root node, we have an internal decision node, so I will say this is my internal decision nodes.
+
+89
+00:10:45.820 --> 00:10:50.279
+Jitendra K: Right? So this is another decent tree. I would say it's a subtree of the original tree.
+
+90
+00:10:50.730 --> 00:10:58.039
+Jitendra K: Then I've got a leaf node, or a terminal node. So that means this is the last part of my distant tree, after which.
+
+91
+00:10:58.240 --> 00:11:00.049
+Jitendra K: You cannot traverse any further.
+
+92
+00:11:00.430 --> 00:11:06.350
+Jitendra K: So this is the final node at the bottom that represents a predicted class or a value that does not split any further.
+
+93
+00:11:07.000 --> 00:11:14.269
+Jitendra K: And then you have got the branches. So these are the branches that I'm using. So the branches will be helping to connect the nodes.
+
+94
+00:11:14.950 --> 00:11:21.050
+Jitendra K: Right? So how this algorithm works… so it uses a concept called divide and conquer strategies.
+
+95
+00:11:21.320 --> 00:11:26.009
+Jitendra K: To split the data into increasing homogeneous, homogeneous subsets.
+
+96
+00:11:26.590 --> 00:11:32.570
+Jitendra K: So, first and foremost thing, what it does is, it will have used all your data points. So, start with all your data points.
+
+97
+00:11:32.910 --> 00:11:41.449
+Jitendra K: Then it will say that I would like to use and evaluate all the available features, and choose the one that best separate the data according to the specific
+
+98
+00:11:41.630 --> 00:11:42.690
+Jitendra K: metrics.
+
+99
+00:11:43.020 --> 00:11:50.780
+Jitendra K: The first and foremost thing what you're going to do is, you are trying to use a data site and divide into a sub-site based upon those chosen features.
+
+100
+00:11:51.230 --> 00:11:54.560
+Jitendra K: And then you are going to use a recursion, which is a process of
+
+101
+00:11:55.180 --> 00:11:59.699
+Jitendra K: Repeating each subset until our stop condition is going to be met.
+
+102
+00:12:00.420 --> 00:12:02.989
+Jitendra K: So, once you reach a maximum tree depth.
+
+103
+00:12:03.210 --> 00:12:06.160
+Jitendra K: Which is providing as a parameter in your algorithm.
+
+104
+00:12:07.210 --> 00:12:14.109
+Jitendra K: And then, once you see that all the samples belong in the node, Or one class has been…
+
+105
+00:12:15.010 --> 00:12:20.290
+Jitendra K: concentrated, then you can Stop that algorithm from being learned.
+
+106
+00:12:21.100 --> 00:12:27.659
+Jitendra K: Right, so we will understand the key metrics of the algorithm used to split this data.
+
+107
+00:12:28.110 --> 00:12:33.489
+Jitendra K: So, there are three key metrics. So, we'll talk about these three metrics. The first metrics.
+
+108
+00:12:35.980 --> 00:12:38.040
+Jitendra K: It's called Guinea Index.
+
+109
+00:12:38.280 --> 00:12:40.050
+Jitendra K: Or Guinea impurity.
+
+110
+00:12:41.160 --> 00:12:44.550
+Jitendra K: Ginny impurity, or you can say sometimes guinea impurity.
+
+111
+00:12:49.950 --> 00:12:56.389
+Jitendra K: There's something called entropy, which is a very important concept. Once you understand entropy, you will understand everything.
+
+112
+00:12:58.120 --> 00:13:02.950
+Jitendra K: Because these three terms, the third term is for information gain.
+
+113
+00:13:03.500 --> 00:13:04.600
+Jitendra K: IG.
+
+114
+00:13:05.750 --> 00:13:10.470
+Jitendra K: So, these three terms, guinea, entropy, and information gain.
+
+115
+00:13:10.980 --> 00:13:13.999
+Jitendra K: If you would like to understand, you have to understand entropy.
+
+116
+00:13:14.820 --> 00:13:17.390
+Jitendra K: And remaining thing you can able to understand automatically.
+
+117
+00:13:18.010 --> 00:13:22.409
+Jitendra K: So we'll talk about these conditions in a more mathematical terms.
+
+118
+00:13:23.150 --> 00:13:27.709
+Jitendra K: So, we'll start with entropy, as I mentioned. So, what is entropy?
+
+119
+00:13:28.570 --> 00:13:36.269
+Jitendra K: So, did you heard about entropy in physics? How many of you have understood this term in physics? What is entropy, in a one line?
+
+120
+00:13:38.060 --> 00:13:40.300
+Jitendra K: If I have to ask you what is entropy.
+
+121
+00:13:41.020 --> 00:13:43.449
+Jitendra K: What is the purpose of entropy?
+
+122
+00:13:43.820 --> 00:13:47.599
+Jitendra K: Wastage… No, it's not wastage.
+
+123
+00:13:56.130 --> 00:14:04.119
+Jitendra K: Total variability in system, Measure of impurity. Okay, measure of randomness, it's not measure of impurity.
+
+124
+00:14:04.640 --> 00:14:08.100
+Jitendra K: When I say entropy, the degree of randomness.
+
+125
+00:14:09.420 --> 00:14:15.960
+Jitendra K: Yes, major of disorder. So, I think you might have heard about this term in… Thermodynamics.
+
+126
+00:14:16.190 --> 00:14:19.400
+Jitendra K: How many of you are using physics as your subject?
+
+127
+00:14:24.060 --> 00:14:29.189
+Jitendra K: Or all are from physics background, or some are from e-commerce? Sorry, e-commerce?
+
+128
+00:14:33.040 --> 00:14:40.960
+Jitendra K: Okay, maybe a commerce student might not have heard about this term, but physics students, mathematics students should have biological student.
+
+129
+00:14:41.230 --> 00:14:45.179
+Jitendra K: I also have physics as a subject, so I'm assuming that there are only three
+
+130
+00:14:46.380 --> 00:14:48.300
+Jitendra K: Subject you might have chosen.
+
+131
+00:14:48.440 --> 00:14:55.489
+Jitendra K: No, I'm not talking about, engineering, I'm talking about even… 12 standards, your high secondaries.
+
+132
+00:15:01.980 --> 00:15:09.089
+Jitendra K: Yeah, might we heard about this term? Might we have re-heard about this term in digital communication, when you're talking about signal entropy?
+
+133
+00:15:11.750 --> 00:15:22.659
+Jitendra K: Okay, Shannon entropy, or signal entropy, I think these terms you might have heard. Okay, but… okay, let's try to understand again. So basically when I say entropy.
+
+134
+00:15:23.080 --> 00:15:29.120
+Jitendra K: Anthropy is a term which has been used to explain system randomness.
+
+135
+00:15:29.870 --> 00:15:32.070
+Jitendra K: Now, when you say system randomness.
+
+136
+00:15:32.400 --> 00:15:35.219
+Jitendra K: What is system randomness is all about?
+
+137
+00:15:35.570 --> 00:15:42.019
+Jitendra K: Can we say the randomness in terms of disorder, or in terms of…
+
+138
+00:15:42.990 --> 00:15:50.289
+Jitendra K: maybe a simple experimentation we will do. So if I have to explain you very simple terms, what is entropy?
+
+139
+00:15:50.600 --> 00:15:54.780
+Jitendra K: In a very simple terms, with, experimentation.
+
+140
+00:15:56.030 --> 00:16:01.389
+Jitendra K: to pick… a random object out of the box. Let me give you an example.
+
+141
+00:16:11.180 --> 00:16:14.710
+Jitendra K: Okay, so let me explain this with an example. So imagine…
+
+142
+00:16:17.720 --> 00:16:19.069
+Jitendra K: Imagine that…
+
+143
+00:16:22.530 --> 00:16:25.730
+Jitendra K: I'm just giving… let me go back to my notebook.
+
+144
+00:16:47.150 --> 00:16:50.309
+Jitendra K: So we are learning algorithm, right? The sentry algorithm.
+
+145
+00:16:50.970 --> 00:16:55.280
+Jitendra K: So, the first concept that we are trying to understand is the split criteria.
+
+146
+00:16:55.390 --> 00:16:57.650
+Jitendra K: We're discussing about a split criteria.
+
+147
+00:17:10.640 --> 00:17:15.809
+Jitendra K: And there are different types of criteria. The first criteria that we're talking about is entropy.
+
+148
+00:17:17.490 --> 00:17:21.590
+Jitendra K: Then we have got… Genie Index.
+
+149
+00:17:26.200 --> 00:17:27.620
+Jitendra K: And then we have…
+
+150
+00:17:30.940 --> 00:17:36.739
+Jitendra K: The third parameter that we are using it's called…
+
+151
+00:17:40.620 --> 00:17:42.170
+Jitendra K: information gain.
+
+152
+00:17:50.610 --> 00:17:52.720
+Jitendra K: So, we are discussing about entropy.
+
+153
+00:17:53.250 --> 00:17:57.630
+Jitendra K: So, let's imagine that, I'm giving you 3 or 4 scenarios.
+
+154
+00:17:58.120 --> 00:18:00.160
+Jitendra K: So I'm giving you scenario number one.
+
+155
+00:18:10.290 --> 00:18:15.690
+Jitendra K: And I'm asking that I have a bag, or a stack.
+
+156
+00:18:16.370 --> 00:18:22.539
+Jitendra K: Which comprises of… 5 red balls, marbles.
+
+157
+00:18:23.660 --> 00:18:29.650
+Jitendra K: 6, 7, 8, 9, 10. 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10.
+
+158
+00:18:29.930 --> 00:18:35.239
+Jitendra K: So I've got these 8… I have got a 10 marbles, which is all of red color.
+
+159
+00:18:35.790 --> 00:18:40.920
+Jitendra K: And I'm asking you to pick up… pick up marble, And then…
+
+160
+00:18:42.820 --> 00:18:50.699
+Jitendra K: And then I'm… I'm playing this with an experimentation, so I'm… maybe I have put up a blindfold on your eye.
+
+161
+00:18:50.960 --> 00:18:56.109
+Jitendra K: That means, you might have to close your eyes and then pick up the marble from the bag.
+
+162
+00:18:56.490 --> 00:18:59.579
+Jitendra K: So what is the probability that this marble will be of red color?
+
+163
+00:19:02.160 --> 00:19:04.840
+Jitendra K: So this is 100%, right?
+
+164
+00:19:05.230 --> 00:19:10.570
+Jitendra K: the probability of picking the right marble is 100%. This is certain, because all the
+
+165
+00:19:12.380 --> 00:19:20.500
+Jitendra K: marbles that are kept inside the bag is of red color, so there's no uncertainty. So you exactly know what you are going to get.
+
+166
+00:19:21.550 --> 00:19:24.250
+Jitendra K: So this is a scenario of zero entropy.
+
+167
+00:19:25.100 --> 00:19:26.350
+Jitendra K: No randomness.
+
+168
+00:19:27.520 --> 00:19:31.429
+Jitendra K: Imagine I'm giving you another scenario. I have a bag of stack.
+
+169
+00:19:32.210 --> 00:19:34.210
+Jitendra K: And this time, I'm keeping…
+
+170
+00:19:44.790 --> 00:19:46.890
+Jitendra K: One blue marble.
+
+171
+00:19:49.990 --> 00:19:51.360
+Jitendra K: Inside this.
+
+172
+00:19:52.360 --> 00:19:57.109
+Jitendra K: So, imagine I'm asking you to pick a ball, or a marble.
+
+173
+00:19:57.730 --> 00:20:06.330
+Jitendra K: And by the way, I'm declaring this, that I've got these 9 red and 1 blue marble. I've already declared this.
+
+174
+00:20:06.460 --> 00:20:08.089
+Jitendra K: Now, I'm asking you to pick it up.
+
+175
+00:20:08.790 --> 00:20:12.830
+Jitendra K: So what is the probability that you will get the red ball or red marble?
+
+176
+00:20:13.540 --> 00:20:14.390
+Jitendra K: Right?
+
+177
+00:20:14.550 --> 00:20:18.530
+Jitendra K: So, I would say 90% You will get…
+
+178
+00:20:19.690 --> 00:20:22.599
+Jitendra K: the right marble, because I've got…
+
+179
+00:20:23.250 --> 00:20:26.499
+Jitendra K: Only one blue marble inside my bag of stack.
+
+180
+00:20:27.080 --> 00:20:31.910
+Jitendra K: Right, so this is the condition of… low entropy.
+
+181
+00:20:39.030 --> 00:20:42.930
+Jitendra K: Now, imagine I'm giving you… another stack.
+
+182
+00:20:43.970 --> 00:20:49.540
+Jitendra K: where I've got… 5… Red marbles.
+
+183
+00:20:50.860 --> 00:20:54.160
+Jitendra K: and 5… Blue marbles.
+
+184
+00:20:56.640 --> 00:20:59.280
+Jitendra K: Now, this is the most disordered
+
+185
+00:20:59.840 --> 00:21:06.410
+Jitendra K: data, or I would say the stack that I'm using, So there are 50% chances.
+
+186
+00:21:07.240 --> 00:21:10.700
+Jitendra K: equal probability scenarios that I will get.
+
+187
+00:21:11.780 --> 00:21:15.629
+Jitendra K: The red marble of my choice, or a blue marble.
+
+188
+00:21:15.800 --> 00:21:16.880
+Jitendra K: From the stack.
+
+189
+00:21:17.490 --> 00:21:25.599
+Jitendra K: And this is the most… or I would say maximum entropy scenario.
+
+190
+00:21:28.400 --> 00:21:31.650
+Jitendra K: So that means entropy relates probability of…
+
+191
+00:21:34.490 --> 00:21:39.669
+Jitendra K: Probability of an event, right? So this is very important. When you say probability of an event.
+
+192
+00:21:39.800 --> 00:21:44.480
+Jitendra K: Now, here I'm talking about probability of an event which is successful.
+
+193
+00:21:45.990 --> 00:21:50.109
+Jitendra K: Right? So that means I'm predicting this probability
+
+194
+00:21:50.420 --> 00:21:53.389
+Jitendra K: With the help of disorderness in my data.
+
+195
+00:21:53.850 --> 00:21:59.050
+Jitendra K: So my data disordered, Random.
+
+196
+00:22:01.780 --> 00:22:10.760
+Jitendra K: Or, I would say… have… Different probability for each classes.
+
+197
+00:22:10.880 --> 00:22:12.090
+Jitendra K: Or events.
+
+198
+00:22:16.150 --> 00:22:25.470
+Jitendra K: And based upon that, I would like to… evaluate What is the probability of?
+
+199
+00:22:26.100 --> 00:22:28.490
+Jitendra K: An event to be successful.
+
+200
+00:22:30.770 --> 00:22:32.660
+Jitendra K: Depending upon this randomness.
+
+201
+00:22:33.110 --> 00:22:44.360
+Jitendra K: So, to reach to this decision, I'm using… a criteria to split my… nodes…
+
+202
+00:22:45.450 --> 00:22:48.359
+Jitendra K: When I'm constructing a decision tree.
+
+203
+00:22:49.850 --> 00:22:54.220
+Jitendra K: Now, is this century have any property, like, You might have heard about
+
+204
+00:22:54.710 --> 00:22:59.990
+Jitendra K: Trees in data structure. So, this is not a data structure, it's not binary tree.
+
+205
+00:23:00.390 --> 00:23:05.850
+Jitendra K: Or a self-reference, or self-balanced binary trace, right? So don't just forget all those concepts.
+
+206
+00:23:06.060 --> 00:23:09.400
+Jitendra K: Here, we are talking about purely probabilistical trees.
+
+207
+00:23:09.540 --> 00:23:12.710
+Jitendra K: Probably a single tree have only probability associated with that.
+
+208
+00:23:12.950 --> 00:23:15.710
+Jitendra K: There's no sequence, there's no traversal.
+
+209
+00:23:15.930 --> 00:23:20.679
+Jitendra K: Nothing It's just a construction, and you're representing the data
+
+210
+00:23:20.880 --> 00:23:22.570
+Jitendra K: In the form of a dysentery.
+
+211
+00:23:24.610 --> 00:23:28.380
+Jitendra K: Now, the key idea that we are using Is the data.
+
+212
+00:23:28.570 --> 00:23:35.500
+Jitendra K: Right? So, here we are talking about data now. So, when we say data, Data might have.
+
+213
+00:23:35.670 --> 00:23:36.660
+Jitendra K: different.
+
+214
+00:23:36.970 --> 00:23:47.840
+Jitendra K: Association with your probability of an event. So let's say I'm predicting a probability of… a person
+
+215
+00:23:48.560 --> 00:23:50.859
+Jitendra K: Diagnosed with a diabetes or not?
+
+216
+00:23:54.410 --> 00:23:56.050
+Jitendra K: From a machine learning model.
+
+217
+00:23:56.780 --> 00:24:02.410
+Jitendra K: And I'm giving you certain attributes, like age, gender…
+
+218
+00:24:05.830 --> 00:24:08.149
+Jitendra K: Families free of diabetes.
+
+219
+00:24:10.190 --> 00:24:11.750
+Jitendra K: Addedatory or not.
+
+220
+00:24:12.660 --> 00:24:17.360
+Jitendra K: I'm creating some more features, like number of calorie intake.
+
+221
+00:24:18.380 --> 00:24:23.140
+Jitendra K: Are they… Number of calorie outtake, that means…
+
+222
+00:24:23.800 --> 00:24:26.959
+Jitendra K: Hours that you're putting in exercise.
+
+223
+00:24:29.040 --> 00:24:30.080
+Jitendra K: per week.
+
+224
+00:24:30.970 --> 00:24:39.350
+Jitendra K: Yo, wait… fast, H1, A, B, C, reports.
+
+225
+00:24:40.690 --> 00:24:43.789
+Jitendra K: And then I will draft.
+
+226
+00:24:44.600 --> 00:24:47.730
+Jitendra K: a, for… habits…
+
+227
+00:24:51.210 --> 00:24:53.190
+Jitendra K: your sleep cycle.
+
+228
+00:24:56.270 --> 00:25:05.819
+Jitendra K: your stress level… Alcohol consumption… tobacco consumption.
+
+229
+00:25:08.760 --> 00:25:13.379
+Jitendra K: Etc. And then I will decide whether the person is likely to have a
+
+230
+00:25:14.240 --> 00:25:18.610
+Jitendra K: diabetes or not. Some of the factors I can maybe remove…
+
+231
+00:25:20.270 --> 00:25:27.589
+Jitendra K: I can even remove this part. This is also biased, I can remove… I can even predict diabetes with these features.
+
+232
+00:25:28.330 --> 00:25:34.109
+Jitendra K: Right? So the idea is… the key idea is I'm predicting the probability of a person to be diabetic.
+
+233
+00:25:36.640 --> 00:25:38.129
+Jitendra K: That is my target.
+
+234
+00:25:38.780 --> 00:25:41.110
+Jitendra K: I'm not certifying that you're not diabetic.
+
+235
+00:25:41.680 --> 00:25:44.480
+Jitendra K: As a doctor, I have to certify that you are diabetic.
+
+236
+00:25:45.780 --> 00:25:48.820
+Jitendra K: Right? Or a pre-diabetic, so that I can able to…
+
+237
+00:25:49.100 --> 00:25:51.329
+Jitendra K: Provide a right medicine on the right time.
+
+238
+00:25:52.820 --> 00:25:59.109
+Jitendra K: So this is what… the feature set looks like. So this feature set is a mixed bag of data.
+
+239
+00:25:59.560 --> 00:26:03.189
+Jitendra K: So imagine that I have… I would like to create a model for a doctor.
+
+240
+00:26:04.740 --> 00:26:10.680
+Jitendra K: Somebody have given me a contract that you need to create a model, machine learning model, which will predict
+
+241
+00:26:11.880 --> 00:26:14.849
+Jitendra K: Because diabetic data is, I think we have…
+
+242
+00:26:15.160 --> 00:26:18.070
+Jitendra K: 50 years, 100 years of ABTIC data, right?
+
+243
+00:26:18.570 --> 00:26:25.540
+Jitendra K: So, even, even in the Sarkari Hospitals, government hospital in India, they are creating records
+
+244
+00:26:25.740 --> 00:26:29.580
+Jitendra K: And the purpose of record is to gather the data, although those records might have
+
+245
+00:26:30.230 --> 00:26:32.649
+Jitendra K: Not present at this moment.
+
+246
+00:26:33.110 --> 00:26:40.199
+Jitendra K: But I'm talking about the manual record. So when we start with digital records, everything becomes digital, right?
+
+247
+00:26:40.450 --> 00:26:44.390
+Jitendra K: So, imagine that you have those records for at least 50 years.
+
+248
+00:26:47.380 --> 00:26:54.490
+Jitendra K: We have got 50 years of data, you have got different patients, different… Inpatient, outpatient data.
+
+249
+00:26:56.310 --> 00:26:57.630
+Jitendra K: in your record.
+
+250
+00:26:59.100 --> 00:27:06.100
+Jitendra K: And, there's a project, let's say, in… in Ames, All India Medical Sciences.
+
+251
+00:27:07.150 --> 00:27:11.540
+Jitendra K: AIA-MS, so which try to create a model which will predict a diabetic.
+
+252
+00:27:11.650 --> 00:27:14.789
+Jitendra K: Right? That's the first assignment that has been given to you.
+
+253
+00:27:14.930 --> 00:27:21.549
+Jitendra K: So he will take this data, maybe 50 years is too much, he will say that I need 5 to 10 years, that should be okay.
+
+254
+00:27:22.560 --> 00:27:26.230
+Jitendra K: So, 5 to 10 years data, you are going to get your medical records.
+
+255
+00:27:26.400 --> 00:27:32.209
+Jitendra K: With all the features, with all the nice, description of the features, and you will say that
+
+256
+00:27:32.620 --> 00:27:43.480
+Jitendra K: I would like to evaluate which feature is important. We are not going to first create an algorithm on these features, and then you will say that, okay, I will try with all features, and then…
+
+257
+00:27:43.790 --> 00:27:47.010
+Jitendra K: First, you will perform some EDA exploration on your data.
+
+258
+00:27:47.160 --> 00:27:52.229
+Jitendra K: Identify the patterns in the data, get some recommendation from the doctors.
+
+259
+00:27:52.680 --> 00:27:58.209
+Jitendra K: Or maybe some experts, which is in medical field for so long.
+
+260
+00:27:58.570 --> 00:28:05.570
+Jitendra K: And then you will take… high lens on your data to decide which feature I would like to target.
+
+261
+00:28:05.740 --> 00:28:13.180
+Jitendra K: So once you decide the features, these features are on different scales, different variation, different…
+
+262
+00:28:14.210 --> 00:28:23.220
+Jitendra K: I would say different, mean, median, and mode, so all the distribution of these features are different, right? So let's take an example of age versus…
+
+263
+00:28:23.740 --> 00:28:26.760
+Jitendra K: sleep pattern. So there's no correlation between the two.
+
+264
+00:28:28.710 --> 00:28:31.210
+Jitendra K: If you're asleep… if you're of age.
+
+265
+00:28:32.370 --> 00:28:36.249
+Jitendra K: Let's say 40 years, and you're sleeping 4 hours a day.
+
+266
+00:28:36.730 --> 00:28:40.629
+Jitendra K: Against somebody who's 40 years, he's sleeping 16 hours a day.
+
+267
+00:28:40.760 --> 00:28:43.290
+Jitendra K: So that there's no correlation between the two things.
+
+268
+00:28:43.580 --> 00:28:47.030
+Jitendra K: It's a perfect personal choice, right?
+
+269
+00:28:47.740 --> 00:28:55.299
+Jitendra K: How you feel about sleep patterns. So, that means you would like to see these factors in the same scales first.
+
+270
+00:28:55.550 --> 00:28:58.230
+Jitendra K: So that creates a kind of a distortion in your data.
+
+271
+00:28:58.820 --> 00:28:59.620
+Jitendra K: Right?
+
+272
+00:28:59.890 --> 00:29:07.420
+Jitendra K: So, you have a label associated with these features as well. So, when you say class, C1 and C2. So, you have got probability of diabetes.
+
+273
+00:29:07.850 --> 00:29:11.859
+Jitendra K: Let's say you determine the probability of diabetes on a scale of 0 to 1.
+
+274
+00:29:12.480 --> 00:29:17.720
+Jitendra K: Now you're saying that those patients… who have…
+
+275
+00:29:18.860 --> 00:29:22.850
+Jitendra K: Anything above 0.5, I will consider to be diabetic.
+
+276
+00:29:23.160 --> 00:29:28.820
+Jitendra K: Or maybe you can convert this into a… More sophisticated scale, 0.7.
+
+277
+00:29:30.240 --> 00:29:32.470
+Jitendra K: So you will say this is diabetic.
+
+278
+00:29:33.070 --> 00:29:36.540
+Jitendra K: Anything less than this will be… Zero.
+
+279
+00:29:37.120 --> 00:29:40.649
+Jitendra K: So you will get a good amount of labels on this data.
+
+280
+00:29:40.820 --> 00:29:45.139
+Jitendra K: Now, once you have a label, you will have a business versus label, you will have
+
+281
+00:29:45.510 --> 00:29:48.579
+Jitendra K: biased towards this label, or you might have
+
+282
+00:29:48.780 --> 00:29:52.120
+Jitendra K: Different sort of attribution, like noise factors in your data.
+
+283
+00:29:52.400 --> 00:29:57.970
+Jitendra K: So, basically, what you're going to do is you're going to start with this data site to build a DCN tree.
+
+284
+00:29:59.770 --> 00:30:03.529
+Jitendra K: So, you would like to find out which particular feature
+
+285
+00:30:04.570 --> 00:30:06.680
+Jitendra K: Will be considered as a node.
+
+286
+00:30:08.020 --> 00:30:12.969
+Jitendra K: Right? To begin with. And you will not decide that part, algorithm will decide automatically.
+
+287
+00:30:13.860 --> 00:30:23.790
+Jitendra K: So, depending upon the concept that we have learned, Higher the distortion, higher the… Probability of…
+
+288
+00:30:25.070 --> 00:30:26.920
+Jitendra K: Or I would say higher the entropy.
+
+289
+00:30:27.370 --> 00:30:31.710
+Jitendra K: So, your algorithm will start with the highest node.
+
+290
+00:30:32.190 --> 00:30:34.380
+Jitendra K: Which is having maximum entropy.
+
+291
+00:30:36.980 --> 00:30:42.210
+Jitendra K: That means it will start with a feature, Which is having maximum.
+
+292
+00:30:42.460 --> 00:30:43.770
+Jitendra K: disorderness.
+
+293
+00:30:44.220 --> 00:30:45.840
+Jitendra K: In terms of data point.
+
+294
+00:30:46.820 --> 00:30:52.189
+Jitendra K: And then it will start constructing other data points at each level.
+
+295
+00:30:53.100 --> 00:30:56.309
+Jitendra K: So let's say if I'm talking about first data point.
+
+296
+00:30:57.110 --> 00:31:00.370
+Jitendra K: Let's say for diabetic, I'm looking for…
+
+297
+00:31:02.970 --> 00:31:04.980
+Jitendra K: Weight as one of the criteria.
+
+298
+00:31:09.530 --> 00:31:12.589
+Jitendra K: So, I will say, if a person is diabetic.
+
+299
+00:31:12.960 --> 00:31:16.419
+Jitendra K: He might be overweighted, depending upon BMI ratio.
+
+300
+00:31:17.500 --> 00:31:23.369
+Jitendra K: Body mass index, I will say that this person have… high BMI ratio.
+
+301
+00:31:23.520 --> 00:31:25.530
+Jitendra K: That means his weight and height.
+
+302
+00:31:25.710 --> 00:31:30.100
+Jitendra K: are disproportioned, right? Many reasons are already in OB's category.
+
+303
+00:31:30.710 --> 00:31:32.720
+Jitendra K: OB is 1, OB is 2.
+
+304
+00:31:32.870 --> 00:31:35.139
+Jitendra K: There are different categories of obesity.
+
+305
+00:31:35.420 --> 00:31:37.589
+Jitendra K: So I'm considering OB is one patient.
+
+306
+00:31:38.070 --> 00:31:39.740
+Jitendra K: with a high BMI.
+
+307
+00:31:40.290 --> 00:31:46.060
+Jitendra K: Then I will look for maybe… his… family history.
+
+308
+00:31:49.320 --> 00:31:55.019
+Jitendra K: family have… Direct parents have diabetic or not.
+
+309
+00:31:55.490 --> 00:32:07.190
+Jitendra K: then I would like to check… is… regimes, like exercise, Walk, calories that he's taking.
+
+310
+00:32:08.010 --> 00:32:14.000
+Jitendra K: burning, etc, and then maybe I would like to look for a… Gender, at times.
+
+311
+00:32:14.310 --> 00:32:16.740
+Jitendra K: Gender also play a critical role here.
+
+312
+00:32:17.230 --> 00:32:21.670
+Jitendra K: So, these factors will help me to create a pre-like structure.
+
+313
+00:32:21.970 --> 00:32:26.289
+Jitendra K: And at each node, you will see that I'm using a feature to construct a decision.
+
+314
+00:32:27.060 --> 00:32:32.310
+Jitendra K: Right? At each node, I'm using features to construct a decision.
+
+315
+00:32:33.120 --> 00:32:36.599
+Jitendra K: And when I reach the leaf node, I will get an answer.
+
+316
+00:32:40.630 --> 00:32:41.500
+Jitendra K: Right?
+
+317
+00:32:41.750 --> 00:32:48.860
+Jitendra K: So this will be useful when you're creating any DC entry algorithm on your data points. So your data…
+
+318
+00:32:48.960 --> 00:32:52.120
+Jitendra K: Your split criteria will be depending upon the entropy.
+
+319
+00:32:52.300 --> 00:32:56.420
+Jitendra K: And entropy measures the system disorderedness with a high…
+
+320
+00:32:56.670 --> 00:33:02.149
+Jitendra K: disorder system you will tend to begin with. So you will say that I have a feature.
+
+321
+00:33:02.280 --> 00:33:04.370
+Jitendra K: Which is highly disordered.
+
+322
+00:33:04.630 --> 00:33:10.510
+Jitendra K: And I would like to use that feature to begin with. But who will decide that this feature is Hailey?
+
+323
+00:33:12.010 --> 00:33:21.220
+Jitendra K: Ambiguous or highly disordered, so your algorithm will decide, depending upon your inputs, depending upon your… data values.
+
+324
+00:33:22.020 --> 00:33:27.719
+Jitendra K: Right? So basically, That's the simplest way that you can able to…
+
+325
+00:33:27.990 --> 00:33:30.630
+Jitendra K: See that it's constructor from this entry.
+
+326
+00:33:31.510 --> 00:33:34.099
+Jitendra K: So, let me show you the diagram.
+
+327
+00:33:34.800 --> 00:33:38.079
+Jitendra K: That has been used to classify the RES dataset for…
+
+328
+00:33:39.780 --> 00:33:44.449
+Jitendra K: Checking what is the type of flower species that we are having.
+
+329
+00:33:45.320 --> 00:33:50.320
+Jitendra K: So you can see that I'm using this particular model, which is a decent tree model.
+
+330
+00:33:51.050 --> 00:33:53.170
+Jitendra K: Now, here I have a set of values.
+
+331
+00:33:53.600 --> 00:33:58.750
+Jitendra K: Right? So remember that when we talk about, iris data set.
+
+332
+00:33:59.570 --> 00:34:03.620
+Jitendra K: which is a flower species dataset. We are trying to predict 3 classes.
+
+333
+00:34:04.470 --> 00:34:06.970
+Jitendra K: Certosa, Versicular, and Virginica.
+
+334
+00:34:13.190 --> 00:34:16.549
+Jitendra K: And each class have 50 samples.
+
+335
+00:34:16.989 --> 00:34:18.789
+Jitendra K: Or 50 data points.
+
+336
+00:34:19.110 --> 00:34:20.659
+Jitendra K: associated with that.
+
+337
+00:34:21.020 --> 00:34:25.840
+Jitendra K: Now, you can see that I'm constructing a decision tree, which will evaluate
+
+338
+00:34:26.600 --> 00:34:35.509
+Jitendra K: The features, so we have got 4 features, pedal length, battle with… Sepal length and sepal width.
+
+339
+00:34:36.420 --> 00:34:38.329
+Jitendra K: So here you will see the number.
+
+340
+00:34:38.880 --> 00:34:43.960
+Jitendra K: Which is actual number of… Length in centimeters.
+
+341
+00:34:44.090 --> 00:34:47.579
+Jitendra K: And then you will see that it is using.
+
+342
+00:34:48.050 --> 00:34:49.829
+Jitendra K: Some criteria to split.
+
+343
+00:34:50.830 --> 00:34:52.929
+Jitendra K: And here I'm using Guinea entropy.
+
+344
+00:34:54.070 --> 00:34:58.280
+Jitendra K: So at each level, your node will be evaluated before further split.
+
+345
+00:34:59.040 --> 00:35:04.729
+Jitendra K: Before it reached to the final node, where you have only one probability associated with your class.
+
+346
+00:35:06.390 --> 00:35:09.709
+Jitendra K: Right? So, now let me talk about…
+
+347
+00:35:09.850 --> 00:35:13.810
+Jitendra K: How to maybe join the 2-3 condition?
+
+348
+00:35:14.570 --> 00:35:17.099
+Jitendra K: So, this is the entropy.
+
+349
+00:35:18.730 --> 00:35:20.749
+Jitendra K: So basically, when we say entropy.
+
+350
+00:35:26.000 --> 00:35:29.459
+Jitendra K: Maybe I have to explain information entropy.
+
+351
+00:35:30.770 --> 00:35:34.690
+Jitendra K: As one more concept, so let me explain what is information entropy.
+
+352
+00:35:38.560 --> 00:35:42.499
+Jitendra K: So, in formation entropy, in the context of dyssyntry.
+
+353
+00:35:42.840 --> 00:35:47.990
+Jitendra K: We'll able to roughly explain how much the variance data set have.
+
+354
+00:35:48.510 --> 00:35:56.709
+Jitendra K: For example, when I'm saying that I have got 4 marbles, which is off… Blue color, or some color.
+
+355
+00:35:57.280 --> 00:35:58.629
+Jitendra K: All are same.
+
+356
+00:35:59.220 --> 00:36:01.469
+Jitendra K: I'm saying that the entropy is zero.
+
+357
+00:36:02.700 --> 00:36:07.070
+Jitendra K: When I have got a mixed color, of marbles.
+
+358
+00:36:07.920 --> 00:36:13.150
+Jitendra K: I'm claiming that my entropy is… greater than zero.
+
+359
+00:36:14.100 --> 00:36:14.900
+Jitendra K: Right?
+
+360
+00:36:15.060 --> 00:36:17.060
+Jitendra K: Or I would say this is high entropy.
+
+361
+00:36:17.350 --> 00:36:22.299
+Jitendra K: Now, when you say entropy, it should be represented by some mathematical equation.
+
+362
+00:36:22.690 --> 00:36:30.859
+Jitendra K: So the equation for entropy is… I will not drive it, but I will just write it, because if we go into the derivation of this equation, it will take time.
+
+363
+00:36:31.120 --> 00:36:36.630
+Jitendra K: So the entropy is a measurement of… Randomness?
+
+364
+00:36:36.980 --> 00:36:42.160
+Jitendra K: So, I will say that… I will… multiply the…
+
+365
+00:36:42.800 --> 00:36:56.470
+Jitendra K: odd log, or a log of probability, With… itself, Itself means… The probability of an event.
+
+366
+00:36:57.660 --> 00:37:03.389
+Jitendra K: And I'm multiplying this with a log of probability, which is the… navigation condition.
+
+367
+00:37:04.180 --> 00:37:06.900
+Jitendra K: And I will consider a negative sign.
+
+368
+00:37:08.600 --> 00:37:11.400
+Jitendra K: for all data points from i is equal to C.
+
+369
+00:37:11.730 --> 00:37:18.319
+Jitendra K: So the idea is P of i is the probability of a random picking an element of a class
+
+370
+00:37:19.440 --> 00:37:20.220
+Jitendra K: Right?
+
+371
+00:37:20.410 --> 00:37:24.099
+Jitendra K: So let's try to understand this with the help of an example.
+
+372
+00:37:24.350 --> 00:37:28.249
+Jitendra K: Let's say I've got the same problem. I would like to pick
+
+373
+00:37:29.210 --> 00:37:34.889
+Jitendra K: some marbles from a stack. So I've got 3 right marbles, 1, 2, 3.
+
+374
+00:37:35.590 --> 00:37:38.359
+Jitendra K: I've got… too green.
+
+375
+00:37:43.970 --> 00:37:45.199
+Jitendra K: And one blue.
+
+376
+00:37:52.200 --> 00:37:59.770
+Jitendra K: So total, 6 marbles, out of which I've got 1 blue, 1… 2 green, And 3 right.
+
+377
+00:38:01.740 --> 00:38:07.180
+Jitendra K: Right, so if I have to write, use this formula to write the formula for entropy.
+
+378
+00:38:07.530 --> 00:38:09.339
+Jitendra K: I would say entropy…
+
+379
+00:38:12.380 --> 00:38:20.010
+Jitendra K: Will be given as… Anthropy of this system will be given as… Minus of…
+
+380
+00:38:21.060 --> 00:38:23.390
+Jitendra K: Probability of picking a blue marble.
+
+381
+00:38:24.250 --> 00:38:27.790
+Jitendra K: Multiply by probability of not picking the blue barbell.
+
+382
+00:38:30.680 --> 00:38:34.719
+Jitendra K: plus… Probability of picking the green marble.
+
+383
+00:38:35.730 --> 00:38:40.390
+Jitendra K: Multiply by log of 2 probability of picking the green marble.
+
+384
+00:38:40.890 --> 00:38:44.410
+Jitendra K: Plus… Probability of picking the right marble.
+
+385
+00:38:45.020 --> 00:38:48.370
+Jitendra K: Log of 2, probability of picking the right marble.
+
+386
+00:38:49.040 --> 00:38:50.499
+Jitendra K: So this is my formula.
+
+387
+00:38:50.860 --> 00:38:53.389
+Jitendra K: So I will say P of D…
+
+388
+00:38:54.780 --> 00:38:57.160
+Jitendra K: I already know what is the probability here.
+
+389
+00:38:57.840 --> 00:38:59.160
+Jitendra K: 1 over 6.
+
+390
+00:39:01.130 --> 00:39:06.219
+Jitendra K: Right? Because 1x6 is the data set, and we have got 6 balls.
+
+391
+00:39:06.610 --> 00:39:07.819
+Jitendra K: One is blue.
+
+392
+00:39:08.200 --> 00:39:10.409
+Jitendra K: Similarly, probability of green.
+
+393
+00:39:11.980 --> 00:39:14.139
+Jitendra K: It's 2x6, 1x3.
+
+394
+00:39:17.530 --> 00:39:25.179
+Jitendra K: Probability of blue, sorry, red, Will be 3x6, 1x2?
+
+395
+00:39:25.640 --> 00:39:26.890
+Jitendra K: 50%.
+
+396
+00:39:28.530 --> 00:39:33.369
+Jitendra K: When I fit this formula, I will get the entropy of a system.
+
+397
+00:39:34.250 --> 00:39:39.600
+Jitendra K: Which is 1 over 6… Log21 over 6.
+
+398
+00:39:40.640 --> 00:39:46.089
+Jitendra K: Plus 2 or 6… Lock 2 towards 6.
+
+399
+00:39:46.980 --> 00:39:51.529
+Jitendra K: plus… 1 over 2 log off.
+
+400
+00:39:51.800 --> 00:39:52.800
+Jitendra K: 1 over 2.
+
+401
+00:39:53.380 --> 00:39:54.920
+Jitendra K: So I will get some number.
+
+402
+00:39:55.910 --> 00:39:56.780
+Jitendra K: Right?
+
+403
+00:39:56.910 --> 00:39:59.820
+Jitendra K: So, let's say the number is 1.46.
+
+404
+00:40:00.730 --> 00:40:05.699
+Jitendra K: So, what I'm going to say, This is the probability
+
+405
+00:40:06.070 --> 00:40:12.369
+Jitendra K: or I would say entropy that you're getting from this particular system.
+
+406
+00:40:13.370 --> 00:40:14.210
+Jitendra K: Right?
+
+407
+00:40:14.620 --> 00:40:17.930
+Jitendra K: So now, entropy is a fixed number.
+
+408
+00:40:19.040 --> 00:40:24.550
+Jitendra K: So, the decision to use a property of information gain, or entropy. As you move towards
+
+409
+00:40:29.990 --> 00:40:33.250
+Jitendra K: the decient tree, that means you're traversing a decient tree.
+
+410
+00:40:33.520 --> 00:40:35.759
+Jitendra K: Your entropy will decrease.
+
+411
+00:40:37.750 --> 00:40:39.950
+Jitendra K: So this entropy will decrease.
+
+412
+00:40:43.130 --> 00:40:46.029
+Jitendra K: When it traversed from root node to the leaf node.
+
+413
+00:40:47.310 --> 00:40:48.900
+Jitendra K: Right? In addition tree.
+
+414
+00:40:54.830 --> 00:40:59.570
+Jitendra K: Now let's start to understand, when you say entropy.
+
+415
+00:41:00.410 --> 00:41:02.400
+Jitendra K: So what is the information gain now?
+
+416
+00:41:02.870 --> 00:41:04.960
+Jitendra K: And then, how to connect the two dots.
+
+417
+00:41:05.570 --> 00:41:06.370
+Jitendra K: Right?
+
+418
+00:41:07.110 --> 00:41:18.109
+Jitendra K: So… Let me show you… the… Mathematical explanation of information gain.
+
+419
+00:41:18.680 --> 00:41:20.540
+Jitendra K: So, yeah, information gain…
+
+420
+00:41:27.940 --> 00:41:31.909
+Jitendra K: represented as IG, information gain.
+
+421
+00:41:33.320 --> 00:41:40.300
+Jitendra K: Hmm, and you have got… Your class and your labels.
+
+422
+00:41:40.730 --> 00:41:48.519
+Jitendra K: And you are determining the… System effectiveness… By subtracting this…
+
+423
+00:42:05.460 --> 00:42:07.989
+Jitendra K: Okay, so let me explain this part.
+
+424
+00:42:27.290 --> 00:42:34.710
+Jitendra K: Okay, so let me show you this with an example, or I would say this is one of the websites that I found to be useful.
+
+425
+00:42:35.130 --> 00:42:40.090
+Jitendra K: So, let me show you how this entry has been calculated, or constructed.
+
+426
+00:42:40.230 --> 00:42:42.549
+Jitendra K: Based upon this criteria.
+
+427
+00:42:42.920 --> 00:42:45.159
+Jitendra K: So imagine that you have got two classes.
+
+428
+00:42:46.260 --> 00:42:49.480
+Jitendra K: But I'm talking about classes, I'm not talking about features at this moment.
+
+429
+00:42:50.030 --> 00:42:51.890
+Jitendra K: So let's say I've got two classes.
+
+430
+00:42:52.090 --> 00:42:53.649
+Jitendra K: Class A and Class B.
+
+431
+00:42:54.220 --> 00:43:00.909
+Jitendra K: So, Class A represented by blue dots, and Class 0 represented by a yellow dot, or you can see…
+
+432
+00:43:01.150 --> 00:43:02.419
+Jitendra K: an orange dot.
+
+433
+00:43:03.430 --> 00:43:04.200
+Jitendra K: Right?
+
+434
+00:43:04.690 --> 00:43:05.810
+Jitendra K: So…
+
+435
+00:43:05.990 --> 00:43:12.049
+Jitendra K: When I'm trying to use a split criteria using information gain, and I would like to construct a dysentery.
+
+436
+00:43:12.970 --> 00:43:17.010
+Jitendra K: Right, so you can see that I'm getting two different equations.
+
+437
+00:43:17.730 --> 00:43:20.840
+Jitendra K: One is the left split information gain.
+
+438
+00:43:22.010 --> 00:43:24.700
+Jitendra K: Which is have certain types of class.
+
+439
+00:43:25.290 --> 00:43:29.729
+Jitendra K: And the second class I'm getting is a write split information gain.
+
+440
+00:43:30.060 --> 00:43:32.750
+Jitendra K: So if I have to increase this information gain.
+
+441
+00:43:34.130 --> 00:43:36.629
+Jitendra K: One second information gain will decrease.
+
+442
+00:43:37.140 --> 00:43:42.269
+Jitendra K: So this has to be balanced out, right? Based upon the split criteria that I'm using.
+
+443
+00:43:42.770 --> 00:43:49.359
+Jitendra K: So, the split criteria will determine the amount of information gain that you're having for each class.
+
+444
+00:43:49.990 --> 00:43:54.520
+Jitendra K: Higher the information gain for a particular class, higher will be the biasness. So you have to balance this out.
+
+445
+00:43:54.950 --> 00:44:00.589
+Jitendra K: So that's the whole idea of entropy. So the entropy is an event, or information gain.
+
+446
+00:44:01.180 --> 00:44:08.600
+Jitendra K: is nothing but, I would say, is depending upon the entropy of the data itself, right? So information gain means
+
+447
+00:44:08.890 --> 00:44:13.370
+Jitendra K: Higher the information gain, higher the Lower the uncertainties.
+
+448
+00:44:14.070 --> 00:44:22.269
+Jitendra K: Right? So, again, information gain, is nothing but… it will give you a very…
+
+449
+00:44:22.700 --> 00:44:25.939
+Jitendra K: decisive criteria. How can we quantify?
+
+450
+00:44:26.900 --> 00:44:28.749
+Jitendra K: The quality of a split.
+
+451
+00:44:30.870 --> 00:44:35.879
+Jitendra K: Right? So if I have to determine the quality of split between the data points.
+
+452
+00:44:36.040 --> 00:44:39.160
+Jitendra K: I can able to identify this with the help of information gain.
+
+453
+00:44:39.880 --> 00:44:42.130
+Jitendra K: So let's say I have got these data points.
+
+454
+00:44:42.570 --> 00:44:47.900
+Jitendra K: And I would like to split this data point. So there are different ways I can split this data point.
+
+455
+00:44:48.840 --> 00:44:52.420
+Jitendra K: Right? Depending upon this class, I can able to use…
+
+456
+00:44:52.610 --> 00:44:55.160
+Jitendra K: Different lines to split my data points.
+
+457
+00:44:55.850 --> 00:45:02.070
+Jitendra K: Right? So if I'm using a line, which is split my data point, with a maximum information gain.
+
+458
+00:45:02.480 --> 00:45:04.880
+Jitendra K: That is the best solution that I'm looking for.
+
+459
+00:45:05.280 --> 00:45:09.679
+Jitendra K: So before the split, we have… 5 blue and 5 green.
+
+460
+00:45:10.070 --> 00:45:12.580
+Jitendra K: So the entropy was 1.
+
+461
+00:45:13.100 --> 00:45:15.710
+Jitendra K: So I can say entropy was 100%.
+
+462
+00:45:19.450 --> 00:45:20.900
+Jitendra K: And after they split.
+
+463
+00:45:21.690 --> 00:45:28.759
+Jitendra K: Left branch have got 4 blue, and right branch have got 5 green. So the entropy for each
+
+464
+00:45:29.110 --> 00:45:30.299
+Jitendra K: would be zero.
+
+465
+00:45:30.760 --> 00:45:34.570
+Jitendra K: So this information gain decide entropy.
+
+466
+00:45:35.410 --> 00:45:40.729
+Jitendra K: So basically, information gain will give you the criteria of split, and that's the reason
+
+467
+00:45:41.200 --> 00:45:47.289
+Jitendra K: The syntry is using information gain as one of the criteria to split to maximize the intro.
+
+468
+00:45:47.830 --> 00:45:49.389
+Jitendra K: Or, right?
+
+469
+00:45:49.680 --> 00:45:54.740
+Jitendra K: to minimize the entropy, not maximize. If you minimize the entropy per class.
+
+470
+00:45:55.000 --> 00:45:57.810
+Jitendra K: You will automatically be able to separate the classes.
+
+471
+00:45:58.480 --> 00:46:00.090
+Jitendra K: Is it clear to everyone now?
+
+472
+00:46:01.030 --> 00:46:03.910
+Jitendra K: What is entropy? What is information gain?
+
+473
+00:46:14.480 --> 00:46:15.480
+Jitendra K: Alright.
+
+474
+00:46:16.220 --> 00:46:20.009
+Jitendra K: So with that, let's move on to the third
+
+475
+00:46:21.150 --> 00:46:23.830
+Jitendra K: criteria, which is called Guinea impurity.
+
+476
+00:46:27.840 --> 00:46:32.750
+Jitendra K: minimize entropy of which class? Which class? How many classes you have?
+
+477
+00:46:33.670 --> 00:46:35.230
+Jitendra K: In this case.
+
+478
+00:46:36.420 --> 00:46:38.649
+Jitendra K: How many classes you have in this case?
+
+479
+00:46:41.860 --> 00:46:44.790
+Jitendra K: to… if I increase the entropy of this class.
+
+480
+00:46:45.070 --> 00:46:47.430
+Jitendra K: Will it automatically increase or decrease?
+
+481
+00:46:53.370 --> 00:46:57.260
+Jitendra K: Decreased, so that means they are dependent, mutually inclusive events.
+
+482
+00:47:02.980 --> 00:47:03.930
+Jitendra K: Alright.
+
+483
+00:47:05.090 --> 00:47:08.469
+Jitendra K: So, let me talk about guinea impurity, or Ginny impurity.
+
+484
+00:47:08.820 --> 00:47:15.540
+Jitendra K: So, information gain… It's slightly different when it comes to concept.
+
+485
+00:47:16.890 --> 00:47:21.199
+Jitendra K: Guinea impurity, on the other hand, is a slightly different concept.
+
+486
+00:47:21.460 --> 00:47:22.270
+Jitendra K: Right?
+
+487
+00:47:23.130 --> 00:47:29.140
+Jitendra K: Suppose that… You would like to pick a data point in the dataset.
+
+488
+00:47:30.960 --> 00:47:32.110
+Jitendra K: Randomly.
+
+489
+00:47:32.230 --> 00:47:35.590
+Jitendra K: Suppose you are randomly picking a data point in your dataset.
+
+490
+00:47:35.860 --> 00:47:41.100
+Jitendra K: And then you would like to randomly classify it according to the class distribution data. For example.
+
+491
+00:47:41.510 --> 00:47:45.870
+Jitendra K: In the same system. I'm talking about the system. So this is a system.
+
+492
+00:47:47.110 --> 00:47:48.170
+Jitendra K: a box.
+
+493
+00:47:52.280 --> 00:47:58.089
+Jitendra K: So I'm picking… The probability of picking the blue ball, which is 5 by 10,
+
+494
+00:47:58.520 --> 00:48:03.119
+Jitendra K: The probability of picking the green ball, which is also 5x10. Eco probable event.
+
+495
+00:48:03.480 --> 00:48:05.770
+Jitendra K: We've got 5 data points for each color.
+
+496
+00:48:07.100 --> 00:48:12.139
+Jitendra K: So, let's calculate a Guinea impurity, or Guinea index.
+
+497
+00:48:12.530 --> 00:48:14.200
+Jitendra K: On the entire dataset.
+
+498
+00:48:14.700 --> 00:48:19.900
+Jitendra K: So we pick the random data point, it is either blue or either green. 50-50%.
+
+499
+00:48:20.680 --> 00:48:22.160
+Jitendra K: Right, 50%.
+
+500
+00:48:26.480 --> 00:48:27.840
+Jitendra K: 50%.
+
+501
+00:48:30.380 --> 00:48:36.889
+Jitendra K: Now we randomly classify our data point according to the class distribution. We'll say that I've got 5 for each color.
+
+502
+00:48:37.230 --> 00:48:40.979
+Jitendra K: We classify this as 50% blue and 50% green.
+
+503
+00:48:41.560 --> 00:48:42.780
+Jitendra K: So…
+
+504
+00:48:46.540 --> 00:48:48.839
+Jitendra K: So let me just give you…
+
+505
+00:48:58.570 --> 00:49:01.029
+Jitendra K: Okay, so there are 4 events.
+
+506
+00:49:02.640 --> 00:49:08.649
+Jitendra K: So let me write down the event table, and their associate probabilities. So we are going to have four events.
+
+507
+00:49:09.720 --> 00:49:11.310
+Jitendra K: And their probabilities.
+
+508
+00:49:12.550 --> 00:49:14.649
+Jitendra K: The first event is, you pick up blue.
+
+509
+00:49:19.030 --> 00:49:20.530
+Jitendra K: The classifier blue.
+
+510
+00:49:25.860 --> 00:49:32.830
+Jitendra K: You pick a blue, And you classify them as… green.
+
+511
+00:49:35.800 --> 00:49:42.040
+Jitendra K: You pick a green, You classify them as… Blue.
+
+512
+00:49:43.300 --> 00:49:47.309
+Jitendra K: You pick a green, and you classify it correctly as a green.
+
+513
+00:49:49.050 --> 00:49:54.530
+Jitendra K: There are only 4 permutations, so each is equipable. I will give 25%.
+
+514
+00:49:55.420 --> 00:49:57.830
+Jitendra K: 25%, 25%.
+
+515
+00:49:59.000 --> 00:50:00.450
+Jitendra K: 25%.
+
+516
+00:50:01.700 --> 00:50:07.810
+Jitendra K: So we classify it incorrectly in the two of the events, so I would say this
+
+517
+00:50:08.590 --> 00:50:12.150
+Jitendra K: And these are the incorrect, and these are the correct event.
+
+518
+00:50:12.800 --> 00:50:19.969
+Jitendra K: So, our total probability, or Guinea impurity, will be comprised of only these two events. These are correctly classified events.
+
+519
+00:50:20.240 --> 00:50:22.349
+Jitendra K: So I would say it is 50%.
+
+520
+00:50:22.790 --> 00:50:23.959
+Jitendra K: In this case.
+
+521
+00:50:25.440 --> 00:50:32.029
+Jitendra K: So, when I'm using a formula for Guinea impurity or Guinea entropy, I have to use class.
+
+522
+00:50:32.260 --> 00:50:34.229
+Jitendra K: Let's say I've got a Class C,
+
+523
+00:50:34.830 --> 00:50:37.329
+Jitendra K: Total Class C and P of I,
+
+524
+00:50:37.540 --> 00:50:41.200
+Jitendra K: is the probability of picking a data point with class I,
+
+525
+00:50:41.560 --> 00:50:45.360
+Jitendra K: The Guinea impurity has been calculated with this formula, G,
+
+526
+00:50:45.900 --> 00:50:48.670
+Jitendra K: Summation of i is equal to 1.
+
+527
+00:50:49.640 --> 00:50:51.610
+Jitendra K: to all classes.
+
+528
+00:50:52.340 --> 00:51:01.850
+Jitendra K: P of I… multiply by… probability of not occurring an event, which is 1 minus P .
+
+529
+00:51:02.180 --> 00:51:05.910
+Jitendra K: So, we will say that we have got two classes…
+
+530
+00:51:07.490 --> 00:51:12.990
+Jitendra K: And the probability of an event is equal probable for one class and second class.
+
+531
+00:51:13.380 --> 00:51:15.750
+Jitendra K: Which is 0.5.
+
+532
+00:51:16.510 --> 00:51:22.780
+Jitendra K: So I can put this formula in this equation by saying G is equals 2, P of
+
+533
+00:51:23.310 --> 00:51:28.100
+Jitendra K: and multiply by P1 minus P of 1.
+
+534
+00:51:31.350 --> 00:51:35.250
+Jitendra K: Plus… They are mutually inclusive, so I will, like, use add.
+
+535
+00:51:35.750 --> 00:51:37.090
+Jitendra K: P of 2.
+
+536
+00:51:39.050 --> 00:51:41.119
+Jitendra K: 1 minus P of 2.
+
+537
+00:51:43.410 --> 00:51:46.059
+Jitendra K: And I know this probability is 0.5.
+
+538
+00:51:47.060 --> 00:51:53.380
+Jitendra K: Into 1 minus 0.5… plus 0.5…
+
+539
+00:51:54.510 --> 00:51:58.320
+Jitendra K: 1 minus 0.5, so 0.5 square.
+
+540
+00:51:58.640 --> 00:52:00.510
+Jitendra K: 0.5 square.
+
+541
+00:52:01.420 --> 00:52:03.410
+Jitendra K: This will become 0.5.
+
+542
+00:52:10.850 --> 00:52:17.280
+Jitendra K: Another example would be when you're trying to use A perfect dataset, like this.
+
+543
+00:52:22.220 --> 00:52:28.749
+Jitendra K: Again, the same example, when you have 5 green and 5 4 blue… 5 blue marbles.
+
+544
+00:52:29.090 --> 00:52:31.869
+Jitendra K: And you're constructing a decient tree.
+
+545
+00:52:43.330 --> 00:52:44.679
+Jitendra K: with this line.
+
+546
+00:52:45.580 --> 00:52:51.520
+Jitendra K: So, left ranch is only 5 blue, so the green purity is again becoming 0.
+
+547
+00:52:51.810 --> 00:52:56.660
+Jitendra K: The right branch have only 5 greens, so green purity will become 0.
+
+548
+00:52:57.290 --> 00:53:02.880
+Jitendra K: So, getting impurity of 0 is the lowest and the best possible impurity that you can able to get.
+
+549
+00:53:03.750 --> 00:53:08.570
+Jitendra K: Right, if you're getting imperfect samples, or imperfect classification.
+
+550
+00:53:09.060 --> 00:53:13.720
+Jitendra K: Your green purity will have certain value, so it will be greater than zero, for sure.
+
+551
+00:53:14.330 --> 00:53:18.000
+Jitendra K: So that will be… Depending upon year.
+
+552
+00:53:20.430 --> 00:53:24.249
+Jitendra K: The same boundary that you're trying to use with the help of information gain.
+
+553
+00:53:24.560 --> 00:53:30.390
+Jitendra K: So you are again measuring information gain that will have an adverse impact on guinea impurity.
+
+554
+00:53:32.430 --> 00:53:33.230
+Jitendra K: Right?
+
+555
+00:53:33.750 --> 00:53:35.149
+Jitendra K: or entropy.
+
+556
+00:53:35.450 --> 00:53:39.040
+Jitendra K: So these are actually… Exchangeable terms.
+
+557
+00:53:39.380 --> 00:53:45.929
+Jitendra K: So, Guinea impurity is a probability of incorrect classification on a randomly chosen element in the dataset.
+
+558
+00:53:47.260 --> 00:53:52.609
+Jitendra K: Right? So when we are training a disc entry, the best split criteria is chosen by
+
+559
+00:53:52.810 --> 00:53:54.990
+Jitendra K: Maximizing the guinea gain.
+
+560
+00:53:56.380 --> 00:53:59.020
+Jitendra K: So, what you are doing is, you are calculating
+
+561
+00:53:59.770 --> 00:54:05.060
+Jitendra K: This guinea gain by subtracting the weighted impurity of the branches from the original impurity.
+
+562
+00:54:09.400 --> 00:54:11.420
+Jitendra K: To separate the classes.
+
+563
+00:54:12.560 --> 00:54:14.680
+Jitendra K: In a more precise manner.
+
+564
+00:54:15.280 --> 00:54:24.069
+Jitendra K: And if you're able to separate the classes, We'll automatically get… the highest probability of an event.
+
+565
+00:54:27.870 --> 00:54:29.680
+Jitendra K: Is it clear to everyone now?
+
+566
+00:54:30.330 --> 00:54:33.589
+Jitendra K: So, we understand… we have discussed about 3 conditions.
+
+567
+00:54:35.320 --> 00:54:38.630
+Jitendra K: Guinea index, information gain, and entropy.
+
+568
+00:54:40.920 --> 00:54:44.659
+Jitendra K: Right? If you have to maybe use a single equation.
+
+569
+00:54:45.090 --> 00:54:47.750
+Jitendra K: I would say go for any index.
+
+570
+00:54:47.980 --> 00:54:49.520
+Jitendra K: Information gain…
+
+571
+00:54:50.680 --> 00:54:56.419
+Jitendra K: will be a parameter to a decision tree. But you have to learn the concept of entropy to understand both.
+
+572
+00:54:57.400 --> 00:55:03.459
+Jitendra K: So that's the reason, mathematically, entropy is the… Criteria that you should understand.
+
+573
+00:55:03.780 --> 00:55:09.720
+Jitendra K: But when it comes to implementation, you should use… Guinea index, by default.
+
+574
+00:55:10.070 --> 00:55:14.070
+Jitendra K: And information gain as a parameter to a decision tree model.
+
+575
+00:55:21.700 --> 00:55:29.349
+Jitendra K: Alright, so I think, things are clear now, mathematically and conceptually, both.
+
+576
+00:55:29.760 --> 00:55:33.959
+Jitendra K: So let's try to… Take some examples.
+
+577
+00:55:34.370 --> 00:55:41.029
+Jitendra K: And then, let's try to do some… bit of… Understanding on the example.
+
+578
+00:55:43.350 --> 00:55:44.410
+Jitendra K: Nope.
+
+579
+00:55:44.740 --> 00:55:50.610
+Jitendra K: as I mentioned that, the trees are going to be constructed
+
+580
+00:55:51.020 --> 00:55:54.839
+Jitendra K: Using a recursive binary splitting of the feature space.
+
+581
+00:55:55.250 --> 00:55:57.180
+Jitendra K: So when I say feature space.
+
+582
+00:55:59.680 --> 00:56:01.699
+Jitendra K: Here, I'm talking about your input.
+
+583
+00:56:03.430 --> 00:56:04.880
+Jitendra K: data points.
+
+584
+00:56:06.520 --> 00:56:09.380
+Jitendra K: Which comprises of multiple columns.
+
+585
+00:56:11.860 --> 00:56:19.370
+Jitendra K: They have a labels… Associated with that, so you're using a kind of a table.
+
+586
+00:56:20.210 --> 00:56:24.059
+Jitendra K: Right? So you have got a table, which comprises of a label.
+
+587
+00:56:25.000 --> 00:56:26.790
+Jitendra K: On a particular row.
+
+588
+00:56:27.180 --> 00:56:30.600
+Jitendra K: The rows… We'll have a label.
+
+589
+00:56:33.680 --> 00:56:39.369
+Jitendra K: And these attribute C1, C2, C3.
+
+590
+00:56:40.000 --> 00:56:41.600
+Jitendra K: Will be your features.
+
+591
+00:56:43.050 --> 00:56:48.799
+Jitendra K: So, their data tendencies will be… Used by this algorithm.
+
+592
+00:56:49.320 --> 00:56:51.099
+Jitendra K: Tendency of your data.
+
+593
+00:56:53.340 --> 00:56:56.629
+Jitendra K: will be used by this algorithm to construct a decision tree.
+
+594
+00:56:58.060 --> 00:57:06.910
+Jitendra K: So that's the reason this entry has been constructed recursively by a binary split Of the feature space.
+
+595
+00:57:07.670 --> 00:57:18.099
+Jitendra K: So, in classification scenarios, Criteria typically used to decide which feature to be split is based upon Guinea indexes.
+
+596
+00:57:21.800 --> 00:57:24.419
+Jitendra K: You can change this, this is our default.
+
+597
+00:57:25.800 --> 00:57:30.950
+Jitendra K: If you're not satisfied with this output, you can change this to information gain.
+
+598
+00:57:34.610 --> 00:57:38.830
+Jitendra K: So both of these measures are pretty similar numerically.
+
+599
+00:57:38.940 --> 00:57:44.800
+Jitendra K: They take as small values. If most observations fall into a small class, in a node.
+
+600
+00:57:45.360 --> 00:57:53.820
+Jitendra K: They maximize if there are equal number of observations across all the classes in the node. A node with a mixed class, which is called impure class.
+
+601
+00:57:54.780 --> 00:57:55.600
+Jitendra K: Right?
+
+602
+00:57:55.830 --> 00:57:58.569
+Jitendra K: If we found that kind of class, it will split.
+
+603
+00:58:00.580 --> 00:58:05.190
+Jitendra K: So basically, what you're doing is, you have an item, or I would say you have a data point.
+
+604
+00:58:05.660 --> 00:58:07.670
+Jitendra K: Which is set off your inputs.
+
+605
+00:58:10.540 --> 00:58:11.970
+Jitendra K: Which is a feature.
+
+606
+00:58:12.510 --> 00:58:14.830
+Jitendra K: right, which belongs to a K class.
+
+607
+00:58:15.680 --> 00:58:18.150
+Jitendra K: Let's say K is 1, 2, 3, whatever.
+
+608
+00:58:18.370 --> 00:58:24.249
+Jitendra K: So you're predicting… T of K… Provarity of a class.
+
+609
+00:58:25.830 --> 00:58:31.159
+Jitendra K: Right? And then, using a criteria to split the impurity, which is Guinea.
+
+610
+00:58:31.480 --> 00:58:33.119
+Jitendra K: And this formula is…
+
+611
+00:58:37.110 --> 00:58:39.580
+Jitendra K: Or Guinea, which we already understand.
+
+612
+00:58:40.140 --> 00:58:42.420
+Jitendra K: which talks about P of K.
+
+613
+00:58:43.220 --> 00:58:52.099
+Jitendra K: 1 minus P of… And I would say this is nothing but 1 minus summation of…
+
+614
+00:58:53.240 --> 00:58:55.010
+Jitendra K: K is equals to 1.
+
+615
+00:58:55.310 --> 00:58:56.380
+Jitendra K: to N.
+
+616
+00:58:57.430 --> 00:59:00.460
+Jitendra K: P of K… Square.
+
+617
+00:59:02.380 --> 00:59:05.620
+Jitendra K: And information gain is… H.
+
+618
+00:59:06.680 --> 00:59:13.929
+Jitendra K: Which is minus summation of… P of K… long off.
+
+619
+00:59:14.350 --> 00:59:17.070
+Jitendra K: P of K. Now, there's a log transformation.
+
+620
+00:59:18.200 --> 00:59:25.509
+Jitendra K: So that's why it is expensive. When I say P of K log of k, we are taking a log transformation on each data point.
+
+621
+00:59:26.030 --> 00:59:33.340
+Jitendra K: That's the reason this is a default parameter in a DC entry, because it is… Linear in nature.
+
+622
+00:59:33.520 --> 00:59:43.240
+Jitendra K: When it comes to logarithmic, it becomes nonlinear. That means you have to perform a transformation, and then calculate the information gain, or entropy in this case.
+
+623
+00:59:44.190 --> 00:59:51.030
+Jitendra K: Right? So that is why any index is a preferred… way…
+
+624
+00:59:51.770 --> 00:59:56.030
+Jitendra K: Or I would say de facto for your decision tree construction.
+
+625
+00:59:57.420 --> 01:00:06.389
+Jitendra K: So if I have to plot them, They're both… Similar in nature.
+
+626
+01:00:08.930 --> 01:00:11.440
+Jitendra K: So you can see the plot. In both plots.
+
+627
+01:00:11.970 --> 01:00:14.520
+Jitendra K: Both metrics are plotted against each other.
+
+628
+01:00:15.300 --> 01:00:21.380
+Jitendra K: Considering, let's say, I've got two classes where K is equals to 2, with a probability P and 1 minus P,
+
+629
+01:00:22.010 --> 01:00:28.110
+Jitendra K: And you will see that I'm getting consistently lower entropy… lower than entropy.
+
+630
+01:00:28.860 --> 01:00:35.989
+Jitendra K: So, Guinea is… I mean, giving me lower number, lower bound numbers, as compared to entropy.
+
+631
+01:00:36.540 --> 01:00:39.700
+Jitendra K: So this is a very crucial observation. That means…
+
+632
+01:00:40.070 --> 01:00:43.240
+Jitendra K: It will be helpful in the context of imbalanced data.
+
+633
+01:00:43.550 --> 01:00:46.849
+Jitendra K: So, Guinea Index has been used by one of the
+
+634
+01:00:48.230 --> 01:00:50.820
+Jitendra K: elementary algorithm, which is called CART.
+
+635
+01:00:51.510 --> 01:00:57.320
+Jitendra K: So… I hope, you have heard about this algorithm, CART.
+
+636
+01:00:59.270 --> 01:01:02.150
+Jitendra K: Classification and regression trees.
+
+637
+01:01:03.190 --> 01:01:06.940
+Jitendra K: So, this is the first algorithm that we are going to talk about. So CART…
+
+638
+01:01:07.390 --> 01:01:14.430
+Jitendra K: is one of the algorithms which heavily use Guinea, Indexes to perform this calculation.
+
+639
+01:01:15.190 --> 01:01:18.030
+Jitendra K: So, let's say I've got this kind of data site.
+
+640
+01:01:22.970 --> 01:01:24.970
+Jitendra K: So I start with whole data.
+
+641
+01:01:25.260 --> 01:01:32.269
+Jitendra K: And then I start learning the attributes, and then determine the probability of each classes after split.
+
+642
+01:01:32.900 --> 01:01:37.510
+Jitendra K: Right, so basically what I'm trying to do is, I'm trying to solve this example with the help of…
+
+643
+01:01:37.750 --> 01:01:39.130
+Jitendra K: Guinea indexes.
+
+644
+01:01:42.100 --> 01:01:46.539
+Jitendra K: Yes, so when green index is 0, it means it has reached the leaf node.
+
+645
+01:01:51.210 --> 01:01:54.300
+Jitendra K: Sorry. So I hope this concept is clear.
+
+646
+01:01:55.860 --> 01:01:59.880
+Jitendra K: So, shall we take an example of CART algorithm, C-A-R-T?
+
+647
+01:02:00.440 --> 01:02:05.630
+Jitendra K: Then we'll move on to CHAD CHA ID, then we will talk about ID 4.5.
+
+648
+01:02:06.010 --> 01:02:07.800
+Jitendra K: Another type of dysentery.
+
+649
+01:02:08.000 --> 01:02:10.549
+Jitendra K: But I will tell you, these algorithms are…
+
+650
+01:02:10.940 --> 01:02:13.949
+Jitendra K: not very useful. You need to understand decision tree.
+
+651
+01:02:14.780 --> 01:02:19.540
+Jitendra K: Because our focus is not on DCN3, our focus should be on Random Forest and XZBoost.
+
+652
+01:02:22.600 --> 01:02:25.530
+Jitendra K: Oh, this is just a data site with balance.
+
+653
+01:02:25.800 --> 01:02:28.380
+Jitendra K: So I've got one feature called Balance.
+
+654
+01:02:28.960 --> 01:02:32.149
+Jitendra K: In the account. So that feature has been used to split.
+
+655
+01:02:35.800 --> 01:02:38.010
+Jitendra K: Okay, so let's take an example of…
+
+656
+01:02:45.490 --> 01:02:49.179
+Jitendra K: So I will use the same… Open source data sets.
+
+657
+01:03:18.270 --> 01:03:21.860
+Jitendra K: Let me go back to my… collab.
+
+658
+01:03:47.190 --> 01:03:50.799
+Jitendra K: So, what we are going to do is, we are going to use Iris Datasite.
+
+659
+01:03:52.080 --> 01:03:59.600
+Jitendra K: And, we'll go, we are going to create a cart, classification regression tree.
+
+660
+01:04:00.080 --> 01:04:06.360
+Jitendra K: So basically, the first and foremost thing that you have to do is, you have to import a bunch of modules, NumPy.
+
+661
+01:04:08.430 --> 01:04:09.650
+Jitendra K: Pandas…
+
+662
+01:04:18.000 --> 01:04:20.559
+Jitendra K: You are going to use scikit-lun package.
+
+663
+01:04:20.900 --> 01:04:26.670
+Jitendra K: to import a tree. Classes. There's a class… called Decision 3.
+
+664
+01:04:36.880 --> 01:04:40.060
+Jitendra K: Classifier, and then there's a method to plot.
+
+665
+01:05:20.400 --> 01:05:23.970
+Jitendra K: So this is the class, so if you look into the class.
+
+666
+01:05:30.750 --> 01:05:32.950
+Jitendra K: You will see the parameter of this class.
+
+667
+01:05:37.650 --> 01:05:41.560
+Jitendra K: So you can see the criteria here, Guinea, by default.
+
+668
+01:05:45.980 --> 01:05:48.250
+Jitendra K: And there are so many other criterias.
+
+669
+01:05:50.150 --> 01:05:52.470
+Jitendra K: These are hyperparameter for your model.
+
+670
+01:06:00.560 --> 01:06:03.549
+Jitendra K: This is a class that we are going to use.
+
+671
+01:06:03.660 --> 01:06:04.740
+Jitendra K: to construct
+
+672
+01:06:07.820 --> 01:06:10.699
+Jitendra K: The object of this class, and then try to solve this.
+
+673
+01:06:11.290 --> 01:06:28.930
+Jitendra K: So, let me import… Model selection… Accuracy… Ossification reports… Confusion metrics…
+
+674
+01:06:38.050 --> 01:06:40.810
+Jitendra K: Okay, I think I have everything to begin with.
+
+675
+01:06:51.730 --> 01:06:53.740
+Jitendra K: Let me load the dataset.
+
+676
+01:06:58.900 --> 01:07:02.770
+Jitendra K: Oh, I will… Use this dataset.
+
+677
+01:07:03.900 --> 01:07:06.039
+Jitendra K: And create a data frame around it.
+
+678
+01:07:07.640 --> 01:07:09.089
+Jitendra K: This is my data frame.
+
+679
+01:07:13.040 --> 01:07:14.900
+Jitendra K: I will print this…
+
+680
+01:07:19.090 --> 01:07:23.700
+Jitendra K: And then, I will check… the…
+
+681
+01:07:25.240 --> 01:07:28.769
+Jitendra K: class ratios, which I already have.
+
+682
+01:07:29.370 --> 01:07:32.329
+Jitendra K: So this is my split data, 70-30 ratio.
+
+683
+01:07:33.650 --> 01:07:39.040
+Jitendra K: And I would like to look into the length of… these samples…
+
+684
+01:07:39.990 --> 01:07:44.919
+Jitendra K: So, 105 samples for training, 45 for testing, and I'm creating a cart.
+
+685
+01:07:45.260 --> 01:07:51.519
+Jitendra K: by recursively splitting data on a feature value, and I'm going to use Guinea impurity as a split criteria.
+
+686
+01:07:52.060 --> 01:07:54.990
+Jitendra K: Leaf node will have binary split, yes and no.
+
+687
+01:07:55.550 --> 01:08:01.539
+Jitendra K: And I will use a stopping criteria once the output has been classified as yes and no.
+
+688
+01:08:04.680 --> 01:08:05.520
+Jitendra K: Right?
+
+689
+01:08:06.340 --> 01:08:13.829
+Jitendra K: So it's not a first feature, it's not a first feature. Whoever the… okay, out of these four features, how many features we are using in this algorithm?
+
+690
+01:08:14.410 --> 01:08:17.600
+Jitendra K: How many features we are using in this algorithm, guys?
+
+691
+01:08:18.590 --> 01:08:22.720
+Jitendra K: 4. So, which feature is, post one.
+
+692
+01:08:24.270 --> 01:08:27.830
+Jitendra K: This one, right? Should I use sequential features? No.
+
+693
+01:08:28.310 --> 01:08:33.929
+Jitendra K: That's the whole idea of probability. It's not an algorithm that we are using as a coding example.
+
+694
+01:08:34.200 --> 01:08:36.149
+Jitendra K: We're not sorting a link list.
+
+695
+01:08:37.020 --> 01:08:40.270
+Jitendra K: We're using a probabilistical model to solve this problem.
+
+696
+01:08:40.420 --> 01:08:42.979
+Jitendra K: So we are going to start with the most impure node.
+
+697
+01:08:45.220 --> 01:08:49.790
+Jitendra K: It's not a linkless problem that we are going to link head of the node with tail of the node.
+
+698
+01:08:51.479 --> 01:08:57.730
+Jitendra K: So, we will start with the node which is mostly impure. If it is the first node, well, I'm going to start with the first node.
+
+699
+01:08:57.899 --> 01:09:05.399
+Jitendra K: If it is another node, then we'll start with that node as a… Input node to begin with.
+
+700
+01:09:07.279 --> 01:09:09.019
+Jitendra K: Is it clear to everyone?
+
+701
+01:09:09.810 --> 01:09:11.299
+Jitendra K: what I'm trying to say.
+
+702
+01:09:14.410 --> 01:09:16.759
+Jitendra K: So, we'll start with the most impure node.
+
+703
+01:09:17.720 --> 01:09:22.029
+Jitendra K: Again, you need not to calculate the most important node. The algorithm will do it for you.
+
+704
+01:09:22.630 --> 01:09:26.429
+Jitendra K: Okay, but let's see with this example how algorithm has been constructed.
+
+705
+01:09:26.720 --> 01:09:31.219
+Jitendra K: So, now I would like to create an object of my decient tree classifier.
+
+706
+01:09:31.540 --> 01:09:37.150
+Jitendra K: And I'm going to pass only 3 criteria. I'm considering Guinea as my criteria for split.
+
+707
+01:09:37.520 --> 01:09:41.770
+Jitendra K: Maximum depth, I'm keeping it to be 3, which I will explain in a while.
+
+708
+01:09:42.020 --> 01:09:49.659
+Jitendra K: Minimum sample split, that I'm considering is 2. Random state, again, the same recreatable
+
+709
+01:09:51.350 --> 01:09:54.039
+Jitendra K: For recreatability, I'm keeping the random state to be.
+
+710
+01:09:54.600 --> 01:09:55.539
+Jitendra K: What do you do?
+
+711
+01:09:55.870 --> 01:10:00.869
+Jitendra K: I'm fitting this model object And try to see the outcome.
+
+712
+01:10:01.270 --> 01:10:07.219
+Jitendra K: So let me show you the outcome, and we will define the accuracy and other metrics.
+
+713
+01:10:07.350 --> 01:10:08.279
+Jitendra K: In a while.
+
+714
+01:10:08.550 --> 01:10:17.460
+Jitendra K: So I'm predicting the… Creating a tree only on 3 level.
+
+715
+01:10:18.040 --> 01:10:22.729
+Jitendra K: maximum depth that I'm allowing to construct is 3, so each level
+
+716
+01:10:23.370 --> 01:10:29.170
+Jitendra K: After the root node will be considered as 1. 1, 2, and 3. So this is a 3-level tree.
+
+717
+01:10:30.010 --> 01:10:37.730
+Jitendra K: Now I'm creating number of leaves to be 5, so you will get 1, 2, 3, 4. 4, maximum 5, but I'm getting 4.
+
+718
+01:10:38.250 --> 01:10:41.050
+Jitendra K: Which is 4 classes, right, of my output.
+
+719
+01:10:41.570 --> 01:10:50.700
+Jitendra K: I'm predicting on the test data, and this is what evaluation reports looks like. So my accuracy of this prediction is 97, or 98%, which is good.
+
+720
+01:10:51.080 --> 01:10:53.729
+Jitendra K: And for each classes, I will be able to get this.
+
+721
+01:10:53.830 --> 01:10:59.699
+Jitendra K: Now, what is the most important feature which has been used by the algorithm? So, I will say pedal length.
+
+722
+01:11:00.370 --> 01:11:05.060
+Jitendra K: Followed by paddle width, super length, Which has not been used.
+
+723
+01:11:05.580 --> 01:11:08.490
+Jitendra K: followed by SQL then. So these are not being used.
+
+724
+01:11:08.780 --> 01:11:12.519
+Jitendra K: So the feature importance has been… goes towards only these two features.
+
+725
+01:11:12.690 --> 01:11:17.359
+Jitendra K: Which is more than enough to consider as a split criteria. Now, if you look carefully.
+
+726
+01:11:19.740 --> 01:11:21.979
+Jitendra K: The pattern length is the most impure node.
+
+727
+01:11:22.370 --> 01:11:28.349
+Jitendra K: And it starts with the condition. If the petal length is less than 2.45cm.
+
+728
+01:11:28.610 --> 01:11:33.679
+Jitendra K: It'll calculate the GINI by fitting the same formula, because our split criteria is GINI.
+
+729
+01:11:34.120 --> 01:11:37.630
+Jitendra K: And as you progress, your genie will reduce.
+
+730
+01:11:37.770 --> 01:11:40.969
+Jitendra K: So this is 0, that means it's the leaf node.
+
+731
+01:11:41.300 --> 01:11:45.149
+Jitendra K: So this is terminated, so then it moves to the right child.
+
+732
+01:11:45.680 --> 01:11:52.670
+Jitendra K: Guinea is something, 0.5, then it moves to 0.0.7, then it becomes 0 at this level.
+
+733
+01:11:53.240 --> 01:11:58.329
+Jitendra K: So, this is how the decision tree has been constructed. So, the idea of descentry is very simple.
+
+734
+01:11:58.530 --> 01:12:02.830
+Jitendra K: You're splitting at each node, find the best features and threshold.
+
+735
+01:12:03.020 --> 01:12:06.550
+Jitendra K: And try to maximize the game purity at each child node.
+
+736
+01:12:07.220 --> 01:12:08.050
+Jitendra K: Right?
+
+737
+01:12:08.340 --> 01:12:15.610
+Jitendra K: So let me share this example, and I would like everybody to try this example, and then try to get a gist of.
+
+738
+01:12:16.150 --> 01:12:22.869
+Jitendra K: this algorithm, and let me know if there's any question. Hyperparameter we will discuss in a while.
+
+739
+01:12:23.050 --> 01:12:29.390
+Jitendra K: But conceptually, if you're feeling that this is… Doable, let me know.
+
+740
+01:12:30.030 --> 01:12:31.560
+Jitendra K: So let me share this code.
+
+741
+01:12:45.960 --> 01:12:48.910
+Jitendra K: So please run this, and let me know your thoughts.
+
+742
+01:22:12.160 --> 01:22:14.999
+Jitendra K: Please enter the one if you're done, guys.
+
+743
+01:24:02.390 --> 01:24:10.790
+Jitendra K: So, higher or the highest, which are important, decide the first route, yes. Trying to understand what constitutes start node among the future,
+
+744
+01:24:12.540 --> 01:24:16.639
+Jitendra K: Yeah, so we start with the most, important feature to begin with.
+
+745
+01:24:17.170 --> 01:24:21.239
+Jitendra K: The higher the importance of the feature, higher the impurity at the top.
+
+746
+01:24:21.660 --> 01:24:24.800
+Jitendra K: We'll start with the most impure feature inside the algorithm.
+
+747
+01:24:37.840 --> 01:24:41.039
+Jitendra K: Okay, any further question, guys, on this topic?
+
+748
+01:25:01.020 --> 01:25:07.609
+Jitendra K: Okay, then let's take a break of 20 minutes, so once we come back, then we will talk about different variations of dysentery.
+
+749
+01:25:08.080 --> 01:25:15.730
+Jitendra K: As I mentioned, I'm not recommending to go with each and every variation in detail, because our majority of the thing that we have to understand is the basics.
+
+750
+01:25:16.650 --> 01:25:21.090
+Jitendra K: So, we need to understand, first, how…
+
+751
+01:25:32.110 --> 01:25:38.769
+Jitendra K: Yeah, so how the decision tree will be used further for constructing random forest and XZBoost algorithm?
+
+752
+01:25:41.130 --> 01:25:46.400
+Jitendra K: Sorry I was unable to hear. Is higher means more impurity? Yes, higher means more impurity.
+
+753
+01:25:46.960 --> 01:25:49.080
+Jitendra K: Higher the importance, higher the impurity.
+
+754
+01:25:57.680 --> 01:26:06.310
+Jitendra K: Alright, so what we can do now is we'll take a 20 minutes break, and then once we come back, then we'll take, some more example on creating a decision tree.
+
+755
+01:26:07.070 --> 01:26:10.529
+Jitendra K: And, we'll also talk about hyperparameter tuning.
+
+756
+01:26:10.850 --> 01:26:15.140
+Jitendra K: So this is important, because you need to understand the hyperparameter of a tree.
+
+757
+01:26:15.580 --> 01:26:23.430
+Jitendra K: Because this hyperparameter will be very similarly, we are going to use in random forest and other… in sample-based learning.
+
+758
+01:26:23.870 --> 01:26:25.690
+Jitendra K: So we'll still go with the same…
+
+759
+01:26:25.900 --> 01:26:29.739
+Jitendra K: Sequences. So let's try to understand all this concept.
+
+760
+01:26:32.220 --> 01:26:45.789
+Jitendra K: Masterclass on matplot and Plotly. I have a very important one in this case. Okay, Matplot and Plotly, I think there's no topic, but if you would like to know any…
+
+761
+01:26:47.210 --> 01:26:49.960
+Jitendra K: specific topic, I will help you in that.
+
+762
+01:26:50.580 --> 01:26:58.250
+Jitendra K: But there's no dedicated class for matplot, but yes, just in case if you are feeling stuck at certain points.
+
+763
+01:26:58.570 --> 01:27:00.169
+Jitendra K: I'll help you in that part.
+
+764
+01:27:00.320 --> 01:27:02.269
+Jitendra K: Like, how to create these plots.
+
+765
+01:27:12.600 --> 01:27:18.390
+Jitendra K: Alright, let's take a quick break of 20 minutes, and then when we come back, then we'll take some more examples to understand this.
+
+766
+01:27:18.680 --> 01:27:22.599
+Jitendra K: And the second point is, we are going to focus on hyperparameter as well.
+
+767
+01:27:30.500 --> 01:27:36.660
+Jitendra K: Okay, then it should be a separate request, so can you please raise this request to IATM team? They will…
+
+768
+01:27:36.890 --> 01:27:39.340
+Jitendra K: See what they can deliver on this.
+
+769
+01:27:39.960 --> 01:27:42.929
+Jitendra K: So there's a separate team, for that purpose.
+
+770
+01:27:43.570 --> 01:27:44.689
+Jitendra K: Yeah, thank you.
+
+771
+01:27:45.690 --> 01:27:50.299
+Jitendra K: So let's take a break, and then once we come back, then we will start with some other examples. Thank you.
+
+772
+01:53:50.830 --> 01:53:54.550
+Jitendra K: Hi guys, I hope you're back, and we have a quick confirmation?
+
+773
+01:54:04.610 --> 01:54:07.660
+Jitendra K: Alright, I can see the thumbs up. Thank you.
+
+774
+01:54:08.180 --> 01:54:18.699
+Jitendra K: So, what we are going to do next is, we will take some more examples to understand decent tree. As I mentioned, decent tree is not just a classification, but it's also regression.
+
+775
+01:54:19.140 --> 01:54:25.880
+Jitendra K: So we can use decision tree to create regression model. So the key idea is there are different variations of decision tree.
+
+776
+01:54:26.660 --> 01:54:33.410
+Jitendra K: So that is something which I would like to talk about now. So, when you say variation of dysentry, so there are different types of dysentry.
+
+777
+01:54:34.480 --> 01:54:38.789
+Jitendra K: So, predominantly, we are going to talk about 3 or 4 types of dysentery.
+
+778
+01:54:39.330 --> 01:54:41.069
+Jitendra K: So, let me explain…
+
+779
+01:54:44.910 --> 01:54:46.080
+Jitendra K: One by one.
+
+780
+01:54:51.550 --> 01:54:57.440
+Jitendra K: So the first thing that we have talked about is, the CART, which is a classification regression tree.
+
+781
+01:54:57.990 --> 01:55:04.630
+Jitendra K: The other set of decision tree that we are going to talk about is, called as… ID5.
+
+782
+01:55:05.540 --> 01:55:08.780
+Jitendra K: So, this is the second decedent tree.
+
+783
+01:55:14.930 --> 01:55:16.559
+Jitendra K: That we are going to talk about.
+
+784
+01:55:16.880 --> 01:55:23.320
+Jitendra K: So basically, it's an iterative dichotomizer tree, which is using information gain to split the node.
+
+785
+01:55:23.730 --> 01:55:27.469
+Jitendra K: So, by default, Card is using Guinea?
+
+786
+01:55:32.750 --> 01:55:35.280
+Jitendra K: And ID5 is using information gain.
+
+787
+01:55:35.650 --> 01:55:37.069
+Jitendra K: Let's split the notes.
+
+788
+01:55:38.030 --> 01:55:43.800
+Jitendra K: So that's the reason I told you this… these are an old concepts, I think 5-6 year old concepts.
+
+789
+01:55:43.960 --> 01:55:51.920
+Jitendra K: So we'll skip this part, because even the cart is giving us a liberty to fine-tune your dysentery by flipping the hyperparameter.
+
+790
+01:55:52.170 --> 01:55:57.330
+Jitendra K: So you can choose your own criteria for split. So that means you need not to construct ID5.
+
+791
+01:55:59.060 --> 01:56:02.210
+Jitendra K: Similarly, there's something called C4.5.
+
+792
+01:56:05.130 --> 01:56:08.970
+Jitendra K: Which is an improved version of ID3 or ID5 algorithm.
+
+793
+01:56:09.320 --> 01:56:13.760
+Jitendra K: That also use Guinea ratio for splitting. So there's a new concept called Guinea ratio.
+
+794
+01:56:17.220 --> 01:56:23.730
+Jitendra K: That means, if you're taking a ratio of your Guinea gain, or Guinea impurities, I…
+
+795
+01:56:24.050 --> 01:56:26.800
+Jitendra K: At a root node to the second node.
+
+796
+01:56:28.460 --> 01:56:32.089
+Jitendra K: You will be able to find which particular feature should be used to split.
+
+797
+01:56:33.580 --> 01:56:37.730
+Jitendra K: Similarly, There's something called…
+
+798
+01:56:42.070 --> 01:56:43.120
+Jitendra K: Shade…
+
+799
+01:56:46.170 --> 01:56:47.570
+Jitendra K: this entry.
+
+800
+01:56:49.760 --> 01:56:52.750
+Jitendra K: Which is used for categorical variables only.
+
+801
+01:56:56.750 --> 01:57:01.509
+Jitendra K: So we'll focus only on this… Because there's no such…
+
+802
+01:57:02.540 --> 01:57:05.749
+Jitendra K: Problem that you're going to solve only on categorical variables.
+
+803
+01:57:06.370 --> 01:57:09.740
+Jitendra K: You are going to use CART for regression?
+
+804
+01:57:10.370 --> 01:57:12.180
+Jitendra K: And classification board.
+
+805
+01:57:12.630 --> 01:57:15.869
+Jitendra K: And as I mentioned, these are becoming your hyperparameter. You can…
+
+806
+01:57:16.050 --> 01:57:25.399
+Jitendra K: make these selections when you're running any problem, right? When you're trying to solve any problem. By default, it will provide you a set of
+
+807
+01:57:25.900 --> 01:57:29.200
+Jitendra K: Hyperparameter that you can be able to use inside the class.
+
+808
+01:57:29.500 --> 01:57:33.030
+Jitendra K: So our focus should be only on understanding the cart.
+
+809
+01:57:35.140 --> 01:57:42.130
+Jitendra K: So, now we will talk about what are the different types of hyperparameter that will be applicable to a decision tree.
+
+810
+01:57:42.470 --> 01:57:46.410
+Jitendra K: So that is very important, and that is something which I would like to talk about now.
+
+811
+01:57:46.670 --> 01:57:51.520
+Jitendra K: Now, when you say hyperparameter of a… Edition 3.
+
+812
+01:57:57.320 --> 01:58:01.139
+Jitendra K: So there are a number of hyperparameters that we are going to use.
+
+813
+01:58:01.420 --> 01:58:05.949
+Jitendra K: So the idea is, when we say DCN3, DCN3 have only one drawback.
+
+814
+01:58:06.320 --> 01:58:08.920
+Jitendra K: The drawback is, it tends to overfit.
+
+815
+01:58:09.580 --> 01:58:11.600
+Jitendra K: Because it's a conditional…
+
+816
+01:58:14.750 --> 01:58:17.259
+Jitendra K: It depends upon the conditional traversal.
+
+817
+01:58:17.830 --> 01:58:20.910
+Jitendra K: So it tends to work it. If this condition change.
+
+818
+01:58:22.180 --> 01:58:27.280
+Jitendra K: by some value. Your decision tree will tend to overfit and learn those conditions.
+
+819
+01:58:28.370 --> 01:58:37.230
+Jitendra K: So let's say if I'm saying, you're taking a decision, to travel… To some tourists.
+
+820
+01:58:37.450 --> 01:58:41.690
+Jitendra K: you're in to some tourist destination, right? Say you have a bunch of…
+
+821
+01:58:42.440 --> 01:58:46.799
+Jitendra K: Stuff. So, what are the things that you will plan for your holiday vacation?
+
+822
+01:58:47.390 --> 01:58:49.650
+Jitendra K: First and foremost thing, you'll plan your budget.
+
+823
+01:58:49.950 --> 01:58:51.639
+Jitendra K: What is the amount that you're having?
+
+824
+01:58:53.010 --> 01:58:58.690
+Jitendra K: Then you will be able to look for flight option, hotel booking, outing.
+
+825
+01:58:59.670 --> 01:59:04.350
+Jitendra K: Maybe you will hire… like to hire, car…
+
+826
+01:59:07.670 --> 01:59:11.110
+Jitendra K: If you have enough budget, then you will go up to that depth.
+
+827
+01:59:11.500 --> 01:59:16.360
+Jitendra K: But if you're lacking a budget, then you will say that I will go to one tourist spot.
+
+828
+01:59:16.870 --> 01:59:18.229
+Jitendra K: And then I will come back.
+
+829
+01:59:18.420 --> 01:59:21.570
+Jitendra K: I will not go for multiple destinations, right?
+
+830
+01:59:21.780 --> 01:59:27.590
+Jitendra K: Let's say you are visiting some country, which is, maybe, having good…
+
+831
+01:59:27.910 --> 01:59:31.960
+Jitendra K: connectivity to MRTs, LRTs, local transport.
+
+832
+01:59:32.220 --> 01:59:33.959
+Jitendra K: So that you can save these costs.
+
+833
+01:59:34.190 --> 01:59:44.089
+Jitendra K: You can buy cheap… you can hire cheapest hotel, cheapest tourist guide, etc. So, depending upon the budget, you will plan, but what if… if I'm giving you an offer on this?
+
+834
+01:59:44.340 --> 01:59:47.600
+Jitendra K: So your entire plan will change from budget to offer now.
+
+835
+01:59:47.970 --> 01:59:53.070
+Jitendra K: So that is where the decient tree is very, very… overfit.
+
+836
+01:59:53.950 --> 01:59:58.099
+Jitendra K: So it is overfit to a solution, overfit to a feature.
+
+837
+01:59:58.330 --> 01:59:59.180
+Jitendra K: Right?
+
+838
+01:59:59.360 --> 02:00:05.489
+Jitendra K: So, the key hyperparameter for decentry is very important. That will help us to make it generalized.
+
+839
+02:00:05.720 --> 02:00:08.710
+Jitendra K: And prevent overfitting and underfitting.
+
+840
+02:00:09.980 --> 02:00:15.640
+Jitendra K: So, there are different types of hyperparameter that we are going to talk about. The first hyperparameter
+
+841
+02:00:16.090 --> 02:00:18.529
+Jitendra K: It's called Max Tapped.
+
+842
+02:00:22.330 --> 02:00:25.580
+Jitendra K: So, max depth is a level of decentry.
+
+843
+02:00:26.620 --> 02:00:33.390
+Jitendra K: So, when we say level, It is the distance from the root node to the leaf node.
+
+844
+02:00:33.570 --> 02:00:35.460
+Jitendra K: So that is the level, maximum depth.
+
+845
+02:00:35.710 --> 02:00:41.250
+Jitendra K: So this is a maximum number of level that a tree can grow. A high value can lead to a very complex solution.
+
+846
+02:00:41.900 --> 02:00:44.810
+Jitendra K: And that is where your tree will tend to overfit.
+
+847
+02:00:45.180 --> 02:00:50.829
+Jitendra K: While low value may learn to adapt, that means it may underfit.
+
+848
+02:00:51.590 --> 02:00:57.599
+Jitendra K: So both maximum depth and minimum depth is one of the important parameters to construct your descendry.
+
+849
+02:00:58.980 --> 02:01:02.830
+Jitendra K: That means you need to find out some viable option.
+
+850
+02:01:03.270 --> 02:01:06.600
+Jitendra K: Between minimum and the maximum tapped.
+
+851
+02:01:08.930 --> 02:01:10.610
+Jitendra K: That you can construct.
+
+852
+02:01:11.410 --> 02:01:12.980
+Jitendra K: We have to tune this.
+
+853
+02:01:13.320 --> 02:01:14.960
+Jitendra K: That's why it is parameter.
+
+854
+02:01:15.680 --> 02:01:24.390
+Jitendra K: Second is… Minimum… sample… Split.
+
+855
+02:01:26.680 --> 02:01:30.799
+Jitendra K: So when I say minimum sample split, I'm talking about minimum samples
+
+856
+02:01:31.400 --> 02:01:36.219
+Jitendra K: That are required to represent as an internal node, and it should contain
+
+857
+02:01:37.420 --> 02:01:40.540
+Jitendra K: That means, let me take an example.
+
+858
+02:01:41.130 --> 02:01:42.830
+Jitendra K: Minimum sample split.
+
+859
+02:01:43.050 --> 02:01:48.589
+Jitendra K: So, minimum number of samples that are required as an internal load, which must contain
+
+860
+02:01:49.580 --> 02:01:51.429
+Jitendra K: Before it can further spread.
+
+861
+02:01:52.410 --> 02:01:56.669
+Jitendra K: So I'm saying that at this node, I need minimum sample, 5, 10.
+
+862
+02:01:57.030 --> 02:01:59.670
+Jitendra K: Before I can take a decision to further split it.
+
+863
+02:02:00.560 --> 02:02:05.610
+Jitendra K: So here I'm talking about the entropy. Again, number of… data points.
+
+864
+02:02:08.690 --> 02:02:12.459
+Jitendra K: And their associated disorderedness, or randomness.
+
+865
+02:02:15.910 --> 02:02:18.569
+Jitendra K: before I take a decision to further split it.
+
+866
+02:02:20.050 --> 02:02:24.450
+Jitendra K: So that is the second criteria. Third criteria is called minimum sample…
+
+867
+02:02:29.440 --> 02:02:32.180
+Jitendra K: leaf… node.
+
+868
+02:02:32.690 --> 02:02:39.359
+Jitendra K: So this is the minimum number of samples required to be represented, or presented in a leaf terminal node.
+
+869
+02:02:39.550 --> 02:02:45.490
+Jitendra K: And this will ensure that each final decision is based on a sufficient number of observations.
+
+870
+02:02:47.280 --> 02:02:54.730
+Jitendra K: Right? And that will help me to smooth the model and prevent a creation of leaf with a single potential noisy data points.
+
+871
+02:02:57.050 --> 02:03:01.710
+Jitendra K: Similarly, I will have maximum… Leaf node.
+
+872
+02:03:04.160 --> 02:03:10.170
+Jitendra K: So, maximum load leaf node, the tree can have. The tree is grown in a best-first fashion.
+
+873
+02:03:10.590 --> 02:03:13.730
+Jitendra K: That is going to stop when the maximum number is reached.
+
+874
+02:03:14.000 --> 02:03:19.540
+Jitendra K: That means I would like to know effectively, limiting the oversize of the tree.
+
+875
+02:03:21.260 --> 02:03:28.569
+Jitendra K: So, there are certain criteria that I'm using. The criteria is split, guinea, entropy, information gain.
+
+876
+02:03:28.780 --> 02:03:39.060
+Jitendra K: Minimum impurity decrease, as I mentioned, it will decrease as you move from root to leaf node, your impurity will decrease, your entropy will decrease.
+
+877
+02:03:41.200 --> 02:03:46.990
+Jitendra K: the number of split, if the tree required If the impurity is higher.
+
+878
+02:03:47.590 --> 02:03:52.869
+Jitendra K: then I would like to regularize this parameter, and that parameter is called minimum impurity decrease.
+
+879
+02:04:04.740 --> 02:04:08.299
+Jitendra K: Similarly, I will have one more parameter called maximum features.
+
+880
+02:04:08.970 --> 02:04:12.360
+Jitendra K: So, maximum features is one of the parameters.
+
+881
+02:04:12.650 --> 02:04:18.599
+Jitendra K: That will determine the number of features to be considered when looking for the best split at each node.
+
+882
+02:04:21.700 --> 02:04:22.490
+Jitendra K: Right?
+
+883
+02:04:22.610 --> 02:04:28.710
+Jitendra K: So these are the hyperparameters that we are going to use to construct our decision tree optimally.
+
+884
+02:04:29.240 --> 02:04:32.580
+Jitendra K: Now, when I say optimally, what do you mean by optimally?
+
+885
+02:04:34.350 --> 02:04:35.160
+Jitendra K: Right?
+
+886
+02:04:35.460 --> 02:04:41.309
+Jitendra K: So… As I mentioned earlier, whenever you're working on any data science project.
+
+887
+02:04:44.950 --> 02:04:48.939
+Jitendra K: Whenever you're working in any data science project, you should have an experimental mindset.
+
+888
+02:04:50.120 --> 02:04:54.359
+Jitendra K: This is not a software that you're designing. You should have an experimental mindset.
+
+889
+02:04:54.850 --> 02:04:57.050
+Jitendra K: You should experiment with your data.
+
+890
+02:04:57.710 --> 02:05:02.040
+Jitendra K: That's why you're a scientist, data scientist. Otherwise, it's a data engineer job.
+
+891
+02:05:02.920 --> 02:05:06.570
+Jitendra K: Which can do dish entry and better than you and me.
+
+892
+02:05:08.500 --> 02:05:14.610
+Jitendra K: So, as a data scientist, you should know what is the definition of experimentation. So, when you're experimenting.
+
+893
+02:05:15.350 --> 02:05:19.839
+Jitendra K: With the data, that means you're evaluating your potential features.
+
+894
+02:05:26.220 --> 02:05:29.080
+Jitendra K: Also, you're evaluating your algorithm.
+
+895
+02:05:33.470 --> 02:05:38.830
+Jitendra K: So there are two ways to evaluate your algorithm. One is… Change your approach.
+
+896
+02:05:48.310 --> 02:05:50.450
+Jitendra K: Second is, fine-tune your model.
+
+897
+02:05:53.610 --> 02:05:57.380
+Jitendra K: But as you know, that fine-tuning your model will have a limitation.
+
+898
+02:05:58.450 --> 02:06:01.889
+Jitendra K: So when you're fine-tuning a model, it's like your old guitar.
+
+899
+02:06:03.470 --> 02:06:09.160
+Jitendra K: If every guitar can be replaced, or fine-tuned, then there's no need for new guitars.
+
+900
+02:06:12.500 --> 02:06:16.770
+Jitendra K: Right? So sometimes change your approach may work, sometimes fine-tuning your model will work.
+
+901
+02:06:16.980 --> 02:06:20.240
+Jitendra K: So it depends upon your problem, depends upon your data.
+
+902
+02:06:20.360 --> 02:06:26.620
+Jitendra K: There's no, I would say, there's no clear definition what you need to follow. Depends upon where you land.
+
+903
+02:06:26.870 --> 02:06:28.350
+Jitendra K: What are you trying to solve?
+
+904
+02:06:30.180 --> 02:06:30.990
+Jitendra K: Right?
+
+905
+02:06:32.000 --> 02:06:35.249
+Jitendra K: So this is very important, that you should have these…
+
+906
+02:06:36.450 --> 02:06:40.390
+Jitendra K: Thorough evaluation of your algorithm with the lens of hyperparameter fine-tuning.
+
+907
+02:06:40.760 --> 02:06:44.580
+Jitendra K: So if you fine-tune your model, you're using hyperparameters.
+
+908
+02:06:45.870 --> 02:06:48.350
+Jitendra K: Which are parameter to your model.
+
+909
+02:06:48.860 --> 02:06:50.279
+Jitendra K: Not to your data.
+
+910
+02:06:52.350 --> 02:06:56.589
+Jitendra K: This is not data-related hyperparameter, this is model-related hyperparameter.
+
+911
+02:06:58.270 --> 02:07:02.790
+Jitendra K: So, algorithm, somebody have written for you, SKlearn has written for you.
+
+912
+02:07:03.720 --> 02:07:08.120
+Jitendra K: They have given you a data, decent tree class, scikit-learn module.
+
+913
+02:07:08.530 --> 02:07:09.890
+Jitendra K: You're using them?
+
+914
+02:07:12.720 --> 02:07:18.930
+Jitendra K: Data has been given by… Your business team, your… data engineers.
+
+915
+02:07:19.750 --> 02:07:24.320
+Jitendra K: Then what will be your job in that case? Algorithm has been written, data has been given by someone else.
+
+916
+02:07:24.750 --> 02:07:29.229
+Jitendra K: So your job is to… Make sure this data fit this algorithm.
+
+917
+02:07:30.960 --> 02:07:41.940
+Jitendra K: other data scientist. Otherwise, chatGPT is doing much more than any… 5-year, 6-year fresh year.
+
+918
+02:07:43.840 --> 02:07:50.429
+Jitendra K: So the idea is, you have to fit your data, you have to evaluate your experimentation, you have to fine-tune your model.
+
+919
+02:07:51.270 --> 02:07:54.420
+Jitendra K: If you're fine-tuning your model with a proper reasoning.
+
+920
+02:07:55.310 --> 02:07:57.280
+Jitendra K: Then you will achieve a better result.
+
+921
+02:07:59.140 --> 02:08:03.270
+Jitendra K: Right? So, the whole idea of using this approach
+
+922
+02:08:03.550 --> 02:08:08.790
+Jitendra K: Is to ensure that you will be able to fine-tune your model with an optimal
+
+923
+02:08:10.240 --> 02:08:13.279
+Jitendra K: Benchmarking, as well as optimal parameters.
+
+924
+02:08:14.540 --> 02:08:21.170
+Jitendra K: So, in this example, we will see what are the different fine-tuning parameters that we require to Excel for decision tree only.
+
+925
+02:08:22.200 --> 02:08:27.349
+Jitendra K: And these parameters may change for other algorithms, right? But they are common.
+
+926
+02:08:27.620 --> 02:08:31.859
+Jitendra K: For the tree-based algorithm. Some of them are common. That's the reason we have to go in-depth.
+
+927
+02:08:32.420 --> 02:08:36.029
+Jitendra K: So we'll talk about different types of hyperparameters, and
+
+928
+02:08:36.620 --> 02:08:43.669
+Jitendra K: Different types of, problem… sorry, different types of… Ways to improve that hyperparameter.
+
+929
+02:08:45.960 --> 02:08:49.670
+Jitendra K: So let's try with, let me go back to my code.
+
+930
+02:08:53.700 --> 02:08:55.990
+Jitendra K: First, let me explain what are we trying to solve.
+
+931
+02:08:56.630 --> 02:09:01.680
+Jitendra K: So, we are going to solve one… financial domain problem.
+
+932
+02:09:02.020 --> 02:09:06.250
+Jitendra K: And, let me debrief what is the problem that we're trying to solve.
+
+933
+02:09:06.830 --> 02:09:12.400
+Jitendra K: So, we are going to talk about… this data sample…
+
+934
+02:09:13.200 --> 02:09:15.910
+Jitendra K: which I'm going to create synthetically.
+
+935
+02:09:16.450 --> 02:09:20.720
+Jitendra K: So I'm going to use… the…
+
+936
+02:09:21.320 --> 02:09:25.459
+Jitendra K: Very similar to UCI repository, so I'm going to use a banking marketing data.
+
+937
+02:09:26.220 --> 02:09:31.459
+Jitendra K: So, the idea is, I would like to enable a banking marketing campaign.
+
+938
+02:09:32.040 --> 02:09:36.130
+Jitendra K: And predict if the client will subscribe to a term deposit.
+
+939
+02:09:36.880 --> 02:09:38.540
+Jitendra K: Based upon that campaign.
+
+940
+02:09:38.710 --> 02:09:44.410
+Jitendra K: So, bank offer a lot of campaign. They run a lot of campaigns, including
+
+941
+02:09:44.790 --> 02:09:46.879
+Jitendra K: Let's say they are launching a new product.
+
+942
+02:09:47.460 --> 02:09:54.040
+Jitendra K: They might give you a call, they might be writing you an email, they might be reached out to you via advertisement.
+
+943
+02:09:54.520 --> 02:10:00.270
+Jitendra K: So they want to increase their user reach via these campaigns. They would like to increase their user reach.
+
+944
+02:10:01.370 --> 02:10:06.119
+Jitendra K: Right? To make sure that the product has been reached to multiple users, maximum users.
+
+945
+02:10:06.740 --> 02:10:11.369
+Jitendra K: If you're an existing customer of a bank holding some credit card, they will give you an offer to upgrade.
+
+946
+02:10:12.260 --> 02:10:14.749
+Jitendra K: Without any fee, they will give you some lot of…
+
+947
+02:10:14.950 --> 02:10:19.059
+Jitendra K: Offers, like, without any fee, we'll upgrade your card and all those things.
+
+948
+02:10:19.390 --> 02:10:23.129
+Jitendra K: So this is, basically, they are taking a decision based upon the campaigns.
+
+949
+02:10:24.000 --> 02:10:30.309
+Jitendra K: Otherwise, how will they know that you are going to have another potential customer for this credit card, or…
+
+950
+02:10:30.720 --> 02:10:33.079
+Jitendra K: This particular, type of.
+
+951
+02:10:33.180 --> 02:10:33.980
+Jitendra K: Product.
+
+952
+02:10:35.750 --> 02:10:40.780
+Jitendra K: So they are running different campaigns to infer the similarity of the users.
+
+953
+02:10:40.990 --> 02:10:43.099
+Jitendra K: So once they have those similarities.
+
+954
+02:10:43.270 --> 02:10:47.120
+Jitendra K: Then they will increase their reach. Reach by a different channel.
+
+955
+02:10:48.190 --> 02:10:49.240
+Jitendra K: Pikes?
+
+956
+02:10:49.540 --> 02:10:54.419
+Jitendra K: So, assume that you have got this kind of data set. You have got age.
+
+957
+02:10:54.870 --> 02:11:02.680
+Jitendra K: You've got some saving account where you can track the balance, duration, the campaign objective.
+
+958
+02:11:02.910 --> 02:11:06.500
+Jitendra K: The days in which it took previous customer to convert.
+
+959
+02:11:07.260 --> 02:11:10.160
+Jitendra K: What kind of job they are into, whether they are married.
+
+960
+02:11:10.320 --> 02:11:13.069
+Jitendra K: Married or unmarried, what is their education?
+
+961
+02:11:13.180 --> 02:11:19.009
+Jitendra K: Status… Whether they have existing house loan, any other loan, what is the contact?
+
+962
+02:11:19.440 --> 02:11:21.689
+Jitendra K: Reference that they have provided.
+
+963
+02:11:22.500 --> 02:11:25.920
+Jitendra K: So we'll use this data to create a model
+
+964
+02:11:27.040 --> 02:11:37.389
+Jitendra K: And then use this model to understand whether the customer Will be a potential… conversion for a…
+
+965
+02:11:38.310 --> 02:11:39.909
+Jitendra K: Particular type of product.
+
+966
+02:11:40.560 --> 02:11:42.559
+Jitendra K: So that is what we are going to solve now.
+
+967
+02:11:43.250 --> 02:11:48.559
+Jitendra K: Now, we will start with some experimentation on this. So, first and foremost thing.
+
+968
+02:11:48.930 --> 02:11:54.490
+Jitendra K: I would like to explain what are we trying to solve. So, here we are learning the concept of fine-tuning.
+
+969
+02:11:55.330 --> 02:12:01.030
+Jitendra K: So, we'll go… slightly… Slow.
+
+970
+02:12:01.190 --> 02:12:05.589
+Jitendra K: So, we are learning fine-tuning. So, on fine-tuning, on decision tree.
+
+971
+02:12:06.720 --> 02:12:11.760
+Jitendra K: So we are going to import a module of DCentry, Use all the parameters.
+
+972
+02:12:12.180 --> 02:12:20.589
+Jitendra K: Now, here I'm importing two important libraries called GridSearch, CV, Cross Validation, And cross-validation score.
+
+973
+02:12:23.620 --> 02:12:28.819
+Jitendra K: So when I'm running a cross-validation or grid search CVE, so this will help me to…
+
+974
+02:12:29.250 --> 02:12:33.040
+Jitendra K: Create a benchmark on the parameter search space.
+
+975
+02:12:34.390 --> 02:12:36.239
+Jitendra K: That is what I'm going to use.
+
+976
+02:12:44.100 --> 02:12:49.060
+Jitendra K: So, then I will explain to you what are the hyperparameters that we're going to target.
+
+977
+02:12:49.550 --> 02:12:53.560
+Jitendra K: Along with, some of the strategies to fine-tune the model.
+
+978
+02:13:01.200 --> 02:13:06.610
+Jitendra K: So I've just laid down the list of hyperparameter. Let me just provide you the list of hyperparameter.
+
+979
+02:13:06.910 --> 02:13:08.330
+Jitendra K: That we are going to use.
+
+980
+02:13:08.790 --> 02:13:14.420
+Jitendra K: So the hyperparameter that we're going to use in this example Include…
+
+981
+02:13:20.360 --> 02:13:22.869
+Jitendra K: Yeah, include a tree size parameter.
+
+982
+02:13:24.950 --> 02:13:27.070
+Jitendra K: Feature selection parameter.
+
+983
+02:13:27.720 --> 02:13:29.780
+Jitendra K: Class balancing parameters.
+
+984
+02:13:30.450 --> 02:13:36.679
+Jitendra K: And then we have pruning and regularization, which is the most advanced parameter of a decientry.
+
+985
+02:13:38.770 --> 02:13:44.199
+Jitendra K: So, let me explain… Let me begin with the first type of parameter.
+
+986
+02:13:44.330 --> 02:13:50.300
+Jitendra K: We already know the splitting quality and strategy parameter, the type of criteria that we're using for split.
+
+987
+02:13:51.050 --> 02:13:54.519
+Jitendra K: We… I think we didn't talk about log loss.
+
+988
+02:13:55.180 --> 02:14:00.230
+Jitendra K: But this is another parameter that we are going to use for… binary categorical.
+
+989
+02:14:01.160 --> 02:14:02.320
+Jitendra K: variables.
+
+990
+02:14:03.930 --> 02:14:07.760
+Jitendra K: Now, let me talk about the tree size parameters. As I mentioned, maximum depth.
+
+991
+02:14:09.660 --> 02:14:14.220
+Jitendra K: So, there are default values to it. So, default value for maximum depth is none.
+
+992
+02:14:14.940 --> 02:14:19.280
+Jitendra K: That means if you do not enable this parameter, your tree can grow up to any size.
+
+993
+02:14:20.820 --> 02:14:28.310
+Jitendra K: it will expand until the leaves are pure. That means this is very… time-sensitive parameter.
+
+994
+02:14:30.460 --> 02:14:35.329
+Jitendra K: So, if you are enabling this parameter, With a default value.
+
+995
+02:14:35.680 --> 02:14:40.930
+Jitendra K: The tree will be able to find multiple solution until it reaches the leaf node.
+
+996
+02:14:42.150 --> 02:14:47.339
+Jitendra K: So, time complexity will be the… decided by the number of features.
+
+997
+02:14:47.860 --> 02:14:51.220
+Jitendra K: And the number of split that you're getting per class.
+
+998
+02:14:53.250 --> 02:14:55.850
+Jitendra K: So this is impractical to use.
+
+999
+02:14:56.220 --> 02:14:59.690
+Jitendra K: Typically, you're going to use a range, 3 to 20.
+
+1000
+02:15:03.710 --> 02:15:07.470
+Jitendra K: So… The effect of choosing this parameter
+
+1001
+02:15:07.650 --> 02:15:11.950
+Jitendra K: Will be, if you're choosing too low value, your solution will underfit.
+
+1002
+02:15:12.290 --> 02:15:17.449
+Jitendra K: If you're choosing too high value, your solution may be complex.
+
+1003
+02:15:17.910 --> 02:15:21.389
+Jitendra K: If you're choosing some medium range, it will overfit.
+
+1004
+02:15:21.510 --> 02:15:25.159
+Jitendra K: So there are 3… Things that you need to balance it out.
+
+1005
+02:15:26.720 --> 02:15:28.990
+Jitendra K: So instead of that, we will use a range.
+
+1006
+02:15:29.580 --> 02:15:33.790
+Jitendra K: To figure it out which… Value is more optimal, and why.
+
+1007
+02:15:35.040 --> 02:15:36.689
+Jitendra K: So that is the first parameter.
+
+1008
+02:15:40.630 --> 02:15:46.999
+Jitendra K: Okay, please create a new Jupyter notebook. Do you want me to still create a new Jupyter notebook? I think…
+
+1009
+02:15:47.640 --> 02:15:49.100
+Jitendra K: This we can use, right?
+
+1010
+02:15:53.740 --> 02:15:57.130
+Jitendra K: The second parameter that we are going to use is minimum sample split.
+
+1011
+02:15:57.860 --> 02:16:06.359
+Jitendra K: So, minimum sample split means, the sample that you required As a minimum value.
+
+1012
+02:16:06.900 --> 02:16:13.629
+Jitendra K: to be considered… As a… Split criteria for that particular node.
+
+1013
+02:16:14.280 --> 02:16:18.830
+Jitendra K: So here I'm saying that I'm keeping the value to be default, which is 2.
+
+1014
+02:16:19.180 --> 02:16:23.489
+Jitendra K: That means it should have two samples at a particular node.
+
+1015
+02:16:23.860 --> 02:16:28.810
+Jitendra K: Minimum… To be considered for a split criteria.
+
+1016
+02:16:30.740 --> 02:16:33.479
+Jitendra K: Here are some typical range that we're going to use.
+
+1017
+02:16:34.080 --> 02:16:35.770
+Jitendra K: For recommended values.
+
+1018
+02:16:38.180 --> 02:16:42.930
+Jitendra K: Minimum sample leaf, that means minimum sample leaf required in the leaf node.
+
+1019
+02:16:43.549 --> 02:16:47.109
+Jitendra K: So I'm default this to a binary, that means 1.
+
+1020
+02:16:47.629 --> 02:16:53.739
+Jitendra K: But I can able to determine minimum sample leaf, With this formula as well.
+
+1021
+02:16:56.690 --> 02:17:02.660
+Jitendra K: Maximum leaf node, Again, if I'm keeping it none, it is unlimited.
+
+1022
+02:17:04.270 --> 02:17:06.549
+Jitendra K: typical values that I should consider
+
+1023
+02:17:06.770 --> 02:17:10.170
+Jitendra K: To control the complexity will be in this range.
+
+1024
+02:17:14.040 --> 02:17:18.370
+Jitendra K: Now, when I'm creating a class balancing and debating strategies.
+
+1025
+02:17:18.830 --> 02:17:28.330
+Jitendra K: So I need to ensure that my class should be… In a proper, balanced manner.
+
+1026
+02:17:28.980 --> 02:17:32.929
+Jitendra K: So, okay, so now let me explain this with an example.
+
+1027
+02:17:33.070 --> 02:17:36.999
+Jitendra K: So let's say if I'm using… Two-class classification problem.
+
+1028
+02:17:37.930 --> 02:17:46.340
+Jitendra K: So if I'm solving any two-class classification problem, and I'm getting… 10,000 rows of data.
+
+1029
+02:17:51.350 --> 02:17:56.249
+Jitendra K: So, in this 10,000 rows of data, I will have a label associated with each class.
+
+1030
+02:17:56.750 --> 02:17:58.400
+Jitendra K: Which is 1 and 0.
+
+1031
+02:18:00.850 --> 02:18:06.060
+Jitendra K: Assume that 90% of the data Belongs to Class 1.
+
+1032
+02:18:09.750 --> 02:18:12.199
+Jitendra K: 9,000 rows belongs to Class 1.
+
+1033
+02:18:12.920 --> 02:18:16.420
+Jitendra K: And remaining 1000 rows belongs to plus 2.
+
+1034
+02:18:23.730 --> 02:18:28.809
+Jitendra K: So, in these scenarios, my model will have a higher tendency to bias towards Class 1.
+
+1035
+02:18:30.590 --> 02:18:35.100
+Jitendra K: So I have to say that the Class 1 weight is… 90%?
+
+1036
+02:18:37.940 --> 02:18:42.559
+Jitendra K: And Class 2, it is… 10%.
+
+1037
+02:18:43.360 --> 02:18:45.369
+Jitendra K: But what if I reverse this?
+
+1038
+02:18:45.670 --> 02:18:54.500
+Jitendra K: If I know that there's a class imbalance, if I reverse this weight, I will get C1… 0.10.
+
+1039
+02:18:55.030 --> 02:18:58.540
+Jitendra K: And C20.90.
+
+1040
+02:18:58.969 --> 02:19:01.669
+Jitendra K: And that is exactly what this parameter does.
+
+1041
+02:19:02.559 --> 02:19:03.680
+Jitendra K: Class weight.
+
+1042
+02:19:07.700 --> 02:19:14.310
+Jitendra K: So you can reverse this… To make sure that you will have a weighted distribution of your classes.
+
+1043
+02:19:17.090 --> 02:19:21.709
+Jitendra K: And you can nullify the effect of biasness in your data by performing this.
+
+1044
+02:19:21.940 --> 02:19:22.879
+Jitendra K: Pretty dope.
+
+1045
+02:19:26.930 --> 02:19:32.489
+Jitendra K: Okay, now I will talk about pruning and, regulation, which is a purely
+
+1046
+02:19:33.020 --> 02:19:37.900
+Jitendra K: The two important hyperparameters for controlling your experimentation designs.
+
+1047
+02:19:38.400 --> 02:19:41.779
+Jitendra K: So when I'm saying pruning, pruning means…
+
+1048
+02:19:42.740 --> 02:19:45.460
+Jitendra K: You are rotating a tree around the node.
+
+1049
+02:19:47.420 --> 02:19:50.700
+Jitendra K: To make it minimal cost complex.
+
+1050
+02:19:52.410 --> 02:19:56.650
+Jitendra K: So… I have to explain this with some example.
+
+1051
+02:19:57.130 --> 02:20:02.140
+Jitendra K: Just give conceptually, Pruning is like you're restricting your tree.
+
+1052
+02:20:02.280 --> 02:20:03.950
+Jitendra K: From unnecessary growth.
+
+1053
+02:20:05.220 --> 02:20:12.599
+Jitendra K: So there's a factor called CCP alpha, cost, complexity pruning.
+
+1054
+02:20:14.460 --> 02:20:17.010
+Jitendra K: And we consider this as alpha parameter.
+
+1055
+02:20:17.360 --> 02:20:20.140
+Jitendra K: And this will be multiplative with number of reefs.
+
+1056
+02:20:23.510 --> 02:20:26.489
+Jitendra K: So, we'll use this parameter to fine-tune the model.
+
+1057
+02:20:26.770 --> 02:20:29.850
+Jitendra K: And then we'll see how the model grows.
+
+1058
+02:20:30.800 --> 02:20:35.589
+Jitendra K: So, let me load this dataset. So, I will load this dataset first.
+
+1059
+02:20:37.210 --> 02:20:38.979
+Jitendra K: And then I will split.
+
+1060
+02:20:39.500 --> 02:20:43.190
+Jitendra K: And then create an experimentation. So first, let me load the dataset.
+
+1061
+02:20:47.310 --> 02:20:55.030
+Jitendra K: So I've got these data sets, which include age, job, marital status, education, balance, housing loan.
+
+1062
+02:20:56.050 --> 02:21:02.220
+Jitendra K: Any other loan, contact type, Duration, that means…
+
+1063
+02:21:03.160 --> 02:21:07.990
+Jitendra K: What is the minimum duration… sorry, what is the duration in which the last call has been made?
+
+1064
+02:21:08.350 --> 02:21:10.539
+Jitendra K: the campaign objective…
+
+1065
+02:21:14.240 --> 02:21:19.399
+Jitendra K: Previous reached, whether the customer has been subscribed for that particular product or not.
+
+1066
+02:21:19.630 --> 02:21:21.330
+Jitendra K: So I've got a label as well.
+
+1067
+02:21:21.520 --> 02:21:23.919
+Jitendra K: So this is my dataset. Now I will use…
+
+1068
+02:21:26.020 --> 02:21:29.560
+Jitendra K: Experimentation 1, I would like to check the criterias.
+
+1069
+02:21:30.380 --> 02:21:32.230
+Jitendra K: Which I'm using for my model.
+
+1070
+02:21:42.980 --> 02:21:45.170
+Jitendra K: So, I would like to use three criterias.
+
+1071
+02:21:45.320 --> 02:21:47.870
+Jitendra K: Which include Guinea and Tropi.
+
+1072
+02:21:48.970 --> 02:21:55.679
+Jitendra K: So, Guinea entropy and information again. So, I would like to check… I'm just running a very simple experimentation.
+
+1073
+02:21:56.230 --> 02:21:59.499
+Jitendra K: I just used the two criterias, Guinea and entropy.
+
+1074
+02:21:59.680 --> 02:22:05.830
+Jitendra K: Based upon which, I would like to see which model is more… Accurate.
+
+1075
+02:22:06.030 --> 02:22:07.910
+Jitendra K: Based upon just the criteria.
+
+1076
+02:22:08.510 --> 02:22:12.909
+Jitendra K: So, this is how you should experiment. So, first and foremost thing, what you are doing is…
+
+1077
+02:22:13.190 --> 02:22:19.680
+Jitendra K: you're passing the parameter of what you would like to synthesize or experiment it with. So here, we are experimenting with
+
+1078
+02:22:20.220 --> 02:22:26.300
+Jitendra K: the split criterias. So I'm saying that I would like to find out The criteria of a split.
+
+1079
+02:22:27.820 --> 02:22:30.780
+Jitendra K: So the criteria of split is Guinea or entropy.
+
+1080
+02:22:30.970 --> 02:22:32.050
+Jitendra K: not end.
+
+1081
+02:22:33.000 --> 02:22:34.100
+Jitendra K: It is all.
+
+1082
+02:22:39.360 --> 02:22:44.030
+Jitendra K: then what I'm doing is I'm fitting this object the Sentry object.
+
+1083
+02:22:44.780 --> 02:22:46.440
+Jitendra K: Using this criteria.
+
+1084
+02:22:47.780 --> 02:22:49.430
+Jitendra K: And now I'm just limiting…
+
+1085
+02:22:49.760 --> 02:22:55.050
+Jitendra K: of your comparison, let's say I'm using 10. I can decrease this, increase this as well.
+
+1086
+02:22:55.580 --> 02:22:59.709
+Jitendra K: So once I found this, I can compare the accuracy.
+
+1087
+02:23:00.410 --> 02:23:08.179
+Jitendra K: So when I'm training the model with Guinea, I'm getting 100% Training accuracy, 97% test accuracy.
+
+1088
+02:23:09.090 --> 02:23:14.730
+Jitendra K: AUC is 0.80, 3, the app is 10, number of levers, 41, total number of nodes is 81.
+
+1089
+02:23:15.530 --> 02:23:18.850
+Jitendra K: When I'm training this with entropy, I'm getting better results.
+
+1090
+02:23:19.610 --> 02:23:24.870
+Jitendra K: So, this tree is overfit, but this tree is… quite well.
+
+1091
+02:23:29.380 --> 02:23:34.469
+Jitendra K: And you can see that they are using a different set of parameter for feature importance.
+
+1092
+02:23:35.660 --> 02:23:39.150
+Jitendra K: So, for entropy-based approach, I'm getting a better…
+
+1093
+02:23:39.480 --> 02:23:46.629
+Jitendra K: fit model. Now, how do we decide what is the better fit? So, you can see the gap between your training and test accuracy.
+
+1094
+02:23:47.600 --> 02:23:52.640
+Jitendra K: Here, I'm getting almost 3% deviation, here I'm getting minimal deviation, 1%.
+
+1095
+02:23:53.600 --> 02:23:59.139
+Jitendra K: So I would say this model is better, because it is having a less overfit as compared to the previous model.
+
+1096
+02:23:59.500 --> 02:24:02.510
+Jitendra K: Although I'm sacrificing the accuracy on training.
+
+1097
+02:24:04.250 --> 02:24:07.870
+Jitendra K: By 1% margin. Fraction of 1% margin.
+
+1098
+02:24:09.550 --> 02:24:10.360
+Jitendra K: Right?
+
+1099
+02:24:10.870 --> 02:24:13.579
+Jitendra K: So, this is one way that you can able to use.
+
+1100
+02:24:13.910 --> 02:24:16.430
+Jitendra K: Now, we will run second experimentation.
+
+1101
+02:24:16.560 --> 02:24:18.339
+Jitendra K: To analyze the maximum depth.
+
+1102
+02:24:18.960 --> 02:24:20.010
+Jitendra K: of a tree.
+
+1103
+02:24:20.810 --> 02:24:23.640
+Jitendra K: And for that, I would like to plot
+
+1104
+02:24:26.170 --> 02:24:30.210
+Jitendra K: The accuracy graph with a maximum number of pre-depth.
+
+1105
+02:24:30.880 --> 02:24:32.269
+Jitendra K: Let me run this…
+
+1106
+02:24:40.510 --> 02:24:48.170
+Jitendra K: So you can see that as my maximum depth of the tree increases, My training score is increasing.
+
+1107
+02:24:48.710 --> 02:24:54.360
+Jitendra K: But my test score is slightly becoming constant after 7.5.
+
+1108
+02:24:55.480 --> 02:24:58.560
+Jitendra K: My training score is increasing, which is fine.
+
+1109
+02:24:59.230 --> 02:25:01.229
+Jitendra K: But I can see the maximum depth.
+
+1110
+02:25:02.670 --> 02:25:08.950
+Jitendra K: After this point, there's no further… Improvement on the model.
+
+1111
+02:25:14.960 --> 02:25:15.770
+Jitendra K: Right?
+
+1112
+02:25:16.190 --> 02:25:17.270
+Jitendra K: So…
+
+1113
+02:25:17.610 --> 02:25:23.509
+Jitendra K: That way, I can able to compare what is the size of tree or maximum that I should consider.
+
+1114
+02:25:23.950 --> 02:25:29.559
+Jitendra K: For my experimentation purpose. So here, I'm experimenting with 1221, which is a very broad range.
+
+1115
+02:25:31.480 --> 02:25:37.029
+Jitendra K: Right? And then I'm considering different authorization scores to compare with.
+
+1116
+02:25:37.760 --> 02:25:39.320
+Jitendra K: And this is what I'm getting.
+
+1117
+02:25:45.990 --> 02:25:51.489
+Jitendra K: Let me perform the short experimentation, minimum overfit… minimum, sorry, minimum sample leaf.
+
+1118
+02:25:53.070 --> 02:26:01.910
+Jitendra K: That, that is one of the parameters that I'm going to use. Minimum sample leave, For split analysis?
+
+1119
+02:26:10.020 --> 02:26:11.650
+Jitendra K: So this is what I'm getting.
+
+1120
+02:26:16.110 --> 02:26:21.270
+Jitendra K: So I can see that, minimum sample leaf does not have any impact on my model.
+
+1121
+02:26:21.550 --> 02:26:24.449
+Jitendra K: It's almost constant. No change.
+
+1122
+02:26:25.840 --> 02:26:30.639
+Jitendra K: So here, I'm passing the minimum sample leave in the order of 2 to 200.
+
+1123
+02:26:31.490 --> 02:26:34.030
+Jitendra K: That means it does not have any impact on the model.
+
+1124
+02:26:34.260 --> 02:26:36.229
+Jitendra K: If I consider 2 or 200?
+
+1125
+02:26:45.320 --> 02:26:50.390
+Jitendra K: Now, I will talk about the class weight…
+
+1126
+02:26:51.460 --> 02:26:53.630
+Jitendra K: For imbalance and imbalanced data side.
+
+1127
+02:26:54.380 --> 02:26:57.610
+Jitendra K: So, remember the class weight that we are using?
+
+1128
+02:26:58.100 --> 02:27:01.029
+Jitendra K: Is, depending upon the ratio of the class.
+
+1129
+02:27:03.180 --> 02:27:05.389
+Jitendra K: So, what I'm trying to do here is…
+
+1130
+02:27:05.620 --> 02:27:12.600
+Jitendra K: I'm trying to experiment with some of the dataset by saying that for balance, an imbalance.
+
+1131
+02:27:13.000 --> 02:27:16.730
+Jitendra K: So I'm just creating… A ratio manually.
+
+1132
+02:27:16.910 --> 02:27:20.310
+Jitendra K: And, the ratio which is there in optimal range.
+
+1133
+02:27:21.130 --> 02:27:27.020
+Jitendra K: So, if you're using a class balance ratio, the way that you should understand this is.
+
+1134
+02:27:27.410 --> 02:27:31.420
+Jitendra K: If you're using a two-class problem, binary.
+
+1135
+02:27:32.200 --> 02:27:33.350
+Jitendra K: prediction.
+
+1136
+02:27:33.560 --> 02:27:39.870
+Jitendra K: Let's try to check how many samples that you're considering, With either of the classes?
+
+1137
+02:27:40.060 --> 02:27:42.260
+Jitendra K: And then try to find a percentage.
+
+1138
+02:27:42.840 --> 02:27:45.460
+Jitendra K: Let's say I'm using 70% off.
+
+1139
+02:27:45.810 --> 02:27:50.650
+Jitendra K: Data which belongs to class 0, and 30% data which belongs to class 1.
+
+1140
+02:27:51.130 --> 02:27:53.080
+Jitendra K: And you just reversed this ratio.
+
+1141
+02:27:53.960 --> 02:27:55.630
+Jitendra K: And it will become your class.
+
+1142
+02:27:56.630 --> 02:27:58.280
+Jitendra K: weighted labels.
+
+1143
+02:27:58.880 --> 02:28:07.590
+Jitendra K: If you reverse this ratio, You will get a… Different proportions on your weights.
+
+1144
+02:28:17.250 --> 02:28:22.799
+Jitendra K: Okay, so with that… Let me finally run.
+
+1145
+02:28:25.810 --> 02:28:29.030
+Jitendra K: The full model, and then try to compare the outcome.
+
+1146
+02:28:30.290 --> 02:28:34.369
+Jitendra K: So I'm going to run this model. There are some more…
+
+1147
+02:28:35.070 --> 02:28:38.779
+Jitendra K: Which I haven't discussed yet, like pruning and other parameters.
+
+1148
+02:28:39.090 --> 02:28:41.039
+Jitendra K: But let me first show the result.
+
+1149
+02:29:00.280 --> 02:29:02.919
+Jitendra K: Okay, so this is what I'm getting as a result.
+
+1150
+02:29:03.510 --> 02:29:07.519
+Jitendra K: So you can see that this is a parameter which has been configured.
+
+1151
+02:29:07.810 --> 02:29:10.420
+Jitendra K: And this is what the scores that I'm getting.
+
+1152
+02:29:16.860 --> 02:29:17.720
+Jitendra K: Right?
+
+1153
+02:29:17.960 --> 02:29:23.609
+Jitendra K: And then, finally, I have got an importance of features that it will be useful for.
+
+1154
+02:29:24.090 --> 02:29:27.720
+Jitendra K: Determining the customer engagement score.
+
+1155
+02:29:28.190 --> 02:29:32.159
+Jitendra K: So you can see the customer engagement score depends upon the duration of the call.
+
+1156
+02:29:33.310 --> 02:29:37.030
+Jitendra K: Either duration of the call, better the interest of the customer.
+
+1157
+02:29:37.680 --> 02:29:41.659
+Jitendra K: Age of the customer will be another differentiating factor.
+
+1158
+02:29:42.820 --> 02:29:46.280
+Jitendra K: Balance account that he's maintaining.
+
+1159
+02:29:46.790 --> 02:29:48.220
+Jitendra K: Will be another factor.
+
+1160
+02:29:48.950 --> 02:29:54.879
+Jitendra K: So when you're doing this, With the help of these 3 or 4 factors.
+
+1161
+02:29:55.190 --> 02:29:57.409
+Jitendra K: You were able to see an ice tree like this.
+
+1162
+02:29:57.800 --> 02:29:59.599
+Jitendra K: that I'm getting on my screen.
+
+1163
+02:30:00.050 --> 02:30:03.969
+Jitendra K: And this is a level 3DC entry that I've constructed.
+
+1164
+02:30:04.340 --> 02:30:09.500
+Jitendra K: And this talks about when a customer who is engaged, at least.
+
+1165
+02:30:09.760 --> 02:30:16.090
+Jitendra K: For a duration of 296 minutes, sorry, seconds, 5 minutes, I think.
+
+1166
+02:30:16.680 --> 02:30:19.450
+Jitendra K: They have a high chances of conversion.
+
+1167
+02:30:21.700 --> 02:30:25.550
+Jitendra K: If this duration is less, That means false.
+
+1168
+02:30:26.130 --> 02:30:30.920
+Jitendra K: Then those customers who is engaged with this much…
+
+1169
+02:30:31.570 --> 02:30:37.019
+Jitendra K: Sorry, which are duration less than that, but balance, they are maintaining on the higher side.
+
+1170
+02:30:37.540 --> 02:30:42.229
+Jitendra K: And their age is… In these two buckets.
+
+1171
+02:30:42.550 --> 02:30:45.710
+Jitendra K: They will have a higher chances of subscribing.
+
+1172
+02:30:47.400 --> 02:30:49.420
+Jitendra K: Those who are existing customers.
+
+1173
+02:30:54.270 --> 02:30:57.879
+Jitendra K: So when you're reading a DCN tree, you should know how to read this.
+
+1174
+02:30:58.840 --> 02:31:01.460
+Jitendra K: Right? That is what I'm trying to talk about.
+
+1175
+02:31:01.680 --> 02:31:03.720
+Jitendra K: So when you're reading a DCN tree.
+
+1176
+02:31:03.990 --> 02:31:07.310
+Jitendra K: You should know what are your… how you're eating it.
+
+1177
+02:31:07.680 --> 02:31:11.910
+Jitendra K: So, when you're reading a DCN tree, Sorry.
+
+1178
+02:31:13.600 --> 02:31:18.560
+Jitendra K: this… I just want to use the snapshot for marking this.
+
+1179
+02:31:19.160 --> 02:31:20.089
+Jitendra K: What do you…
+
+1180
+02:31:28.390 --> 02:31:30.359
+Jitendra K: So, when you're reading a decision tree.
+
+1181
+02:31:34.180 --> 02:31:40.329
+Jitendra K: You should know how to read it first, right? So when you're reading a dysentery, you can see that there's a condition.
+
+1182
+02:31:40.480 --> 02:31:41.750
+Jitendra K: True and false.
+
+1183
+02:31:42.990 --> 02:31:47.290
+Jitendra K: So the first and the foremost thing that I'm doing is, I'm comparing the duration.
+
+1184
+02:31:47.660 --> 02:31:48.990
+Jitendra K: As a root node.
+
+1185
+02:31:49.790 --> 02:31:52.150
+Jitendra K: The duration is my root node parameter.
+
+1186
+02:31:52.930 --> 02:31:56.289
+Jitendra K: The root note says that when the duration is…
+
+1187
+02:31:57.020 --> 02:32:02.500
+Jitendra K: Less than or equal to 236… seconds.
+
+1188
+02:32:04.930 --> 02:32:09.560
+Jitendra K: The entropy is 0.162 sample that has been considered.
+
+1189
+02:32:09.970 --> 02:32:12.959
+Jitendra K: It's somewhere around 3,750.
+
+1190
+02:32:13.500 --> 02:32:18.680
+Jitendra K: And the value for each class is 103 and 3647.
+
+1191
+02:32:19.430 --> 02:32:25.289
+Jitendra K: That means that the first decision node has been constructed based upon duration.
+
+1192
+02:32:26.250 --> 02:32:30.360
+Jitendra K: Is the call duration is of 2.36 seconds, or less.
+
+1193
+02:32:31.920 --> 02:32:35.700
+Jitendra K: Here, I'm getting a low entropy, means the node is relatively pure.
+
+1194
+02:32:36.140 --> 02:32:38.469
+Jitendra K: More sample belongs to one class.
+
+1195
+02:32:40.610 --> 02:32:44.450
+Jitendra K: Entropy is in a range of 0 to 1, so this is low entropy.
+
+1196
+02:32:45.400 --> 02:32:47.320
+Jitendra K: To more closure towards zero.
+
+1197
+02:32:47.840 --> 02:32:51.910
+Jitendra K: Sample of 3,050 total training sample at this node.
+
+1198
+02:32:52.850 --> 02:32:57.659
+Jitendra K: And the value that I'm getting, 103 and 3647 out of this.
+
+1199
+02:32:58.550 --> 02:33:02.229
+Jitendra K: So, 103 samples were not subscribed.
+
+1200
+02:33:02.930 --> 02:33:07.459
+Jitendra K: And 3,647 class… sorry, customer has subscribed.
+
+1201
+02:33:07.980 --> 02:33:10.289
+Jitendra K: The majority of the class is subscribed.
+
+1202
+02:33:12.240 --> 02:33:14.950
+Jitendra K: So, left branch… is true.
+
+1203
+02:33:15.350 --> 02:33:20.129
+Jitendra K: Right branch is false. So when the condition is satisfied, this condition.
+
+1204
+02:33:21.070 --> 02:33:23.220
+Jitendra K: It will move toward this path.
+
+1205
+02:33:24.740 --> 02:33:28.069
+Jitendra K: If the condition is not satisfied, it'll move towards this plot.
+
+1206
+02:33:29.000 --> 02:33:33.160
+Jitendra K: Now, on the left side, You will see…
+
+1207
+02:33:35.560 --> 02:33:41.019
+Jitendra K: If the algorithm come up with a duration, so it evaluates from your data, right? We have passed the data.
+
+1208
+02:33:42.570 --> 02:33:44.659
+Jitendra K: So we have passed everything as a data.
+
+1209
+02:33:46.440 --> 02:33:49.849
+Jitendra K: So we have a call record which talks about the duration of the call.
+
+1210
+02:33:50.080 --> 02:33:54.900
+Jitendra K: So, from the data, it is found… it found that 236… Second.
+
+1211
+02:33:56.080 --> 02:33:59.090
+Jitendra K: Is something which you should consider.
+
+1212
+02:33:59.270 --> 02:34:00.519
+Jitendra K: As a mini-module.
+
+1213
+02:34:00.980 --> 02:34:02.520
+Jitendra K: 296, sorry.
+
+1214
+02:34:06.930 --> 02:34:09.370
+Jitendra K: So, to understand your data, and then decide.
+
+1215
+02:34:10.560 --> 02:34:14.309
+Jitendra K: Okay, so write note says that if I'm using…
+
+1216
+02:34:15.040 --> 02:34:17.730
+Jitendra K: Sorry, left node. Right node is this.
+
+1217
+02:34:18.020 --> 02:34:23.639
+Jitendra K: So right now, they're saying that if my balance is… Less than this value.
+
+1218
+02:34:25.770 --> 02:34:32.729
+Jitendra K: So if the duration of the call is longer, Then check the balance.
+
+1219
+02:34:35.630 --> 02:34:36.520
+Jitendra K: Right?
+
+1220
+02:34:36.710 --> 02:34:42.020
+Jitendra K: Otherwise… The balance should be within this range.
+
+1221
+02:34:43.610 --> 02:34:46.380
+Jitendra K: Similarly, you are keep on constructing this node.
+
+1222
+02:34:47.410 --> 02:34:50.829
+Jitendra K: So the most important node is the call duration.
+
+1223
+02:34:52.270 --> 02:34:54.280
+Jitendra K: Second is your balance.
+
+1224
+02:34:58.260 --> 02:35:03.449
+Jitendra K: That means it talks about the existing customer, because they have a balance tracking. Otherwise.
+
+1225
+02:35:03.640 --> 02:35:08.019
+Jitendra K: You cannot check the balance of other banks within your customer span.
+
+1226
+02:35:08.550 --> 02:35:11.900
+Jitendra K: Second is your balance. The third is the age of the customer.
+
+1227
+02:35:14.740 --> 02:35:17.670
+Jitendra K: Which is more than enough to identify
+
+1228
+02:35:18.140 --> 02:35:20.230
+Jitendra K: That where the customer will be.
+
+1229
+02:35:21.100 --> 02:35:24.010
+Jitendra K: Going to… Approve this product or not.
+
+1230
+02:35:27.750 --> 02:35:33.170
+Jitendra K: Right, so this is how you're taking a decision on your… campaign objective.
+
+1231
+02:35:33.350 --> 02:35:36.059
+Jitendra K: So your campaign will be successful.
+
+1232
+02:35:37.370 --> 02:35:39.700
+Jitendra K: If you are getting a better result.
+
+1233
+02:35:41.790 --> 02:35:42.700
+Jitendra K: Right?
+
+1234
+02:35:42.870 --> 02:35:47.160
+Jitendra K: So the idea is, what we have seen right now is…
+
+1235
+02:35:47.400 --> 02:35:54.360
+Jitendra K: We're just trying to fine-tune the model with a set of hyperparameters.
+
+1236
+02:35:57.660 --> 02:36:01.610
+Jitendra K: So, hyperparameters… is very important.
+
+1237
+02:36:02.310 --> 02:36:06.429
+Jitendra K: And fundamental concept that we are going to use in all the machine learning algorithms.
+
+1238
+02:36:07.140 --> 02:36:09.679
+Jitendra K: Now, here we are talking about one DCN tree.
+
+1239
+02:36:09.870 --> 02:36:11.679
+Jitendra K: One decision tree.
+
+1240
+02:36:11.850 --> 02:36:13.540
+Jitendra K: Single decedentree.
+
+1241
+02:36:14.610 --> 02:36:16.820
+Jitendra K: But when we talk about random forest.
+
+1242
+02:36:19.360 --> 02:36:25.570
+Jitendra K: We haven't talked about thousands, or 10 thousands, or even more than 10,000 this century.
+
+1243
+02:36:26.430 --> 02:36:28.580
+Jitendra K: 100K, this entry.
+
+1244
+02:36:29.860 --> 02:36:32.679
+Jitendra K: So imagine the scalability of which
+
+1245
+02:36:33.330 --> 02:36:36.609
+Jitendra K: We are going to use your decision tree to fit this solution.
+
+1246
+02:36:38.640 --> 02:36:41.160
+Jitendra K: XZBoost Extreme Gradient Boosting.
+
+1247
+02:36:43.290 --> 02:36:48.230
+Jitendra K: ensemble, Light GBM…
+
+1248
+02:36:52.090 --> 02:36:55.850
+Jitendra K: All of this are going to use this entry, but more than one.
+
+1249
+02:36:57.510 --> 02:36:59.520
+Jitendra K: They're going to use many decision trees.
+
+1250
+02:37:00.920 --> 02:37:05.710
+Jitendra K: It depends, like, how many dysentery you would like to construct. You can pass a parameter 500 dysentery.
+
+1251
+02:37:05.890 --> 02:37:07.040
+Jitendra K: 1000.
+
+1252
+02:37:08.490 --> 02:37:09.870
+Jitendra K: That we will learn.
+
+1253
+02:37:10.280 --> 02:37:12.550
+Jitendra K: But generally speaking, this is more than one.
+
+1254
+02:37:13.050 --> 02:37:13.790
+Jitendra K: Right?
+
+1255
+02:37:14.050 --> 02:37:20.940
+Jitendra K: So when you're talking about these kind of complex solutions, you should understand And have some intuition about.
+
+1256
+02:37:22.430 --> 02:37:26.799
+Jitendra K: What brick and mortars are you using to construct the solution?
+
+1257
+02:37:28.650 --> 02:37:30.620
+Jitendra K: Otherwise, your building will collapse.
+
+1258
+02:37:36.160 --> 02:37:39.750
+Jitendra K: When you say many, it is recursive or separate. Separate is entry.
+
+1259
+02:37:43.260 --> 02:37:46.950
+Jitendra K: I'm talking about separate decision tree. Each tree will use different samples.
+
+1260
+02:37:48.660 --> 02:37:52.100
+Jitendra K: So that is where you will use… will use bagging and boosting.
+
+1261
+02:37:52.910 --> 02:37:55.969
+Jitendra K: Concepts. We'll talk about that, bagging and boosting.
+
+1262
+02:37:58.700 --> 02:38:02.450
+Jitendra K: Now, is this clear? What is this entry? What are hyperparameter?
+
+1263
+02:38:02.640 --> 02:38:04.839
+Jitendra K: What is split criteria?
+
+1264
+02:38:06.160 --> 02:38:10.059
+Jitendra K: how to… What is the pros and cons of DC entries?
+
+1265
+02:38:12.650 --> 02:38:14.339
+Jitendra K: Is this clear to everyone?
+
+1266
+02:38:25.810 --> 02:38:29.269
+Jitendra K: Shall we take a last example for today? Regression.
+
+1267
+02:38:45.300 --> 02:38:47.029
+Jitendra K: Shall we use aggression now?
+
+1268
+02:38:50.880 --> 02:38:53.749
+Jitendra K: Okay, sure, so let's use regression.
+
+1269
+02:38:55.770 --> 02:39:06.809
+Jitendra K: So, as you know, regression, is a problem when your variable or output variable of interest is continuous in nature. When I say continuous in nature, you mean… that means it's a range of
+
+1270
+02:39:07.250 --> 02:39:08.340
+Jitendra K: Sequence.
+
+1271
+02:39:08.550 --> 02:39:10.910
+Jitendra K: It's not… does not have any fixed values, 0 and 1.
+
+1272
+02:39:11.590 --> 02:39:13.689
+Jitendra K: So, we're going to talk about regression.
+
+1273
+02:39:13.790 --> 02:39:16.670
+Jitendra K: How are we gonna be able to use cart?
+
+1274
+02:39:17.310 --> 02:39:20.870
+Jitendra K: This entry, as a regression, algorithm.
+
+1275
+02:39:21.790 --> 02:39:25.449
+Jitendra K: So in regression, when you're evaluating a regression model.
+
+1276
+02:39:26.260 --> 02:39:31.559
+Jitendra K: They're a set of standard cost functions. What are those cost functions?
+
+1277
+02:39:32.810 --> 02:39:38.950
+Jitendra K: Including mean square errors, mean absolute error, R-square, mean absolute percentage, so these are the important
+
+1278
+02:39:40.160 --> 02:39:43.850
+Jitendra K: Cost functions that we are going to reuse in this case study.
+
+1279
+02:39:46.180 --> 02:39:49.490
+Jitendra K: So, let me first explain.
+
+1280
+02:39:49.650 --> 02:39:55.830
+Jitendra K: the data, So, again, the data that we are going to use… is,
+
+1281
+02:39:56.570 --> 02:40:03.719
+Jitendra K: housing pricing data set, California housing pricing data set, but I have modified slightly
+
+1282
+02:40:04.510 --> 02:40:09.210
+Jitendra K: And I'm going to use my own curated data to explain this problem.
+
+1283
+02:40:09.630 --> 02:40:15.409
+Jitendra K: So I'm going to use the same, feature site, including square foot.
+
+1284
+02:40:15.810 --> 02:40:21.280
+Jitendra K: Of the house, number of bedrooms, number of bathrooms, age of the construction.
+
+1285
+02:40:21.880 --> 02:40:27.589
+Jitendra K: Lot size, garage space, distance to city, school rating, crime rate.
+
+1286
+02:40:29.350 --> 02:40:35.490
+Jitendra K: If you're buying a house in Noida versus Guruda, you will see different crime rate, and then you decide where to buy.
+
+1287
+02:40:36.390 --> 02:40:39.090
+Jitendra K: It is having a pool, fireplace…
+
+1288
+02:40:39.650 --> 02:40:43.359
+Jitendra K: price, etc, then I would like to look into all these factors.
+
+1289
+02:40:43.820 --> 02:40:49.620
+Jitendra K: And then I will decide what will be the outcome of my model.
+
+1290
+02:40:50.050 --> 02:40:53.580
+Jitendra K: In terms of price prediction. So, I'm predicting the price of the house.
+
+1291
+02:40:55.350 --> 02:41:02.520
+Jitendra K: Given our data points, which are similar to nature, similar of… similar in nature as compared to my original data.
+
+1292
+02:41:03.380 --> 02:41:05.880
+Jitendra K: So I would like to run this experimentation.
+
+1293
+02:41:07.290 --> 02:41:14.370
+Jitendra K: And, maybe… One second, I think… Second…
+
+1294
+02:41:47.400 --> 02:41:51.679
+Jitendra K: Okay, let me explain, let me get the data first from UCI.
+
+1295
+02:42:14.860 --> 02:42:17.380
+Jitendra K: Okay, so I'm going to import all the modules.
+
+1296
+02:42:18.890 --> 02:42:22.930
+Jitendra K: First and foremost thing is importing the module, then fetching the housing price.
+
+1297
+02:42:23.660 --> 02:42:25.240
+Jitendra K: Splitting my data.
+
+1298
+02:42:26.680 --> 02:42:31.950
+Jitendra K: So let me quickly go back. So this is the regression example.
+
+1299
+02:42:46.620 --> 02:42:49.220
+Jitendra K: So I'm using the California housing data set.
+
+1300
+02:42:50.220 --> 02:42:52.260
+Jitendra K: from Scikit-learn.
+
+1301
+02:42:53.370 --> 02:42:54.909
+Jitendra K: So this is my dataset.
+
+1302
+02:43:02.020 --> 02:43:08.090
+Jitendra K: Now, I have splitted my data into X train, Y train, that means X and Y.
+
+1303
+02:43:08.550 --> 02:43:16.740
+Jitendra K: So my Y is continuous in nature, so I will consider this as a series. I will say Y dataset is continuous in nature, so I will consider this to be a…
+
+1304
+02:43:16.840 --> 02:43:18.420
+Jitendra K: Panda's data series.
+
+1305
+02:43:19.290 --> 02:43:21.870
+Jitendra K: So I'm predicting this house price.
+
+1306
+02:43:22.480 --> 02:43:24.619
+Jitendra K: by using this entry regressor.
+
+1307
+02:43:26.460 --> 02:43:29.230
+Jitendra K: So I'm fitting a decision tree regressor method.
+
+1308
+02:43:40.520 --> 02:43:42.399
+Jitendra K: And evaluating the model.
+
+1309
+02:43:46.020 --> 02:43:48.619
+Jitendra K: So it is that simple. You can just fit…
+
+1310
+02:43:50.380 --> 02:43:51.919
+Jitendra K: And you will be able to test.
+
+1311
+02:43:53.420 --> 02:43:57.080
+Jitendra K: So this is what I'm getting. So I'm passing a deciently object.
+
+1312
+02:43:57.480 --> 02:43:59.469
+Jitendra K: With a set of hyperparameter.
+
+1313
+02:44:00.990 --> 02:44:05.700
+Jitendra K: Some default, some… pre-notion.
+
+1314
+02:44:06.290 --> 02:44:09.920
+Jitendra K: Then fitting this method to predict the house price.
+
+1315
+02:44:10.680 --> 02:44:17.719
+Jitendra K: So, this is what I'm getting. The most important criteria that I would like to talk about is efficacy of this solution in terms of R-square.
+
+1316
+02:44:18.090 --> 02:44:23.350
+Jitendra K: So this solution is 70… 65% accurate, 63-64% accurate.
+
+1317
+02:44:23.840 --> 02:44:27.260
+Jitendra K: And I'm getting… This model is overfit.
+
+1318
+02:44:28.410 --> 02:44:32.819
+Jitendra K: Similarly, same traces appears in RMSE, MAE as well.
+
+1319
+02:44:33.380 --> 02:44:44.010
+Jitendra K: Now, if we look into the structure of this recent tree, So… I'm getting… the… Most important variables.
+
+1320
+02:44:44.340 --> 02:44:50.089
+Jitendra K: which include… The average occupancy?
+
+1321
+02:44:50.750 --> 02:44:53.160
+Jitendra K: House age, average room?
+
+1322
+02:44:53.450 --> 02:44:57.320
+Jitendra K: Location of the house, and the population in the area.
+
+1323
+02:44:58.420 --> 02:45:06.110
+Jitendra K: I don't know, average bedroom, surprisingly comes, like, last… preference for California housing price.
+
+1324
+02:45:06.750 --> 02:45:11.729
+Jitendra K: That is, I have no idea why, but… This is surprising to me.
+
+1325
+02:45:12.210 --> 02:45:15.620
+Jitendra K: But anyway, so this is what we are getting as a feature importance.
+
+1326
+02:45:17.360 --> 02:45:23.720
+Jitendra K: So now the question is… Can we use the same library to create a regression model?
+
+1327
+02:45:24.440 --> 02:45:29.069
+Jitendra K: So the answer is, you need to use scikit-learn tree
+
+1328
+02:45:29.530 --> 02:45:34.050
+Jitendra K: But you have to import the syntry, regressor instead of classifier.
+
+1329
+02:45:35.980 --> 02:45:40.270
+Jitendra K: And the whole mechanism, rest of the thing that we are doing, is very similar to what?
+
+1330
+02:45:41.170 --> 02:45:43.750
+Jitendra K: We are doing in classification scenarios.
+
+1331
+02:45:45.360 --> 02:45:50.279
+Jitendra K: So this example will help you to create a regression model using this entry.
+
+1332
+02:45:51.590 --> 02:45:55.160
+Jitendra K: Right? So, and the rest of things are unchanged.
+
+1333
+02:45:55.820 --> 02:45:58.229
+Jitendra K: Now, we are getting an overfit output.
+
+1334
+02:45:58.350 --> 02:46:02.800
+Jitendra K: But can we improve this output? Answer is yes, we can improve. This is with the help of…
+
+1335
+02:46:03.260 --> 02:46:05.120
+Jitendra K: Hyperparameter tuning.
+
+1336
+02:46:06.320 --> 02:46:08.530
+Jitendra K: And there's a technique called pruning.
+
+1337
+02:46:08.820 --> 02:46:10.760
+Jitendra K: Which we haven't discussed yet.
+
+1338
+02:46:11.580 --> 02:46:19.950
+Jitendra K: I would like to talk about pruning in… maybe in the next tutorial, but pruning will help you to further improve your model results.
+
+1339
+02:46:21.440 --> 02:46:23.770
+Jitendra K: So I will share this notebook with everybody.
+
+1340
+02:46:24.810 --> 02:46:26.779
+Jitendra K: Let's have a look into this.
+
+1341
+02:46:27.350 --> 02:46:29.650
+Jitendra K: And please let me know if there's any doubt.
+
+1342
+02:46:33.910 --> 02:46:37.300
+Jitendra K: Okay, new notebook. Oh, okay, okay, let me…
+
+1343
+02:46:39.730 --> 02:46:43.370
+Jitendra K: Okay, so I've just used this… okay.
+
+1344
+02:46:52.310 --> 02:46:56.699
+Jitendra K: Let me add a line to it, so this is… let me delete this.
+
+1345
+02:46:58.220 --> 02:47:00.470
+Jitendra K: This is one example.
+
+1346
+02:47:01.800 --> 02:47:08.370
+Jitendra K: First example… Then this is a second example, let me add this.
+
+1347
+02:47:12.340 --> 02:47:14.670
+Jitendra K: This is hyperparameter.
+
+1348
+02:47:17.660 --> 02:47:18.990
+Jitendra K: fine-tuning.
+
+1349
+02:47:21.290 --> 02:47:22.380
+Jitendra K: Example.
+
+1350
+02:47:28.530 --> 02:47:31.640
+Jitendra K: This is the regression example, the third one.
+
+1351
+02:47:40.920 --> 02:47:47.560
+Jitendra K: Sorry, I will use a new notebook, maybe from next time onwards, so that you can keep it separate.
+
+1352
+02:47:49.120 --> 02:47:53.149
+Jitendra K: Let me quickly separate these notebooks for time being.
+
+1353
+02:47:56.260 --> 02:48:01.569
+Jitendra K: So this is… okay, this is one example. Let me delete the previous files then.
+
+1354
+02:48:02.800 --> 02:48:05.239
+Jitendra K: Okay, so this, I have to delete.
+
+1355
+02:48:21.710 --> 02:48:27.530
+Jitendra K: This is one example, and then the last example is here Dixie entry regression.
+
+1356
+02:49:28.590 --> 02:49:30.700
+Jitendra K: Okay, let me reshare this notebook.
+
+1357
+02:49:40.910 --> 02:49:46.410
+Jitendra K: This is without pruning, so… So, pruning we'll discuss in the next tutorial.
+
+1358
+02:49:51.390 --> 02:49:55.610
+Jitendra K: So, you just need to go to the third… Notebook.
+
+1359
+02:49:56.070 --> 02:49:57.330
+Jitendra K: for regression.
+
+1360
+02:49:58.360 --> 02:50:00.720
+Jitendra K: And using cell number 28 to run.
+
+1361
+02:50:01.660 --> 02:50:05.869
+Jitendra K: And please let me know if there's any doubt or anything that you would like me to explain.
+
+1362
+02:50:07.100 --> 02:50:13.450
+Jitendra K: So, I hope you are clear with R-square, mean absolute error, Mini square error differences.
+
+1363
+02:50:13.970 --> 02:50:16.830
+Jitendra K: And, here also we are using the same
+
+1364
+02:50:17.340 --> 02:50:19.989
+Jitendra K: Oked to evaluate this regression model.
+
+1365
+02:50:20.880 --> 02:50:25.020
+Jitendra K: And finally, it is… the output of this model looks very syntestically same.
+
+1366
+02:50:25.150 --> 02:50:27.819
+Jitendra K: As compared to regression. Sorry, classification.
+
+1367
+02:58:45.020 --> 02:58:49.590
+Jitendra K: Okay, there's a question, how to interpret actual or separated value?
+
+1368
+02:58:51.330 --> 02:59:00.480
+Jitendra K: Graph… Okay, this… Okay, so this is two plots, actual versus predicted value, using a regression line.
+
+1369
+02:59:01.000 --> 02:59:07.280
+Jitendra K: So, if you look closely, I've got… Y-axis as…
+
+1370
+02:59:07.520 --> 02:59:11.270
+Jitendra K: Directed value, and access, access as actual value.
+
+1371
+02:59:11.610 --> 02:59:15.880
+Jitendra K: So I'm plotting these two values, using…
+
+1372
+02:59:16.180 --> 02:59:19.330
+Jitendra K: These two data points, which is a thick green dot.
+
+1373
+02:59:19.480 --> 02:59:20.800
+Jitendra K: A light green dot.
+
+1374
+02:59:21.310 --> 02:59:24.200
+Jitendra K: So the difference between the two values should be minimal.
+
+1375
+02:59:25.130 --> 02:59:28.339
+Jitendra K: And I'm explaining it overall with the help of this regression line.
+
+1376
+02:59:28.890 --> 02:59:32.839
+Jitendra K: So this regression line will estimate that, on an average.
+
+1377
+02:59:33.350 --> 02:59:39.140
+Jitendra K: How the errors, or so, sorry, how the actual versus predicted values differs.
+
+1378
+02:59:40.130 --> 02:59:43.230
+Jitendra K: And you can see this with the help of residual plots as well.
+
+1379
+02:59:44.430 --> 02:59:53.090
+Jitendra K: So… Just in a simple term, Actual versus predicted val… Raf will tell you.
+
+1380
+02:59:53.190 --> 02:59:59.350
+Jitendra K: The difference between the two Problems, let's say if the actual and predicted values are the same.
+
+1381
+02:59:59.800 --> 03:00:03.850
+Jitendra K: That means your model is doing a good job in terms of predicting the outcome.
+
+1382
+03:00:04.080 --> 03:00:09.589
+Jitendra K: But if it is… Let's say more data points are considering under those scenarios.
+
+1383
+03:00:09.780 --> 03:00:12.629
+Jitendra K: And you're getting, two less errors.
+
+1384
+03:00:12.800 --> 03:00:13.580
+Jitendra K: Right?
+
+1385
+03:00:13.700 --> 03:00:20.649
+Jitendra K: That is also permissible, but… If you're getting a too large deviation from that, you will be able to…
+
+1386
+03:00:20.840 --> 03:00:23.070
+Jitendra K: See from this, with the help of this plot.
+
+1387
+03:00:27.640 --> 03:00:33.190
+Jitendra K: So, in California Housing Datasite, we are using 30% of the sample data for testing.
+
+1388
+03:00:33.600 --> 03:00:39.280
+Jitendra K: And we are plotting this data with the help of the existing labels, and this is what the result looks like.
+
+1389
+03:00:53.500 --> 03:00:57.419
+Jitendra K: Light green is predicted and dark rot is… yes, that's correct.
+
+1390
+03:01:20.830 --> 03:01:25.830
+Jitendra K: Your model is computing correctly only. R-square is close to 70%.
+
+1391
+03:01:26.740 --> 03:01:32.089
+Jitendra K: So if I look into R-square, I'm getting 60% to 70%. It is predicting correctly.
+
+1392
+03:01:32.710 --> 03:01:35.840
+Jitendra K: 70% is what we are seeing, and some deviations are there.
+
+1393
+03:01:40.120 --> 03:01:44.810
+Jitendra K: Of course, if you are using a dark dot over the light dot, it will give you the dark dot.
+
+1394
+03:01:45.130 --> 03:01:47.300
+Jitendra K: How can it show the light dot at the top?
+
+1395
+03:01:53.910 --> 03:01:55.370
+Jitendra K: This is what we are getting.
+
+1396
+03:01:55.730 --> 03:01:56.899
+Jitendra K: Dark dots.
+
+1397
+03:01:57.620 --> 03:02:02.120
+Jitendra K: The light dot that you are seeing on the screen is a difference between the actual and the predicted value.
+
+1398
+03:02:10.650 --> 03:02:16.410
+Jitendra K: Alright, is there any more code after line number 84 for regression? Line number 84…
+
+1399
+03:02:17.160 --> 03:02:19.000
+Jitendra K: No, there's no more code after that.
+
+1400
+03:02:32.850 --> 03:02:37.480
+Jitendra K: Alright, so I think we have discussed, the same tree classifier.
+
+1401
+03:02:38.930 --> 03:02:41.289
+Jitendra K: As a first, algorithm.
+
+1402
+03:02:42.130 --> 03:02:49.900
+Jitendra K: So, in the next tutorial, we will start with Ensemble, and then in Ensemble, there are multiple varieties of algorithm.
+
+1403
+03:02:50.510 --> 03:02:54.190
+Jitendra K: So Ensemble is our big, topic.
+
+1404
+03:02:54.800 --> 03:03:02.089
+Jitendra K: And, we are going to talk about how to use voting classification, what are the different schemes of soft voting and hard voting.
+
+1405
+03:03:02.330 --> 03:03:08.849
+Jitendra K: And then we'll move on to different types of… Algorithmic approach for solving these
+
+1406
+03:03:09.120 --> 03:03:14.890
+Jitendra K: bagging and boosting techniques. So we'll first start with boosting models, and then we'll move on to bagging models.
+
+1407
+03:03:15.070 --> 03:03:24.950
+Jitendra K: So, bagging model will predominantly… Named as Random Forest. We will use Random Forest to understand pagging models.
+
+1408
+03:03:25.200 --> 03:03:28.669
+Jitendra K: But first, let's focus on boosting, and then we'll move on to bagging.
+
+1409
+03:03:29.430 --> 03:03:32.039
+Jitendra K: So, this is it for today, so…
+
+1410
+03:03:32.390 --> 03:03:36.130
+Jitendra K: Mini project will focus on random forest, should we wait until next session?
+
+1411
+03:03:36.990 --> 03:03:40.530
+Jitendra K: Yes, I think, yes, until unless…
+
+1412
+03:03:41.310 --> 03:03:47.069
+Jitendra K: If you are… is it any explicit mention on DCN tree to solve that?
+
+1413
+03:03:49.110 --> 03:03:51.910
+Jitendra K: Okay, so you should use this entry in that case.
+
+1414
+03:03:52.460 --> 03:03:58.230
+Jitendra K: So if you… you can use the training material that I provided, and then you can solve it.
+
+1415
+03:03:58.700 --> 03:04:00.500
+Jitendra K: But just in case,
+
+1416
+03:04:01.800 --> 03:04:07.889
+Jitendra K: If it is, asking to saw optimally, then wait for next class for pruning technique.
+
+1417
+03:04:17.970 --> 03:04:23.409
+Jitendra K: All right, guys, so I think this is pretty much what we have for today, and we will meet next… in the next class for…
+
+1418
+03:04:23.810 --> 03:04:28.519
+Jitendra K: Mostly boosting, and then bagging we will initialize after completion of boosting.
+
+1419
+03:04:28.860 --> 03:04:36.269
+Jitendra K: So these are very important techniques, so don't miss any class, and just try to be focused.
+
+1420
+03:04:36.670 --> 03:04:41.569
+Jitendra K: Boosting and bagging will definitely going to help you to create complex machine learning challenges.
+
+1421
+03:04:41.830 --> 03:04:47.750
+Jitendra K: And if you talk about bagging and boosting, I think 90% of the algorithm
+
+1422
+03:04:48.030 --> 03:04:50.390
+Jitendra K: That you're going to use in the Edge World project.
+
+1423
+03:04:50.760 --> 03:04:55.030
+Jitendra K: Even a support vector machine, Sometimes I feel it's not useful.
+
+1424
+03:04:56.180 --> 03:05:00.900
+Jitendra K: So, 90% of the project will use logistic regression.
+
+1425
+03:05:01.670 --> 03:05:03.759
+Jitendra K: Random Forest, Exit Boost.
+
+1426
+03:05:03.910 --> 03:05:05.840
+Jitendra K: These three algorithms only.
+
+1427
+03:05:06.060 --> 03:05:09.650
+Jitendra K: Sometimes you will… May prefer to run.
+
+1428
+03:05:10.010 --> 03:05:12.359
+Jitendra K: Nave buys, not more than that.
+
+1429
+03:05:13.470 --> 03:05:14.280
+Jitendra K: Right?
+
+1430
+03:05:14.800 --> 03:05:22.010
+Jitendra K: And when it comes to deep learning, then there's a different set of algorithms. But for machine learning, these are the 5 or 6 algorithms that you should have.
+
+1431
+03:05:22.460 --> 03:05:27.280
+Jitendra K: logistic regression, Random Forest.
+
+1432
+03:05:28.960 --> 03:05:30.410
+Jitendra K: Exiboost.
+
+1433
+03:05:32.490 --> 03:05:34.020
+Jitendra K: light boost.
+
+1434
+03:05:36.400 --> 03:05:38.349
+Jitendra K: And maybe naive buys.
+
+1435
+03:05:38.840 --> 03:05:43.629
+Jitendra K: Even I can exclude this. These four algorithms is most important algorithm.
+
+1436
+03:05:44.100 --> 03:05:45.840
+Jitendra K: So, random forest is the heart.
+
+1437
+03:05:47.400 --> 03:05:51.950
+Jitendra K: So you should understand Rhinoforest, and then Exit Boost and Light GBM.
+
+1438
+03:05:54.570 --> 03:06:06.439
+Jitendra K: Okay, so with that, let me, pause for now. So, we'll have another session where we'll talk about boosting. Thank you, guys, and have a pleasant evening ahead. We'll meet in the next tutorial. Thank you.
+
+1439
+03:06:10.330 --> 03:06:11.270
+Jitendra K: Thank you.
+
+1440
+03:06:13.250 --> 03:06:19.279
+Jitendra K: Sorry, there's a… I think I have to launch a poll as well, so one second, let me launch a poll, guys, sorry.
+
+1441
+03:06:23.070 --> 03:06:26.849
+Jitendra K: So, those who are able to listen, can you please complete the poll?
+

@@ -1,0 +1,6574 @@
+WEBVTT
+
+1
+00:01:05.660 --> 00:01:07.300
+Jitendra U: Hey guys, good afternoon.
+
+2
+00:01:10.510 --> 00:01:14.039
+Jitendra U: Can we quick… have a quick audio check, if my voice is audible to everyone?
+
+3
+00:01:26.520 --> 00:01:28.229
+Jitendra U: Thank you, thank you, guys.
+
+4
+00:01:28.600 --> 00:01:35.339
+Jitendra U: So this is week 7 of Python with Machine Learning, and we are going to start with
+
+5
+00:01:35.960 --> 00:01:39.239
+Jitendra U: the Module 2 of PANDAS case studies.
+
+6
+00:01:39.530 --> 00:01:51.690
+Jitendra U: So, I hope, you have gone through the tutorials and other stuff before we start our session. So, can we have a quick confirmation? Any specific thing that you would like me to
+
+7
+00:01:53.020 --> 00:01:59.180
+Jitendra U: This re-discuss, or from the last cohort, last class, last tutorial, everything is going good?
+
+8
+00:02:11.240 --> 00:02:13.059
+Jitendra U: All well? Okay, great.
+
+9
+00:02:15.850 --> 00:02:18.269
+Jitendra U: Alright, so we will start with our…
+
+10
+00:02:19.320 --> 00:02:27.059
+Jitendra U: Yeah, we will cover these concepts in today's tutorials. Decorator needs some clarity. I will talk about these fundamentals in today's tutorial.
+
+11
+00:02:27.300 --> 00:02:33.450
+Jitendra U: So first, let's try to… Straightforward jump into the coding, so we don't have any…
+
+12
+00:02:35.150 --> 00:02:37.249
+Jitendra U: Theoretical topics to cover in this.
+
+13
+00:02:37.600 --> 00:02:38.610
+Jitendra U: Class.
+
+14
+00:02:44.640 --> 00:02:45.700
+Jitendra U: One second.
+
+15
+00:03:28.850 --> 00:03:38.259
+Jitendra U: Okay, so we will start with, the basics of Pandas in today's tutorial. So, I hope, you're familiar with what exactly pandas did.
+
+16
+00:03:38.590 --> 00:03:45.399
+Jitendra U: So, you got a clarity or gist of what Pandas did in Python? What is the need of Pandas?
+
+17
+00:03:48.850 --> 00:03:49.770
+Jitendra U: No.
+
+18
+00:03:50.560 --> 00:03:56.289
+Jitendra U: So, are you hearing the pandas for the very first time? How many of you guys have family with pandas?
+
+19
+00:03:56.430 --> 00:03:57.530
+Jitendra U: In Python.
+
+20
+00:04:15.270 --> 00:04:17.339
+Jitendra U: Basics… Okay?
+
+21
+00:04:24.600 --> 00:04:25.530
+Jitendra U: Alright.
+
+22
+00:04:25.680 --> 00:04:26.550
+Jitendra U: Okay.
+
+23
+00:04:28.070 --> 00:04:33.869
+Jitendra U: So, I think a lot of people are aware of the basics of Pandas, but not into the,
+
+24
+00:04:34.470 --> 00:04:35.590
+Jitendra U: the…
+
+25
+00:04:37.320 --> 00:04:46.580
+Jitendra U: in-depth understanding on Pandas. So, in this tutorial, we'll talk about the Pandas as one of the powerful packages that will help you to start your journey as a data scientist.
+
+26
+00:04:46.750 --> 00:04:54.210
+Jitendra U: Now, first, let me explain, okay, let me just delete this example. This looks very basic to me. Let me use my examples.
+
+27
+00:04:54.840 --> 00:04:55.610
+Jitendra U: Okay.
+
+28
+00:04:55.930 --> 00:04:56.870
+Jitendra U: So…
+
+29
+00:04:57.230 --> 00:05:05.679
+Jitendra U: So, in this particular tutorial, we will talk about the introduction to Pandas, and we'll learn by examples, right? We'll take some examples and try to…
+
+30
+00:05:05.820 --> 00:05:09.590
+Jitendra U: Make sure that we can be able to utilize Pandas for various purposes.
+
+31
+00:05:09.780 --> 00:05:18.209
+Jitendra U: And, we will start with Pandas as a data frame. Pandas as a data series, as well as we will use Pandas for storing.
+
+32
+00:05:18.400 --> 00:05:25.520
+Jitendra U: different other files format, including CSV file, XML file, JSON files. And then we are going to perform some sort of
+
+33
+00:05:26.060 --> 00:05:32.430
+Jitendra U: data manipulation using Pandas. Let's say, when you are performing data manipulation in machine learning.
+
+34
+00:05:32.710 --> 00:05:41.420
+Jitendra U: Then you have to deal with cleansing of data. That means, let's say the format of the data is having errors. Then how will you identify what's the formatting error that you're going to have?
+
+35
+00:05:41.630 --> 00:05:55.149
+Jitendra U: how to perform data cleansing, how to delete empty rows, how to perform check of null values, removing the duplicate rows, and then we'll talk about advanced concepts like correlation and plotting in Pandas.
+
+36
+00:05:55.590 --> 00:06:00.380
+Jitendra U: So… So we… what we're going to do is, we're going to start with the…
+
+37
+00:06:00.540 --> 00:06:08.269
+Jitendra U: Pandas module. First, let me explain what exactly pandas are. So, pandas are the thing, but…
+
+38
+00:06:08.370 --> 00:06:22.829
+Jitendra U: It's a data structure in Python, or so-called, it's a simple data structure in Python that will allow you to store your numerical arrays, right? So basically, when we talk about pandas.
+
+39
+00:06:22.880 --> 00:06:29.520
+Jitendra U: It's nothing but… it's an advanced data structure which will allow you to store the basic
+
+40
+00:06:30.640 --> 00:06:32.910
+Jitendra U: Data for the analysis purpose.
+
+41
+00:06:33.460 --> 00:06:34.969
+Jitendra U: Right? So when you talk about
+
+42
+00:06:35.390 --> 00:06:49.820
+Jitendra U: any data structure in real world, we have to deal with two scenarios, when to use and why to use, right? Pandas is a kind of a codebase, or so-called, is a library that will allow you to perform a lot of analysis on the top of it.
+
+43
+00:06:50.040 --> 00:06:59.920
+Jitendra U: So, first and foremost thing, we have to understand how to install a Pandas, and which version are we going to use, right? So, I will talk about how to install Pandas first. So, all you have to say is pip
+
+44
+00:07:01.900 --> 00:07:05.089
+Jitendra U: Install… trained us.
+
+45
+00:07:06.370 --> 00:07:09.510
+Jitendra U: If I'm going to install with this command, it will start…
+
+46
+00:07:10.100 --> 00:07:16.080
+Jitendra U: If it is already installed, then it will say the requirement is already satisfied, there's no need to install Pandas again.
+
+47
+00:07:16.310 --> 00:07:24.069
+Jitendra U: Otherwise, it will use the latest version of the Pandas and install in my current particular machine.
+
+48
+00:07:24.200 --> 00:07:30.580
+Jitendra U: Now, once I import the pandas, or install the pandas, I need to import the pandas. So I can say import.
+
+49
+00:07:30.710 --> 00:07:33.950
+Jitendra U: find us… as PD.
+
+50
+00:07:34.100 --> 00:07:40.470
+Jitendra U: So this is the Aliyah's also called shorthand comprehension I'm creating for Panda's data frame as PD.
+
+51
+00:07:40.860 --> 00:07:47.010
+Jitendra U: No… If I have to create a dataset by my own, I can say my dataset.
+
+52
+00:07:47.700 --> 00:08:00.079
+Jitendra U: And I would like to use a dictionary, let's say, to store different types of cars. Let's say my cars are… yeah, the same example I will use. Let's say my car comprises of a BMW, Volvo, and Ford.
+
+53
+00:08:00.270 --> 00:08:10.320
+Jitendra U: And then I've got the passing years, 3, 7, and 2, right? So maybe I'm just tracking how many inventories I'm having of these cars.
+
+54
+00:08:10.480 --> 00:08:12.690
+Jitendra U: Inventory of cars.
+
+55
+00:08:13.670 --> 00:08:15.890
+Jitendra U: A quantity of car in my showroom.
+
+56
+00:08:16.330 --> 00:08:24.619
+Jitendra U: Right, so I just want to create a simple database. So this is my database. Now, what is the type of this database? The type of this database right now is…
+
+57
+00:08:25.210 --> 00:08:32.709
+Jitendra U: a dictionary, right? So if I can say it's a dictionary object, It's a dictionary object.
+
+58
+00:08:33.039 --> 00:08:35.059
+Jitendra U: It's a typed date, right?
+
+59
+00:08:35.179 --> 00:08:37.840
+Jitendra U: Now, to convert this dictionary object.
+
+60
+00:08:38.240 --> 00:08:43.230
+Jitendra U: into something which I can able to use in Panda's memory.
+
+61
+00:08:43.419 --> 00:08:50.010
+Jitendra U: I have to use… the class, called pandas.
+
+62
+00:08:50.440 --> 00:08:51.900
+Jitendra U: data frame.
+
+63
+00:08:52.570 --> 00:08:58.150
+Jitendra U: So this is the class that I'm going to use, and I'm going to pass on my dataset to this
+
+64
+00:08:59.320 --> 00:09:01.260
+Jitendra U: So if I just click on this…
+
+65
+00:09:01.420 --> 00:09:09.840
+Jitendra U: And now, I can just print… oh, pine dust is not defined, so it should be… PD.dataframe.
+
+66
+00:09:11.810 --> 00:09:16.770
+Jitendra U: Now, if I'm going to save print, my variable…
+
+67
+00:09:21.770 --> 00:09:30.259
+Jitendra U: It will print. Now it is a proper index data. You can see the index, 0, 1, 2, index starts from 0 in Python.
+
+68
+00:09:30.970 --> 00:09:32.489
+Jitendra U: So, I've got an index.
+
+69
+00:09:32.960 --> 00:09:37.839
+Jitendra U: I've got a few columns, the same column that I pass in the form of a dictionary.
+
+70
+00:09:38.930 --> 00:09:40.670
+Jitendra U: Car and inventory.
+
+71
+00:09:40.830 --> 00:09:43.239
+Jitendra U: Inventory, list.
+
+72
+00:09:47.520 --> 00:09:50.030
+Jitendra U: Let me just make the spell checks, yeah.
+
+73
+00:09:50.220 --> 00:09:56.029
+Jitendra U: I've created an inventory of the cars, and the list of the cars against their quantity in my showroom.
+
+74
+00:09:57.710 --> 00:10:05.250
+Jitendra U: Right? So basically, what I'm trying to do here is, I'm just trying to ensure that my Pandas will be able to store
+
+75
+00:10:05.880 --> 00:10:15.370
+Jitendra U: the pre-existing Python data structures, which is type dictionary, Into something in tabular format.
+
+76
+00:10:16.880 --> 00:10:18.829
+Jitendra U: Right? So we operate…
+
+77
+00:10:19.740 --> 00:10:31.750
+Jitendra U: very systematically on tabular data, because we know what is a column, what's a row, but in this case, we have a key-value pair. We convert a key-value pair into a row and column.
+
+78
+00:10:32.230 --> 00:10:33.590
+Jitendra U: nomenclatures.
+
+79
+00:10:33.980 --> 00:10:36.090
+Jitendra U: And that's the whole idea of Pandas.
+
+80
+00:10:36.420 --> 00:10:42.440
+Jitendra U: Now, I have to check which version of Pandas I have imported. So I can say print… PD dot…
+
+81
+00:10:42.980 --> 00:10:45.039
+Jitendra U: Underscore, underscore version.
+
+82
+00:10:46.450 --> 00:10:48.069
+Jitendra U: And this will give me…
+
+83
+00:10:48.550 --> 00:10:55.429
+Jitendra U: the modules, so the version that I'm using for my current, execution of the programs.
+
+84
+00:10:55.660 --> 00:10:58.019
+Jitendra U: So this is Panda 2.2.
+
+85
+00:10:58.270 --> 00:10:59.700
+Jitendra U: 2.2.2.
+
+86
+00:11:01.050 --> 00:11:07.370
+Jitendra U: Right? So we have seen that, how to create a simple pandas from a dictionary. But what if, if I have to create
+
+87
+00:11:07.520 --> 00:11:21.200
+Jitendra U: a panda series from a list. Now, I will talk about what is a series. So, panda series is like a column in a table. I'm repeating, a panda series is like a column in a table. It is a one-dimensional array.
+
+88
+00:11:21.350 --> 00:11:23.190
+Jitendra U: Holding data of any type.
+
+89
+00:11:24.030 --> 00:11:26.710
+Jitendra U: So if I have to create a series, I can say…
+
+90
+00:11:26.830 --> 00:11:31.399
+Jitendra U: let's say my list is A, I'm just keeping it simple, 1, 2, 3.
+
+91
+00:11:32.810 --> 00:11:38.600
+Jitendra U: So I'm saying my variable is equals to… PD.series.
+
+92
+00:11:39.860 --> 00:11:43.750
+Jitendra U: So instead of… data frame, I'm saying, it is a series.
+
+93
+00:11:45.640 --> 00:11:49.249
+Jitendra U: And I'm passing my variable A to it, and then printing my variable.
+
+94
+00:11:49.730 --> 00:11:51.399
+Jitendra U: So I'm getting this answer.
+
+95
+00:11:51.590 --> 00:11:53.659
+Jitendra U: Right? So basically.
+
+96
+00:11:54.190 --> 00:12:01.960
+Jitendra U: This is where Panda's series is also powerful. It can be able to accommodate multiple Pandas data frame as a series object.
+
+97
+00:12:02.280 --> 00:12:06.559
+Jitendra U: That means it's like a simple linear array versus nested array.
+
+98
+00:12:07.180 --> 00:12:09.610
+Jitendra U: Same concept we are applying in Pandas.
+
+99
+00:12:10.060 --> 00:12:15.120
+Jitendra U: Right? I can store as many as data structure I can accommodate in this series.
+
+100
+00:12:16.840 --> 00:12:17.850
+Jitendra U: Alright?
+
+101
+00:12:18.090 --> 00:12:19.110
+Jitendra U: Nope.
+
+102
+00:12:19.220 --> 00:12:24.540
+Jitendra U: how to create a label on this data. So, let's say I would like to create an index.
+
+103
+00:12:25.180 --> 00:12:27.950
+Jitendra U: Because this is… look like 1, 2, 3.
+
+104
+00:12:28.230 --> 00:12:30.929
+Jitendra U: But how to read it? I have an index 012.
+
+105
+00:12:31.090 --> 00:12:35.090
+Jitendra U: But can I change this index to something else? Something more meaningful?
+
+106
+00:12:35.670 --> 00:12:40.780
+Jitendra U: Right? By myself. So I can do that with the help of Pandas. All I have to do is…
+
+107
+00:12:40.890 --> 00:12:43.969
+Jitendra U: I have to just employ, period or series.
+
+108
+00:12:44.140 --> 00:12:46.720
+Jitendra U: Pass the second attribute as index.
+
+109
+00:12:48.260 --> 00:12:55.110
+Jitendra U: Right? And you can see that I'm passing an index with my own standard nomenclature. If I just click on this.
+
+110
+00:12:55.380 --> 00:12:58.100
+Jitendra U: You will replace this index with…
+
+111
+00:12:58.420 --> 00:13:01.509
+Jitendra U: the… another nomenclature that I've created.
+
+112
+00:13:07.040 --> 00:13:07.870
+Jitendra U: Right?
+
+113
+00:13:08.010 --> 00:13:18.780
+Jitendra U: So, this is an example in which we can be able to utilize Panda's data free series. Now, the question is, can I be able to convert a data set in Pandas
+
+114
+00:13:19.280 --> 00:13:20.989
+Jitendra U: From series to a data frame.
+
+115
+00:13:22.120 --> 00:13:31.589
+Jitendra U: So, datasets in Pythons are usually multi-dimensional tables, because this is what you are going to do in your real-time project as well. You have to deal with multi-dimensional tables.
+
+116
+00:13:32.070 --> 00:13:39.770
+Jitendra U: So what is multidimensional table? Multidimensional table means a table which will have minimum of two columns.
+
+117
+00:13:41.410 --> 00:13:46.920
+Jitendra U: Minimum of 2 columns, or more than that, right? So you're going to deal with multi-dimensional table.
+
+118
+00:13:47.400 --> 00:13:54.270
+Jitendra U: And when we talk about multi-dimensional table, in real-world application, we have to use data frames.
+
+119
+00:13:54.790 --> 00:13:56.780
+Jitendra U: So, series is like a column.
+
+120
+00:13:57.270 --> 00:13:59.460
+Jitendra U: A data frame is like a table.
+
+121
+00:13:59.890 --> 00:14:01.180
+Jitendra U: I'm repeating.
+
+122
+00:14:01.310 --> 00:14:07.769
+Jitendra U: Dataset in Python are usually multi-dimensional data tables that you're going to use in real-world projects.
+
+123
+00:14:08.050 --> 00:14:11.540
+Jitendra U: So, you have to use more sophisticated ways to store them.
+
+124
+00:14:11.710 --> 00:14:14.109
+Jitendra U: And we are going to use data frames.
+
+125
+00:14:14.400 --> 00:14:21.919
+Jitendra U: to use this, right? The data frame is the answer that we are going to utilize for accessing the whole
+
+126
+00:14:22.100 --> 00:14:22.980
+Jitendra U: data.
+
+127
+00:14:23.290 --> 00:14:30.010
+Jitendra U: Now, how to create that? So, let's say I have a data which talks about two attributes, let's say…
+
+128
+00:14:30.350 --> 00:14:40.530
+Jitendra U: The first attribute talks about Maybe a simple, use case scenario, Let's take calories.
+
+129
+00:14:46.890 --> 00:14:48.580
+Jitendra U: 380 calorie.
+
+130
+00:14:49.420 --> 00:14:51.260
+Jitendra U: 390 calories.
+
+131
+00:14:53.580 --> 00:14:56.360
+Jitendra U: by… for choice.
+
+132
+00:15:02.810 --> 00:15:05.059
+Jitendra U: Right, menu 1, menu 2, menu 3.
+
+133
+00:15:06.320 --> 00:15:09.810
+Jitendra U: Right, so you have got 3 menus, and these are the calories of each menu.
+
+134
+00:15:10.460 --> 00:15:19.520
+Jitendra U: Right? So… This is one of the data structure which will hold Both rows and column.
+
+135
+00:15:19.960 --> 00:15:23.350
+Jitendra U: But here you have more than one column.
+
+136
+00:15:24.040 --> 00:15:32.790
+Jitendra U: So I can say, Margita, My variable is PD.dataFrameData, and I can simply print My where…
+
+137
+00:15:34.350 --> 00:15:36.879
+Jitendra U: And it will become a table.
+
+138
+00:15:37.510 --> 00:15:41.049
+Jitendra U: Right? The same example we have seen in the first slide as well.
+
+139
+00:15:41.230 --> 00:15:47.090
+Jitendra U: So this is a kind of a table where I'm accommodating multiple series. The series is like a column.
+
+140
+00:15:47.250 --> 00:15:49.510
+Jitendra U: And the data frame is like a table.
+
+141
+00:15:50.850 --> 00:15:54.139
+Jitendra U: Right? So this is the difference between series and data frame.
+
+142
+00:15:54.280 --> 00:15:55.790
+Jitendra U: Now, what is DataFrame?
+
+143
+00:15:56.300 --> 00:15:59.930
+Jitendra U: So, a Panda's data framework, two-dimensional data structure.
+
+144
+00:16:00.560 --> 00:16:06.690
+Jitendra U: It's a two-dimensional data structure, like a two-dimensional array or a table with rows and columns.
+
+145
+00:16:09.480 --> 00:16:10.280
+Jitendra U: Right?
+
+146
+00:16:10.450 --> 00:16:15.390
+Jitendra U: Is this… data frame operates on index.
+
+147
+00:16:15.910 --> 00:16:18.819
+Jitendra U: Can I be able to use index on this data frame?
+
+148
+00:16:19.000 --> 00:16:20.429
+Jitendra U: So let's try to see.
+
+149
+00:16:20.790 --> 00:16:22.580
+Jitendra U: So if I'm going to use…
+
+150
+00:16:22.810 --> 00:16:25.670
+Jitendra U: There's a function called lock LOC.
+
+151
+00:16:25.920 --> 00:16:31.119
+Jitendra U: So, Panda used this particular keyword called LOC, lock, location.
+
+152
+00:16:31.220 --> 00:16:34.199
+Jitendra U: Attribute to return one or more specific rows.
+
+153
+00:16:34.660 --> 00:16:38.870
+Jitendra U: So I can say print, Let me first create…
+
+154
+00:16:39.770 --> 00:16:41.930
+Jitendra U: So we already have a data here.
+
+155
+00:16:42.140 --> 00:16:47.380
+Jitendra U: Okay, so data is here. I have variable, And then pass…
+
+156
+00:16:48.040 --> 00:16:50.809
+Jitendra U: Okay, let me define this as TF…
+
+157
+00:16:52.040 --> 00:16:54.160
+Jitendra U: And I can simply print TF.
+
+158
+00:16:55.330 --> 00:16:56.849
+Jitendra U: This is my data frame.
+
+159
+00:16:57.010 --> 00:17:06.110
+Jitendra U: Now, I would like to check print… DF.lock location, Or the index, 0.
+
+160
+00:17:06.510 --> 00:17:08.700
+Jitendra U: So you can see it is retrieving me.
+
+161
+00:17:09.619 --> 00:17:18.180
+Jitendra U: the first… Particular column values of a row.
+
+162
+00:17:20.230 --> 00:17:27.670
+Jitendra U: Right? So what it… what it return is, this is nothing returning row 0 and row 1.
+
+163
+00:17:27.849 --> 00:17:29.999
+Jitendra U: So, right now, it is returning row 0.
+
+164
+00:17:30.610 --> 00:17:33.879
+Jitendra U: It is returning a row here, right? The row 0.
+
+165
+00:17:34.090 --> 00:17:37.069
+Jitendra U: If I would like to return both rows 0 and 1,
+
+166
+00:17:39.140 --> 00:17:45.040
+Jitendra U: it is showing me some error, because I'm passing An unindented object.
+
+167
+00:17:46.570 --> 00:17:52.699
+Jitendra U: So, when I'm using indexes, I have to use list of list. When I'm passing a list of lists.
+
+168
+00:17:52.960 --> 00:17:54.750
+Jitendra U: It will return me both rows.
+
+169
+00:17:57.540 --> 00:18:00.990
+Jitendra U: Right? So that is the whole idea of using
+
+170
+00:18:01.110 --> 00:18:08.439
+Jitendra U: location as an index on the top of your Pandas data frame. That means Pandas automatically create indexes.
+
+171
+00:18:12.560 --> 00:18:18.919
+Jitendra U: Yeah, if the food choice attribute have more than one val… three values, right now we haven't passed, so we are having…
+
+172
+00:18:19.030 --> 00:18:24.470
+Jitendra U: a maximum up to two values, so it will still print, but as soon as I say third.
+
+173
+00:18:24.840 --> 00:18:26.599
+Jitendra U: It will show me a key error.
+
+174
+00:18:26.840 --> 00:18:28.640
+Jitendra U: The third is not in an index.
+
+175
+00:18:30.740 --> 00:18:32.419
+Jitendra U: So this is not an index.
+
+176
+00:18:35.050 --> 00:18:37.879
+Jitendra U: Right? Because this data point does not exist.
+
+177
+00:18:38.510 --> 00:18:40.369
+Jitendra U: We cannot able to retrieve it.
+
+178
+00:18:42.460 --> 00:18:50.510
+Jitendra U: Okay, so this is a Python convention to write it, so you have to pass on that I'm accessing the indexes, which is situated at this
+
+179
+00:18:50.750 --> 00:18:51.770
+Jitendra U: nested.
+
+180
+00:18:51.960 --> 00:18:57.560
+Jitendra U: Object, and this hole This whole will be passed as an argument.
+
+181
+00:18:58.010 --> 00:19:01.679
+Jitendra U: So I'm saying location, I'm passing as an index.
+
+182
+00:19:01.810 --> 00:19:05.650
+Jitendra U: Now, what are the terms inside the index? That should be a list of lists.
+
+183
+00:19:09.350 --> 00:19:10.290
+Jitendra U: Alright.
+
+184
+00:19:11.230 --> 00:19:19.960
+Jitendra U: So, this is the index. Now, let's say… I would like to create and load files into DataFrame.
+
+185
+00:19:20.530 --> 00:19:24.339
+Jitendra U: So what will be the provision? So for that, let me create a simple file.
+
+186
+00:19:25.060 --> 00:19:26.730
+Jitendra U: Let me first delete this.
+
+187
+00:19:27.940 --> 00:19:30.419
+Jitendra U: Let me first create a simple file.
+
+188
+00:19:40.900 --> 00:19:45.029
+Jitendra U: Let me create a data.csv file first. Okay, so…
+
+189
+00:19:53.140 --> 00:19:55.759
+Jitendra U: So, let me show you what is inside the file.
+
+190
+00:19:58.370 --> 00:19:59.780
+Jitendra U: Let me upload.
+
+191
+00:20:05.510 --> 00:20:15.050
+Jitendra U: Okay, so this is my data.czv file. So in this file, I have… Different types of… attribute about the…
+
+192
+00:20:15.830 --> 00:20:21.559
+Jitendra U: Patient history, duration of test, pulse rate, maximum pulse rate, calorie.
+
+193
+00:20:22.140 --> 00:20:27.869
+Jitendra U: intake, right? And I've got some 75 rows in this data.
+
+194
+00:20:28.330 --> 00:20:33.709
+Jitendra U: Right? So this data set comprises of some healthcare data. Assume that it's a healthcare data, right?
+
+195
+00:20:33.830 --> 00:20:39.570
+Jitendra U: Now, what I'm going to do is how to read this file. So, this is file stay, this file reside.
+
+196
+00:20:39.830 --> 00:20:40.920
+Jitendra U: Indeed.
+
+197
+00:20:42.380 --> 00:20:48.639
+Jitendra U: In, yeah, I will share this file. Okay, you want to watch simultaneously, I don't mind.
+
+198
+00:20:48.860 --> 00:20:49.829
+Jitendra U: Let me share.
+
+199
+00:20:51.250 --> 00:20:52.060
+Jitendra U: Okay.
+
+200
+00:20:52.540 --> 00:20:59.330
+Jitendra U: So, I have a data.cz file in my namespace. So, let me copy this file part first.
+
+201
+00:20:59.770 --> 00:21:02.949
+Jitendra U: So I'm going to say I would like to load this file into a memory.
+
+202
+00:21:03.440 --> 00:21:07.700
+Jitendra U: So, how to read this file in memory? So, I can say PD,
+
+203
+00:21:07.940 --> 00:21:15.739
+Jitendra U: dot read underscore CSV function. So this is the function that has been given by Pandas.
+
+204
+00:21:15.910 --> 00:21:17.310
+Jitendra U: Committed to us.
+
+205
+00:21:17.960 --> 00:21:26.110
+Jitendra U: And we will use this function to read the data frame. So I can say DF, dot, right?
+
+206
+00:21:27.450 --> 00:21:33.269
+Jitendra U: So this will print the first 5 rows, I can say DF.columns.
+
+207
+00:21:35.050 --> 00:21:38.280
+Jitendra U: It will print the columns inside my data frame.
+
+208
+00:21:38.420 --> 00:21:45.600
+Jitendra U: I can say DF, Thought… location.
+
+209
+00:21:51.360 --> 00:21:54.310
+Jitendra U: Okay, this has to be a list, so this will give an error.
+
+210
+00:21:55.110 --> 00:21:57.940
+Jitendra U: Which is fine, so I have to convert this into a string.
+
+211
+00:21:58.370 --> 00:22:05.880
+Jitendra U: So I can simply say print, DF… thought toString.
+
+212
+00:22:07.230 --> 00:22:08.410
+Jitendra U: Parenthesis.
+
+213
+00:22:09.330 --> 00:22:14.030
+Jitendra U: So this is the file that I'm talking about, right? So this is the file that we are having.
+
+214
+00:22:14.290 --> 00:22:16.110
+Jitendra U: In a formpin string now.
+
+215
+00:22:17.020 --> 00:22:20.969
+Jitendra U: Right? So toString will use to print an entire data frame.
+
+216
+00:22:23.280 --> 00:22:31.269
+Jitendra U: Right? So let's say… let's just say I would like to… Go for some more…
+
+217
+00:22:31.810 --> 00:22:36.410
+Jitendra U: Understanding on different other data patterns, different other types of data.
+
+218
+00:22:37.070 --> 00:22:42.689
+Jitendra U: So… So let's say I have a JSON file format.
+
+219
+00:22:43.260 --> 00:22:49.549
+Jitendra U: Right? Instead of CSV, somebody have given me a JSON file format. And the JSON file format is also approved.
+
+220
+00:22:49.970 --> 00:22:52.729
+Jitendra U: Industrial standard that you're going to use.
+
+221
+00:22:52.920 --> 00:22:55.410
+Jitendra U: So let me first show you how the JSON looks like.
+
+222
+00:22:55.920 --> 00:22:57.830
+Jitendra U: JSON structure looks like.
+
+223
+00:22:58.180 --> 00:23:02.640
+Jitendra U: Right? So this is how the JSON looks like. We have a file.
+
+224
+00:23:03.330 --> 00:23:05.029
+Jitendra U: Okay, let me open this.
+
+225
+00:23:15.280 --> 00:23:23.639
+Jitendra U: So this is your JSON file, right? So I can say this is a JSON file, which is having a series of dictionary inside it.
+
+226
+00:23:24.080 --> 00:23:32.790
+Jitendra U: So it's like a dictionary, JSON is like a dictionary, right? So basically, what we are trying to do is, we are trying to use a JSONified strings
+
+227
+00:23:32.920 --> 00:23:34.719
+Jitendra U: or JSON files.
+
+228
+00:23:34.900 --> 00:23:40.580
+Jitendra U: To make sure that we can able to work on different Nested springs, right?
+
+229
+00:23:40.690 --> 00:23:47.680
+Jitendra U: So the idea is, we are going to use the JSON file for the purpose of creating the…
+
+230
+00:23:48.760 --> 00:23:54.050
+Jitendra U: Key-value pairs, and store those key-value pairs in the form of a flag file.
+
+231
+00:23:54.150 --> 00:23:58.130
+Jitendra U: Right? So basically, this is our JSON file. Let me create this JSON file.
+
+232
+00:23:58.670 --> 00:24:01.010
+Jitendra U: So I will create a new file.
+
+233
+00:24:02.160 --> 00:24:07.660
+Jitendra U: And I will say data… thought… G7.
+
+234
+00:24:08.010 --> 00:24:11.730
+Jitendra U: So the notation for… a file…
+
+235
+00:24:12.560 --> 00:24:16.269
+Jitendra U: type for JSON is JS1, JSON object, right?
+
+236
+00:24:16.540 --> 00:24:18.470
+Jitendra U: So I will double-click on this.
+
+237
+00:24:22.100 --> 00:24:25.169
+Jitendra U: I will double-click on this, and I will print the data.
+
+238
+00:24:25.750 --> 00:24:29.810
+Jitendra U: In the… JSON file.
+
+239
+00:24:32.310 --> 00:24:34.289
+Jitendra U: placeholder. This is my data.
+
+240
+00:24:35.290 --> 00:24:37.949
+Jitendra U: Right, I will just say, save this data.
+
+241
+00:24:38.310 --> 00:24:43.600
+Jitendra U: Now, I have a data point, which is JSON. data.json. Now, how to read this?
+
+242
+00:24:44.080 --> 00:24:50.150
+Jitendra U: Can I still use read.cflc function to read the JSON file, or should I need to use something else?
+
+243
+00:24:50.740 --> 00:24:56.279
+Jitendra U: So if I have to read a JSON file in Pandas, or in a simple term, Python.
+
+244
+00:24:57.700 --> 00:25:04.949
+Jitendra U: I have to use pandas… but a different function. So I can say pd.
+
+245
+00:25:05.080 --> 00:25:07.010
+Jitendra U: read underscore JSON.
+
+246
+00:25:08.240 --> 00:25:13.370
+Jitendra U: And this function… Will allow me to load this data.
+
+247
+00:25:15.660 --> 00:25:18.190
+Jitendra U: into… Python memory.
+
+248
+00:25:18.870 --> 00:25:21.130
+Jitendra U: Okay, this has to be split.
+
+249
+00:25:24.160 --> 00:25:30.020
+Jitendra U: Okay, so I have to split this data. Basically, let me use a simple one to illustrate first.
+
+250
+00:26:00.290 --> 00:26:06.800
+Jitendra U: Okay, let me just create a simple file instead of nested one, because nested, I have to explain later.
+
+251
+00:26:07.360 --> 00:26:09.360
+Jitendra U: I'm just trying to create a simple one.
+
+252
+00:26:10.550 --> 00:26:12.800
+Jitendra U: Who does not have any data, so…
+
+253
+00:26:55.770 --> 00:26:59.620
+Jitendra U: Okay, now let me read this. Okay, this is done.
+
+254
+00:27:00.000 --> 00:27:05.170
+Jitendra U: Now, if I have to print… This PF…
+
+255
+00:27:06.820 --> 00:27:13.419
+Jitendra U: Yeah, now we can read. So you can see that the JSON format that we are using is a raw format of JSON.
+
+256
+00:27:13.730 --> 00:27:20.170
+Jitendra U: So it's a… list of dictionaries. Each dictionary have one key.
+
+257
+00:27:20.340 --> 00:27:21.909
+Jitendra U: Sorry, 3 keys.
+
+258
+00:27:22.070 --> 00:27:28.960
+Jitendra U: and their respective values. There's a key value pair. The first key that we are passing is a name. Name of the student.
+
+259
+00:27:29.110 --> 00:27:46.189
+Jitendra U: The second is the age of the student, the third is whether it is a student or some other stuff, right? So we are keeping a track of some records in a form of a key-value pair, and each key-value pair is same across rows. So each row will have
+
+260
+00:27:46.280 --> 00:27:56.070
+Jitendra U: Same key-value pairs, but values are different. Key pairs is same, and that's the whole purpose of JSON, right? So JSON will help you to parse
+
+261
+00:27:56.220 --> 00:27:57.290
+Jitendra U: the row…
+
+262
+00:27:57.790 --> 00:28:06.350
+Jitendra U: base data. So JSON is used to store row-based data. But in Pandas, we are converting this row-based data into table structure.
+
+263
+00:28:06.780 --> 00:28:09.709
+Jitendra U: Now, that's the whole idea of using
+
+264
+00:28:09.830 --> 00:28:14.770
+Jitendra U: the parsing from JSON to Pandas. Now, here.
+
+265
+00:28:14.890 --> 00:28:21.189
+Jitendra U: Once you have a table, now what you can do with the tables? You can join, you can perform
+
+266
+00:28:21.630 --> 00:28:32.059
+Jitendra U: search, he can perform left outer join, right outer join, and so on and so forth. So he can be able to do a lot of things with tables, but he cannot be able to do this kind of operation
+
+267
+00:28:32.180 --> 00:28:45.689
+Jitendra U: which comes under data manipulation logic operation, or data manipulation logic, in… in Pandas, it is not at all possible to perform all this with the help of strings or JSON raw data.
+
+268
+00:28:45.860 --> 00:28:53.260
+Jitendra U: formats, right? So you have to convert them into tables to accommodate and execute those logics.
+
+269
+00:28:53.670 --> 00:29:00.750
+Jitendra U: Right? Can I be able to do some bit of analysis on the data more? So let's say I would like to print
+
+270
+00:29:02.540 --> 00:29:08.599
+Jitendra U: the first euros, so can I say print?
+
+271
+00:29:09.130 --> 00:29:15.240
+Jitendra U: DFTOT had. Let's say what it is going to print. It is printing the first two.
+
+272
+00:29:15.510 --> 00:29:18.650
+Jitendra U: A first 5 rows from the top.
+
+273
+00:29:19.030 --> 00:29:23.259
+Jitendra U: So it's… right now, we just have two rows, but let me just convert this into…
+
+274
+00:29:25.660 --> 00:29:28.970
+Jitendra U: More file format. Let me use…
+
+275
+00:29:55.320 --> 00:29:57.679
+Jitendra U: Let me convert this into…
+
+276
+00:30:22.100 --> 00:30:26.989
+Jitendra U: Okay, so that could be. So I'm just converting this into 8 or 9 columns now.
+
+277
+00:30:27.260 --> 00:30:34.120
+Jitendra U: Now, when I'm running this command, After reading this data.
+
+278
+00:30:36.840 --> 00:30:39.750
+Jitendra U: Okay, I think I missed the columns.
+
+279
+00:30:40.400 --> 00:30:41.410
+Jitendra U: Comma.
+
+280
+00:30:50.090 --> 00:30:52.370
+Jitendra U: Okay, so I have got all the streamed now.
+
+281
+00:30:52.580 --> 00:30:58.089
+Jitendra U: Now, when I'm printing the head, it is by default printing the first 5 rows from the top.
+
+282
+00:30:58.660 --> 00:31:03.920
+Jitendra U: When I'm saying print, DF.tail.
+
+283
+00:31:06.910 --> 00:31:08.579
+Jitendra U: So you can see it reversed.
+
+284
+00:31:09.890 --> 00:31:12.099
+Jitendra U: Now it is printing from the bottom.
+
+285
+00:31:13.570 --> 00:31:20.130
+Jitendra U: Right? So that's the whole idea of using head and tails in Panda. So, tail method.
+
+286
+00:31:20.430 --> 00:31:29.249
+Jitendra U: We'll view the last rows of the data frame, and tail method will return the header and a specific number of rows from the bottom.
+
+287
+00:31:30.800 --> 00:31:37.390
+Jitendra U: Right? Can I be able to understand what this type of data is? What's the data structure of each column?
+
+288
+00:31:37.900 --> 00:31:41.909
+Jitendra U: So, to do so, you have to use printdf.info.
+
+289
+00:31:42.980 --> 00:31:46.000
+Jitendra U: So this particular function will give you
+
+290
+00:31:47.320 --> 00:31:50.950
+Jitendra U: that I'm using the 3 different types of columns.
+
+291
+00:31:51.970 --> 00:31:54.339
+Jitendra U: And these are the classes of each column.
+
+292
+00:31:54.500 --> 00:31:59.750
+Jitendra U: Now, here, I just want everybody attention. You can see there's an object.
+
+293
+00:32:00.960 --> 00:32:03.120
+Jitendra U: So what is an object in Python?
+
+294
+00:32:03.310 --> 00:32:08.419
+Jitendra U: So what is the object data type? When I have to say object data type, in Python.
+
+295
+00:32:08.650 --> 00:32:09.980
+Jitendra U: What does that mean?
+
+296
+00:32:11.070 --> 00:32:14.759
+Jitendra U: So, object data type… is basically…
+
+297
+00:32:15.160 --> 00:32:19.280
+Jitendra U: Everything is object in Python, by the way. So when I say object…
+
+298
+00:32:19.530 --> 00:32:24.410
+Jitendra U: It's an… it's a kind of a, you know, Superclass.
+
+299
+00:32:25.570 --> 00:32:28.090
+Jitendra U: Right? So numbers, strings…
+
+300
+00:32:28.780 --> 00:32:36.559
+Jitendra U: Yeah, it can hold anything, yeah, that's the right answer. So basically, number, string, list, function, and even classes themselves are an object.
+
+301
+00:32:36.660 --> 00:32:40.019
+Jitendra U: So each object is an instance of some class.
+
+302
+00:32:40.350 --> 00:32:43.859
+Jitendra U: Now, when I'm saying… This particular object.
+
+303
+00:32:44.130 --> 00:32:50.619
+Jitendra U: Object is the base class for all Python classes. If you don't explicitly inherit it from other class.
+
+304
+00:32:50.810 --> 00:32:53.889
+Jitendra U: Your class will simply inherit it from object.
+
+305
+00:32:54.410 --> 00:32:56.410
+Jitendra U: So it's a generic placeholder.
+
+306
+00:32:56.860 --> 00:33:02.950
+Jitendra U: So in Pandas, the object data type is catch-all type, mostly for strings and mixed data.
+
+307
+00:33:03.930 --> 00:33:06.859
+Jitendra U: Right? It is used mostly for strings.
+
+308
+00:33:07.180 --> 00:33:10.780
+Jitendra U: Or some sort of mixed data structures.
+
+309
+00:33:10.910 --> 00:33:18.190
+Jitendra U: Let's say it can hold a numerical value, as well as… alphabetical sequences.
+
+310
+00:33:19.300 --> 00:33:23.650
+Jitendra U: The second column is… quite straightforward. We are storing age.
+
+311
+00:33:24.420 --> 00:33:26.450
+Jitendra U: So we are storing student age.
+
+312
+00:33:26.810 --> 00:33:31.210
+Jitendra U: The third type, so you can see how smart Python is.
+
+313
+00:33:31.890 --> 00:33:37.700
+Jitendra U: Python automatically able to understand what is the type of this data structure.
+
+314
+00:33:37.960 --> 00:33:39.710
+Jitendra U: It is not saying it's a string.
+
+315
+00:33:39.820 --> 00:33:42.760
+Jitendra U: Now it is saying it's a reserve keyword called true.
+
+316
+00:33:43.040 --> 00:33:47.619
+Jitendra U: So this is a reserve keyword in Python 2. So there are some reserve keywords in Python.
+
+317
+00:33:47.920 --> 00:33:52.809
+Jitendra U: So true is one reserve keyword, right? So you can see it is Giving me blue color.
+
+318
+00:33:53.260 --> 00:34:06.130
+Jitendra U: So these are the reserve keywords in Python that I'm going to use. So I can say that this is a reserve keyword in Python, and this type of variable belongs to Boolean class, so that's why the data type
+
+319
+00:34:06.410 --> 00:34:10.580
+Jitendra U: object classification, belongs to Boolean.
+
+320
+00:34:10.739 --> 00:34:11.510
+Jitendra U: type.
+
+321
+00:34:12.219 --> 00:34:19.550
+Jitendra U: So this is a Boolean object in my… this is an object, it's still an object, but the class is Boolean.
+
+322
+00:34:19.739 --> 00:34:21.830
+Jitendra U: Here, I don't have any class.
+
+323
+00:34:21.940 --> 00:34:31.570
+Jitendra U: So, by default, it's an object, but it is holding the strings and some other mixed heterogeneous data structures.
+
+324
+00:34:33.639 --> 00:34:37.660
+Jitendra U: Is it… is it clear to everyone, how to use info?
+
+325
+00:34:38.230 --> 00:34:39.030
+Jitendra U: Right?
+
+326
+00:34:39.350 --> 00:34:45.659
+Jitendra U: Now, I would like to introduce you to one more important placeholder.
+
+327
+00:34:47.010 --> 00:34:49.649
+Jitendra U: Okay, there's a question,
+
+328
+00:34:50.000 --> 00:35:00.490
+Jitendra U: What if you want to convert to any one? Yeah, that's a good question. So, let's say if I have to do an explicit typecasting. So is typecasting is allowed in Python.
+
+329
+00:35:00.680 --> 00:35:02.999
+Jitendra U: That means, can I be able to typecast?
+
+330
+00:35:04.060 --> 00:35:14.920
+Jitendra U: One variable, object to string, Or string to float, or float to integer literal.
+
+331
+00:35:15.090 --> 00:35:17.600
+Jitendra U: Or, even integer to bool.
+
+332
+00:35:17.720 --> 00:35:20.419
+Jitendra U: Can I be able to do that? That's what's your question, right?
+
+333
+00:35:20.560 --> 00:35:22.280
+Jitendra U: So the answer is yes.
+
+334
+00:35:23.540 --> 00:35:25.320
+Jitendra U: The answer is yes.
+
+335
+00:35:25.900 --> 00:35:28.840
+Jitendra U: Right? So let's take an example to understand that.
+
+336
+00:35:29.470 --> 00:35:33.790
+Jitendra U: So, I will show you how to convert an object to a string. So, let's say I have a
+
+337
+00:35:34.140 --> 00:35:36.859
+Jitendra U: Simple variable 1, 2, 3.
+
+338
+00:35:37.980 --> 00:35:45.669
+Jitendra U: So, I have used a numerical literal here. So, it's a numerical variable, right? So, I can say Y
+
+339
+00:35:45.790 --> 00:35:48.460
+Jitendra U: I'm going to typecast.
+
+340
+00:35:50.090 --> 00:35:51.769
+Jitendra U: And now I can print.
+
+341
+00:35:53.040 --> 00:35:54.160
+Jitendra U: Why?
+
+342
+00:35:55.130 --> 00:35:57.700
+Jitendra U: And the type of wire.
+
+343
+00:35:57.830 --> 00:35:59.400
+Jitendra U: Let's see what is the answer.
+
+344
+00:35:59.740 --> 00:36:04.620
+Jitendra U: You can see… I can print XSL.
+
+345
+00:36:11.460 --> 00:36:15.969
+Jitendra U: So you can see, from integer class, I've converted this to a string class.
+
+346
+00:36:16.530 --> 00:36:20.560
+Jitendra U: So, is it upcasting, downcasting? There is no such concept in Python.
+
+347
+00:36:21.950 --> 00:36:26.879
+Jitendra U: This concept appears in Java and C++, but here in Python.
+
+348
+00:36:27.040 --> 00:36:30.300
+Jitendra U: There's no concept of up-fasting or down-fasting.
+
+349
+00:36:31.660 --> 00:36:33.790
+Jitendra U: Right? But a casting is performed.
+
+350
+00:36:35.540 --> 00:36:37.580
+Jitendra U: Can I use string to float?
+
+351
+00:36:37.720 --> 00:36:39.909
+Jitendra U: The answer is yes, I can do that.
+
+352
+00:36:40.120 --> 00:36:42.820
+Jitendra U: Let's take an example. I have a string.
+
+353
+00:36:43.710 --> 00:36:46.140
+Jitendra U: Why string? Because it is double quotes.
+
+354
+00:36:47.580 --> 00:36:50.710
+Jitendra U: If I'm not using double quotes, it's a float.
+
+355
+00:36:52.100 --> 00:36:55.910
+Jitendra U: So I'm using a string, double-port string, 12.34.
+
+356
+00:36:57.170 --> 00:37:03.280
+Jitendra U: And then using a float as a keyword, To pass my string value.
+
+357
+00:37:05.560 --> 00:37:09.609
+Jitendra U: So, float is a class, A string is an object.
+
+358
+00:37:09.950 --> 00:37:11.599
+Jitendra U: Which is a class itself.
+
+359
+00:37:12.190 --> 00:37:16.460
+Jitendra U: Now, I'm trying to typecast String to a float.
+
+360
+00:37:17.540 --> 00:37:23.409
+Jitendra U: converting a string or a number to a floating point number, if possible. We can say if possible.
+
+361
+00:37:25.040 --> 00:37:26.260
+Jitendra U: So, let's see.
+
+362
+00:37:26.930 --> 00:37:28.339
+Jitendra U: And this is possible.
+
+363
+00:37:30.920 --> 00:37:42.369
+Jitendra U: I can do… float… truncate it to an integer. Now, you can see the smart way of truncating.
+
+364
+00:37:43.600 --> 00:37:47.790
+Jitendra U: So, it is showing me… That I'm going to strip off.
+
+365
+00:37:48.090 --> 00:37:49.890
+Jitendra U: The numerical decimals.
+
+366
+00:37:51.630 --> 00:37:55.360
+Jitendra U: And then giving me the integer as an output.
+
+367
+00:37:56.660 --> 00:37:58.900
+Jitendra U: I can also do integer to boolean.
+
+368
+00:37:59.110 --> 00:38:00.319
+Jitendra U: How to do that?
+
+369
+00:38:00.700 --> 00:38:03.580
+Jitendra U: I can say I would like to use a bowl.
+
+370
+00:38:09.150 --> 00:38:15.260
+Jitendra U: And this will give me… the output from… integer to a Boolean.
+
+371
+00:38:18.280 --> 00:38:25.660
+Jitendra U: Right? So this is the whole idea of typecasting in Python. So typecasting is pretty much allowed in Python.
+
+372
+00:38:26.560 --> 00:38:30.450
+Jitendra U: But is it safe typecasting? That is the question.
+
+373
+00:38:30.590 --> 00:38:32.839
+Jitendra U: Are we performing these operations?
+
+374
+00:38:33.590 --> 00:38:38.080
+Jitendra U: We are happy to do all this informative operation, but is it safe
+
+375
+00:38:38.730 --> 00:38:42.499
+Jitendra U: To store the data in the form of an integer or a string.
+
+376
+00:38:43.450 --> 00:38:45.540
+Jitendra U: And that's the reason you have to first.
+
+377
+00:38:45.870 --> 00:38:47.680
+Jitendra U: inspect your data.
+
+378
+00:38:48.360 --> 00:38:52.719
+Jitendra U: And that will… the whole idea, you have to inspect your data using…
+
+379
+00:38:53.550 --> 00:38:56.509
+Jitendra U: This function is that? Yeah, info function.
+
+380
+00:38:57.490 --> 00:38:59.149
+Jitendra U: So first, you have to check
+
+381
+00:38:59.740 --> 00:39:06.190
+Jitendra U: Whether you're getting the data in the right shape and form as you expected.
+
+382
+00:39:09.200 --> 00:39:18.099
+Jitendra U: Okay, there's a question from Haskar, how safe and secure to install and import a module like Panda in Chance House? No, there's no security vulnerability, they're all trustworthy links.
+
+383
+00:39:18.410 --> 00:39:24.550
+Jitendra U: Is it authentic where you can download it here. Yeah, by default, it will hit the… the Panda's org.
+
+384
+00:39:24.950 --> 00:39:26.279
+Jitendra U: They are all safe.
+
+385
+00:39:27.660 --> 00:39:29.720
+Jitendra U: There's no need to worry about the safety.
+
+386
+00:39:30.140 --> 00:39:32.840
+Jitendra U: Even your office laptop will allow to do so.
+
+387
+00:39:36.320 --> 00:39:38.730
+Jitendra U: Alright, so let's move on.
+
+388
+00:39:41.050 --> 00:39:49.979
+Jitendra U: Yeah, you can use PyCharm, which will have their own packages. If you are using Anaconda, then it's fine. You might have, already installed, pre-installed packages.
+
+389
+00:39:50.170 --> 00:39:56.459
+Jitendra U: That should be okay. But just, check the version. You should not use very outdated version.
+
+390
+00:39:57.490 --> 00:40:05.229
+Jitendra U: The version, if you're not using right version, you're… you will get some lot of indentation errors, compilation errors.
+
+391
+00:40:05.450 --> 00:40:09.539
+Jitendra U: So make sure that you're using the right version. So make sure you update your packages.
+
+392
+00:40:11.330 --> 00:40:17.990
+Jitendra U: Alright, so we'll talk about… Some more important consideration of data cleansing.
+
+393
+00:40:18.350 --> 00:40:21.550
+Jitendra U: Now, imagine yourself, you have worked as a data scientist.
+
+394
+00:40:23.760 --> 00:40:27.040
+Jitendra U: Right? Imagine that you have a data science job.
+
+395
+00:40:28.380 --> 00:40:31.730
+Jitendra U: And then you have to deal with a day-to-day work.
+
+396
+00:40:32.620 --> 00:40:42.820
+Jitendra U: So… In the day-to-day work, You're not going to get… Always the favorable situations.
+
+397
+00:40:44.300 --> 00:40:47.939
+Jitendra U: Right? I'm talking about our data, right? So…
+
+398
+00:40:48.210 --> 00:40:50.430
+Jitendra U: You will not get always the good data.
+
+399
+00:40:51.550 --> 00:40:55.499
+Jitendra U: So in a day-to-day world, we have to deal with ambiguities.
+
+400
+00:40:55.670 --> 00:40:59.729
+Jitendra U: You have to deal with noise in the data. You have to deal with
+
+401
+00:41:00.110 --> 00:41:05.270
+Jitendra U: redundancy in the data. That means that cells itself are empty.
+
+402
+00:41:05.850 --> 00:41:07.829
+Jitendra U: The data is in wrong format.
+
+403
+00:41:08.240 --> 00:41:11.620
+Jitendra U: The data itself is wrong. There are a lot of duplicates.
+
+404
+00:41:12.650 --> 00:41:16.889
+Jitendra U: So, we'll talk about In this tutorial, how to deal with such situation.
+
+405
+00:41:19.200 --> 00:41:20.060
+Jitendra U: Right?
+
+406
+00:41:20.350 --> 00:41:24.109
+Jitendra U: Let me first create our dataset.
+
+407
+00:41:29.190 --> 00:41:33.370
+Jitendra U: Right, so first, let's see… try to see how to… use…
+
+408
+00:41:33.880 --> 00:41:38.460
+Jitendra U: Different spatial function and routine to handle such scenarios.
+
+409
+00:41:38.600 --> 00:41:40.830
+Jitendra U: So first, let me create a dataset.
+
+410
+00:41:41.950 --> 00:41:43.889
+Jitendra U: I will create a new file.
+
+411
+00:41:45.170 --> 00:41:50.250
+Jitendra U: new data… dot CS.
+
+412
+00:41:53.020 --> 00:41:53.880
+Jitendra U: Okay.
+
+413
+00:41:54.520 --> 00:41:55.680
+Jitendra U: So I've got…
+
+414
+00:42:01.540 --> 00:42:03.720
+Jitendra U: Or maybe I will.
+
+415
+00:42:04.070 --> 00:42:05.820
+Jitendra U: Create a CSV file.
+
+416
+00:42:08.850 --> 00:42:11.580
+Jitendra U: I'll load it here, so let me delete this file.
+
+417
+00:42:13.540 --> 00:42:15.879
+Jitendra U: Because there could be some formatting errors.
+
+418
+00:42:50.260 --> 00:42:52.249
+Jitendra U: Okay, so this is my data now.
+
+419
+00:42:59.880 --> 00:43:03.919
+Jitendra U: Just push this… And this is the index.
+
+420
+00:43:36.410 --> 00:43:38.140
+Jitendra U: Okay, let me load this file.
+
+421
+00:43:49.910 --> 00:43:54.610
+Jitendra U: Okay, so we have a data now, datanew.csv, let me copy the file part.
+
+422
+00:43:54.730 --> 00:43:57.330
+Jitendra U: Now, first, let me show you what is there in the data.
+
+423
+00:43:58.570 --> 00:44:04.510
+Jitendra U: So, let me go back… This is the data.
+
+424
+00:44:05.890 --> 00:44:09.450
+Jitendra U: But the issue with the data is… You can see…
+
+425
+00:44:10.950 --> 00:44:13.029
+Jitendra U: There are a lot of NAN values.
+
+426
+00:44:15.810 --> 00:44:17.989
+Jitendra U: That means there are a lot of empty values.
+
+427
+00:44:18.500 --> 00:44:20.630
+Jitendra U: The data contains some empty cells.
+
+428
+00:44:21.010 --> 00:44:26.439
+Jitendra U: So, in row number 22… We've got one empty cell.
+
+429
+00:44:27.130 --> 00:44:30.400
+Jitendra U: And calorie in row number 18 and 28.
+
+430
+00:44:31.010 --> 00:44:36.619
+Jitendra U: And data sets also contain a wrong format of data. You can see the format.
+
+431
+00:44:38.130 --> 00:44:45.550
+Jitendra U: is having slashes, forward slashes, and sometimes it is using dash. There's a formatting issue as well.
+
+432
+00:44:46.000 --> 00:44:49.540
+Jitendra U: Specifically, data is a very sensitive data, right?
+
+433
+00:44:50.130 --> 00:44:53.310
+Jitendra U: And, the data also contains some duplicates.
+
+434
+00:44:53.950 --> 00:45:00.040
+Jitendra U: So, I can see some duplicates… 132 to 80.
+
+435
+00:45:00.350 --> 00:45:10.040
+Jitendra U: 132 to 80… So, to row number 11 and row number 12… or duplicate.
+
+436
+00:45:15.730 --> 00:45:16.570
+Jitendra U: Right?
+
+437
+00:45:16.790 --> 00:45:23.300
+Jitendra U: Now, what to do with this situation? That is something which we are going to talk about, how to deal with this situation.
+
+438
+00:45:24.160 --> 00:45:26.269
+Jitendra U: Does the problem statement clear to everyone?
+
+439
+00:45:26.640 --> 00:45:28.120
+Jitendra U: What are we trying to solve?
+
+440
+00:45:29.230 --> 00:45:31.179
+Jitendra U: What's your definition of bad data?
+
+441
+00:45:37.140 --> 00:45:39.409
+Jitendra U: And in which situation, you have to deal with it.
+
+442
+00:45:49.030 --> 00:45:54.110
+Jitendra U: So, I hope you're clear with the problem statement first, right? What are we trying to solve?
+
+443
+00:45:54.620 --> 00:45:56.550
+Jitendra U: So what are we trying to solve, guys?
+
+444
+00:46:00.720 --> 00:46:02.040
+Jitendra U: Data cleansing?
+
+445
+00:46:02.220 --> 00:46:03.670
+Jitendra U: Can I say yes and no?
+
+446
+00:46:05.080 --> 00:46:08.069
+Jitendra U: We're learning data cleansing exercise.
+
+447
+00:46:08.360 --> 00:46:12.610
+Jitendra U: Right? How to deal with… data errors.
+
+448
+00:46:13.200 --> 00:46:14.740
+Jitendra U: Alright, so let's move on.
+
+449
+00:46:14.860 --> 00:46:17.859
+Jitendra U: So this is the data that I have just provided a walkthrough on.
+
+450
+00:46:19.170 --> 00:46:22.849
+Jitendra U: The first and foremost thing that we are going to learn, yeah, is regular data.
+
+451
+00:46:23.020 --> 00:46:26.299
+Jitendra U: It's how to clean empty cells.
+
+452
+00:46:28.830 --> 00:46:30.520
+Jitendra U: So, empty cells…
+
+453
+00:46:35.660 --> 00:46:40.279
+Jitendra U: can potentially Give you a wrong result when you analyze the data.
+
+454
+00:46:41.470 --> 00:46:48.970
+Jitendra U: So one way to deal with empty cell is to remove the row itself that contains the empty cell. We are going to remove the entire row.
+
+455
+00:46:50.470 --> 00:46:57.340
+Jitendra U: And this is usually okay, since dataset can be very big, and remove a few row will not have big impact on the results.
+
+456
+00:46:57.620 --> 00:47:00.800
+Jitendra U: So, I will tell you how to first remove
+
+457
+00:47:01.760 --> 00:47:06.779
+Jitendra U: the data side, which is having the MT, Cells into it.
+
+458
+00:47:07.320 --> 00:47:08.609
+Jitendra U: So let me…
+
+459
+00:47:13.110 --> 00:47:16.329
+Jitendra U: Use this, so data new.
+
+460
+00:47:29.140 --> 00:47:33.650
+Jitendra U: And there's a function… Which is called Drop NA.
+
+461
+00:47:35.080 --> 00:47:42.650
+Jitendra U: So if I run a dropany function on the top of it, I can simply print.
+
+462
+00:47:53.010 --> 00:47:55.840
+Jitendra U: So you can see that all the NANs has been dropped.
+
+463
+00:47:58.780 --> 00:48:06.129
+Jitendra U: So all the rows has been dropped, which is having NAS. So by default, drop NA is a function.
+
+464
+00:48:06.790 --> 00:48:09.560
+Jitendra U: Which will return a new data frame.
+
+465
+00:48:11.080 --> 00:48:12.180
+Jitendra U: Right.
+
+466
+00:48:12.640 --> 00:48:16.729
+Jitendra U: Without any column which is having N.
+
+467
+00:48:18.800 --> 00:48:20.959
+Jitendra U: We'll talk about average values and all.
+
+468
+00:48:21.080 --> 00:48:22.570
+Jitendra U: We'll come to that.
+
+469
+00:48:23.270 --> 00:48:27.690
+Jitendra U: First of all, we are learning how to clean data. Then you can calculate average.
+
+470
+00:48:28.250 --> 00:48:30.589
+Jitendra U: You cannot calculate average on any ends.
+
+471
+00:48:31.090 --> 00:48:33.610
+Jitendra U: So this is not allowed operation in Python.
+
+472
+00:48:34.160 --> 00:48:36.670
+Jitendra U: So first, we have to understand how to clean the data.
+
+473
+00:48:37.500 --> 00:48:38.440
+Jitendra U: Alright?
+
+474
+00:48:39.920 --> 00:48:44.019
+Jitendra U: Now, let's say I would like to replace empty values.
+
+475
+00:48:44.450 --> 00:48:46.109
+Jitendra U: So what are empty values?
+
+476
+00:48:46.780 --> 00:48:49.100
+Jitendra U: What could be the empty values here, guys?
+
+477
+00:48:50.160 --> 00:48:58.100
+Jitendra U: Instead of dropping, I would like to insert a new value to the empty cells.
+
+478
+00:48:58.890 --> 00:49:03.410
+Jitendra U: So this way, you do not have to delete entire rows.
+
+479
+00:49:03.650 --> 00:49:07.550
+Jitendra U: And this operation is called data imputation.
+
+480
+00:49:08.460 --> 00:49:10.500
+Jitendra U: data imputation.
+
+481
+00:49:11.070 --> 00:49:19.119
+Jitendra U: Now, there are diff… yeah, I think that is what you're asking. Can we convert that into average? If that is a question, then it's a good question.
+
+482
+00:49:19.970 --> 00:49:22.029
+Jitendra U: Can we be able to utilize?
+
+483
+00:49:22.430 --> 00:49:24.340
+Jitendra U: an imputation strategy.
+
+484
+00:49:25.050 --> 00:49:31.380
+Jitendra U: to replace… the missing values. So the answer is yes, we can.
+
+485
+00:49:32.090 --> 00:49:38.199
+Jitendra U: But first, First, we will learn if I have to hardcode that value.
+
+486
+00:49:39.900 --> 00:49:42.089
+Jitendra U: If I have to hardcode that value.
+
+487
+00:49:42.770 --> 00:49:47.569
+Jitendra U: by saying, I would like to fill Annie with something.
+
+488
+00:49:50.420 --> 00:49:52.379
+Jitendra U: That is also possible.
+
+489
+00:49:53.710 --> 00:49:59.250
+Jitendra U: Now, coming to your question, can I be able to fill NA with mean?
+
+490
+00:50:00.260 --> 00:50:03.399
+Jitendra U: So for that, I have to define the column.
+
+491
+00:50:03.700 --> 00:50:11.869
+Jitendra U: on which I would like to calculate the mean. So let's say my column is calories, and there are some values of calories which are missing.
+
+492
+00:50:12.380 --> 00:50:14.229
+Jitendra U: And I would like to find out
+
+493
+00:50:14.910 --> 00:50:21.520
+Jitendra U: The X, which is the mean value of calories, Which is this, 293.76.
+
+494
+00:50:22.160 --> 00:50:27.150
+Jitendra U: Now, I have this value, And I can simply say…
+
+495
+00:50:27.540 --> 00:50:32.170
+Jitendra U: Fill the value of the column calories.
+
+496
+00:50:32.640 --> 00:50:48.250
+Jitendra U: If find NA's… And then fill NA's… instead of… Considering to be null, Replace them by… Average.
+
+497
+00:50:50.880 --> 00:50:52.700
+Jitendra U: So this is also possible.
+
+498
+00:50:53.200 --> 00:50:59.470
+Jitendra U: So value of the… so this will give the average value, which is the sum of all values in column calories.
+
+499
+00:50:59.600 --> 00:51:05.569
+Jitendra U: Divide by the total number of… rows… In that particular table.
+
+500
+00:51:06.880 --> 00:51:09.370
+Jitendra U: I can replace this with a median as well.
+
+501
+00:51:09.540 --> 00:51:11.520
+Jitendra U: So I can say instead of mean.
+
+502
+00:51:11.850 --> 00:51:13.519
+Jitendra U: I would like to use medium.
+
+503
+00:51:13.870 --> 00:51:15.410
+Jitendra U: So that is also possible.
+
+504
+00:51:18.260 --> 00:51:19.990
+Jitendra U: I can also use mode.
+
+505
+00:51:22.350 --> 00:51:23.410
+Jitendra U: To do so.
+
+506
+00:51:29.010 --> 00:51:29.840
+Jitendra U: Right?
+
+507
+00:51:30.370 --> 00:51:35.059
+Jitendra U: So, mode is the most frequent observation in that particular column.
+
+508
+00:51:36.650 --> 00:51:43.709
+Jitendra U: highest frequency. It will replace with the highest frequency of that particular column, in terms of
+
+509
+00:51:44.180 --> 00:51:46.129
+Jitendra U: The value of that particular column.
+
+510
+00:51:47.250 --> 00:51:50.980
+Jitendra U: Alright, so this is what we have learned about how to perform.
+
+511
+00:51:51.490 --> 00:51:53.100
+Jitendra U: the empty cell.
+
+512
+00:51:54.470 --> 00:51:56.170
+Jitendra U: cleansing.
+
+513
+00:51:56.570 --> 00:52:04.290
+Jitendra U: Now, what if the data is in wrong format? So, we have seen the data example. We have two different types of format. One is this, one is this.
+
+514
+00:52:04.410 --> 00:52:06.390
+Jitendra U: There could be some more.
+
+515
+00:52:06.950 --> 00:52:15.700
+Jitendra U: sometimes your year, will become month, and your month will become a year, so there are different types of format, and that can happen due to Excel's
+
+516
+00:52:16.020 --> 00:52:20.049
+Jitendra U: Some database errors, some human typing errors.
+
+517
+00:52:20.190 --> 00:52:21.990
+Jitendra U: Some system glitches.
+
+518
+00:52:22.350 --> 00:52:26.549
+Jitendra U: Some other, let's say, file upload
+
+519
+00:52:26.860 --> 00:52:33.240
+Jitendra U: has happened, but it has not been uploaded full file, there could be a number of ways in which your data can become corrupt.
+
+520
+00:52:34.290 --> 00:52:39.399
+Jitendra U: data corrupt… Data can become corrupt due to n number of reasons.
+
+521
+00:52:39.740 --> 00:52:43.770
+Jitendra U: But the most important reason is you have to understand what is the right format.
+
+522
+00:52:45.180 --> 00:52:57.920
+Jitendra U: You have to define what is the right format, and then you have to untuckle that particular format. Because data of wrong format, that means cells with a data of wrong format can make it very difficult or even impossible to analyze the data.
+
+523
+00:52:58.190 --> 00:53:04.130
+Jitendra U: Because you don't have any fixed pattern in it, right? So let's say if I'm assuming that my date will come like this.
+
+524
+00:53:05.040 --> 00:53:07.230
+Jitendra U: Then these rows will fail.
+
+525
+00:53:08.040 --> 00:53:11.960
+Jitendra U: And if I'm assuming other way around, then this row will fail.
+
+526
+00:53:14.610 --> 00:53:19.199
+Jitendra U: But the problem is… If I get an exception on this row.
+
+527
+00:53:20.070 --> 00:53:22.890
+Jitendra U: My analysis will stop after this roll.
+
+528
+00:53:23.300 --> 00:53:25.870
+Jitendra U: My whole program will fail and terminate.
+
+529
+00:53:26.680 --> 00:53:35.300
+Jitendra U: So, wrong data, Handling, or data with improper What do you call formats?
+
+530
+00:53:35.470 --> 00:53:38.089
+Jitendra U: Will always lead to ambiguous results.
+
+531
+00:53:39.430 --> 00:53:42.599
+Jitendra U: So in this, we have row number 22.
+
+532
+00:53:43.200 --> 00:53:48.639
+Jitendra U: And row number 26… Which are in different format.
+
+533
+00:53:50.690 --> 00:53:53.049
+Jitendra U: So what are we going to do now is…
+
+534
+00:53:53.220 --> 00:53:57.930
+Jitendra U: We are going to assume that this is a mixed format of data.
+
+535
+00:53:58.400 --> 00:54:02.849
+Jitendra U: And I would like to convert this mixed format of data to a fixed format.
+
+536
+00:54:03.490 --> 00:54:09.260
+Jitendra U: So there's a function in Python, or data frame, called… 2-date time.
+
+537
+00:54:10.110 --> 00:54:16.770
+Jitendra U: So this function is a very special function of Panda's class. Pandas is a class now.
+
+538
+00:54:17.640 --> 00:54:20.739
+Jitendra U: So we are learning the Pandas class.
+
+539
+00:54:20.900 --> 00:54:24.220
+Jitendra U: And how many functions are defined inside Pandas?
+
+540
+00:54:25.130 --> 00:54:31.699
+Jitendra U: So, Panda is like a Pandora box for you now, which is having different utilities, different tools.
+
+541
+00:54:32.920 --> 00:54:36.110
+Jitendra U: But in a… in a proper, positive sense.
+
+542
+00:54:36.440 --> 00:54:39.320
+Jitendra U: Right? These tools are helpful for you.
+
+543
+00:54:39.470 --> 00:54:44.310
+Jitendra U: So here we are using one more tool of Panda's 2DataFrame.
+
+544
+00:54:44.710 --> 00:54:57.500
+Jitendra U: And this particular function will allow you to convert a date column into a proper… Approved format.
+
+545
+00:54:57.890 --> 00:55:04.299
+Jitendra U: So I can say, post-convert, All my date variable into a fixed format.
+
+546
+00:55:05.180 --> 00:55:06.960
+Jitendra U: And then I would like to check…
+
+547
+00:55:08.340 --> 00:55:11.879
+Jitendra U: Whether it is able to do so or not. So you can see that.
+
+548
+00:55:12.260 --> 00:55:18.250
+Jitendra U: It is using a proper date format for all columns now.
+
+549
+00:55:18.960 --> 00:55:22.559
+Jitendra U: Even it is including attendance hours.
+
+550
+00:55:22.730 --> 00:55:27.219
+Jitendra U: minutes, seconds data, and millisecond data as well.
+
+551
+00:55:28.090 --> 00:55:29.540
+Jitendra U: I can delete this.
+
+552
+00:55:30.340 --> 00:55:33.450
+Jitendra U: To make sure that I have only DDMMYY.
+
+553
+00:55:36.500 --> 00:55:42.210
+Jitendra U: Right? So format is equal to mixed means I would like to assume that my format is mixed.
+
+554
+00:55:42.330 --> 00:55:43.699
+Jitendra U: In the input data.
+
+555
+00:55:45.360 --> 00:55:51.029
+Jitendra U: So if you check this function signature, pd.dataFrame, if I take a help on this function.
+
+556
+00:55:51.690 --> 00:55:54.449
+Jitendra U: I can simply say, help me to understand this function.
+
+557
+00:55:57.190 --> 00:56:06.300
+Jitendra U: So this function… this function… is a part of a Panda Sport Tools.
+
+558
+00:56:06.920 --> 00:56:13.479
+Jitendra U: And this function will take… Some convertible array-like structures
+
+559
+00:56:13.830 --> 00:56:21.689
+Jitendra U: And provide the output in a form of a… string, which is a… Defined format for dates.
+
+560
+00:56:22.710 --> 00:56:23.520
+Jitendra U: Right?
+
+561
+00:56:23.730 --> 00:56:31.270
+Jitendra U: So, I'm passing… an information to this function that I'm going to have a mixed beta.
+
+562
+00:56:31.970 --> 00:56:33.909
+Jitendra U: Type in a date column.
+
+563
+00:56:37.010 --> 00:56:44.960
+Jitendra U: So this format I can change. Okay, I think that is where your question is. Can I change the format, right? Can I change this format?
+
+564
+00:56:45.140 --> 00:56:49.729
+Jitendra U: to something else, so maybe instead of HHM and Y, why?
+
+565
+00:56:50.790 --> 00:56:54.189
+Jitendra U: change it to, DDMM.
+
+566
+00:56:54.550 --> 00:56:55.580
+Jitendra U: YY.
+
+567
+00:56:56.120 --> 00:57:02.420
+Jitendra U: Right, so that is possible, yes, that is also possible. So I would like to specify a specific format.
+
+568
+00:57:02.660 --> 00:57:09.339
+Jitendra U: of data, Instead of that, I can say… I would like to convert…
+
+569
+00:57:12.840 --> 00:57:15.820
+Jitendra U: My data into this form.
+
+570
+00:57:18.230 --> 00:57:19.760
+Jitendra U: Now I can print this.
+
+571
+00:57:20.160 --> 00:57:21.719
+Jitendra U: Let me… I'll delete this.
+
+572
+00:57:27.580 --> 00:57:30.419
+Jitendra U: You can see it's now converting into this option.
+
+573
+00:57:32.950 --> 00:57:33.780
+Jitendra U: Right?
+
+574
+00:57:33.950 --> 00:57:43.850
+Jitendra U: So that's the whole idea of using your own conventional way to store the data, or dates here, right? We're talking about dates.
+
+575
+00:57:44.310 --> 00:57:47.989
+Jitendra U: So date is one of the data structure, or data type in Python.
+
+576
+00:57:48.170 --> 00:57:49.280
+Jitendra U: Date time.
+
+577
+00:57:50.370 --> 00:57:53.600
+Jitendra U: We have understood already this part, right?
+
+578
+00:57:53.710 --> 00:57:59.370
+Jitendra U: So, when we're converting a datetime using a function, you have to use toDATETIME.
+
+579
+00:57:59.850 --> 00:58:08.229
+Jitendra U: to convert… Your date object, or so-called date column, to a designated format of your own choice.
+
+580
+00:58:12.300 --> 00:58:13.310
+Jitendra U: Alright?
+
+581
+00:58:14.440 --> 00:58:18.040
+Jitendra U: Now, I would like to, let's say, remove the rows.
+
+582
+00:58:23.060 --> 00:58:24.520
+Jitendra U: Which are duplicate.
+
+583
+00:58:25.280 --> 00:58:29.010
+Jitendra U: Now, how to check the duplicate rows.
+
+584
+00:58:30.070 --> 00:58:33.820
+Jitendra U: Right, so let's say I would like to remove the rows which are duplicate.
+
+585
+00:58:34.010 --> 00:58:41.329
+Jitendra U: The duplicate rows are… not very easy to discover, right? You're not able to discover.
+
+586
+00:58:42.430 --> 00:58:45.199
+Jitendra U: Yeah, DT… okay, date time.
+
+587
+00:58:45.350 --> 00:58:52.759
+Jitendra U: Yeah, that is a datetime function that we are using to access the library into string time format. Yes.
+
+588
+00:58:59.380 --> 00:59:04.140
+Jitendra U: Can we define a primary key? Yes, you can define a primary key as well, in data frames.
+
+589
+00:59:04.440 --> 00:59:06.150
+Jitendra U: You can define the primary.
+
+590
+00:59:07.110 --> 00:59:16.870
+Jitendra U: But it does not work like that, you have to define a join condition. When you join your table, then you have to define your primary key, on which key you are going to join.
+
+591
+00:59:17.210 --> 00:59:23.500
+Jitendra U: Just for storage purpose, there's no need to define primary key and foreign key in Pandas. There's no…
+
+592
+00:59:24.060 --> 00:59:26.089
+Jitendra U: This is not a SQL data.
+
+593
+00:59:27.070 --> 00:59:28.660
+Jitendra U: It's a heap data.
+
+594
+00:59:30.890 --> 00:59:32.790
+Jitendra U: So everything is stored in your RAM.
+
+595
+00:59:32.960 --> 00:59:34.640
+Jitendra U: your virtual memories.
+
+596
+00:59:35.170 --> 00:59:42.289
+Jitendra U: So it is not storing in some hard disk that you need to maintain a key, always. But here, that's a good question.
+
+597
+00:59:42.490 --> 00:59:45.290
+Jitendra U: Can we define a key on which I would like to join?
+
+598
+00:59:45.950 --> 00:59:52.390
+Jitendra U: If that is your question, just hold for a while, and we'll talk about how to join two Pandas DataFrame.
+
+599
+00:59:55.190 --> 00:59:56.100
+Jitendra U: Alright.
+
+600
+00:59:56.370 --> 01:00:00.350
+Jitendra U: So, we are going to discover how to find duplicates.
+
+601
+01:00:01.470 --> 01:00:05.900
+Jitendra U: Now, there's a function in Python or data frame itself.
+
+602
+01:00:06.740 --> 01:00:09.170
+Jitendra U: Which will able to give you…
+
+603
+01:00:09.730 --> 01:00:12.689
+Jitendra U: The idea, if my data frame have duplicates.
+
+604
+01:00:15.680 --> 01:00:22.890
+Jitendra U: I think I've deleted some of the data, but let me… Relerun this…
+
+605
+01:00:28.090 --> 01:00:33.219
+Jitendra U: Okay, that's strange, it is not able to identify any of the duplicates. Let me check why.
+
+606
+01:00:59.840 --> 01:01:02.059
+Jitendra U: Let me duplicate myself.
+
+607
+01:01:08.590 --> 01:01:13.450
+Jitendra U: Oh, due to index, it is not. Okay, I have an index, that's why it is not applicable.
+
+608
+01:01:15.180 --> 01:01:17.770
+Jitendra U: So, I've created a duplicate index.
+
+609
+01:01:24.600 --> 01:01:26.990
+Jitendra U: Now let me read this file.
+
+610
+01:01:36.220 --> 01:01:37.999
+Jitendra U: Now you can see it's coming as true.
+
+611
+01:01:41.440 --> 01:01:47.989
+Jitendra U: Right? So this is what we are going to perform as a bundle duplicate. So it is giving you Boolean true and false.
+
+612
+01:01:48.300 --> 01:01:50.910
+Jitendra U: Can DF support BigQuery? Yes.
+
+613
+01:01:51.170 --> 01:01:53.190
+Jitendra U: DataFrame can support BigQuery.
+
+614
+01:01:53.420 --> 01:01:55.399
+Jitendra U: DF has a data size limit.
+
+615
+01:01:56.520 --> 01:02:01.020
+Jitendra U: Yes, it depends upon your heap size, the RAM size.
+
+616
+01:02:04.450 --> 01:02:10.269
+Jitendra U: Now, how to remove duplicates? Now, this is to identify duplicates, but if I have to remove duplicate.
+
+617
+01:02:10.540 --> 01:02:16.350
+Jitendra U: Can I use something to remove duplicates? So there's a function called dropDuplicate.
+
+618
+01:02:16.800 --> 01:02:20.009
+Jitendra U: Which will allow you to remove the duplicate.
+
+619
+01:02:24.020 --> 01:02:28.349
+Jitendra U: It is duplicate rows… we are talking about duplicate rows, not columns.
+
+620
+01:02:29.010 --> 01:02:30.660
+Jitendra U: A row can be duplicate.
+
+621
+01:02:31.550 --> 01:02:34.040
+Jitendra U: Combination of multiple columns can be duplicated.
+
+622
+01:02:34.410 --> 01:02:36.719
+Jitendra U: But not single column can be duplicated.
+
+623
+01:02:40.350 --> 01:02:44.890
+Jitendra U: Alright, so we are deleting the duplicate rows, not duplicate column.
+
+624
+01:02:45.040 --> 01:02:50.489
+Jitendra U: Right? So this is how you are going to delete and duplicate rows from the data frame.
+
+625
+01:02:51.080 --> 01:02:54.149
+Jitendra U: Is it clear to everyone? So far, so good, guys?
+
+626
+01:02:59.470 --> 01:03:05.420
+Jitendra U: We haven't normalized that yet, so we are not reducing any normalized data. So there is no normalized data here.
+
+627
+01:03:07.730 --> 01:03:09.190
+Jitendra U: Okay, great.
+
+628
+01:03:09.400 --> 01:03:13.960
+Jitendra U: Now, what if, if I ask you to perform some more data insights?
+
+629
+01:03:14.280 --> 01:03:15.560
+Jitendra U: on your data.
+
+630
+01:03:17.890 --> 01:03:22.529
+Jitendra U: Yes. Duplicate means all the columns are identical in the two rows, yeah, that's correct.
+
+631
+01:03:22.690 --> 01:03:27.249
+Jitendra U: Is it possible to check the names, duplicate if you have one column with the name of student?
+
+632
+01:03:28.020 --> 01:03:31.209
+Jitendra U: You want me to say how to find the…
+
+633
+01:03:32.900 --> 01:03:35.869
+Jitendra U: Number for each number of unique…
+
+634
+01:03:36.430 --> 01:03:39.679
+Jitendra U: values in each column, is that what your question is?
+
+635
+01:03:43.830 --> 01:03:50.070
+Jitendra U: Yes, we can do that. So, let's say I have to find out… unique?
+
+636
+01:03:50.320 --> 01:03:58.739
+Jitendra U: values… in… each column, right? In each column in a data frame.
+
+637
+01:03:59.080 --> 01:04:02.300
+Jitendra U: Using Pandas, or any other data frame, or any data…
+
+638
+01:04:02.600 --> 01:04:07.009
+Jitendra U: any other Python function. So yes, you can do that with the help of loop.
+
+639
+01:04:12.300 --> 01:04:15.499
+Jitendra U: Right? So you can be able to use this with help of a loop.
+
+640
+01:04:16.040 --> 01:04:18.279
+Jitendra U: Let me take an example.
+
+641
+01:04:32.230 --> 01:04:34.780
+Jitendra U: Okay, let me explain with an example.
+
+642
+01:04:35.720 --> 01:04:40.210
+Jitendra U: How to find the duplicate?
+
+643
+01:04:40.930 --> 01:04:48.929
+Jitendra U: Elements… in the… called Luminar.
+
+644
+01:04:51.990 --> 01:04:54.650
+Jitendra U: beta… structure.
+
+645
+01:05:01.960 --> 01:05:04.320
+Jitendra U: Okay, so first let me generate a data.
+
+646
+01:05:20.030 --> 01:05:22.380
+Jitendra U: So let me generate some synthetic data.
+
+647
+01:05:23.000 --> 01:05:24.720
+Jitendra U: So I'm generating some data.
+
+648
+01:05:25.510 --> 01:05:31.320
+Jitendra U: For employees, so I've got employee 1, employee 2, employee 3, 4, 5, 6, 7, 8, 9, 10…
+
+649
+01:05:31.660 --> 01:05:37.140
+Jitendra U: And then I have got the age, their department, joining date, salary, performance score, are they active?
+
+650
+01:05:37.860 --> 01:05:39.429
+Jitendra U: So this is the output.
+
+651
+01:05:42.650 --> 01:05:55.710
+Jitendra U: Now, I would like to find out… each unique… count of… column values.
+
+652
+01:05:56.450 --> 01:05:58.530
+Jitendra U: in the table.
+
+653
+01:05:59.410 --> 01:06:04.429
+Jitendra U: Right? So I would like to find out… How many columns are unique?
+
+654
+01:06:04.630 --> 01:06:06.509
+Jitendra U: Right, so I can use a loop.
+
+655
+01:06:07.450 --> 01:06:15.019
+Jitendra U: So I can say… Clar… column in DR.column.
+
+656
+01:06:15.650 --> 01:06:21.849
+Jitendra U: I'm getting… Each unique value of the column and printing the count.
+
+657
+01:06:22.080 --> 01:06:25.259
+Jitendra U: So I have got this answer. By saying that, I have got
+
+658
+01:06:25.830 --> 01:06:32.889
+Jitendra U: One particular column, which is called department, have four employees under Marketing.
+
+659
+01:06:33.250 --> 01:06:36.589
+Jitendra U: 4 under IT, 1 under finance, one in HR.
+
+660
+01:06:36.900 --> 01:06:41.039
+Jitendra U: This is how… this is the concept of getting a duplicate, and the rest of the things you can see.
+
+661
+01:06:41.290 --> 01:06:43.860
+Jitendra U: Apart from Boolean, the things are unique.
+
+662
+01:06:45.270 --> 01:06:48.310
+Jitendra U: So this is the one way that you can be able to use for that purpose.
+
+663
+01:06:51.200 --> 01:06:57.150
+Jitendra U: Alright, so shall we use data profiling package for that? We will talk about that, how to do it automatically.
+
+664
+01:06:57.750 --> 01:07:04.939
+Jitendra U: Data profiling is, having pros and cons. We'll talk about when to use why, what, right?
+
+665
+01:07:05.210 --> 01:07:09.110
+Jitendra U: Alright, so this is what… one such package…
+
+666
+01:07:09.290 --> 01:07:12.059
+Jitendra U: Which we are going to utilize for data cleansing.
+
+667
+01:07:12.460 --> 01:07:15.650
+Jitendra U: Which is having all the affiliated
+
+668
+01:07:17.170 --> 01:07:20.820
+Jitendra U: Package… sorry, functions to help us to find this
+
+669
+01:07:21.290 --> 01:07:24.919
+Jitendra U: Now, let's say I would like to find a correlation, data correlation.
+
+670
+01:07:25.960 --> 01:07:31.500
+Jitendra U: So, correlation method calculates the relationship between the two columns in your data set.
+
+671
+01:07:32.410 --> 01:07:40.470
+Jitendra U: Right? So when I'm trying to find DF, data, correlation, Correlation is a number.
+
+672
+01:07:40.800 --> 01:07:46.990
+Jitendra U: So when I say correlation, It's a numerical representation.
+
+673
+01:07:47.230 --> 01:07:53.949
+Jitendra U: Of association between plus 1 2 min… sorry, minus 1.
+
+674
+01:07:54.860 --> 01:07:56.460
+Jitendra U: 2 plus 1.
+
+675
+01:07:57.570 --> 01:08:01.369
+Jitendra U: So that means that two numerical values are correlated
+
+676
+01:08:02.910 --> 01:08:06.370
+Jitendra U: So I would like to find a strength of correlation in the scale.
+
+677
+01:08:07.270 --> 01:08:11.850
+Jitendra U: So the strength of correlation is high, that means it is 1, plus 1.
+
+678
+01:08:12.610 --> 01:08:16.779
+Jitendra U: If it is adverse, that means one variable opposed other.
+
+679
+01:08:16.939 --> 01:08:18.810
+Jitendra U: Then it is negative.
+
+680
+01:08:19.479 --> 01:08:25.140
+Jitendra U: Or if there's no relation at all between the two variables, it is zero. I can say.
+
+681
+01:08:25.250 --> 01:08:33.030
+Jitendra U: The age and height is positively correlated, because if the age increase of a person, the height will also increase.
+
+682
+01:08:34.020 --> 01:08:41.539
+Jitendra U: I can say… age, and body weight is also correlated.
+
+683
+01:08:43.120 --> 01:08:45.460
+Jitendra U: Right? For a healthy individual, it is.
+
+684
+01:08:46.060 --> 01:08:46.840
+Jitendra U: Right?
+
+685
+01:08:47.000 --> 01:08:56.130
+Jitendra U: I can say… the… GDP and inflation are slightly correlated.
+
+686
+01:08:57.330 --> 01:08:58.109
+Jitendra U: Right?
+
+687
+01:08:58.920 --> 01:09:06.210
+Jitendra U: If I have to talk about the negatively correlated scenarios, Negative correlated scenarios, right?
+
+688
+01:09:06.450 --> 01:09:10.449
+Jitendra U: The negative quilted scenarios are the scenarios
+
+689
+01:09:11.149 --> 01:09:14.930
+Jitendra U: Where you have adverse impact on one variable over the other.
+
+690
+01:09:15.700 --> 01:09:19.479
+Jitendra U: So… Let's say temperature and sales of jacket.
+
+691
+01:09:20.640 --> 01:09:26.070
+Jitendra U: So if my temperature of my town is increasing, the sales of the jacket will decrease automatically.
+
+692
+01:09:27.910 --> 01:09:35.819
+Jitendra U: Exercise versus body fat percentage. If you're performing exercise, your body fat will… goes down.
+
+693
+01:09:39.450 --> 01:09:46.639
+Jitendra U: Right? So they are negatively correlated variable. So negatively correlated variable means one goes up, another goes down.
+
+694
+01:09:47.710 --> 01:09:52.059
+Jitendra U: Strong correlated variables are those where both are going in the same direction.
+
+695
+01:09:57.730 --> 01:09:59.789
+Jitendra U: Inversely proportional, yes.
+
+696
+01:10:00.430 --> 01:10:04.630
+Jitendra U: Can we add a new column dynamically in the data frame? Yes, we will. We can be able to add.
+
+697
+01:10:04.770 --> 01:10:09.529
+Jitendra U: So we can be able to add a column dynamically as well, in a data frame. I will talk about it.
+
+698
+01:10:10.170 --> 01:10:15.050
+Jitendra U: But first, understand what is correlation. So now, how to apply correlation to a data frame?
+
+699
+01:10:15.260 --> 01:10:19.089
+Jitendra U: Can I be able to perform a correlation analysis on my data frame?
+
+700
+01:10:19.300 --> 01:10:22.440
+Jitendra U: By using a simple function, df.correlation.
+
+701
+01:10:22.870 --> 01:10:30.150
+Jitendra U: So you can see that I cannot able to perform correlation on non… integer columns.
+
+702
+01:10:31.730 --> 01:10:35.920
+Jitendra U: So, for performing the correlation, all my variable
+
+703
+01:10:36.160 --> 01:10:40.560
+Jitendra U: should be of type, integer. That's the first and the foremost thing.
+
+704
+01:10:41.270 --> 01:10:48.680
+Jitendra U: If your data frame have strings, floats… objects…
+
+705
+01:10:49.380 --> 01:10:56.589
+Jitendra U: Or any other type of data… data structure, then you have to clean that data, and consider all the integer
+
+706
+01:10:56.730 --> 01:10:59.960
+Jitendra U: Data site to perform correlation analysis.
+
+707
+01:11:00.470 --> 01:11:03.120
+Jitendra U: So let me move on to the same example.
+
+708
+01:11:03.450 --> 01:11:05.860
+Jitendra U: Where's that?
+
+709
+01:11:07.390 --> 01:11:08.280
+Jitendra U: Okay.
+
+710
+01:11:13.350 --> 01:11:18.049
+Jitendra U: And in this example, I would like to find out the correlation.
+
+711
+01:11:19.630 --> 01:11:21.750
+Jitendra U: TF.co double.
+
+712
+01:11:24.480 --> 01:11:29.489
+Jitendra U: Okay, this is also… not performing, so that means I have to drop.
+
+713
+01:11:30.020 --> 01:11:34.920
+Jitendra U: the dates… I can see…
+
+714
+01:12:06.460 --> 01:12:08.459
+Jitendra U: So I can say DF…
+
+715
+01:12:11.670 --> 01:12:14.260
+Jitendra U: I've got the column.
+
+716
+01:12:17.470 --> 01:12:18.760
+Jitendra U: Restart, okay.
+
+717
+01:12:21.240 --> 01:12:24.350
+Jitendra U: I can also do index drop.
+
+718
+01:12:33.800 --> 01:12:35.959
+Jitendra U: Now I can perform the correlation.
+
+719
+01:12:41.420 --> 01:12:43.570
+Jitendra U: Okay, so this shows me the correlation.
+
+720
+01:12:43.700 --> 01:12:47.610
+Jitendra U: And you can see all the value lies between minus 1 and 2, plus 1.
+
+721
+01:12:49.160 --> 01:12:56.999
+Jitendra U: So that means… Values, which are highly correlated, Are coming as positive.
+
+722
+01:12:57.210 --> 01:13:11.609
+Jitendra U: But partial correlated. They are not very strong correlated, but they are partially correlated values, right? But idea is, there's a function in Python which will… or data frame, or sorry, pandas data frame, or pandas.
+
+723
+01:13:11.760 --> 01:13:17.550
+Jitendra U: Which will allow you to find correlation between the two variables.
+
+724
+01:13:17.800 --> 01:13:23.030
+Jitendra U: So you can be able to comment on bad correlation versus good correlation with the help of…
+
+725
+01:13:23.580 --> 01:13:25.510
+Jitendra U: This whole example.
+
+726
+01:13:27.910 --> 01:13:38.780
+Jitendra U: Right? Now, let's say I would like to plot… certain things… From this… So, can I say df.plot?
+
+727
+01:13:40.270 --> 01:13:46.309
+Jitendra U: So you can see that it is automatically choosing the line graph to represent.
+
+728
+01:13:47.560 --> 01:13:51.340
+Jitendra U: So I'm saying df.plot and plot.show.
+
+729
+01:13:51.850 --> 01:13:56.280
+Jitendra U: So, show me the line graph of each column.
+
+730
+01:13:56.750 --> 01:14:06.190
+Jitendra U: I can convert… This particular data type… into scattered plot.
+
+731
+01:14:07.350 --> 01:14:10.559
+Jitendra U: By selecting the type of graph.
+
+732
+01:14:11.340 --> 01:14:14.350
+Jitendra U: And my own nomenclature of access.
+
+733
+01:14:14.600 --> 01:14:20.280
+Jitendra U: So let's say I would like to find out what's the duration versus calorie intake of a user.
+
+734
+01:14:20.800 --> 01:14:21.660
+Jitendra U: Nope.
+
+735
+01:14:21.980 --> 01:14:24.299
+Jitendra U: scattered plot, and this is what I'm getting.
+
+736
+01:14:28.550 --> 01:14:33.050
+Jitendra U: I would like to change… this diagram…
+
+737
+01:14:33.480 --> 01:14:38.730
+Jitendra U: From calorie to, let's say, max pulse rate, so I can able to get this diagram.
+
+738
+01:14:40.210 --> 01:14:47.279
+Jitendra U: I would like to change… the type of… Draft from scattered to histogram.
+
+739
+01:14:47.850 --> 01:14:53.770
+Jitendra U: I have to just pass on the kind of plot histogram.
+
+740
+01:14:53.970 --> 01:14:57.510
+Jitendra U: And this gives me the histogram of… the data points.
+
+741
+01:14:58.410 --> 01:15:01.110
+Jitendra U: So the idea is, you can able to get…
+
+742
+01:15:02.260 --> 01:15:06.169
+Jitendra U: The clear, picture on your data by plotting.
+
+743
+01:15:06.290 --> 01:15:09.129
+Jitendra U: And that's the whole idea of EDA that we are going to learn.
+
+744
+01:15:09.880 --> 01:15:16.200
+Jitendra U: Now, coming back to the same question, can we add a new column to a Panda's data frame?
+
+745
+01:15:20.370 --> 01:15:23.519
+Jitendra U: So the answer is yes. Pandas are…
+
+746
+01:15:24.130 --> 01:15:27.209
+Jitendra U: mutable objects. That means you can change.
+
+747
+01:15:30.520 --> 01:15:34.989
+Jitendra U: Right? You can be able to mutate pandas. Pandas are not immutable.
+
+748
+01:15:36.240 --> 01:15:40.889
+Jitendra U: So adding a new column in Pandas is very simple. Let's take an example.
+
+749
+01:15:41.730 --> 01:15:49.149
+Jitendra U: So let's say I have a… data, Which comprises of…
+
+750
+01:15:51.090 --> 01:16:00.570
+Jitendra U: few members and their associates each, and their country is… I would like to add a country to it. So I have an existing data which talks about
+
+751
+01:16:00.810 --> 01:16:05.959
+Jitendra U: the name of the user and their age, but I would like to add country to it. So, it is very simple.
+
+752
+01:16:06.070 --> 01:16:13.020
+Jitendra U: I can simply say TF Core Country is a new column, and for all user, it will be US.
+
+753
+01:16:14.460 --> 01:16:15.290
+Jitendra U: Right?
+
+754
+01:16:15.460 --> 01:16:23.039
+Jitendra U: I can also perform the numerical Operation on the columns.
+
+755
+01:16:23.280 --> 01:16:28.610
+Jitendra U: Let's say I would like to say, I would like to increase the age of the user by 5.
+
+756
+01:16:29.150 --> 01:16:31.680
+Jitendra U: For every user, I have to increase by 5.
+
+757
+01:16:32.020 --> 01:16:38.330
+Jitendra U: So the previous data says 25, 30, and 22. Now, the new data says 30, 20, 35, and 27.
+
+758
+01:16:39.860 --> 01:16:42.780
+Jitendra U: I can also add a column using a list.
+
+759
+01:16:43.560 --> 01:16:45.450
+Jitendra U: Let's say I would like to add a list.
+
+760
+01:16:46.390 --> 01:16:48.720
+Jitendra U: I would like to add the gender column.
+
+761
+01:16:49.150 --> 01:16:51.470
+Jitendra U: the list, I can also add that.
+
+762
+01:16:52.560 --> 01:16:58.309
+Jitendra U: Right? So basically, pandas are mutable. I can able to change and add.
+
+763
+01:16:58.670 --> 01:17:01.750
+Jitendra U: The column, based upon my requirement.
+
+764
+01:17:05.400 --> 01:17:07.370
+Jitendra U: Fair enough, guys?
+
+765
+01:17:07.690 --> 01:17:10.729
+Jitendra U: Shall we move on to some advanced concept of pandas now?
+
+766
+01:17:18.540 --> 01:17:21.760
+Jitendra U: All right So let's move on to some advance.
+
+767
+01:17:23.810 --> 01:17:27.080
+Jitendra U: concepts… of Pandas.
+
+768
+01:17:27.230 --> 01:17:29.730
+Jitendra U: And here we are going to talk about the joints.
+
+769
+01:17:30.900 --> 01:17:35.200
+Jitendra U: joins and join condition. Now, what if, if you have two Pandas data frames?
+
+770
+01:17:37.180 --> 01:17:44.319
+Jitendra U: It's like a… basically, it's like, tables that you're joining in SQL. Can I be able to do the same operation in Pandas?
+
+771
+01:17:44.790 --> 01:17:49.850
+Jitendra U: So, Panda asks… Have several reserve keywords.
+
+772
+01:17:50.290 --> 01:17:53.360
+Jitendra U: So first, let me show you the syntax, how to join.
+
+773
+01:17:55.040 --> 01:17:58.109
+Jitendra U: So we are going to use a function called merge.
+
+774
+01:17:58.800 --> 01:18:02.820
+Jitendra U: pd.merge to perform basic join on Pandas.
+
+775
+01:18:03.010 --> 01:18:07.640
+Jitendra U: And then, we will pass on… What type of join?
+
+776
+01:18:07.790 --> 01:18:09.409
+Jitendra U: We would like to have.
+
+777
+01:18:10.000 --> 01:18:14.229
+Jitendra U: So we are going to learn inner join, that means there's an intersection of the keys.
+
+778
+01:18:14.380 --> 01:18:21.270
+Jitendra U: Left joins, right join, outer join, and on certain key, as you mentioned, can be able to create.
+
+779
+01:18:21.780 --> 01:18:25.710
+Jitendra U: primary key on the Pandas. So this is where you required a key now.
+
+780
+01:18:25.990 --> 01:18:27.030
+Jitendra U: to join.
+
+781
+01:18:27.210 --> 01:18:28.940
+Jitendra U: There's a purpose now.
+
+782
+01:18:29.540 --> 01:18:31.650
+Jitendra U: To declare them as a primary key.
+
+783
+01:18:33.590 --> 01:18:39.160
+Jitendra U: So, let's take an example. I have got two data frames. Let's assume that I have got 2 data frames.
+
+784
+01:18:39.490 --> 01:18:44.540
+Jitendra U: The first data frame is Having ID… IDs of employees?
+
+785
+01:18:44.700 --> 01:18:46.880
+Jitendra U: Departments of the employees?
+
+786
+01:18:47.040 --> 01:18:54.440
+Jitendra U: Name of the employees. The second data frame comprises of ID of the employees, Department of the employees?
+
+787
+01:18:54.860 --> 01:18:57.220
+Jitendra U: And this salary of the employees.
+
+788
+01:18:57.870 --> 01:18:59.780
+Jitendra U: Now, I would like to add…
+
+789
+01:19:01.060 --> 01:19:05.850
+Jitendra U: and join on multiple key. By saying that, I would like to add…
+
+790
+01:19:07.570 --> 01:19:11.370
+Jitendra U: The salary detail into the first table.
+
+791
+01:19:12.920 --> 01:19:16.429
+Jitendra U: So I would like to merge based upon the condition.
+
+792
+01:19:17.470 --> 01:19:19.280
+Jitendra U: So let me compile this.
+
+793
+01:19:19.440 --> 01:19:26.610
+Jitendra U: So I'm saying merge… Based upon this condition, DF1 and DF2.
+
+794
+01:19:27.240 --> 01:19:28.860
+Jitendra U: Closing inner join.
+
+795
+01:19:29.030 --> 01:19:32.169
+Jitendra U: on ID and department.
+
+796
+01:19:32.900 --> 01:19:39.490
+Jitendra U: That means it should check… Which particular value to be used?
+
+797
+01:19:39.810 --> 01:19:42.899
+Jitendra U: on the salary column from DF2.
+
+798
+01:19:43.440 --> 01:19:46.420
+Jitendra U: where it is going to merge with DF1.
+
+799
+01:19:47.320 --> 01:19:49.430
+Jitendra U: Right, so I would like to run this.
+
+800
+01:19:49.970 --> 01:19:56.700
+Jitendra U: So, when I'm joining this… with the DF1.
+
+801
+01:19:56.840 --> 01:19:58.630
+Jitendra U: I can check the output.
+
+802
+01:19:59.570 --> 01:20:01.279
+Jitendra U: So there are two employees.
+
+803
+01:20:01.690 --> 01:20:03.100
+Jitendra U: Alice and Bob.
+
+804
+01:20:03.830 --> 01:20:09.850
+Jitendra U: Which is common between because of their IDs.
+
+805
+01:20:10.430 --> 01:20:14.699
+Jitendra U: 1, 2, 3… So, this is ambiguous.
+
+806
+01:20:16.840 --> 01:20:21.879
+Jitendra U: it talks about… There's a third employee, Charlie, is from IT Hair.
+
+807
+01:20:22.300 --> 01:20:25.040
+Jitendra U: And the same employees in finance.
+
+808
+01:20:25.240 --> 01:20:27.019
+Jitendra U: So there's an ambiguity here.
+
+809
+01:20:27.190 --> 01:20:30.669
+Jitendra U: So you can see that we are merging based upon two conditions.
+
+810
+01:20:31.310 --> 01:20:38.649
+Jitendra U: It's a composite primary key. It's not a primary key, it's a composite primary key. So what do you mean by composite primary key?
+
+811
+01:20:38.890 --> 01:20:41.950
+Jitendra U: When you're adding two conditions, or two keys together.
+
+812
+01:20:42.170 --> 01:20:44.369
+Jitendra U: It become a composite priority.
+
+813
+01:20:44.580 --> 01:20:47.840
+Jitendra U: So when you have such scenario, you're trying to validate
+
+814
+01:20:48.510 --> 01:20:56.960
+Jitendra U: by combining the two keys instead of relying on one key. That's a… Best way to… Garta.
+
+815
+01:20:57.520 --> 01:21:03.649
+Jitendra U: output… As a… as a… as a kind of… based upon a joint condition.
+
+816
+01:21:10.210 --> 01:21:11.030
+Jitendra U: Right?
+
+817
+01:21:11.220 --> 01:21:14.629
+Jitendra U: Now, I would like to show you how to join using different column names.
+
+818
+01:21:15.390 --> 01:21:16.820
+Jitendra U: Now, this is simple.
+
+819
+01:21:16.930 --> 01:21:20.420
+Jitendra U: Let's say I have a data frame where I'm having two employees.
+
+820
+01:21:20.760 --> 01:21:23.819
+Jitendra U: Our data frame tool, which is also having two employees.
+
+821
+01:21:25.300 --> 01:21:28.699
+Jitendra U: Right? If we use ID as a key, that will override.
+
+822
+01:21:29.220 --> 01:21:31.110
+Jitendra U: Let's… let's do that.
+
+823
+01:21:31.310 --> 01:21:33.069
+Jitendra U: I'm expecting this question.
+
+824
+01:21:33.850 --> 01:21:36.089
+Jitendra U: So, let's say if we just use this.
+
+825
+01:21:36.850 --> 01:21:38.140
+Jitendra U: It will override.
+
+826
+01:21:40.300 --> 01:21:41.490
+Jitendra U: But finance.
+
+827
+01:21:42.470 --> 01:21:44.599
+Jitendra U: Instead of IT, it will become finance.
+
+828
+01:21:48.490 --> 01:21:50.409
+Jitendra U: But which one is correct now?
+
+829
+01:21:50.510 --> 01:21:52.079
+Jitendra U: You will not have any answer.
+
+830
+01:21:55.210 --> 01:22:00.030
+Jitendra U: Okay, so DF1, DF2, employee 1 and 2, employee 1 and 3.
+
+831
+01:22:00.280 --> 01:22:05.349
+Jitendra U: Name of the employee is Alice and Bob. Saudi of the employees is $50,000, $70,000.
+
+832
+01:22:05.620 --> 01:22:08.560
+Jitendra U: And if I'm merging them on employer ID,
+
+833
+01:22:08.840 --> 01:22:14.180
+Jitendra U: right join and employee ID, and using inner join, so you can see I'm getting this answer.
+
+834
+01:22:14.970 --> 01:22:20.259
+Jitendra U: It is just trying to see the common employee between the two databases.
+
+835
+01:22:20.810 --> 01:22:26.039
+Jitendra U: So here, the common employee is 1, which is Alice, and that's why it is joining.
+
+836
+01:22:26.650 --> 01:22:30.010
+Jitendra U: the 2… Different data frame together.
+
+837
+01:22:35.820 --> 01:22:39.550
+Jitendra U: Right? So, pandas offer you these…
+
+838
+01:22:39.770 --> 01:22:42.739
+Jitendra U: fast operation. This is very fast, right?
+
+839
+01:22:42.960 --> 01:22:49.410
+Jitendra U: So, pandas perform… These operations pretty fast.
+
+840
+01:22:49.970 --> 01:22:53.699
+Jitendra U: So, we'll talk about the three important operations in Pandas.
+
+841
+01:22:54.360 --> 01:22:57.370
+Jitendra U: Which is called Merge. Let me write it down.
+
+842
+01:22:58.170 --> 01:23:01.290
+Jitendra U: We're gonna talk about 3 important Operation Pandas.
+
+843
+01:23:05.490 --> 01:23:07.039
+Jitendra U: This is called March.
+
+844
+01:23:07.730 --> 01:23:11.400
+Jitendra U: join… and CONCAT.
+
+845
+01:23:17.830 --> 01:23:23.989
+Jitendra U: Right? So, we will understand how to… when to use what. That is very, very important. So, when to use what.
+
+846
+01:23:25.060 --> 01:23:31.790
+Jitendra U: Now, we have understand that Pandas is an open-source Python library, easy for… use for storing and manipulating the data.
+
+847
+01:23:32.190 --> 01:23:39.649
+Jitendra U: And it can be able to handle different types of data, including JSON, CSV, XLS, all other types of data that you can think of.
+
+848
+01:23:40.060 --> 01:23:47.180
+Jitendra U: Now, we have discussed about the merge method. So, merge… Basically.
+
+849
+01:23:47.460 --> 01:23:52.390
+Jitendra U: Merge method is the most common and flexible option for combining data frames.
+
+850
+01:23:53.190 --> 01:23:56.739
+Jitendra U: The only drawback of this method is it is very extensive.
+
+851
+01:23:56.980 --> 01:24:00.669
+Jitendra U: And it will allow you to have more complicated combinations.
+
+852
+01:24:01.750 --> 01:24:07.490
+Jitendra U: Right? So, there are 3 or different types of methods in Merge.
+
+853
+01:24:08.210 --> 01:24:10.369
+Jitendra U: Let me explain each type.
+
+854
+01:24:12.110 --> 01:24:16.060
+Jitendra U: Okay, so let me first… Show you the diagram.
+
+855
+01:24:34.880 --> 01:24:38.030
+Jitendra U: So, when we talk about the joining methods.
+
+856
+01:24:38.550 --> 01:24:42.059
+Jitendra U: So, different types of join, right, you can see on my screen.
+
+857
+01:24:42.650 --> 01:24:48.899
+Jitendra U: So, left and right join. So, left and right are the two arguments that has been used to specify
+
+858
+01:24:49.150 --> 01:24:51.510
+Jitendra U: Which data frame has been merged, and what…
+
+859
+01:24:51.690 --> 01:24:57.009
+Jitendra U: One should be left… considered to be left, and what will be considered to be right in the join operation.
+
+860
+01:24:57.510 --> 01:25:03.299
+Jitendra U: So if I'm performing a left outer join, I will have all the data points of my left data
+
+861
+01:25:04.010 --> 01:25:10.280
+Jitendra U: Frame, including the common data points between the first and the second data frame.
+
+862
+01:25:10.920 --> 01:25:15.280
+Jitendra U: When I'm performing a full auto join, that I'm extracting union all.
+
+863
+01:25:16.510 --> 01:25:19.020
+Jitendra U: All the data points of the two data frame.
+
+864
+01:25:19.810 --> 01:25:30.740
+Jitendra U: When I'm performing right outer join, which is very analogous to left outer join, the only difference is I will get all the right data frame attributes
+
+865
+01:25:30.960 --> 01:25:34.580
+Jitendra U: Along with the common attribute between the DF1 and DF2.
+
+866
+01:25:35.500 --> 01:25:38.879
+Jitendra U: Here, I'm getting the intersection, which is inner joint.
+
+867
+01:25:39.780 --> 01:25:46.889
+Jitendra U: Now, there are two… so when you look into the function, mergeDataFrame, so you have seen the signature of that function.
+
+868
+01:25:47.750 --> 01:25:51.739
+Jitendra U: The signature of that function has… let's go one by one…
+
+869
+01:25:52.170 --> 01:25:55.359
+Jitendra U: So the signature of the function says left and right.
+
+870
+01:25:55.860 --> 01:25:59.360
+Jitendra U: So these are two required arguments. You have to specify
+
+871
+01:25:59.630 --> 01:26:04.879
+Jitendra U: Which data frame you are considering to be left, and which data frame you are considering to be right.
+
+872
+01:26:05.460 --> 01:26:12.629
+Jitendra U: Then you have to declare how this argument is used to specify how would you like to handle the operation of the two objects.
+
+873
+01:26:13.540 --> 01:26:21.050
+Jitendra U: So data inner join, outer join, left join, right join. If not specified, this method will default use inner join.
+
+874
+01:26:22.950 --> 01:26:31.510
+Jitendra U: Then you have to use on, so this argument is optional, and you allow to join the two data frames via a specific column that they shared.
+
+875
+01:26:31.910 --> 01:26:37.470
+Jitendra U: And if this argument is not specified, it will default to join on indexes.
+
+876
+01:26:37.610 --> 01:26:40.790
+Jitendra U: That's where you have to declare the indexes before joining.
+
+877
+01:26:41.600 --> 01:26:48.960
+Jitendra U: Left on or right on are the two arguments, if you are interested in joining the data frame via columns.
+
+878
+01:26:49.440 --> 01:26:51.880
+Jitendra U: But a column name do not match.
+
+879
+01:26:52.950 --> 01:26:57.070
+Jitendra U: Let's say I've got employee underscore ID and employee ID.
+
+880
+01:26:57.490 --> 01:27:04.350
+Jitendra U: in the other table. That means I'm using the same employee IDs in both tables, but my column names are different.
+
+881
+01:27:04.840 --> 01:27:09.769
+Jitendra U: One table I have using employer underscore ID, and another table I'm saying employee ID.
+
+882
+01:27:10.590 --> 01:27:17.010
+Jitendra U: Although they are saying, logically, But to my program, I cannot able to quantify this.
+
+883
+01:27:17.160 --> 01:27:20.329
+Jitendra U: So, after using… Left on, right on.
+
+884
+01:27:21.360 --> 01:27:28.800
+Jitendra U: abbreviations to give The proper answer.
+
+885
+01:27:29.110 --> 01:27:36.720
+Jitendra U: Then I'm having a left index and right index, so these are boolean arguments specified to use the index from the either data frame as a join key.
+
+886
+01:27:37.100 --> 01:27:41.479
+Jitendra U: Then I've got suffixes. This argument will take a tuple of strings.
+
+887
+01:27:41.960 --> 01:27:45.720
+Jitendra U: Sorting criterias, and validating the outcomes.
+
+888
+01:27:45.840 --> 01:27:46.640
+Jitendra U: Right?
+
+889
+01:27:46.750 --> 01:27:49.159
+Jitendra U: So that's the whole idea of using.
+
+890
+01:27:49.400 --> 01:27:52.100
+Jitendra U: merge operation in Pandas.
+
+891
+01:27:52.970 --> 01:27:58.959
+Jitendra U: So I think, it's a time to take a break, quick, 15 to 20 minutes break.
+
+892
+01:27:59.140 --> 01:28:06.219
+Jitendra U: Once we come back, then we will have more discussion on join. So we'll move from merge to join.
+
+893
+01:28:06.490 --> 01:28:09.769
+Jitendra U: And then CONCAT. We'll take some more examples.
+
+894
+01:28:10.050 --> 01:28:15.640
+Jitendra U: some industrial-based example, when to use what, right? We'll compare the three methods together.
+
+895
+01:28:15.950 --> 01:28:17.490
+Jitendra U: With some more examples.
+
+896
+01:28:18.060 --> 01:28:21.780
+Jitendra U: So let's take a quick, 15 minutes break.
+
+897
+01:28:22.320 --> 01:28:24.099
+Jitendra U: Yeah, let me share this.
+
+898
+01:28:56.360 --> 01:28:58.410
+Jitendra U: I'll share the file with everyone.
+
+899
+01:28:58.950 --> 01:29:02.040
+Jitendra U: So please use this file if you need to revisit.
+
+900
+01:29:02.740 --> 01:29:07.490
+Jitendra U: Let's take a quick 15 minutes break, and then we'll come back, and then we'll resume the session.
+
+901
+01:54:24.040 --> 01:54:26.289
+Jitendra U: Hi guys, I hope, you're back.
+
+902
+01:54:26.800 --> 01:54:29.630
+Jitendra U: I can see the chart that you are.
+
+903
+01:54:29.840 --> 01:54:35.820
+Jitendra U: So, let's begin with where we left. So, we are starting with the joint condition.
+
+904
+01:54:36.050 --> 01:54:42.460
+Jitendra U: We talked about the merge, and in the merge, we have seen that we can able to join two different data frames.
+
+905
+01:54:43.160 --> 01:54:50.510
+Jitendra U: So, now we will try to look into the join operation. So, join in… join operation in Pandas
+
+906
+01:54:50.770 --> 01:54:52.820
+Jitendra U: Work very similar to Merge.
+
+907
+01:54:53.920 --> 01:55:02.510
+Jitendra U: But… The only difference is… It should be joined on… either on an index or a key column.
+
+908
+01:55:02.980 --> 01:55:09.049
+Jitendra U: I'm repeating, The pandas method to join works very similar to merge function.
+
+909
+01:55:09.310 --> 01:55:16.609
+Jitendra U: But it should have one condition, that it should must join on either an index or a key column.
+
+910
+01:55:16.940 --> 01:55:26.989
+Jitendra U: So basically, this method will allow us to join one data frame into another one, which makes it more efficient and simplistic method than merge when combining data frames.
+
+911
+01:55:27.250 --> 01:55:31.699
+Jitendra U: Now, what are the attributes of the join? So let's try to understand the join function.
+
+912
+01:55:32.040 --> 01:55:38.840
+Jitendra U: So this is how the joint data frame, function looks like. So you have to mention the other…
+
+913
+01:55:39.170 --> 01:55:46.850
+Jitendra U: That means the join method will use the caller and the other to specify which data frame are getting merged. So, caller is the data frame.
+
+914
+01:55:47.780 --> 01:55:49.210
+Jitendra U: That method.
+
+915
+01:55:49.430 --> 01:55:56.370
+Jitendra U: is called on the other data frame that you would like to join. So it's like a source versus a destination.
+
+916
+01:55:57.100 --> 01:56:03.630
+Jitendra U: Then you have a condition on. So this argument function is the same way as the on argument for merge.
+
+917
+01:56:03.820 --> 01:56:05.760
+Jitendra U: We would like to find it out.
+
+918
+01:56:06.030 --> 01:56:08.370
+Jitendra U: On which column we would like to.
+
+919
+01:56:08.560 --> 01:56:09.440
+Jitendra U: Join.
+
+920
+01:56:10.260 --> 01:56:11.230
+Jitendra U: How?
+
+921
+01:56:11.440 --> 01:56:18.490
+Jitendra U: So this argument function is the same way as how argument for merge, where we're going to pass on left, right, inner.
+
+922
+01:56:18.910 --> 01:56:21.369
+Jitendra U: By default, it will be narrow, right?
+
+923
+01:56:21.730 --> 01:56:25.760
+Jitendra U: Now, here you will see that there are two important, and the change…
+
+924
+01:56:27.450 --> 01:56:41.999
+Jitendra U: attributes of join, which is called L suffix and write suffix. So these arguments are used to rename any overlapping column names so that it will be able to differentiate between the join data conditions.
+
+925
+01:56:42.270 --> 01:56:44.289
+Jitendra U: And then, finally, you have a sort.
+
+926
+01:56:44.510 --> 01:56:47.519
+Jitendra U: So, sort in… by value.
+
+927
+01:56:47.740 --> 01:56:50.269
+Jitendra U: Either incremental or decremental.
+
+928
+01:56:50.730 --> 01:56:53.760
+Jitendra U: So, we'll see how to perform.
+
+929
+01:56:54.170 --> 01:57:03.380
+Jitendra U: these operations differently. So let me show you an example to explain join versus merge in Pandas, and we'll take
+
+930
+01:57:05.320 --> 01:57:07.120
+Jitendra U: some good example…
+
+931
+01:57:14.050 --> 01:57:18.879
+Jitendra U: So, okay, let me first make sure that it should be…
+
+932
+01:57:19.640 --> 01:57:24.440
+Jitendra U: Commented out, so that you will not face any issue in future when you're re-executing it.
+
+933
+01:57:24.940 --> 01:57:28.570
+Jitendra U: Okay, so let me create the true data frame again.
+
+934
+01:57:29.470 --> 01:57:31.620
+Jitendra U: And I will print more data frames.
+
+935
+01:57:32.050 --> 01:57:33.740
+Jitendra U: So, I've got two data frames.
+
+936
+01:57:34.460 --> 01:57:41.380
+Jitendra U: Dataframe 1, which is Employ, Dataframe 2, which is having salary, an employer.
+
+937
+01:57:41.640 --> 01:57:43.380
+Jitendra U: So I've got TF1, DF2.
+
+938
+01:57:44.330 --> 01:57:48.509
+Jitendra U: So… Now, I would like to join the two data frame.
+
+939
+01:57:51.440 --> 01:57:56.130
+Jitendra U: And I'm saying DF1, join on DF2, Using inner.
+
+940
+01:57:57.700 --> 01:58:01.890
+Jitendra U: So here you can see that it will be able to find intersection between the two tables.
+
+941
+01:58:02.530 --> 01:58:06.129
+Jitendra U: Right? Similarly, this is very similar to March.
+
+942
+01:58:06.740 --> 01:58:08.899
+Jitendra U: But when I'm using a merge.
+
+943
+01:58:09.250 --> 01:58:11.460
+Jitendra U: I can perform the same operation.
+
+944
+01:58:13.260 --> 01:58:16.300
+Jitendra U: By passing these many parameters.
+
+945
+01:58:20.000 --> 01:58:22.569
+Jitendra U: Right? So that's a syntax difference between the two.
+
+946
+01:58:23.150 --> 01:58:27.159
+Jitendra U: But if I have to tell you logically which one should I use and buy?
+
+947
+01:58:28.210 --> 01:58:30.589
+Jitendra U: Right? So that is the most important part.
+
+948
+01:58:30.790 --> 01:58:33.790
+Jitendra U: Now, if I have to identify which one should I join and why.
+
+949
+01:58:34.440 --> 01:58:37.110
+Jitendra U: Right? So if I have to give a very clear answer.
+
+950
+01:58:37.230 --> 01:58:41.509
+Jitendra U: on which one should I use? Is it based upon the performance?
+
+951
+01:58:41.680 --> 01:58:50.130
+Jitendra U: Is it based upon the… some other… To manage the memory better.
+
+952
+01:58:50.300 --> 01:58:53.680
+Jitendra U: Or what should be the condition in which I should use join?
+
+953
+01:58:53.810 --> 01:58:55.140
+Jitendra U: Versus March.
+
+954
+01:58:55.760 --> 01:58:57.710
+Jitendra U: Right? So, let me explain.
+
+955
+01:58:58.000 --> 01:58:59.480
+Jitendra U: When to use what.
+
+956
+01:59:00.060 --> 01:59:06.449
+Jitendra U: So basically, Both merge and join are used to combine data frame.
+
+957
+01:59:07.330 --> 01:59:10.969
+Jitendra U: But they differ in their primary use case in terms of flexibility.
+
+958
+01:59:11.910 --> 01:59:17.249
+Jitendra U: So, when we talk about join, We are using index-based join.
+
+959
+01:59:17.390 --> 01:59:21.720
+Jitendra U: It has been primarily designed for combining data frames based upon their indexes.
+
+960
+01:59:21.940 --> 01:59:27.669
+Jitendra U: And by default, it performs as a left join, aligning the indexes on the calling data frame.
+
+961
+01:59:28.270 --> 01:59:31.539
+Jitendra U: With the index on the other data frame, which is the right data frame.
+
+962
+01:59:32.000 --> 01:59:40.099
+Jitendra U: Through this convenience for simple index join, it offers a very concise syntax for common index-based join scenarios.
+
+963
+01:59:40.550 --> 01:59:45.480
+Jitendra U: It is flexible with on parameter, where primary index, you can specify
+
+964
+01:59:45.900 --> 01:59:49.750
+Jitendra U: And the left data frame to join with, you can also specify on.
+
+965
+01:59:50.150 --> 01:59:51.819
+Jitendra U: Using on parameter.
+
+966
+01:59:52.760 --> 01:59:53.550
+Jitendra U: Right?
+
+967
+01:59:53.680 --> 02:00:00.089
+Jitendra U: On the other hand, when we talk about merge, it's a columnar base join condition.
+
+968
+02:00:00.410 --> 02:00:03.420
+Jitendra U: So it is more versatile function.
+
+969
+02:00:03.530 --> 02:00:09.899
+Jitendra U: That allow you to join DataFrame based upon the common columns, common indexes.
+
+970
+02:00:10.020 --> 02:00:11.940
+Jitendra U: Or a combination of both.
+
+971
+02:00:12.980 --> 02:00:14.959
+Jitendra U: Now, when I have to say.
+
+972
+02:00:15.820 --> 02:00:23.360
+Jitendra U: database style. It provides full control over the type, inner join, outer join, left outer join, on how parameter.
+
+973
+02:00:23.610 --> 02:00:33.489
+Jitendra U: to join these two tables using SQL operation. So you can be able to explicitly specify the type of join that you would like to perform. This is more controllable.
+
+974
+02:00:33.880 --> 02:00:40.910
+Jitendra U: way to write code, so I would prefer to use merge when I have a choice.
+
+975
+02:00:41.430 --> 02:00:45.090
+Jitendra U: To come up with an ambiguity resolution between join and merge.
+
+976
+02:00:48.450 --> 02:00:53.929
+Jitendra U: Yeah, so in which column, okay, so I will show you an example on which column
+
+977
+02:00:54.340 --> 02:00:57.499
+Jitendra U: Let's say if I have to use a column, right?
+
+978
+02:00:57.670 --> 02:01:00.250
+Jitendra U: Let me show you the example.
+
+979
+02:01:16.060 --> 02:01:18.110
+Jitendra U: Let me show this example.
+
+980
+02:01:28.080 --> 02:01:30.360
+Jitendra U: Okay, so I've got this employee data.
+
+981
+02:01:44.320 --> 02:01:49.870
+Jitendra U: So, that's what I'm trying to say. So, join use indexes, right? So, you have to set the indexes first.
+
+982
+02:01:50.080 --> 02:01:56.090
+Jitendra U: So let me show you an example. So let's say we have these two data points. We have, say, DF1, DF2, right?
+
+983
+02:01:56.470 --> 02:02:03.480
+Jitendra U: Now, I would like to join on the column. So, first and foremost thing that I'm going to do is, I have to define the index.
+
+984
+02:02:05.370 --> 02:02:06.780
+Jitendra U: So I will say DF…
+
+985
+02:02:06.940 --> 02:02:12.719
+Jitendra U: One has employee ID as an index, TF2 has an employee underscore ID as an index.
+
+986
+02:02:13.900 --> 02:02:16.520
+Jitendra U: Okay, so I have to change the columns.
+
+987
+02:02:16.970 --> 02:02:18.170
+Jitendra U: Let me do that.
+
+988
+02:02:24.560 --> 02:02:25.340
+Jitendra U: Right?
+
+989
+02:02:25.710 --> 02:02:31.070
+Jitendra U: Now, when I'm joining the two columns based upon the indexes that are just artifact.
+
+990
+02:02:31.240 --> 02:02:33.099
+Jitendra U: then I can able to use this.
+
+991
+02:02:34.120 --> 02:02:38.530
+Jitendra U: Right? So the first and foremost thing is, I'm using a SAT index.
+
+992
+02:02:38.690 --> 02:02:39.690
+Jitendra U: method.
+
+993
+02:02:40.220 --> 02:02:44.190
+Jitendra U: SetIndex method will convert the join column into the index.
+
+994
+02:02:45.550 --> 02:02:50.749
+Jitendra U: Right? And then I'm passing a condition, dfindex1.join.
+
+995
+02:02:51.140 --> 02:02:55.030
+Jitendra U: on DFindex2. And the method that I would like to use is, you know.
+
+996
+02:02:55.320 --> 02:02:57.459
+Jitendra U: So in those scenarios, I can able to.
+
+997
+02:02:57.600 --> 02:03:00.950
+Jitendra U: Make a perfect join by defining my own indexes.
+
+998
+02:03:05.820 --> 02:03:10.720
+Jitendra U: Alright, so, I think we have a good understanding on pandas.
+
+999
+02:03:11.010 --> 02:03:13.320
+Jitendra U: Now, I will show you an example
+
+1000
+02:03:15.130 --> 02:03:19.640
+Jitendra U: So without… without same index, value join cannot be performed.
+
+1001
+02:03:20.480 --> 02:03:24.639
+Jitendra U: Same index value, I didn't get your question. Sat index, you meant to say.
+
+1002
+02:03:28.840 --> 02:03:31.490
+Jitendra U: Same index value, I didn't get your question.
+
+1003
+02:03:34.090 --> 02:03:37.199
+Jitendra U: You want this flat index value, or same index value?
+
+1004
+02:03:38.740 --> 02:03:40.120
+Jitendra U: Yes.
+
+1005
+02:03:40.400 --> 02:03:49.199
+Jitendra U: So, no, the column names are different, right? So here we have the column name is employer underscore ID, and here we are using different column.
+
+1006
+02:03:49.440 --> 02:03:58.470
+Jitendra U: So column names are different, but we have created an index, and explicitly we mentioned that I would like to use DF1 index and DF2Index to join.
+
+1007
+02:04:03.870 --> 02:04:06.190
+Jitendra U: Yes, in join, you have to use index.
+
+1008
+02:04:09.620 --> 02:04:14.350
+Jitendra U: Yeah, so key column, both columns should be same. Here, the columns are different.
+
+1009
+02:04:17.930 --> 02:04:18.770
+Jitendra U: Right?
+
+1010
+02:04:18.970 --> 02:04:22.150
+Jitendra U: So if the key columns are same, then you can join. Perfectly.
+
+1011
+02:04:22.640 --> 02:04:25.609
+Jitendra U: But here we are talking about the two different column names.
+
+1012
+02:04:27.030 --> 02:04:29.500
+Jitendra U: Which is logically point to employee ID itself.
+
+1013
+02:04:30.650 --> 02:04:31.400
+Jitendra U: Right?
+
+1014
+02:04:32.200 --> 02:04:39.130
+Jitendra U: Alright, so let's take a good example where to use These sort of condition…
+
+1015
+02:04:39.670 --> 02:04:45.050
+Jitendra U: And I'm going to perform an EDA exercise, a deep EDA exercise.
+
+1016
+02:04:47.560 --> 02:04:50.339
+Jitendra U: I will show you an example of an EDA.
+
+1017
+02:04:51.100 --> 02:04:54.750
+Jitendra U: Using Pandas, and then we'll cover…
+
+1018
+02:04:57.900 --> 02:05:00.610
+Jitendra U: all advanced operations.
+
+1019
+02:05:01.560 --> 02:05:12.900
+Jitendra U: on Pandas… Along with… some UCI dataset. So, we have discussed about UCI dataset.
+
+1020
+02:05:13.240 --> 02:05:16.490
+Jitendra U: We will use that dataset, for doing this.
+
+1021
+02:05:17.120 --> 02:05:24.260
+Jitendra U: So… let's try to use UCI Bank marketing data.
+
+1022
+02:05:24.370 --> 02:05:27.889
+Jitendra U: So, if you are not aware about UCI Repository.
+
+1023
+02:05:44.600 --> 02:05:47.369
+Jitendra U: Okay, let me show you the UCI repository.
+
+1024
+02:06:01.580 --> 02:06:05.529
+Jitendra U: So this is the repository that I'm talking about. So here you can see that I have a database.
+
+1025
+02:06:06.040 --> 02:06:10.870
+Jitendra U: Data, which is multivariate data set, multivariate data set.
+
+1026
+02:06:11.180 --> 02:06:16.819
+Jitendra U: And it is associated with 16 features, which is classifying certain data. So let's download this data.
+
+1027
+02:06:17.480 --> 02:06:20.469
+Jitendra U: Yeah, ADA stands for Exploitative analytics, yes.
+
+1028
+02:06:21.170 --> 02:06:23.380
+Jitendra U: So let's try to download this data.
+
+1029
+02:06:26.350 --> 02:06:29.200
+Jitendra U: Okay, so I've got bang.csv here.
+
+1030
+02:06:29.820 --> 02:06:31.790
+Jitendra U: Let me extract this file.
+
+1031
+02:06:50.160 --> 02:06:51.740
+Jitendra U: And I will use this data.
+
+1032
+02:07:05.280 --> 02:07:11.080
+Jitendra U: Okay, let me put this file… Fair.
+
+1033
+02:07:18.680 --> 02:07:23.930
+Jitendra U: Okay, first and foremost thing, so we are going to perform EDA, so let me define the steps.
+
+1034
+02:07:26.880 --> 02:07:28.580
+Jitendra U: So you'll perform these steps.
+
+1035
+02:07:29.720 --> 02:07:33.489
+Jitendra U: To identify the missing values and imprition strategies.
+
+1036
+02:07:34.010 --> 02:07:40.929
+Jitendra U: Then I like to look for outlier detection, treatment of the outliers, switch engineering steps, correlation detection.
+
+1037
+02:07:41.170 --> 02:07:53.139
+Jitendra U: categorical encoding of variables, aggregating and pivoting the final table, and then we'll put in the distribution and SQLS handling and visualize certain insights on the top of it.
+
+1038
+02:07:53.300 --> 02:07:55.500
+Jitendra U: So first, let me upload a data.
+
+1039
+02:07:57.610 --> 02:08:02.959
+Jitendra U: from this file, I will say… Copy the path.
+
+1040
+02:08:11.830 --> 02:08:15.100
+Jitendra U: And I read the file, and this data talks about…
+
+1041
+02:08:16.160 --> 02:08:25.089
+Jitendra U: The customer personas about their job profile, education background, their existing loans, The duration with the bank.
+
+1042
+02:08:26.330 --> 02:08:29.980
+Jitendra U: And, let's say he has been applied for some more loans.
+
+1043
+02:08:30.490 --> 02:08:33.589
+Jitendra U: So what is the likelihood of this application?
+
+1044
+02:08:34.950 --> 02:08:36.589
+Jitendra U: Based upon his past.
+
+1045
+02:08:39.260 --> 02:08:44.099
+Jitendra U: kind of a behavior, payback behavior. So basically, okay, let me put it into a very simple terms.
+
+1046
+02:08:44.480 --> 02:08:46.710
+Jitendra U: So, when you're applying for a loan.
+
+1047
+02:08:48.060 --> 02:08:53.730
+Jitendra U: So what are the things that the bank will be able to look forward? The bank is looking for only one thing.
+
+1048
+02:08:53.980 --> 02:08:55.180
+Jitendra U: Only one thing.
+
+1049
+02:08:56.880 --> 02:08:59.450
+Jitendra U: Which is called probability of default.
+
+1050
+02:09:03.210 --> 02:09:05.790
+Jitendra U: Probability of default should be low.
+
+1051
+02:09:06.120 --> 02:09:08.390
+Jitendra U: Then only bank will offer you a loan.
+
+1052
+02:09:08.810 --> 02:09:10.049
+Jitendra U: Remember this thing.
+
+1053
+02:09:10.760 --> 02:09:14.600
+Jitendra U: Now, how will you… How will you prove
+
+1054
+02:09:15.210 --> 02:09:17.750
+Jitendra U: That your probability of default is low.
+
+1055
+02:09:19.820 --> 02:09:21.400
+Jitendra U: by your experience?
+
+1056
+02:09:22.130 --> 02:09:23.710
+Jitendra U: by a past…
+
+1057
+02:09:24.670 --> 02:09:35.680
+Jitendra U: home loans, if you're running any car loans or any other type of loan, and you are making the EMI on time, that means your civil score is great, your salary is great, your designation is great.
+
+1058
+02:09:36.120 --> 02:09:44.540
+Jitendra U: You're working for different sectors, You have applied for a loan for certain tenure, fixed tenure.
+
+1059
+02:09:45.340 --> 02:09:54.699
+Jitendra U: And the EMI that you're offering, the bank is… that you're asking for, which should be within the limit of your appetite to take risks.
+
+1060
+02:09:55.710 --> 02:09:57.929
+Jitendra U: So it will… able to see…
+
+1061
+02:09:58.810 --> 02:10:03.500
+Jitendra U: If I'm there running a loan campaign, Whom to reach out.
+
+1062
+02:10:05.270 --> 02:10:07.359
+Jitendra U: Right? So that's the whole idea of a…
+
+1063
+02:10:08.920 --> 02:10:12.780
+Jitendra U: Loan analysis, or probability of default analysis.
+
+1064
+02:10:13.530 --> 02:10:15.090
+Jitendra U: In banking scenario.
+
+1065
+02:10:15.310 --> 02:10:18.569
+Jitendra U: Now, how to start with that? So, I have a data now.
+
+1066
+02:10:19.130 --> 02:10:25.900
+Jitendra U: Let's say I would like to create a machine learning model from this data, but we will not talk about machine learning at this moment.
+
+1067
+02:10:26.270 --> 02:10:32.170
+Jitendra U: But we'd rather talk about how to first utilize the data itself, so you have a data, which is like a fuel.
+
+1068
+02:10:33.470 --> 02:10:37.090
+Jitendra U: So, you have to utilize this data for generating the insights.
+
+1069
+02:10:37.290 --> 02:10:43.370
+Jitendra U: Right? Because you don't know about the features, you don't know about what…
+
+1070
+02:10:43.740 --> 02:10:48.359
+Jitendra U: model I would like to use… You don't know about,
+
+1071
+02:10:49.520 --> 02:10:53.160
+Jitendra U: How to prove that model is performing really well.
+
+1072
+02:10:53.340 --> 02:10:59.029
+Jitendra U: Etc, right? So, first and foremost thing, as your data scientist job, is to explore your data.
+
+1073
+02:10:59.720 --> 02:11:02.680
+Jitendra U: So I would like to check what is the shape of my data.
+
+1074
+02:11:04.630 --> 02:11:10.420
+Jitendra U: what are the types of my data, so I'm getting… 4,521 rows.
+
+1075
+02:11:10.740 --> 02:11:12.469
+Jitendra U: 17 columns.
+
+1076
+02:11:13.210 --> 02:11:18.470
+Jitendra U: And the data type comprise of MixSoft, different attributes.
+
+1077
+02:11:18.680 --> 02:11:20.359
+Jitendra U: Inside the file.
+
+1078
+02:11:21.140 --> 02:11:27.609
+Jitendra U: So we have got integer, object, There's no float and boon.
+
+1079
+02:11:28.080 --> 02:11:30.870
+Jitendra U: These two objects are there. Data types are there.
+
+1080
+02:11:31.440 --> 02:11:35.300
+Jitendra U: Now, I would like to handle the missing values and the outlier.
+
+1081
+02:11:35.820 --> 02:11:41.590
+Jitendra U: Now, when you talk about outlier analysis, let me give you a simple idea about outliers.
+
+1082
+02:11:42.120 --> 02:11:47.840
+Jitendra U: So, outliers are nothing but… They are the data points.
+
+1083
+02:11:49.330 --> 02:11:51.129
+Jitendra U: They are the data points.
+
+1084
+02:11:55.650 --> 02:11:58.670
+Jitendra U: Second… so these are the data points.
+
+1085
+02:11:59.190 --> 02:12:04.700
+Jitendra U: which is falling… Too far from your standard deviation.
+
+1086
+02:12:04.810 --> 02:12:09.849
+Jitendra U: So, this is a definition of outlier. So, assume that you have a normal distributed data.
+
+1087
+02:12:10.590 --> 02:12:16.909
+Jitendra U: So let's say I have a normal distributed data, and these data fall into several pointile range.
+
+1088
+02:12:17.590 --> 02:12:21.210
+Jitendra U: I know these concepts are new for some of… some of you.
+
+1089
+02:12:22.420 --> 02:12:28.079
+Jitendra U: And this will discuss in the upcoming tutorials when we talk about maths… Sorry.
+
+1090
+02:12:28.240 --> 02:12:31.780
+Jitendra U: Where we talk about, hypothesis testing and stuff.
+
+1091
+02:12:32.180 --> 02:12:36.020
+Jitendra U: So there you will see this Boxwhisker plot. This is called Boxwhisker plot.
+
+1092
+02:12:36.950 --> 02:12:42.610
+Jitendra U: Now, this is one other techniques that we are going to learn in future, which talks about the outlier definition.
+
+1093
+02:12:43.260 --> 02:12:49.680
+Jitendra U: So, in a nutshell, in a very simple term, outliers are nothing but… We are gauging…
+
+1094
+02:12:49.870 --> 02:12:52.730
+Jitendra U: How many standard deviations they are away from the mean.
+
+1095
+02:12:54.390 --> 02:12:55.230
+Jitendra U: Right?
+
+1096
+02:12:55.350 --> 02:12:58.689
+Jitendra U: So, can we use those formulas using Pandas?
+
+1097
+02:12:59.100 --> 02:13:02.439
+Jitendra U: Can we be able to create some formulation
+
+1098
+02:13:02.670 --> 02:13:13.210
+Jitendra U: to predict the outliers. So the answer is yes, we can do that. Now, for this example, I have no choice left, but I have to explain to you what is Boxwhisker thought.
+
+1099
+02:13:14.710 --> 02:13:20.889
+Jitendra U: So let me explain what is Boxwhisker Plot is all about. So what is Boxwhisker Plot?
+
+1100
+02:13:21.280 --> 02:13:27.430
+Jitendra U: So, box fiscal plot is nothing but… it's a representation of your distribution.
+
+1101
+02:13:28.020 --> 02:13:30.650
+Jitendra U: So if you're representing your distribution.
+
+1102
+02:13:31.280 --> 02:13:34.630
+Jitendra U: In a form of a pictorial wave.
+
+1103
+02:13:34.860 --> 02:13:38.530
+Jitendra U: You're talking about this particular scenario.
+
+1104
+02:13:41.830 --> 02:13:45.029
+Jitendra U: So here, we are talking about this plot.
+
+1105
+02:13:45.480 --> 02:13:46.770
+Jitendra U: It's a nice plot.
+
+1106
+02:13:47.500 --> 02:13:52.080
+Jitendra U: Where you can be able to see, I've got too many data points to interpret.
+
+1107
+02:13:52.960 --> 02:13:56.260
+Jitendra U: The first and foremost data points…
+
+1108
+02:13:56.580 --> 02:14:00.160
+Jitendra U: Is the minimum value of your input data.
+
+1109
+02:14:02.740 --> 02:14:05.269
+Jitendra U: Right? So let's say if I'm giving you a CDs.
+
+1110
+02:14:06.280 --> 02:14:07.340
+Jitendra U: Zero.
+
+1111
+02:14:07.720 --> 02:14:22.870
+Jitendra U: One, 2… 3… 4… 99… 162… 5… 7.
+
+1112
+02:14:23.500 --> 02:14:28.519
+Jitendra U: So, what do you think… Which data points are outlier?
+
+1113
+02:14:35.790 --> 02:14:37.650
+Jitendra U: 99 and 162?
+
+1114
+02:14:39.120 --> 02:14:40.050
+Jitendra U: Yes?
+
+1115
+02:14:42.020 --> 02:14:43.029
+Jitendra U: That's right.
+
+1116
+02:14:43.370 --> 02:14:45.529
+Jitendra U: These data points are outliers.
+
+1117
+02:14:45.900 --> 02:14:50.929
+Jitendra U: Because if I take a standard deviation of remaining data points.
+
+1118
+02:14:51.490 --> 02:14:54.110
+Jitendra U: These two data points will be distinct apart.
+
+1119
+02:14:56.370 --> 02:14:58.239
+Jitendra U: Mathematically, we can prove this.
+
+1120
+02:15:00.520 --> 02:15:01.360
+Jitendra U: Right?
+
+1121
+02:15:01.730 --> 02:15:08.879
+Jitendra U: But, when you're creating a plot of distribution on such data point, just giving an example.
+
+1122
+02:15:09.550 --> 02:15:18.730
+Jitendra U: And you're assuming that these data points follow normal distributions, With certain sigma and mu.
+
+1123
+02:15:20.120 --> 02:15:25.220
+Jitendra U: Then you're going to say, I have a minimum data point, which is, for this case, is 0.
+
+1124
+02:15:25.610 --> 02:15:27.150
+Jitendra U: I have a Q1.
+
+1125
+02:15:27.460 --> 02:15:36.780
+Jitendra U: A median of this sequence, upper quantile, and the maximum value. That means you have got one, 2… 3…
+
+1126
+02:15:36.940 --> 02:15:40.630
+Jitendra U: 4 and 5… point summary.
+
+1127
+02:15:41.870 --> 02:15:48.959
+Jitendra U: And this summary within Q1 to Q2 is called interquartile range, interquartile range, or quartile range.
+
+1128
+02:15:49.490 --> 02:15:58.170
+Jitendra U: So basically, the minimum value is the lowest value, excluding the outliers, and the outlier will be present outside these two permissible limits.
+
+1129
+02:15:59.280 --> 02:16:01.449
+Jitendra U: The outliers are extreme.
+
+1130
+02:16:02.020 --> 02:16:06.920
+Jitendra U: Which does not fall under this particular box-whisker plot.
+
+1131
+02:16:07.610 --> 02:16:14.219
+Jitendra U: So, the outliers are outside from both scenarios.
+
+1132
+02:16:19.610 --> 02:16:25.580
+Jitendra U: So, minimum is the lowest point, excluding the outliers, first quantile, Q1,
+
+1133
+02:16:25.810 --> 02:16:32.190
+Jitendra U: Is the 25th percentage of all the value in the data points that lies below this value?
+
+1134
+02:16:32.610 --> 02:16:37.520
+Jitendra U: Median represents a line in the box, it is exactly at the center of the data.
+
+1135
+02:16:37.799 --> 02:16:42.110
+Jitendra U: And this value lies within 50% of the data points.
+
+1136
+02:16:42.360 --> 02:16:44.690
+Jitendra U: The third quantile, Q3,
+
+1137
+02:16:44.959 --> 02:16:54.900
+Jitendra U: Values lies about 75% of all data points, and the maximum value is the highest data point in your data distribution criterias.
+
+1138
+02:16:56.770 --> 02:17:00.949
+Jitendra U: Right? So when we talk about, the data distribution.
+
+1139
+02:17:03.459 --> 02:17:05.690
+Jitendra U: You will see these kind of curves.
+
+1140
+02:17:08.110 --> 02:17:10.720
+Jitendra U: So, when we talk about a data distribution.
+
+1141
+02:17:11.830 --> 02:17:14.449
+Jitendra U: You can see the tendency of the data
+
+1142
+02:17:15.450 --> 02:17:18.680
+Jitendra U: Looks like almost close to normal distributed.
+
+1143
+02:17:19.650 --> 02:17:26.669
+Jitendra U: And that definition of normal distributed data is, it is symmetric around the center. It's a perfect normal distributed.
+
+1144
+02:17:27.170 --> 02:17:29.629
+Jitendra U: On the other hand, I can say.
+
+1145
+02:17:29.820 --> 02:17:35.510
+Jitendra U: This is slightly left skewed, because it is skewed towards left.
+
+1146
+02:17:36.480 --> 02:17:37.579
+Jitendra U: this site.
+
+1147
+02:17:41.240 --> 02:17:43.279
+Jitendra U: And this is right skewed.
+
+1148
+02:17:45.059 --> 02:17:46.219
+Jitendra U: data point.
+
+1149
+02:17:48.190 --> 02:17:54.399
+Jitendra U: Now, why it is becoming skewed, Because of outliers.
+
+1150
+02:17:55.049 --> 02:17:56.699
+Jitendra U: So let's take an example.
+
+1151
+02:17:57.650 --> 02:17:59.620
+Jitendra U: Let's say I'm using…
+
+1152
+02:18:04.690 --> 02:18:06.300
+Jitendra U: the Facebook data.
+
+1153
+02:18:09.959 --> 02:18:16.410
+Jitendra U: to analyze… Distribution on… Age group.
+
+1154
+02:18:17.850 --> 02:18:22.430
+Jitendra U: What is the age group of the user who is a login to a customer, or to Facebook?
+
+1155
+02:18:22.820 --> 02:18:25.370
+Jitendra U: Let's say I've got 5 million users…
+
+1156
+02:18:29.629 --> 02:18:37.459
+Jitendra U: Within the age of… 25… And less than that?
+
+1157
+02:18:38.400 --> 02:18:39.889
+Jitendra U: all active users.
+
+1158
+02:18:40.360 --> 02:18:45.070
+Jitendra U: I've got some users who's 50, 25 to 50.
+
+1159
+02:18:46.200 --> 02:18:47.619
+Jitendra U: Let's say 1 million.
+
+1160
+02:18:48.719 --> 02:18:53.210
+Jitendra U: I've got some users… From 50 to 75.
+
+1161
+02:18:55.150 --> 02:18:57.229
+Jitendra U: Let's say quarter a million.
+
+1162
+02:19:02.799 --> 02:19:04.509
+Jitendra U: 0.25 million.
+
+1163
+02:19:05.840 --> 02:19:13.709
+Jitendra U: But still, I can see some of the users who is between 75 to 100, Maybe 0.
+
+1164
+02:19:15.959 --> 02:19:17.509
+Jitendra U: to zero million.
+
+1165
+02:19:19.280 --> 02:19:23.740
+Jitendra U: But, surprisingly, I'm seeing some users who is above 100 years.
+
+1166
+02:19:23.900 --> 02:19:24.860
+Jitendra U: That's rough.
+
+1167
+02:19:25.340 --> 02:19:28.250
+Jitendra U: Which is 0.10 million.
+
+1168
+02:19:29.040 --> 02:19:31.180
+Jitendra U: So, I can definitely say that.
+
+1169
+02:19:32.350 --> 02:19:35.690
+Jitendra U: Those users are not… very authentic.
+
+1170
+02:19:36.059 --> 02:19:38.260
+Jitendra U: That means there's some fake users.
+
+1171
+02:19:38.700 --> 02:19:41.639
+Jitendra U: in my data points. Or maybe…
+
+1172
+02:19:42.270 --> 02:19:44.190
+Jitendra U: They haven't declared their date of birth.
+
+1173
+02:19:44.860 --> 02:19:47.519
+Jitendra U: Or maybe they have declared their date of birth, which is wrong.
+
+1174
+02:19:48.710 --> 02:19:51.810
+Jitendra U: And that is called outlier. So that means…
+
+1175
+02:19:52.000 --> 02:19:55.449
+Jitendra U: I'm looking for something abnormal in my data points.
+
+1176
+02:19:56.410 --> 02:20:02.340
+Jitendra U: So, your outlier definition… Can be defined based upon two important things.
+
+1177
+02:20:02.990 --> 02:20:08.570
+Jitendra U: One is, you can plot Sorry, you can clot…
+
+1178
+02:20:22.390 --> 02:20:27.210
+Jitendra U: You can plot… and see the curves…
+
+1179
+02:20:28.450 --> 02:20:32.580
+Jitendra U: And define the outliers. So first, you plot your distribution.
+
+1180
+02:20:38.740 --> 02:20:40.050
+Jitendra U: or form.
+
+1181
+02:20:41.610 --> 02:20:46.370
+Jitendra U: the test of… Hypothesis.
+
+1182
+02:20:47.400 --> 02:20:50.719
+Jitendra U: To prove the type of distribution that you're assuming.
+
+1183
+02:20:51.270 --> 02:20:56.919
+Jitendra U: After performing the test of hypothesis, You can find outliers.
+
+1184
+02:20:58.450 --> 02:21:08.500
+Jitendra U: That's a statistical way of finding the outlier. Second is, You can use your business… Understanding.
+
+1185
+02:21:11.570 --> 02:21:12.890
+Jitendra U: on outliers.
+
+1186
+02:21:15.420 --> 02:21:19.620
+Jitendra U: Let's say I'm using a loan application, In India.
+
+1187
+02:21:20.620 --> 02:21:24.029
+Jitendra U: And people are declaring, let's say I'm SDFC Bank.
+
+1188
+02:21:28.380 --> 02:21:30.610
+Jitendra U: So, one of the important criteria is
+
+1189
+02:21:30.860 --> 02:21:34.329
+Jitendra U: that I'm considering to offer a loan is a salary of a person.
+
+1190
+02:21:35.150 --> 02:21:40.710
+Jitendra U: So let's say I've got in certain regions in India, I've got the slab.
+
+1191
+02:21:42.680 --> 02:21:44.250
+Jitendra U: 10 lakh per annum.
+
+1192
+02:21:46.430 --> 02:21:48.070
+Jitendra U: 20 lakh per annum.
+
+1193
+02:21:48.810 --> 02:21:50.399
+Jitendra U: 30 lakh per annum.
+
+1194
+02:21:51.010 --> 02:21:52.539
+Jitendra U: 50 lakh per annum.
+
+1195
+02:21:55.400 --> 02:21:56.860
+Jitendra U: 1CR.
+
+1196
+02:21:58.020 --> 02:22:01.830
+Jitendra U: 2CR… by CR.
+
+1197
+02:22:05.080 --> 02:22:08.500
+Jitendra U: And their departments, and their organizations, right?
+
+1198
+02:22:09.010 --> 02:22:12.299
+Jitendra U: So, as DFC Bank, I know
+
+1199
+02:22:12.970 --> 02:22:17.980
+Jitendra U: What are the median salary of certain age group, certain year of experience?
+
+1200
+02:22:18.220 --> 02:22:26.310
+Jitendra U: what are the different salary of certain age group, certain experiences, right? So I can be able to find that the applications are increasing.
+
+1201
+02:22:26.450 --> 02:22:31.210
+Jitendra U: within this point. Maybe they're earning 30 to 50 LPA,
+
+1202
+02:22:31.400 --> 02:22:39.480
+Jitendra U: Then they are looking for 3-bedroom apartment, and then they are off… they're asking a loan of 2CR, 1CR, 50 lakh, whatever.
+
+1203
+02:22:40.080 --> 02:22:46.419
+Jitendra U: Right? And then, SDFC will roll out that amount, because this is the easy part to it.
+
+1204
+02:22:46.800 --> 02:22:54.819
+Jitendra U: But let's say there's a loan application from 5CR users as well, and they're asking for 50 lakh loan amount, which is justifiable.
+
+1205
+02:22:55.880 --> 02:23:02.390
+Jitendra U: But his salary looks… Way below the average salary or median salary of the
+
+1206
+02:23:03.020 --> 02:23:09.680
+Jitendra U: particular company or particular type. So basically, you can define the rules
+
+1207
+02:23:09.800 --> 02:23:12.250
+Jitendra U: to detect the outliers. So that means…
+
+1208
+02:23:12.380 --> 02:23:18.919
+Jitendra U: Although this… the declaration from the customer is good, 5CR he's earning on annual basis.
+
+1209
+02:23:19.390 --> 02:23:22.229
+Jitendra U: But, this looks like an outlier to me.
+
+1210
+02:23:24.100 --> 02:23:24.940
+Jitendra U: Right?
+
+1211
+02:23:25.310 --> 02:23:27.590
+Jitendra U: So maybe I have to analyze…
+
+1212
+02:23:28.200 --> 02:23:30.000
+Jitendra U: What is the source of his income?
+
+1213
+02:23:31.470 --> 02:23:33.930
+Jitendra U: And then distribute a loan according to it.
+
+1214
+02:23:34.630 --> 02:23:42.809
+Jitendra U: So basically, there are two things here. One is you can decide by using statistical technique, or the second way, you can decide by the help of your business
+
+1215
+02:23:43.100 --> 02:23:47.669
+Jitendra U: Analyst or business rules, that whether it is an outlier or not.
+
+1216
+02:23:48.390 --> 02:23:53.079
+Jitendra U: Right, so here, we will use a statistical way, the first way, to interpret.
+
+1217
+02:23:53.180 --> 02:24:00.930
+Jitendra U: And the way that I'm interpreting the outlier definition is, if the outliers is… Power.
+
+1218
+02:24:02.720 --> 02:24:09.660
+Jitendra U: away from the Q1, From the left, And Q3 from the right.
+
+1219
+02:24:09.860 --> 02:24:12.419
+Jitendra U: then it will be an outlier. So I'm saying…
+
+1220
+02:24:12.650 --> 02:24:21.000
+Jitendra U: Give me the Q1 and Q2 data points, Q3 data points, and the interquartile range, the difference between Q3, which is a positive value.
+
+1221
+02:24:21.560 --> 02:24:25.220
+Jitendra U: Here, minus Q1, this is called interquartile range.
+
+1222
+02:24:26.660 --> 02:24:29.049
+Jitendra U: So I'm having an interquartile range here.
+
+1223
+02:24:29.420 --> 02:24:33.779
+Jitendra U: which is Q3 minus Q1, because this is positive, more positive, so I have to…
+
+1224
+02:24:34.020 --> 02:24:39.490
+Jitendra U: Use, Q1 as a less, because they are negative towards here.
+
+1225
+02:24:39.860 --> 02:24:43.000
+Jitendra U: So Q3 minus Q1 is the interquartile range.
+
+1226
+02:24:43.490 --> 02:24:45.939
+Jitendra U: And then, anything which is deviating.
+
+1227
+02:24:46.350 --> 02:24:53.749
+Jitendra U: 1.5 times from interquartile range from the left, and 1.5 times interquartile range from the right.
+
+1228
+02:24:54.140 --> 02:25:01.520
+Jitendra U: If either of the two conditions are matching, that means there's a pipe, which is OR, either.
+
+1229
+02:25:01.870 --> 02:25:03.520
+Jitendra U: Either of the two.
+
+1230
+02:25:04.100 --> 02:25:08.200
+Jitendra U: Not both of the two. Either of the two conditions is matching.
+
+1231
+02:25:09.050 --> 02:25:10.780
+Jitendra U: then I will consider.
+
+1232
+02:25:10.950 --> 02:25:13.929
+Jitendra U: Those data points as outlier.
+
+1233
+02:25:16.620 --> 02:25:19.629
+Jitendra U: Is it clear to everyone? This is important to understand.
+
+1234
+02:25:19.840 --> 02:25:23.440
+Jitendra U: The definition of outliers is from both sides.
+
+1235
+02:25:24.460 --> 02:25:28.219
+Jitendra U: Say, there are two sort of outliers in my data points.
+
+1236
+02:25:29.660 --> 02:25:33.700
+Jitendra U: Which are… Here?
+
+1237
+02:25:34.880 --> 02:25:36.100
+Jitendra U: And here.
+
+1238
+02:25:37.060 --> 02:25:40.830
+Jitendra U: So I'm using a formula to interpret the outliers.
+
+1239
+02:25:41.980 --> 02:25:45.219
+Jitendra U: Right? Now, once I use this formula.
+
+1240
+02:25:46.790 --> 02:25:51.490
+Jitendra U: Now, how to fit this formula To define the outliers.
+
+1241
+02:25:52.460 --> 02:25:57.279
+Jitendra U: Now, here you can see that I'm using the columns to define the outliers.
+
+1242
+02:25:57.490 --> 02:25:59.350
+Jitendra U: numerical columns.
+
+1243
+02:25:59.950 --> 02:26:05.210
+Jitendra U: Like, age, balance, Duration, campaigns.
+
+1244
+02:26:05.410 --> 02:26:06.920
+Jitendra U: Number of days.
+
+1245
+02:26:08.290 --> 02:26:14.730
+Jitendra U: So these are giving me certain sort of outliers based upon this statistical equation.
+
+1246
+02:26:16.700 --> 02:26:19.429
+Jitendra U: Now, this is where I'm going to use…
+
+1247
+02:26:20.650 --> 02:26:28.199
+Jitendra U: the definition of outlier to perform normalization. Somebody have asked me what is normalization.
+
+1248
+02:26:29.100 --> 02:26:32.559
+Jitendra U: So, normalization, we'll talk about standard scalars.
+
+1249
+02:26:32.880 --> 02:26:38.350
+Jitendra U: We'll talk about, finding the… Zytescalers as well?
+
+1250
+02:26:39.430 --> 02:26:41.910
+Jitendra U: Right? And then we come up to this point.
+
+1251
+02:26:42.580 --> 02:26:43.430
+Jitendra U: Right?
+
+1252
+02:26:43.580 --> 02:26:49.409
+Jitendra U: So, age have 38 data points as an outlier, balance has 506 data points as an outlier.
+
+1253
+02:26:50.200 --> 02:26:53.009
+Jitendra U: Now we will start with the feature engineering.
+
+1254
+02:26:53.380 --> 02:26:56.539
+Jitendra U: So, feature engineering is one of the important exercises.
+
+1255
+02:26:56.800 --> 02:27:01.900
+Jitendra U: So, we talk about feature engineering using Pandas, some performing.
+
+1256
+02:27:02.270 --> 02:27:07.280
+Jitendra U: Certain operation on a specific columnar dataset, like age group.
+
+1257
+02:27:08.030 --> 02:27:09.380
+Jitendra U: high balance.
+
+1258
+02:27:10.400 --> 02:27:13.269
+Jitendra U: And then, creating the interaction terms.
+
+1259
+02:27:13.550 --> 02:27:16.390
+Jitendra U: To perform the analysis on the features.
+
+1260
+02:27:16.700 --> 02:27:23.700
+Jitendra U: So, I'm creating the first and the foremost analysis, is to bin the age group. Now, why I required binning?
+
+1261
+02:27:25.990 --> 02:27:32.369
+Jitendra U: So, when you talk about the age, it's a very discrete number. You can have all the customers who are applying for a home loan.
+
+1262
+02:27:32.970 --> 02:27:35.479
+Jitendra U: Maybe from the age of 20 years.
+
+1263
+02:27:35.940 --> 02:27:39.250
+Jitendra U: 2… 70, 80 years as well.
+
+1264
+02:27:40.680 --> 02:27:46.019
+Jitendra U: So you have a very discrete amount of data. So instead of using that discrete data, think of a scale.
+
+1265
+02:27:46.670 --> 02:27:49.570
+Jitendra U: What is the age probe between 20 to 25?
+
+1266
+02:27:50.180 --> 02:27:56.239
+Jitendra U: 25 to 30, 30 to 35, so on and so forth, so that you can able to categorize them as young.
+
+1267
+02:27:56.750 --> 02:27:58.900
+Jitendra U: Middle-age or senior citizen.
+
+1268
+02:27:59.510 --> 02:28:01.770
+Jitendra U: Yeah, bidding means creating the buckets.
+
+1269
+02:28:02.350 --> 02:28:04.139
+Jitendra U: Here, we are creating the buckets.
+
+1270
+02:28:05.960 --> 02:28:06.790
+Jitendra U: Right?
+
+1271
+02:28:07.030 --> 02:28:13.240
+Jitendra U: Similarly, I can able to give preferences to certain types of home loan or any kind of…
+
+1272
+02:28:13.980 --> 02:28:15.300
+Jitendra U: Kind of request.
+
+1273
+02:28:15.610 --> 02:28:25.200
+Jitendra U: Those customers who's above the median range of salary I will look for… More lucrative offers.
+
+1274
+02:28:28.530 --> 02:28:33.690
+Jitendra U: Right? So that's the whole idea of feature engineering. You have to think of innovative features.
+
+1275
+02:28:34.360 --> 02:28:36.339
+Jitendra U: Now, when you deal with any data.
+
+1276
+02:28:36.450 --> 02:28:41.209
+Jitendra U: types, there are two data types that you're going to have. One is called categorical.
+
+1277
+02:28:41.550 --> 02:28:47.339
+Jitendra U: The second one is called continuous data points. Categorical data points including things like
+
+1278
+02:28:50.480 --> 02:28:55.590
+Jitendra U: Marital status. Educational. These are all categorical variables, right?
+
+1279
+02:28:55.800 --> 02:28:57.520
+Jitendra U: contract preference.
+
+1280
+02:28:58.970 --> 02:29:03.600
+Jitendra U: Job nature. They're all categorical nature, categorical data points.
+
+1281
+02:29:04.080 --> 02:29:13.210
+Jitendra U: So Python, Panda's function automatically converts… Your categorical features into dummy.
+
+1282
+02:29:14.670 --> 02:29:17.179
+Jitendra U: We'll talk about this getDummy function.
+
+1283
+02:29:17.520 --> 02:29:25.950
+Jitendra U: in more detail, once we start with machine learning, but I just want to show it to you that this is one way that you can be able to use.
+
+1284
+02:29:26.270 --> 02:29:27.770
+Jitendra U: the dummy features.
+
+1285
+02:29:28.280 --> 02:29:29.789
+Jitendra U: So let me run this.
+
+1286
+02:29:32.880 --> 02:29:39.379
+Jitendra U: Now, once I have a large categorical feature, I can also encode my target feature.
+
+1287
+02:29:39.800 --> 02:29:44.739
+Jitendra U: So remember, my target feature is, I can give loan or not.
+
+1288
+02:29:45.100 --> 02:29:49.930
+Jitendra U: And that's where I required to encode these targeted features.
+
+1289
+02:29:51.890 --> 02:29:55.849
+Jitendra U: Now, I would like to perform some advanced aggregation on my data.
+
+1290
+02:29:56.240 --> 02:29:59.670
+Jitendra U: So, some of the advanced aggregation include pivoting the data.
+
+1291
+02:30:00.400 --> 02:30:06.309
+Jitendra U: Now, when we took… when we are going to do aggregation on data frames, or Panda's data frame.
+
+1292
+02:30:06.700 --> 02:30:08.940
+Jitendra U: So let's say I would like to find it out.
+
+1293
+02:30:10.730 --> 02:30:18.310
+Jitendra U: How many customer From a certain… industry.
+
+1294
+02:30:20.450 --> 02:30:23.339
+Jitendra U: have… Existing home loans.
+
+1295
+02:30:23.760 --> 02:30:25.349
+Jitendra U: Under certain age group.
+
+1296
+02:30:26.820 --> 02:30:32.649
+Jitendra U: Because I would like to analyze the risk of lending the loan from the previous historical data points.
+
+1297
+02:30:33.690 --> 02:30:37.610
+Jitendra U: So, let's say I have a number of applications with, say, software developers.
+
+1298
+02:30:37.990 --> 02:30:41.810
+Jitendra U: coming under IT industry, earning 30 lakhs and above.
+
+1299
+02:30:42.140 --> 02:30:46.190
+Jitendra U: And they are requesting for 2CR loan, which is huge!
+
+1300
+02:30:47.310 --> 02:30:52.340
+Jitendra U: So I would like to check how many customers was successfully
+
+1301
+02:30:53.120 --> 02:30:57.180
+Jitendra U: pay back the 2CR loan on time.
+
+1302
+02:30:57.920 --> 02:31:00.290
+Jitendra U: Which belongs to the same industry.
+
+1303
+02:31:00.420 --> 02:31:04.440
+Jitendra U: And the same salary slaps. And the same age group.
+
+1304
+02:31:05.680 --> 02:31:12.180
+Jitendra U: Because that is what model is going to do anyway, right? So, you have to create features appropriately.
+
+1305
+02:31:13.050 --> 02:31:15.169
+Jitendra U: So I'm going to pivot this table.
+
+1306
+02:31:15.420 --> 02:31:16.830
+Jitendra U: To find it out.
+
+1307
+02:31:17.370 --> 02:31:20.680
+Jitendra U: Few advanced analytics on mine.
+
+1308
+02:31:20.950 --> 02:31:25.929
+Jitendra U: Data points, and these pivots are very, very useful and very similar to what
+
+1309
+02:31:26.330 --> 02:31:32.150
+Jitendra U: you're using Excel. So there's a pivot function in Panda's data frame, that is what I would like to talk about.
+
+1310
+02:31:32.620 --> 02:31:36.759
+Jitendra U: Which is going to pivot a data frame based upon your attribute.
+
+1311
+02:31:40.030 --> 02:31:45.769
+Jitendra U: Now, I would like to perform correlation Analysis on my…
+
+1312
+02:31:46.010 --> 02:31:50.480
+Jitendra U: interaction variables. So, correlation analysis I would like to run.
+
+1313
+02:31:51.570 --> 02:32:00.070
+Jitendra U: I will not talk about VIEF and other stuff, but I just want to show you how to run correlation. So VIEF is called Variation Inflection Factor.
+
+1314
+02:32:00.260 --> 02:32:03.150
+Jitendra U: Which we are going to talk in future, but not right now.
+
+1315
+02:32:04.300 --> 02:32:17.309
+Jitendra U: But, we are learning pandas, so as you can see, that all the data type, I'm using DF. Constantly, I'm using DF. So that is what I would like to show, that you can pass on your data frame.
+
+1316
+02:32:17.810 --> 02:32:26.430
+Jitendra U: to SNS heatmap, to even stats model as an input. You can use DF for correlation analysis.
+
+1317
+02:32:26.960 --> 02:32:32.870
+Jitendra U: So all… once you register your DF, then you can reuse that DF for multiple purposes.
+
+1318
+02:32:33.310 --> 02:32:39.870
+Jitendra U: Let's say I would like to find it out, the data, Which is having kaltosis.
+
+1319
+02:32:40.230 --> 02:32:42.409
+Jitendra U: And the impact of outliers.
+
+1320
+02:32:42.780 --> 02:32:44.479
+Jitendra U: So I can be able to run that.
+
+1321
+02:32:44.780 --> 02:32:49.839
+Jitendra U: I can be able to find a table, sorry, the analysis on the target variable.
+
+1322
+02:32:50.660 --> 02:32:54.050
+Jitendra U: I can able to do that. Like, how many applications
+
+1323
+02:32:54.440 --> 02:32:59.270
+Jitendra U: Been not successful against a successful application in the history.
+
+1324
+02:33:00.230 --> 02:33:03.969
+Jitendra U: I can also do more analysis, more advanced visual analysis.
+
+1325
+02:33:04.160 --> 02:33:05.710
+Jitendra U: On my data points.
+
+1326
+02:33:06.090 --> 02:33:08.160
+Jitendra U: So let's say I would like to find it out.
+
+1327
+02:33:10.000 --> 02:33:19.010
+Jitendra U: the pair plots… on this… So you can see these are outliers.
+
+1328
+02:33:19.620 --> 02:33:24.490
+Jitendra U: I can able to see very clearly the distributions…
+
+1329
+02:33:25.190 --> 02:33:28.909
+Jitendra U: the kartosis skewness on these plots.
+
+1330
+02:33:29.570 --> 02:33:33.390
+Jitendra U: Right? So basically, the idea that I would like to share here is…
+
+1331
+02:33:33.640 --> 02:33:39.720
+Jitendra U: So whenever we are using a data, a data frame.
+
+1332
+02:33:40.210 --> 02:33:43.560
+Jitendra U: It's a Pandas dataframe that we have initialized at the beginning.
+
+1333
+02:33:43.860 --> 02:33:49.660
+Jitendra U: Now, the same data frame we are reusing for performing this analysis in the form of an ADA.
+
+1334
+02:33:49.910 --> 02:33:53.829
+Jitendra U: And in the ADA, we are working on several types of analysis.
+
+1335
+02:33:54.290 --> 02:34:00.020
+Jitendra U: We are working on univariate, we are going to work on multivariate, and we are going to work on
+
+1336
+02:34:00.370 --> 02:34:08.009
+Jitendra U: bi-weight analysis. So all three types of analysis require to store the data first. So first, you have to think through
+
+1337
+02:34:08.150 --> 02:34:09.600
+Jitendra U: Storing the data.
+
+1338
+02:34:10.730 --> 02:34:14.669
+Jitendra U: And here, we are not using… Any standard tables?
+
+1339
+02:34:14.930 --> 02:34:17.490
+Jitendra U: Or any other database connectors.
+
+1340
+02:34:17.650 --> 02:34:21.760
+Jitendra U: But we'd rather prefer to choose Panda's data frame.
+
+1341
+02:34:22.400 --> 02:34:25.909
+Jitendra U: To store our input data points.
+
+1342
+02:34:31.480 --> 02:34:33.439
+Jitendra U: Right? So, this is what…
+
+1343
+02:34:36.810 --> 02:34:39.029
+Jitendra U: We are going to utilize…
+
+1344
+02:34:39.500 --> 02:34:45.819
+Jitendra U: In future, when we start with machine learning, problem statement. So, Pindass is a very powerful tool.
+
+1345
+02:34:49.090 --> 02:34:54.199
+Jitendra U: Alright, so I think, Pangaj is asking why 1.5 times of IQR? Okay.
+
+1346
+02:34:54.490 --> 02:34:57.299
+Jitendra U: So, this is one of the statistical calculations.
+
+1347
+02:34:57.420 --> 02:35:00.749
+Jitendra U: So… so let me explain.
+
+1348
+02:35:01.250 --> 02:35:04.890
+Jitendra U: Maybe in a very simple term for… right now.
+
+1349
+02:35:05.450 --> 02:35:09.479
+Jitendra U: So, when we talk about IQR, right? So, IQR…
+
+1350
+02:35:10.040 --> 02:35:15.600
+Jitendra U: We are saying IQR is equals to… Q3 minus Q1.
+
+1351
+02:35:17.550 --> 02:35:25.640
+Jitendra U: So, your Q1 is 25th percentile, And Q3 is… 75th percentile.
+
+1352
+02:35:29.060 --> 02:35:32.000
+Jitendra U: Percentile, not percentage, right?
+
+1353
+02:35:32.210 --> 02:35:34.619
+Jitendra U: So, lower bound value, we are saying…
+
+1354
+02:35:39.590 --> 02:35:44.059
+Jitendra U: Q1 minus 1.5 times of IQR.
+
+1355
+02:35:45.740 --> 02:35:48.020
+Jitendra U: And upper bound, we are saying.
+
+1356
+02:35:51.790 --> 02:35:58.030
+Jitendra U: Q3 plus… 1.5 times of IQR. Now, why it is 1.5?
+
+1357
+02:35:58.410 --> 02:36:00.730
+Jitendra U: So the factor comes from statistics.
+
+1358
+02:36:01.060 --> 02:36:09.510
+Jitendra U: So it's capture… The points that are far from central, which is 50%, And the normal distribution.
+
+1359
+02:36:09.800 --> 02:36:13.229
+Jitendra U: Roughly 99.3% of the data
+
+1360
+02:36:13.650 --> 02:36:21.509
+Jitendra U: lies between plus-minus IQR range. Plus minus 3 times of IQR range from the median.
+
+1361
+02:36:21.910 --> 02:36:26.979
+Jitendra U: So, 1.5, that is a half of that number, is enough to capture
+
+1362
+02:36:27.810 --> 02:36:32.019
+Jitendra U: the natural variation of my data points. That's why it's 1.5.
+
+1363
+02:36:34.830 --> 02:36:38.020
+Jitendra U: So, 3 standard deviations, away from the mean.
+
+1364
+02:36:38.190 --> 02:36:39.860
+Jitendra U: Is what we are calculating.
+
+1365
+02:36:40.140 --> 02:36:43.740
+Jitendra U: We are calculating from the middle, So that's why…
+
+1366
+02:36:44.220 --> 02:36:48.000
+Jitendra U: From minimum to maximum, it is 3 standard deviation.
+
+1367
+02:36:50.930 --> 02:36:56.610
+Jitendra U: But… When you split this analysis into two halves, it becomes 1.5.
+
+1368
+02:37:00.740 --> 02:37:10.549
+Jitendra U: All right, can you please explain categorical and continuous data points? So, categorical data points include… Categorical data points…
+
+1369
+02:37:14.580 --> 02:37:18.890
+Jitendra U: My writing is getting worse. Okay, let me use different plan.
+
+1370
+02:37:19.860 --> 02:37:21.840
+Jitendra U: Categorical data points.
+
+1371
+02:37:27.970 --> 02:37:31.240
+Jitendra U: include… concept like gender.
+
+1372
+02:37:33.620 --> 02:37:36.360
+Jitendra U: You have two genders, male and female.
+
+1373
+02:37:36.630 --> 02:37:38.099
+Jitendra U: This is categorical.
+
+1374
+02:37:38.580 --> 02:37:43.570
+Jitendra U: You can see… income growth.
+
+1375
+02:37:48.860 --> 02:37:50.310
+Jitendra U: Ironer.
+
+1376
+02:37:50.600 --> 02:37:52.750
+Jitendra U: Medium owner, or low earner?
+
+1377
+02:37:52.910 --> 02:37:53.660
+Jitendra U: Right?
+
+1378
+02:37:53.850 --> 02:37:57.980
+Jitendra U: You can say categories like… temperature…
+
+1379
+02:38:03.250 --> 02:38:04.320
+Jitendra U: old.
+
+1380
+02:38:05.170 --> 02:38:06.420
+Jitendra U: Normal.
+
+1381
+02:38:07.350 --> 02:38:08.210
+Jitendra U: arc.
+
+1382
+02:38:10.010 --> 02:38:13.339
+Jitendra U: Alright, so these are all categorical, so you have category defined.
+
+1383
+02:38:15.050 --> 02:38:29.810
+Jitendra U: Continuous variable, on the other hand, is like salary, 2000… US dollar to one… one… 100K US dollar.
+
+1384
+02:38:30.430 --> 02:38:32.979
+Jitendra U: So on and so forth, right? So these are the kind of…
+
+1385
+02:38:33.580 --> 02:38:39.259
+Jitendra U: data points that we are going to talk about. Categorical data points are nothing but which is having a class.
+
+1386
+02:38:40.550 --> 02:38:46.389
+Jitendra U: But when we talk about continuous data points, it's a numerical representation of your data points.
+
+1387
+02:38:49.380 --> 02:38:51.819
+Jitendra U: Yeah, something that… something that is finite.
+
+1388
+02:38:52.530 --> 02:38:54.339
+Jitendra U: having fixed class.
+
+1389
+02:38:57.090 --> 02:39:03.829
+Jitendra U: Okay, so pivot table is like your Python CSV pivot. I hope you have used Excel for pivot.
+
+1390
+02:39:04.030 --> 02:39:06.499
+Jitendra U: How many of you have used Pivot Table in Excel?
+
+1391
+02:39:12.060 --> 02:39:12.940
+Jitendra U: Right?
+
+1392
+02:39:18.430 --> 02:39:23.939
+Jitendra U: So, pivot… means… We are trying to use…
+
+1393
+02:39:24.230 --> 02:39:28.710
+Jitendra U: unique value from one column into multiple columns. It's like creating a spreadsheet.
+
+1394
+02:39:29.270 --> 02:39:32.630
+Jitendra U: from table, From a long data frame.
+
+1395
+02:39:32.920 --> 02:39:36.290
+Jitendra U: Let me show you an example, some different example to explain pivot.
+
+1396
+02:39:37.320 --> 02:39:40.849
+Jitendra U: So let's say… I have a data point like this.
+
+1397
+02:39:44.020 --> 02:39:46.139
+Jitendra U: Let's say I have a data point like this.
+
+1398
+02:39:48.560 --> 02:39:50.479
+Jitendra U: Date, city, sales.
+
+1399
+02:39:51.390 --> 02:39:57.990
+Jitendra U: the date, City in the US, Los Angeles, New York, sales in US dollar.
+
+1400
+02:39:58.920 --> 02:40:01.130
+Jitendra U: So I convert this into data frame.
+
+1401
+02:40:02.180 --> 02:40:07.739
+Jitendra U: Now, I would like to use this table To create a pivot.
+
+1402
+02:40:08.090 --> 02:40:12.980
+Jitendra U: On dates, because you can see the dates are… 25th?
+
+1403
+02:40:13.210 --> 02:40:14.300
+Jitendra U: 26.
+
+1404
+02:40:14.810 --> 02:40:16.480
+Jitendra U: So, I would like to ask…
+
+1405
+02:40:17.060 --> 02:40:22.749
+Jitendra U: from the data frame, what are my sales on 25th and 26th? So give me that answer.
+
+1406
+02:40:23.190 --> 02:40:29.579
+Jitendra U: So Pivot is definitely going to use dates and the city as my search criteria.
+
+1407
+02:40:29.800 --> 02:40:33.829
+Jitendra U: And then it will generate a sales on that particular city.
+
+1408
+02:40:33.990 --> 02:40:36.979
+Jitendra U: It is saying… On 25th.
+
+1409
+02:40:37.300 --> 02:40:40.770
+Jitendra U: In Los Angeles, I've got 150 US dollar sales.
+
+1410
+02:40:40.880 --> 02:40:46.879
+Jitendra U: 200 US dollar sales on 25th on New York, and 180 and $220 subsequently.
+
+1411
+02:40:47.370 --> 02:40:50.760
+Jitendra U: Now, ECT has become a column and data than index.
+
+1412
+02:40:50.940 --> 02:40:51.750
+Jitendra U: Right?
+
+1413
+02:40:51.890 --> 02:40:59.150
+Jitendra U: The pivot table is used for aggregation, aggregating the data points, similar to what you're doing in Excel.
+
+1414
+02:40:59.340 --> 02:41:01.420
+Jitendra U: I would like to aggregate my data.
+
+1415
+02:41:02.620 --> 02:41:03.800
+Jitendra U: Using Pivot.
+
+1416
+02:41:04.930 --> 02:41:06.480
+Jitendra U: Is it clear to everyone now?
+
+1417
+02:41:08.130 --> 02:41:10.629
+Jitendra U: You would like to run this example, and then…
+
+1418
+02:41:12.650 --> 02:41:15.340
+Jitendra U: Ask questions, or should we continue?
+
+1419
+02:41:18.430 --> 02:41:22.929
+Jitendra U: Are these examples useful? Find us function, they are using EDA.
+
+1420
+02:41:23.100 --> 02:41:26.650
+Jitendra U: Will they be discussing? Yes, we'll discuss in future class as well.
+
+1421
+02:41:28.280 --> 02:41:31.069
+Jitendra U: So we'll discuss all this in a future class as well.
+
+1422
+02:41:31.440 --> 02:41:35.249
+Jitendra U: So don't worry if you're not able to understand IQRs and…
+
+1423
+02:41:35.960 --> 02:41:40.910
+Jitendra U: outliers. The purpose is to just show the running example of EDA.
+
+1424
+02:41:41.880 --> 02:41:46.849
+Jitendra U: So, assume it, like, your movie thi- what do you call?
+
+1425
+02:41:49.330 --> 02:41:54.420
+Jitendra U: when the movie has been launched, a trailer, right? It's a kind of a trailer that we are launching.
+
+1426
+02:41:55.070 --> 02:41:58.630
+Jitendra U: So, here we are just talking about how to use Pandas.
+
+1427
+02:41:58.820 --> 02:42:02.760
+Jitendra U: in your EDA. But we haven't talked about EDA yet.
+
+1428
+02:42:04.560 --> 02:42:07.339
+Jitendra U: So it's a trailer for your upcoming movies.
+
+1429
+02:42:07.750 --> 02:42:14.180
+Jitendra U: Alright, so… With that, Pandas, we already know how
+
+1430
+02:42:14.540 --> 02:42:18.289
+Jitendra U: We can be able to work with pandas, what's the different types of function.
+
+1431
+02:42:18.560 --> 02:42:22.620
+Jitendra U: Now, let's talk about some more advanced function on Pandas. So…
+
+1432
+02:42:23.050 --> 02:42:25.520
+Jitendra U: So, more advanced steps on Pandas.
+
+1433
+02:42:26.990 --> 02:42:29.009
+Jitendra U: And we will use some code.
+
+1434
+02:42:30.210 --> 02:42:31.520
+Jitendra U: to explain…
+
+1435
+02:42:37.340 --> 02:42:44.040
+Jitendra U: And I will talk about one important concept called… broadcasting.
+
+1436
+02:42:46.740 --> 02:42:52.149
+Jitendra U: So broadcasting is one of the important concepts in Pandas.
+
+1437
+02:42:55.950 --> 02:43:00.289
+Jitendra U: Okay, are you going to discuss on the creator, iterator, generator in this class?
+
+1438
+02:43:00.610 --> 02:43:07.820
+Jitendra U: Okay, with the time permit, I will cover in the 5… in 5 to 10 minutes time, but let's focus on the first important concept of pandas.
+
+1439
+02:43:08.120 --> 02:43:14.600
+Jitendra U: which is called… Rolling function, Windows rolling function, cumulative operation, group by operation.
+
+1440
+02:43:15.700 --> 02:43:18.259
+Jitendra U: Right? And then I will talk about broadcasting.
+
+1441
+02:43:18.520 --> 02:43:22.420
+Jitendra U: So first, let me talk about Windows and rolling operation in Pandas.
+
+1442
+02:43:23.500 --> 02:43:28.190
+Jitendra U: Now, imagine… that I have.
+
+1443
+02:43:30.140 --> 02:43:31.529
+Jitendra U: the data points?
+
+1444
+02:43:31.690 --> 02:43:34.009
+Jitendra U: Similar data points that we just discussed.
+
+1445
+02:43:34.280 --> 02:43:36.260
+Jitendra U: Where I'm talking about the sales…
+
+1446
+02:43:36.890 --> 02:43:39.529
+Jitendra U: And then I'm creating an index on the top of it.
+
+1447
+02:43:39.720 --> 02:43:43.359
+Jitendra U: Right? So I'm just talking about the dates, sales, and the profit.
+
+1448
+02:43:45.380 --> 02:43:52.670
+Jitendra U: Right? Now, if I have to perform a rolling operation on this, rolling operation means I would like to find the average sales
+
+1449
+02:43:53.760 --> 02:43:59.199
+Jitendra U: Average rolling sales, or average mean sales, over a period of time.
+
+1450
+02:43:59.610 --> 02:44:05.810
+Jitendra U: So let's say from 25 to 26 in New York, My average sales increase…
+
+1451
+02:44:06.950 --> 02:44:11.959
+Jitendra U: by from 200 to 220. Profit margin increased from 20 to 25.
+
+1452
+02:44:12.130 --> 02:44:15.649
+Jitendra U: So, rolling mean is… sum of two.
+
+1453
+02:44:15.960 --> 02:44:21.330
+Jitendra U: Data points divided by 2 data points, which is 420 divided by 2.
+
+1454
+02:44:21.510 --> 02:44:22.810
+Jitendra U: 210.
+
+1455
+02:44:24.170 --> 02:44:29.239
+Jitendra U: So I can use a window rolling function… sorry, rolling function using pandas.
+
+1456
+02:44:29.490 --> 02:44:35.840
+Jitendra U: And I can able to pass on the parameter on which I would like to calculate this rolling mean. And here I'm saying arithmetic mean.
+
+1457
+02:44:36.080 --> 02:44:39.930
+Jitendra U: On two data points, so it is calculating exactly the same.
+
+1458
+02:44:43.260 --> 02:44:52.359
+Jitendra U: Right? I can also find a cumulative sum operation using Pandas. Let's say I would like to find it out, the cumulative sum, cumulative sales.
+
+1459
+02:44:52.730 --> 02:44:56.579
+Jitendra U: So, cumulative sales, in a sense, I would like to find it out.
+
+1460
+02:44:56.850 --> 02:45:01.500
+Jitendra U: Total sales… At the end of the day.
+
+1461
+02:45:04.710 --> 02:45:07.259
+Jitendra U: Right? So you can see that it's start adding.
+
+1462
+02:45:07.630 --> 02:45:10.379
+Jitendra U: The rows to find a cumulative sales.
+
+1463
+02:45:10.740 --> 02:45:12.540
+Jitendra U: And also the cumulative profit.
+
+1464
+02:45:15.660 --> 02:45:20.949
+Jitendra U: I can also perform group by operation. So, group by operation means I would like to find it out.
+
+1465
+02:45:21.490 --> 02:45:28.669
+Jitendra U: the sales… Mean value, maximum value, and a profit sum for a particular city.
+
+1466
+02:45:29.090 --> 02:45:33.099
+Jitendra U: Becky, able to… say, I have a list of parameters.
+
+1467
+02:45:33.730 --> 02:45:35.960
+Jitendra U: I would like to aggregate on a city level.
+
+1468
+02:45:37.180 --> 02:45:39.530
+Jitendra U: I can able to do with the help of Pandas.
+
+1469
+02:45:43.020 --> 02:45:49.240
+Jitendra U: Now, let me talk about the most important concept in Pandas, which is called broadcasting variable.
+
+1470
+02:45:50.050 --> 02:45:54.949
+Jitendra U: So, broadcasting automatically aligns array of two different shapes.
+
+1471
+02:45:55.240 --> 02:45:57.220
+Jitendra U: So let's say I would like to add two array.
+
+1472
+02:45:57.800 --> 02:46:02.670
+Jitendra U: the array here… Is 1, 2, 3, 4, 1, 2, 3, 4.
+
+1473
+02:46:03.770 --> 02:46:04.640
+Jitendra U: Right?
+
+1474
+02:46:04.910 --> 02:46:11.609
+Jitendra U: So, broadcasting refers… To a concept, when you're aligning the array of two different shapes.
+
+1475
+02:46:11.870 --> 02:46:19.430
+Jitendra U: So that operation can be applied element-wise, Without writing explicit loops, from it.
+
+1476
+02:46:20.250 --> 02:46:27.960
+Jitendra U: So, I would like to broadcast Let's say, profit margin.
+
+1477
+02:46:28.440 --> 02:46:34.959
+Jitendra U: by multiplying this by 80%. So I can be able to do it very easily with the help of Pandas.
+
+1478
+02:46:35.800 --> 02:46:38.300
+Jitendra U: So, Panda support broadcasting.
+
+1479
+02:46:38.730 --> 02:46:41.129
+Jitendra U: And how it is supporting broadcasting.
+
+1480
+02:46:41.650 --> 02:46:44.669
+Jitendra U: The reason being is, NumPy supports broadcasting.
+
+1481
+02:46:45.430 --> 02:46:49.629
+Jitendra U: So all the arrays that I'm storing in Panda are nothing but NumPy array.
+
+1482
+02:46:50.300 --> 02:46:53.489
+Jitendra U: So now you understand the relationship between NumPy and Pandas.
+
+1483
+02:46:53.700 --> 02:46:56.619
+Jitendra U: Pandas operates on the top of an empire.
+
+1484
+02:46:57.690 --> 02:47:07.950
+Jitendra U: So the internal data structure that you're using to store the data is all Nothing but your NumPy array.
+
+1485
+02:47:09.230 --> 02:47:11.550
+Jitendra U: Alright, so I think let's start.
+
+1486
+02:47:11.930 --> 02:47:18.489
+Jitendra U: with… I think a lot of people are asking about decorator, iterator, and generator. So let me give you an example.
+
+1487
+02:47:19.860 --> 02:47:22.760
+Jitendra U: And let's try to, complete this as well.
+
+1488
+02:47:22.900 --> 02:47:24.310
+Jitendra U: So, decorator…
+
+1489
+02:47:24.440 --> 02:47:30.360
+Jitendra U: I hope you have aware about Decorator, right? So what is decorator? Function decorator, right? So, function decorator…
+
+1490
+02:47:30.620 --> 02:47:35.989
+Jitendra U: Are the functions that modify behavior of another function without changing the code.
+
+1491
+02:47:36.200 --> 02:47:38.250
+Jitendra U: So it's like a wrapper, right?
+
+1492
+02:47:38.700 --> 02:47:42.600
+Jitendra U: So… So, when you're creating a wrapper.
+
+1493
+02:47:45.080 --> 02:47:47.280
+Jitendra U: On the top of the existing function.
+
+1494
+02:47:47.730 --> 02:47:52.020
+Jitendra U: it will become a decorator. So let's say I have a function called log decorator.
+
+1495
+02:47:52.250 --> 02:47:56.190
+Jitendra U: And I'm saying that I am going to expect a function signature on the top of it.
+
+1496
+02:47:57.060 --> 02:48:01.160
+Jitendra U: So, this function will have two parameters.
+
+1497
+02:48:01.750 --> 02:48:06.410
+Jitendra U: the keyword argument, and the argument. Now, what is the difference between the two?
+
+1498
+02:48:06.650 --> 02:48:16.059
+Jitendra U: ARGS and… So, ARGS argument and the keyword argument are the two important parameters.
+
+1499
+02:48:16.290 --> 02:48:24.839
+Jitendra U: So, asteric ARGS talks about a function to accept any number of positional arguments inside the tuple.
+
+1500
+02:48:25.360 --> 02:48:30.260
+Jitendra U: However, Keyword argument, KW stands for keyword argument.
+
+1501
+02:48:30.580 --> 02:48:35.210
+Jitendra U: Allow the function to accept any number of keyword arguments inside the dictionary.
+
+1502
+02:48:35.520 --> 02:48:39.490
+Jitendra U: Here we are talking about… Argument inside T.
+
+1503
+02:48:40.160 --> 02:48:45.020
+Jitendra U: pupil… And here we are talking about an argument, keyword argument, inside the dictionary.
+
+1504
+02:48:45.600 --> 02:48:51.349
+Jitendra U: That means the arguments are mutable… immutable, and keywords arguments are mutable.
+
+1505
+02:48:53.650 --> 02:48:56.919
+Jitendra U: Now, let's talk about the decorator. So, what is decorator?
+
+1506
+02:48:57.220 --> 02:49:04.640
+Jitendra U: Decorator is a function or decorator is… are the function that modifies the behavior
+
+1507
+02:49:04.810 --> 02:49:07.520
+Jitendra U: Of another function without changing the code.
+
+1508
+02:49:07.750 --> 02:49:14.810
+Jitendra U: So let's say I'm creating a decorator which is going to accept some keyword argument, and the keyword argument are two here.
+
+1509
+02:49:15.090 --> 02:49:16.759
+Jitendra U: I'm passing two numbers.
+
+1510
+02:49:17.170 --> 02:49:23.219
+Jitendra U: And then I want to print a result. Now, here I'm saying that I would like to define another function, add.
+
+1511
+02:49:23.460 --> 02:49:24.960
+Jitendra U: That will return…
+
+1512
+02:49:25.640 --> 02:49:32.480
+Jitendra U: the addition of the to number, and here I'm applying a decorator, that means I'm wrapping this add function inside log decorator.
+
+1513
+02:49:33.210 --> 02:49:35.939
+Jitendra U: So it is used for logging the access control.
+
+1514
+02:49:36.070 --> 02:49:37.719
+Jitendra U: Caching time, etc.
+
+1515
+02:49:37.880 --> 02:49:41.180
+Jitendra U: So let's see how this function decorator calls.
+
+1516
+02:49:41.600 --> 02:49:47.780
+Jitendra U: So this function decorator calls by saying that I'm calling a function addWithToArgument inside this.
+
+1517
+02:49:48.690 --> 02:49:54.739
+Jitendra U: So I'm wrapping this function inside log decorator, without changing
+
+1518
+02:49:54.970 --> 02:50:00.779
+Jitendra U: It's code. So I'm not changing this code at all, but I can keep on adding
+
+1519
+02:50:01.090 --> 02:50:04.980
+Jitendra U: A new functionality on this port via Decorator.
+
+1520
+02:50:06.430 --> 02:50:07.270
+Jitendra U: Right?
+
+1521
+02:50:07.690 --> 02:50:13.529
+Jitendra U: Similarly, iterator, it's like… Template, function template, yes, you can say that.
+
+1522
+02:50:14.690 --> 02:50:22.849
+Jitendra U: On the other hand, iterator allow you to traverse a sequential element by element without loading the entire sequence in a mammal.
+
+1523
+02:50:23.590 --> 02:50:30.730
+Jitendra U: So… Remember, we have… we are going to discuss about sequence of data points.
+
+1524
+02:50:31.020 --> 02:50:37.259
+Jitendra U: So when we are using a sequence of data points, we required an iterator, right? So, let's say I would like to generate
+
+1525
+02:50:37.980 --> 02:50:40.320
+Jitendra U: Large sequence.
+
+1526
+02:50:41.010 --> 02:50:43.969
+Jitendra U: But storing those last sequence will not be…
+
+1527
+02:50:45.130 --> 02:50:53.489
+Jitendra U: very useful idea when I'm dealing with complex problem statement to solve. I need a function custom iterator
+
+1528
+02:50:53.640 --> 02:50:58.219
+Jitendra U: That can be able to generate those data points at runtime.
+
+1529
+02:50:58.490 --> 02:51:01.849
+Jitendra U: Instead of storing those data points at a compile time.
+
+1530
+02:51:03.010 --> 02:51:08.509
+Jitendra U: So, iterator allows you to traverse a sequence element by element without loading the entire sequence in the memory.
+
+1531
+02:51:09.370 --> 02:51:12.070
+Jitendra U: And this is the concept that we're going to use.
+
+1532
+02:51:12.200 --> 02:51:13.990
+Jitendra U: to generate those.
+
+1533
+02:51:14.140 --> 02:51:15.090
+Jitendra U: output.
+
+1534
+02:51:16.200 --> 02:51:22.670
+Jitendra U: Now, how this iterator works… The behind the scene, there's a powerful concept in Python called generator.
+
+1535
+02:51:23.040 --> 02:51:26.079
+Jitendra U: So, generators are spatial iterator itself.
+
+1536
+02:51:26.390 --> 02:51:29.740
+Jitendra U: Which will have a keyword, which is called yield.
+
+1537
+02:51:29.850 --> 02:51:31.339
+Jitendra U: Instead of return.
+
+1538
+02:51:32.040 --> 02:51:36.920
+Jitendra U: So basically, what generator does, it performs the operation
+
+1539
+02:51:37.370 --> 02:51:42.770
+Jitendra U: in a lazy evaluation method. That means they produce value lazily.
+
+1540
+02:51:43.530 --> 02:51:47.569
+Jitendra U: Only one at a time, and does not store any value in the memory.
+
+1541
+02:51:50.770 --> 02:52:00.369
+Jitendra U: Right? So basically, a generator will use an yield keyword instead of a written keyword. That's the only way that you can be able to identify that this is a generator.
+
+1542
+02:52:00.560 --> 02:52:01.960
+Jitendra U: Not a function.
+
+1543
+02:52:02.410 --> 02:52:09.250
+Jitendra U: The only thing that will allow To understand generator is…
+
+1544
+02:52:09.610 --> 02:52:16.730
+Jitendra U: This particular function will yield the result instead of storing the result in a memory.
+
+1545
+02:52:17.200 --> 02:52:22.210
+Jitendra U: That means you can able to create more sophisticated functions
+
+1546
+02:52:22.430 --> 02:52:26.410
+Jitendra U: That will have less memory overhead.
+
+1547
+02:52:26.600 --> 02:52:31.550
+Jitendra U: when you are using those variables to do something meaningful in Python.
+
+1548
+02:52:32.510 --> 02:52:39.870
+Jitendra U: So, function decorator, function generator, and yield keyword, sorry, iterators, Are the important…
+
+1549
+02:52:40.540 --> 02:52:46.589
+Jitendra U: Concept in which you can able to improve the function behavior in Python.
+
+1550
+02:52:52.470 --> 02:52:58.660
+Jitendra U: Yes, it will do the accumulative of all variables, like Fibniko series, inside the memory.
+
+1551
+02:52:58.770 --> 02:53:02.440
+Jitendra U: So we can create a generator program to write fib nego series.
+
+1552
+02:53:03.140 --> 02:53:04.849
+Jitendra U: What is Fibonaco Series?
+
+1553
+02:53:05.920 --> 02:53:07.400
+Jitendra U: Let me explain.
+
+1554
+02:53:09.640 --> 02:53:13.000
+Jitendra U: So, Febniko series is a sequence of numbers.
+
+1555
+02:53:13.510 --> 02:53:17.550
+Jitendra U: Where you have two values to begin with, A and B.
+
+1556
+02:53:18.750 --> 02:53:22.720
+Jitendra U: The value of A and B are fixed, which is 0 and 1.
+
+1557
+02:53:22.920 --> 02:53:28.470
+Jitendra U: And remaining sequence, you are going to generate by adding the previous value with the
+
+1558
+02:53:30.590 --> 02:53:34.239
+Jitendra U: Next value. That means if I'm going to add 0 and 1, it will yield 1.
+
+1559
+02:53:35.350 --> 02:53:44.489
+Jitendra U: And the previous value is 1, so I will keep 1 as 1. Then I will add 1 and 1, 2, 2 and 1, 3, 3 and 1, 3 and 2, 5, 5 and 3, 8,
+
+1560
+02:53:44.900 --> 02:53:51.479
+Jitendra U: 8 and 5 become 13, 13 plus 8, 21, 21 plus 13, 34, and so on and so forth.
+
+1561
+02:53:51.610 --> 02:53:53.270
+Jitendra U: It'll go up to infinite.
+
+1562
+02:53:56.390 --> 02:54:05.070
+Jitendra U: So this is a Fibniko series, but when I'm creating a Fibniko series using a simple program versus generator program, you will see the…
+
+1563
+02:54:06.560 --> 02:54:07.640
+Jitendra U: Difference.
+
+1564
+02:54:08.320 --> 02:54:15.530
+Jitendra U: So, let's say I'm creating… Our Fibniko series, Using a generator.
+
+1565
+02:54:16.670 --> 02:54:19.869
+Jitendra U: So I'm saying I have a seat keyword A and B,
+
+1566
+02:54:20.260 --> 02:54:25.420
+Jitendra U: And then I'm checking for the condition, and then adding that two variables and printing it.
+
+1567
+02:54:25.740 --> 02:54:28.010
+Jitendra U: So instead of returning, I'm yielding.
+
+1568
+02:54:34.560 --> 02:54:35.400
+Jitendra U: Right?
+
+1569
+02:54:36.370 --> 02:54:41.499
+Jitendra U: Yeah, that's… that's a true fact that, it will be part of a NumPy and Pandas, so…
+
+1570
+02:54:41.740 --> 02:54:48.819
+Jitendra U: Just, we are just exploring this session at the beginning. We will have more in-depth discussion in the upcoming classes.
+
+1571
+02:54:49.420 --> 02:54:52.029
+Jitendra U: So basically, this is what…
+
+1572
+02:54:52.200 --> 02:54:55.810
+Jitendra U: The style in which you are going to write a function will change.
+
+1573
+02:54:58.180 --> 02:55:00.380
+Jitendra U: This is swapping, variable swapping.
+
+1574
+02:55:04.280 --> 02:55:11.470
+Jitendra U: Here, we are allocating a… Here we are allocating the method to swap the variables.
+
+1575
+02:55:13.040 --> 02:55:15.549
+Jitendra U: Alright, so I think we are good on time.
+
+1576
+02:55:15.800 --> 02:55:23.410
+Jitendra U: So, any question, guys, before we wind up? I'm encouraging everybody to participate in the poll as well.
+
+1577
+02:55:23.590 --> 02:55:26.400
+Jitendra U: There's a full launch, so can you guys…
+
+1578
+02:55:26.750 --> 02:55:28.860
+Jitendra U: These rates, if you feel that.
+
+1579
+02:55:29.090 --> 02:55:32.269
+Jitendra U: This session is a great value for you on the higher side.
+
+1580
+02:55:33.030 --> 02:55:37.240
+Jitendra U: There's a poll, launch as well.
+
+1581
+02:55:43.600 --> 02:55:44.830
+Jitendra U: Yeah, thanks, Tushar.
+
+1582
+02:55:54.280 --> 02:55:57.410
+Jitendra U: Yeah, I will upload the file, let me upload right now.
+
+1583
+02:55:59.750 --> 02:56:02.359
+Jitendra U: For line number 6, we are updating
+
+1584
+02:56:02.920 --> 02:56:10.420
+Jitendra U: the variable value. So the previous sequence becomes next sequence, like this. So here, A and B start with 0 and 1.
+
+1585
+02:56:10.770 --> 02:56:17.149
+Jitendra U: Now, when I'm adding this number, 0 and 1, it will become 1, right? So my previous value will become…
+
+1586
+02:56:17.340 --> 02:56:18.190
+Jitendra U: 1.
+
+1587
+02:56:18.930 --> 02:56:21.660
+Jitendra U: And the new value will depend upon the addition of the two.
+
+1588
+02:56:29.250 --> 02:56:33.179
+Jitendra U: Yeah, PyTorch we will cover, don't worry about it. We'll cover the PyTorch.
+
+1589
+02:56:34.020 --> 02:56:39.089
+Jitendra U: And, PyTorch, we are going to deal with deep learning module, so…
+
+1590
+02:56:39.600 --> 02:56:43.170
+Jitendra U: It will confuse a lot of other people, maybe…
+
+1591
+02:56:43.390 --> 02:56:48.749
+Jitendra U: If you're interested, I can share you some materials so that you can learn from those materials.
+
+1592
+02:56:49.810 --> 02:56:54.829
+Jitendra U: So, yeah, but to answer PyTorch, this is too early to say.
+
+1593
+02:57:01.110 --> 02:57:03.960
+Jitendra U: Okay, let me share you the bang.csv file.
+
+1594
+02:57:05.370 --> 02:57:08.010
+Jitendra U: And then another file that we have created.
+
+1595
+02:57:08.380 --> 02:57:10.570
+Jitendra U: Dataset new.
+
+1596
+02:57:12.440 --> 02:57:16.629
+Jitendra U: Yeah, thanks everyone. I think, great question as well, so I will encourage
+
+1597
+02:57:16.880 --> 02:57:20.909
+Jitendra U: To ask a question, and, try to make this interaction more…
+
+1598
+02:57:26.770 --> 02:57:27.860
+Jitendra U: Thanks, Ajit.
+
+1599
+02:57:31.280 --> 02:57:41.040
+Jitendra U: So, I'm encouraging everybody to go with, more… hands-on, yeah, yeah, so…
+
+1600
+02:57:42.880 --> 02:57:50.350
+Jitendra U: Thanks, one of her. So, I would say the prerequisite for this session is, only to… you have to watch
+
+1601
+02:57:51.150 --> 02:57:52.780
+Jitendra U: do your LMS videos.
+
+1602
+02:57:53.130 --> 02:57:56.909
+Jitendra U: as if, assume it, like, you know, you're…
+
+1603
+02:57:57.530 --> 02:58:04.230
+Jitendra U: doing some exercise on a daily basis, right? So, make a discipline of watching, LMS content.
+
+1604
+02:58:04.600 --> 02:58:08.670
+Jitendra U: And then… If you have any doubt from that.
+
+1605
+02:58:08.880 --> 02:58:10.760
+Jitendra U: Content we can discuss as well.
+
+1606
+02:58:12.850 --> 02:58:16.350
+Jitendra U: Yeah, so next live session, we'll talk about week number 7.
+
+1607
+02:58:16.680 --> 02:58:27.870
+Jitendra U: So from week number 7, we will start twisting the things towards more more towards, basically…
+
+1608
+02:58:30.160 --> 02:58:33.270
+Jitendra U: Some more advanced packages in Python we'll discuss.
+
+1609
+02:58:33.470 --> 02:58:37.289
+Jitendra U: Like, how to make sure that we can able to utilize,
+
+1610
+02:58:38.080 --> 02:58:42.840
+Jitendra U: more advanced visual libraries and stuff. So we are going to start with…
+
+1611
+02:58:43.900 --> 02:58:54.290
+Jitendra U: not just the basics, but we'll delve into the important consideration when we require data preparedness and stuff like EDA performance measurements.
+
+1612
+02:58:54.850 --> 02:58:59.919
+Jitendra U: I'm not sure about the deadline of certification, so TA, please feel free to answer.
+
+1613
+02:59:08.460 --> 02:59:12.630
+Jitendra U: I'm not sure about the deadline to complete IBM certification.
+
+1614
+02:59:13.950 --> 02:59:16.180
+Jitendra U: Yeah, so maybe you can write it back to…
+
+1615
+02:59:16.750 --> 02:59:21.479
+Jitendra U: the TA team, and they will respond. I've shared the file, I will…
+
+1616
+02:59:22.020 --> 02:59:25.230
+Jitendra U: I'm already here, Sudhi, so can you please download it?
+
+1617
+02:59:25.330 --> 02:59:27.250
+Jitendra U: Looking in the chat.
+
+1618
+02:59:28.070 --> 02:59:36.699
+Jitendra U: Okay, PyTorch, I can seek one constant question from you, Praveen. PyTorch, you would like to learn PyTorch? You're doing some project, that's why?
+
+1619
+02:59:36.990 --> 02:59:38.969
+Jitendra U: So, let me help you in that.
+
+1620
+02:59:39.970 --> 02:59:45.829
+Jitendra U: So, if you're looking for PyTalk tutorial, Let me give you the…
+
+1621
+02:59:46.740 --> 02:59:51.340
+Jitendra U: best website, that there you can learn the basics of PyTorch.
+
+1622
+02:59:51.910 --> 02:59:55.379
+Jitendra U: This is the document tutorial that I'm referring to.
+
+1623
+02:59:56.200 --> 03:00:01.940
+Jitendra U: So here, you're able to see a lot of… Basics to optimal…
+
+1624
+03:00:02.040 --> 03:00:04.459
+Jitendra U: models that you can use in PyTorch.
+
+1625
+03:00:05.530 --> 03:00:09.210
+Jitendra U: So there's our data set, data loader, building models.
+
+1626
+03:00:09.500 --> 03:00:12.059
+Jitendra U: Saving the models, etc. Everything is there.
+
+1627
+03:00:12.430 --> 03:00:16.530
+Jitendra U: But we'll discuss in-deep learning, so don't worry about PyTorch at this moment.
+
+1628
+03:00:23.190 --> 03:00:28.999
+Jitendra U: No, I've shared the… Not received a file.
+
+1629
+03:00:29.370 --> 03:00:31.379
+Jitendra U: Yeah, I've shared the file, so…
+
+1630
+03:00:32.550 --> 03:00:34.960
+Jitendra U: Maybe I can, pass on.
+
+1631
+03:00:36.250 --> 03:00:37.240
+Jitendra U: Okay.
+
+1632
+03:00:38.080 --> 03:00:40.980
+Jitendra U: Oh, everyone in the meeting, let me reshare the file.
+
+1633
+03:00:55.640 --> 03:00:57.800
+Jitendra U: This is the first file that you have to use.
+
+1634
+03:01:17.570 --> 03:01:19.009
+Jitendra U: And this is the input file.
+
+1635
+03:01:20.650 --> 03:01:25.820
+Jitendra U: All right, thank you guys. I think this is pretty much what we have. I hope we have received the file now.
+
+1636
+03:01:26.010 --> 03:01:28.150
+Jitendra U: And you can download it, and then you can run.
+
+1637
+03:01:28.620 --> 03:01:36.209
+Jitendra U: PyTorch link I have signed, there's no file, so there's no file for PyTorch. Let me share that as well.
+
+1638
+03:01:36.630 --> 03:01:40.220
+Jitendra U: There's no file for it. Yeah, let me share the link.
+
+1639
+03:01:47.470 --> 03:01:50.179
+Jitendra U: Data, new file… okay.
+
+1640
+03:02:04.820 --> 03:02:07.409
+Jitendra U: Yeah, I've shared the file as well, Detanya.
+
+1641
+03:02:07.920 --> 03:02:12.830
+Jitendra U: So, thanks everyone again, and we'll meet tomorrow… sorry, in the next, week.
+
+1642
+03:02:13.300 --> 03:02:19.089
+Jitendra U: And, I think this is, great, so keep asking questions, and then…
+
+1643
+03:02:19.330 --> 03:02:26.559
+Jitendra U: keep doing practice, that's the only solution. So thank you for attending the session, it was nice to have an introduction, and we will meet next week. Thank you.
+

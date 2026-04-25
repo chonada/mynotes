@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced SVM Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .question {
+            background: #ffffff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #2980b9;
+        }
+        .options label {
+            display: block;
+            margin: 6px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Advanced Support Vector Machine (SVM) Quiz</h1>
+
+<div class="question">
+    <p><strong>Q1.</strong> In soft-margin SVM, what does the parameter <em>C</em> primarily control?</p>
+    <div class="options">
+        <label><input type="radio"> Kernel dimensionality</label>
+        <label><input type="radio"> Trade-off between margin width and misclassification penalty</label>
+        <label><input type="radio"> Number of support vectors</label>
+        <label><input type="radio"> Distance metric used in kernel space</label>
+    </div>
+</div>
+
+<div class="question">
+    <p><strong>Q2.</strong> Which optimization problem is directly solved by most kernel SVM implementations?</p>
+    <div class="options">
+        <label><input type="radio"> Primal quadratic optimization</label>
+        <label><input type="radio"> Dual quadratic optimization with Lagrange multipliers</label>
+        <label><input type="radio"> Gradient descent on hinge loss</label>
+        <label><input type="radio"> Maximum likelihood estimation</label>
+    </div>
+</div>
+
+<div class="question">
+    <p><strong>Q3.</strong> A data point becomes a support vector when:</p>
+    <div class="options">
+        <label><input type="radio"> It is correctly classified</label>
+        <label><input type="radio"> It lies far from the decision boundary</label>
+        <label><input type="radio"> Its Lagrange multiplier α &gt; 0</label>
+        <label><input type="radio"> The kernel value exceeds a threshold</label>
+    </div>
+</div>
+
+<div class="question">
+    <p><strong>Q4.</strong> What happens when <em>gamma</em> is set too high in an RBF-kernel SVM?</p>
+    <div class="options">
+        <label><input type="radio"> Decision boundary becomes overly smooth</label>
+        <label><input type="radio"> Model underfits the data</label>
+        <label><input type="radio"> Decision boundary becomes highly complex and overfits</label>
+        <label><input type="radio"> Margin width increases significantly</label>
+    </div>
+</div>
+
+<div class="question">
+    <p><strong>Q5.</strong> Why are linear SVMs often preferred for text classification tasks?</p>
+    <div class="options">
+        <label><input type="radio"> Text data is inherently non-linear</label>
+        <label><input type="radio"> Linear kernels are faster to visualize</label>
+        <label><input type="radio"> High-dimensional sparse spaces are often linearly separable</label>
+        <label><input type="radio"> Kernel trick cannot be applied to text</label>
+    </div>
+</div>
+
+<div class="question">
+    <p><strong>Q6.</strong> In multi-class SVC (sklearn), which strategy is used by default?</p>
+    <div class="options">
+        <label><input type="radio"> One-vs-One</label>
+        <label><input type="radio"> One-vs-Rest</label>
+        <label><input type="radio"> Error-correcting output codes</label>
+        <label><input type="radio"> Hierarchical softmax</label>
+    </div>
+</div>
+
+<div class="question">
+    <p><strong>Q7.</strong> What is the geometric meaning of the SVM margin?</p>
+    <div class="options">
+        <label><input type="radio"> Distance between class centroids</label>
+        <label><input type="radio"> Distance between support vectors of different classes</label>
+        <label><input type="radio"> Minimum distance from the hyperplane to the closest data points</label>
+        <label><input type="radio"> Average classification confidence</label>
+    </div>
+</div>
+
+<div class="question">
+    <p><strong>Q8.</strong> Which loss function is implicitly minimized by SVM?</p>
+    <div class="options">
+        <label><input type="radio"> Mean Squared Error</label>
+        <label><input type="radio"> Log loss</label>
+        <label><input type="radio"> Hinge loss</label>
+        <label><input type="radio"> Cross-entropy loss</label>
+    </div>
+</div>
+
+<div class="question">
+    <p><strong>Q9.</strong> Why does kernel SVM training scale poorly with large datasets?</p>
+    <div class="options">
+        <label><input type="radio"> Kernel matrices grow quadratically with sample size</label>
+        <label><input type="radio"> Feature scaling becomes unstable</label>
+        <label><input type="radio"> Support vectors increase linearly</label>
+        <label><input type="radio"> Gradient descent converges slowly</label>
+    </div>
+</div>
+
+<div class="question">
+    <p><strong>Q10.</strong> Which statement about support vectors is TRUE?</p>
+    <div class="options">
+        <label><input type="radio"> Removing a non-support vector changes the decision boundary</label>
+        <label><input type="radio"> All training points influence the final model</label>
+        <label><input type="radio"> Only support vectors determine the hyperplane</label>
+        <label><input type="radio"> Support vectors must be misclassified points</label>
+    </div>
+</div>
+
+<!--
+ANSWER KEY:
+Q1: B
+Q2: B
+Q3: C
+Q4: C
+Q5: C
+Q6: A
+Q7: C
+Q8: C
+Q9: A
+Q10: C
+-->
+
+</body>
+</html>

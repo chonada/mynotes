@@ -1,0 +1,5886 @@
+WEBVTT
+
+1
+00:01:34.500 --> 00:01:36.369
+Jitendra K: Hi guys, good afternoon.
+
+2
+00:01:37.640 --> 00:01:44.569
+Jitendra K: Warm welcome to another session. Before we start a session, can we have a quick audio check, if my voice is audible to everyone?
+
+3
+00:01:45.650 --> 00:01:47.269
+Jitendra K: And, can we have a quick…
+
+4
+00:01:49.330 --> 00:01:51.789
+Jitendra K: Yes, on the screen-sharing part as well.
+
+5
+00:01:56.680 --> 00:02:02.420
+Jitendra K: Alright, thank you, folks. So I can see that, you are able to hear me loud and clear.
+
+6
+00:02:03.150 --> 00:02:04.840
+Jitendra K: No ambiguity? Okay.
+
+7
+00:02:05.280 --> 00:02:11.579
+Jitendra K: So… So today, we are going to start with linear regression, and this is,
+
+8
+00:02:11.700 --> 00:02:15.629
+Jitendra K: A two-module discussion that we are going to have on linear regression.
+
+9
+00:02:16.110 --> 00:02:21.399
+Jitendra K: So, in the due course of time, in this 6 hours of tutorial, what we are going to do is…
+
+10
+00:02:21.520 --> 00:02:25.689
+Jitendra K: We are going to start with the basic understanding on linear regression.
+
+11
+00:02:26.020 --> 00:02:32.179
+Jitendra K: The very first thing that we are going to do is to understand what linear regression does, mathematically and conceptually.
+
+12
+00:02:32.520 --> 00:02:38.840
+Jitendra K: Then we'll talk about the types of regression methods, including multivariate regression.
+
+13
+00:02:39.450 --> 00:02:48.070
+Jitendra K: When we are going to talk about how to evaluate the coefficients of regressions, and how to make decisions based upon the regressions analysis.
+
+14
+00:02:49.000 --> 00:02:49.950
+Jitendra K: So…
+
+15
+00:02:50.160 --> 00:03:00.389
+Jitendra K: We are going to take some example to understand the most important concept of regression, which is called assumption of linear regression. So when we are doing regression.
+
+16
+00:03:00.940 --> 00:03:06.789
+Jitendra K: It's not a straightforward technique that you're going to just print the data on the top of it, and then you're going to start with it.
+
+17
+00:03:07.090 --> 00:03:11.260
+Jitendra K: However, you have to use certain assumption, test of hypothesis.
+
+18
+00:03:11.370 --> 00:03:13.200
+Jitendra K: You have to use several tests off.
+
+19
+00:03:14.320 --> 00:03:17.660
+Jitendra K: Hypothesis using non-parametric and parametric tests.
+
+20
+00:03:18.120 --> 00:03:21.050
+Jitendra K: And that is something which we are going to talk about in this tutorial.
+
+21
+00:03:22.530 --> 00:03:27.149
+Jitendra K: And finally, we'll talk about, how to evaluate a regression model.
+
+22
+00:03:27.300 --> 00:03:31.209
+Jitendra K: So, we will talk about different types of cost functions involved.
+
+23
+00:03:31.700 --> 00:03:35.500
+Jitendra K: When we are trying to validate a progression on the top of it.
+
+24
+00:03:35.660 --> 00:03:41.610
+Jitendra K: So in today's tutorial, we are going to talk about linear. In the next tutorial, we'll talk about multivariate.
+
+25
+00:03:42.970 --> 00:03:45.639
+Jitendra K: So, I think the agenda is clear to everyone.
+
+26
+00:03:51.030 --> 00:03:51.840
+Jitendra K: Alright.
+
+27
+00:03:51.970 --> 00:03:55.290
+Jitendra K: So with that assumption, we are going to start with linear regression.
+
+28
+00:03:56.340 --> 00:04:08.930
+Jitendra K: So, what exactly a linear regression does, right? So, we already know, and we have already discussed, whenever variable or output variable of interest is continuous in nature.
+
+29
+00:04:09.280 --> 00:04:10.879
+Jitendra K: We are end up into a…
+
+30
+00:04:11.040 --> 00:04:19.430
+Jitendra K: problem which is coming under regression analysis. That means your regression output is gonna be continuous in nature, right?
+
+31
+00:04:19.620 --> 00:04:22.530
+Jitendra K: So basically, that is the first and the foremost thing that you have to.
+
+32
+00:04:22.650 --> 00:04:26.819
+Jitendra K: Make sure that you have a clear understanding when we talk about linear regression.
+
+33
+00:04:26.990 --> 00:04:33.430
+Jitendra K: It's a method in which you are going to evaluate the outcome As a continuous variable.
+
+34
+00:04:33.760 --> 00:04:40.549
+Jitendra K: So regression analysis, also called linear regression analysis, is the most basic and the commonly used predictive model.
+
+35
+00:04:41.050 --> 00:04:45.379
+Jitendra K: And it has been… Two-year, 200 years old technique.
+
+36
+00:04:45.670 --> 00:04:53.370
+Jitendra K: It dates back to 1805, when legendary Gauss… you might have seen Gauss equation, Gaussian equations, and all.
+
+37
+00:04:53.610 --> 00:04:58.130
+Jitendra K: And he's the first scientist who used linear regression to predict the movement of the planet.
+
+38
+00:04:58.750 --> 00:05:04.049
+Jitendra K: So basically, the goal of the regression problem is to predict the value of one variable based on the
+
+39
+00:05:04.310 --> 00:05:08.830
+Jitendra K: value of the other variables, in the context of that. For example.
+
+40
+00:05:09.070 --> 00:05:16.469
+Jitendra K: We can use regression to predict the price of a stock, based upon various economic indicators.
+
+41
+00:05:16.740 --> 00:05:22.010
+Jitendra K: Or the total sales of the company, based on the amount spent on advertisements, etc.
+
+42
+00:05:22.230 --> 00:05:28.299
+Jitendra K: So we are going to assume that all this analysis that we are conducting on X and Y.
+
+43
+00:05:28.500 --> 00:05:32.669
+Jitendra K: will follow a linear equation, or linear relationship. But that assumption.
+
+44
+00:05:33.240 --> 00:05:41.330
+Jitendra K: may or may not valid, right? So you can see that linear regression is a very fundamental statistical model that is used to
+
+45
+00:05:41.520 --> 00:05:44.609
+Jitendra K: Define, or this is used to model
+
+46
+00:05:45.000 --> 00:05:50.650
+Jitendra K: the relationship between the dependent variable Y and the one or more independent variable X.
+
+47
+00:05:51.450 --> 00:05:56.150
+Jitendra K: So here, your Y variable is dependent variable that we are trying to predict.
+
+48
+00:05:56.510 --> 00:06:04.350
+Jitendra K: Beatas, The coefficients that you can see on my screen, these betas, beta 1, beta naught, epsilon.
+
+49
+00:06:05.780 --> 00:06:08.110
+Jitendra K: So, you can see that we have a beta naught.
+
+50
+00:06:08.220 --> 00:06:09.679
+Jitendra K: So this is an intercept.
+
+51
+00:06:10.250 --> 00:06:13.080
+Jitendra K: So basically, what is an intercept in mathematical term?
+
+52
+00:06:13.280 --> 00:06:14.890
+Jitendra K: If I'm drawing a line.
+
+53
+00:06:15.450 --> 00:06:19.859
+Jitendra K: that describe the relationship between Y and X. Maybe it could be a straight line.
+
+54
+00:06:20.290 --> 00:06:22.200
+Jitendra K: So the intercept that I'm creating
+
+55
+00:06:22.980 --> 00:06:24.569
+Jitendra K: It's nothing but the beta knot.
+
+56
+00:06:24.780 --> 00:06:29.360
+Jitendra K: Right? So basically, beta naught is nothing but… it's an intercept.
+
+57
+00:06:31.020 --> 00:06:33.900
+Jitendra K: So, and Y is my…
+
+58
+00:06:34.030 --> 00:06:40.669
+Jitendra K: dependent variable. So here I'm saying that my Y variable is dependent variable, and it depends upon these factors.
+
+59
+00:06:41.800 --> 00:06:43.559
+Jitendra K: This is a constant factor.
+
+60
+00:06:44.160 --> 00:06:45.950
+Jitendra K: But this factor may vary.
+
+61
+00:06:46.970 --> 00:06:54.430
+Jitendra K: Now, there are one more factor called error rate, or residual errors. Now, when you talk about residual errors.
+
+62
+00:06:57.480 --> 00:07:02.410
+Jitendra K: So these residual errors are… Sometimes, irreversible.
+
+63
+00:07:03.370 --> 00:07:08.630
+Jitendra K: That means you cannot be able to make your model more efficient.
+
+64
+00:07:09.430 --> 00:07:13.979
+Jitendra K: Based upon these error terms. So that is the residual error that we are going to have.
+
+65
+00:07:14.280 --> 00:07:15.020
+Jitendra K: Right?
+
+66
+00:07:15.200 --> 00:07:21.850
+Jitendra K: So, regression equation, or so-called, this equation.
+
+67
+00:07:22.890 --> 00:07:28.510
+Jitendra K: Establish a relationship between your output variable of interest, Y, And various inputs.
+
+68
+00:07:29.790 --> 00:07:33.860
+Jitendra K: with a weight, Other multiplicative factors.
+
+69
+00:07:34.500 --> 00:07:38.370
+Jitendra K: Now, you can see that these weights are multiplicative factors. They are multiplied.
+
+70
+00:07:39.730 --> 00:07:41.890
+Jitendra K: Right? Why not? It should be additive.
+
+71
+00:07:42.250 --> 00:07:45.240
+Jitendra K: Right? If you're talking about multiplicative factors.
+
+72
+00:07:48.910 --> 00:07:54.110
+Jitendra K: So these factors… Are nothing but a learnable parameter.
+
+73
+00:07:55.350 --> 00:08:00.590
+Jitendra K: learnable parameter for the regression equation, and this factor is called COD values.
+
+74
+00:08:00.900 --> 00:08:02.979
+Jitendra K: Or coefficient of determination.
+
+75
+00:08:04.240 --> 00:08:09.079
+Jitendra K: Right? So these coefficients of determination, or so-called beta values.
+
+76
+00:08:09.400 --> 00:08:16.160
+Jitendra K: It's very useful to determine the importance of the weights Of each factor.
+
+77
+00:08:17.050 --> 00:08:20.010
+Jitendra K: Let's take an equation, let's take an example.
+
+78
+00:08:21.400 --> 00:08:28.539
+Jitendra K: Let's say I would like to predict the… Price of a car.
+
+79
+00:08:34.390 --> 00:08:41.360
+Jitendra K: Based upon certain factors, which include… The type of the car?
+
+80
+00:08:44.720 --> 00:08:50.930
+Jitendra K: If it is petrol, diesel, electric… Or hybrid.
+
+81
+00:08:55.080 --> 00:08:56.899
+Jitendra K: The year of manufacture.
+
+82
+00:08:59.150 --> 00:09:01.469
+Jitendra K: That means how cold is the car?
+
+83
+00:09:01.990 --> 00:09:09.330
+Jitendra K: Number of owners… Past owners… Any incident?
+
+84
+00:09:09.450 --> 00:09:10.650
+Jitendra K: reported.
+
+85
+00:09:11.050 --> 00:09:14.140
+Jitendra K: I mean, it has gone through any incident.
+
+86
+00:09:15.150 --> 00:09:19.660
+Jitendra K: In the past, any accident or some… Maybe some maintenance.
+
+87
+00:09:20.920 --> 00:09:22.779
+Jitendra K: Then we'll talk about the mileage.
+
+88
+00:09:29.210 --> 00:09:33.980
+Jitendra K: the horsepower… And so many other factors, right?
+
+89
+00:09:34.170 --> 00:09:44.660
+Jitendra K: Including the manufacturer type, whether it is Tata, Maruta Suzuki… Alrighty.
+
+90
+00:09:46.150 --> 00:09:48.849
+Jitendra K: Alright, so these are my variables, which I take.
+
+91
+00:09:49.360 --> 00:09:53.510
+Jitendra K: to decide what should be the price of the car. I cannot say the price of the car is…
+
+92
+00:09:53.740 --> 00:09:55.359
+Jitendra K: 18.2 lakh.
+
+93
+00:09:56.420 --> 00:09:59.690
+Jitendra K: I can say that either the car should be within 18, too.
+
+94
+00:10:00.320 --> 00:10:01.830
+Jitendra K: 19 lakh.
+
+95
+00:10:02.780 --> 00:10:04.819
+Jitendra K: In that range, I can able to quote.
+
+96
+00:10:06.230 --> 00:10:14.409
+Jitendra K: Alright, so that is where I'm going to perform a regression analysis to determine Which factor is determining the
+
+97
+00:10:14.940 --> 00:10:17.190
+Jitendra K: Range of the car, price.
+
+98
+00:10:19.210 --> 00:10:25.160
+Jitendra K: Right, so this is where regression is use… to perform.
+
+99
+00:10:26.260 --> 00:10:28.410
+Jitendra K: The analysis on the data set.
+
+100
+00:10:28.920 --> 00:10:31.999
+Jitendra K: Which comprises of certain factors.
+
+101
+00:10:32.520 --> 00:10:36.649
+Jitendra K: And there are many related terms to regression, right? And they are often…
+
+102
+00:10:37.190 --> 00:10:41.379
+Jitendra K: produce as a part of the analysis that you're going to conduct.
+
+103
+00:10:41.740 --> 00:10:59.200
+Jitendra K: To identify the amount of correlation that each variable carries. So, the selection of the features, you're going to perform exploratory data analytics on those features, selection criterias. You're going to perform a lot of parametric tests to define which features are important for your model.
+
+104
+00:10:59.630 --> 00:11:01.409
+Jitendra K: And then only you are going to pick
+
+105
+00:11:01.660 --> 00:11:06.560
+Jitendra K: Those features to produce something tangible on the top of it.
+
+106
+00:11:08.170 --> 00:11:13.430
+Jitendra K: So, in linear regression, we are assuming that these variables…
+
+107
+00:11:13.660 --> 00:11:18.740
+Jitendra K: Or carrying a linear relationship between feature and the target variable.
+
+108
+00:11:18.910 --> 00:11:20.230
+Jitendra K: Or targeted labor.
+
+109
+00:11:21.140 --> 00:11:24.650
+Jitendra K: So, in a nutshell, I can say that model taken hypothesis.
+
+110
+00:11:26.140 --> 00:11:29.790
+Jitendra K: So I can say that the model is assuming a hypothesis.
+
+111
+00:11:30.060 --> 00:11:32.359
+Jitendra K: So let me write down that hypothesis.
+
+112
+00:11:37.970 --> 00:11:40.920
+Jitendra K: So model, I can represent this equation.
+
+113
+00:11:41.410 --> 00:11:43.500
+Jitendra K: In the form of a weighted coefficient.
+
+114
+00:11:50.500 --> 00:11:57.040
+Jitendra K: So I can say that… my model… It's taking this form.
+
+115
+00:11:57.520 --> 00:12:00.180
+Jitendra K: as a cost function, H of X.
+
+116
+00:12:01.230 --> 00:12:08.910
+Jitendra K: And this function can be represented as… W naught plus… W1X1.
+
+117
+00:12:09.830 --> 00:12:14.300
+Jitendra K: W2X2, and so on and so forth, up to WM.
+
+118
+00:12:15.300 --> 00:12:16.220
+Jitendra K: Excellent.
+
+119
+00:12:17.210 --> 00:12:20.689
+Jitendra K: So this is my linear regression model, similar to what we have seen in this slide.
+
+120
+00:12:21.440 --> 00:12:28.020
+Jitendra K: Now, when I say W0, W1… WN…
+
+121
+00:12:29.080 --> 00:12:31.829
+Jitendra K: These are my parameters, or the weight of the model.
+
+122
+00:12:32.620 --> 00:12:39.580
+Jitendra K: So I can say this factor is constant, which is an intercept or a bias term. In my data, this is a bias.
+
+123
+00:12:39.800 --> 00:12:41.090
+Jitendra K: in my data.
+
+124
+00:12:42.850 --> 00:12:48.870
+Jitendra K: And I would like to find a variance for performing the regression on the top of these factors.
+
+125
+00:12:49.390 --> 00:12:52.220
+Jitendra K: So this is the intersection point on the graph.
+
+126
+00:12:53.170 --> 00:12:55.310
+Jitendra K: Respect to the Y and the x-axis.
+
+127
+00:12:56.040 --> 00:13:02.719
+Jitendra K: Now, I can simplify this equation by writing, or rewriting this whole mathematical equation as H of X
+
+128
+00:13:04.320 --> 00:13:10.260
+Jitendra K: is nothing but… It's a transpose of the weights multiplied by X.
+
+129
+00:13:11.180 --> 00:13:19.240
+Jitendra K: What I can say it's a summation of… linear summation of… WJ… XG.
+
+130
+00:13:20.290 --> 00:13:22.980
+Jitendra K: From chase equals to 0.
+
+131
+00:13:23.910 --> 00:13:24.660
+Jitendra K: 2M.
+
+132
+00:13:28.730 --> 00:13:29.560
+Jitendra K: Right?
+
+133
+00:13:29.960 --> 00:13:40.200
+Jitendra K: So now, now think of this equation as a generalized form of linear regression. Now, this is a linear form, or I would say a generalized form of a linear equation, or linear regression equation.
+
+134
+00:13:40.870 --> 00:13:42.690
+Jitendra K: Now, what is our goal?
+
+135
+00:13:43.630 --> 00:13:48.160
+Jitendra K: This we can able to solve with the help of a linear algebra, then why we are performing a linear regression.
+
+136
+00:13:50.440 --> 00:13:52.999
+Jitendra K: Now remember, there's no defined weights.
+
+137
+00:13:53.670 --> 00:14:00.160
+Jitendra K: when you're beginning any experimentation, like the one that I showed to you, the car, Deco.com.
+
+138
+00:14:00.490 --> 00:14:09.469
+Jitendra K: It does not have any variable defined, that which variable is most important to determine the price of the car, but you have to find it out as a data scientist.
+
+139
+00:14:10.680 --> 00:14:14.310
+Jitendra K: So your goal in a linear regression is to find a parameter
+
+140
+00:14:14.500 --> 00:14:18.869
+Jitendra K: Which is the coefficient of determination, or so-called W1 to WN.
+
+141
+00:14:19.630 --> 00:14:21.960
+Jitendra K: And make your model prediction.
+
+142
+00:14:22.270 --> 00:14:27.230
+Jitendra K: H of X, as close as possible, To the true labels.
+
+143
+00:14:28.400 --> 00:14:34.760
+Jitendra K: In other words, I can say, we would like to find a model parameter That best fit that dataset.
+
+144
+00:14:36.280 --> 00:14:37.030
+Jitendra K: Right?
+
+145
+00:14:37.450 --> 00:14:40.009
+Jitendra K: And we defined this as a cost function.
+
+146
+00:14:40.550 --> 00:14:49.119
+Jitendra K: Or sometimes we can say it as an error function. And that error function, or the cost function, will measure how far our model predictions are from the true label.
+
+147
+00:14:50.360 --> 00:14:59.669
+Jitendra K: So I can say my cost function, R of i, is nothing but… it is… The parametric estimation of
+
+148
+00:15:02.230 --> 00:15:06.590
+Jitendra K: differences… Of the true label and the predicted label.
+
+149
+00:15:08.050 --> 00:15:10.760
+Jitendra K: So this is the definition of my residual errors.
+
+150
+00:15:11.080 --> 00:15:14.150
+Jitendra K: And I would like to reduce these residual errors.
+
+151
+00:15:14.320 --> 00:15:15.839
+Jitendra K: as much as I can.
+
+152
+00:15:16.680 --> 00:15:20.150
+Jitendra K: Maybe, approximately, I shouldn't try to make it 0.
+
+153
+00:15:24.010 --> 00:15:24.780
+Jitendra K: Right?
+
+154
+00:15:24.990 --> 00:15:29.210
+Jitendra K: Now, this is where you are going to have a cost function now.
+
+155
+00:15:29.500 --> 00:15:36.130
+Jitendra K: Now, there is various forms of cost function. The first form of cost function that we are going to talk about is called OLS.
+
+156
+00:15:39.260 --> 00:15:43.030
+Jitendra K: Ordinary least square… equation.
+
+157
+00:15:43.140 --> 00:15:44.250
+Jitendra K: or regression.
+
+158
+00:15:45.050 --> 00:15:51.840
+Jitendra K: And the purpose of OLS regression model is to find the optimal value parameter to minimize
+
+159
+00:15:51.990 --> 00:15:53.960
+Jitendra K: The sum of square errors.
+
+160
+00:15:54.540 --> 00:15:58.680
+Jitendra K: So these terminologies are slightly confusing, I agree.
+
+161
+00:15:59.130 --> 00:16:07.009
+Jitendra K: But mathematically, if you have to write OL's equation, it will be equal to summation of… Y of I…
+
+162
+00:16:08.070 --> 00:16:11.920
+Jitendra K: Minus… H of X of I,
+
+163
+00:16:14.990 --> 00:16:16.729
+Jitendra K: To the whole square.
+
+164
+00:16:17.560 --> 00:16:25.010
+Jitendra K: And I can represent this as… summation of… Y of I… minus…
+
+165
+00:16:25.570 --> 00:16:28.559
+Jitendra K: I will replace this with this equation, W of T.
+
+166
+00:16:28.850 --> 00:16:30.250
+Jitendra K: X of I.
+
+167
+00:16:30.750 --> 00:16:39.350
+Jitendra K: Old square. So this is your OLS equation, and you're representing the equation parameter…
+
+168
+00:16:40.440 --> 00:16:47.030
+Jitendra K: as a cost objective, J . Remember this notation, we are going to heavily use this notation, J of W.
+
+169
+00:16:47.680 --> 00:16:50.200
+Jitendra K: Now, these equations are interchangeable.
+
+170
+00:16:50.660 --> 00:16:54.339
+Jitendra K: Right? So here we are saying that this is my linear regression equation.
+
+171
+00:16:55.230 --> 00:16:58.260
+Jitendra K: And here we are talking about a cost function equation.
+
+172
+00:17:00.770 --> 00:17:04.790
+Jitendra K: What is your cost function? What is the objective of Rini regression?
+
+173
+00:17:05.510 --> 00:17:15.020
+Jitendra K: Your objective of linear regression is to… Maximize… D… Approximation
+
+174
+00:17:16.520 --> 00:17:20.570
+Jitendra K: Differences between your true label and the predicted label.
+
+175
+00:17:24.390 --> 00:17:32.990
+Jitendra K: Right, so OLS is the most common type of regression that has been used to determine the absolute deviation in terms of regression.
+
+176
+00:17:33.360 --> 00:17:38.340
+Jitendra K: Alright, so simple linear regression, I can represent this as a simple straight line.
+
+177
+00:17:38.590 --> 00:17:45.050
+Jitendra K: And I can say that this straight line is nothing but… It is passing through.
+
+178
+00:17:47.200 --> 00:17:50.289
+Jitendra K: Maybe if I extend this line, it may be passed to an origin.
+
+179
+00:17:51.020 --> 00:17:54.599
+Jitendra K: Right? If it is not passing through the region, it will create an intercept.
+
+180
+00:17:55.070 --> 00:17:57.390
+Jitendra K: And then, these are my data points.
+
+181
+00:17:57.560 --> 00:18:02.209
+Jitendra K: which I'm trying to… Fit into this linear regression line.
+
+182
+00:18:02.680 --> 00:18:07.300
+Jitendra K: Using this equation, Or so-called weight calibration.
+
+183
+00:18:07.920 --> 00:18:12.579
+Jitendra K: And then, I would like to find a potential solution.
+
+184
+00:18:14.490 --> 00:18:18.599
+Jitendra K: I can have infinite many solutions. I can have solution like this.
+
+185
+00:18:19.590 --> 00:18:25.130
+Jitendra K: This and this… But this equation will decide which solution is optimal.
+
+186
+00:18:27.090 --> 00:18:33.440
+Jitendra K: So in this case, the model hypothesis is very simple. So I'm saying that… I have, linear coefficients.
+
+187
+00:18:34.740 --> 00:18:38.239
+Jitendra K: And I'm going to fit these methods to predict it.
+
+188
+00:18:40.940 --> 00:18:43.589
+Jitendra K: Right, so I would like to find out the coefficients.
+
+189
+00:18:44.050 --> 00:18:50.320
+Jitendra K: Which can able to… Which can able to have a linear additive property.
+
+190
+00:18:50.960 --> 00:19:00.840
+Jitendra K: And then, I would like to benchmark the impact Overall equation on predicting B. Y.
+
+191
+00:19:02.100 --> 00:19:04.170
+Jitendra K: And that is called regression analysis.
+
+192
+00:19:05.800 --> 00:19:06.600
+Jitendra K: Right?
+
+193
+00:19:06.720 --> 00:19:10.430
+Jitendra K: So… Again, coming back to the same fundamental.
+
+194
+00:19:10.590 --> 00:19:14.010
+Jitendra K: We are talking about ordinary least square regression errors.
+
+195
+00:19:14.370 --> 00:19:19.900
+Jitendra K: And here we are talking about the linear regression equation in a very simplified form.
+
+196
+00:19:20.100 --> 00:19:25.720
+Jitendra K: So, linear regression is nothing but… it's a method in which we are going to build a model
+
+197
+00:19:25.930 --> 00:19:30.269
+Jitendra K: to fit various… one or more variables as X,
+
+198
+00:19:30.970 --> 00:19:37.740
+Jitendra K: Right? And try to find a form of a function which will have a minimal errors.
+
+199
+00:19:41.560 --> 00:19:48.800
+Jitendra K: Right? So, now, the question will come, What is nonlinear regression?
+
+200
+00:19:49.050 --> 00:19:51.499
+Jitendra K: So this is called linear regression, but what if…
+
+201
+00:19:51.670 --> 00:19:54.049
+Jitendra K: If my variables are nonlinear in nature.
+
+202
+00:19:54.750 --> 00:20:02.899
+Jitendra K: So here we are assuming that all my variables are linear relationship, with an independent and dependent variable, so that means I'm saying Y and X
+
+203
+00:20:03.310 --> 00:20:06.100
+Jitendra K: of Y and beta naught are linearly related.
+
+204
+00:20:06.520 --> 00:20:10.220
+Jitendra K: Y and beta 1 are linearly rated.
+
+205
+00:20:11.070 --> 00:20:18.530
+Jitendra K: So I can say linear relationship could be adverse, that means one variable increase, another variable decrease. It can be a simple straight line.
+
+206
+00:20:20.650 --> 00:20:23.540
+Jitendra K: But what if, if my regression followed this equation?
+
+207
+00:20:24.120 --> 00:20:25.580
+Jitendra K: exponentially grow.
+
+208
+00:20:25.850 --> 00:20:27.429
+Jitendra K: Exponential decay.
+
+209
+00:20:28.180 --> 00:20:32.020
+Jitendra K: So can I still use a linear regression to solve such problems? The answer is no.
+
+210
+00:20:33.220 --> 00:20:40.850
+Jitendra K: Non-linear regression assume a nonlinear relationship between the variable. So, this is where we are going to talk about something called polynomial
+
+211
+00:20:41.010 --> 00:20:42.030
+Jitendra K: regression.
+
+212
+00:20:46.740 --> 00:20:51.980
+Jitendra K: which will have… A term associated with that, right?
+
+213
+00:20:52.250 --> 00:20:59.229
+Jitendra K: So… Nonlinear relationship, we're definitely going to have different cost functions.
+
+214
+00:21:00.020 --> 00:21:04.130
+Jitendra K: Mathematically, this is a representation, so… Bart.
+
+215
+00:21:06.050 --> 00:21:08.049
+Jitendra K: We are going to make sure that
+
+216
+00:21:08.540 --> 00:21:15.619
+Jitendra K: Before we fit any data to a model, we should test The assumption of linear regression.
+
+217
+00:21:16.310 --> 00:21:20.140
+Jitendra K: So testing the assumption of linear regression is very important.
+
+218
+00:21:21.750 --> 00:21:27.510
+Jitendra K: So basically, what we are trying to say is, if we have a data in… In our hand.
+
+219
+00:21:27.870 --> 00:21:29.180
+Jitendra K: This is your data.
+
+220
+00:21:31.480 --> 00:21:33.350
+Jitendra K: This is your business problem.
+
+221
+00:21:36.970 --> 00:21:38.729
+Jitendra K: Now, what are you trying to solve?
+
+222
+00:21:40.030 --> 00:21:48.410
+Jitendra K: You're trying to predict Y… which is continuous in nature, automatically are going to use the regression analysis.
+
+223
+00:21:48.640 --> 00:21:54.400
+Jitendra K: But before fitting this data to a model, you have to test whether this data is fit to test or not.
+
+224
+00:21:55.770 --> 00:21:57.640
+Jitendra K: You cannot simply plug and play.
+
+225
+00:21:59.530 --> 00:22:03.089
+Jitendra K: And that is where we are going to talk about the assumption of linear regression.
+
+226
+00:22:08.010 --> 00:22:15.259
+Jitendra K: So we'll talk about the assumption of linear regression. There are 5 key assumptions, 5 or 6 key assumptions, that we are going to learn.
+
+227
+00:22:15.700 --> 00:22:22.149
+Jitendra K: The first assumption says… The relationship between independent and dependent variable must be linear.
+
+228
+00:22:23.940 --> 00:22:25.859
+Jitendra K: Now, we'll talk about several tests.
+
+229
+00:22:26.270 --> 00:22:27.770
+Jitendra K: That we are going to conduct.
+
+230
+00:22:29.210 --> 00:22:33.020
+Jitendra K: These tests can be… coming under…
+
+231
+00:22:33.190 --> 00:22:37.179
+Jitendra K: Non-parametric scenarios, right? Mostly they are non-parametric.
+
+232
+00:22:37.930 --> 00:22:39.820
+Jitendra K: So we would like to discover
+
+233
+00:22:40.110 --> 00:22:43.180
+Jitendra K: The relationship between independent and dependent variable.
+
+234
+00:22:44.370 --> 00:22:48.159
+Jitendra K: So, we will use certain ways to check this.
+
+235
+00:22:49.280 --> 00:22:56.439
+Jitendra K: We can do a… ED exercise, we can plot them and see How it looks like.
+
+236
+00:22:57.400 --> 00:23:02.370
+Jitendra K: We can also use some tests to assume this and perform this analysis.
+
+237
+00:23:03.650 --> 00:23:08.830
+Jitendra K: The first assumption says that linearity between the variables. That means your Y
+
+238
+00:23:09.790 --> 00:23:15.870
+Jitendra K: and all independent variable, X1 to Xn, Should have a linear relationship.
+
+239
+00:23:15.970 --> 00:23:19.649
+Jitendra K: That's the first property of… Assumption of linear regression.
+
+240
+00:23:20.020 --> 00:23:25.689
+Jitendra K: The second property is called independence. That means your observation must be independent of each other.
+
+241
+00:23:27.570 --> 00:23:30.969
+Jitendra K: So, that means there should not be any auto-correlation.
+
+242
+00:23:31.120 --> 00:23:32.510
+Jitendra K: Between the variables.
+
+243
+00:23:34.490 --> 00:23:37.190
+Jitendra K: The third assumption is called homoscoticity.
+
+244
+00:23:38.090 --> 00:23:39.370
+Jitendra K: That means…
+
+245
+00:23:39.810 --> 00:23:46.769
+Jitendra K: the variance of the residual should be constant across all levels of independent variables. So here we are going to talk about
+
+246
+00:23:46.920 --> 00:23:49.010
+Jitendra K: Plotting the residual errors.
+
+247
+00:23:51.800 --> 00:23:53.949
+Jitendra K: So that is something which I'm going to talk about.
+
+248
+00:23:54.600 --> 00:23:58.910
+Jitendra K: Homochasticity versus… Heteroscardicity.
+
+249
+00:24:11.420 --> 00:24:15.570
+Jitendra K: Right? So basically, this is a very important test that we are going to talk about.
+
+250
+00:24:15.920 --> 00:24:19.229
+Jitendra K: And then, we will also talk about some more tests.
+
+251
+00:24:19.360 --> 00:24:22.790
+Jitendra K: which comes under… The same scenarios.
+
+252
+00:24:23.700 --> 00:24:24.530
+Jitendra K: the first…
+
+253
+00:24:25.060 --> 00:24:31.659
+Jitendra K: And the foremost is that we're going to assume, when we talk about plotting the residuals or error rate.
+
+254
+00:24:31.910 --> 00:24:37.639
+Jitendra K: The residual error should also follow a normal distribution. That means it should have a mean equal to 0.
+
+255
+00:24:38.300 --> 00:24:44.100
+Jitendra K: So, we are going to talk about something called QQ test, Chaproval's Test, where we are going to perform.
+
+256
+00:24:44.250 --> 00:24:48.830
+Jitendra K: this assumption with the help of a CLT, Central Limit Huron.
+
+257
+00:24:52.970 --> 00:25:04.240
+Jitendra K: So, we are also talking about the collinearity, multicollinearity, involvement in your Y, sorry, X variables. When we say X1 and X2, are they multicollinear? Are they having…
+
+258
+00:25:04.720 --> 00:25:10.999
+Jitendra K: certain impact on each other. We would like to understand the impact using VIS.
+
+259
+00:25:11.510 --> 00:25:13.999
+Jitendra K: Which is called Variance Inflation Test.
+
+260
+00:25:14.290 --> 00:25:15.100
+Jitendra K: a factor.
+
+261
+00:25:16.110 --> 00:25:21.600
+Jitendra K: So we're going to perform the VIEF test to understand the issue of multicollinearity.
+
+262
+00:25:23.660 --> 00:25:29.910
+Jitendra K: We will have one more assumption called no autocorrelation. That means that schedule should not be correlated with each other.
+
+263
+00:25:31.350 --> 00:25:36.669
+Jitendra K: And this is important, because… When you're performing a time series analysis.
+
+264
+00:25:36.800 --> 00:25:41.129
+Jitendra K: Let's say you would like to predict a stock price of a particular asset class.
+
+265
+00:25:41.410 --> 00:25:42.830
+Jitendra K: You're looking back.
+
+266
+00:25:43.780 --> 00:25:45.360
+Jitendra K: Right? So you're looking back.
+
+267
+00:25:46.330 --> 00:25:51.939
+Jitendra K: So you're looking for the futuristic option, Based upon the historical price.
+
+268
+00:25:55.270 --> 00:25:57.690
+Jitendra K: And then you will forecast that this
+
+269
+00:25:58.230 --> 00:26:03.060
+Jitendra K: Class, or this particular, share value will increase or decrease.
+
+270
+00:26:03.660 --> 00:26:05.790
+Jitendra K: Or whatever, it will remain constant.
+
+271
+00:26:06.030 --> 00:26:07.550
+Jitendra K: Depending upon this.
+
+272
+00:26:10.020 --> 00:26:13.269
+Jitendra K: So we're going to perform a set of tests called Durban-Watson Test.
+
+273
+00:26:14.230 --> 00:26:21.750
+Jitendra K: Where we are going to talk about, or no autoporrelation, or the test of autoporrelation in this particular scenario.
+
+274
+00:26:26.670 --> 00:26:32.259
+Jitendra K: Okay, so before moving on to the test, some of the real-world example of regression, so I think,
+
+275
+00:26:32.900 --> 00:26:36.150
+Jitendra K: So, one of the critical examples is the sale forecastings.
+
+276
+00:26:36.530 --> 00:26:43.140
+Jitendra K: So when we talk about sales forecasting, it is pretty much applicable for all retail use cases, all e-commerce use cases.
+
+277
+00:26:47.950 --> 00:26:50.740
+Jitendra K: So, this is also a part of MarkTech.
+
+278
+00:26:51.100 --> 00:26:57.859
+Jitendra K: Marketing technology, advertisement technology, ad tech, both worlds, has been impacted by sales forecasting.
+
+279
+00:26:59.680 --> 00:27:08.879
+Jitendra K: So, let's say I would like to perform, the budget allocation. I would like to optimize… let's say I'm investing 1 million US dollar.
+
+280
+00:27:12.980 --> 00:27:14.830
+Jitendra K: To a certain advertisement.
+
+281
+00:27:20.580 --> 00:27:21.770
+Jitendra K: From Facebook?
+
+282
+00:27:23.910 --> 00:27:28.909
+Jitendra K: Twitter… Maybe TikTok?
+
+283
+00:27:34.630 --> 00:27:35.819
+Jitendra K: Google Arts.
+
+284
+00:27:38.660 --> 00:27:46.549
+Jitendra K: They all generate revenue from ad, right? You know about it, right? So when they are showing the ad, they are charging this $1 million.
+
+285
+00:27:47.160 --> 00:27:51.759
+Jitendra K: Now, I cannot burn this cache by saying that, show the ad to all users.
+
+286
+00:27:52.830 --> 00:27:56.059
+Jitendra K: I will say show the ad to the niche users only.
+
+287
+00:27:56.640 --> 00:28:05.719
+Jitendra K: Because there's a budget allocation which has been… Provided by my… funding agency.
+
+288
+00:28:06.220 --> 00:28:09.339
+Jitendra K: So I would like to predict the future sales based upon
+
+289
+00:28:09.790 --> 00:28:14.159
+Jitendra K: Seasonality, economic indicators, and the user's personas.
+
+290
+00:28:14.500 --> 00:28:18.579
+Jitendra K: And depending upon those parameters, I would like to show an ad.
+
+291
+00:28:19.220 --> 00:28:23.209
+Jitendra K: on… Or maybe showing a different tag to a different user.
+
+292
+00:28:25.280 --> 00:28:31.779
+Jitendra K: The stock price prediction, When you would like to perform the analysis on the asset classes.
+
+293
+00:28:32.100 --> 00:28:39.520
+Jitendra K: future options, or maybe fixed-income products. So, you would like to know how the sectors are behaving.
+
+294
+00:28:40.310 --> 00:28:42.249
+Jitendra K: Let's say oil and gas sector.
+
+295
+00:28:43.000 --> 00:28:47.580
+Jitendra K: during Russia-Ukraine war. It's very different. Now it is stabilized.
+
+296
+00:28:48.390 --> 00:28:55.599
+Jitendra K: Then you have electronic industry. NVIDIA is a classical example. Their shares are, like, sky high, based upon
+
+297
+00:28:57.040 --> 00:29:06.910
+Jitendra K: the demand of GPUs, Then you have something called IT Industry in India, Which is TCS.
+
+298
+00:29:09.410 --> 00:29:11.989
+Jitendra K: Have low shares values because of layoffs.
+
+299
+00:29:12.410 --> 00:29:17.509
+Jitendra K: There are a number of reasons, or so-called macroeconomic factors, which impact the share prices.
+
+300
+00:29:19.070 --> 00:29:21.630
+Jitendra K: Right? So these share prices are fluctuating.
+
+301
+00:29:22.000 --> 00:29:28.460
+Jitendra K: Based upon different conditions, based upon different factors, Based upon different risks.
+
+302
+00:29:29.340 --> 00:29:32.140
+Jitendra K: per geography, So I'm talking about…
+
+303
+00:29:32.850 --> 00:29:35.330
+Jitendra K: NASDAQ, maybe it can be different.
+
+304
+00:29:36.470 --> 00:29:39.580
+Jitendra K: For Mumbai Stock Exchange, it will be different.
+
+305
+00:29:41.830 --> 00:29:46.720
+Jitendra K: Right? So, I'm just talking about… Country by share price.
+
+306
+00:29:47.790 --> 00:29:50.879
+Jitendra K: And then, depending upon those parameters, it will change.
+
+307
+00:29:51.640 --> 00:29:56.079
+Jitendra K: Right, so I would like to create a forecasting model That will predict
+
+308
+00:29:56.340 --> 00:29:59.089
+Jitendra K: The share price of this asset
+
+309
+00:29:59.800 --> 00:30:03.719
+Jitendra K: Which my user is trying to invest, as a portfolio manager.
+
+310
+00:30:04.340 --> 00:30:09.000
+Jitendra K: of that user, I would like to predict whether the stock will go high.
+
+311
+00:30:09.290 --> 00:30:14.770
+Jitendra K: Or if it go high, then what is the margin that my user is going to have? What is the gain he's going to have?
+
+312
+00:30:15.460 --> 00:30:18.170
+Jitendra K: So that means I'm reducing the risk of investment.
+
+313
+00:30:19.010 --> 00:30:20.650
+Jitendra K: Based upon this assessment.
+
+314
+00:30:20.950 --> 00:30:26.630
+Jitendra K: And what are the options that I'm having? I'm looking for past data, maybe 5-year…
+
+315
+00:30:27.340 --> 00:30:30.679
+Jitendra K: Down the line, past 5-year data, to analyze this
+
+316
+00:30:31.370 --> 00:30:34.569
+Jitendra K: And then come up with a solution that this talk will go.
+
+317
+00:30:34.860 --> 00:30:37.070
+Jitendra K: Maybe by 2-3%.
+
+318
+00:30:39.540 --> 00:30:40.320
+Jitendra K: above.
+
+319
+00:30:41.800 --> 00:30:45.780
+Jitendra K: This stock may go maybe minus 20%.
+
+320
+00:30:46.380 --> 00:30:47.790
+Jitendra K: In the upcoming future.
+
+321
+00:30:48.620 --> 00:30:55.810
+Jitendra K: So I would like to give a recommendation based upon these attributes. So that is where I would like to use heavily regression analysis to do this analysis.
+
+322
+00:30:56.270 --> 00:31:00.299
+Jitendra K: And that will come under multi-width regression models that we are going to talk about.
+
+323
+00:31:01.890 --> 00:31:08.910
+Jitendra K: Some of the real-world healthcare designs, you would like to predict, medical diagnostic data, BMI ratio.
+
+324
+00:31:09.290 --> 00:31:12.390
+Jitendra K: Blood pressure ratio, cholesterol level of the user.
+
+325
+00:31:12.680 --> 00:31:15.080
+Jitendra K: So, you can able to predict even heart attack.
+
+326
+00:31:15.430 --> 00:31:19.520
+Jitendra K: you have 20% chance of getting heart attack. How did the doctor say is that?
+
+327
+00:31:20.460 --> 00:31:27.189
+Jitendra K: Based upon your cholesterol, LDH, and sugar, and other types of tests that he is conducting.
+
+328
+00:31:27.870 --> 00:31:34.229
+Jitendra K: Practically, In any medical… Diagnosis, you cannot write any false information.
+
+329
+00:31:34.710 --> 00:31:39.319
+Jitendra K: If you write any false information, In the medical records.
+
+330
+00:31:39.900 --> 00:31:41.759
+Jitendra K: It will be a serious offense.
+
+331
+00:31:42.570 --> 00:31:50.209
+Jitendra K: But right now, every agency is doing this analysis, and they are saying that you have 20% of chances of getting heart attack if you're smoking.
+
+332
+00:31:50.370 --> 00:31:54.900
+Jitendra K: If you're drinking, Right? If your age is this.
+
+333
+00:31:55.980 --> 00:32:02.780
+Jitendra K: range, right? So they are predicting based upon your condition, based upon your heartbeat, based upon how
+
+334
+00:32:03.050 --> 00:32:19.969
+Jitendra K: What is your BMI ratio, how much, good cholesterol that you're having, how much bad cholesterol you are having, what's your blood glucose level, what is your H1… HPA1C level, what's… how much time your sugar spikes, so on and so forth. There are various factors he's trying to use.
+
+335
+00:32:20.350 --> 00:32:25.560
+Jitendra K: But they finally say that you have got 20% chances of getting the heart attack in the next 10 years.
+
+336
+00:32:28.360 --> 00:32:34.690
+Jitendra K: Right, so this is what… Medical diagnostic and prognosis analysis can be useful for.
+
+337
+00:32:36.680 --> 00:32:47.849
+Jitendra K: Drug doses optimization, that means you would like to do a clinical trial, medical trials, on drug dose optimization before rolling out any drug officially, you have to perform this test.
+
+338
+00:32:49.050 --> 00:32:50.590
+Jitendra K: And it's not new tests.
+
+339
+00:32:50.800 --> 00:32:54.310
+Jitendra K: That means, these tests are there.
+
+340
+00:32:54.840 --> 00:33:00.130
+Jitendra K: when… Machine learning even does not… coming to…
+
+341
+00:33:00.360 --> 00:33:03.759
+Jitendra K: the landscape. That means there's no machine learning algorithms.
+
+342
+00:33:03.990 --> 00:33:11.300
+Jitendra K: But still, the regression analysis has been done by drug industry, or medical… Diagnostic ND.
+
+343
+00:33:11.450 --> 00:33:13.540
+Jitendra K: medical manufacturing companies.
+
+344
+00:33:14.570 --> 00:33:20.179
+Jitendra K: So they are doing how… different data sites, they would like to approximate.
+
+345
+00:33:20.700 --> 00:33:25.839
+Jitendra K: the amount of drug dose per ml, and then try to understand how
+
+346
+00:33:26.040 --> 00:33:29.199
+Jitendra K: Different part of your body will perform.
+
+347
+00:33:29.660 --> 00:33:31.670
+Jitendra K: And then they will get a clinical.
+
+348
+00:33:32.120 --> 00:33:35.290
+Jitendra K: Approval from all the trials that you're performing.
+
+349
+00:33:38.080 --> 00:33:42.330
+Jitendra K: Climate modeling, you would like to predict the CO2 level of Earth.
+
+350
+00:33:42.690 --> 00:33:48.420
+Jitendra K: solar activity, eclipse formation. So these are all regression analysis.
+
+351
+00:33:48.810 --> 00:33:53.529
+Jitendra K: done by regression analysis, because solar eclipse Depends upon so many factors.
+
+352
+00:33:54.700 --> 00:33:58.729
+Jitendra K: It's not a fixed cycle, right? So you have to predict
+
+353
+00:33:58.940 --> 00:34:03.470
+Jitendra K: When it's going to be next solar eclipse, depending upon these uncertain parameters.
+
+354
+00:34:04.220 --> 00:34:11.830
+Jitendra K: ocean temperatures… basically… Which is also one of the primary concerns for
+
+355
+00:34:12.580 --> 00:34:22.029
+Jitendra K: many types of caliminities, natural disasters. So this is also predictable, based upon certain factors. One of the factors could be
+
+356
+00:34:22.440 --> 00:34:26.429
+Jitendra K: the… Ozone layer depletion rate.
+
+357
+00:34:27.080 --> 00:34:30.039
+Jitendra K: Which can lead to higher rise in ocean temperature.
+
+358
+00:34:31.360 --> 00:34:40.610
+Jitendra K: Agriculture age prediction, the use of fertilizers, rain crops, soil quality, the past crop rotations.
+
+359
+00:34:40.940 --> 00:34:47.339
+Jitendra K: The kind of, humidity level, temperature in that particular zone.
+
+360
+00:34:47.730 --> 00:34:53.349
+Jitendra K: It's all a determinant factor to determine how much agriculture you will produce this year.
+
+361
+00:34:54.489 --> 00:34:59.200
+Jitendra K: That's why crop rotation is important. That's why quality of soil is important.
+
+362
+00:34:59.530 --> 00:35:05.030
+Jitendra K: Fertilizer use, authentic fertilizer use, minimal fertilizer use is important.
+
+363
+00:35:05.490 --> 00:35:08.909
+Jitendra K: And then, annual rainfall is a critical factor.
+
+364
+00:35:09.290 --> 00:35:11.370
+Jitendra K: If it does not rain, you cannot help.
+
+365
+00:35:13.420 --> 00:35:16.690
+Jitendra K: Right? So this is where the insurance company
+
+366
+00:35:16.870 --> 00:35:19.340
+Jitendra K: We'll use the claims from the farmer.
+
+367
+00:35:19.580 --> 00:35:25.989
+Jitendra K: And they will… Use this data to either reject or approve the insurance.
+
+368
+00:35:27.630 --> 00:35:29.209
+Jitendra K: We can also find out
+
+369
+00:35:29.710 --> 00:35:39.600
+Jitendra K: a good regression analysis to identify the gross domestic product of a country, unemployment rate of the company, or I think even the literacy rate of a particular
+
+370
+00:35:40.140 --> 00:35:43.899
+Jitendra K: particular, states.
+
+371
+00:35:44.710 --> 00:35:52.270
+Jitendra K: Right? So this is what the real-world terminology is that has been used for. Some of the terminologies which have been used in technology and marketing sectors.
+
+372
+00:35:52.590 --> 00:35:58.369
+Jitendra K: Including real estate evaluation. Let's say the property price. So we will see some examples.
+
+373
+00:35:58.550 --> 00:36:04.110
+Jitendra K: Like, how to use aggression to… predict the California house price.
+
+374
+00:36:06.760 --> 00:36:09.769
+Jitendra K: how to predict… the house prices in India.
+
+375
+00:36:10.380 --> 00:36:24.460
+Jitendra K: right, against, maybe there are different metropolitan cities, including Bangalore, Hyderabad, Pune, Mumbai. They are all having different house prices, and brokers, and these advertisers who's chasing you in WhatsApp, they're asking.
+
+376
+00:36:24.620 --> 00:36:26.930
+Jitendra K: 2.5CR for 3BHK.
+
+377
+00:36:27.240 --> 00:36:30.269
+Jitendra K: How did they come up with 2.5CR for 3BHK?
+
+378
+00:36:31.480 --> 00:36:36.290
+Jitendra K: 10 years before, the same house might be 60 lakh, but they're now asking 8 times the money.
+
+379
+00:36:37.200 --> 00:36:43.790
+Jitendra K: Right, so all this thing we are going to talk about, what are the factors in which the real estate valuation can be done.
+
+380
+00:36:44.010 --> 00:36:46.640
+Jitendra K: From some data set that we are going to talk about.
+
+381
+00:36:47.200 --> 00:36:55.769
+Jitendra K: The customer lifetime value, which include predicting the CLV value, which is very important, which depends upon various factors, various services.
+
+382
+00:36:56.020 --> 00:37:03.589
+Jitendra K: various types of, engagement metrics with the users, and the CLV value may decrease or increase based upon these.
+
+383
+00:37:03.700 --> 00:37:04.780
+Jitendra K: Parsonos.
+
+384
+00:37:05.370 --> 00:37:10.330
+Jitendra K: The traffic prediction, that means I would like to forecast my website traffic.
+
+385
+00:37:11.080 --> 00:37:14.059
+Jitendra K: Or even, the road conventions.
+
+386
+00:37:14.250 --> 00:37:21.959
+Jitendra K: based upon the time, day, weather, condition, or some special occasions, based upon which I can predict the traffic patterns.
+
+387
+00:37:22.920 --> 00:37:30.269
+Jitendra K: Energy consumption forecasting, I would like to predict what will be my futuristic bill…
+
+388
+00:37:30.600 --> 00:37:33.679
+Jitendra K: If I continue to use in the same manner.
+
+389
+00:37:34.410 --> 00:37:37.199
+Jitendra K: So all these things are very important, and then.
+
+390
+00:37:37.390 --> 00:37:49.779
+Jitendra K: We will talk about a cost function. So, any question until this point? Anything you would like to add on some of the other use cases that you have heard on linear regression, or classical linear regression, or multivariate regression?
+
+391
+00:37:50.240 --> 00:37:53.989
+Jitendra K: from your own… Examples or experiences?
+
+392
+00:38:02.670 --> 00:38:04.590
+Jitendra K: So, what, what is,
+
+393
+00:38:04.920 --> 00:38:12.239
+Jitendra K: So, I hope you have attended the professor lectures as well, so any new topic or any new example that he has shared.
+
+394
+00:38:15.760 --> 00:38:20.969
+Jitendra K: Yeah, question, I will take it later, but I'm just asking… just answer that question first.
+
+395
+00:38:25.160 --> 00:38:26.790
+Jitendra K: No new examples.
+
+396
+00:38:31.430 --> 00:38:32.690
+Jitendra K: Okay, cricket.
+
+397
+00:38:32.820 --> 00:38:34.280
+Jitendra K: Yeah, that's great.
+
+398
+00:38:35.320 --> 00:38:41.749
+Jitendra K: specifically… The betting apps are using it, yes.
+
+399
+00:38:44.520 --> 00:38:47.040
+Jitendra K: Weather, stock markets, yes?
+
+400
+00:38:49.440 --> 00:38:54.579
+Jitendra K: Yeah, so basically, these are some of the applications which is heavily using regression, right?
+
+401
+00:38:54.790 --> 00:39:02.200
+Jitendra K: So, oil and fuel prices, of course, yes, depending upon macroeconomic variables, again, the oil price can change.
+
+402
+00:39:02.560 --> 00:39:07.810
+Jitendra K: If Trump says something, The stock price may go at worst.
+
+403
+00:39:09.260 --> 00:39:16.829
+Jitendra K: Trump declared a war, maybe, in future, it will have serious implications on certain countries, for sure.
+
+404
+00:39:17.570 --> 00:39:21.629
+Jitendra K: Right? So these are all geopolitical scenarios, which is heavily impacting the…
+
+405
+00:39:21.900 --> 00:39:25.519
+Jitendra K: prices and surging, right? So this is what…
+
+406
+00:39:25.720 --> 00:39:34.870
+Jitendra K: Where we are living in the world of uncertainty, and it's not in our hand to manage this uncertainty, right? Even though job losses are happening.
+
+407
+00:39:35.140 --> 00:39:37.359
+Jitendra K: Now, people are saying that if you…
+
+408
+00:39:38.100 --> 00:39:41.339
+Jitendra K: Learn technology, you will get better.
+
+409
+00:39:42.530 --> 00:39:51.449
+Jitendra K: maybe the reality could be different. So there are a number of things which is happening, in the macroeconomic variables, or factors which can impact
+
+410
+00:39:51.670 --> 00:39:58.709
+Jitendra K: different things, right? Alright, so we will start with the assumption of linear regression, and I will take
+
+411
+00:39:59.110 --> 00:40:02.989
+Jitendra K: the Python example. First, let me explain the assumption of linear regression.
+
+412
+00:40:03.300 --> 00:40:05.750
+Jitendra K: So when we talk about assumption of linear regression.
+
+413
+00:40:06.510 --> 00:40:12.090
+Jitendra K: Right? So, it is very important to talk about hypothesis testing.
+
+414
+00:40:12.960 --> 00:40:19.770
+Jitendra K: So, hypothesis testing… So, I will give you an example.
+
+415
+00:40:21.650 --> 00:40:28.369
+Jitendra K: So, what is hypothesis testing? So, hypothesis testing is nothing but It's a statistical test.
+
+416
+00:40:28.510 --> 00:40:29.920
+Jitendra K: That we are conduct.
+
+417
+00:40:30.140 --> 00:40:36.230
+Jitendra K: to validate, the hypothesis. Now, there are two types of hypotheses. Statement.
+
+418
+00:40:36.620 --> 00:40:39.859
+Jitendra K: That you are going to make. The first statement is called H0.
+
+419
+00:40:42.830 --> 00:40:45.069
+Jitendra K: Which is called null hypothesis.
+
+420
+00:40:48.820 --> 00:40:51.460
+Jitendra K: The second statement is called HA.
+
+421
+00:40:52.600 --> 00:40:55.860
+Jitendra K: Which is also called as alternative null hypothesis.
+
+422
+00:41:01.960 --> 00:41:06.880
+Jitendra K: Now, when you say H0 and H1, in this context, I'm saying that…
+
+423
+00:41:07.260 --> 00:41:09.790
+Jitendra K: The variance between the three groups.
+
+424
+00:41:09.910 --> 00:41:12.639
+Jitendra K: Blue, orange, and the green.
+
+425
+00:41:13.440 --> 00:41:18.570
+Jitendra K: I'm assuming that the mean values are all same.
+
+426
+00:41:21.040 --> 00:41:24.050
+Jitendra K: That means there's no relationship between these three.
+
+427
+00:41:24.210 --> 00:41:25.490
+Jitendra K: distributions.
+
+428
+00:41:28.800 --> 00:41:35.860
+Jitendra K: The second… Example, the graph that you can see here, you can see the separation between the three
+
+429
+00:41:36.870 --> 00:41:43.250
+Jitendra K: And I can see that the mean, or the… there's… there's a relationship between the three variables.
+
+430
+00:41:43.520 --> 00:41:51.670
+Jitendra K: So I'm saying that the first hypothesis I will create by saying that the mean value are equal…
+
+431
+00:41:52.770 --> 00:41:55.419
+Jitendra K: M2 and M3 are all three equal.
+
+432
+00:41:55.710 --> 00:41:58.040
+Jitendra K: And I will state that there's no relationship.
+
+433
+00:41:58.460 --> 00:42:01.050
+Jitendra K: No relationship between them.
+
+434
+00:42:02.110 --> 00:42:05.369
+Jitendra K: When I say M1 is not equal to M2,
+
+435
+00:42:08.200 --> 00:42:10.520
+Jitendra K: And M2 is not equal to M3.
+
+436
+00:42:12.620 --> 00:42:15.140
+Jitendra K: I will say there are a relationship between them.
+
+437
+00:42:15.950 --> 00:42:21.760
+Jitendra K: So basically, there's something called p-value significance that we are going to utilize
+
+438
+00:42:21.950 --> 00:42:24.390
+Jitendra K: To measure the efficacy of this.
+
+439
+00:42:24.540 --> 00:42:33.580
+Jitendra K: So if the p-value is less than or equal to 0.5, which is 5% critical rate, 0.05, 5% critical rate.
+
+440
+00:42:34.750 --> 00:42:38.780
+Jitendra K: Then I will say that the alternative hypothesis holds true.
+
+441
+00:42:41.660 --> 00:42:46.740
+Jitendra K: If the p-value is greater than… 0.05.
+
+442
+00:42:48.450 --> 00:42:52.349
+Jitendra K: then I will say that the null value holds valid.
+
+443
+00:42:54.850 --> 00:42:59.209
+Jitendra K: So that is how you're going to do a significance test on 5%.
+
+444
+00:43:02.170 --> 00:43:03.410
+Jitendra K: distribution.
+
+445
+00:43:06.240 --> 00:43:11.619
+Jitendra K: I haven't come up with this, so this is a statistical tests, so this is predefined.
+
+446
+00:43:12.030 --> 00:43:13.550
+Jitendra K: I didn't arrive on this.
+
+447
+00:43:15.220 --> 00:43:16.660
+Jitendra K: 5% test.
+
+448
+00:43:16.770 --> 00:43:20.570
+Jitendra K: A 5% significant test is something which is predetermined.
+
+449
+00:43:21.140 --> 00:43:26.980
+Jitendra K: So basically, what we are trying to do is, the p-value is… telling you…
+
+450
+00:43:27.340 --> 00:43:29.750
+Jitendra K: How much area they are overlapping.
+
+451
+00:43:30.980 --> 00:43:37.449
+Jitendra K: If the p-value is less than 5%, then I will say that…
+
+452
+00:43:37.700 --> 00:43:43.149
+Jitendra K: M1 and M2 and M3, they are all having a relationship, but they are not equal.
+
+453
+00:43:46.920 --> 00:43:53.479
+Jitendra K: If the p-value is greater than 0.05, then I will say that they are not having any relationship, but they are all equal.
+
+454
+00:43:55.350 --> 00:44:00.589
+Jitendra K: Right? So this is how you're going to validate your hypothesis. So let me put into a simple term.
+
+455
+00:44:01.150 --> 00:44:14.649
+Jitendra K: So let's say I would like to find it out, let's say I'm working on… Finding the… relationship between…
+
+456
+00:44:15.370 --> 00:44:20.170
+Jitendra K: The price of a car, Versus…
+
+457
+00:44:24.230 --> 00:44:25.440
+Jitendra K: the mileage.
+
+458
+00:44:32.270 --> 00:44:37.279
+Jitendra K: Alright, so mileage itself depends upon several factors. How well the car been maintained?
+
+459
+00:44:42.080 --> 00:44:43.410
+Jitendra K: Age of the car.
+
+460
+00:44:47.460 --> 00:44:48.960
+Jitendra K: manufacture type.
+
+461
+00:44:51.580 --> 00:44:54.640
+Jitendra K: Alright, so if I say that if the mileage of the car is high.
+
+462
+00:44:54.930 --> 00:44:56.830
+Jitendra K: The price of the car is also high.
+
+463
+00:44:57.030 --> 00:44:59.019
+Jitendra K: And that is my assumption that I'm making.
+
+464
+00:44:59.980 --> 00:45:01.440
+Jitendra K: But, it can…
+
+465
+00:45:01.810 --> 00:45:08.399
+Jitendra K: back to defer when we are using a sedan or more luxurious car. They will have a less mileage.
+
+466
+00:45:09.570 --> 00:45:12.250
+Jitendra K: So that means my assumption will fail in those conditions.
+
+467
+00:45:12.880 --> 00:45:22.679
+Jitendra K: Right? So that is where I'm trying to generalize this assumption with a terminology called hypothesis testing. So hypothesis testing is a very important test
+
+468
+00:45:23.010 --> 00:45:26.340
+Jitendra K: That you are going to perform to validate your assumption.
+
+469
+00:45:27.090 --> 00:45:29.059
+Jitendra K: And how will you make these assumptions?
+
+470
+00:45:29.770 --> 00:45:33.759
+Jitendra K: How will you make these assumptions? By understanding the data.
+
+471
+00:45:34.330 --> 00:45:39.539
+Jitendra K: From the business users, or you can self-inspect the data and come up with this hypothesis.
+
+472
+00:45:41.070 --> 00:45:47.130
+Jitendra K: You can say that… let's say if I'm giving you the data of a death rate in a country.
+
+473
+00:45:52.860 --> 00:45:59.050
+Jitendra K: So you can assume that a death threat of the country depends upon Several factors.
+
+474
+00:46:00.180 --> 00:46:03.989
+Jitendra K: The first factor is, could be accessibility to medical…
+
+475
+00:46:08.820 --> 00:46:10.010
+Jitendra K: Facilities…
+
+476
+00:46:14.640 --> 00:46:17.110
+Jitendra K: The healthy routine, the lifestyle.
+
+477
+00:46:22.540 --> 00:46:28.409
+Jitendra K: Because government is giving… Free food, free vaccination to everyone.
+
+478
+00:46:28.600 --> 00:46:30.310
+Jitendra K: Even the foots are free.
+
+479
+00:46:30.580 --> 00:46:32.330
+Jitendra K: They're offering Russian.
+
+480
+00:46:32.750 --> 00:46:34.290
+Jitendra K: To the poorer people.
+
+481
+00:46:34.590 --> 00:46:36.450
+Jitendra K: Vaccinations are free.
+
+482
+00:46:36.690 --> 00:46:46.419
+Jitendra K: you have got, what do you call that, Aadhaar card, and then medical card facility, right? But still, the death rate is high, just because of…
+
+483
+00:46:46.820 --> 00:46:47.950
+Jitendra K: unawareness.
+
+484
+00:46:49.770 --> 00:46:53.020
+Jitendra K: Right, so government is doing its job to protect
+
+485
+00:46:53.590 --> 00:46:58.809
+Jitendra K: the… I'm not saying that, those who are below poverty line, they will die.
+
+486
+00:46:58.970 --> 00:47:00.320
+Jitendra K: I'm talking in general.
+
+487
+00:47:00.920 --> 00:47:01.620
+Jitendra K: Right?
+
+488
+00:47:01.770 --> 00:47:12.920
+Jitendra K: So, this is the mortality rate which decide, the access to medical cares, their, contingency in terms of health routines, etc, and that determines the mortality rate.
+
+489
+00:47:13.280 --> 00:47:17.240
+Jitendra K: The mortality rate for rich could be based upon their lifestyle.
+
+490
+00:47:20.770 --> 00:47:25.260
+Jitendra K: How they follow regime, what… how much stress they are taking during their…
+
+491
+00:47:25.480 --> 00:47:29.659
+Jitendra K: Working activities, how much exercise they are performing.
+
+492
+00:47:30.070 --> 00:47:35.969
+Jitendra K: How many cigars, cigarettes they are smoking, tobacco consumption, alcohol consumption, all they determine
+
+493
+00:47:36.120 --> 00:47:39.540
+Jitendra K: The mortality rate of a country, right?
+
+494
+00:47:39.820 --> 00:47:50.709
+Jitendra K: So there are different factors, I mean to say. So, right? But we can make a very educated guess that these are some of the critical factors which decide the mortality rate of a country.
+
+495
+00:47:51.600 --> 00:47:56.970
+Jitendra K: So this can be… are totally different factors for Australia.
+
+496
+00:47:57.160 --> 00:48:01.700
+Jitendra K: USA, right? But for India, I can have these factors.
+
+497
+00:48:02.140 --> 00:48:07.720
+Jitendra K: Right, so basically, I will make an assumption that these are the critical factor. But are these assumptions valid?
+
+498
+00:48:08.720 --> 00:48:12.360
+Jitendra K: I will be able to get the answer when I perform some tests.
+
+499
+00:48:12.540 --> 00:48:15.620
+Jitendra K: To prove this point, that yes, these assumptions are valid.
+
+500
+00:48:17.490 --> 00:48:26.740
+Jitendra K: Right? So this is what's called hypothesis. You start with some assumptions before you perform any experimentation. So these assumptions may be valid or may not be valid.
+
+501
+00:48:27.490 --> 00:48:29.310
+Jitendra K: And that is called hypothesis.
+
+502
+00:48:29.790 --> 00:48:35.270
+Jitendra K: Now, we'll talk about what are the different assumptions of linear regression, or hypothesis of linear regression.
+
+503
+00:48:35.590 --> 00:48:41.910
+Jitendra K: So the first hypothesis that we have talked about is your model assumed a linear relationship between the
+
+504
+00:48:43.720 --> 00:48:45.420
+Jitendra K: X and Y variables.
+
+505
+00:48:46.260 --> 00:48:50.560
+Jitendra K: Right, so when you say… This is the biggest assumption that we are making.
+
+506
+00:48:51.350 --> 00:48:55.810
+Jitendra K: Are these variables are linear in nature, or quasilinear in nature?
+
+507
+00:48:56.330 --> 00:49:02.130
+Jitendra K: Or nonlinear in nature, so that depends upon the variable tendency itself.
+
+508
+00:49:02.470 --> 00:49:05.330
+Jitendra K: So when we are making this assumption that I've got
+
+509
+00:49:06.080 --> 00:49:09.609
+Jitendra K: let's say X and Y, maybe more X…
+
+510
+00:49:10.000 --> 00:49:17.069
+Jitendra K: and 1Y. So in those scenarios, how will I be able to entangle if they are not nonlinear? Oh, sorry, if they are not linear?
+
+511
+00:49:17.800 --> 00:49:20.410
+Jitendra K: Can I do something to make them linear?
+
+512
+00:49:21.790 --> 00:49:24.519
+Jitendra K: Right, so all these things we will discuss now.
+
+513
+00:49:25.300 --> 00:49:29.389
+Jitendra K: Now, the first assumption that we are going to make is assumption of linearity.
+
+514
+00:49:29.810 --> 00:49:32.969
+Jitendra K: We are assuming that our variables are linear in nature.
+
+515
+00:49:37.110 --> 00:49:39.469
+Jitendra K: Right, so let's try to understand this.
+
+516
+00:49:40.060 --> 00:49:42.380
+Jitendra K: With the help of some example.
+
+517
+00:49:42.630 --> 00:49:48.360
+Jitendra K: So basically, A linearity exists between the predictor and the target variable.
+
+518
+00:49:49.050 --> 00:49:52.120
+Jitendra K: Right? But in practical, you might not have.
+
+519
+00:49:54.320 --> 00:49:59.800
+Jitendra K: So let's say if I'm having, maybe a simple analysis that I would like to perform.
+
+520
+00:49:59.970 --> 00:50:05.199
+Jitendra K: on the churn probability of a telecom user. Let's say I'm a telecom provider.
+
+521
+00:50:08.020 --> 00:50:09.349
+Jitendra K: It's a geo…
+
+522
+00:50:13.850 --> 00:50:15.300
+Jitendra K: Right? Or ATL.
+
+523
+00:50:16.070 --> 00:50:18.399
+Jitendra K: So how will they do analysis for?
+
+524
+00:50:19.210 --> 00:50:20.490
+Jitendra K: Churn prediction.
+
+525
+00:50:21.240 --> 00:50:23.939
+Jitendra K: What is churn prediction? Churn probability.
+
+526
+00:50:24.940 --> 00:50:31.200
+Jitendra K: Churn probability is nothing but… it's an analysis which has been done by every telecom vendor.
+
+527
+00:50:31.500 --> 00:50:34.839
+Jitendra K: To predict, The probability of a churn.
+
+528
+00:50:36.420 --> 00:50:41.050
+Jitendra K: And this probability will be between 0 to 100%.
+
+529
+00:50:43.760 --> 00:50:46.670
+Jitendra K: Zero being the best for telecom vendors.
+
+530
+00:50:47.050 --> 00:50:51.570
+Jitendra K: 100 being the worst, right? Now, what are the factors which impact this?
+
+531
+00:50:53.990 --> 00:50:58.829
+Jitendra K: The factors include… The annual or the monthly?
+
+532
+00:50:59.020 --> 00:51:00.630
+Jitendra K: Subscription rate.
+
+533
+00:51:02.510 --> 00:51:07.390
+Jitendra K: I would say monthly bills, post-pays, prepaid, whatever bill you're using.
+
+534
+00:51:07.700 --> 00:51:11.470
+Jitendra K: But you are generating a recursive revenue using monthly.
+
+535
+00:51:13.060 --> 00:51:14.020
+Jitendra K: Bills?
+
+536
+00:51:14.430 --> 00:51:19.469
+Jitendra K: If you increase the bill, By, let's say, 5%, 10%,
+
+537
+00:51:19.760 --> 00:51:22.390
+Jitendra K: Like, recently, which has been happening.
+
+538
+00:51:22.530 --> 00:51:24.380
+Jitendra K: There's a high likelihood of churn.
+
+539
+00:51:24.640 --> 00:51:26.610
+Jitendra K: Right, but if these two vendors
+
+540
+00:51:26.830 --> 00:51:30.149
+Jitendra K: Simultaneously increasing the price, customers have no choice.
+
+541
+00:51:30.560 --> 00:51:34.149
+Jitendra K: Right, so they've become a monopoly for the telecom binder.
+
+542
+00:51:34.540 --> 00:51:37.490
+Jitendra K: It could be the network interruption that you are facing.
+
+543
+00:51:39.050 --> 00:51:44.319
+Jitendra K: How many times your call get dropped? I don't think so it is now even possible.
+
+544
+00:51:44.570 --> 00:51:50.960
+Jitendra K: In the outskirts, there's no call drop, but let's assume that this is one of the Idiot.
+
+545
+00:51:51.880 --> 00:51:57.550
+Jitendra K: Third is… the amount of services that you are using, you are using maybe,
+
+546
+00:51:57.700 --> 00:52:02.969
+Jitendra K: Amount of services, apart from The telephone call, you're using, internet.
+
+547
+00:52:04.590 --> 00:52:07.119
+Jitendra K: So, how many times your internet get disruptive?
+
+548
+00:52:08.220 --> 00:52:13.180
+Jitendra K: Considering a fact that There's a hybrid work environment, right?
+
+549
+00:52:13.540 --> 00:52:17.109
+Jitendra K: So, you are going to have a call, complaint locks.
+
+550
+00:52:20.470 --> 00:52:27.089
+Jitendra K: And you are getting annoyed because they are not doing much to resolve your query. So then you will switch to some other place.
+
+551
+00:52:29.570 --> 00:52:34.720
+Jitendra K: Fourth factor could be… You're going to have… some discount.
+
+552
+00:52:36.300 --> 00:52:44.819
+Jitendra K: offers… Netflix… Maybe they will give you… some more…
+
+553
+00:52:45.610 --> 00:52:51.759
+Jitendra K: platforms, entertainment platform, or so-called the…
+
+554
+00:52:53.060 --> 00:53:03.389
+Jitendra K: the media channels for you, so in that scenario, you will say that at least I'm getting some benefit, right? So the offers, discount, which is very important for consumer engagement.
+
+555
+00:53:04.270 --> 00:53:10.720
+Jitendra K: Could be… If you're giving, not just OTT platform, but…
+
+556
+00:53:11.280 --> 00:53:16.510
+Jitendra K: You're also giving some more bandwidth To internet connection.
+
+557
+00:53:16.830 --> 00:53:25.820
+Jitendra K: So let's say compatibility with 5G, right, and higher plans, you're offering with the same rate. Just compatibility are making differences.
+
+558
+00:53:26.150 --> 00:53:34.619
+Jitendra K: Right? So this is called recurring revenue that they are going to generate, based upon these services. Now, these services, if I have to perform a regression analysis.
+
+559
+00:53:34.830 --> 00:53:38.499
+Jitendra K: And then try to identify that which particular
+
+560
+00:53:38.850 --> 00:53:42.440
+Jitendra K: Factor impact or influence the decision-making of the customer?
+
+561
+00:53:43.150 --> 00:53:45.610
+Jitendra K: to drop… My plan.
+
+562
+00:53:45.780 --> 00:53:49.060
+Jitendra K: Let's say you are a user of GEO, and you're investing 500.
+
+563
+00:53:50.030 --> 00:53:57.549
+Jitendra K: on an average, Including your… I would say, including your Wi-Fi, I will say 1,000.
+
+564
+00:53:57.660 --> 00:53:59.299
+Jitendra K: 200 per month.
+
+565
+00:54:00.270 --> 00:54:01.410
+Jitendra K: INR.
+
+566
+00:54:03.230 --> 00:54:04.020
+Jitendra K: Right?
+
+567
+00:54:04.290 --> 00:54:15.720
+Jitendra K: So you will not see that Airtel all of a sudden will offer you $1,000, because that's the agreement between them. They will not offer you the competitive price. That's against their agreement between the GEO and the Airtel. They will not offer you.
+
+568
+00:54:15.910 --> 00:54:17.779
+Jitendra K: But they will offer you services.
+
+569
+00:54:19.640 --> 00:54:23.780
+Jitendra K: So they will decide… What… how to influence a customer.
+
+570
+00:54:24.590 --> 00:54:27.930
+Jitendra K: How to influence what are the decision-making points of the customers.
+
+571
+00:54:28.080 --> 00:54:31.760
+Jitendra K: But they will reach out to you at… I'm offering you OTT subscriptions.
+
+572
+00:54:31.880 --> 00:54:34.900
+Jitendra K: One year free, of course. Disney, Hotstar.
+
+573
+00:54:35.920 --> 00:54:37.340
+Jitendra K: Netflix.
+
+574
+00:54:37.590 --> 00:54:42.879
+Jitendra K: There are some more OTT platforms, right? So they will offer you a free subscription for them.
+
+575
+00:54:43.510 --> 00:54:45.579
+Jitendra K: They will offer you higher bandwidth.
+
+576
+00:54:45.820 --> 00:54:46.949
+Jitendra K: With the same rate.
+
+577
+00:54:47.460 --> 00:54:51.719
+Jitendra K: They will offer you… Maybe that, this…
+
+578
+00:54:51.910 --> 00:54:58.980
+Jitendra K: They will give you a survey data that, the network coverage in your locality is very, very strong.
+
+579
+00:54:59.650 --> 00:55:02.479
+Jitendra K: The word-of-mouth publicity, they will also give it to you.
+
+580
+00:55:02.910 --> 00:55:06.209
+Jitendra K: Right? They will give you dedicated fiber cables.
+
+581
+00:55:08.090 --> 00:55:10.859
+Jitendra K: Right? Network interruption will be zero in that case.
+
+582
+00:55:11.010 --> 00:55:13.300
+Jitendra K: for your Wi-Fi, or for your router.
+
+583
+00:55:13.490 --> 00:55:15.999
+Jitendra K: It can work 24 across 7, easily.
+
+584
+00:55:16.610 --> 00:55:19.089
+Jitendra K: Right? So these are some of the…
+
+585
+00:55:19.390 --> 00:55:22.450
+Jitendra K: Kind of a marketing practice that these…
+
+586
+00:55:23.070 --> 00:55:26.730
+Jitendra K: Platforms are using to market themselves, to position themselves.
+
+587
+00:55:27.260 --> 00:55:31.410
+Jitendra K: But in a nutshell, if, as a, as a… let's say I don't have a competitor data.
+
+588
+00:55:31.670 --> 00:55:37.049
+Jitendra K: Because they will hide this data. They will not say that my 50% customers are annoyed.
+
+589
+00:55:37.390 --> 00:55:42.510
+Jitendra K: On this region. Otherwise, Airtel will find an opportunity to acquire these 50% customers from GEO.
+
+590
+00:55:42.680 --> 00:55:44.049
+Jitendra K: Definitely, they will do it.
+
+591
+00:55:44.710 --> 00:55:51.530
+Jitendra K: So they will not perform a direct survey, but they will rather use their frequency benchmarks, their analysis.
+
+592
+00:55:51.760 --> 00:55:54.899
+Jitendra K: To understand what's the call drop rate in this area.
+
+593
+00:55:55.850 --> 00:55:56.590
+Jitendra K: Right?
+
+594
+00:55:56.800 --> 00:56:03.770
+Jitendra K: They might have different subscriber… Whom they have previously
+
+595
+00:56:04.240 --> 00:56:11.669
+Jitendra K: they are previously consumer of Airtel, but they have churned and then joined GEO. They would like to make sure that these customers
+
+596
+00:56:11.880 --> 00:56:14.039
+Jitendra K: We'll guide back to their platform again.
+
+597
+00:56:14.610 --> 00:56:17.809
+Jitendra K: So these are the competitive strategies that they would like to create.
+
+598
+00:56:17.960 --> 00:56:19.080
+Jitendra K: Always.
+
+599
+00:56:19.230 --> 00:56:24.859
+Jitendra K: With the help of technology, with the help of better coverage, with the help of better, offerings.
+
+600
+00:56:25.600 --> 00:56:30.600
+Jitendra K: And then they will decide if I'm going to reduce the probability of churn of my existing customers.
+
+601
+00:56:30.740 --> 00:56:32.970
+Jitendra K: Now, here I'm talking about existing customers.
+
+602
+00:56:33.470 --> 00:56:37.060
+Jitendra K: Futures take customers, prospective customers is a different analysis.
+
+603
+00:56:37.400 --> 00:56:41.599
+Jitendra K: Here I'm talking about existing customer. I have got 2 million customers.
+
+604
+00:56:43.790 --> 00:56:48.059
+Jitendra K: Now, I would like to maintain them, because 2 million into…
+
+605
+00:56:48.650 --> 00:56:52.620
+Jitendra K: Let's say on average, I'm getting 700, it will be a huge amount.
+
+606
+00:56:54.270 --> 00:56:57.400
+Jitendra K: Right? So I do not want to lose this amount.
+
+607
+00:56:57.590 --> 00:57:00.780
+Jitendra K: But I would like to definitely encash more customer.
+
+608
+00:57:01.020 --> 00:57:01.820
+Jitendra K: From here.
+
+609
+00:57:02.970 --> 00:57:08.889
+Jitendra K: while maintaining the relationship with the existing customers, based upon the services that I'm offering.
+
+610
+00:57:09.780 --> 00:57:12.449
+Jitendra K: If I'm getting a proper agreement.
+
+611
+00:57:13.340 --> 00:57:19.160
+Jitendra K: And then I'm making these errors, network interruption, I'm increasing the amount all of a sudden.
+
+612
+00:57:19.720 --> 00:57:24.400
+Jitendra K: I'm not giving a sufficient discount, not giving them proper bandwidth.
+
+613
+00:57:24.780 --> 00:57:37.059
+Jitendra K: Then, of course, these customers will likely to go with other competitor, or other subscription provider, or network provider, who is giving better services than me, and with a better rate, lesser rate, as compared to me.
+
+614
+00:57:38.490 --> 00:57:39.880
+Jitendra K: Right? So this is what…
+
+615
+00:57:40.620 --> 00:57:45.649
+Jitendra K: the analysis which has been performed by telecom vendors. Similar sort of analysis has been performed by banks as well.
+
+616
+00:57:46.030 --> 00:57:47.650
+Jitendra K: So they would like to know
+
+617
+00:57:48.910 --> 00:57:53.969
+Jitendra K: What kind of portfolios the customer maintains in the bank. You will have a loan account.
+
+618
+00:57:54.470 --> 00:57:56.310
+Jitendra K: You will have a salary account.
+
+619
+00:57:56.500 --> 00:57:58.169
+Jitendra K: You will have a saving account.
+
+620
+00:58:01.140 --> 00:58:02.840
+Jitendra K: They maintain your assets.
+
+621
+00:58:03.940 --> 00:58:06.330
+Jitendra K: Right? So they maintain your assets.
+
+622
+00:58:06.550 --> 00:58:12.000
+Jitendra K: And then, based upon that, they offer you Services like insurance products.
+
+623
+00:58:13.130 --> 00:58:14.349
+Jitendra K: Loan products.
+
+624
+00:58:15.250 --> 00:58:22.210
+Jitendra K: Based upon your historical… Transaction, history of transaction, you're investing.
+
+625
+00:58:22.500 --> 00:58:25.720
+Jitendra K: Investing in certain, let's say, sectors.
+
+626
+00:58:25.950 --> 00:58:30.249
+Jitendra K: They offer you loan based upon your company profile.
+
+627
+00:58:30.370 --> 00:58:34.110
+Jitendra K: You're working for certain sectors, they will give you certain offerings.
+
+628
+00:58:34.400 --> 00:58:39.649
+Jitendra K: So basically, this is all analysis which has been conducted on a regular basis by bank as well.
+
+629
+00:58:39.770 --> 00:58:50.730
+Jitendra K: To understand the probability of churn of a customer, and probability of making a default. So here, there's no criteria called churn, but here we are talking about probability of making a default.
+
+630
+00:58:54.310 --> 00:58:55.080
+Jitendra K: Right?
+
+631
+00:58:55.980 --> 00:58:59.640
+Jitendra K: So this is where the regression analysis can be very, very useful for that purpose.
+
+632
+00:59:00.100 --> 00:59:03.649
+Jitendra K: So when we talk about a probability, it's a scale between 0 to 1.
+
+633
+00:59:05.820 --> 00:59:09.739
+Jitendra K: Right? So that is where we would like to create a range of probability.
+
+634
+00:59:10.030 --> 00:59:15.649
+Jitendra K: By which, we can able to identify the risk in terms of sanctioning certain things.
+
+635
+00:59:16.170 --> 00:59:17.250
+Jitendra K: to the customer.
+
+636
+00:59:18.260 --> 00:59:28.410
+Jitendra K: Alright, so with that, we will start with the assumption of linear regression. So the first assumption of linear regression is the linearity. So when you say linearity between X and Y, that means we are assuming that
+
+637
+00:59:28.680 --> 00:59:34.769
+Jitendra K: the… the linear regression In case of simple linear regression.
+
+638
+00:59:35.620 --> 00:59:38.779
+Jitendra K: One response variable and one predictor, we can find.
+
+639
+00:59:39.260 --> 00:59:44.349
+Jitendra K: By performing the analysis on a residual plot or scattered plot.
+
+640
+00:59:44.650 --> 00:59:51.389
+Jitendra K: So I can be able to find out the relationship between the two by just plotting the graphs…
+
+641
+00:59:52.650 --> 00:59:58.490
+Jitendra K: like this And then I can able to find a relationship between the two variables. Now, here I'm plotting
+
+642
+00:59:58.610 --> 01:00:02.630
+Jitendra K: The mileage per gallon versus horsepower of the engine.
+
+643
+01:00:02.850 --> 01:00:04.750
+Jitendra K: And you can see that I'm getting…
+
+644
+01:00:04.880 --> 01:00:09.859
+Jitendra K: different responses for that. So maybe just… this is just for illustration purposes.
+
+645
+01:00:10.100 --> 01:00:14.480
+Jitendra K: But what I'm trying to say here is, I can able to use such sort of graph
+
+646
+01:00:14.750 --> 01:00:16.110
+Jitendra K: To create a model.
+
+647
+01:00:16.360 --> 01:00:20.479
+Jitendra K: And then it will simply use this formula to depict.
+
+648
+01:00:25.390 --> 01:00:28.900
+Jitendra K: Right? Now, when I have a nonlinear transformation.
+
+649
+01:00:29.140 --> 01:00:32.349
+Jitendra K: Sorry, nonlinear relationship between the regression and the…
+
+650
+01:00:33.060 --> 01:00:36.010
+Jitendra K: regression variables and the Y predictor.
+
+651
+01:00:36.260 --> 01:00:41.439
+Jitendra K: then what I can do to make it linear. So I can perform a transformation.
+
+652
+01:00:44.390 --> 01:00:45.930
+Jitendra K: on the factors.
+
+653
+01:00:47.240 --> 01:00:51.470
+Jitendra K: Like, I can take a log, I can take an exponential, I can take a square root.
+
+654
+01:00:52.360 --> 01:00:54.860
+Jitendra K: Try to make it linear.
+
+655
+01:00:55.550 --> 01:01:03.180
+Jitendra K: As well. So let's say if I'm saying my mileage per gallon, It's proportional to horsepower squared.
+
+656
+01:01:04.600 --> 01:01:06.649
+Jitendra K: In that case, I will take a square root.
+
+657
+01:01:07.810 --> 01:01:09.610
+Jitendra K: And then perform this analysis.
+
+658
+01:01:10.920 --> 01:01:14.990
+Jitendra K: Right? So this is how you're going to transform your variable and perform dialysis.
+
+659
+01:01:15.980 --> 01:01:21.139
+Jitendra K: The second and the most important assumption of linear regression, or so-called,
+
+660
+01:01:21.740 --> 01:01:24.389
+Jitendra K: The hypothesis of linear regression is…
+
+661
+01:01:24.800 --> 01:01:31.370
+Jitendra K: We are going to talk about the concept called… Independence of the two observations.
+
+662
+01:01:31.890 --> 01:01:34.939
+Jitendra K: That means it should not have any auto-correlation.
+
+663
+01:01:35.910 --> 01:01:42.020
+Jitendra K: Now, how to find autocorrelation in linear regression equation? Now, when you say autocorrelation.
+
+664
+01:01:43.070 --> 01:01:48.919
+Jitendra K: Right? So, that means the two variables are auto-correlated. And here we are talking about Y.
+
+665
+01:01:49.570 --> 01:01:52.020
+Jitendra K: Sorry, X… X naught, X1.
+
+666
+01:01:54.770 --> 01:01:55.560
+Jitendra K: Right?
+
+667
+01:01:55.790 --> 01:02:01.010
+Jitendra K: So, when you say the two variables are auto-correlated, That means…
+
+668
+01:02:01.260 --> 01:02:04.740
+Jitendra K: We are breaking up the very basic assumption.
+
+669
+01:02:04.950 --> 01:02:09.279
+Jitendra K: Of linear regression, by saying that if the variables are autocorrelated.
+
+670
+01:02:09.580 --> 01:02:12.590
+Jitendra K: One will have an adverse impact on the other.
+
+671
+01:02:13.540 --> 01:02:16.720
+Jitendra K: Correlation and multicollinearity are two different things, by the way.
+
+672
+01:02:17.320 --> 01:02:20.029
+Jitendra K: Right, so here we are talking about auto-correlation.
+
+673
+01:02:20.760 --> 01:02:23.920
+Jitendra K: So, our observation must be independent of each other.
+
+674
+01:02:24.390 --> 01:02:26.390
+Jitendra K: And no observation should influence other.
+
+675
+01:02:28.730 --> 01:02:34.440
+Jitendra K: Right? Because… If I'm going to validate this principle, you can see that at times these data.
+
+676
+01:02:34.620 --> 01:02:40.820
+Jitendra K: Where my current value depends upon the pass value, This particular feature will break.
+
+677
+01:02:42.410 --> 01:02:45.840
+Jitendra K: Because, if I'm having… this assumption…
+
+678
+01:02:46.220 --> 01:02:51.640
+Jitendra K: which is going to be impacted in future, it will have an adverse impact on my REANA regression model.
+
+679
+01:02:51.980 --> 01:02:58.160
+Jitendra K: So this assumption of independence is very important, and we'll talk about how to validate this autocorrelation.
+
+680
+01:02:58.580 --> 01:03:02.719
+Jitendra K: So we'll perform the test of… Something called Durban-Watson Test.
+
+681
+01:03:03.200 --> 01:03:07.969
+Jitendra K: The Durban-Watson test will give you the autocorrelation between the variables.
+
+682
+01:03:08.730 --> 01:03:10.869
+Jitendra K: We'll perform some more tests.
+
+683
+01:03:11.160 --> 01:03:17.770
+Jitendra K: So… So we will perform something called, Chaproval's Test to perform this.
+
+684
+01:03:17.980 --> 01:03:24.550
+Jitendra K: Devin Watson test is the most important test. We will also use, something called BG test.
+
+685
+01:03:24.980 --> 01:03:28.689
+Jitendra K: Baruch Gottfell test. There's something called Lunchbox Test.
+
+686
+01:03:29.120 --> 01:03:32.899
+Jitendra K: I will write it down so that you will have at least the idea.
+
+687
+01:03:33.740 --> 01:03:35.320
+Jitendra K: Let me write it down…
+
+688
+01:03:39.030 --> 01:03:41.030
+Jitendra K: So we're going to talk about these tests.
+
+689
+01:03:45.290 --> 01:03:47.590
+Jitendra K: The first test is called Derwin-Watson test.
+
+690
+01:03:48.220 --> 01:03:55.820
+Jitendra K: The second one test is called BG Test, the third one is called LB test. So, DW, BG, and LB.
+
+691
+01:03:56.070 --> 01:04:00.620
+Jitendra K: So these are the three tests that we are going to conduct to understand the impact of
+
+692
+01:04:01.710 --> 01:04:04.550
+Jitendra K: Autocorrelation, but this autocorrelation
+
+693
+01:04:05.120 --> 01:04:11.819
+Jitendra K: will be performed for categorical variables. There's a chi-square distribution, which we are going to use for lunchbox text.
+
+694
+01:04:12.110 --> 01:04:16.490
+Jitendra K: And these two tests will be done for continuous variable, not for categorical.
+
+695
+01:04:16.620 --> 01:04:18.579
+Jitendra K: So that's the difference between the two tests.
+
+696
+01:04:18.850 --> 01:04:22.560
+Jitendra K: We'll talk about Devin Watson, Barush got fat arrest.
+
+697
+01:04:22.860 --> 01:04:24.600
+Jitendra K: lunchbox text.
+
+698
+01:04:25.280 --> 01:04:27.460
+Jitendra K: Alright, so these are the three tests that we are going to conduct.
+
+699
+01:04:28.510 --> 01:04:33.969
+Jitendra K: Alright, so once we perform this test, then there's something called hydroscadicity and homoscadicity.
+
+700
+01:04:34.390 --> 01:04:37.130
+Jitendra K: Now, as the name suggests, heteroscadicity.
+
+701
+01:04:38.340 --> 01:04:39.200
+Jitendra K: Right?
+
+702
+01:04:39.360 --> 01:04:41.639
+Jitendra K: So here we are talking about a data.
+
+703
+01:04:41.940 --> 01:04:52.350
+Jitendra K: variance here. So we are talking about data variance. That means heteroscedity means the variance of the errors in the regression model is constant.
+
+704
+01:04:52.490 --> 01:04:55.669
+Jitendra K: Across all the levels of independent variable.
+
+705
+01:04:56.170 --> 01:05:01.000
+Jitendra K: While heteroschasticity means the variation… variance is not constant.
+
+706
+01:05:01.950 --> 01:05:06.600
+Jitendra K: So, basically, if you have to… if you have to… Give.
+
+707
+01:05:08.240 --> 01:05:11.000
+Jitendra K: R… plot this.
+
+708
+01:05:11.360 --> 01:05:14.370
+Jitendra K: In the form of a point plot, you will see these graphs.
+
+709
+01:05:15.060 --> 01:05:18.230
+Jitendra K: Now, here I'm plotting the residuals, which is my errors.
+
+710
+01:05:19.410 --> 01:05:22.480
+Jitendra K: Now, here, my residuals are taking a funnel-like structure.
+
+711
+01:05:24.080 --> 01:05:26.719
+Jitendra K: That means my data is having hydroscardicity.
+
+712
+01:05:27.160 --> 01:05:30.060
+Jitendra K: So here, I'm plotting the residuals, or errors.
+
+713
+01:05:31.100 --> 01:05:33.889
+Jitendra K: And then explain the variance of my residual letters.
+
+714
+01:05:34.160 --> 01:05:36.240
+Jitendra K: And this variance is all spread.
+
+715
+01:05:37.040 --> 01:05:43.100
+Jitendra K: Now, when I talk about a funnel, which is… looks like a pipeline, I'm talking about homostaticity.
+
+716
+01:05:48.710 --> 01:05:49.540
+Jitendra K: Right?
+
+717
+01:05:50.270 --> 01:05:56.780
+Jitendra K: So this is the values of the data points. X is the values on the data points. And this is the residual errors.
+
+718
+01:06:00.850 --> 01:06:06.699
+Jitendra K: Now… Okay, let me put into a similar graph.
+
+719
+01:06:19.410 --> 01:06:20.769
+Jitendra K: Okay, let me use it.
+
+720
+01:06:20.920 --> 01:06:21.880
+Jitendra K: this graph.
+
+721
+01:06:22.290 --> 01:06:28.809
+Jitendra K: This is the hydroscardic acidity that I'm trying to predict. So here, what you're trying to do is, you're trying to observe a plot of residuals.
+
+722
+01:06:29.560 --> 01:06:33.840
+Jitendra K: Now, here the plot of residuals indicate the presence of hydroscardicity.
+
+723
+01:06:34.310 --> 01:06:39.140
+Jitendra K: So you can see that… Because regression involved…
+
+724
+01:06:40.480 --> 01:06:46.579
+Jitendra K: some OLS method, and it assumes that residuals are drawn from population with a constant variance.
+
+725
+01:06:46.760 --> 01:06:49.700
+Jitendra K: So you can see that they are unequally scattered.
+
+726
+01:06:52.020 --> 01:06:56.870
+Jitendra K: So, aeroscaidity refers to a situation when the variance of the residuals
+
+727
+01:06:57.930 --> 01:07:00.999
+Jitendra K: Is unequal over a range of measured value.
+
+728
+01:07:01.160 --> 01:07:03.970
+Jitendra K: This is the variance scale that I am plotting.
+
+729
+01:07:04.320 --> 01:07:05.390
+Jitendra K: on a scale.
+
+730
+01:07:06.290 --> 01:07:12.799
+Jitendra K: And if hydroscapicity exists, the population used in the regression contain unequal variance.
+
+731
+01:07:14.240 --> 01:07:19.129
+Jitendra K: That means my model, or so-called, the solution.
+
+732
+01:07:19.490 --> 01:07:22.050
+Jitendra K: Will be more prone to errors.
+
+733
+01:07:23.640 --> 01:07:28.569
+Jitendra K: Now, I will talk about how to benchmark this, how to measure this.
+
+734
+01:07:28.900 --> 01:07:31.619
+Jitendra K: Right? What are the tests that we are going to perform?
+
+735
+01:07:31.790 --> 01:07:33.749
+Jitendra K: To test the hydroscardicity.
+
+736
+01:07:34.680 --> 01:07:36.130
+Jitendra K: Or homeowner's cardicity.
+
+737
+01:07:36.550 --> 01:07:40.229
+Jitendra K: So there are various tests that we are going to perform to benchmark
+
+738
+01:07:40.790 --> 01:07:47.180
+Jitendra K: Heteroscardicity, and basically, if we kept able to get one, Then, that's more than enough.
+
+739
+01:07:47.590 --> 01:07:50.100
+Jitendra K: So there are two tests that we are going to perform.
+
+740
+01:07:50.910 --> 01:07:59.169
+Jitendra K: There's something called white test, Their name, based upon the statisticians.
+
+741
+01:07:59.680 --> 01:08:06.299
+Jitendra K: Right, so white might be a surname for that statistician, and that's why we are using a white test. There's something called…
+
+742
+01:08:06.550 --> 01:08:08.549
+Jitendra K: Brasheus Pagan Test.
+
+743
+01:08:19.180 --> 01:08:25.000
+Jitendra K: And these two tests will be useful to determine The hydroscardicity of this.
+
+744
+01:08:26.420 --> 01:08:27.460
+Jitendra K: data style.
+
+745
+01:08:30.710 --> 01:08:35.420
+Jitendra K: Alright, so this is the third assumption that we are going to talk about.
+
+746
+01:08:35.569 --> 01:08:42.879
+Jitendra K: The fourth assumption is called normality of residuals. That means your residuals should follow a normal distribution with a mean zero.
+
+747
+01:08:43.750 --> 01:08:50.760
+Jitendra K: So when you say normal distribution, that means we are talking about a plot, like this.
+
+748
+01:08:52.080 --> 01:08:54.300
+Jitendra K: So basically, I'm saying that my data is…
+
+749
+01:08:55.590 --> 01:08:58.240
+Jitendra K: Data is following a normal distribution.
+
+750
+01:08:58.729 --> 01:09:02.390
+Jitendra K: So when I'm plotting the residual error, it should also follow a normal distribution.
+
+751
+01:09:06.130 --> 01:09:07.689
+Jitendra K: That is the test off.
+
+752
+01:09:09.910 --> 01:09:11.760
+Jitendra K: Normality of residuals.
+
+753
+01:09:12.200 --> 01:09:14.200
+Jitendra K: So we are going to use QQplot.
+
+754
+01:09:14.649 --> 01:09:16.199
+Jitendra K: Chaparral's test.
+
+755
+01:09:16.319 --> 01:09:21.020
+Jitendra K: to measure… the tendency of my data using CRT.
+
+756
+01:09:21.290 --> 01:09:22.590
+Jitendra K: Central Limit Hero.
+
+757
+01:09:25.670 --> 01:09:32.270
+Jitendra K: Now, this is one more important test, so remember we talked about autocorrelation, now we are talking about collinearity.
+
+758
+01:09:34.830 --> 01:09:37.369
+Jitendra K: So, if I have to ask you a simple question.
+
+759
+01:09:38.850 --> 01:09:42.699
+Jitendra K: What is the difference between autocorrelation versus multicollinearity?
+
+760
+01:09:43.060 --> 01:09:44.560
+Jitendra K: So what will be your answer?
+
+761
+01:09:53.740 --> 01:10:00.300
+Jitendra K: Now, here the word auto is important. So, here we are talking about auto-correlation in the context of single variable.
+
+762
+01:10:01.990 --> 01:10:05.250
+Jitendra K: So when we say autocorrelation, that means the correlation with itself.
+
+763
+01:10:05.650 --> 01:10:07.879
+Jitendra K: Across different time period.
+
+764
+01:10:08.470 --> 01:10:13.429
+Jitendra K: While in case of multicollinearity, we are trying to understand the causation.
+
+765
+01:10:14.510 --> 01:10:17.929
+Jitendra K: There we are talking about correlation, here we are talking about causation.
+
+766
+01:10:18.460 --> 01:10:24.590
+Jitendra K: Multicollinarity is a correlation among multiple independent variables in a regression equation.
+
+767
+01:10:25.070 --> 01:10:30.459
+Jitendra K: So, autocorrelation violates the assumption that errors are dependent… independent in time series.
+
+768
+01:10:30.880 --> 01:10:38.749
+Jitendra K: While multicolinity violates the assumption that independent variables are not correlated, and it is making difficult to determine
+
+769
+01:10:38.850 --> 01:10:41.750
+Jitendra K: The individual impact of each predictor.
+
+770
+01:10:43.330 --> 01:10:47.109
+Jitendra K: So we are going to talk about one important test called VIF.
+
+771
+01:10:48.340 --> 01:10:54.129
+Jitendra K: Variance inflation test. And this test is very, very important that we are going to perform.
+
+772
+01:10:56.270 --> 01:10:59.209
+Jitendra K: So I will talk about how to read that value.
+
+773
+01:10:59.880 --> 01:11:04.259
+Jitendra K: So this test will have… Value in the range of 0… 1 to 10.
+
+774
+01:11:05.110 --> 01:11:10.860
+Jitendra K: Now, we'll talk about what is a nominal remit, how to address the limitation of this test.
+
+775
+01:11:11.180 --> 01:11:18.200
+Jitendra K: And when we are getting… The outcome in some numerical format, that what will be the
+
+776
+01:11:20.330 --> 01:11:25.020
+Jitendra K: How to interpret that outcome in terms of fitment criterias.
+
+777
+01:11:26.840 --> 01:11:31.739
+Jitendra K: Yeah, so autocorrelation is a correlation of the variable, which we are going to talk about
+
+778
+01:11:32.060 --> 01:11:34.210
+Jitendra K: The correlation of the variable with itself.
+
+779
+01:11:34.640 --> 01:11:39.550
+Jitendra K: Because here we are talking about different time period in a time series data, right?
+
+780
+01:11:39.780 --> 01:11:44.329
+Jitendra K: Multicollinearity talks about the causation, that means one variable costs.
+
+781
+01:11:44.640 --> 01:11:47.860
+Jitendra K: to change the other variable. So when we talk about causation.
+
+782
+01:11:49.060 --> 01:11:58.249
+Jitendra K: Right? That means one variable is dependent on the other. That means we are talking about the causation. So we are talking about the correlation between the multiple independent variables.
+
+783
+01:11:58.750 --> 01:12:01.760
+Jitendra K: In case of… Multicollinearity.
+
+784
+01:12:08.630 --> 01:12:16.089
+Jitendra K: Alright, now here we are talking about no autocorrelation, but previously we are talking about no autocorrelation in case of variable.
+
+785
+01:12:16.320 --> 01:12:18.550
+Jitendra K: Here, we are talking about the residuals.
+
+786
+01:12:19.750 --> 01:12:23.479
+Jitendra K: So here we are saying that residual should not be correlated with each other as well.
+
+787
+01:12:23.980 --> 01:12:27.240
+Jitendra K: Now, what is residuals? The leftovers, the errors?
+
+788
+01:12:27.750 --> 01:12:32.129
+Jitendra K: Or so-called, the… Noise in the data.
+
+789
+01:12:32.870 --> 01:12:35.219
+Jitendra K: So, here we are talking about that part.
+
+790
+01:12:36.490 --> 01:12:39.960
+Jitendra K: Are you guys falling so far? Is it… is it clear to everyone?
+
+791
+01:12:41.370 --> 01:12:45.020
+Jitendra K: Too difficult to understand, easy to understand, we will take some example.
+
+792
+01:12:45.280 --> 01:12:46.850
+Jitendra K: But are you falling so far?
+
+793
+01:12:50.440 --> 01:12:52.150
+Jitendra K: Can we have a quick thumbs up?
+
+794
+01:12:52.650 --> 01:12:53.710
+Jitendra K: From all of you?
+
+795
+01:12:56.260 --> 01:12:57.520
+Jitendra K: Is it clear?
+
+796
+01:13:05.830 --> 01:13:09.869
+Jitendra K: Alright, I can see only 2 or 3 people. Bit tricky.
+
+797
+01:13:10.200 --> 01:13:14.490
+Jitendra K: But this is something which you have to understand, I don't know why it has not been covered in the LMS.
+
+798
+01:13:14.840 --> 01:13:17.099
+Jitendra K: Has it not been covered in the LMS yet?
+
+799
+01:13:19.570 --> 01:13:22.450
+Jitendra K: Then what are you learning from LMS?
+
+800
+01:13:26.340 --> 01:13:30.010
+Jitendra K: Is it just, simple video lectures?
+
+801
+01:13:34.490 --> 01:13:40.630
+Jitendra K: But that will… definitely, you have to… Understand more complex scenarios.
+
+802
+01:13:44.880 --> 01:13:47.409
+Jitendra K: Not in depth. Okay.
+
+803
+01:13:48.570 --> 01:13:49.400
+Jitendra K: Okay.
+
+804
+01:13:50.200 --> 01:13:52.290
+Jitendra K: Okay, I don't want to contradict, but…
+
+805
+01:13:52.750 --> 01:13:54.989
+Jitendra K: Yeah, you have to understand…
+
+806
+01:13:55.300 --> 01:13:59.489
+Jitendra K: the assumption of linear regression. Is it not been taught yet?
+
+807
+01:13:59.640 --> 01:14:00.900
+Jitendra K: In the LMSS?
+
+808
+01:14:03.720 --> 01:14:04.830
+Jitendra K: Okay.
+
+809
+01:14:11.340 --> 01:14:12.279
+Jitendra K: Oh, strange.
+
+810
+01:14:17.990 --> 01:14:21.469
+Jitendra K: Very strange to me, because this topic has to be covered.
+
+811
+01:14:23.850 --> 01:14:30.360
+Jitendra K: Okay, explaining the equation, how it arrived. You mean to say the beta interpretations and coefficient interpretations, right?
+
+812
+01:14:33.270 --> 01:14:39.809
+Jitendra K: Okay, but… Okay, so this part I'm covering, so just pay attention as a new topic.
+
+813
+01:14:43.380 --> 01:14:48.629
+Jitendra K: So this, this thing you have to do as a first thing when you are dealing with regression equations.
+
+814
+01:14:49.860 --> 01:14:53.400
+Jitendra K: Don't blindly use regression before making the assumption.
+
+815
+01:14:53.540 --> 01:14:55.939
+Jitendra K: Validation on the assumption.
+
+816
+01:14:56.280 --> 01:15:01.400
+Jitendra K: You cannot use regression without making the… Hypothesis testing on assumption.
+
+817
+01:15:04.420 --> 01:15:07.640
+Jitendra K: So this assumption of linear regression is a very, very important topic.
+
+818
+01:15:10.400 --> 01:15:12.440
+Jitendra K: Okay, now what is not clear in this?
+
+819
+01:15:24.740 --> 01:15:27.960
+Jitendra K: Multicollinearity and, assumption.
+
+820
+01:15:28.060 --> 01:15:32.779
+Jitendra K: Okay, multicollinearity and autocorrelation. So, okay, so what is multicollinearity?
+
+821
+01:15:34.480 --> 01:15:39.330
+Jitendra K: homoscalicity. We will talk about example to explain homoscardicity.
+
+822
+01:15:39.670 --> 01:15:41.399
+Jitendra K: Yeah, we'll take an example.
+
+823
+01:15:41.760 --> 01:15:49.150
+Jitendra K: Okay, so let's talk about multicollinearity first. So let's say… I would like to predict
+
+824
+01:15:51.690 --> 01:15:55.190
+Jitendra K: let's say I would like to predict… maybe…
+
+825
+01:15:55.310 --> 01:15:59.739
+Jitendra K: Maybe I can give you an example, from real world.
+
+826
+01:16:03.680 --> 01:16:05.980
+Jitendra K: So let's take some example from the real world.
+
+827
+01:16:06.310 --> 01:16:12.340
+Jitendra K: So what is autocorrelation? Autocorrelation, as I mentioned, Boat?
+
+828
+01:16:12.450 --> 01:16:15.810
+Jitendra K: Auto-correlation, AR.
+
+829
+01:16:16.370 --> 01:16:21.860
+Jitendra K: and multi-collinearity, MC, will have an adverse impact on linear regression.
+
+830
+01:16:21.980 --> 01:16:22.740
+Jitendra K: Right?
+
+831
+01:16:23.500 --> 01:16:24.430
+Jitendra K: on LR.
+
+832
+01:16:25.140 --> 01:16:33.569
+Jitendra K: Now, when we talk about correlation, autocorrelation, so we are talking about a correlation between the observation of the same variable at a different point in time.
+
+833
+01:16:35.230 --> 01:16:39.970
+Jitendra K: So here I'm talking about autocorrelation, primary in time series context.
+
+834
+01:16:40.560 --> 01:16:43.029
+Jitendra K: Where the order of the observation matters.
+
+835
+01:16:43.640 --> 01:16:50.649
+Jitendra K: So autocorrelation or a serial correlation is a common field in which the data points are naturally ordered by time.
+
+836
+01:16:51.380 --> 01:16:53.130
+Jitendra K: So let's say weather forecasting.
+
+837
+01:16:53.770 --> 01:16:57.070
+Jitendra K: So let's say if I'm saying the temperature on a given day is high.
+
+838
+01:16:57.770 --> 01:17:02.969
+Jitendra K: And it is highly likely to be correlated with the temperature of the previous days and the next day.
+
+839
+01:17:03.400 --> 01:17:10.569
+Jitendra K: So the model will predict a temperature that does not account for its Dependency on different time period.
+
+840
+01:17:11.500 --> 01:17:16.009
+Jitendra K: Right? Because if it does not do that, it will not be able to predict accurately.
+
+841
+01:17:19.560 --> 01:17:22.069
+Jitendra K: Right? So, weather forecasting…
+
+842
+01:17:22.710 --> 01:17:28.930
+Jitendra K: On a given day is highly likely to be correlated with the temperature of the previous day and the next day.
+
+843
+01:17:29.300 --> 01:17:33.879
+Jitendra K: So, model predicting temperature that does not account for this temporal dependency.
+
+844
+01:17:34.070 --> 01:17:40.949
+Jitendra K: Would be problematic, because yesterday error would likely to… Impact today's prediction.
+
+845
+01:17:42.550 --> 01:17:44.569
+Jitendra K: And that is called autocorrelation.
+
+846
+01:17:45.450 --> 01:17:48.009
+Jitendra K: Financial market, let's say stock price.
+
+847
+01:17:48.160 --> 01:17:49.139
+Jitendra K: Or return.
+
+848
+01:17:51.890 --> 01:17:59.680
+Jitendra K: So expect in time series unless it's autocorreation should not be in feature. No, it should be, it should be a part of feature, but you have to test whether there's any…
+
+849
+01:18:00.660 --> 01:18:06.369
+Jitendra K: autocorrelation in the variable selection or not. You cannot say that I should not use autocorrelation as a feature.
+
+850
+01:18:06.680 --> 01:18:08.190
+Jitendra K: There's no feature…
+
+851
+01:18:08.460 --> 01:18:12.090
+Jitendra K: It's a test, we are talking about a test, we are not talking about this as a feature.
+
+852
+01:18:13.530 --> 01:18:14.770
+Jitendra K: This is a test.
+
+853
+01:18:16.840 --> 01:18:23.580
+Jitendra K: Right? So, there is a difference between your test and features. Here, we're testing the… Hypothesis.
+
+854
+01:18:26.200 --> 01:18:30.100
+Jitendra K: So when we're testing the hypothesis, it's like this, right?
+
+855
+01:18:30.500 --> 01:18:32.540
+Jitendra K: Let's say you have manufactured a drug.
+
+856
+01:18:33.730 --> 01:18:35.630
+Jitendra K: You're manufacturing a medicine.
+
+857
+01:18:38.540 --> 01:18:40.139
+Jitendra K: And it's a great medicine.
+
+858
+01:18:41.790 --> 01:18:43.690
+Jitendra K: The medicine has been used, too.
+
+859
+01:18:44.160 --> 01:18:46.369
+Jitendra K: Let's say, treat…
+
+860
+01:18:55.370 --> 01:19:01.840
+Jitendra K: the BP level of a patient, blood pressure level of a patient. You have treated a manufacturer, and you manufacture this medicine.
+
+861
+01:19:02.680 --> 01:19:07.720
+Jitendra K: So your assumption is, this medicine will work, Thus far.
+
+862
+01:19:09.040 --> 01:19:12.050
+Jitendra K: 20 to 60 years of age group.
+
+863
+01:19:14.390 --> 01:19:15.840
+Jitendra K: That is your assumption.
+
+864
+01:19:17.660 --> 01:19:22.730
+Jitendra K: But when you're performing this clinical trial on treatment of BP using your medicine.
+
+865
+01:19:23.350 --> 01:19:25.680
+Jitendra K: You have to use a range.
+
+866
+01:19:27.420 --> 01:19:34.629
+Jitendra K: Rather than… a continuous number. So you will split this range.
+
+867
+01:19:34.780 --> 01:19:38.019
+Jitendra K: And then perform a clinical trial on each batches.
+
+868
+01:19:38.220 --> 01:19:47.450
+Jitendra K: And then you record the efficacy of the metrics, and then you will say that this medicine, overall, in general, is 70% effective.
+
+869
+01:19:52.300 --> 01:19:56.299
+Jitendra K: Now, this group, and this group does not have an E.
+
+870
+01:19:58.350 --> 01:20:01.079
+Jitendra K: association. They are a totally different user group.
+
+871
+01:20:01.180 --> 01:20:01.920
+Jitendra K: Right?
+
+872
+01:20:02.060 --> 01:20:09.990
+Jitendra K: The same way I'm talking about the time… As a dependent variable here.
+
+873
+01:20:10.320 --> 01:20:14.870
+Jitendra K: Right, so when I'm saying the stock price, Is increasing like this.
+
+874
+01:20:16.230 --> 01:20:17.870
+Jitendra K: So there's a time delay.
+
+875
+01:20:18.770 --> 01:20:22.800
+Jitendra K: There's a time at which the stock price goes up.
+
+876
+01:20:24.800 --> 01:20:28.409
+Jitendra K: Now, when we talk about the features, There's no feature here.
+
+877
+01:20:29.700 --> 01:20:34.129
+Jitendra K: We're talking about one stock price value only, which is a data point itself.
+
+878
+01:20:35.880 --> 01:20:36.660
+Jitendra K: Right?
+
+879
+01:20:36.890 --> 01:20:44.820
+Jitendra K: Now, here… We are talking about that this time, and this time, T1, should not.
+
+880
+01:20:45.500 --> 01:20:47.130
+Jitendra K: have auto-correlation.
+
+881
+01:20:48.520 --> 01:20:54.819
+Jitendra K: So, stock price, or return, Exhibit autocorrelation, which is called momentum.
+
+882
+01:20:55.900 --> 01:21:02.299
+Jitendra K: A positive return today might suggest a higher probability of a positive return tomorrow as well. That's why you invest.
+
+883
+01:21:03.070 --> 01:21:08.019
+Jitendra K: You see that this stock price is growing high, it will grow further, that's why you're going to invest.
+
+884
+01:21:08.470 --> 01:21:13.889
+Jitendra K: So this is where the technical analysts will use this principle to identify the trend and make a prediction.
+
+885
+01:21:14.190 --> 01:21:18.219
+Jitendra K: So I will say that this is an upward trend, but I can see there are different shocks.
+
+886
+01:21:19.120 --> 01:21:21.319
+Jitendra K: Before it reached the baseline.
+
+887
+01:21:22.560 --> 01:21:26.230
+Jitendra K: So that's why I'm saying that you have to invest this…
+
+888
+01:21:26.760 --> 01:21:29.630
+Jitendra K: On this stock for at least 5 years.
+
+889
+01:21:30.170 --> 01:21:37.670
+Jitendra K: So that these shock… sorry… will be normalized, and then finally you're going to have
+
+890
+01:21:38.020 --> 01:21:42.290
+Jitendra K: a value at T1, which will be overall, look like an upward trend.
+
+891
+01:21:44.360 --> 01:21:46.520
+Jitendra K: Similarly, when I'm talking about the BP,
+
+892
+01:21:46.950 --> 01:21:50.109
+Jitendra K: I'm saying that I'm claiming that this is 100% efficient.
+
+893
+01:21:50.650 --> 01:21:56.420
+Jitendra K: But I have to test on different groups. Maybe one group will have an odd impact.
+
+894
+01:21:58.470 --> 01:22:00.960
+Jitendra K: Right, so this is what we are talking about.
+
+895
+01:22:01.090 --> 01:22:06.330
+Jitendra K: Understanding the… Differences on a timescale.
+
+896
+01:22:10.890 --> 01:22:16.590
+Jitendra K: Right? So this is what the autocorrelation talks about. Now, when we talk about multicollinearity.
+
+897
+01:22:16.810 --> 01:22:22.370
+Jitendra K: So, multicollinearity occurs when the predictor variable in a model provide redundant information.
+
+898
+01:22:22.910 --> 01:22:26.509
+Jitendra K: So let's take an example of a real estate house prices.
+
+899
+01:22:29.330 --> 01:22:31.220
+Jitendra K: Real estate pricing.
+
+900
+01:22:32.920 --> 01:22:33.740
+Jitendra K: Right?
+
+901
+01:22:33.920 --> 01:22:40.470
+Jitendra K: So, in this world, You know, let's say I'm creating a model, predicted model, for house price.
+
+902
+01:22:40.580 --> 01:22:42.639
+Jitendra K: And I'm using a square footage.
+
+903
+01:22:43.400 --> 01:22:44.800
+Jitendra K: square foot area.
+
+904
+01:22:45.710 --> 01:22:48.619
+Jitendra K: SQF as one of the important parameters.
+
+905
+01:22:49.310 --> 01:22:53.370
+Jitendra K: So, square footage is an… And also the number of rooms.
+
+906
+01:23:00.550 --> 01:23:08.730
+Jitendra K: So if I'm taking both, And I'm assuming that these two are independent variables, but practically they are not.
+
+907
+01:23:09.330 --> 01:23:12.779
+Jitendra K: So these two independent variables are often highly correlated.
+
+908
+01:23:13.330 --> 01:23:20.150
+Jitendra K: So, large homes usually have more rooms, and make it difficult for the model to determine the unique impact of square footage
+
+909
+01:23:20.600 --> 01:23:22.700
+Jitendra K: Versus the number of rooms?
+
+910
+01:23:25.830 --> 01:23:30.919
+Jitendra K: Similarly, if I have to take another example, let's say health and fitness, so I'm pricing.
+
+911
+01:23:31.310 --> 01:23:35.970
+Jitendra K: I'm modeling, and to predict the physical performance using weights and strength.
+
+912
+01:23:36.290 --> 01:23:39.380
+Jitendra K: And these two variables may be highly correlated as well.
+
+913
+01:23:41.780 --> 01:23:48.370
+Jitendra K: I can say economic consideration, like GDP versus consumer spans.
+
+914
+01:23:49.540 --> 01:23:50.950
+Jitendra K: Or retail sales.
+
+915
+01:23:51.210 --> 01:23:53.319
+Jitendra K: They are a highly correlated variable.
+
+916
+01:23:53.570 --> 01:23:56.800
+Jitendra K: Age and height, which is a highly correlated variable.
+
+917
+01:23:57.570 --> 01:24:04.239
+Jitendra K: Right, so I should understand, before fitting these methods, or features, now I'm talking about features.
+
+918
+01:24:04.560 --> 01:24:08.439
+Jitendra K: Before fitting these features to the regression equation.
+
+919
+01:24:10.720 --> 01:24:15.769
+Jitendra K: Can I understand that auto-collation tests can be done to find a dependency?
+
+920
+01:24:16.730 --> 01:24:21.030
+Jitendra K: That data should not have regression, will directly impact efficacy.
+
+921
+01:24:21.410 --> 01:24:35.510
+Jitendra K: Yes, you have to understand the PACF, partial autocorrelation features, and you have to understand ACF, autocorrelation features, and then you have to identify how much impact they will create.
+
+922
+01:24:35.800 --> 01:24:36.860
+Jitendra K: Beforehand.
+
+923
+01:24:37.700 --> 01:24:39.779
+Jitendra K: That's the whole idea of,
+
+924
+01:24:40.520 --> 01:24:45.389
+Jitendra K: Regression testing, or so-called hypothesis testing of regression analysis.
+
+925
+01:24:46.410 --> 01:24:48.020
+Jitendra K: So is it clear to everyone?
+
+926
+01:24:49.860 --> 01:24:52.230
+Jitendra K: Is it clear to everyone now?
+
+927
+01:24:56.960 --> 01:24:57.910
+Jitendra K: Alright?
+
+928
+01:25:03.740 --> 01:25:09.359
+Jitendra K: So let's take a example to understand this, all this concept that we have acquired.
+
+929
+01:25:10.100 --> 01:25:12.689
+Jitendra K: And, then we'll take a break afterwards.
+
+930
+01:25:13.100 --> 01:25:18.870
+Jitendra K: So, in this tutorial, I will take a stock price, and I would like to model
+
+931
+01:25:19.250 --> 01:25:21.940
+Jitendra K: All form of tests that we have just talked about.
+
+932
+01:25:22.230 --> 01:25:24.150
+Jitendra K: I will use heavily Python.
+
+933
+01:25:24.770 --> 01:25:29.430
+Jitendra K: And as you know that, I'm not going to write any test by my own.
+
+934
+01:25:29.540 --> 01:25:37.630
+Jitendra K: I will use the packages, I will use, the standard scikit-learn libraries to Run this.
+
+935
+01:25:37.830 --> 01:25:41.200
+Jitendra K: Analysis, I will explain the p-values from each test.
+
+936
+01:25:41.400 --> 01:25:43.209
+Jitendra K: And how to interpret the outcome.
+
+937
+01:25:44.070 --> 01:25:50.209
+Jitendra K: So, the scenario that we are going to use is for stock price prediction, and it's a time series data.
+
+938
+01:25:50.430 --> 01:25:51.250
+Jitendra K: Right?
+
+939
+01:25:51.530 --> 01:25:58.150
+Jitendra K: So, I'm going to use the historical price from Yahoo Finance, which is open source of label.
+
+940
+01:25:58.560 --> 01:26:01.940
+Jitendra K: And from Yao Finance, I would like to create this model.
+
+941
+01:26:02.890 --> 01:26:04.230
+Jitendra K: So let me first…
+
+942
+01:26:07.610 --> 01:26:10.570
+Jitendra K: Go back to my… Notebook.
+
+943
+01:26:34.230 --> 01:26:37.920
+Jitendra K: So, as usual, I will first run the program, and then I will explain.
+
+944
+01:26:42.390 --> 01:26:48.830
+Jitendra K: Alright, so… So, basically, Some of the important points that I would like to consider is…
+
+945
+01:26:49.380 --> 01:26:55.520
+Jitendra K: I have several key features that I'm going to utilize from this whole analysis.
+
+946
+01:26:56.860 --> 01:26:58.400
+Jitendra K: Okay, there's some issue…
+
+947
+01:27:03.420 --> 01:27:05.559
+Jitendra K: Okay, I will remove this indentation error.
+
+948
+01:27:05.960 --> 01:27:07.790
+Jitendra K: But let me explain the code first.
+
+949
+01:27:09.020 --> 01:27:12.930
+Jitendra K: So, basically, we are… what we are going to do is, we would like to perform these tests.
+
+950
+01:27:13.740 --> 01:27:17.799
+Jitendra K: So, we will complete the linear regression analysis.
+
+951
+01:27:18.120 --> 01:27:22.069
+Jitendra K: We'd like to create a model to predict the futuristic stock price.
+
+952
+01:27:22.490 --> 01:27:24.070
+Jitendra K: Of certain asset class.
+
+953
+01:27:24.330 --> 01:27:27.209
+Jitendra K: And I'd like to consider these non-parametric tests.
+
+954
+01:27:27.370 --> 01:27:29.930
+Jitendra K: To perform the analysis.
+
+955
+01:27:30.040 --> 01:27:39.810
+Jitendra K: And I will go with each and every analysis one by one. So I will perform the test of linearity, independence test, homoscodicity test, normality test, multicollinearity test.
+
+956
+01:27:40.280 --> 01:27:46.249
+Jitendra K: And the outlier test. This is the sixth analysis that I'm going to use. So this is the autocorrelation test, and this is the…
+
+957
+01:27:46.710 --> 01:27:48.960
+Jitendra K: Multicollinearity test.
+
+958
+01:27:49.080 --> 01:27:49.850
+Jitendra K: Right?
+
+959
+01:27:49.960 --> 01:27:57.250
+Jitendra K: So I will use the different engineering variables, including moving average, SMA EWA.
+
+960
+01:27:57.630 --> 01:28:06.880
+Jitendra K: Then I have got the price indexes on different bonds, momentum, and these are terminology associated with the stock price that I'm going to use.
+
+961
+01:28:07.310 --> 01:28:11.499
+Jitendra K: Then I'm going to train this model with multiple ways.
+
+962
+01:28:11.910 --> 01:28:15.940
+Jitendra K: And then, I would like to compare which model is able to predict.
+
+963
+01:28:16.670 --> 01:28:18.610
+Jitendra K: The stock with the most.
+
+964
+01:28:20.090 --> 01:28:23.599
+Jitendra K: granularity, right? That means I would like to predict the stock.
+
+965
+01:28:23.800 --> 01:28:26.350
+Jitendra K: With the most granularity of the…
+
+966
+01:28:26.590 --> 01:28:31.309
+Jitendra K: I would say, of the closest proximity of the margin, the price margin.
+
+967
+01:28:31.730 --> 01:28:33.669
+Jitendra K: So that is something which I'm going to do.
+
+968
+01:28:35.030 --> 01:28:41.080
+Jitendra K: So… Let me explain the code a bit, and then we'll run this.
+
+969
+01:28:41.380 --> 01:28:49.469
+Jitendra K: Now, here in this code, I'm going to write a class, which is a linear regression, assumption tester class.
+
+970
+01:28:49.680 --> 01:28:53.889
+Jitendra K: And this class will encompass all the tests that we are going to perform.
+
+971
+01:28:54.120 --> 01:28:55.510
+Jitendra K: And as you know that.
+
+972
+01:28:55.620 --> 01:29:00.340
+Jitendra K: When you're working in any class in Python, you have to first initialize a constructor method.
+
+973
+01:29:00.490 --> 01:29:06.490
+Jitendra K: to initialize the feature. So here I'm saying that I have a feature which is my X, and these X are…
+
+974
+01:29:06.600 --> 01:29:16.010
+Jitendra K: Nothing but all the important… econometric, non-econometric parameter that I'm going to use to predict the stock price.
+
+975
+01:29:16.360 --> 01:29:18.690
+Jitendra K: And then, my Y will be the price.
+
+976
+01:29:19.200 --> 01:29:20.159
+Jitendra K: Of the stock.
+
+977
+01:29:20.750 --> 01:29:28.460
+Jitendra K: So I would like to start with initialization of these so-called, My thirds.
+
+978
+01:29:28.640 --> 01:29:34.559
+Jitendra K: And then, once I initialize this method, I would like to perform And gather the result.
+
+979
+01:29:35.080 --> 01:29:39.289
+Jitendra K: In this… During this, the p-value significance, so on and so forth.
+
+980
+01:29:39.790 --> 01:29:44.929
+Jitendra K: And then finally, I would like to validate my assumption, plot some of the assumptions.
+
+981
+01:29:45.050 --> 01:29:47.899
+Jitendra K: And then generate a report based upon that.
+
+982
+01:29:48.050 --> 01:29:54.600
+Jitendra K: And I will call this model from here, but one thing I would like to show you is how I create the data points.
+
+983
+01:29:54.930 --> 01:30:02.880
+Jitendra K: Now, there are two ways I'm generating data points. One is by using the… Random generator.
+
+984
+01:30:03.780 --> 01:30:09.010
+Jitendra K: I'm generating data points. The second one is by using Yahoo API, Yahoo Finance API.
+
+985
+01:30:09.360 --> 01:30:17.640
+Jitendra K: So when I'm calling the Yahoo Finance API, I'm getting the recency-based data On my input.
+
+986
+01:30:17.890 --> 01:30:23.790
+Jitendra K: And for that, I'm going to download this data from certain dates, and then creating these variables.
+
+987
+01:30:24.060 --> 01:30:29.129
+Jitendra K: Which include moving average, exponential moving average, convergent, divergence, etc.
+
+988
+01:30:29.890 --> 01:30:43.310
+Jitendra K: I will not talk about this part, because this will be too much financial topic, if I just explore it to you, but just assume these are features. So we are using some 8 or 9 features to perform this analysis. In fact, I think
+
+989
+01:30:43.640 --> 01:30:46.440
+Jitendra K: We have 14 features to test this algorithm.
+
+990
+01:30:47.000 --> 01:30:50.590
+Jitendra K: So let me quickly run this, and then we'll discuss.
+
+991
+01:30:50.840 --> 01:30:57.940
+Jitendra K: how to… Maybe, conceptualize this whole test, right?
+
+992
+01:30:58.060 --> 01:31:07.170
+Jitendra K: So, let me re-explain this, maybe, in a more mathematical terms. Like, what are the tests that we are going to use, and how we are going to use.
+
+993
+01:31:07.420 --> 01:31:08.920
+Jitendra K: And so on and so forth.
+
+994
+01:31:09.300 --> 01:31:11.730
+Jitendra K: Let me take this into a notebook.
+
+995
+01:31:19.630 --> 01:31:21.460
+Jitendra K: Let me go back to my notebook.
+
+996
+01:31:56.970 --> 01:32:00.960
+Jitendra K: It's not launching. Okay, so let me go back.
+
+997
+01:32:01.980 --> 01:32:04.950
+Jitendra K: And then… What's this?
+
+998
+01:32:25.670 --> 01:32:28.129
+Jitendra K: Okay, so let me quickly do this.
+
+999
+01:32:47.320 --> 01:32:52.180
+Jitendra K: Okay, so this is the comprehensive script that I'm going to use for running this analysis.
+
+1000
+01:32:52.500 --> 01:32:56.940
+Jitendra K: So, I will start with, the…
+
+1001
+01:32:57.940 --> 01:33:01.690
+Jitendra K: import all the libraries, so I would like to import all the libraries.
+
+1002
+01:33:03.040 --> 01:33:09.169
+Jitendra K: Which is very straightforward. So you're going to import all the libraries, including NumPy, Pandas, Matplot, CBON.
+
+1003
+01:33:09.640 --> 01:33:14.160
+Jitendra K: Stats model, and the outlier influences, right?
+
+1004
+01:33:14.360 --> 01:33:20.800
+Jitendra K: Then we would like to call this Yahoo Finance API, which will utilize the market feeds.
+
+1005
+01:33:21.030 --> 01:33:23.070
+Jitendra K: For this whole calculation.
+
+1006
+01:33:23.280 --> 01:33:25.949
+Jitendra K: So I would like to use the market feed for that purpose.
+
+1007
+01:33:26.520 --> 01:33:29.459
+Jitendra K: Then I would like to call the linear regression classes.
+
+1008
+01:33:29.650 --> 01:33:33.059
+Jitendra K: And I would like to import, linear regression classes for this.
+
+1009
+01:33:33.680 --> 01:33:45.789
+Jitendra K: Finally, I'm going to use a certain parametric test, which I'm going to write it by using these classes, which I just defined. And then, based upon these classes, I would like to call all the methods, right?
+
+1010
+01:33:45.910 --> 01:33:55.460
+Jitendra K: So, I will start with the analysis of these methods, and then, finally, I would like to predict the p-value significance, and then I will run the analysis on the top of it.
+
+1011
+01:33:55.850 --> 01:34:00.139
+Jitendra K: So this is the whole idea, so maybe I can share this code with you guys.
+
+1012
+01:34:00.530 --> 01:34:06.060
+Jitendra K: And, there's a write-up as well I have written for this whole code, so that you will be aware about this.
+
+1013
+01:34:08.510 --> 01:34:11.719
+Jitendra K: No, in order to write from the scratch, this is available as a package.
+
+1014
+01:34:15.580 --> 01:34:23.650
+Jitendra K: Alright, so let's do one thing, let's take a quick 25 minutes break, and then we will revisit this. Until that point, I will run this whole code.
+
+1015
+01:34:24.050 --> 01:34:32.530
+Jitendra K: try to start up and then redone it. So let's take a quick 25 minutes break, and then when we come back, we will discuss this example with, some…
+
+1016
+01:34:32.990 --> 01:34:36.970
+Jitendra K: some actual implementation. So let's take a quick break, and then we'll come back.
+
+1017
+02:04:36.230 --> 02:04:38.019
+Jitendra K: Hello guys, I hope you're back.
+
+1018
+02:04:38.410 --> 02:04:40.059
+Jitendra K: Can we have a quick confirmation?
+
+1019
+02:04:47.440 --> 02:04:50.249
+Jitendra K: Alright, so, I think your guys are back.
+
+1020
+02:04:59.380 --> 02:05:03.960
+Jitendra K: Okay, so let's start with, tutorial, and
+
+1021
+02:05:04.470 --> 02:05:08.800
+Jitendra K: Okay, I can see some hand being raised, glenn…
+
+1022
+02:05:09.960 --> 02:05:12.170
+Jitendra K: Okay, so, Glenn, you have any question?
+
+1023
+02:05:13.070 --> 02:05:14.559
+Jitendra K: Okay, it has been downed.
+
+1024
+02:05:15.670 --> 02:05:16.380
+Jitendra K: Alright.
+
+1025
+02:05:19.000 --> 02:05:26.570
+Jitendra K: Okay, so we are talking about this particular use case, and conceptually, we are trying to run a linear regression on the top of it.
+
+1026
+02:05:26.830 --> 02:05:31.430
+Jitendra K: Right, so let me go back to my… Notebook.
+
+1027
+02:06:07.220 --> 02:06:10.749
+Jitendra K: Okay, so still some scaling issue I'm facing.
+
+1028
+02:06:11.930 --> 02:06:13.450
+Jitendra K: Successful…
+
+1029
+02:06:42.620 --> 02:06:49.330
+Jitendra K: Okay, or let me take one more small example before we move on to this advanced example. So this is a very simple example I've created.
+
+1030
+02:06:49.840 --> 02:06:59.520
+Jitendra K: So let me explain what this example does. So, first, let me generate the X and Y, and then I will talk about… let me just pull this out.
+
+1031
+02:07:02.100 --> 02:07:06.639
+Jitendra K: And then I will show you the data and the summary, and then I will use a fit method.
+
+1032
+02:07:06.970 --> 02:07:11.159
+Jitendra K: So let me run this first, and then we'll move on to the same example.
+
+1033
+02:07:11.940 --> 02:07:17.979
+Jitendra K: Okay, so in this example, what I did is, I created a very simple linear regression class.
+
+1034
+02:07:18.490 --> 02:07:21.660
+Jitendra K: which is having… The data generated as a…
+
+1035
+02:07:23.380 --> 02:07:27.130
+Jitendra K: Again, the scale is zero, the scale is filling…
+
+1036
+02:08:41.250 --> 02:08:43.580
+Jitendra K: Okay, I can find the error here.
+
+1037
+02:08:46.010 --> 02:08:46.789
+Jitendra K: It's just…
+
+1038
+02:10:17.860 --> 02:10:29.409
+Jitendra K: Okay, so this is working. Okay, let me explain what I'm trying to do here. So, instead of using the previous example, let's go with a very simple example, so that first you will be clear with the concept, and then we'll take a…
+
+1039
+02:10:29.740 --> 02:10:32.809
+Jitendra K: Step back and try to solve some complex use case.
+
+1040
+02:10:33.070 --> 02:10:41.430
+Jitendra K: So here, I'm using a simple linear regression method, and, some form of, shape and form of data to utilize standard scalar.
+
+1041
+02:10:41.490 --> 02:10:53.159
+Jitendra K: where I would like to consider the data as a scale, right, and try to ensure that all the data points should be in the same scale. So I'm just using a standard scale normalizer package for this.
+
+1042
+02:10:53.230 --> 02:11:00.670
+Jitendra K: And then the usual packages to store the arrays, plotting the outcome using Seabourn and Matplot.
+
+1043
+02:11:00.800 --> 02:11:04.379
+Jitendra K: And then using a linear regression class to fit in my method.
+
+1044
+02:11:04.550 --> 02:11:21.130
+Jitendra K: Now here, I'm generating the data points, which is 200 samples, and generating all randomly, so that I can have some correlated features as well. And then I would like to determine the association between the true relationship of the target variable with some violations. I'm creating it linearly.
+
+1045
+02:11:21.410 --> 02:11:32.419
+Jitendra K: And I'm also importing some heteroschic errors, on following some distribution on this data, and, trying to draw some autocorrelation so that I can be able to predict these data points.
+
+1046
+02:11:32.630 --> 02:11:44.639
+Jitendra K: So this is how my data point looks like. So it's a normally two-variable data, which is having X1 and X2 as a linearly dependent variable, and Y is my outcome variable of interest.
+
+1047
+02:11:44.840 --> 02:11:54.240
+Jitendra K: Now, I would like to use a model, which is a linear regression model, to fit in my data points X1 and X2, and then I'm calling, model SM,
+
+1048
+02:11:54.370 --> 02:11:59.419
+Jitendra K: By adding the intercept on the ordinary least square error regression model, right?
+
+1049
+02:11:59.580 --> 02:12:07.599
+Jitendra K: And then, when I'm running this model, then I would like to perform some tests of statistics. The first test that I'm conducting is a linearity check.
+
+1050
+02:12:07.800 --> 02:12:16.750
+Jitendra K: Where I'm using a Rambo test statistic, if the p-value is significant, it will say, the linear relationship detected, and the X
+
+1051
+02:12:17.140 --> 02:12:20.329
+Jitendra K: 1x2 and Y are linearly rated, right?
+
+1052
+02:12:20.470 --> 02:12:26.289
+Jitendra K: And if the p-value is less than 0.05, that means 5%, then I will say.
+
+1053
+02:12:26.560 --> 02:12:31.710
+Jitendra K: There's no linear relationship exhibit between X1, X2, and Y, so I will…
+
+1054
+02:12:32.020 --> 02:12:34.960
+Jitendra K: Back to defer my hypothesis in this case.
+
+1055
+02:12:35.330 --> 02:12:45.989
+Jitendra K: I will also plot the residuals and try to see their tendencies, and I would like to see how the residual errors are following in terms of fitments.
+
+1056
+02:12:46.250 --> 02:13:01.219
+Jitendra K: Then I would like to perform the autocorrelation test, independence of errors, that, for that, I would like to use Durban-Watson test. And again, Durban-Watson test, will use the scale from 1.5 to 2.5. This is very important.
+
+1057
+02:13:01.530 --> 02:13:07.470
+Jitendra K: So, you're going to use the scale between 1.5 to 2.5, and if this value's…
+
+1058
+02:13:08.060 --> 02:13:11.500
+Jitendra K: Donald Watson test does not lies between these two range.
+
+1059
+02:13:11.740 --> 02:13:19.340
+Jitendra K: then there's no significant autocorrelation. If it is less than 1.5, or greater than… less than or equal to 1.5,
+
+1060
+02:13:19.650 --> 02:13:31.550
+Jitendra K: That means there's a positive autocorrelation. Positive autocorrelation means, you're going to have all the incremental values. The negative autocorrelation detected if the value is subsing 2.25.
+
+1061
+02:13:31.800 --> 02:13:39.929
+Jitendra K: Then we are going to have a lunchbox test, which is, again, depending on the p-value inferences. So you can see that when I'm running the test.
+
+1062
+02:13:40.640 --> 02:13:47.969
+Jitendra K: even Derwin Watson LB test. I'm using a packages called Stats Model, right? So this all…
+
+1063
+02:13:48.570 --> 02:13:55.969
+Jitendra K: parameters, or so-called resolved parametric tests, reside inside stats model, so you need to write these tests from the scratch.
+
+1064
+02:13:56.260 --> 02:14:06.760
+Jitendra K: But I will explain, what this test does in the form of p-value significance. So, I have written this code in such a manner that you can be able to read and understand the p-value significance.
+
+1065
+02:14:06.870 --> 02:14:11.900
+Jitendra K: And then, based upon this condition, it will either pass or fail this test.
+
+1066
+02:14:12.350 --> 02:14:16.780
+Jitendra K: And we are using, two tests, just to reconfirm.
+
+1067
+02:14:16.910 --> 02:14:24.019
+Jitendra K: Whether both tests are giving the same result, or one test is giving different results, second one is giving different results.
+
+1068
+02:14:25.070 --> 02:14:36.029
+Jitendra K: So, this is what the second assumption we are going to validate. The third assumption is the homoscadicity, where I'm going to use a BP test, bearish pagan test, just to ensure
+
+1069
+02:14:37.120 --> 02:14:47.249
+Jitendra K: that my test will also give me the significance on p-values, and then I would like to infer the p-value significance, and then try to pass or see the violation on this test as well.
+
+1070
+02:14:47.510 --> 02:14:52.150
+Jitendra K: Another way, as I mentioned, we are going to create a funnel-like structure by…
+
+1071
+02:14:52.250 --> 02:15:10.909
+Jitendra K: pair plots, and I would like to see how the pair plots are fitting my residuals. So that is where, also, I will get some idea on a scale, whether it is, kind of an omni-channel, or kind of a funnel-like structure, or it's a simple pipeline-like structure, that'll give me a tendency analysis on the top of it.
+
+1072
+02:15:11.000 --> 02:15:20.409
+Jitendra K: Normality test of residual, I would like to perform using Chaproville's test, which is, again, depending on the p-value significance. If the p-value is significant enough.
+
+1073
+02:15:20.540 --> 02:15:26.499
+Jitendra K: I will say residuals are normally distributed as well. If they are not, then I will say residuals are non-normally distributed.
+
+1074
+02:15:26.750 --> 02:15:41.570
+Jitendra K: I will take another reference as a jury. I will say, let's run another test. There's no harm in running tests, although they might correlate, contradict each other. However, I would like to see if they are giving the same alignments.
+
+1075
+02:15:42.080 --> 02:15:49.269
+Jitendra K: Then I will also plot the QQ plot and try to see the tendency of the QQ plot line against my error distribution.
+
+1076
+02:15:50.450 --> 02:15:57.000
+Jitendra K: Multicollinearity is a very important test, so I would like to consider VIF. Now, let me explain this VIF.
+
+1077
+02:15:57.190 --> 02:16:14.270
+Jitendra K: So, if the VIF value lies between 1 to 5, now I'm saying, if the VIF value is less than 5, that means 1, 2, 3, 4, less than 5, it's not equal to, so there's only a less than symbol here, so that means there's no multicollinearity detected.
+
+1078
+02:16:14.490 --> 02:16:20.160
+Jitendra K: If it is greater than or equal to 5, then I will say there's a high multicollinearity.
+
+1079
+02:16:20.950 --> 02:16:35.999
+Jitendra K: Between 5 to 7, you will say that there are less multicollinearity, but if it is above 7, that means you can say high multicollinearity. Now, here I'm adding both, so I'm saying, if it is above 5, I will straightforward say that this is highly multicollinear features.
+
+1080
+02:16:36.540 --> 02:16:46.759
+Jitendra K: Now, I will also try to see the correlation mapping heat map. Remember, we talked about heat map, where we are trying to understand the influence of one variable over the other.
+
+1081
+02:16:47.340 --> 02:16:51.769
+Jitendra K: And the same method we can use for depicting the correlation in this case.
+
+1082
+02:16:51.920 --> 02:17:06.700
+Jitendra K: Now, here I'm adding one more test called influence on outliers. So I would like to see, the outliers… is it influencing… influencing my Y, prediction power of my model?
+
+1083
+02:17:06.760 --> 02:17:14.789
+Jitendra K: And that is what I would like to utilize, Cook distance criteria for that purpose. And I would like to see if the outlier
+
+1084
+02:17:15.260 --> 02:17:16.610
+Jitendra K: is 0.
+
+1085
+02:17:18.900 --> 02:17:28.779
+Jitendra K: So I will say that, there's no influence. If the value of the test is… anything ranges from 0 to… 1 to infinite, I will say it is influential.
+
+1086
+02:17:29.190 --> 02:17:33.559
+Jitendra K: So these are the tests that I'm going to conduct. So let's see, let me run this analysis.
+
+1087
+02:17:40.889 --> 02:17:52.860
+Jitendra K: Okay, now, how to interpret this outcome? This is very important, very, very important, guys, so you will see this kind of table always when you're running a regression equation. Now, how to interpret this? Let me run this…
+
+1088
+02:17:53.080 --> 02:17:54.550
+Jitendra K: In a full screen.
+
+1089
+02:17:54.879 --> 02:17:58.620
+Jitendra K: Now, this is important, so how will you interpret the result?
+
+1090
+02:18:03.389 --> 02:18:04.989
+Jitendra K: So, let me explain.
+
+1091
+02:18:05.440 --> 02:18:10.059
+Jitendra K: So when you're running any regression test from scikit-learn or…
+
+1092
+02:18:10.120 --> 02:18:26.330
+Jitendra K: so-called SM test stats, right, packages. It will give you these things. Now, here, my model is saying that the status of this whole analysis says that model has significant issues. The first issue is, out of 6 tests that I conducted.
+
+1093
+02:18:26.469 --> 02:18:27.820
+Jitendra K: 3 got failed.
+
+1094
+02:18:29.000 --> 02:18:33.830
+Jitendra K: Right? So there are 3 violations in my test. I think 4 got passed, 2 got failed.
+
+1095
+02:18:34.010 --> 02:18:40.299
+Jitendra K: That means my model is having, the nonlinearity assumption failed.
+
+1096
+02:18:40.440 --> 02:18:44.680
+Jitendra K: As well as, I can see multicollinearity impact is high in my model.
+
+1097
+02:18:45.809 --> 02:18:54.060
+Jitendra K: Rest of the things looks fine, based upon the p-value significance, everything got passed, independence of error, homoscoticity is there.
+
+1098
+02:18:54.180 --> 02:18:57.920
+Jitendra K: Normality of residuals is fine. Multicollinearity check.
+
+1099
+02:18:58.170 --> 02:19:01.399
+Jitendra K: It's failing, and then these are the output.
+
+1100
+02:19:01.580 --> 02:19:08.780
+Jitendra K: Now, the question is, I have, these plots as well. Now, if I look into this plot.
+
+1101
+02:19:09.250 --> 02:19:10.799
+Jitendra K: You can clearly see that.
+
+1102
+02:19:10.969 --> 02:19:18.320
+Jitendra K: The QQ plot is showing a regression line passing through all the residuals In the same manner.
+
+1103
+02:19:18.520 --> 02:19:31.680
+Jitendra K: That means I'm getting a good, interpretation on my residual errors. Similarly, I can see that my cook distance is quite observable. That means it is within the thresholds.
+
+1104
+02:19:31.900 --> 02:19:38.580
+Jitendra K: And finally, I can say that my… 3 tests got failed.
+
+1105
+02:19:38.870 --> 02:19:41.349
+Jitendra K: The outlier influence is high.
+
+1106
+02:19:41.680 --> 02:19:52.830
+Jitendra K: And some of the assumptions are violating my equations. Now, to… to make this… okay, let me run this. Okay, let me read this, basically. So, I'm getting…
+
+1107
+02:19:53.060 --> 02:19:54.739
+Jitendra K: Two important values.
+
+1108
+02:19:54.980 --> 02:19:56.789
+Jitendra K: The first is the R-square value.
+
+1109
+02:19:57.810 --> 02:20:00.739
+Jitendra K: Now here, you're getting a 93%
+
+1110
+02:20:00.910 --> 02:20:13.199
+Jitendra K: variance explanation by the model. So R-square value tells you that how well the model done in terms of variance explanation. So, here I'm getting 93%, which is quite a good model.
+
+1111
+02:20:13.330 --> 02:20:30.620
+Jitendra K: F is statistics showing 1336, which is high significantly overall. So if it is highly value, then I can say it's a significant value as well. The probability of F statistics is 0 in this particular case, so I can say model is definitely better than the intercept only.
+
+1112
+02:20:30.660 --> 02:20:34.330
+Jitendra K: So my model is generalized based upon this analysis.
+
+1113
+02:20:34.400 --> 02:20:53.790
+Jitendra K: But, since we are not performing full regression at this moment, so I'm least bothered about these results, but I would rather try to talk about these results. Now, here you can see that I've got linearity assumption failed, so that means my model is not linear, the variables are nonlinear or quasilinear as well.
+
+1114
+02:20:53.930 --> 02:21:01.720
+Jitendra K: The independence of error got passed, that means, my residuals are… kind of,
+
+1115
+02:21:02.290 --> 02:21:06.410
+Jitendra K: Does not have any autocorrelation, or my variable does not have any autocorrelation.
+
+1116
+02:21:06.630 --> 02:21:13.569
+Jitendra K: The homostaticity test has been passed. Normality of residual, that means it is also following a normal distribution, which is also passed.
+
+1117
+02:21:13.680 --> 02:21:20.329
+Jitendra K: Multicolinity exists in my model. Predominantly, I can see 16, which is very high.
+
+1118
+02:21:20.640 --> 02:21:24.780
+Jitendra K: So, this is very high traces of multicollinearity in my model.
+
+1119
+02:21:24.950 --> 02:21:35.759
+Jitendra K: I can able to confirm this with the help of this graph as well, or heat map as well, so you can see X1 and X2 have 0.96 multicollinearity. That's pretty high.
+
+1120
+02:21:36.770 --> 02:21:42.920
+Jitendra K: So, now, I would like to check… After performing this analysis.
+
+1121
+02:21:43.170 --> 02:21:58.069
+Jitendra K: How should I be able to make this assumption valid? Now, this is something which we are going to learn in the next class, but I just want to show you that this is how you are going to run a test on the top of your outlier detection. So, any question on this? Any… anything that you would like to ask?
+
+1122
+02:22:05.020 --> 02:22:06.789
+Jitendra K: Any question on this, guys?
+
+1123
+02:22:10.550 --> 02:22:16.959
+Jitendra K: Oh, what is QQ plot? QQ plot stands for quantile, Quintile range. So, QQ stands for quantile plot.
+
+1124
+02:22:17.090 --> 02:22:19.629
+Jitendra K: Now, if you look into the QQ plot.
+
+1125
+02:22:22.820 --> 02:22:29.650
+Jitendra K: So the QQ plot talks about the tendency of a residual errors distribution along this regression line.
+
+1126
+02:22:30.100 --> 02:22:36.600
+Jitendra K: So you can see that my residual errors are closely following this regression line. That means the good
+
+1127
+02:22:37.690 --> 02:22:41.660
+Jitendra K: So, depiction that map distributions is a normal distribution.
+
+1128
+02:22:42.510 --> 02:22:44.810
+Jitendra K: So if it is closest to the line.
+
+1129
+02:22:45.060 --> 02:22:48.169
+Jitendra K: All the error proportion, that means the good regression model.
+
+1130
+02:22:49.390 --> 02:23:00.969
+Jitendra K: How do all the tests need to pass to make the significant model? Yeah, so that is something which we are going to talk about, the treatment and the ED analysis in the next class. How to perform a treatment on variables.
+
+1131
+02:23:03.990 --> 02:23:10.350
+Jitendra K: So, when you're performing the treatment on variables, you will be able to make sure that all the tests will be passed.
+
+1132
+02:23:16.340 --> 02:23:22.010
+Jitendra K: Alright, so let's try to revisit the previous example that we are trying to solve. Let me…
+
+1133
+02:23:22.830 --> 02:23:24.070
+Jitendra K: Go back…
+
+1134
+02:23:47.170 --> 02:23:49.770
+Jitendra K: It'll take some time, because this is something…
+
+1135
+02:23:49.900 --> 02:23:57.470
+Jitendra K: slightly complex as compared to the previous example, so I'm running cross-validation And, this is most…
+
+1136
+02:23:58.300 --> 02:24:01.100
+Jitendra K: Mostly using 3 or 4 models to run.
+
+1137
+02:24:09.070 --> 02:24:09.879
+Jitendra K: All right.
+
+1138
+02:24:10.550 --> 02:24:12.710
+Jitendra K: So, this is a great analysis.
+
+1139
+02:24:13.160 --> 02:24:16.539
+Jitendra K: On the stock price prediction. Now, let me interpret the outcome.
+
+1140
+02:24:20.810 --> 02:24:26.210
+Jitendra K: Okay, so… This is what a stock price looks like.
+
+1141
+02:24:26.550 --> 02:24:29.870
+Jitendra K: the close… margin, or…
+
+1142
+02:24:30.440 --> 02:24:38.019
+Jitendra K: the, the Apple… this is Apple stock that we are trying to discuss, so this is the range of price in which
+
+1143
+02:24:38.450 --> 02:24:40.390
+Jitendra K: the index of the Apple stock.
+
+1144
+02:24:40.650 --> 02:24:42.660
+Jitendra K: Has been fluctuating against.
+
+1145
+02:24:43.130 --> 02:24:51.200
+Jitendra K: And I'm using several features. I've created 44 features, including different marketing conditions and stuff.
+
+1146
+02:24:51.390 --> 02:24:58.740
+Jitendra K: I will not discuss about how I make course correction in the errors, so we will park this part aside.
+
+1147
+02:24:58.900 --> 02:25:05.570
+Jitendra K: But we'll rather focus on the simple linear regression. So I will not talk about range regression, loss of regression at this point.
+
+1148
+02:25:06.020 --> 02:25:11.800
+Jitendra K: But just want to show you how actually these models work in production. That's the reason I just,
+
+1149
+02:25:11.940 --> 02:25:14.669
+Jitendra K: Do not hide anything from you guys.
+
+1150
+02:25:14.920 --> 02:25:18.740
+Jitendra K: But, in a very simple terminology, we are using 5 models.
+
+1151
+02:25:19.020 --> 02:25:23.839
+Jitendra K: And out of phi model, I would like to see which model is giving me the best R-square value.
+
+1152
+02:25:23.990 --> 02:25:30.179
+Jitendra K: Surprisingly, linear regression is giving me the best value so far. So, let's start with the linear regression.
+
+1153
+02:25:30.490 --> 02:25:35.780
+Jitendra K: So here, I'm performing the same analysis, test of hypothesis.
+
+1154
+02:25:36.270 --> 02:25:40.870
+Jitendra K: Now, the first hypothesis is linear regression assumption. So, this is a real-world data.
+
+1155
+02:25:41.590 --> 02:25:48.490
+Jitendra K: That means this is from Yahoo Finance. And the previous example that we have seen is a synthetic data that we have generated randomly.
+
+1156
+02:25:48.630 --> 02:26:00.600
+Jitendra K: And this data is exhibiting a linear relationship between your stock price and multiple factors which impact the stock price. So this is clear-cut, that my data is linear.
+
+1157
+02:26:01.100 --> 02:26:09.730
+Jitendra K: The independent assumption autocorrelation of the features, there is a significant lag of features, and I can say the autocorrelation detected.
+
+1158
+02:26:10.060 --> 02:26:16.720
+Jitendra K: Which the p-value is non-significant, and I will say that, there's a clear autocorrelation between the
+
+1159
+02:26:16.850 --> 02:26:18.920
+Jitendra K: My previous features.
+
+1160
+02:26:19.160 --> 02:26:25.630
+Jitendra K: The reason being is, the stock price sometimes… We'll have a tendency of… shock.
+
+1161
+02:26:25.890 --> 02:26:26.979
+Jitendra K: So there's a depth.
+
+1162
+02:26:27.400 --> 02:26:29.030
+Jitendra K: Right? Of that shock.
+
+1163
+02:26:29.320 --> 02:26:36.689
+Jitendra K: And that could be the reason you will see this assumption is violating in stock price prediction scenarios, but maybe it can be valid
+
+1164
+02:26:36.950 --> 02:26:37.930
+Jitendra K: as well.
+
+1165
+02:26:38.280 --> 02:26:43.630
+Jitendra K: So, autocorrelation test got failed, With us…
+
+1166
+02:26:43.780 --> 02:26:52.670
+Jitendra K: P-significance value of 0. I mean, we are getting 0, which is less than 0.5% of the critical range.
+
+1167
+02:26:52.960 --> 02:26:55.770
+Jitendra K: So we'll say that, this test got failed.
+
+1168
+02:26:55.900 --> 02:26:58.699
+Jitendra K: There is a positive autocorrelation depicted? No.
+
+1169
+02:26:59.130 --> 02:27:03.260
+Jitendra K: Negative autocorrection detected? No. That means there's no autocorrection detected.
+
+1170
+02:27:03.520 --> 02:27:10.539
+Jitendra K: Homochasticity assumption, I can say that, the two assumptions, first test got failed.
+
+1171
+02:27:11.700 --> 02:27:19.179
+Jitendra K: But the second test is… and the second and the third test giving me some better results. So I would say that if I have to go with best of the two.
+
+1172
+02:27:20.060 --> 02:27:24.399
+Jitendra K: I will definitely go with that this assumption get passed, rather than failed.
+
+1173
+02:27:24.780 --> 02:27:29.650
+Jitendra K: So I can say that the homochasticity assumption satisfied, rather than failed.
+
+1174
+02:27:30.470 --> 02:27:40.869
+Jitendra K: Normality of the residuals, all the tests are failing, so I can say that my residuals are not normal, but there's a skewness and a kartosis in my distribution.
+
+1175
+02:27:41.110 --> 02:27:43.899
+Jitendra K: Distribution of residual errors, right?
+
+1176
+02:27:44.040 --> 02:27:48.400
+Jitendra K: So, when I say that distribution of residual errors are having skewness and kartosis.
+
+1177
+02:27:48.910 --> 02:27:56.879
+Jitendra K: Does it mean that my original data will have the same skewness and kurtosis? The answer is, could be yes. Possibility it is yes, right?
+
+1178
+02:27:57.050 --> 02:28:07.160
+Jitendra K: So, this is a traces of regression, where I'm performing the analysis against residual errors. So that is where my residual might follow the actual data.
+
+1179
+02:28:07.760 --> 02:28:09.030
+Jitendra K: To an extent.
+
+1180
+02:28:09.250 --> 02:28:14.000
+Jitendra K: R-square value close to 1… yeah, R-square value close to 1 is a great value.
+
+1181
+02:28:15.830 --> 02:28:23.490
+Jitendra K: What is the term rule to decide model is good? R-square? So you can use R-square, RMSC combination, and then you can generalize the model. We'll talk about this.
+
+1182
+02:28:23.760 --> 02:28:34.870
+Jitendra K: Do we need to perform all the tests while raising regression on the data? Also, how to determine limit outliers? Yeah, this is a good question. So, when you're talking about outliers, impact on regression.
+
+1183
+02:28:35.220 --> 02:28:39.399
+Jitendra K: So we perform some treatment tests to remove the outliers.
+
+1184
+02:28:39.580 --> 02:28:42.989
+Jitendra K: To make the transformation, etc. So we'll learn this.
+
+1185
+02:28:43.340 --> 02:28:45.500
+Jitendra K: Right now, we are talking about the symptoms.
+
+1186
+02:28:46.670 --> 02:28:55.409
+Jitendra K: If R-square value is high, then it means the model's predicting correctly. R-square value close to 1 is making your model perfectly aligned, yes.
+
+1187
+02:28:55.760 --> 02:28:58.570
+Jitendra K: How many tests we need to perform for a single assumption?
+
+1188
+02:28:58.830 --> 02:29:06.589
+Jitendra K: Okay, so… Maybe at least one, minimum one, and maximum, there's no limit.
+
+1189
+02:29:07.420 --> 02:29:12.950
+Jitendra K: Minimum, you have to perform one. So I will tell you now, I will give you a tip, which test is better and why.
+
+1190
+02:29:13.350 --> 02:29:19.019
+Jitendra K: So when you're performing a test of linear relationship, you can go with a Harvey Collinear test.
+
+1191
+02:29:19.310 --> 02:29:25.149
+Jitendra K: And then we have talked about the plot test, so I will prefer plot instead of performing this test.
+
+1192
+02:29:25.450 --> 02:29:30.580
+Jitendra K: Because using a plot, you can be able to see the clear depiction of linearity versus nonlinearity.
+
+1193
+02:29:30.890 --> 02:29:35.340
+Jitendra K: For autocorrelation, I will highly prefer a Derwin-Watson test rather than this test.
+
+1194
+02:29:35.620 --> 02:29:38.579
+Jitendra K: So, my recommendation is to use Darwin Watson.
+
+1195
+02:29:38.890 --> 02:29:45.190
+Jitendra K: For homochiatric test, I will definitely go with this test. Goldfeld Quant Test.
+
+1196
+02:29:45.520 --> 02:29:50.590
+Jitendra K: So this is one of the tests that we are going to use for Purpose?
+
+1197
+02:29:51.450 --> 02:30:02.639
+Jitendra K: When we talk about normality of residuals, nobody can defeat Chaprovil's test, so let's go with Chaprovil's test. If you want to go for an Anderson-Darlington test, that is also fine.
+
+1198
+02:30:03.080 --> 02:30:05.760
+Jitendra K: But these two tests, Are gonna be useful.
+
+1199
+02:30:06.950 --> 02:30:12.049
+Jitendra K: Alright. So, you can see that the normality of residuals are invalid.
+
+1200
+02:30:12.220 --> 02:30:14.209
+Jitendra K: There's a skinos and kartosis.
+
+1201
+02:30:14.340 --> 02:30:22.780
+Jitendra K: Now, multicollinearity assumption. So, I would like to see the multicollinearity assumption. Now, when you say multicollinearity assumption on features.
+
+1202
+02:30:23.040 --> 02:30:25.810
+Jitendra K: So remember, we have created 44 features.
+
+1203
+02:30:25.920 --> 02:30:28.610
+Jitendra K: Some market features, some macroeconomic features.
+
+1204
+02:30:28.780 --> 02:30:32.499
+Jitendra K: and some, static features. So based upon these features.
+
+1205
+02:30:32.650 --> 02:30:38.530
+Jitendra K: I can see that some of the features exhibit high multicollinearity, some of them are okay.
+
+1206
+02:30:38.980 --> 02:30:44.049
+Jitendra K: So when the features are multicolinear, then the value should be generally greater than 10.
+
+1207
+02:30:46.040 --> 02:30:51.400
+Jitendra K: So I can say there's, some multicollinearity in my variable features.
+
+1208
+02:30:51.620 --> 02:30:57.959
+Jitendra K: Outliers and influential points, I can say… 73 outliers detected.
+
+1209
+02:30:58.150 --> 02:31:02.540
+Jitendra K: I've got a lot of… Data points which is having outliers.
+
+1210
+02:31:02.980 --> 02:31:20.330
+Jitendra K: Now, coming back to these plots, so… this plot, the first plot, talks about linear regression line. As I mentioned in the first test, you can plot it as well. So you can see that the linear regression assumption is whole true, in this case. It looks like a perfect linear line with all the data points close to it.
+
+1211
+02:31:20.820 --> 02:31:23.870
+Jitendra K: So I don't think so linear regression assumption may be…
+
+1212
+02:31:24.250 --> 02:31:31.619
+Jitendra K: Falsely detected by the test, so it is clearly evident that our model is following a linear regression, or linear line.
+
+1213
+02:31:32.010 --> 02:31:35.119
+Jitendra K: Between X and Y I'm talking about.
+
+1214
+02:31:35.480 --> 02:31:41.770
+Jitendra K: The actual was predicted over a time, so I can say that this is my predicted
+
+1215
+02:31:42.700 --> 02:31:45.390
+Jitendra K: I cannot differentiate the color, though.
+
+1216
+02:31:45.550 --> 02:31:46.999
+Jitendra K: But let me check…
+
+1217
+02:31:47.910 --> 02:31:59.029
+Jitendra K: Okay, so the line is overlapping, that's why. So action and predicted for linear regression is 100% true. That's why the overlapping line is there. So that means there's a… behind the scene, there's a blue line.
+
+1218
+02:32:00.400 --> 02:32:08.550
+Jitendra K: Protection error distribution, you can see the error distribution looks like a normal distribution curve, if I create a bell curve on the top of it.
+
+1219
+02:32:08.810 --> 02:32:12.580
+Jitendra K: The prediction error is… looks like a normal distributed curve to me.
+
+1220
+02:32:12.880 --> 02:32:16.349
+Jitendra K: Now, this is important, so when you're comparing the model.
+
+1221
+02:32:16.630 --> 02:32:18.539
+Jitendra K: Right? You would like to check
+
+1222
+02:32:19.120 --> 02:32:26.820
+Jitendra K: two things, the R-square value and the RMSE value. Now, I will come to this part, why RSquare versus RMSE, why not both?
+
+1223
+02:32:27.110 --> 02:32:31.419
+Jitendra K: How about adjusted R-square, map, etc?
+
+1224
+02:32:31.600 --> 02:32:38.979
+Jitendra K: So, now the golden rule of thumb is, you have to perform The accuracy of the model?
+
+1225
+02:32:39.240 --> 02:32:44.810
+Jitendra K: plus the generalization of the model, both. So for that, I would like to use both techniques.
+
+1226
+02:32:44.970 --> 02:32:49.009
+Jitendra K: So here you can see that R-square is close to 100% for all models.
+
+1227
+02:32:49.180 --> 02:32:55.070
+Jitendra K: So that means, when I have a tiebreaker in terms of R-squared, I can definitely go with RMSE.
+
+1228
+02:32:55.830 --> 02:33:03.059
+Jitendra K: And I would like to see which model is giving me the best RMSE as well. Now, I cannot select RMSC based upon the highest
+
+1229
+02:33:04.090 --> 02:33:07.009
+Jitendra K: Test accuracy, because there is an overfitting in this model.
+
+1230
+02:33:07.300 --> 02:33:09.199
+Jitendra K: So I cannot say this model is great.
+
+1231
+02:33:09.490 --> 02:33:17.380
+Jitendra K: But I would like to go with, rather, the model which is more generalized, so I can see ridge regression is more generalized as compared to lawsuit.
+
+1232
+02:33:17.790 --> 02:33:24.309
+Jitendra K: This looks like a perfect overfit solution for me, because my… Training accuracy is close to…
+
+1233
+02:33:25.020 --> 02:33:27.930
+Jitendra K: 1, and then test is going up to 2.
+
+1234
+02:33:28.840 --> 02:33:33.559
+Jitendra K: RMSE generally is not between 0 to 1. RMSE can be any range.
+
+1235
+02:33:34.160 --> 02:33:39.279
+Jitendra K: So, here I'm talking about the root mean square error as a part of my variable prediction.
+
+1236
+02:33:40.720 --> 02:33:46.469
+Jitendra K: Now, I can also see, some residuals and predicted errors, so it is no pattern observed.
+
+1237
+02:33:46.630 --> 02:33:52.070
+Jitendra K: Between residual and predicted error, that means this model is… Not very generalized.
+
+1238
+02:33:52.530 --> 02:34:11.320
+Jitendra K: to utilize for all sort of features. The top features, you can see the rank of the features, you can see the error distribution, etc. Now, these are the usual plots, so you can see the… how more staticity is there. This looks like a pipeline, not a funnel, so there's no heteroschasticity in my distribution.
+
+1239
+02:34:11.570 --> 02:34:20.849
+Jitendra K: The QQ plot suggests that the residuals are following the normals, they are normally distributed, so that means there's a normality assumption, which holds valid.
+
+1240
+02:34:21.200 --> 02:34:34.060
+Jitendra K: I can see the residuals are also normally distributed to slightly left-cartic behavior, which is okay in this context, because this is a complex scenario, and I can say that I cannot make this…
+
+1241
+02:34:34.460 --> 02:34:37.420
+Jitendra K: Residuals close to normal any further.
+
+1242
+02:34:39.200 --> 02:34:55.830
+Jitendra K: Okay, so you can see that we have… I will not talk about the features, because this is beyond the scope of this case study. We are focusing only on the test that we are going to perform. So my intention is, I would like to show you how the real-world project works, right? And this is a great example.
+
+1243
+02:34:56.000 --> 02:34:59.890
+Jitendra K: So here, what we have done is, we have downloaded the data from Yahoo Finance.
+
+1244
+02:35:00.100 --> 02:35:06.600
+Jitendra K: We have choose the features, I will not discuss about the features, why I choose this feature, and how.
+
+1245
+02:35:07.080 --> 02:35:11.150
+Jitendra K: But assume that this is the features that I'm going to use, 43 features.
+
+1246
+02:35:11.660 --> 02:35:24.199
+Jitendra K: So before running any regression analysis, in a real-time model that you're going to use to create any sort of problem statement you're trying to solve in your use cases going further.
+
+1247
+02:35:24.510 --> 02:35:26.230
+Jitendra K: This is the approach you should follow.
+
+1248
+02:35:26.640 --> 02:35:31.620
+Jitendra K: You should not blindly… Use linear regression or multiple linear regression.
+
+1249
+02:35:31.890 --> 02:35:39.179
+Jitendra K: And, use your features or data set to fit into that regression equation, but you rather have to perform
+
+1250
+02:35:39.630 --> 02:35:47.330
+Jitendra K: The thorough analysis on the assumption first, and then based upon the assumption, you have to decide how your model is performing.
+
+1251
+02:35:47.540 --> 02:35:53.969
+Jitendra K: And then you have to change your strategies to eliminate the variables, treat the variables, perform
+
+1252
+02:35:54.390 --> 02:35:59.180
+Jitendra K: More feature comprehensions, etc, and then come up with this answer.
+
+1253
+02:35:59.730 --> 02:36:06.869
+Jitendra K: So this is what… I would say we need to use… In every project going forward.
+
+1254
+02:36:07.080 --> 02:36:11.760
+Jitendra K: Are we going to use this assumption in every project? The answer is yes, we will.
+
+1255
+02:36:12.120 --> 02:36:16.300
+Jitendra K: For every regression, we have to run this analysis, just a kind of a runbook.
+
+1256
+02:36:16.560 --> 02:36:24.940
+Jitendra K: And then, finally, once you perform this analysis, you're gonna get more confidence on your assumptions, Rather than…
+
+1257
+02:36:25.380 --> 02:36:28.430
+Jitendra K: Making an error at the runtime, so you have to…
+
+1258
+02:36:28.540 --> 02:36:33.700
+Jitendra K: Do a foolproof experimentation before you start any regression equations, right?
+
+1259
+02:36:33.930 --> 02:36:40.330
+Jitendra K: So, any question on this? Shall I share this, notebook so that you can run both notebooks, and I will give you…
+
+1260
+02:36:40.680 --> 02:36:48.129
+Jitendra K: 15 minutes time to run, and then after 15 minutes, you can ask questions. Will that be okay, or you would like me to continue for…
+
+1261
+02:36:48.540 --> 02:36:51.180
+Jitendra K: The cost functions as well.
+
+1262
+02:37:09.010 --> 02:37:12.490
+Jitendra K: Okay, let me show you the code, and then you can run.
+
+1263
+02:37:13.700 --> 02:37:18.530
+Jitendra K: And then I will give you 15 minutes, and then we'll discuss the cost function and time permits.
+
+1264
+02:37:19.050 --> 02:37:20.580
+Jitendra K: So let me share this.
+
+1265
+02:37:31.130 --> 02:37:32.999
+Jitendra K: And let me share the slides.
+
+1266
+02:37:36.020 --> 02:37:37.310
+Jitendra K: as well.
+
+1267
+02:37:41.120 --> 02:37:45.009
+Jitendra K: Okay, so just, take, 10 minutes and run this.
+
+1268
+02:37:45.180 --> 02:37:50.139
+Jitendra K: And then we will discuss the cost function. And then we'll continue the cost function in the next tutorial.
+
+1269
+02:37:50.320 --> 02:37:53.739
+Jitendra K: The cost function is something which we're going to talk about in a while.
+
+1270
+02:37:56.690 --> 02:38:00.460
+Jitendra K: Just take 10 more minutes, and then let me know if you face any difficulty.
+
+1271
+02:46:11.490 --> 02:46:17.930
+Jitendra K: Yeah, so are you facing the errors in the code, while executing it? I would request you to execute.
+
+1272
+02:46:18.390 --> 02:46:24.140
+Jitendra K: The last cells, so… can you go to the last cell, and then execute the…
+
+1273
+02:46:24.960 --> 02:46:30.650
+Jitendra K: Okay, so let me delete the previous code. Let me clean this notebook a bit.
+
+1274
+02:47:14.860 --> 02:47:18.429
+Jitendra K: Okay, now can you try this? Let me share this notebook.
+
+1275
+02:47:31.100 --> 02:47:33.339
+Jitendra K: Yeah, can you try this now, guys?
+
+1276
+02:47:54.870 --> 02:48:02.660
+Jitendra K: Alright, so I think you can try it later, so… but I believe the concepts are clear, right? So, is there any question on the concepts?
+
+1277
+02:48:16.530 --> 02:48:18.520
+Jitendra K: Oh, you didn't receive the code?
+
+1278
+02:48:24.210 --> 02:48:25.640
+Jitendra K: Yeah, I'll share it.
+
+1279
+02:48:27.940 --> 02:48:33.159
+Jitendra K: Alright, so I think the concept of this code is clear, right, to everyone.
+
+1280
+02:48:33.730 --> 02:48:36.860
+Jitendra K: So let's revise, revisit what we have learned so far.
+
+1281
+02:48:37.110 --> 02:48:48.520
+Jitendra K: So we talked about the linear regression equations, or so-called assumption of linear regression, right? And how to validate the linear regression assumption, that is something which we have talked about.
+
+1282
+02:48:49.080 --> 02:48:57.670
+Jitendra K: Now, I will talk about the cost function. So, the cost function is also called as loss function, and these are interchangeable terms.
+
+1283
+02:48:58.000 --> 02:49:07.360
+Jitendra K: So now, when we talk about cost function, we have talked about classification, we've talked about something called accuracy, recall, precision, F1 score.
+
+1284
+02:49:07.670 --> 02:49:14.009
+Jitendra K: The same thing applies for regression validation. So when you're validating a regression equation, your objective is to perform
+
+1285
+02:49:14.980 --> 02:49:19.940
+Jitendra K: The best fit line by considering all beta values.
+
+1286
+02:49:20.240 --> 02:49:24.199
+Jitendra K: Right? And then you're going to compare the different models, try to see
+
+1287
+02:49:24.350 --> 02:49:28.149
+Jitendra K: which models have better R-square, RMSC, etc?
+
+1288
+02:49:28.520 --> 02:49:34.209
+Jitendra K: And then you will select that model as its potential solution, and then deploy it.
+
+1289
+02:49:35.430 --> 02:49:42.629
+Jitendra K: But when you talk about different types of cost metrics, like R-square, RMSE, what these metrics does.
+
+1290
+02:49:43.410 --> 02:49:49.619
+Jitendra K: So let me revisit the whiteboard. So we discussed that when we talk about linear regression equation.
+
+1291
+02:49:50.010 --> 02:49:59.169
+Jitendra K: Our objective is to find the best fit line. That is our objective, right? So we are trying to minimize the error by projecting a linear regression line.
+
+1292
+02:49:59.390 --> 02:50:03.530
+Jitendra K: That will have the… minimum distance
+
+1293
+02:50:03.860 --> 02:50:08.389
+Jitendra K: From the data points to the projected linear regression line.
+
+1294
+02:50:08.960 --> 02:50:15.600
+Jitendra K: So, this is the essential… Step that we are going to utilize to find out the errors.
+
+1295
+02:50:15.960 --> 02:50:16.940
+Jitendra K: Now, what?
+
+1296
+02:50:17.080 --> 02:50:20.949
+Jitendra K: should I do to consolidate all the errors?
+
+1297
+02:50:21.780 --> 02:50:25.809
+Jitendra K: Instead of one data point, I would like to consolidate all the errors.
+
+1298
+02:50:26.030 --> 02:50:28.689
+Jitendra K: And that is called mean absolute error.
+
+1299
+02:50:29.230 --> 02:50:35.400
+Jitendra K: M-A-E. So we are talking about absolute error, mean absolute error, which is nothing but
+
+1300
+02:50:35.530 --> 02:50:38.450
+Jitendra K: It's a difference of the values.
+
+1301
+02:50:38.980 --> 02:50:41.829
+Jitendra K: So-called summation of difference of the values.
+
+1302
+02:50:42.190 --> 02:50:48.420
+Jitendra K: from Y predicted, against Y actual…
+
+1303
+02:50:48.600 --> 02:50:51.479
+Jitendra K: sorry, Y actual minus Y predicted.
+
+1304
+02:50:51.770 --> 02:50:58.750
+Jitendra K: And I'm taking a… Summation from i is equals to N, which is my number of data points.
+
+1305
+02:50:59.020 --> 02:51:01.710
+Jitendra K: And I will use an albumation factor 1 over n.
+
+1306
+02:51:01.830 --> 02:51:05.509
+Jitendra K: 2… quantify this whole equation. So I will say.
+
+1307
+02:51:05.660 --> 02:51:11.100
+Jitendra K: Y hat is a predicted value, and Y bar is the mean value.
+
+1308
+02:51:11.590 --> 02:51:13.079
+Jitendra K: So I can say Y bar.
+
+1309
+02:51:13.530 --> 02:51:19.819
+Jitendra K: So basically, what I'm trying to do is, the meanest absolute error, or so-called IMAE value, will give me
+
+1310
+02:51:20.010 --> 02:51:26.440
+Jitendra K: the… the, I would say… the requirement
+
+1311
+02:51:26.840 --> 02:51:32.960
+Jitendra K: or so-called, the estimation on the error. So mean absolute error is a very simplistic approach.
+
+1312
+02:51:33.400 --> 02:51:38.769
+Jitendra K: We just calculate the absolute difference between the actual and reflected value, and
+
+1313
+02:51:38.960 --> 02:51:43.310
+Jitendra K: So, basically, it will just use the equation.
+
+1314
+02:51:43.570 --> 02:51:49.169
+Jitendra K: Sum of absolute errors, and then try to find out the absolute value of the residual error rate.
+
+1315
+02:51:49.550 --> 02:51:53.189
+Jitendra K: So what are the advantages and disadvantages of using MAE?
+
+1316
+02:51:53.540 --> 02:52:00.440
+Jitendra K: So, the most important… Advantage of MAE is it is more robust to outliers.
+
+1317
+02:52:01.910 --> 02:52:06.519
+Jitendra K: Because it does not use any scale, so you're using a normalization factor, 1 over n.
+
+1318
+02:52:06.880 --> 02:52:11.759
+Jitendra K: Which… De-amplify the impact of outliers.
+
+1319
+02:52:12.090 --> 02:52:16.099
+Jitendra K: So the MA value will be more robust to outliers.
+
+1320
+02:52:16.770 --> 02:52:23.069
+Jitendra K: The second advantage of using MAE is you will get the same unit as an output variable.
+
+1321
+02:52:23.690 --> 02:52:31.479
+Jitendra K: So if I'm predicting, Y as, let's say, house price in 1000 US dollar.
+
+1322
+02:52:32.800 --> 02:52:36.850
+Jitendra K: You will get the error by saying that my model is not able to predict
+
+1323
+02:52:37.510 --> 02:52:40.150
+Jitendra K: up to 2,000 US dollar.
+
+1324
+02:52:41.160 --> 02:52:42.649
+Jitendra K: As a house price.
+
+1325
+02:52:43.030 --> 02:52:47.139
+Jitendra K: Errors So the unit of measurement will not change.
+
+1326
+02:52:49.340 --> 02:52:52.009
+Jitendra K: The only disadvantage of MAE is…
+
+1327
+02:52:55.770 --> 02:52:56.810
+Jitendra K: the…
+
+1328
+02:52:57.430 --> 02:53:07.769
+Jitendra K: Maybe one of the serious disadvantages of MAE is you cannot be able to consider a scale in a probabilitable range. Like, what is the percentage of matter?
+
+1329
+02:53:08.880 --> 02:53:12.980
+Jitendra K: Right? So that is the… one of the important drawbacks of ME.
+
+1330
+02:53:13.570 --> 02:53:22.940
+Jitendra K: Now, when we talk about MSC, mean square errors. Now, mean square error, as you can see, I'm talking about square term and the mean term, both.
+
+1331
+02:53:23.310 --> 02:53:27.320
+Jitendra K: So, mean square error is the most used, and very simply.
+
+1332
+02:53:27.520 --> 02:53:31.229
+Jitendra K: simplified metrics with a little bit change on MAE.
+
+1333
+02:53:31.330 --> 02:53:39.260
+Jitendra K: And what are we trying to do here is, we are trying to take an absolute value, same as MA, by taking a deviation of Y minus Y hat.
+
+1334
+02:53:40.620 --> 02:53:43.620
+Jitendra K: But here, we are going to take a square magnitude of the error.
+
+1335
+02:53:44.090 --> 02:53:46.280
+Jitendra K: Here we are not taking any square magnitude.
+
+1336
+02:53:46.490 --> 02:53:50.870
+Jitendra K: So here we are taking the square magnitude of the error, so we are actually representing
+
+1337
+02:53:50.990 --> 02:53:58.529
+Jitendra K: The square distance between the actual and predicted value, and we perform the square to avoid the cancellation of negative term.
+
+1338
+02:53:58.770 --> 02:54:01.059
+Jitendra K: And this will benefit DMSC value.
+
+1339
+02:54:01.480 --> 02:54:05.310
+Jitendra K: So the advantage of MSC is… You can able to…
+
+1340
+02:54:05.760 --> 02:54:09.219
+Jitendra K: get differentiable value, so if I'm taking a…
+
+1341
+02:54:09.460 --> 02:54:12.719
+Jitendra K: D over DX, I can take a differentiation.
+
+1342
+02:54:13.830 --> 02:54:15.440
+Jitendra K: Right? Of this value.
+
+1343
+02:54:15.690 --> 02:54:24.690
+Jitendra K: So when I'm trying to create a gradient method in neural network, I cannot use… Amy?
+
+1344
+02:54:25.020 --> 02:54:29.790
+Jitendra K: Because… The derivative of the constant term will become 0.
+
+1345
+02:54:30.800 --> 02:54:35.340
+Jitendra K: But here, I can take a derivative of my… variable term.
+
+1346
+02:54:36.650 --> 02:54:41.609
+Jitendra K: So the graph of MACE is differentiable, so you can use it as a loss function.
+
+1347
+02:54:41.780 --> 02:54:47.840
+Jitendra K: The second disadvant… sorry, advantage of using MSC is it is also robust to outliers.
+
+1348
+02:54:49.410 --> 02:55:02.079
+Jitendra K: Now, the disadvantage of using MSC is the value you get after calculating MSC is a square unit of the output. For example, the output variable is in meter, then after calculating the MSC, the output will be meter squared.
+
+1349
+02:55:02.950 --> 02:55:04.859
+Jitendra K: That means the unit will change.
+
+1350
+02:55:07.090 --> 02:55:13.650
+Jitendra K: And for that, we required something modified MSC, Which is called root-mean-square errors.
+
+1351
+02:55:13.920 --> 02:55:15.120
+Jitendra K: RMSE.
+
+1352
+02:55:15.420 --> 02:55:19.100
+Jitendra K: So in RMSE, we will say it's a square root of MSC.
+
+1353
+02:55:19.320 --> 02:55:20.240
+Jitendra K: itself.
+
+1354
+02:55:20.410 --> 02:55:24.490
+Jitendra K: So I can say… it to be a square root of 1 over n.
+
+1355
+02:55:25.180 --> 02:55:33.530
+Jitendra K: Summation of… YI minus Y hat, Holy square.
+
+1356
+02:55:34.730 --> 02:55:43.770
+Jitendra K: So the advantage of using RMSE is the output value you will get in the same unit as this required output variable, which makes interpretation a lot easier.
+
+1357
+02:55:44.400 --> 02:55:50.019
+Jitendra K: The disadvantage of RMSC is it is not very robust to outlier compared to MAE.
+
+1358
+02:55:54.300 --> 02:55:57.740
+Jitendra K: Then, we talk about something called R-square.
+
+1359
+02:55:58.380 --> 02:56:02.529
+Jitendra K: So, R-square is a matrix that tells the performance of your model.
+
+1360
+02:56:02.780 --> 02:56:07.610
+Jitendra K: Not a loss in absolute sense, but how well your model performed.
+
+1361
+02:56:08.250 --> 02:56:15.799
+Jitendra K: So, in contrast to MAE, MSE, it depends upon the context. So R-square will help you to create a baseline model.
+
+1362
+02:56:16.030 --> 02:56:23.370
+Jitendra K: to compare our model with our, efficacy with other approaches, and then R-square is nothing but, it is.
+
+1363
+02:56:23.560 --> 02:56:29.619
+Jitendra K: 1 minus sum of a square, Over sum of mean.
+
+1364
+02:56:32.150 --> 02:56:41.230
+Jitendra K: So how will you interpret the R-square? Suppose if the R-square value is 0, that means the regression mean line is equal to 1.
+
+1365
+02:56:42.350 --> 02:56:45.730
+Jitendra K: Right? So, R-square will give you…
+
+1366
+02:56:45.870 --> 02:56:49.889
+Jitendra K: A pretty good quantifier on which you can able to use
+
+1367
+02:56:50.240 --> 02:56:58.670
+Jitendra K: The coefficient of determination, which represent the proportion of the variance explained by the model, in terms of dependent variable.
+
+1368
+02:56:59.150 --> 02:57:01.409
+Jitendra K: So it's a scale-free score.
+
+1369
+02:57:01.590 --> 02:57:04.220
+Jitendra K: Remember, there's no unit of R-square.
+
+1370
+02:57:04.320 --> 02:57:06.129
+Jitendra K: It's a scale-free score.
+
+1371
+02:57:06.380 --> 02:57:13.080
+Jitendra K: Irrespective of the value being large or small, the value of R squared will be always less than 1.
+
+1372
+02:57:19.930 --> 02:57:23.600
+Jitendra K: Right? So that is where R-square is becoming a very real
+
+1373
+02:57:24.240 --> 02:57:30.260
+Jitendra K: Benchmark to predict your model efficacies on a scale of 0 to 1.
+
+1374
+02:57:30.700 --> 02:57:32.310
+Jitendra K: 1 being the highest.
+
+1375
+02:57:34.030 --> 02:57:37.839
+Jitendra K: So I can say that if I have 3 model M1, M2, and M3,
+
+1376
+02:57:39.940 --> 02:57:43.739
+Jitendra K: And my first model is giving R-square of 0.7.
+
+1377
+02:57:44.540 --> 02:57:46.630
+Jitendra K: Second model is giving 0.
+
+1378
+02:57:47.230 --> 02:57:53.280
+Jitendra K: 9… Third model is giving 0.1 say, 85.
+
+1379
+02:57:53.850 --> 02:57:59.590
+Jitendra K: then I will select this model, Do we qualify, as a better R-square value.
+
+1380
+02:57:59.780 --> 02:58:02.609
+Jitendra K: Of course, I would like to check the impact of
+
+1381
+02:58:03.220 --> 02:58:06.539
+Jitendra K: Overfitting or underfitting on this.
+
+1382
+02:58:08.340 --> 02:58:16.419
+Jitendra K: So is it clear to everyone? We will discuss this in more detail in the next tutorial, don't worry about cost function. This is just a refresh of cost function.
+
+1383
+02:58:16.550 --> 02:58:19.159
+Jitendra K: We'll take more example to understand.
+
+1384
+02:58:19.330 --> 02:58:21.150
+Jitendra K: But, primarily, the…
+
+1385
+02:58:21.350 --> 02:58:28.010
+Jitendra K: The context of today's class is to ensure that you have a good understanding on assumption of linear regression.
+
+1386
+02:58:28.300 --> 02:58:30.049
+Jitendra K: So is it clear to everyone?
+
+1387
+02:58:32.470 --> 02:58:38.339
+Jitendra K: Is it clear? I have created this slide as well, so you can be able to use these practical tips.
+
+1388
+02:58:43.010 --> 02:58:47.259
+Jitendra K: So the takeaway is we have understood the linear regression, and then…
+
+1389
+02:58:47.570 --> 02:58:51.749
+Jitendra K: We have make 6 critical assumptions and validate those assumptions.
+
+1390
+02:58:51.850 --> 02:59:05.459
+Jitendra K: We understand the application of linear regression in different, real-world use cases. We understand the cost functions in a very simple terminology, but we will discuss more in depth in the next tutorial, upcoming tutorials.
+
+1391
+02:59:05.930 --> 02:59:14.490
+Jitendra K: So, the next tutorial, we are going to talk about multivariate regression. So, we'll move to more complex scenarios using multivariate regression.
+
+1392
+02:59:14.610 --> 02:59:20.530
+Jitendra K: And even we will talk about polynomial linear regressions, and then we'll talk about the techniques
+
+1393
+02:59:20.760 --> 02:59:25.629
+Jitendra K: to perform the treatment on the test that we have performed. Let's say…
+
+1394
+02:59:25.810 --> 02:59:30.810
+Jitendra K: If your test of normality fail, then what are you going to do to make them pass?
+
+1395
+02:59:31.450 --> 02:59:34.579
+Jitendra K: Alright, all this thing we are going to talk about in the upcoming tutorial.
+
+1396
+02:59:34.850 --> 02:59:41.779
+Jitendra K: So, if there's any question that I can ask, or I think we are on time, so we can launch the poll as well.
+
+1397
+02:59:50.290 --> 02:59:57.050
+Jitendra K: Yeah, this is, I have created one agent, that will do a research and then create a HTML slide for me.
+
+1398
+02:59:57.400 --> 02:59:59.739
+Jitendra K: So I've created one agent in my…
+
+1399
+03:00:00.150 --> 03:00:03.429
+Jitendra K: Notebook, and this agent will do the job.
+
+1400
+03:00:03.560 --> 03:00:08.879
+Jitendra K: And behind the scene, it will use GPT-4 model, GPT-5 model to run the analysis.
+
+1401
+03:00:09.060 --> 03:00:11.769
+Jitendra K: Gather all the interned information.
+
+1402
+03:00:12.060 --> 03:00:25.100
+Jitendra K: And then, perform the analysis, like, how should… Which particular, let's say, slides, or… existing research.
+
+1403
+03:00:25.990 --> 03:00:33.000
+Jitendra K: Yeah, slightly advanced stuff, so I've created an agent for that, so it will give me the slides, I just need to explain what I need.
+
+1404
+03:00:34.570 --> 03:00:38.620
+Jitendra K: Similar to your writing a prompt, but I'm doing a research agent on the top of it.
+
+1405
+03:00:40.900 --> 03:00:46.670
+Jitendra K: Yeah, definitely, I will teach you, maybe, if time permits, definitely first we cover this, and then…
+
+1406
+03:00:46.880 --> 03:00:52.010
+Jitendra K: I can show you the code as well, if you would like to use the same code, I can help you to create.
+
+1407
+03:00:54.440 --> 03:01:01.730
+Jitendra K: Can we do with Gemini CLI? Yes, you can do it, if you have a model token.
+
+1408
+03:01:02.360 --> 03:01:05.509
+Jitendra K: let's say if you're using Gemini CLI,
+
+1409
+03:01:05.770 --> 03:01:10.359
+Jitendra K: If you would like to write a prompt and then say that, can you create an HTML page for me.
+
+1410
+03:01:10.560 --> 03:01:19.400
+Jitendra K: But it'll be very basic HTML, so I would like to ensure that it will perform a specific web search on the listed website that I am trying to target.
+
+1411
+03:01:19.580 --> 03:01:22.889
+Jitendra K: So I'm targeting, let's say, websites like Medium.
+
+1412
+03:01:23.700 --> 03:01:34.080
+Jitendra K: Towards data analytics. There are a lot of Stanford websites. So I gave a very clear direction to my agent that these are the websites that I required.
+
+1413
+03:01:34.310 --> 03:01:39.759
+Jitendra K: And, these are the mathematical capability that I have to write down.
+
+1414
+03:01:45.450 --> 03:01:48.770
+Jitendra K: Yeah, I'm using line graphs for doing this analysis.
+
+1415
+03:01:49.090 --> 03:01:50.999
+Jitendra K: This is all line graph-based agent.
+
+1416
+03:02:02.470 --> 03:02:05.199
+Jitendra K: So I've set up Olama in my desktop.
+
+1417
+03:02:05.340 --> 03:02:06.969
+Jitendra K: I have, cursor.
+
+1418
+03:02:07.530 --> 03:02:11.570
+Jitendra K: And, this particular model will be useful for that purpose.
+
+1419
+03:02:17.520 --> 03:02:23.679
+Jitendra K: Langraph is from, langchain community, it's not Google.
+
+1420
+03:02:25.100 --> 03:02:27.019
+Jitendra K: Langraph is from Langchain.
+
+1421
+03:02:40.990 --> 03:02:46.820
+Jitendra K: No, no, not in this tutorial. We're not going to talk about Langchain. This is a pure machine learning program.
+
+1422
+03:02:47.300 --> 03:02:49.219
+Jitendra K: If you're interested,
+
+1423
+03:02:53.630 --> 03:02:56.990
+Jitendra K: Yeah, so if you're interested, let me know.
+
+1424
+03:03:00.680 --> 03:03:06.370
+Jitendra K: So Langra will fall into Gen AI, not into Agent TKI and Gen AI courses.
+
+1425
+03:03:44.000 --> 03:03:50.170
+Jitendra K: Yeah, it can create videos as well, but I think we already have so much tutorials in machine learning.
+
+1426
+03:03:50.320 --> 03:03:58.850
+Jitendra K: It is not worth to use agent to create videos. The better way that you can think of is, if you're… would like to compile books.
+
+1427
+03:03:59.390 --> 03:04:02.000
+Jitendra K: And it will give you the summary of
+
+1428
+03:04:02.150 --> 03:04:05.680
+Jitendra K: Use cases around linear regression, so that you can able to
+
+1429
+03:04:05.820 --> 03:04:11.300
+Jitendra K: learn faster. So that's one of the good use cases of using agents for learning purposes.
+
+1430
+03:04:11.450 --> 03:04:16.449
+Jitendra K: So, if you would like to learn something, yeah, probably MindMap, yes.
+
+1431
+03:04:16.640 --> 03:04:23.779
+Jitendra K: So you would like to remember the concepts, and that's why I'm creating these websites, so it will help you in interview preparation.
+
+1432
+03:04:23.890 --> 03:04:29.589
+Jitendra K: So all you have to do is you have to just go to this slide and revise before appearing to an interview.
+
+1433
+03:04:30.410 --> 03:04:32.209
+Jitendra K: The reason being is,
+
+1434
+03:04:32.360 --> 03:04:38.550
+Jitendra K: Interview should be more compiled form. It will ask you a scenarios-based question, like.
+
+1435
+03:04:38.700 --> 03:04:42.250
+Jitendra K: If you're using, the coefficient determination.
+
+1436
+03:04:42.830 --> 03:04:46.879
+Jitendra K: It will try to confuse you, right, which cost function you use and why.
+
+1437
+03:04:46.980 --> 03:04:51.530
+Jitendra K: So I've compiled this for you so that you can be able to use, This stinks.
+
+1438
+03:04:51.720 --> 03:05:02.190
+Jitendra K: And, the reason why we are comparing multiple tests is… I will give, the tips at the end, but it is important to elaborate the concept, right?
+
+1439
+03:05:02.410 --> 03:05:06.380
+Jitendra K: So, as I mentioned, mathematics…
+
+1440
+03:05:07.330 --> 03:05:10.770
+Jitendra K: It's the backbone of machine learning, so we cannot skip that part.
+
+1441
+03:05:11.150 --> 03:05:18.069
+Jitendra K: But definitely, we have to cover depth and breadth of the concepts, so just assume that you're covering the…
+
+1442
+03:05:18.330 --> 03:05:24.920
+Jitendra K: depth and the width, I will leave it up to you. Like, what are the concept that you would like to utilize in your…
+
+1443
+03:05:25.710 --> 03:05:29.480
+Jitendra K: ongoing projects, or maybe upcoming projects, right? So…
+
+1444
+03:05:29.760 --> 03:05:34.839
+Jitendra K: My duty is to make sure that, as a student, you should have all the concept
+
+1445
+03:05:35.430 --> 03:05:40.190
+Jitendra K: And all the tools that you require to excel in your upcoming projects, right?
+
+1446
+03:05:40.290 --> 03:05:45.650
+Jitendra K: So I make… I'm trying to make sure that you have all the concepts discussed.
+
+1447
+03:05:45.830 --> 03:05:51.830
+Jitendra K: And then, I will simply give you the industrial experience, my…
+
+1448
+03:05:52.100 --> 03:05:55.719
+Jitendra K: endorsements, and I will say that this is good, this is bad.
+
+1449
+03:05:56.130 --> 03:06:01.800
+Jitendra K: And, probably, machine learning is now at least 20 years old.
+
+1450
+03:06:02.180 --> 03:06:05.109
+Jitendra K: Right? So we can say that,
+
+1451
+03:06:05.250 --> 03:06:07.939
+Jitendra K: During this 20 year, a lot of things have been changed.
+
+1452
+03:06:08.300 --> 03:06:15.560
+Jitendra K: But still, machine learning is there, right? So don't… don't feel that you're out of industry because of
+
+1453
+03:06:15.790 --> 03:06:20.699
+Jitendra K: You're learning machine learning in 2025, not in 2010 or 2025.
+
+1454
+03:06:20.920 --> 03:06:24.360
+Jitendra K: But that's perfectly fine, if you know the concept.
+
+1455
+03:06:24.870 --> 03:06:29.749
+Jitendra K: of machine learning, if you know how to use machine learning techniques using Python.
+
+1456
+03:06:29.960 --> 03:06:33.410
+Jitendra K: Deep learning skills with more advanced toolkits.
+
+1457
+03:06:33.940 --> 03:06:42.449
+Jitendra K: then, definitely it will… going to help you in Gen AI and Agentic AI, which is the pioneer solution for…
+
+1458
+03:06:42.650 --> 03:06:44.030
+Jitendra K: unstructured data.
+
+1459
+03:06:44.390 --> 03:06:45.489
+Jitendra K: But,
+
+1460
+03:06:45.620 --> 03:06:53.850
+Jitendra K: Machine learning is not like, it's not retired yet, right? So, although Agent can able to run machine learning model and create it as well.
+
+1461
+03:06:54.000 --> 03:06:57.720
+Jitendra K: But when it comes to feature engineering, when it comes to…
+
+1462
+03:06:58.220 --> 03:07:00.740
+Jitendra K: Working close to business requirement.
+
+1463
+03:07:01.160 --> 03:07:03.819
+Jitendra K: Nobody can beat human in that context.
+
+1464
+03:07:04.470 --> 03:07:11.360
+Jitendra K: So, we human are more… I would say intelligent in that case, as compared to machine.
+
+1465
+03:07:15.500 --> 03:07:22.089
+Jitendra K: Alright, with that, thank you guys for attending this session, and the notebooks might be already uploaded.
+
+1466
+03:07:22.400 --> 03:07:23.330
+Jitendra K: in that.
+
+1467
+03:07:24.150 --> 03:07:26.389
+Jitendra K: LMS, so you can access it.
+
+1468
+03:07:26.900 --> 03:07:38.120
+Jitendra K: How we can use embedded system, Python is slow for embedding system. Yeah, so C kernels, that's the reason people are using C kernels, C programming is still for embedding system design.
+
+1469
+03:07:38.270 --> 03:07:40.629
+Jitendra K: And C has been not replaced for that purpose.
+
+1470
+03:07:42.900 --> 03:07:46.049
+Jitendra K: So… C programming is the answer.
+
+1471
+03:07:46.820 --> 03:07:51.420
+Jitendra K: Alright, thank you guys for attending this, and we will meet in the next tutorial. Thank you.
+

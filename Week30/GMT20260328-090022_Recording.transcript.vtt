@@ -1,0 +1,5262 @@
+WEBVTT
+
+1
+00:00:05.530 --> 00:00:10.849
+Jitendra K: So before we start, can we have a quick audio check, quickly, as my voice is audible to everyone?
+
+2
+00:00:26.730 --> 00:00:28.460
+Jitendra K: Alright, great, thank you.
+
+3
+00:00:29.400 --> 00:00:39.029
+Jitendra K: Okay, so we are going to start with RNN, and RNN will be our new architecture and new tech stack that we are going to learn and leverage.
+
+4
+00:00:39.370 --> 00:00:48.369
+Jitendra K: Before moving on to the RNN part, I just want to understand what is your understanding on RNN, and how did you see RNN from the prop editorials?
+
+5
+00:00:48.930 --> 00:00:52.960
+Jitendra K: So, do you would like to talk about that part before we start the session?
+
+6
+00:00:59.630 --> 00:01:05.580
+Jitendra K: So I would like to know and participate… I would like everybody to be participating in this discussion going forward.
+
+7
+00:01:06.060 --> 00:01:08.080
+Jitendra K: So, what do you understand about RNN?
+
+8
+00:01:09.580 --> 00:01:11.599
+Jitendra K: Use 4 time series data.
+
+9
+00:01:12.500 --> 00:01:13.570
+Jitendra K: Okay.
+
+10
+00:01:15.970 --> 00:01:17.229
+Jitendra K: What else is there?
+
+11
+00:01:18.530 --> 00:01:21.640
+Jitendra K: It is used for sequential cases where CNN can't work.
+
+12
+00:01:22.540 --> 00:01:26.630
+Jitendra K: Use for text analytics, semantic analysis, equation data.
+
+13
+00:01:31.340 --> 00:01:36.950
+Jitendra K: Okay, so I have to ask you, what is the difference between CNN and RNN, then what will be your answer?
+
+14
+00:01:38.030 --> 00:01:41.499
+Jitendra K: Can somebody explain me the difference between CNN and RNN?
+
+15
+00:01:43.970 --> 00:01:47.600
+Jitendra K: non-Markovian relationship. CNN is static.
+
+16
+00:01:47.880 --> 00:01:49.219
+Jitendra K: What do you mean by static?
+
+17
+00:01:58.790 --> 00:02:01.170
+Jitendra K: So when you say static, what do you mean by starting?
+
+18
+00:02:03.500 --> 00:02:09.339
+Jitendra K: Gives a recurrent signal in hidden layer from previous data, but this is also CNN is doing, right?
+
+19
+00:02:12.800 --> 00:02:15.050
+Jitendra K: Output of the middle layers passed.
+
+20
+00:02:16.320 --> 00:02:18.500
+Jitendra K: Again, as an input.
+
+21
+00:02:19.370 --> 00:02:22.020
+Jitendra K: CNN News Feed or RN in your feedback loop.
+
+22
+00:02:30.410 --> 00:02:39.320
+Jitendra K: Okay, so if I have to give you a right answer, CNN is without memory, and RNN is with memory. So that should be the right answer, right? So, RNN have a memory.
+
+23
+00:02:44.340 --> 00:02:50.859
+Jitendra K: So, that is the difference. So, CNN are designed for grid lag data, Which is include image, videos.
+
+24
+00:02:51.190 --> 00:02:55.610
+Jitendra K: And RNN has been designed for sequential data, like text, speech, time series.
+
+25
+00:02:55.920 --> 00:03:03.990
+Jitendra K: CNN are feed-forward and lack memory of previous input. RNN have internal loops that acts like a memory, allowing the previous input to be affected.
+
+26
+00:03:04.320 --> 00:03:05.459
+Jitendra K: Current input.
+
+27
+00:03:06.100 --> 00:03:11.209
+Jitendra K: CNN use parallel processing with filters for spatial feature extraction.
+
+28
+00:03:11.620 --> 00:03:14.810
+Jitendra K: RNN process information sequentially.
+
+29
+00:03:16.860 --> 00:03:19.909
+Jitendra K: So what were the types of RNN that you have came across?
+
+30
+00:03:22.900 --> 00:03:26.250
+Jitendra K: What are the different types of R& model that you have came across?
+
+31
+00:03:28.980 --> 00:03:31.270
+Jitendra K: LSTM standard, GRU.
+
+32
+00:03:31.820 --> 00:03:32.670
+Jitendra K: Okay.
+
+33
+00:03:39.800 --> 00:03:41.580
+Jitendra K: LSTM and GRU.
+
+34
+00:04:06.050 --> 00:04:09.669
+Jitendra K: So, have you understand the mathematics behind those, layers?
+
+35
+00:04:10.590 --> 00:04:13.199
+Jitendra K: Do you have a clear understanding on the mathematics part?
+
+36
+00:04:46.020 --> 00:04:55.759
+Jitendra K: Okay, so let's try to deep dive into the RNN first, and then we are going to talk about different types of RNN, which include LSTM, GRU, then we move on to the attention layer.
+
+37
+00:04:56.210 --> 00:05:00.940
+Jitendra K: transformers and the GPTs, right? So this is what we are going to discuss in
+
+38
+00:05:01.400 --> 00:05:03.899
+Jitendra K: Upcoming tutorials, as well as today's tutorial.
+
+39
+00:05:04.210 --> 00:05:11.059
+Jitendra K: So, first and foremost thing, we are going to talk about recurrent neural network from the scratch, what problem they are trying to solve.
+
+40
+00:05:11.390 --> 00:05:16.749
+Jitendra K: What are the different components of the architectures? What's the mathematics behind forward pass?
+
+41
+00:05:17.400 --> 00:05:22.939
+Jitendra K: backward pass and vanishing and exporting gradient issues associated with RNN. And that's the reason
+
+42
+00:05:23.090 --> 00:05:29.740
+Jitendra K: The part two will cover these issues, how we can able to reduce these issues with LSTM and GRU.
+
+43
+00:05:30.330 --> 00:05:35.210
+Jitendra K: And finally, we'll move on to the latest stack stack, which include attention and transformers.
+
+44
+00:05:36.730 --> 00:05:42.770
+Jitendra K: Alright, so this is the context of today's tutorial, so we will start with the RNN first.
+
+45
+00:05:44.280 --> 00:05:47.769
+Jitendra K: So you might have, used GPT models
+
+46
+00:05:47.890 --> 00:05:51.660
+Jitendra K: Or GPT, at least the console in your day-to-day work, right?
+
+47
+00:05:52.180 --> 00:06:01.809
+Jitendra K: So, did you ever wonder how this chatbots understand your questions, or how your app like Siri and Voice Search can decipher your spoken request?
+
+48
+00:06:02.710 --> 00:06:12.230
+Jitendra K: So what is the… proposition here. The proportion is the secret weapon behind these tools is… AI,
+
+49
+00:06:12.820 --> 00:06:14.769
+Jitendra K: Which is using RNN architecture.
+
+50
+00:06:16.540 --> 00:06:25.160
+Jitendra K: So, unlike standard neural network, which is good for image recognition and image processing tasks, like CNN models.
+
+51
+00:06:25.440 --> 00:06:27.990
+Jitendra K: RNN is specialized in sequential tasks.
+
+52
+00:06:29.090 --> 00:06:40.919
+Jitendra K: That means you can able to use internal memory to store and allow them to analyze sequential data where the information order is critical, specifically for text analytics, where the order of
+
+53
+00:06:41.300 --> 00:06:46.379
+Jitendra K: Text, verb, or vector is important to predict the meaning of the next sentence.
+
+54
+00:06:46.830 --> 00:06:47.899
+Jitendra K: And that is not…
+
+55
+00:06:48.390 --> 00:06:54.259
+Jitendra K: happening in images, right? In order to identify the second object based upon the previous object.
+
+56
+00:06:54.620 --> 00:06:57.009
+Jitendra K: There could be random objects in the images.
+
+57
+00:06:57.650 --> 00:07:05.549
+Jitendra K: So unlike standard neural network that excels at tasks like image recognition, RNN boasts at unique superpower memory.
+
+58
+00:07:05.770 --> 00:07:12.020
+Jitendra K: And this internal memory allows them to analyze sequential data, where the information orders are critical and crucial.
+
+59
+00:07:12.630 --> 00:07:19.099
+Jitendra K: Now, imagine that you're having a conversation and you need to remember what was said earlier to understand the current flow.
+
+60
+00:07:19.570 --> 00:07:27.020
+Jitendra K: Similarly, RNN can analyze… Sequences like speech, text, making them perfect candidate for machine translation.
+
+61
+00:07:27.200 --> 00:07:29.100
+Jitendra K: And voice recognition tasks.
+
+62
+00:07:30.130 --> 00:07:36.150
+Jitendra K: So, RNN has been there for almost… 40 years.
+
+63
+00:07:36.560 --> 00:07:40.520
+Jitendra K: Now, it has been invented in 1980s.
+
+64
+00:07:40.940 --> 00:07:49.440
+Jitendra K: But the recent last decade or so has been truly a phenomenal success for RNN architecture, including transformers.
+
+65
+00:07:50.160 --> 00:07:53.630
+Jitendra K: So in this tutorial, we'll talk about how RNN has been
+
+66
+00:07:54.180 --> 00:07:58.699
+Jitendra K: develop what are the different layers of RNN, and what makes RNN so special.
+
+67
+00:08:00.230 --> 00:08:04.150
+Jitendra K: Now, when I say R&… Or recurrent neural network.
+
+68
+00:08:04.270 --> 00:08:10.700
+Jitendra K: The key feature of RNN is the memory, which can allow them to remember past input and use the context
+
+69
+00:08:10.940 --> 00:08:14.270
+Jitendra K: When processing required that information.
+
+70
+00:08:15.220 --> 00:08:22.439
+Jitendra K: Because of their memory, RNNs are exceptionals at handling sequential data, and that is the backbone of RNN.
+
+71
+00:08:23.590 --> 00:08:29.730
+Jitendra K: Now, when we say… Sequential data, now it can fit to language.
+
+72
+00:08:30.180 --> 00:08:36.339
+Jitendra K: It can fit to time series, it can fit to music, it can fit to speech, recognition tasks.
+
+73
+00:08:36.710 --> 00:08:42.769
+Jitendra K: And this is the most important criteria why we are using RNNs for developing text analytics.
+
+74
+00:08:44.910 --> 00:08:53.030
+Jitendra K: Now, RNN is also part of a neural network that have a hidden state, and it will allow past output to be used as an input.
+
+75
+00:08:53.710 --> 00:08:56.110
+Jitendra K: And they usually follow a certain architecture.
+
+76
+00:08:56.650 --> 00:09:02.939
+Jitendra K: And, the breakdown of this architecture, if I have to just talk about here, comprises of input layer.
+
+77
+00:09:03.590 --> 00:09:12.210
+Jitendra K: This layer received the initial element of the sequence data. For example, if you're reading a sentence, it might receive the first word as a vector representation.
+
+78
+00:09:12.880 --> 00:09:17.459
+Jitendra K: It will have a series of hidden layers, and the heart of RNN is the hidden layer.
+
+79
+00:09:17.970 --> 00:09:26.039
+Jitendra K: Which is… going to be… Contains a set of interconnection neurons, and each neuron processes the current input.
+
+80
+00:09:26.250 --> 00:09:29.510
+Jitendra K: Along with information from the previous hidden layer.
+
+81
+00:09:29.970 --> 00:09:38.570
+Jitendra K: And this state captures the network memory of the past input, allowing it to use and understand the current element in the context.
+
+82
+00:09:38.950 --> 00:09:40.759
+Jitendra K: So you can see that there's a time
+
+83
+00:09:40.920 --> 00:09:43.720
+Jitendra K: dilation here, when I'm talking about…
+
+84
+00:09:44.290 --> 00:09:47.220
+Jitendra K: this sequence. So, there's a time sequence.
+
+85
+00:09:49.700 --> 00:09:51.089
+Jitendra K: At each hidden layer.
+
+86
+00:09:52.980 --> 00:10:02.789
+Jitendra K: Now, I also have an activation function that will combine or introduce a nonlinearity into the network, enabling it to learn complex patterns, it transforms the combined input.
+
+87
+00:10:02.980 --> 00:10:07.179
+Jitendra K: From the current input layer and the previous hidden layer before passing it on.
+
+88
+00:10:07.540 --> 00:10:12.850
+Jitendra K: And then the output layer, the output layer generates a network prediction based upon the process information.
+
+89
+00:10:13.140 --> 00:10:18.020
+Jitendra K: And in language model, it can be predicting the next word in the sequence, and so on and so forth.
+
+90
+00:10:18.790 --> 00:10:25.419
+Jitendra K: And you also have a key distinguished criteria. The connection will allow the network to pass hidden state information.
+
+91
+00:10:25.600 --> 00:10:33.459
+Jitendra K: to the next time step. That means it is carrying a relay race, or I would say previous input, as a part of information.
+
+92
+00:10:37.680 --> 00:10:41.120
+Jitendra K: Now, let's try to understand how this whole setup works together.
+
+93
+00:10:42.540 --> 00:10:45.769
+Jitendra K: So when I say this architecture, RNN,
+
+94
+00:10:47.740 --> 00:10:54.409
+Jitendra K: Right? So it uses a gated-like structure. So in the middle layer, or you can see in the middle part.
+
+95
+00:10:55.010 --> 00:10:57.920
+Jitendra K: There's so… there are edge-hidden layers.
+
+96
+00:10:59.010 --> 00:11:02.080
+Jitendra K: And each would have their own set of activation functions.
+
+97
+00:11:02.440 --> 00:11:05.560
+Jitendra K: Which include parameters like weight and bias.
+
+98
+00:11:05.900 --> 00:11:08.909
+Jitendra K: And they are a single hidden layer that repeats over a time.
+
+99
+00:11:09.420 --> 00:11:13.840
+Jitendra K: And the same weights are used across all the steps. So this hidden state is updated
+
+100
+00:11:14.030 --> 00:11:17.699
+Jitendra K: Recursively, using the current input and the previous hidden state.
+
+101
+00:11:18.210 --> 00:11:24.600
+Jitendra K: And that's why it is called recurrent neural network, which will standardize the differential, or different activation function.
+
+102
+00:11:24.830 --> 00:11:27.490
+Jitendra K: Based upon their own weights and biasness.
+
+103
+00:11:27.650 --> 00:11:33.279
+Jitendra K: Ensuring that each hidden layer has the same characteristic, rather than constructing numerous hidden layers.
+
+104
+00:11:33.530 --> 00:11:38.509
+Jitendra K: It'll create only one, and… Loop over it many a times.
+
+105
+00:11:41.720 --> 00:11:48.059
+Jitendra K: So, in recurrent neural network, you loop through time with memory, and maintain the memory by a hidden state.
+
+106
+00:11:49.190 --> 00:11:58.130
+Jitendra K: And input is a sequential dependency that you're going to have, and then you're going to unfold across time using backpropagation to finalize
+
+107
+00:11:58.400 --> 00:12:04.110
+Jitendra K: or reduce the errors in prediction. So when we apply a backpropagation to a recurrent neural network.
+
+108
+00:12:05.640 --> 00:12:07.789
+Jitendra K: With our time series data as an input.
+
+109
+00:12:08.930 --> 00:12:13.529
+Jitendra K: What it does is, it backpropagates using the current and the prior input as N.
+
+110
+00:12:14.610 --> 00:12:16.260
+Jitendra K: And a time step function.
+
+111
+00:12:16.740 --> 00:12:20.090
+Jitendra K: And then, try to reduce the error at each step.
+
+112
+00:12:26.560 --> 00:12:29.749
+Jitendra K: Now, the issue with standard RNN
+
+113
+00:12:30.030 --> 00:12:40.039
+Jitendra K: have two important considerations. So when you're looking for this kind of analysis, there are two important phenomenas which RNN or vanilla RNN will suffice.
+
+114
+00:12:40.870 --> 00:12:43.769
+Jitendra K: Which is called exploding gradient and vanishing gradient.
+
+115
+00:12:44.470 --> 00:12:48.729
+Jitendra K: So I… So, basically, what you're doing with backpropagation is…
+
+116
+00:12:49.280 --> 00:13:00.490
+Jitendra K: You're finding the error at the last layer, E of T, And then… You backpropagate, With a partial derivative.
+
+117
+00:13:07.370 --> 00:13:09.340
+Jitendra K: And then you propagate this error.
+
+118
+00:13:10.010 --> 00:13:15.150
+Jitendra K: And then… With the previous layer, you will further differentiate this error.
+
+119
+00:13:15.600 --> 00:13:18.929
+Jitendra K: So at each layer, you're taking a differentiation, or derivative.
+
+120
+00:13:22.030 --> 00:13:22.800
+Jitendra K: Right?
+
+121
+00:13:23.030 --> 00:13:31.599
+Jitendra K: So basically, once a neural network has been trained on a site, you have given as… you got an output. That output is used to calculate and collect the error.
+
+122
+00:13:31.910 --> 00:13:38.279
+Jitendra K: The network then rolled up back, and weights are recalculated and adjusted to account for the results, or the faults.
+
+123
+00:13:38.840 --> 00:13:44.130
+Jitendra K: So there are two issues with this mechanism. One is called exploding, and the second one is called vanishing gradient.
+
+124
+00:13:44.790 --> 00:13:47.369
+Jitendra K: So, the gradient is a partial derivative.
+
+125
+00:13:48.490 --> 00:13:52.600
+Jitendra K: So, gradient quantifies how much the output of a function
+
+126
+00:13:52.950 --> 00:13:56.290
+Jitendra K: Varies when the inputs are changed slightly.
+
+127
+00:13:58.090 --> 00:14:06.850
+Jitendra K: So a function will have a slope, which is called gradient. The steeper the slope, the faster a model can learn. And the higher the gradient, the model, on the other hand, will stop learning.
+
+128
+00:14:07.320 --> 00:14:12.650
+Jitendra K: the slope is zero. So a gradient is used to measure the change in the overall
+
+129
+00:14:12.950 --> 00:14:15.619
+Jitendra K: Waits with respect to the error.
+
+130
+00:14:16.430 --> 00:14:18.890
+Jitendra K: A neural network is all about weight training.
+
+131
+00:14:19.480 --> 00:14:22.900
+Jitendra K: Right? We have seen this in CNN, now we are talking about RNN.
+
+132
+00:14:23.200 --> 00:14:26.000
+Jitendra K: So, weight training will still remain.
+
+133
+00:14:26.300 --> 00:14:29.260
+Jitendra K: The same phenomena for both architecture.
+
+134
+00:14:30.010 --> 00:14:37.100
+Jitendra K: But the problem with RNN is, it may have an exploding gradient issue. Exploding gradient occurs when the algorithm gives the weight.
+
+135
+00:14:37.960 --> 00:14:40.389
+Jitendra K: An absurd high priority.
+
+136
+00:14:40.760 --> 00:14:42.450
+Jitendra K: For no apparent reason.
+
+137
+00:14:43.590 --> 00:14:48.350
+Jitendra K: And it is trying to squash the gradient, which are a simple solution of this problem.
+
+138
+00:14:50.380 --> 00:14:54.970
+Jitendra K: That means your grade… rate of change of errors are becoming infinite.
+
+139
+00:14:55.370 --> 00:15:00.649
+Jitendra K: Or nearly converge to an infinite, so that the model will stop learning any further.
+
+140
+00:15:03.170 --> 00:15:05.260
+Jitendra K: Vanishing gradient, on the other hand.
+
+141
+00:15:05.450 --> 00:15:10.719
+Jitendra K: Occurs when the gradients are too small, because here we are talking about too many hidden layers.
+
+142
+00:15:11.350 --> 00:15:18.480
+Jitendra K: So, from this layer to this layer to this layer, the proportion of error which has been… came across to this layer.
+
+143
+00:15:18.960 --> 00:15:24.700
+Jitendra K: Will be definitely less than the previous layer, because this is the last layer that you are using to backpropagate.
+
+144
+00:15:25.090 --> 00:15:28.199
+Jitendra K: And once you backpropagate, your errors start diminishing.
+
+145
+00:15:29.850 --> 00:15:34.260
+Jitendra K: Federal income too small, causing the model to stop learning or take far.
+
+146
+00:15:34.630 --> 00:15:35.620
+Jitendra K: Too long.
+
+147
+00:15:36.310 --> 00:15:41.439
+Jitendra K: And this is the big issue, and this was the most difficult to address than exploding gradient.
+
+148
+00:15:43.660 --> 00:15:44.510
+Jitendra K: Alright?
+
+149
+00:15:45.030 --> 00:15:50.390
+Jitendra K: So that's the reason… data scientist has come up with a variance of RNN.
+
+150
+00:15:50.930 --> 00:15:57.070
+Jitendra K: So we are going to move from Vanilla to LSTM.
+
+151
+00:15:59.020 --> 00:16:03.590
+Jitendra K: GRUs… And Transformers.
+
+152
+00:16:05.940 --> 00:16:08.159
+Jitendra K: Which is an encoder-decoder architecture.
+
+153
+00:16:10.780 --> 00:16:18.470
+Jitendra K: Right, so we'll talk about all these things in a detail, but just to give you a simple illustration on the architecture.
+
+154
+00:16:20.690 --> 00:16:23.630
+Jitendra K: The overall architecture of the RNN looks like this.
+
+155
+00:16:27.660 --> 00:16:31.350
+Jitendra K: So this is your RNN architecture. Very simple.
+
+156
+00:16:32.230 --> 00:16:37.480
+Jitendra K: So… Here, the RNN takes an input vector, X…
+
+157
+00:16:38.800 --> 00:16:44.530
+Jitendra K: And the network generate an output vector Y by scanning the data sequentially from left to right.
+
+158
+00:16:45.220 --> 00:16:52.569
+Jitendra K: With each time step, updating the hidden state and then producing an output. And it shared the same parameter across all the time step.
+
+159
+00:16:53.990 --> 00:17:01.190
+Jitendra K: This means that the same set of parameter, which has been represented by U and V, and W.
+
+160
+00:17:01.990 --> 00:17:08.949
+Jitendra K: which is a metrics, is usually consistent throughout the network. That means you're passing the sentence to this model.
+
+161
+00:17:09.420 --> 00:17:13.219
+Jitendra K: And it will generate the next word probability from this model.
+
+162
+00:17:15.579 --> 00:17:23.890
+Jitendra K: So, U represent the weighted parameter governing the connection from the input layer to the hidden layer edge. W represent the weighted associated with the connection between hidden layer.
+
+163
+00:17:24.859 --> 00:17:30.730
+Jitendra K: hidden layers internally, and W… sorry, B represents a connection from the hidden layer to the output layer wire.
+
+164
+00:17:31.250 --> 00:17:39.080
+Jitendra K: And this sharing of parameter will allow the RNN to effectively capture temporal dependencies, time-sensitive dependencies.
+
+165
+00:17:39.580 --> 00:17:47.099
+Jitendra K: And processing the sequential data more effectively by retraining the information from the previous input to the current hidden state.
+
+166
+00:17:47.700 --> 00:17:56.710
+Jitendra K: That means I can write a generic function, as… A of T.
+
+167
+00:17:58.120 --> 00:18:01.410
+Jitendra K: official… take… function.
+
+168
+00:18:01.530 --> 00:18:04.169
+Jitendra K: A of T minus 1, the previous step.
+
+169
+00:18:05.970 --> 00:18:08.400
+Jitendra K: X of T, input node.
+
+170
+00:18:09.150 --> 00:18:10.970
+Jitendra K: And a parameter called theta.
+
+171
+00:18:11.500 --> 00:18:13.650
+Jitendra K: And I can say that this function
+
+172
+00:18:16.540 --> 00:18:20.880
+Jitendra K: It's nothing but… it's a function of transformation.
+
+173
+00:18:22.260 --> 00:18:29.879
+Jitendra K: of U of… multiply by X of t plus the weights, At a previous time step.
+
+174
+00:18:31.000 --> 00:18:32.409
+Jitendra K: Plus the buy term.
+
+175
+00:18:34.660 --> 00:18:36.750
+Jitendra K: A of T represents your output.
+
+176
+00:18:37.160 --> 00:18:40.490
+Jitendra K: generated from the hidden layer at a time step T.
+
+177
+00:18:40.780 --> 00:18:44.819
+Jitendra K: X of t is the input at a time step t. Theta represent
+
+178
+00:18:45.100 --> 00:18:49.329
+Jitendra K: The set of learnable parameters, which is weights and bytes, in my case.
+
+179
+00:18:51.350 --> 00:18:56.349
+Jitendra K: And, U is the weighted matrix governing the connection from the input to the hidden layer.
+
+180
+00:18:57.590 --> 00:18:59.479
+Jitendra K: And W is the matrix.
+
+181
+00:18:59.710 --> 00:19:05.049
+Jitendra K: Or sorry, V is the matrix that represent the weighted association with connection between hidden layers.
+
+182
+00:19:05.740 --> 00:19:11.850
+Jitendra K: And A of T of minus 1 is the output from the hidden layer at a time T-1, and B is the biasness, and
+
+183
+00:19:12.020 --> 00:19:15.190
+Jitendra K: Theta is the learnable parameters.
+
+184
+00:19:18.640 --> 00:19:25.909
+Jitendra K: So that means I can keep on writing this equation at every time step, and you will get different values. I can write as TS4,
+
+185
+00:19:26.590 --> 00:19:34.390
+Jitendra K: And I can change this equation as f of… UX of 4 plus W,
+
+186
+00:19:34.730 --> 00:19:37.980
+Jitendra K: at A of 3 plus B.
+
+187
+00:19:38.630 --> 00:19:41.650
+Jitendra K: Right? That means this is creating some sort of…
+
+188
+00:19:41.970 --> 00:19:45.769
+Jitendra K: Function, which has been computed based upon the hidden state output.
+
+189
+00:19:46.220 --> 00:19:51.380
+Jitendra K: So I can generalize this formula by saying that at the output layer, I will get…
+
+190
+00:19:59.000 --> 00:20:00.470
+Jitendra K: this factor.
+
+191
+00:20:07.310 --> 00:20:08.090
+Jitendra K: Alright.
+
+192
+00:20:08.990 --> 00:20:14.950
+Jitendra K: Now, when I'm employing a back propagation on this equation, So this is my equation.
+
+193
+00:20:15.390 --> 00:20:21.439
+Jitendra K: That I'm going to use as a feed-forward equation. Now, when I'm employing a backpropagation with time.
+
+194
+00:20:21.980 --> 00:20:29.519
+Jitendra K: So, back propagation involves weight adjustment. So, I'm involving adjusting the model parameter weights and bytes based upon the error
+
+195
+00:20:29.770 --> 00:20:37.099
+Jitendra K: between the predicted output from the last layer and the actual target value. So the goal of backpropagation is to improve the model performance.
+
+196
+00:20:37.410 --> 00:20:43.410
+Jitendra K: by minimizing the loss function. So backpropagation through time, or BPTT, is a spatial variant of
+
+197
+00:20:44.400 --> 00:20:47.150
+Jitendra K: back propagation, which has been used in R& training.
+
+198
+00:20:47.450 --> 00:20:50.639
+Jitendra K: So when the error is propagated backwards through time.
+
+199
+00:20:50.790 --> 00:20:58.500
+Jitendra K: Until it reached the initial time step, It will perform the two things.
+
+200
+00:21:00.300 --> 00:21:03.290
+Jitendra K: One is, you're going to have a forward pass.
+
+201
+00:21:03.680 --> 00:21:09.710
+Jitendra K: During forward pass, the RNN processes input sequence through time from T is equal to 1 to T is equals to N.
+
+202
+00:21:10.530 --> 00:21:18.420
+Jitendra K: And then in each forward propagation, the calculation will be done like this. We will have A of T,
+
+203
+00:21:19.510 --> 00:21:23.810
+Jitendra K: Which is U of… X of T.
+
+204
+00:21:24.990 --> 00:21:29.200
+Jitendra K: plus… W of T, sorry, W of…
+
+205
+00:21:30.150 --> 00:21:32.830
+Jitendra K: A of T minus 1, the previous time step.
+
+206
+00:21:33.950 --> 00:21:35.330
+Jitendra K: That's the bias term.
+
+207
+00:21:36.070 --> 00:21:40.270
+Jitendra K: where A of T It will use the activation function.
+
+208
+00:21:40.510 --> 00:21:41.900
+Jitendra K: Let's say 10H.
+
+209
+00:21:45.260 --> 00:21:47.860
+Jitendra K: To take a nonlinear transformation.
+
+210
+00:21:48.080 --> 00:21:54.549
+Jitendra K: To generate this Y of T, Using a probabilical softmax function.
+
+211
+00:22:02.320 --> 00:22:06.179
+Jitendra K: So after the entire process, or after processing the entire sequence.
+
+212
+00:22:06.430 --> 00:22:11.079
+Jitendra K: RNN will generate a sequence of predicted output. So it'll say I have an output.
+
+213
+00:22:15.510 --> 00:22:17.570
+Jitendra K: Like this, at each step.
+
+214
+00:22:19.100 --> 00:22:20.530
+Jitendra K: From each hidden layer.
+
+215
+00:22:24.600 --> 00:22:32.020
+Jitendra K: And this I will use to compute the loss. So my loss will be… The deviation from the…
+
+216
+00:22:34.620 --> 00:22:39.589
+Jitendra K: True labels… So I was able to make it as a mean square summation.
+
+217
+00:22:40.270 --> 00:22:42.199
+Jitendra K: Which will generalize this loss.
+
+218
+00:22:44.620 --> 00:22:56.479
+Jitendra K: as a square term. So this is my mean square error loss, right? So RN will generate a sequence predicted, and loss is completed by comparing predicted output, Y of T, at every time step, which is actual output.
+
+219
+00:22:56.970 --> 00:22:59.110
+Jitendra K: So this is a loss function that I'm going to use.
+
+220
+00:22:59.230 --> 00:23:03.699
+Jitendra K: Now, during the backward pass, I'm also going to compute a gradient.
+
+221
+00:23:03.960 --> 00:23:09.360
+Jitendra K: So I'm going to calculate derivative of the loss, not the loss, right, during back preparation.
+
+222
+00:23:09.480 --> 00:23:13.359
+Jitendra K: So I will say I would like to use a derivative of the loss, rather than a loss.
+
+223
+00:23:15.340 --> 00:23:17.949
+Jitendra K: So, derivative with respect to loss…
+
+224
+00:23:30.670 --> 00:23:32.569
+Jitendra K: Can be written like this.
+
+225
+00:23:37.980 --> 00:23:43.760
+Jitendra K: So, I'm going to apply a chain rule at each layer, and this can become a big equation.
+
+226
+00:23:47.500 --> 00:23:50.810
+Jitendra K: I can write a big equation.
+
+227
+00:23:51.430 --> 00:23:54.050
+Jitendra K: To create a chain on the top of it.
+
+228
+00:24:08.220 --> 00:24:10.190
+Jitendra K: Let me write down that equation.
+
+229
+00:24:16.380 --> 00:24:18.420
+Jitendra K: So this is the equation that I can write.
+
+230
+00:24:22.360 --> 00:24:24.970
+Jitendra K: Right, so applying a chain rule, we can…
+
+231
+00:24:25.220 --> 00:24:29.470
+Jitendra K: identify derivative of the loss with respect to a U.
+
+232
+00:24:29.870 --> 00:24:35.750
+Jitendra K: So during backropagation, gradient becomes too small, leading to the vanishing gradient problem, or it can be too large.
+
+233
+00:24:35.930 --> 00:24:42.550
+Jitendra K: That will result in an exploding gradient problem. So as they propagate through time, In case of vanishing gradient.
+
+234
+00:24:45.270 --> 00:24:52.040
+Jitendra K: In case of vanishing gradient, Your errors are… Saturating in this region.
+
+235
+00:24:52.660 --> 00:24:58.319
+Jitendra K: Or during… Exploding gradient URLs are… Saturating at this region.
+
+236
+00:25:00.480 --> 00:25:09.070
+Jitendra K: Right? So that means it can lead to a large numerical instability during training that cause the model to derivate, or deviate from the optimal solution.
+
+237
+00:25:09.240 --> 00:25:13.539
+Jitendra K: And make it difficult for the model to converse to a local minima.
+
+238
+00:25:14.860 --> 00:25:19.319
+Jitendra K: And that is where RNN needs improvement, right?
+
+239
+00:25:22.530 --> 00:25:30.420
+Jitendra K: So… now… We talked about the memory, right? So, what makes this entire network
+
+240
+00:25:30.610 --> 00:25:35.680
+Jitendra K: to use a memory structure. And that is something now we are going to talk about, like, how
+
+241
+00:25:36.050 --> 00:25:38.569
+Jitendra K: Can we say that RNN will have a memory?
+
+242
+00:25:39.740 --> 00:25:42.700
+Jitendra K: Right? So let's try to understand that part as well.
+
+243
+00:25:50.390 --> 00:25:52.030
+Jitendra K: Now, here you can see that
+
+244
+00:25:52.260 --> 00:26:00.480
+Jitendra K: RNN user recurrence relationship. The output at each time depends not only the current input, but also on the hidden state from the previous step.
+
+245
+00:26:00.930 --> 00:26:03.569
+Jitendra K: So this hidden state acts like a memory.
+
+246
+00:26:04.180 --> 00:26:06.010
+Jitendra K: So, carrying a kind of a…
+
+247
+00:26:06.420 --> 00:26:13.559
+Jitendra K: Summarize or compress information, which has been seen by the proper… by the previous network.
+
+248
+00:26:13.970 --> 00:26:17.409
+Jitendra K: So I can write this hidden function as h of t.
+
+249
+00:26:18.330 --> 00:26:24.619
+Jitendra K: Which is depending upon my previous state, H of T minus 1, and the input at that node, which is X of t.
+
+250
+00:26:24.850 --> 00:26:27.810
+Jitendra K: So this single equation itself.
+
+251
+00:26:28.450 --> 00:26:36.360
+Jitendra K: will determine… That there's a temporal context with the… parsing.
+
+252
+00:26:36.820 --> 00:26:41.910
+Jitendra K: Or with the… propagation that we are going to use in the RNN.
+
+253
+00:26:42.020 --> 00:26:42.840
+Jitendra K: Alright?
+
+254
+00:26:43.140 --> 00:26:51.599
+Jitendra K: So that is where you are going to use these weight sharing or weight update methods to make sure that it will utilize to an extent.
+
+255
+00:26:53.730 --> 00:27:00.330
+Jitendra K: So I will just… Ignore this equation. Now we talked about loss function.
+
+256
+00:27:01.430 --> 00:27:08.059
+Jitendra K: We talked about backpropagation, the issue with the back propagation is vanishing gradient, and…
+
+257
+00:27:11.090 --> 00:27:13.970
+Jitendra K: The, other parameters, right?
+
+258
+00:27:14.170 --> 00:27:15.589
+Jitendra K: Now, let me talk about
+
+259
+00:27:20.720 --> 00:27:28.000
+Jitendra K: how a simple plain Valina RLN, or let's say, a simple neural network, a recurrent neural network.
+
+260
+00:27:28.660 --> 00:27:36.070
+Jitendra K: what kind of problem it can able to solve. Let's talk… let's think from that first principle point of view, that let's say we are having
+
+261
+00:27:36.210 --> 00:27:42.459
+Jitendra K: a limitation. You cannot go with advanced LSTM and advanced architectures.
+
+262
+00:27:42.650 --> 00:27:46.940
+Jitendra K: Can we still use RNN for doing some meaningful conversation?
+
+263
+00:27:47.360 --> 00:27:52.529
+Jitendra K: So, ideas, it depends, depending upon the problem that you're trying to solve, depending upon
+
+264
+00:27:53.050 --> 00:28:01.160
+Jitendra K: what are you trying to utilize? We can definitely going to use recurrent neural network that can solve some of the problems
+
+265
+00:28:01.720 --> 00:28:05.900
+Jitendra K: on one-to-many and money-to-one relationship as well. That means.
+
+266
+00:28:06.070 --> 00:28:08.970
+Jitendra K: You can use different types of RNN.
+
+267
+00:28:09.320 --> 00:28:14.729
+Jitendra K: There are four types of RNN, based upon different length of inputs and outputs. One is called one-to-one.
+
+268
+00:28:15.110 --> 00:28:20.879
+Jitendra K: Which is a very simple neural network. It's commonly used for machine learning problems that have single input and single output.
+
+269
+00:28:21.070 --> 00:28:28.670
+Jitendra K: One too many, that means you will have a single input and multiple output. It has been used for generating images, captions, etc.
+
+270
+00:28:28.940 --> 00:28:33.849
+Jitendra K: And many to one, that means it can take a sequence of multiple inputs and predict a single output.
+
+271
+00:28:34.080 --> 00:28:38.849
+Jitendra K: It is a popular sentiment classification, where input is text and output is a category.
+
+272
+00:28:39.200 --> 00:28:45.389
+Jitendra K: And many-to-many, that will take multiple inputs and output, and the most common application is machine translation.
+
+273
+00:28:45.670 --> 00:28:53.430
+Jitendra K: That means you can able to do word-by-word translation from German to French, French to English, English to Hindi, Hindi to Tamil, whatever.
+
+274
+00:28:53.900 --> 00:28:57.830
+Jitendra K: Right, so that is what these things are useful for.
+
+275
+00:28:58.010 --> 00:29:02.910
+Jitendra K: But it may or may not guarantee the… Best…
+
+276
+00:29:03.530 --> 00:29:07.200
+Jitendra K: conversion ratio, that means you might have to
+
+277
+00:29:08.660 --> 00:29:13.470
+Jitendra K: Maybe utilize, other architecture to improve the model performance.
+
+278
+00:29:14.600 --> 00:29:17.710
+Jitendra K: Right? A simple RNN module will comprise of…
+
+279
+00:29:17.870 --> 00:29:21.400
+Jitendra K: only these three elements. You will have input.
+
+280
+00:29:21.700 --> 00:29:24.610
+Jitendra K: You will have a hidden state, and you will have an output.
+
+281
+00:29:24.960 --> 00:29:32.829
+Jitendra K: Right? A simple RNN architecture have basic structure with a single 10-ish layer. RNNs take simple
+
+282
+00:29:33.220 --> 00:29:38.620
+Jitendra K: Input from the previous layer, and then propagate a nonlinearity in this layer.
+
+283
+00:29:38.840 --> 00:29:41.559
+Jitendra K: And then generate an output. Very simple.
+
+284
+00:29:43.150 --> 00:29:49.569
+Jitendra K: So, are you clear with this part, till this part, guys? Any issue, anything that you would like to ask?
+
+285
+00:29:50.830 --> 00:29:54.100
+Jitendra K: Are you clear so far? What are… what is RNN?
+
+286
+00:29:54.200 --> 00:29:56.130
+Jitendra K: We are talking about vanilla RNN.
+
+287
+00:30:47.680 --> 00:30:50.589
+Jitendra K: Okay, it's… so with that,
+
+288
+00:30:51.770 --> 00:30:59.870
+Jitendra K: Let's try to go into the lab and then try to see what we can do with the vanillarin, and how vanillarin can be useful for.
+
+289
+00:31:00.160 --> 00:31:03.469
+Jitendra K: So the… Less complex tasks.
+
+290
+00:31:03.670 --> 00:31:06.620
+Jitendra K: So let me go back with my Google Colab.
+
+291
+00:31:52.210 --> 00:31:54.839
+Jitendra K: Just give me a moment, I'm just opening my file.
+
+292
+00:33:20.430 --> 00:33:27.739
+Jitendra K: Okay, so we'll start building the RNN from the scratch, and then we'll try to understand what are the building blocks that are required.
+
+293
+00:33:28.100 --> 00:33:29.730
+Jitendra K: To implement the same.
+
+294
+00:33:32.090 --> 00:33:37.119
+Jitendra K: So… so, I think, Let me first…
+
+295
+00:33:38.430 --> 00:33:40.569
+Jitendra K: Explain what are we trying to do here.
+
+296
+00:33:40.910 --> 00:33:44.450
+Jitendra K: So, first and foremost thing, I just want to define the loss.
+
+297
+00:33:44.580 --> 00:33:47.729
+Jitendra K: Function that we're going to use for this implementation.
+
+298
+00:33:48.240 --> 00:33:51.919
+Jitendra K: So this is the overall loss function that we're going to implement in this code.
+
+299
+00:33:52.340 --> 00:33:58.769
+Jitendra K: And during backpropagation with time, we are going to focus on Distributing the errors.
+
+300
+00:34:00.730 --> 00:34:04.399
+Jitendra K: Using this sequence, which I have written already in this part.
+
+301
+00:34:05.440 --> 00:34:14.589
+Jitendra K: Right? And because all the parameters are not directly contributing to the loss function, but they are nested multiple functions, right? So we are going to use chain rules to identify
+
+302
+00:34:14.770 --> 00:34:16.449
+Jitendra K: the scenarios.
+
+303
+00:34:36.300 --> 00:34:39.999
+Jitendra K: Okay, now let me explain this quote, what are we trying to do?
+
+304
+00:35:36.100 --> 00:35:49.120
+Jitendra K: So I'm going to use one sequence, and this sequence will be alphanumeric or alphabetical sequence, and I'm going to solve this problem with the help of vanilla RNN, and then I will write to define the function from the scratch.
+
+305
+00:35:49.270 --> 00:35:52.949
+Jitendra K: the vanilla RNN class, and I will show you each and every component.
+
+306
+00:35:53.130 --> 00:36:02.050
+Jitendra K: And then the several elements of that class, including feed-forward, training modules, then backpropagations, then we'll create a cost functions.
+
+307
+00:36:02.420 --> 00:36:06.250
+Jitendra K: And finally, computing the loss using cross-categorical current entropy.
+
+308
+00:36:06.360 --> 00:36:15.010
+Jitendra K: And then, we'll be able to calculate a gradient of the last layer, and then try to distribute that error seamlessly with this architecture.
+
+309
+00:36:15.190 --> 00:36:19.139
+Jitendra K: And finally, we will also have our training and test functions.
+
+310
+00:36:19.270 --> 00:36:26.750
+Jitendra K: We should be able to utilize input and the expected response from this model, right? And then we'll try to see
+
+311
+00:36:27.050 --> 00:36:32.440
+Jitendra K: How we can able to identify the errors in this whole architecture.
+
+312
+00:36:32.900 --> 00:36:35.039
+Jitendra K: So let me write down the code.
+
+313
+00:36:36.590 --> 00:36:38.280
+Jitendra K: And I will explain this code.
+
+314
+00:36:48.080 --> 00:36:53.620
+Jitendra K: Vocab sizes… inflating here, let me quickly fix this.
+
+315
+00:38:07.180 --> 00:38:11.180
+Jitendra K: It has been run, but let me just fix this errors as well.
+
+316
+00:38:12.220 --> 00:38:14.949
+Jitendra K: Numbires are usual these days.
+
+317
+00:39:22.370 --> 00:39:23.840
+Jitendra K: Okay, this is Ron.
+
+318
+00:39:24.390 --> 00:39:27.689
+Jitendra K: Okay, so now let me explain what we are trying to do here.
+
+319
+00:39:28.980 --> 00:39:37.980
+Jitendra K: The, so basically, We have created a vanilla architecture for RNN, and it comprises of three components.
+
+320
+00:39:38.390 --> 00:39:45.649
+Jitendra K: The first component is your… Feed-forward neural network. The second is a training module.
+
+321
+00:39:45.930 --> 00:39:56.410
+Jitendra K: So this is a simple vanilla architecture that we are using, a simple NumPy arrays to train and predict the next character in the sequence of the uppercase letters.
+
+322
+00:39:56.800 --> 00:40:04.469
+Jitendra K: So, the network use one-hot encoding. So, what is one-hot encoding? It's simply a numerical representation of your text.
+
+323
+00:40:05.070 --> 00:40:09.360
+Jitendra K: And it has been trained using backpropation through time. So the training data comprise of…
+
+324
+00:40:09.560 --> 00:40:12.489
+Jitendra K: 26 character sequence that I'm passing.
+
+325
+00:40:13.910 --> 00:40:20.660
+Jitendra K: And you can see this is just an alphanumeric sequence… alphabetical sequence that I'm passing, so that it will be able to understand that
+
+326
+00:40:21.200 --> 00:40:29.899
+Jitendra K: after A, B comes… and then even in the reverse manner, I can able to understand this, right? So I'm writing this into some different arbitrary sequences.
+
+327
+00:40:30.040 --> 00:40:38.409
+Jitendra K: To make sure that I can be able to understand and accumulate. Now, this is the training data, which comprise of 20… first 26 character sequence, and each
+
+328
+00:40:38.950 --> 00:40:44.150
+Jitendra K: with a known expected next character sequence. So after training, the network is tested on a short
+
+329
+00:40:45.790 --> 00:40:48.249
+Jitendra K: input, which is BCD.
+
+330
+00:40:48.730 --> 00:40:52.190
+Jitendra K: To predict the next character, right? That is what this model is doing.
+
+331
+00:40:52.670 --> 00:40:59.029
+Jitendra K: Now, I'm importing several core modules, including NumPy, for matrix operations.
+
+332
+00:40:59.630 --> 00:41:06.910
+Jitendra K: And, you know that RNN computations are going to use vectorize, so I'm going to use string OSCII uppercase.
+
+333
+00:41:07.560 --> 00:41:12.210
+Jitendra K: Which is, in my case, it could be the uppercase from A to Z.
+
+334
+00:41:12.850 --> 00:41:23.189
+Jitendra K: Then, I'm also using one function to convert string to one hot encoder. So, it will convert a two-dimensional array of character into a three-dimensional one-hot array of shape.
+
+335
+00:41:24.620 --> 00:41:28.949
+Jitendra K: So, here I'm having a vocab of a list, 26 upper letter.
+
+336
+00:41:29.230 --> 00:41:34.389
+Jitendra K: So I'm trying to map each letter to its index, 0 to 25, so that I can have a
+
+337
+00:41:35.010 --> 00:41:39.160
+Jitendra K: the, one hot encoder, if this…
+
+338
+00:41:39.380 --> 00:41:41.820
+Jitendra K: sequence is missing, I will say zero.
+
+339
+00:41:41.940 --> 00:41:44.049
+Jitendra K: If the sequence is there, I will say 1.
+
+340
+00:41:44.600 --> 00:41:52.710
+Jitendra K: Now, I'm creating some constructor, including a class called vanilla Rnn, so this is my main class. The class will take several parameters.
+
+341
+00:41:53.030 --> 00:41:56.230
+Jitendra K: One of the parameters is vocab size and hidden state.
+
+342
+00:41:56.660 --> 00:42:04.219
+Jitendra K: So, vocab size is the size of the input, divide by output, which is 26. Hidden state is the number of hidden state, which is defaulted to 128.
+
+343
+00:42:04.570 --> 00:42:07.779
+Jitendra K: Alpha is a learning rate, I'm keeping it to be low.
+
+344
+00:42:08.130 --> 00:42:11.290
+Jitendra K: And then initializing it with my parameters.
+
+345
+00:42:11.400 --> 00:42:14.729
+Jitendra K: The W of H of X of H here.
+
+346
+00:42:15.630 --> 00:42:21.280
+Jitendra K: Is the input hidden, shape, hidden size, initialized with a small random number.
+
+347
+00:42:21.690 --> 00:42:24.459
+Jitendra K: WatchH is a hidden to hidden.
+
+348
+00:42:25.560 --> 00:42:28.079
+Jitendra K: WHY is written to output.
+
+349
+00:42:28.930 --> 00:42:34.869
+Jitendra K: WH is hidden to bias, and B of Bi is output to bias.
+
+350
+00:42:35.630 --> 00:42:38.150
+Jitendra K: That means I'm making it fully connected.
+
+351
+00:42:38.640 --> 00:42:41.789
+Jitendra K: Now, once I have done that, then I'm using a feed-forward.
+
+352
+00:42:42.600 --> 00:42:49.149
+Jitendra K: node. The purpose of this node is to take a single input vector, And update a hidden state.
+
+353
+00:42:49.890 --> 00:42:56.769
+Jitendra K: Using the transformation that we have seen in the equation here.
+
+354
+00:43:06.030 --> 00:43:07.270
+Jitendra K: this equation.
+
+355
+00:43:10.370 --> 00:43:17.870
+Jitendra K: So we'll do this transformation, and once we do this transformation, we'll store the hidden updated state in self.atthe.
+
+356
+00:43:18.490 --> 00:43:20.780
+Jitendra K: And that's the whole idea of memory.
+
+357
+00:43:21.570 --> 00:43:23.919
+Jitendra K: So, we'll use self.age to store.
+
+358
+00:43:24.690 --> 00:43:26.350
+Jitendra K: In line number 43.
+
+359
+00:43:26.820 --> 00:43:33.349
+Jitendra K: And then, we'll return an object that contains the hidden state and the list of state.
+
+360
+00:43:35.130 --> 00:43:37.810
+Jitendra K: Which has been used later by backpropagation.
+
+361
+00:43:38.530 --> 00:43:41.379
+Jitendra K: So, I'm going to reduce backpropagation during training.
+
+362
+00:43:41.520 --> 00:43:44.119
+Jitendra K: So I'm going to say that I have a training parameters.
+
+363
+00:43:44.360 --> 00:43:47.139
+Jitendra K: Number of training sequence, which is…
+
+364
+00:43:47.510 --> 00:43:53.450
+Jitendra K: Length of each sequence is 26. For each epoch, we accumulate gradient over all samples.
+
+365
+00:43:54.000 --> 00:43:56.630
+Jitendra K: So I'm making the gradient a D of XY.
+
+366
+00:43:57.240 --> 00:43:59.809
+Jitendra K: Derivative of previous layers.
+
+367
+00:44:00.150 --> 00:44:01.370
+Jitendra K: that I've declared.
+
+368
+00:44:01.530 --> 00:44:09.800
+Jitendra K: And then, I will reset the hidden state to 0 for new sequence. So HFS will store the hidden state at each time step.
+
+369
+00:44:10.040 --> 00:44:14.209
+Jitendra K: YFS will store the raw output vector for each time step.
+
+370
+00:44:14.510 --> 00:44:21.049
+Jitendra K: And it will get the output and reshape the vocab size. Then I'm using a cross… categorical cross entropy.
+
+371
+00:44:21.670 --> 00:44:23.179
+Jitendra K: as my objective.
+
+372
+00:44:23.320 --> 00:44:28.570
+Jitendra K: To see how many… Sequence or matching out of the 26 predicted ones.
+
+373
+00:44:29.350 --> 00:44:33.410
+Jitendra K: And then use the back propagation to improve this algorithm further.
+
+374
+00:44:33.810 --> 00:44:35.740
+Jitendra K: That's the simplest way.
+
+375
+00:44:36.060 --> 00:44:42.729
+Jitendra K: Of getting the… Output from RNN, right? You have a sequence, next character prediction.
+
+376
+00:44:42.940 --> 00:44:49.760
+Jitendra K: You're learning from gradients and improving the method using, this whole mechanism.
+
+377
+00:44:50.130 --> 00:44:52.220
+Jitendra K: Now, let's look into the output.
+
+378
+00:44:57.210 --> 00:45:03.319
+Jitendra K: So this is the output that we're getting, and you can see that I'm getting and registering the loss at each step.
+
+379
+00:45:03.840 --> 00:45:07.199
+Jitendra K: So I can feel that, I can clearly see that my…
+
+380
+00:45:08.310 --> 00:45:14.659
+Jitendra K: Network is not improving in terms of losses, so every loss is kind of stagnated to 84.
+
+381
+00:45:14.830 --> 00:45:15.990
+Jitendra K: 0.7.
+
+382
+00:45:16.460 --> 00:45:21.090
+Jitendra K: So the loss, or the average of cross-entropy per sample.
+
+383
+00:45:21.210 --> 00:45:24.950
+Jitendra K: or the 5 training, or 10 training sequence. For each sequence.
+
+384
+00:45:25.180 --> 00:45:33.519
+Jitendra K: the network computer negatively locked probability of correct answer at each step, and sum up to the average over the 5 sequence. So 84.7 is so high.
+
+385
+00:45:34.070 --> 00:45:37.790
+Jitendra K: And the cross entropy per time step would be…
+
+386
+00:45:39.580 --> 00:45:46.569
+Jitendra K: 84.7% per sample. That means the network is essentially making random guess. It is not learning everything.
+
+387
+00:45:47.750 --> 00:45:55.650
+Jitendra K: Right? So RNN are prone to this, so without gradient clipping, without efficient gradient, control.
+
+388
+00:45:56.010 --> 00:46:08.649
+Jitendra K: You can see that even with low learning rate, I'm not able to calculate much faster. So after training, the… if I have to evaluate the outcome, so after training, this is a sequence that I'm passing, BCD,
+
+389
+00:46:09.070 --> 00:46:17.179
+Jitendra K: three characters, one by one, for each input. It's output are predicted next character. The output, it is saying after B, Y should come, which is false.
+
+390
+00:46:17.390 --> 00:46:20.360
+Jitendra K: After CW should come, which is again false.
+
+391
+00:46:20.470 --> 00:46:24.660
+Jitendra K: After D, M should come, which is again false. So these are not expected next number.
+
+392
+00:46:24.920 --> 00:46:29.100
+Jitendra K: So, for example, after B, we should see C, and after C, we should see D.
+
+393
+00:46:29.500 --> 00:46:32.709
+Jitendra K: But why RNN fail, in this example.
+
+394
+00:46:33.810 --> 00:46:39.379
+Jitendra K: This is simply a plain vanilla architecture without proper technique, so we're not using gradient clipping.
+
+395
+00:46:39.630 --> 00:46:46.880
+Jitendra K: We are not using learning rate initializer, we are just using a very simple training, 10EPOC. So, that's the reason it is failing.
+
+396
+00:46:47.440 --> 00:46:49.899
+Jitendra K: Right? So, if I have to make this…
+
+397
+00:46:53.040 --> 00:46:54.560
+Jitendra K: highly optimal.
+
+398
+00:46:55.500 --> 00:46:57.900
+Jitendra K: Maybe I have to use those set of techniques.
+
+399
+00:46:58.890 --> 00:47:03.020
+Jitendra K: to predict The next sequence more comprehensively.
+
+400
+00:47:03.720 --> 00:47:08.919
+Jitendra K: But can I do it with the vanilla architecture? The answer is… would be yes, could be no.
+
+401
+00:47:09.200 --> 00:47:14.589
+Jitendra K: We can try experimenting with it, but will it improve or not? That will be something which we can see.
+
+402
+00:47:16.880 --> 00:47:18.979
+Jitendra K: So, is this code is clear to everyone?
+
+403
+00:47:19.260 --> 00:47:22.539
+Jitendra K: Shall I share this code first, and then look into the optimization part?
+
+404
+00:47:23.060 --> 00:47:25.940
+Jitendra K: I want everybody to focus on this first.
+
+405
+00:47:29.800 --> 00:47:31.400
+Jitendra K: So, let me delete this.
+
+406
+00:47:31.630 --> 00:47:36.570
+Jitendra K: And… just… Used as oneself.
+
+407
+00:47:45.790 --> 00:47:51.590
+Jitendra K: So at least you're clear with the equations, right? I'm assuming that the professor has taught you the equations.
+
+408
+00:47:52.990 --> 00:47:56.389
+Jitendra K: Is my understanding correct, or am I making a wild guess here?
+
+409
+00:48:03.130 --> 00:48:07.799
+Jitendra K: So equations are your family now, right? You can understand these styles of writing.
+
+410
+00:48:16.290 --> 00:48:22.849
+Jitendra K: Specifically, those who are silent is still… I'm asking to them, so please make sure that you participate.
+
+411
+00:48:23.500 --> 00:48:26.060
+Jitendra K: If you're facing some issue, just speak up.
+
+412
+00:48:27.660 --> 00:48:31.680
+Jitendra K: Otherwise… You're just wasting your time here.
+
+413
+00:48:40.120 --> 00:48:43.940
+Jitendra K: Okay, so I assume that these equations are familiar now.
+
+414
+00:48:44.430 --> 00:48:51.599
+Jitendra K: And, you can correlate with the code as well, right? So the code that we have written here is nothing but these equations only.
+
+415
+00:48:52.490 --> 00:48:56.940
+Jitendra K: So, I would give you maybe 10 minutes, go to the code.
+
+416
+00:48:57.370 --> 00:49:01.689
+Jitendra K: Go to the architecture slide, one by one, and let me know if there's any question.
+
+417
+00:49:20.130 --> 00:49:23.319
+Jitendra K: So please go to these two slides and the code.
+
+418
+01:00:10.810 --> 01:00:13.190
+Jitendra K: I hope you're able to run this.
+
+419
+01:00:16.140 --> 01:00:19.209
+Jitendra K: So I would like to talk about some improvement in the program.
+
+420
+01:00:19.490 --> 01:00:26.129
+Jitendra K: So, as I mentioned, previously, we are missing on some of the important attributes of vanilla R&M, which include
+
+421
+01:00:26.970 --> 01:00:28.630
+Jitendra K: Gradient clipping.
+
+422
+01:00:29.740 --> 01:00:32.240
+Jitendra K: That means I'm not able to clip my gradient.
+
+423
+01:00:33.860 --> 01:00:38.120
+Jitendra K: So here in this program, I'm creating a gradient clipping method.
+
+424
+01:00:41.840 --> 01:00:45.540
+Jitendra K: The second is, I'm lacking the weight initialization.
+
+425
+01:00:47.840 --> 01:00:52.170
+Jitendra K: earlier, So I'm using something called Zapier.
+
+426
+01:00:52.570 --> 01:00:54.310
+Jitendra K: Method to initialize.
+
+427
+01:00:56.360 --> 01:01:01.089
+Jitendra K: You can use Glorot as well. Both are equally proportionate.
+
+428
+01:01:01.360 --> 01:01:06.110
+Jitendra K: Learning rate decay is faster in my previous program, so I'm making it exponential.
+
+429
+01:01:06.760 --> 01:01:08.979
+Jitendra K: And also running with more epox.
+
+430
+01:01:11.680 --> 01:01:12.870
+Jitendra K: 500.
+
+431
+01:01:21.790 --> 01:01:27.790
+Jitendra K: So, you can see that, with the help of these methods, I'm able to improve up to an extent.
+
+432
+01:01:28.100 --> 01:01:30.910
+Jitendra K: It's still not that great, but it's still…
+
+433
+01:01:31.250 --> 01:01:34.050
+Jitendra K: I can say it is improved up to an extent.
+
+434
+01:01:37.250 --> 01:01:40.019
+Jitendra K: So, now my losses are low.
+
+435
+01:01:40.500 --> 01:01:44.669
+Jitendra K: And my prediction is more realistic as compared to the previous version.
+
+436
+01:02:37.420 --> 01:02:42.179
+Jitendra K: Okay, so I think this is what RNN can offer you, maximum.
+
+437
+01:02:42.490 --> 01:02:46.279
+Jitendra K: That means, you can do…
+
+438
+01:02:46.470 --> 01:02:51.520
+Jitendra K: Maximum of sequence, next word prediction, not more than that, with the help of… RNN.
+
+439
+01:02:52.340 --> 01:02:56.300
+Jitendra K: Now, what we are going to do is, I'm going to show you…
+
+440
+01:02:57.220 --> 01:03:00.789
+Jitendra K: Another implementation of RNN with the help of TensorFlow.
+
+441
+01:03:05.250 --> 01:03:11.559
+Jitendra K: And to ease off, these, module writings and stuff, we are going to use RNN.
+
+442
+01:03:12.030 --> 01:03:15.910
+Jitendra K: And now I'm going to use… RNN4.
+
+443
+01:03:17.980 --> 01:03:20.529
+Jitendra K: One second, let me show you the first input.
+
+444
+01:03:23.230 --> 01:03:31.020
+Jitendra K: I'm going to use one… another flavor of RNN, which is called bidirectional RNN. So, I hope you have heard about bidirectional RNN earlier.
+
+445
+01:03:31.300 --> 01:03:35.820
+Jitendra K: During the Professor tutorials, how many of you ever heard about bidirectional RNN?
+
+446
+01:03:37.870 --> 01:03:42.550
+Jitendra K: And if I have to ask you, what is the use of and the purpose of bidirectional RNN?
+
+447
+01:03:52.730 --> 01:03:55.540
+Jitendra K: So what is the purpose of bi-directional RNN, guys?
+
+448
+01:04:04.930 --> 01:04:09.549
+Jitendra K: As the name stated, bi-directional. It can look before and look after both.
+
+449
+01:04:11.310 --> 01:04:17.199
+Jitendra K: So, recurrent neural network, as I mentioned, is also an integral part of our KRAS library.
+
+450
+01:04:17.510 --> 01:04:24.670
+Jitendra K: And this is one of the code which has been written by the author of RNN and KRAS, which is called Francis Chollett.
+
+451
+01:04:25.170 --> 01:04:33.029
+Jitendra K: And this has been… Written by a complete, description, and you can see this is well-written code.
+
+452
+01:04:33.570 --> 01:04:41.820
+Jitendra K: So the idea is, I'm going to show you how to use TensorFlow and Keras to operate on RNN, right? A simple RNN layer.
+
+453
+01:04:42.830 --> 01:04:44.769
+Jitendra K: So let's go one by one.
+
+454
+01:04:46.940 --> 01:04:54.090
+Jitendra K: So, this example, I'm going to build a simple example with 3 in-build functionality.
+
+455
+01:04:54.630 --> 01:05:00.599
+Jitendra K: The first functionality is called KRAS.layer, which is a simple RNN function class that I'm going to use.
+
+456
+01:05:01.590 --> 01:05:06.250
+Jitendra K: A fully connected RNN, where the output from previous time step is feed to a next time step.
+
+457
+01:05:06.980 --> 01:05:15.679
+Jitendra K: I may also use… I would like to show you how to use other flavors of RNN, which include LSTM and GRUs, which is also a part of same library.
+
+458
+01:05:16.220 --> 01:05:21.860
+Jitendra K: So, in early 2015, KRAS has been…
+
+459
+01:05:21.990 --> 01:05:30.399
+Jitendra K: using Python implementation of LSTEAM on RRU, sorry, LSTAM and GRU. So I'm just going to use the same here.
+
+460
+01:05:30.830 --> 01:05:36.500
+Jitendra K: Now… I would like to define…
+
+461
+01:05:37.680 --> 01:05:42.449
+Jitendra K: the parameters, so I'm going to define recurrent parameters here.
+
+462
+01:05:42.880 --> 01:05:48.289
+Jitendra K: So, in this layer, what I'm trying to say is, I have a model.
+
+463
+01:05:48.450 --> 01:05:51.289
+Jitendra K: which will use a KRAS sequential class.
+
+464
+01:05:53.020 --> 01:05:55.620
+Jitendra K: And in this class, I'm going to add the layers.
+
+465
+01:05:55.740 --> 01:05:59.930
+Jitendra K: Right? So we haven't talked about GRU yet, so I will skip this part.
+
+466
+01:06:02.270 --> 01:06:09.000
+Jitendra K: But when you're adding a layer to the Keras model, this is the model function that you have to use, model.add.
+
+467
+01:06:09.590 --> 01:06:16.779
+Jitendra K: Right? And what architecture you would like to leverage from the simple RNN to LSTM and other advanced
+
+468
+01:06:17.630 --> 01:06:20.839
+Jitendra K: Version, you can mention it as layers.
+
+469
+01:06:21.800 --> 01:06:25.129
+Jitendra K: Right, and then you can add layers and summarize the model.
+
+470
+01:06:26.410 --> 01:06:28.630
+Jitendra K: Now, let me explain what this code is doing.
+
+471
+01:06:30.060 --> 01:06:33.350
+Jitendra K: In a nutshell, I will share this quote as well, in a while.
+
+472
+01:06:38.890 --> 01:06:43.599
+Jitendra K: So basically, this code is nothing but it is trying to predict
+
+473
+01:06:44.780 --> 01:06:52.050
+Jitendra K: the MNIST dataset, which we already have used for numerical value prediction of the
+
+474
+01:06:53.260 --> 01:06:57.540
+Jitendra K: Numerical value representation of the… numbers.
+
+475
+01:06:57.980 --> 01:07:00.629
+Jitendra K: And we are going to use RNN to predict now.
+
+476
+01:07:00.820 --> 01:07:06.239
+Jitendra K: And try to see if RNN can be able to predict it or not. And that is what we are trying to do in this code.
+
+477
+01:07:06.730 --> 01:07:07.660
+Jitendra K: Now…
+
+478
+01:07:07.860 --> 01:07:15.010
+Jitendra K: In the previous example, we have seen that we can write RNN from the scratch, that means we can create our own custom function, custom class.
+
+479
+01:07:15.360 --> 01:07:17.990
+Jitendra K: to run RNN and create RNN.
+
+480
+01:07:18.200 --> 01:07:22.270
+Jitendra K: In this example, I would like to show… the purpose of this example is to show you
+
+481
+01:07:22.540 --> 01:07:29.980
+Jitendra K: How we can able to use existing libraries, like Kiras and PyTorch, or TensorFlow, to work.
+
+482
+01:07:30.100 --> 01:07:31.070
+Jitendra K: on…
+
+483
+01:07:31.580 --> 01:07:40.939
+Jitendra K: the same. That means I would like to reuse the existing libraries to just configure and then utilize it for the purpose of prediction.
+
+484
+01:07:41.800 --> 01:07:44.930
+Jitendra K: And that is what I'm going to do with the help of this example.
+
+485
+01:07:47.790 --> 01:07:48.850
+Jitendra K: Now…
+
+486
+01:07:50.880 --> 01:07:58.609
+Jitendra K: First and foremost thing, you have to understand what are the libraries that we are going to import. So I'm importing Keras and Layers, which is my class.
+
+487
+01:07:59.050 --> 01:08:02.549
+Jitendra K: So, with the help of these two libraries, I'm going to do pretty much everything.
+
+488
+01:08:02.670 --> 01:08:05.699
+Jitendra K: That means I will create my own layers, I will…
+
+489
+01:08:06.270 --> 01:08:13.370
+Jitendra K: create my own layered architecture. I can connect based upon my requirement. I can use my own weight initialization schemes.
+
+490
+01:08:13.640 --> 01:08:16.630
+Jitendra K: Etc, to work and operate on this model.
+
+491
+01:08:24.390 --> 01:08:30.580
+Jitendra K: So, let me go line by line now, and one second, quickly fix this.
+
+492
+01:08:49.350 --> 01:08:57.490
+Jitendra K: Okay, now let me go one by one. So in the first step, I'm importing a bunch of libraries, for random generation, number generation, data generation.
+
+493
+01:08:57.649 --> 01:09:07.810
+Jitendra K: A numerical operation, I'm using NumPy, TensorFlow for implementing, layers, KRAS for…
+
+494
+01:09:08.520 --> 01:09:18.120
+Jitendra K: using, different layer classes, and this is a submodule that I'm using, which comprise of all the layer classes, including RNN, embedding, and DENSE.
+
+495
+01:09:18.580 --> 01:09:20.410
+Jitendra K: Now, I would like to start building
+
+496
+01:09:20.790 --> 01:09:30.049
+Jitendra K: A simple example. So this is where I'm going to use 3 built-in layers, simple RNN, LSTM and GRUs.
+
+497
+01:09:30.930 --> 01:09:34.350
+Jitendra K: So, this example creates a sequential model with an embedding layer.
+
+498
+01:09:34.479 --> 01:09:37.730
+Jitendra K: That will map integer token to a dense vector.
+
+499
+01:09:39.010 --> 01:09:47.469
+Jitendra K: So, I'm… first and the foremost thing, what I'm trying to do is, I'm trying to convert an integer from 0 to 999 to a dense vector of 64.
+
+500
+01:09:47.920 --> 01:09:52.179
+Jitendra K: And this is typically, you're going to use in text analytics.
+
+501
+01:09:52.700 --> 01:10:02.249
+Jitendra K: Then I'm using an additional LSTM layer, which is having 128 hidden unit, and by default, return only the last output.
+
+502
+01:10:02.600 --> 01:10:08.310
+Jitendra K: which then feed into a dense layer. So, dense layer is fully connected with the 10 classes.
+
+503
+01:10:08.730 --> 01:10:10.730
+Jitendra K: And then I'm generating a model summary.
+
+504
+01:10:12.180 --> 01:10:17.399
+Jitendra K: Now here, I'm making sure that I'm returning a sequence.
+
+505
+01:10:17.530 --> 01:10:23.949
+Jitendra K: So by default, an RNN layer returned only the last output. And to get the output of the first
+
+506
+01:10:24.110 --> 01:10:25.600
+Jitendra K: Or every time step.
+
+507
+01:10:26.050 --> 01:10:29.880
+Jitendra K: We are making this parameter to withdraw written sequences.
+
+508
+01:10:31.030 --> 01:10:40.959
+Jitendra K: Right? So here I'm making it to be true, so I'm saying return sequence to be true, and remaining thing that I'm doing here is, I'm just sequentially compiling the layers.
+
+509
+01:10:41.280 --> 01:10:45.409
+Jitendra K: So, I'm adding a GRU, which is having…
+
+510
+01:10:46.000 --> 01:10:49.860
+Jitendra K: 256-dimension vector, so the output is 3-dimensional tensor.
+
+511
+01:10:50.650 --> 01:10:52.690
+Jitendra K: the return state I'm passing.
+
+512
+01:10:52.830 --> 01:10:54.490
+Jitendra K: And then summarizing the model.
+
+513
+01:10:54.860 --> 01:10:59.059
+Jitendra K: Now here, in this line of code, what I'm trying to do is…
+
+514
+01:10:59.600 --> 01:11:07.790
+Jitendra K: I'm using an RNL layer, which can also return internal state, and this is useful for other architecture, like encoder-decoder, later.
+
+515
+01:11:08.260 --> 01:11:10.480
+Jitendra K: So this is where I'm just trying to embed.
+
+516
+01:11:15.530 --> 01:11:19.050
+Jitendra K: Now… Once I have developed this.
+
+517
+01:11:19.670 --> 01:11:21.740
+Jitendra K: then I would like to use…
+
+518
+01:11:21.860 --> 01:11:24.209
+Jitendra K: the bi-directional nature of the RNN.
+
+519
+01:11:24.600 --> 01:11:34.630
+Jitendra K: Now, bidirectional RNN will help me to read paragraphs. That means I can able to do parallel sequencing in both directions. That will improve my performance.
+
+520
+01:11:34.790 --> 01:11:35.660
+Jitendra K: off.
+
+521
+01:11:36.070 --> 01:11:38.339
+Jitendra K: The next word prediction sequence.
+
+522
+01:11:38.460 --> 01:11:42.289
+Jitendra K: That means my next word prediction sequence will be based upon
+
+523
+01:11:42.390 --> 01:11:46.909
+Jitendra K: The previous words, and the co-ocrence of the previous words, right?
+
+524
+01:11:47.070 --> 01:11:48.570
+Jitendra K: So I would like to use…
+
+525
+01:11:50.080 --> 01:11:53.100
+Jitendra K: bi-directional STM as RNN for that purpose.
+
+526
+01:11:53.320 --> 01:12:00.550
+Jitendra K: And I'm using a specific Layout, or architecture, which is called… Coda NNN.
+
+527
+01:12:01.120 --> 01:12:04.180
+Jitendra K: And this is my inbuilt models.
+
+528
+01:12:04.550 --> 01:12:09.229
+Jitendra K: that I'm going to use the capability from NVIDIA to train the model.
+
+529
+01:12:09.450 --> 01:12:16.489
+Jitendra K: And what it does is, it will load amnest and treat each row of the image as a time step, and each row being a 228-dimensional vector.
+
+530
+01:12:18.230 --> 01:12:23.229
+Jitendra K: And then, it'll start training And, even if…
+
+531
+01:12:24.590 --> 01:12:31.760
+Jitendra K: it is making wrong prediction, this setup will help me to faster expedite the errors. And that's the only reason I'm using it.
+
+532
+01:12:32.010 --> 01:12:34.719
+Jitendra K: So once I compile the model, run the model.
+
+533
+01:12:36.340 --> 01:12:39.429
+Jitendra K: Let me quickly show it to you, the output.
+
+534
+01:12:47.990 --> 01:12:52.870
+Jitendra K: I think I have run it here, so you can use this. I will share this document reference.
+
+535
+01:12:53.310 --> 01:12:54.879
+Jitendra K: So this is what I'm getting.
+
+536
+01:12:57.250 --> 01:13:08.330
+Jitendra K: So, against the predicted, what is our targeted value? So, in a nutshell, what we are trying to do here is, we are just using a sequence of image data as a time step sequencing.
+
+537
+01:13:08.430 --> 01:13:11.209
+Jitendra K: To predict the image vector, right?
+
+538
+01:13:11.310 --> 01:13:19.100
+Jitendra K: So previously in CNN, we have done the same trick, but here we are creating a feature map in CNN. Here, we are creating a sequence of
+
+539
+01:13:19.580 --> 01:13:20.700
+Jitendra K: pixels.
+
+540
+01:13:21.490 --> 01:13:22.940
+Jitendra K: To predict the outcome.
+
+541
+01:13:23.750 --> 01:13:24.550
+Jitendra K: Alright?
+
+542
+01:13:25.150 --> 01:13:29.779
+Jitendra K: So the whole idea here is… is to capture a temporal sequence of the
+
+543
+01:13:30.310 --> 01:13:32.869
+Jitendra K: Pixels, and then generate an output.
+
+544
+01:13:33.430 --> 01:13:37.969
+Jitendra K: But you can see that it is not able to do Good in this part.
+
+545
+01:13:38.630 --> 01:13:43.120
+Jitendra K: Predicted result is saying it's 3, while the targeted is 5, right? So that means…
+
+546
+01:13:43.230 --> 01:13:48.430
+Jitendra K: It is lacking in those criterias, which we eventually say.
+
+547
+01:13:48.720 --> 01:13:51.470
+Jitendra K: That this is not the best for.
+
+548
+01:13:52.340 --> 01:13:55.070
+Jitendra K: Pixel-based sequence prediction.
+
+549
+01:13:58.020 --> 01:14:06.120
+Jitendra K: So we have seen that there's a lot of drawback of RNN, right? So we understand that RNN is very, very limited. RNN is just a concept of a memory.
+
+550
+01:14:06.570 --> 01:14:14.189
+Jitendra K: But eventually, it is not producing anything tangible, right? So it's a great concept that we have a memory, we can look back, we can
+
+551
+01:14:14.750 --> 01:14:19.000
+Jitendra K: Do a previous sequencing, next sequencing, prediction, which is all great.
+
+552
+01:14:19.690 --> 01:14:21.620
+Jitendra K: But how to avoid that drawback?
+
+553
+01:14:21.980 --> 01:14:26.960
+Jitendra K: It's a great drawback, because we cannot do literally any meaningful analysis using RNN.
+
+554
+01:14:27.670 --> 01:14:34.810
+Jitendra K: And to improve RNN, Data scientist has come up with refined architecture.
+
+555
+01:14:35.140 --> 01:14:40.809
+Jitendra K: Which is called LSTM. LSTM stands for Long Short Term Memory.
+
+556
+01:14:41.520 --> 01:14:48.969
+Jitendra K: Now, if I have to just explain you in a very simple term, very layman term, if I have to compare RNN versus LSTM,
+
+557
+01:14:49.470 --> 01:14:57.699
+Jitendra K: It's like… I'm comparing a father with a child, so Aaron, of course, Head of this whole architecture.
+
+558
+01:14:58.730 --> 01:15:08.570
+Jitendra K: And it has been going through certain refinement. So, recurrent neural network is in our family, and LSTM is a part of that family, right? Which has been designed for, again, for sequential data handling.
+
+559
+01:15:08.980 --> 01:15:14.710
+Jitendra K: But LSTM has sorted or solved the vanishing gradient problem to an extent.
+
+560
+01:15:16.370 --> 01:15:18.920
+Jitendra K: By using a gated mechanism.
+
+561
+01:15:19.290 --> 01:15:25.169
+Jitendra K: to retain the long-term dependency. So, RNN are very simple and faster.
+
+562
+01:15:25.800 --> 01:15:30.069
+Jitendra K: It could be ideal for short sequencing, but LSTMs are superior
+
+563
+01:15:30.200 --> 01:15:34.040
+Jitendra K: For complex as well as long-term task.
+
+564
+01:15:35.900 --> 01:15:43.050
+Jitendra K: So the memory structure that RNN uses is a simple hidden layer, or hidden state, updating it at every step.
+
+565
+01:15:43.340 --> 01:15:52.820
+Jitendra K: Which causes them to forget early that particular information. That means you're losing that information. Even you're storing, but at a longer context, you're…
+
+566
+01:15:52.940 --> 01:16:01.569
+Jitendra K: Your cell state has been changed. But in LSTM, there's something called cell state, which is a long-term memory, or a kind of a conveyor belt.
+
+567
+01:16:01.850 --> 01:16:09.050
+Jitendra K: that preserve the information across long sequences. And LSTM also used three specialized gates, Input.
+
+568
+01:16:09.280 --> 01:16:17.299
+Jitendra K: Forget and output, to control the flow of information. Deciding what to store, what to discard, and what to pass.
+
+569
+01:16:18.560 --> 01:16:22.110
+Jitendra K: And this makes this whole mechanism so controllable.
+
+570
+01:16:22.580 --> 01:16:27.760
+Jitendra K: So that LSTM can be quite useful for remembering information.
+
+571
+01:16:27.970 --> 01:16:34.510
+Jitendra K: Over many steps, where typically RNN struggle beyond 10 to 20 steps due to vanishing protein problem.
+
+572
+01:16:35.050 --> 01:16:43.999
+Jitendra K: So because LSTMs are more complex, they are generally slower to train and require more computational power than standard RMM. And that's the only drawback of LSTM, I would say.
+
+573
+01:16:45.820 --> 01:16:48.129
+Jitendra K: So we'll see the LSTM architecture in depth.
+
+574
+01:16:48.260 --> 01:16:53.099
+Jitendra K: So… The design philosophy is clear, that vanishing gradient problem is a great
+
+575
+01:16:53.520 --> 01:17:09.529
+Jitendra K: problem that we are trying to solve with the help of LSTM-based architecture. So what RNN architecture says that I'm going to use the transformation on weights with the help of hidden layers, but here, LSTM is saying that I'm going to add a gate logic
+
+576
+01:17:09.700 --> 01:17:17.470
+Jitendra K: Using three gates, I would like to create a differential mechanism that will learn how to control that flow of information from
+
+577
+01:17:18.100 --> 01:17:24.389
+Jitendra K: all the way to the first gate to the last layer, right? So that is what we are going to talk about now.
+
+578
+01:17:26.380 --> 01:17:34.580
+Jitendra K: Now, let's try to deep-drive the LSTM architecture, and understand what this LSTM architecture is all about, and try to understand the pros and cons.
+
+579
+01:17:34.980 --> 01:17:44.800
+Jitendra K: depending upon what kind of real-world problem LSTM can solve, whether they are really fit for some, some,
+
+580
+01:17:44.970 --> 01:17:55.200
+Jitendra K: scenarios which can help us to overcome the issues associated with RNN. And we have seen that RNN is even not able to perform really well on this simple task.
+
+581
+01:17:55.960 --> 01:18:01.310
+Jitendra K: So… So, to understand LSTM, we have to first understand the architecture of LSTM.
+
+582
+01:18:02.100 --> 01:18:04.680
+Jitendra K: Yeah, that is what I'm coming across now.
+
+583
+01:18:05.720 --> 01:18:11.320
+Jitendra K: So the architecture of LSTM comprises of several layers.
+
+584
+01:18:11.570 --> 01:18:14.080
+Jitendra K: So this is the architecture of the LSTM.
+
+585
+01:18:14.890 --> 01:18:17.629
+Jitendra K: So the problem with recurrent neural network is that
+
+586
+01:18:17.980 --> 01:18:22.350
+Jitendra K: They have a short-term memory to retain the previous information, the current neuron.
+
+587
+01:18:22.880 --> 01:18:27.279
+Jitendra K: However, this ability decreased very quickly for a longer sequence.
+
+588
+01:18:28.200 --> 01:18:31.469
+Jitendra K: In case of LSTM model, We are…
+
+589
+01:18:32.360 --> 01:18:38.470
+Jitendra K: Making sure that the LSTM architecture will be able to retain past information even longer.
+
+590
+01:18:39.770 --> 01:18:47.170
+Jitendra K: So the classical problem associated with RNN is that they simply store the previous data in the short-term memory. Once the memory
+
+591
+01:18:48.550 --> 01:18:50.969
+Jitendra K: Runs out, it simply delete the long.
+
+592
+01:18:51.120 --> 01:18:54.359
+Jitendra K: Longest retained information, replace it with the new data.
+
+593
+01:18:54.570 --> 01:19:00.439
+Jitendra K: While LSTA model attempts to escape this problem by retaining selected information in the long-term memory.
+
+594
+01:19:00.670 --> 01:19:03.530
+Jitendra K: And this long-term memory is called cell state.
+
+595
+01:19:05.590 --> 01:19:11.469
+Jitendra K: In addition, they are also called hidden state, which is already known for normal neuron… neural network.
+
+596
+01:19:11.910 --> 01:19:14.010
+Jitendra K: To store the short-term memory.
+
+597
+01:19:14.270 --> 01:19:20.350
+Jitendra K: So basically, if you see on my screen, there are 3 values passed through the gates.
+
+598
+01:19:22.220 --> 01:19:29.010
+Jitendra K: So, we have the first gate called Forget Gate. So, Chris, decide which current and previous information need to be capped.
+
+599
+01:19:29.680 --> 01:19:31.699
+Jitendra K: And which has been to be thrown out.
+
+600
+01:19:31.990 --> 01:19:36.329
+Jitendra K: So this also includes the hidden state from the previous pass and the current code.
+
+601
+01:19:36.620 --> 01:19:43.739
+Jitendra K: And these values are parts into a sigmoid function, which can only output between 0 to 1.
+
+602
+01:19:43.990 --> 01:19:50.759
+Jitendra K: The value means… extreme value 0 to 1 means. The value of 0 means the previous information can be forgotten.
+
+603
+01:19:51.100 --> 01:19:55.969
+Jitendra K: Because there is possibly new, more information that is required to retain.
+
+604
+01:19:56.380 --> 01:20:05.629
+Jitendra K: And the number 1 means, according that the previous information should be preserved, and the results from this are multiplied by the current cell state, so that
+
+605
+01:20:05.930 --> 01:20:08.900
+Jitendra K: Knowledge that is no longer needed is forgotten.
+
+606
+01:20:09.530 --> 01:20:11.020
+Jitendra K: Should not be dropout.
+
+607
+01:20:12.160 --> 01:20:15.910
+Jitendra K: Then we have a second gate. Again, the sigmoid function is involved.
+
+608
+01:20:16.460 --> 01:20:22.349
+Jitendra K: So this is the input gate. It decides how valuable the current input is to solve the task.
+
+609
+01:20:23.030 --> 01:20:28.319
+Jitendra K: Further is, the current input is multiplied by the hidden state and the weighted metrics of the last run.
+
+610
+01:20:28.830 --> 01:20:35.819
+Jitendra K: So all the information that appears important in the input gate is then added to a cell state and form a new cell called state.
+
+611
+01:20:36.250 --> 01:20:42.949
+Jitendra K: And this new cell state is now the current state of the long-term memory, and it will be used in next run.
+
+612
+01:20:43.740 --> 01:20:51.799
+Jitendra K: The third is the output gate. The output of the LSTM model is then calculated in the hidden state, depending upon the application.
+
+613
+01:20:52.370 --> 01:20:55.319
+Jitendra K: For example, let's say I'm writing a code.
+
+614
+01:20:56.080 --> 01:21:06.310
+Jitendra K: That were able to predict the next word. Viability. So I can be able to do this with the help of LSTM. We have just now seen the RNN, right? How limited they are, with… only with 26 text.
+
+615
+01:21:06.870 --> 01:21:15.299
+Jitendra K: it is not able to do a great job. But with LSTM, we will try to revisit a similar example and see how LSTM can be able to solve this.
+
+616
+01:21:17.400 --> 01:21:18.160
+Jitendra K: Right?
+
+617
+01:21:18.380 --> 01:21:22.029
+Jitendra K: So, which application… should rely on LSTM.
+
+618
+01:21:23.320 --> 01:21:27.389
+Jitendra K: So, I would say… If I have to just justify.
+
+619
+01:21:27.940 --> 01:21:33.380
+Jitendra K: You can use LSTM for time series analytics. That means you would like to predict the next sequence.
+
+620
+01:21:34.130 --> 01:21:36.669
+Jitendra K: Maybe I would like to predict the stock prices.
+
+621
+01:21:37.000 --> 01:21:39.380
+Jitendra K: Music generation, yeah, is a good example.
+
+622
+01:21:39.710 --> 01:21:48.129
+Jitendra K: I can would like to predict the stock prices based upon the past behavior of the market. LSTM can do the magic for you.
+
+623
+01:21:49.000 --> 01:21:56.520
+Jitendra K: If you would like to predict, Maybe a simple… rough sequences.
+
+624
+01:21:56.830 --> 01:22:01.530
+Jitendra K: based upon, the word, you can be able to do it with the help of LST.
+
+625
+01:22:04.410 --> 01:22:08.769
+Jitendra K: Right? So LSTMs are great for doing all this task.
+
+626
+01:22:09.260 --> 01:22:14.749
+Jitendra K: Now, what we are going to do next is, we'll take some example to understand LSTM, but before that.
+
+627
+01:22:15.320 --> 01:22:19.410
+Jitendra K: Let me break down this architecture into 3 or more parts, again.
+
+628
+01:22:20.730 --> 01:22:21.770
+Jitendra K: So…
+
+629
+01:22:22.080 --> 01:22:33.269
+Jitendra K: As I mentioned, LSTM has been introduced to get rid of the short-term memory, which RNN have. RNN have memory, but it is short-lived. So LSTM network comprises of three parts.
+
+630
+01:22:33.710 --> 01:22:37.050
+Jitendra K: Which is… We have got 3 gates.
+
+631
+01:22:43.470 --> 01:22:44.530
+Jitendra K: Which is?
+
+632
+01:22:44.850 --> 01:22:47.430
+Jitendra K: Forget, update, and pass.
+
+633
+01:22:48.430 --> 01:22:56.610
+Jitendra K: So, the first part, choose whether the information coming from the previous timestamp should be remembered, or is it irrelevant and can be forgotten.
+
+634
+01:22:57.160 --> 01:23:04.239
+Jitendra K: In the second part, the cell tried to learn new information from the input to this cell. And at the last, in the third part.
+
+635
+01:23:04.420 --> 01:23:13.529
+Jitendra K: The cell passes the updated information from the current time step to the next time step, and this one cycle of LSTM is considered as a single step.
+
+636
+01:23:13.730 --> 01:23:23.480
+Jitendra K: And these three parts of LSTM unit is known as GATE, and they control the flow, they control the flow of information in and out of the memory cell, or LSTM cell.
+
+637
+01:23:24.240 --> 01:23:27.200
+Jitendra K: So basically, they had been re-abbreviated as…
+
+638
+01:23:34.250 --> 01:23:35.320
+Jitendra K: Input.
+
+639
+01:23:35.600 --> 01:23:37.510
+Jitendra K: Forget an output gate.
+
+640
+01:23:38.110 --> 01:23:41.230
+Jitendra K: So just like simple RNN and LSTM also have it in state.
+
+641
+01:23:41.500 --> 01:23:45.230
+Jitendra K: That represent the hidden state of the previous timestamp.
+
+642
+01:23:45.510 --> 01:23:47.749
+Jitendra K: And hidden state of the current timestamp.
+
+643
+01:23:48.070 --> 01:23:52.079
+Jitendra K: So that means I can write an equation, which I've used in RNN,
+
+644
+01:23:52.590 --> 01:23:56.229
+Jitendra K: to represent LS team as well. So this is my equations.
+
+645
+01:23:56.630 --> 01:24:03.640
+Jitendra K: So I can say that I've got… Two states to maintain.
+
+646
+01:24:12.440 --> 01:24:13.540
+Jitendra K: this state?
+
+647
+01:24:14.120 --> 01:24:15.250
+Jitendra K: In this state.
+
+648
+01:24:15.700 --> 01:24:18.170
+Jitendra K: And during the hidden state, I'm going to…
+
+649
+01:24:18.400 --> 01:24:20.740
+Jitendra K: Perform a transformation from this to this.
+
+650
+01:24:21.030 --> 01:24:24.610
+Jitendra K: Using… The long and the short memories.
+
+651
+01:24:25.410 --> 01:24:31.700
+Jitendra K: So let's take an example how LSTM works. So let's say we have two sentences separated by a full stop.
+
+652
+01:24:32.590 --> 01:24:39.490
+Jitendra K: The first sentence is, let's say, Tom is a nice person, and the second sentence say,
+
+653
+01:24:40.300 --> 01:24:42.700
+Jitendra K: Jerry, on the other hand, is an evil.
+
+654
+01:24:43.460 --> 01:24:50.490
+Jitendra K: It is very clear that in the first sentence, we are talking about Tom, and as soon as we encounter the full stop, we start talking about Jerry.
+
+655
+01:24:50.990 --> 01:24:59.999
+Jitendra K: So as we move from the first sentence to the second sentence, our network should realize that we are not… no more talking about one creature called Tom.
+
+656
+01:25:00.150 --> 01:25:02.909
+Jitendra K: Now, our subject is Jerry.
+
+657
+01:25:03.190 --> 01:25:08.430
+Jitendra K: And here, the forget gate should invoke forget loop.
+
+658
+01:25:09.310 --> 01:25:15.380
+Jitendra K: So, forget gate, if I have to write down the equation, F10.
+
+659
+01:25:16.410 --> 01:25:19.159
+Jitendra K: It should use a transformation sigma
+
+660
+01:25:19.830 --> 01:25:22.890
+Jitendra K: on my previous X of T weights.
+
+661
+01:25:23.420 --> 01:25:25.590
+Jitendra K: Multiply by U of T.
+
+662
+01:25:26.920 --> 01:25:31.279
+Jitendra K: plus my hidden state of a previous node, T-1.
+
+663
+01:25:32.360 --> 01:25:34.420
+Jitendra K: Multiply by W .
+
+664
+01:25:36.750 --> 01:25:38.589
+Jitendra K: So X of t is the input.
+
+665
+01:25:38.970 --> 01:25:40.420
+Jitendra K: To the current times term.
+
+666
+01:25:40.610 --> 01:25:44.280
+Jitendra K: U of F… U of… this is U of F, not T.
+
+667
+01:25:45.090 --> 01:25:48.799
+Jitendra K: U of F is a weight associated with the input node.
+
+668
+01:25:49.220 --> 01:25:52.670
+Jitendra K: H of T-1 is the hidden state of the previous timestamp.
+
+669
+01:25:53.120 --> 01:25:57.879
+Jitendra K: This is, again, W of F, is a weight with a hidden state.
+
+670
+01:25:58.620 --> 01:26:06.050
+Jitendra K: So later, I will apply a sigmoid function, which will do this nullion transformation. It will say, Let's use…
+
+671
+01:26:07.460 --> 01:26:09.230
+Jitendra K: C of T minus 1.
+
+672
+01:26:10.270 --> 01:26:15.749
+Jitendra K: multiply by a 50. If a 50 is 0, I will forgot everything.
+
+673
+01:26:16.620 --> 01:26:18.370
+Jitendra K: If RF of T is 1,
+
+674
+01:26:18.720 --> 01:26:24.470
+Jitendra K: I will retain the information. And that is what the logic of GATE is all about. In…
+
+675
+01:26:25.000 --> 01:26:27.719
+Jitendra K: LSTM, right? So basically.
+
+676
+01:26:27.890 --> 01:26:35.390
+Jitendra K: you're using this… let's take another example. We have taken one example where I'm saying, Tom is a…
+
+677
+01:26:41.280 --> 01:26:42.680
+Jitendra K: Nice person.
+
+678
+01:26:49.080 --> 01:26:50.789
+Jitendra K: Then I'm applying a full stop.
+
+679
+01:26:52.250 --> 01:26:56.769
+Jitendra K: Sherry… On the other hand…
+
+680
+01:27:02.080 --> 01:27:03.389
+Jitendra K: is an evil.
+
+681
+01:27:06.060 --> 01:27:09.390
+Jitendra K: So this sequence will process the information a little bit with Tom.
+
+682
+01:27:10.550 --> 01:27:14.240
+Jitendra K: And as soon as I reach full stop, it should remove.
+
+683
+01:27:15.140 --> 01:27:16.370
+Jitendra K: this memory.
+
+684
+01:27:16.910 --> 01:27:17.740
+Jitendra K: Right?
+
+685
+01:27:18.950 --> 01:27:22.110
+Jitendra K: Now… Once I have this…
+
+686
+01:27:23.070 --> 01:27:31.079
+Jitendra K: Now I would like to go for a forget gate. Sorry, I would like to go with an input gate. So this is my forget gate, now I'm going to talk about input gate.
+
+687
+01:27:31.610 --> 01:27:37.400
+Jitendra K: So my input gate, let's take another example, I'm saying… Hmm, let's say Bob.
+
+688
+01:27:41.060 --> 01:27:42.960
+Jitendra K: No swimming.
+
+689
+01:27:47.380 --> 01:27:50.789
+Jitendra K: dot… He told me…
+
+690
+01:27:55.040 --> 01:27:56.560
+Jitendra K: over the phone.
+
+691
+01:28:01.040 --> 01:28:05.649
+Jitendra K: that… Maybe I can use this.
+
+692
+01:28:07.670 --> 01:28:11.800
+Jitendra K: Bob… No swimming…
+
+693
+01:28:17.980 --> 01:28:22.710
+Jitendra K: Full stop, he told me… or the phone.
+
+694
+01:28:25.770 --> 01:28:27.990
+Jitendra K: that he needs.
+
+695
+01:28:28.440 --> 01:28:37.609
+Jitendra K: he had… Sort… the Navy… For… 4 long years.
+
+696
+01:28:39.440 --> 01:28:41.809
+Jitendra K: So here, I'm talking about reference, he.
+
+697
+01:28:42.590 --> 01:28:47.110
+Jitendra K: So the human understand that I'm talking about Bob, but how will the machine understand this?
+
+698
+01:28:47.670 --> 01:28:54.280
+Jitendra K: So, the first sentence, given information, so in both the sentences, we are talking about Bob. However, the
+
+699
+01:28:54.500 --> 01:28:57.010
+Jitendra K: Both give different kind of information about WAP.
+
+700
+01:28:57.250 --> 01:29:02.950
+Jitendra K: In the first sentence, we get the information that he knows swimming, whereas the second sentence tells he used the phone and served
+
+701
+01:29:03.440 --> 01:29:09.659
+Jitendra K: In the Navy for 4 years. Now just… now just think about this. Based upon the context given in the first sentence.
+
+702
+01:29:10.070 --> 01:29:12.949
+Jitendra K: Which information in the second sentence is critical?
+
+703
+01:29:14.300 --> 01:29:26.620
+Jitendra K: First, he used the phone to tell, and on he served the Navy. In the context, it does not matter whether he used to use phone or any other medium for communications or pass this information.
+
+704
+01:29:26.910 --> 01:29:33.579
+Jitendra K: The fact for this is navy is important, and this is something we want our model to remember for futuristic comparison.
+
+705
+01:29:33.800 --> 01:29:39.110
+Jitendra K: And this is the task of an input gate. So, input gate will be able to find it out.
+
+706
+01:29:39.480 --> 01:29:45.060
+Jitendra K: The quality or quantifying information Carried by the input.
+
+707
+01:29:45.190 --> 01:29:50.519
+Jitendra K: And then, it will use the weights, I of T.
+
+708
+01:29:51.080 --> 01:30:00.990
+Jitendra K: Using a… Activation function sigma, And multiplying these weight X of t, U of I,
+
+709
+01:30:01.420 --> 01:30:03.769
+Jitendra K: plus H of T minus 1.
+
+710
+01:30:05.400 --> 01:30:06.820
+Jitendra K: WO5.
+
+711
+01:30:07.850 --> 01:30:19.999
+Jitendra K: So X of t is the input of the current timestamp, U of I is the weight matrix of the input, H of T minus 1 is the hidden state of the previous input, and Wi is the matrix of the input associated with the hidden layer.
+
+712
+01:30:20.230 --> 01:30:28.180
+Jitendra K: Now, the new information that I'm going to retrieve will be given by… transformation.
+
+713
+01:30:30.270 --> 01:30:31.789
+Jitendra K: X of T.
+
+714
+01:30:32.630 --> 01:30:36.030
+Jitendra K: U of C plus H of T minus 1.
+
+715
+01:30:37.980 --> 01:30:40.430
+Jitendra K: WFC. This is my new information.
+
+716
+01:30:40.860 --> 01:30:42.730
+Jitendra K: And it will update the cell state.
+
+717
+01:30:44.630 --> 01:30:48.160
+Jitendra K: Right? So this is what input gate will do for you.
+
+718
+01:30:48.810 --> 01:30:50.490
+Jitendra K: These two mathematical forms.
+
+719
+01:30:50.760 --> 01:30:53.130
+Jitendra K: Everything is happening at a matrix level.
+
+720
+01:30:53.830 --> 01:30:55.849
+Jitendra K: You will have awaits, you will have…
+
+721
+01:30:56.530 --> 01:31:02.830
+Jitendra K: The association between the weights, and then we are going to do… use this traversal to decide.
+
+722
+01:31:04.340 --> 01:31:06.789
+Jitendra K: Then the last layer, which is the output gate.
+
+723
+01:31:07.060 --> 01:31:09.299
+Jitendra K: Now, let's say I have another sentence.
+
+724
+01:31:10.260 --> 01:31:12.340
+Jitendra K: The sentence now here is…
+
+725
+01:31:15.450 --> 01:31:17.940
+Jitendra K: Single. Handedly.
+
+726
+01:31:22.740 --> 01:31:25.420
+Jitendra K: Spot… the enemy.
+
+727
+01:31:27.300 --> 01:31:29.520
+Jitendra K: And died for his country.
+
+728
+01:31:33.570 --> 01:31:35.940
+Jitendra K: For his contribution.
+
+729
+01:31:41.640 --> 01:31:43.760
+Jitendra K: Brave… dash.
+
+730
+01:31:45.030 --> 01:31:55.130
+Jitendra K: So, during this task, we have to complete the second sentence. Now, the minute we see the word brave, we know that we are talking about a person in the sentence.
+
+731
+01:31:55.710 --> 01:31:57.240
+Jitendra K: Great person involved.
+
+732
+01:31:57.650 --> 01:32:04.700
+Jitendra K: And we cannot say that brave… We cannot say that enemy is brave, or the country is brave. So based upon the current expectation.
+
+733
+01:32:04.840 --> 01:32:10.319
+Jitendra K: We have given a relevant word to fill in the blanks, and the word is our output.
+
+734
+01:32:10.770 --> 01:32:16.100
+Jitendra K: And the function that we are going to predict this output is output gate. So I will say my output gate.
+
+735
+01:32:19.560 --> 01:32:23.889
+Jitendra K: Will be a function of… X of T.
+
+736
+01:32:24.840 --> 01:32:32.369
+Jitendra K: U of O plus H of T minus 1, W .
+
+737
+01:32:33.470 --> 01:32:37.970
+Jitendra K: So the value will also lie between 0 to 1 because of the sigmoid function.
+
+738
+01:32:38.670 --> 01:32:40.990
+Jitendra K: Alright, so sigmoid, as you know, I work on.
+
+739
+01:32:42.280 --> 01:32:43.770
+Jitendra K: sharp thresholds.
+
+740
+01:32:47.030 --> 01:32:49.929
+Jitendra K: This is Tanet, sorry, this is my sigmoid.
+
+741
+01:32:51.870 --> 01:32:55.679
+Jitendra K: Right, so… so we'll use the sigmoid output.
+
+742
+01:32:55.940 --> 01:32:58.270
+Jitendra K: To perform this nonlinear transformation.
+
+743
+01:32:59.160 --> 01:33:04.939
+Jitendra K: So, basically, the simple idea is, when I have to just say, the simple idea that we are using.
+
+744
+01:33:05.820 --> 01:33:13.140
+Jitendra K: It's a series of operations And, the gate will control the flow of information from the current input.
+
+745
+01:33:13.420 --> 01:33:16.009
+Jitendra K: And the previous written state into the memory cell.
+
+746
+01:33:17.600 --> 01:33:24.540
+Jitendra K: During the forward pass, LSTM takes the input sequence and updates its memory cells and hidden state at each time step.
+
+747
+01:33:25.070 --> 01:33:31.900
+Jitendra K: And then put gate and the forget gate will use sigmoid functions to decide how much information to let into.
+
+748
+01:33:32.120 --> 01:33:36.410
+Jitendra K: or two, we… Taken out of memory cells.
+
+749
+01:33:36.710 --> 01:33:42.219
+Jitendra K: While the output gate use sigmoid function and tarnish function to produce the current hidden state and the output.
+
+750
+01:33:42.490 --> 01:33:48.379
+Jitendra K: So, LSTM will have an ability to selectively remember or forgot information from previous timestamp.
+
+751
+01:33:49.120 --> 01:33:56.689
+Jitendra K: And make sure that it will use modeling for long-term dependency, rather than simple
+
+752
+01:33:57.360 --> 01:34:02.570
+Jitendra K: temporal dependencies, and that is the whole idea of LSTM.
+
+753
+01:34:07.680 --> 01:34:09.460
+Jitendra K: So, any question on this part?
+
+754
+01:34:15.040 --> 01:34:17.919
+Jitendra K: Are you clear with the purpose of each gate?
+
+755
+01:34:32.040 --> 01:34:37.639
+Jitendra K: Okay, what does Professor talk about LSTM? Can I know? What is your understanding before…
+
+756
+01:34:37.910 --> 01:34:41.219
+Jitendra K: Your turn disclos. What exactly you learned in LSTM?
+
+757
+01:34:42.890 --> 01:34:45.650
+Jitendra K: Just a difference, or you understand the maths?
+
+758
+01:34:47.060 --> 01:34:47.970
+Jitendra K: as well.
+
+759
+01:34:59.670 --> 01:35:03.509
+Jitendra K: dot products and addition. What is dot product here?
+
+760
+01:35:13.160 --> 01:35:17.570
+Jitendra K: Element-wise multiplication. Can you give me an example of element-wise multiplication?
+
+761
+01:35:26.150 --> 01:35:27.350
+Jitendra K: What is that?
+
+762
+01:35:28.870 --> 01:35:31.869
+Jitendra K: How does H calculate it? What is the dimension of etch?
+
+763
+01:35:33.910 --> 01:35:35.950
+Jitendra K: Let's say I'm giving you one sentence.
+
+764
+01:35:36.290 --> 01:35:39.600
+Jitendra K: Let's take this sentence. Can you define me what is H and what is W?
+
+765
+01:35:41.460 --> 01:35:42.970
+Jitendra K: Let's take this example.
+
+766
+01:35:54.840 --> 01:35:57.490
+Jitendra K: Where we required element-wise multiplication here.
+
+767
+01:35:58.100 --> 01:36:01.749
+Jitendra K: Okay, first tell me how this sentence will be represented in two words.
+
+768
+01:36:02.090 --> 01:36:03.840
+Jitendra K: Numerical representation.
+
+769
+01:36:04.250 --> 01:36:07.520
+Jitendra K: Because for your model, you require numerical representation, right?
+
+770
+01:36:08.430 --> 01:36:09.930
+Jitendra K: How will you vectorize it?
+
+771
+01:36:11.690 --> 01:36:13.350
+Jitendra K: Which technique you will use.
+
+772
+01:36:21.770 --> 01:36:23.920
+Jitendra K: So these things are not clear, right?
+
+773
+01:36:25.640 --> 01:36:26.720
+Jitendra K: One heart.
+
+774
+01:36:28.530 --> 01:36:31.930
+Jitendra K: Why Word2VEC? For STM, you will use Word2Vec.
+
+775
+01:36:34.170 --> 01:36:36.120
+Jitendra K: Word2VAC is an embedding model.
+
+776
+01:36:49.980 --> 01:36:53.609
+Jitendra K: Okay, tell me what is W and what is H, very clearly.
+
+777
+01:36:55.760 --> 01:36:59.200
+Jitendra K: Don't say W is the input vector, and H is a hidden state vector.
+
+778
+01:37:00.500 --> 01:37:01.970
+Jitendra K: That I know already.
+
+779
+01:37:03.260 --> 01:37:05.190
+Jitendra K: What is the purpose of these two?
+
+780
+01:37:29.160 --> 01:37:31.820
+Jitendra K: Any idea, anything that you know?
+
+781
+01:37:51.080 --> 01:37:53.260
+Jitendra K: Okay, what is the purpose of LSTM, then?
+
+782
+01:37:55.860 --> 01:37:58.029
+Jitendra K: What are the tasks that LSTM can do?
+
+783
+01:38:18.650 --> 01:38:27.529
+Jitendra K: No, but what is H of T? What I'm asking is, what is H of T? Okay, that is all good that you're saying historical, remembered, and all. What is H of T?
+
+784
+01:38:29.330 --> 01:38:33.990
+Jitendra K: Is it a matrix? Is it a scalar? Is it a dot product? What exactly it is?
+
+785
+01:38:34.590 --> 01:38:38.310
+Jitendra K: Metrics. Okay, now we come to metrics. So what sort of metrics?
+
+786
+01:38:51.490 --> 01:38:58.630
+Jitendra K: Okay, when you say matrix, what is the dimension of that matrix? Because when you're performing a multiplication between H of T,
+
+787
+01:38:58.920 --> 01:39:03.129
+Jitendra K: And W , the dimensions should match, then all you can perform this operation, right?
+
+788
+01:39:04.380 --> 01:39:07.779
+Jitendra K: What is the dimension of these two metrics, and how will you decide
+
+789
+01:39:08.470 --> 01:39:10.870
+Jitendra K: On which basis the dimension will be decided.
+
+790
+01:39:20.200 --> 01:39:23.820
+Jitendra K: Input into hidden layer. No? Wrong answer.
+
+791
+01:39:31.630 --> 01:39:35.140
+Jitendra K: How will the matrix multiplication will decide the dimension?
+
+792
+01:39:35.830 --> 01:39:37.380
+Jitendra K: This is the outcome, right?
+
+793
+01:39:43.890 --> 01:39:48.710
+Jitendra K: That is the output size that you're talking about. I'm asking about how do you determine the input size?
+
+794
+01:40:10.240 --> 01:40:19.390
+Jitendra K: Input is based upon the words you pass to the model, right? So what is the words? Are you training on words, LSTM? Are you using words to train LSTM?
+
+795
+01:40:32.650 --> 01:40:33.750
+Jitendra K: paragraph.
+
+796
+01:40:34.780 --> 01:40:37.840
+Jitendra K: It does not make any sense if you are using paragraph or words.
+
+797
+01:41:50.770 --> 01:41:53.709
+Jitendra K: Input size and layers, hidden layers.
+
+798
+01:41:53.930 --> 01:42:03.160
+Jitendra K: Okay, these are all, I would say… superficial answer, but yeah, anyway… So basically.
+
+799
+01:42:04.100 --> 01:42:07.109
+Jitendra K: What are we trying to do here in a language modeling?
+
+800
+01:42:08.920 --> 01:42:14.200
+Jitendra K: Given a sequence of words, we want to predict the next word. And this is a language modeling problem, right?
+
+801
+01:42:14.640 --> 01:42:17.320
+Jitendra K: Here, I'm saying that I would like to predict the next word.
+
+802
+01:42:18.900 --> 01:42:23.239
+Jitendra K: So, for example, after the prompt has been complete, it should replace with
+
+803
+01:42:24.460 --> 01:42:29.880
+Jitendra K: the nearest word, like, soldier, hero, man, etc. So I can say brave man.
+
+804
+01:42:31.800 --> 01:42:34.039
+Jitendra K: Or I can say brave hero.
+
+805
+01:42:34.950 --> 01:42:36.920
+Jitendra K: Brave soldier.
+
+806
+01:42:38.950 --> 01:42:40.730
+Jitendra K: Brave character.
+
+807
+01:42:41.340 --> 01:42:42.880
+Jitendra K: All are fine, right?
+
+808
+01:42:45.200 --> 01:42:50.089
+Jitendra K: Alright, Bob singly handled it for the enemy, and died for his country, for his contribution.
+
+809
+01:42:50.530 --> 01:42:51.919
+Jitendra K: He's a brave man.
+
+810
+01:42:55.110 --> 01:42:58.190
+Jitendra K: Alright, so basically, what we are trying to do is…
+
+811
+01:42:59.330 --> 01:43:05.750
+Jitendra K: We are trying to use the pre-trained LSTM-based use case.
+
+812
+01:43:06.330 --> 01:43:07.570
+Jitendra K: And then…
+
+813
+01:43:08.100 --> 01:43:13.869
+Jitendra K: we are trying to combine input and the previous written state. That means, what we are trying to do is.
+
+814
+01:43:14.980 --> 01:43:17.000
+Jitendra K: Let me explain this again.
+
+815
+01:43:24.830 --> 01:43:26.840
+Jitendra K: So, we are concatenating
+
+816
+01:43:31.240 --> 01:43:32.530
+Jitendra K: Axe of T.
+
+817
+01:43:33.810 --> 01:43:35.800
+Jitendra K: an H of T minus 1.
+
+818
+01:43:37.130 --> 01:43:39.250
+Jitendra K: Which are all real value numbers.
+
+819
+01:43:40.180 --> 01:43:42.529
+Jitendra K: the dimension of D plus H.
+
+820
+01:43:42.920 --> 01:43:45.239
+Jitendra K: And then, I'm using the gates…
+
+821
+01:43:46.870 --> 01:43:53.419
+Jitendra K: It'll pass these tokens into numerical vectors, Which will use this transformation.
+
+822
+01:43:55.650 --> 01:44:03.300
+Jitendra K: plus… It shall be nothing but… WFF, X of T.
+
+823
+01:44:03.720 --> 01:44:07.870
+Jitendra K: plus U of F, H of T-1.
+
+824
+01:44:08.700 --> 01:44:11.750
+Jitendra K: Less… biasness.
+
+825
+01:44:12.560 --> 01:44:16.540
+Jitendra K: So basically, what I'm trying to do is… I'm having the input.
+
+826
+01:44:18.820 --> 01:44:21.690
+Jitendra K: I'm converting this input into one hot encoder.
+
+827
+01:44:21.970 --> 01:44:24.540
+Jitendra K: Multiply by embedding metrics.
+
+828
+01:44:24.820 --> 01:44:31.219
+Jitendra K: Taking a transpose, representing this as a hidden layer, and the previous state as a… C of T-1.
+
+829
+01:44:31.680 --> 01:44:36.500
+Jitendra K: And then simplifying all… rows…
+
+830
+01:44:37.320 --> 01:44:42.440
+Jitendra K: Which is of size, let's say, in this example, the size of this row code should be 4 cross 7.
+
+831
+01:44:43.680 --> 01:44:47.570
+Jitendra K: And then performing an element-wise multiplicative on matrix.
+
+832
+01:44:48.210 --> 01:44:51.760
+Jitendra K: To make the output probability, In a sequence.
+
+833
+01:44:52.070 --> 01:44:57.029
+Jitendra K: And then I will sum up the probabilities, and the highest probability for that index should be the next word.
+
+834
+01:44:58.440 --> 01:44:59.290
+Jitendra K: Right?
+
+835
+01:44:59.490 --> 01:45:03.719
+Jitendra K: So… How LSTM will control this?
+
+836
+01:45:05.040 --> 01:45:09.839
+Jitendra K: LSTM will use multiple training examples with the same sequence.
+
+837
+01:45:11.610 --> 01:45:15.030
+Jitendra K: And then try to understand the…
+
+838
+01:45:16.510 --> 01:45:19.709
+Jitendra K: Importance of a particular word, using.
+
+839
+01:45:20.280 --> 01:45:27.479
+Jitendra K: that particular multiplication factor that we are considering for depicting the probability of the next word. That means you're passing
+
+840
+01:45:27.620 --> 01:45:35.520
+Jitendra K: a model With the right phrase, always, while training. And at the inference, you're predicting the outcome.
+
+841
+01:45:36.080 --> 01:45:50.899
+Jitendra K: What will be the likelihood that it should be a brave man, it should be a brave hero, it should be a brave soldier? So until and unless your LSTM model does not see any pattern earlier with some other name or some other convention, you will not be able to predict this.
+
+842
+01:45:54.790 --> 01:45:58.100
+Jitendra K: Right, so this is what you're training with an example.
+
+843
+01:46:04.470 --> 01:46:07.730
+Jitendra K: Right? Now, how we are converting this input
+
+844
+01:46:13.970 --> 01:46:19.290
+Jitendra K: In which representation we are using, That is a different ask.
+
+845
+01:46:19.690 --> 01:46:23.579
+Jitendra K: There are different techniques that you can use. You can use TFID, if you can use…
+
+846
+01:46:24.600 --> 01:46:32.170
+Jitendra K: One-off encoding, you can do tokenization, vocab mapping, you can do use embeddings as well.
+
+847
+01:46:34.700 --> 01:46:38.239
+Jitendra K: So, each token is a sequence that is replaced by an integer index.
+
+848
+01:46:39.780 --> 01:46:46.179
+Jitendra K: One-hot encoding could be immediate. That means, you will have vocab size for each vector.
+
+849
+01:46:46.910 --> 01:46:50.769
+Jitendra K: And then, you can put up embedding lookups.
+
+850
+01:46:51.390 --> 01:46:54.470
+Jitendra K: As well, if there are pre-trained embeddings available.
+
+851
+01:46:55.560 --> 01:47:01.880
+Jitendra K: So when we feed a sequence of word to LSTM, the sequence of token is passed to the embedding layer, and the embedding layer output
+
+852
+01:47:02.160 --> 01:47:06.979
+Jitendra K: as a sequence of vector at each time step, the LSTM cell will take
+
+853
+01:47:07.540 --> 01:47:11.079
+Jitendra K: X of T in the previous hidden state to produce H of T.
+
+854
+01:47:11.600 --> 01:47:15.450
+Jitendra K: And… Subsequently, it will produce C of T.
+
+855
+01:47:16.620 --> 01:47:18.799
+Jitendra K: Finally, the last hidden layer.
+
+856
+01:47:19.060 --> 01:47:23.459
+Jitendra K: It's used to predict the next word via softmax layer, which is a probabilistical layer.
+
+857
+01:47:23.900 --> 01:47:26.730
+Jitendra K: Which will handle this… prediction.
+
+858
+01:47:27.490 --> 01:47:28.420
+Jitendra K: clear.
+
+859
+01:47:28.640 --> 01:47:33.390
+Jitendra K: Pipeline should have a raw text, tokenize, with an index.
+
+860
+01:47:34.530 --> 01:47:41.280
+Jitendra K: You are going to use a denser vector embeddings to look up, and then finally, to predict, you're going to use a cell state.
+
+861
+01:47:43.430 --> 01:47:45.460
+Jitendra K: Is it clear now, everyone?
+
+862
+01:47:47.400 --> 01:47:50.849
+Jitendra K: What exactly the sequence of training in this case?
+
+863
+01:48:07.570 --> 01:48:16.109
+Jitendra K: That is a different task, so I'm just using very few examples, so… we can use paragraph, you can use PDFs to train the model as well.
+
+864
+01:48:16.980 --> 01:48:22.100
+Jitendra K: That does not matter. Here, what I'm trying to say is, I'm having… Input.
+
+865
+01:48:22.550 --> 01:48:23.440
+Jitendra K: Text.
+
+866
+01:48:23.640 --> 01:48:25.380
+Jitendra K: And predicting the next open.
+
+867
+01:48:29.060 --> 01:48:33.750
+Jitendra K: We will use… we will definitely use, paragraphs to train the model, not words.
+
+868
+01:48:40.140 --> 01:48:46.379
+Jitendra K: So during training, all the possible words in the dataset is in vocab, index into vocab is used.
+
+869
+01:48:49.140 --> 01:48:51.150
+Jitendra K: There's no index as such.
+
+870
+01:48:57.410 --> 01:48:59.989
+Jitendra K: So we're not using indexes as such.
+
+871
+01:49:08.520 --> 01:49:12.330
+Jitendra K: So during training, we build a vocabulary for training dataset.
+
+872
+01:49:13.120 --> 01:49:20.779
+Jitendra K: Every unique word got a unique integer IDs, and then each word in the input sentence is converting to its indexes.
+
+873
+01:49:20.970 --> 01:49:27.659
+Jitendra K: which can be used for lookup as a dense embedding vector. And the final layer will use the output probabilical distribution.
+
+874
+01:49:27.810 --> 01:49:37.040
+Jitendra K: or that vocabulary. There could be some out-of-back errors as well, right? Some sub-word tokenization, BP errors, which are rare words.
+
+875
+01:49:38.120 --> 01:49:43.379
+Jitendra K: That is also there, and that's the whole purpose of GPTs, right? With attention.
+
+876
+01:49:44.370 --> 01:49:48.180
+Jitendra K: Because LSTM, till what time you can able to train like this?
+
+877
+01:49:48.790 --> 01:49:51.580
+Jitendra K: And that's the whole idea of attention. We'll talk about that.
+
+878
+01:49:56.940 --> 01:50:04.549
+Jitendra K: But if the concept is clear to everyone now, so if you have to write a sequence of Lord Ring, Lord of the Rings, I have to train the model with all the words off.
+
+879
+01:50:04.690 --> 01:50:08.860
+Jitendra K: Exactly. If you're using Lord of the Rings, next word prediction probability, if you're writing
+
+880
+01:50:09.220 --> 01:50:14.150
+Jitendra K: Lord of the Rings by Shashank, not by his Orient writer.
+
+881
+01:50:14.330 --> 01:50:17.579
+Jitendra K: Then you have to train with the original, text.
+
+882
+01:50:24.260 --> 01:50:30.439
+Jitendra K: So that is something which you have to use. The input data should be in highly contextual manner.
+
+883
+01:50:30.810 --> 01:50:35.649
+Jitendra K: The character, the sequence, the chapters, the episode.
+
+884
+01:50:36.580 --> 01:50:41.400
+Jitendra K: Their, their dramas, whatever it is, they're inside that.
+
+885
+01:50:41.570 --> 01:50:43.250
+Jitendra K: It should follow the sequence.
+
+886
+01:50:43.550 --> 01:50:48.190
+Jitendra K: And then your model will start learning, okay, after this, This is the likelihood.
+
+887
+01:50:49.370 --> 01:50:52.069
+Jitendra K: And when you're creating something ambiguous.
+
+888
+01:50:52.680 --> 01:50:57.650
+Jitendra K: the analysis team will be able to identify that, okay, this word should be the next word probable.
+
+889
+01:50:57.980 --> 01:50:59.869
+Jitendra K: Depending upon this context.
+
+890
+01:51:08.620 --> 01:51:16.539
+Jitendra K: All right, so let's take a quick, 15-minute break. Once we come back, then we'll take some example to understand LSTM next word prediction.
+
+891
+01:51:16.920 --> 01:51:20.820
+Jitendra K: And we'll use some, open source data.
+
+892
+01:51:21.280 --> 01:51:27.889
+Jitendra K: Or some emitting models, which is available, so that we can faster the training, and then we will use just inference to predict.
+
+893
+01:51:28.540 --> 01:51:32.209
+Jitendra K: So let's take a quick break, and then we'll start the session again. Thank you.
+
+894
+02:04:27.370 --> 02:04:30.690
+Jitendra K: Hi guys, I hope you're back, and we have a quick confirmation.
+
+895
+02:04:45.870 --> 02:04:48.889
+Jitendra K: Can we have a quick confusion, guys? Okay, great.
+
+896
+02:04:51.680 --> 02:04:58.049
+Jitendra K: Okay, so before we move on to the break, we talked about, we'll take one example on LSTM to understand
+
+897
+02:04:58.300 --> 02:05:02.319
+Jitendra K: how we can able to create a model for next word prediction using LSTM.
+
+898
+02:05:02.890 --> 02:05:06.920
+Jitendra K: And I'm going to demonstrate you that particular functionality,
+
+899
+02:05:07.750 --> 02:05:12.049
+Jitendra K: And here we are going to use, TensorFlow to write the code.
+
+900
+02:05:12.370 --> 02:05:16.929
+Jitendra K: So, first and foremost thing, let me explain what are the data set that we're going to use.
+
+901
+02:05:17.620 --> 02:05:23.980
+Jitendra K: So there's a dataset, which is Sherlock Holmes.
+
+902
+02:05:24.150 --> 02:05:25.830
+Jitendra K: novel series.
+
+903
+02:05:26.860 --> 02:05:30.659
+Jitendra K: Let me quickly see if I can get this data quickly.
+
+904
+02:05:53.050 --> 02:05:56.159
+Jitendra K: So this is the data that I need to download.
+
+905
+02:05:57.660 --> 02:06:00.230
+Jitendra K: Convert this into text.
+
+906
+02:06:42.070 --> 02:06:47.019
+Jitendra K: Now, here we are going to predict, the next word, and then we'll see how
+
+907
+02:06:47.240 --> 02:06:48.949
+Jitendra K: Efficiently, we can do that.
+
+908
+02:06:49.830 --> 02:06:51.390
+Jitendra K: So, let's see…
+
+909
+02:07:30.410 --> 02:07:32.160
+Jitendra K: I will upload this file.
+
+910
+02:07:40.870 --> 02:07:42.499
+Jitendra K: Copy this part.
+
+911
+02:07:52.190 --> 02:07:59.380
+Jitendra K: Okay, so what I'm going to do is, I required several libraries. I'm going to import everything from TensorFlow.
+
+912
+02:08:00.030 --> 02:08:05.489
+Jitendra K: Including LSTM library. Now, this is… the class that I'm importing.
+
+913
+02:08:06.040 --> 02:08:11.769
+Jitendra K: Now, if you look into this class, let it be import, and then we'll see what format of data is required.
+
+914
+02:08:12.640 --> 02:08:18.010
+Jitendra K: So if I look into this class, take a help, Sorry.
+
+915
+02:08:24.900 --> 02:08:26.600
+Jitendra K: So this is a class reference.
+
+916
+02:08:28.550 --> 02:08:33.490
+Jitendra K: So this class will talk about… several…
+
+917
+02:08:35.600 --> 02:08:39.310
+Jitendra K: Cases, like, what activation function, what should be the unit?
+
+918
+02:08:39.810 --> 02:08:47.040
+Jitendra K: Whether the biosterm should be there, what's the initialization method, what's a recurrent initializer, and so on and so forth.
+
+919
+02:08:47.460 --> 02:08:52.779
+Jitendra K: Now, one thing that I would like to talk about here is, this class is highly configured.
+
+920
+02:08:53.220 --> 02:08:58.019
+Jitendra K: That means I can be able to modify this class, and then try to adapt to my requirement.
+
+921
+02:08:58.500 --> 02:09:01.929
+Jitendra K: So, first and foremost thing, let me read the data first.
+
+922
+02:09:02.550 --> 02:09:04.270
+Jitendra K: So I'm going to read my data.
+
+923
+02:09:05.520 --> 02:09:09.239
+Jitendra K: The data is in the text format. I will just display this.
+
+924
+02:09:12.050 --> 02:09:17.759
+Jitendra K: This is my data, you can see new line character is coming with forward slash, forward slash n.
+
+925
+02:09:18.340 --> 02:09:22.069
+Jitendra K: So whenever there's a new line, it is using it. So they are a mix of…
+
+926
+02:09:23.610 --> 02:09:26.369
+Jitendra K: Text and uni and quote characters, right?
+
+927
+02:09:26.840 --> 02:09:32.390
+Jitendra K: Now, I'm going to apply a tokenizer's process to all sentents in the dataset, so that
+
+928
+02:09:32.530 --> 02:09:35.930
+Jitendra K: it will help me to split. So what is tokenizer and LP?
+
+929
+02:09:36.150 --> 02:09:42.359
+Jitendra K: The tokenization is a way of breaking down the sentence into a piece of text, into a smaller unit called tokens.
+
+930
+02:09:42.630 --> 02:09:49.170
+Jitendra K: So here, I'm going to use word by word, or I can prefer character by character as well. So tokenization.
+
+931
+02:09:49.500 --> 02:09:57.580
+Jitendra K: typically comprises of, these three steps. I can be able to use word by word, or sentence by sentence.
+
+932
+02:09:57.750 --> 02:10:04.999
+Jitendra K: Or even character-by-character tokenization technique. So let's say I have a word like this, we love NLP. The tokenization will convert into unigrams.
+
+933
+02:10:05.410 --> 02:10:10.360
+Jitendra K: We love NLP, and then exclamation will also be a part of the sentence.
+
+934
+02:10:11.740 --> 02:10:15.120
+Jitendra K: So I'm going to do the same, and then use my…
+
+935
+02:10:15.910 --> 02:10:19.009
+Jitendra K: Input tags to convert into tokens.
+
+936
+02:10:20.860 --> 02:10:27.320
+Jitendra K: This is my total words that I've been counting as well, so I will say, what is a total word in my novel?
+
+937
+02:10:27.650 --> 02:10:30.109
+Jitendra K: 8,200 unique words.
+
+938
+02:10:30.380 --> 02:10:31.440
+Jitendra K: That is there.
+
+939
+02:10:32.660 --> 02:10:35.480
+Jitendra K: Now, I would like to check the word index.
+
+940
+02:10:35.590 --> 02:10:37.619
+Jitendra K: So I would like to print a dictionary.
+
+941
+02:10:38.540 --> 02:10:40.409
+Jitendra K: So this is my word index.
+
+942
+02:10:45.660 --> 02:10:52.380
+Jitendra K: Now, each word will actually be represented by a numerical value after a tokenization process is complete. So, we'll perform…
+
+943
+02:10:52.520 --> 02:10:56.439
+Jitendra K: Something called engram transactions. So what is Ngram?
+
+944
+02:10:56.880 --> 02:11:01.930
+Jitendra K: So, engram is a sequence of Ligatures.
+
+945
+02:11:02.280 --> 02:11:08.670
+Jitendra K: Which include punctuations and spaces, and even syllables, or a rare word found in the language data.
+
+946
+02:11:09.090 --> 02:11:17.260
+Jitendra K: So the idea is, we are going to use a corpus, which we're able to convert the unigram into…
+
+947
+02:11:18.290 --> 02:11:22.019
+Jitendra K: each tokens. So basically, what… this is how the Unigram looks like.
+
+948
+02:11:22.440 --> 02:11:29.390
+Jitendra K: So let's say I'm creating this unigram into three schemes. I've got unigram, I've got bigram, I've got trigram.
+
+949
+02:11:29.730 --> 02:11:33.869
+Jitendra K: So let's say I have a very simple sentence, which say this is a big data AI book.
+
+950
+02:11:35.170 --> 02:11:40.909
+Jitendra K: I can write this sentence as this. This is, which is a bigram, is big.
+
+951
+02:11:41.470 --> 02:11:44.139
+Jitendra K: Big Data, Data AI, AI book.
+
+952
+02:11:44.470 --> 02:11:49.930
+Jitendra K: Triagram will be comprised of three characters, 3 sentence, word, word token.
+
+953
+02:11:50.370 --> 02:11:55.770
+Jitendra K: And this is one token. I will say this is big, this is big data, so on and so forth.
+
+954
+02:11:55.970 --> 02:11:59.540
+Jitendra K: So, English prime number often use Latin words.
+
+955
+02:12:00.280 --> 02:12:03.529
+Jitendra K: So, what I'm trying to do is, I'm just trying to split
+
+956
+02:12:05.080 --> 02:12:08.880
+Jitendra K: This, and then try to convert everything into a token.
+
+957
+02:12:09.520 --> 02:12:14.069
+Jitendra K: So, I'm trying to convert this into Ngram tokens, right? So, to do so.
+
+958
+02:12:14.270 --> 02:12:22.630
+Jitendra K: I'm going to use this code by saying, okay, I would like to do an engram token sequencing, so that my input sequence will now convert into a token
+
+959
+02:12:23.920 --> 02:12:24.910
+Jitendra K: like this.
+
+960
+02:12:25.500 --> 02:12:30.839
+Jitendra K: And each token will have an index associated with that. So I'm just using index representation.
+
+961
+02:12:32.320 --> 02:12:34.009
+Jitendra K: I can check the token.
+
+962
+02:12:35.190 --> 02:12:38.240
+Jitendra K: I can say, okay, let's try to check some token.
+
+963
+02:12:46.550 --> 02:12:49.860
+Jitendra K: So this is the token that I'm using for these sequences.
+
+964
+02:12:51.230 --> 02:12:56.380
+Jitendra K: So we can see that each engram here is a sentence translated from the token, and after this.
+
+965
+02:12:56.720 --> 02:13:00.260
+Jitendra K: Let's try to use this sequence to train the model.
+
+966
+02:13:00.930 --> 02:13:05.320
+Jitendra K: Now, when I'm trying to strain the model, I have to follow some architectures.
+
+967
+02:13:06.130 --> 02:13:09.220
+Jitendra K: I will explain this code in a while, let me just run this.
+
+968
+02:13:10.360 --> 02:13:17.180
+Jitendra K: So here we are ensuring that the maximum sentence is determined, and the path sequence comprises of all the sentence.
+
+969
+02:13:17.580 --> 02:13:20.879
+Jitendra K: And then I would like to convert this sentence into a NumPy array.
+
+970
+02:13:22.080 --> 02:13:26.990
+Jitendra K: So I will use X and Y, because my problem is a sequence prediction problem.
+
+971
+02:13:27.250 --> 02:13:29.169
+Jitendra K: So I'm assigning array of X,
+
+972
+02:13:30.560 --> 02:13:32.040
+Jitendra K: So I'm saying array of facts.
+
+973
+02:13:32.190 --> 02:13:34.039
+Jitendra K: Is the value of the…
+
+974
+02:13:34.450 --> 02:13:42.400
+Jitendra K: all the rows in the array input sequence except the last column. This means that X contain all the token in every… each array except the last one.
+
+975
+02:13:43.230 --> 02:13:47.950
+Jitendra K: That means I'm accepting, sorry, I'm trimming the last… per paragraph.
+
+976
+02:13:48.590 --> 02:13:53.470
+Jitendra K: This means X contain all the tokens in each array except the last one, which represent input context.
+
+977
+02:13:53.700 --> 02:13:59.269
+Jitendra K: And YRA is assigned the value of the last column in the input sequence that represents a target or the predicted one.
+
+978
+02:13:59.820 --> 02:14:03.520
+Jitendra K: Now we are going to transform this into one hot encoding.
+
+979
+02:14:06.820 --> 02:14:10.860
+Jitendra K: Now, there is a KRAS function that I'm going to use to perform this transformation.
+
+980
+02:14:11.240 --> 02:14:13.309
+Jitendra K: I will use two categorical.
+
+981
+02:14:13.560 --> 02:14:16.039
+Jitendra K: And then convert this into one hot encoding.
+
+982
+02:14:20.090 --> 02:14:26.479
+Jitendra K: Now, I will create a model architecture to train my LSTM, and I will explain again, why I'm choosing
+
+983
+02:14:26.870 --> 02:14:29.479
+Jitendra K: A particular number's in a while.
+
+984
+02:14:29.860 --> 02:14:33.329
+Jitendra K: Let me first undo this. So this is my linear layers.
+
+985
+02:14:33.430 --> 02:14:35.120
+Jitendra K: Sorry, sequential model.
+
+986
+02:14:35.390 --> 02:14:43.509
+Jitendra K: Which represent a linear stack of layers. The first layer is an ambit layer, which is responsible for transforming the input array to a fixed-size dense vector.
+
+987
+02:14:43.810 --> 02:14:52.320
+Jitendra K: And it takes 3 arguments, total words, representing the total number of different words in the vocabulary, 100 denoting the dimensionality of the word insertions.
+
+988
+02:14:52.640 --> 02:14:56.119
+Jitendra K: Input length, which is specified in length of the input strings.
+
+989
+02:14:56.590 --> 02:15:04.190
+Jitendra K: And the post-processing will use dense layer, a fully connected layer, that produces output Prediction via softmax probability.
+
+990
+02:15:04.750 --> 02:15:06.479
+Jitendra K: Now, I'm going to compile this.
+
+991
+02:15:13.290 --> 02:15:15.340
+Jitendra K: And I will run this in Epoch.
+
+992
+02:15:18.900 --> 02:15:21.349
+Jitendra K: of 100, I would scratch.
+
+993
+02:15:21.650 --> 02:15:27.750
+Jitendra K: By discretion… It's not a very big dataset.
+
+994
+02:19:14.860 --> 02:19:18.230
+Jitendra K: Okay, let me quickly… all this…
+
+995
+02:20:53.790 --> 02:20:57.980
+Jitendra K: Did anybody have a Collab Pro subscription?
+
+996
+02:20:59.800 --> 02:21:01.230
+Jitendra K: Anybody in the class?
+
+997
+02:21:05.860 --> 02:21:06.849
+Jitendra K: No one.
+
+998
+02:21:19.180 --> 02:21:19.860
+Jitendra K: Hmm.
+
+999
+02:22:20.600 --> 02:22:23.780
+Jitendra K: I think I will run this notebook, let me quickly see…
+
+1000
+02:22:24.930 --> 02:22:27.310
+Jitendra K: If I can use it here…
+
+1001
+02:22:31.510 --> 02:22:33.159
+Jitendra K: Did I save that on there?
+
+1002
+02:22:44.200 --> 02:22:48.240
+Jitendra K: Yeah, I think I've run this so I can show it to you.
+
+1003
+02:22:54.860 --> 02:22:57.880
+Jitendra K: Okay, this is fine, so we can use this.
+
+1004
+02:22:59.200 --> 02:23:00.509
+Jitendra K: Huh, so…
+
+1005
+02:23:02.180 --> 02:23:07.420
+Jitendra K: I will explain the code later, but let's try to understand what we are trying to achieve here, right?
+
+1006
+02:23:07.660 --> 02:23:12.120
+Jitendra K: So basically, we are trying to predict and create a new and expert prediction model.
+
+1007
+02:23:13.480 --> 02:23:17.379
+Jitendra K: We trained the data, and what we did is,
+
+1008
+02:23:17.500 --> 02:23:18.929
+Jitendra K: We have a data like this.
+
+1009
+02:23:20.850 --> 02:23:25.049
+Jitendra K: So, you can see that every sentence will be terminated by a new line.
+
+1010
+02:23:27.280 --> 02:23:29.950
+Jitendra K: So what we did is, we considered one paragraph.
+
+1011
+02:23:30.760 --> 02:23:35.550
+Jitendra K: Or, let's… let me be very simple. I'm considering one line.
+
+1012
+02:23:35.930 --> 02:23:37.440
+Jitendra K: At each paragraph.
+
+1013
+02:23:37.700 --> 02:23:51.100
+Jitendra K: And then terminating the last word from each line deliberately, so that I can use this data for predicting the next word. If I feed this to a model, model will already know that this is sequential.
+
+1014
+02:23:51.460 --> 02:24:01.020
+Jitendra K: And it will give me the output like this, right? So I'm not avoiding any data leakage here. So saying that, okay, I would like to terminate only the last correct… last word.
+
+1015
+02:24:01.250 --> 02:24:02.339
+Jitendra K: from each rule.
+
+1016
+02:24:02.560 --> 02:24:07.270
+Jitendra K: And then use this as a Y, right? Y variable that I'm going to predict.
+
+1017
+02:24:07.630 --> 02:24:10.070
+Jitendra K: And then, remaining thing I'm going to use as a…
+
+1018
+02:24:10.320 --> 02:24:15.390
+Jitendra K: X, which is my input, and then let's train the model on the top of it, and then try to put it.
+
+1019
+02:24:15.520 --> 02:24:21.530
+Jitendra K: Now, once I see here, so you can see, I'm just passing my simple token.
+
+1020
+02:24:23.880 --> 02:24:26.870
+Jitendra K: As a pre-token, and this is what it is forming.
+
+1021
+02:24:28.870 --> 02:24:33.299
+Jitendra K: My name is Helen Stoner, and I'm living with my stepfather, who is…
+
+1022
+02:24:33.510 --> 02:24:36.230
+Jitendra K: Maybe, I don't know. What is the next…
+
+1023
+02:24:36.890 --> 02:24:43.600
+Jitendra K: phrase. But you can see that it is what we are getting as a very refined, very,
+
+1024
+02:24:44.090 --> 02:24:47.889
+Jitendra K: Proper execution that has been performed by this model.
+
+1025
+02:24:48.430 --> 02:24:55.160
+Jitendra K: Now, let's try to understand this model first now. Let's try to take a deep dive in this model now.
+
+1026
+02:24:55.630 --> 02:24:57.649
+Jitendra K: Let me first save this file.
+
+1027
+02:25:53.050 --> 02:25:58.690
+Jitendra K: Okay, so let's try to debrief this quote, from the… Detailed point of view.
+
+1028
+02:25:58.890 --> 02:26:08.840
+Jitendra K: So, as I mentioned, I'm not going to use LSTM from the scratch. In this code, I'm going to use libraries, right? So I'm going to use the libraries including Tokenizer, including
+
+1029
+02:26:09.400 --> 02:26:22.929
+Jitendra K: cleaning the data. So first and foremost thing, I would like to import those libraries. So I'm going to import libraries like NumPy, Pandas, operating systems, some text retrieval libraries that I can be able to utilize.
+
+1030
+02:26:23.280 --> 02:26:29.890
+Jitendra K: Now, I've got the tokenizer library, which is there in KRAS module, so let me increase the font.
+
+1031
+02:26:30.680 --> 02:26:40.550
+Jitendra K: So there's a good library called Tokenizer. I will appreciate if you start using this library called Tokenizer in TensorFlow. And this is a tokenizer class from Keras.
+
+1032
+02:26:40.850 --> 02:26:44.159
+Jitendra K: Which can be used to convert text into a sequence of integers.
+
+1033
+02:26:45.470 --> 02:26:52.340
+Jitendra K: Now I'm instantiating a tokenizer. I'm saying tokenizer parenthesis, which will create a tokenizer object.
+
+1034
+02:26:52.610 --> 02:26:58.100
+Jitendra K: It will create a tokenizer object with default parameter. That means I would like to use text.
+
+1035
+02:26:58.680 --> 02:27:03.890
+Jitendra K: Which will be converted into lowercase, filter punctuations, it will filter…
+
+1036
+02:27:04.430 --> 02:27:11.319
+Jitendra K: and create a map in Python to save the unique values that I'm going to use as an integer index.
+
+1037
+02:27:11.900 --> 02:27:17.440
+Jitendra K: And remember, we talked about how many length of character that we have in this vocab?
+
+1038
+02:27:17.760 --> 02:27:24.300
+Jitendra K: So the entire vocab, or corpus, comprises of 8,199 unique words.
+
+1039
+02:27:24.600 --> 02:27:29.760
+Jitendra K: So I'm converting those words, starting from 1 all the way to 8199 as an index.
+
+1040
+02:27:30.400 --> 02:27:35.179
+Jitendra K: So I'm checking the vocab size, it is 8199. Now, tokenizer does not involve
+
+1041
+02:27:35.940 --> 02:27:39.630
+Jitendra K: It's a very simple, mapping that I'm doing, right?
+
+1042
+02:27:39.930 --> 02:27:43.830
+Jitendra K: Now, what I'm going to do is, I would like to iterate over each line.
+
+1043
+02:27:44.510 --> 02:27:47.969
+Jitendra K: It rate over each line, separated by a new line character.
+
+1044
+02:27:48.240 --> 02:27:52.389
+Jitendra K: Convert a sentence into a list of interior tokens, one per word.
+
+1045
+02:27:52.960 --> 02:28:02.829
+Jitendra K: And then for each position, from 1 to the length of the sentence, it takes the first word as a sequence. And these sequences are varying length, so each being a prefix of the sentence.
+
+1046
+02:28:03.170 --> 02:28:07.880
+Jitendra K: And the last word, last word on the sentence is a target for predictions, so I will strip it off.
+
+1047
+02:28:08.240 --> 02:28:10.659
+Jitendra K: And create another dictionary.
+
+1048
+02:28:10.940 --> 02:28:23.670
+Jitendra K: So let's say if my sentence comprises of this word… So it will remove… The last character.
+
+1049
+02:28:25.110 --> 02:28:30.789
+Jitendra K: And then I'm keeping a track of the number of… Number of generated sequels.
+
+1050
+02:28:31.020 --> 02:28:36.130
+Jitendra K: And this is… that is what I'm going to use inside my training. This is the sequence that I'm training with.
+
+1051
+02:28:37.070 --> 02:28:43.399
+Jitendra K: So I would like to find a maximum sequence length, compute the length of the longest sequence in the input sequence that will be used
+
+1052
+02:28:43.730 --> 02:28:44.930
+Jitendra K: Across that.
+
+1053
+02:28:45.240 --> 02:28:49.309
+Jitendra K: So my maximum length of the sentence is 18 words.
+
+1054
+02:28:50.370 --> 02:28:54.950
+Jitendra K: per row. Out of all the rows, there's one sentence which is having 18 words.
+
+1055
+02:28:55.710 --> 02:29:06.589
+Jitendra K: Now, I'm going to add padding and sequencing. This is important for two reasons. Padding will take the integer, or take a list of integer sequence, and pad them with zero at the beginning.
+
+1056
+02:29:06.970 --> 02:29:11.099
+Jitendra K: Because my list is 18 maximum, so I have to match that.
+
+1057
+02:29:11.390 --> 02:29:16.460
+Jitendra K: The padding will ensure that I have a list Or a sequence of integers.
+
+1058
+02:29:16.640 --> 02:29:22.889
+Jitendra K: with zero at the beginning, so that all the sequence will have a same maximum length. So 0 padding represents padding tokens.
+
+1059
+02:29:23.370 --> 02:29:27.499
+Jitendra K: So this is my two-dimensional array, which has been converted with the help of index.
+
+1060
+02:29:28.530 --> 02:29:34.400
+Jitendra K: This is nothing but my index, there's no weights right now. This is just an index, numerical representation.
+
+1061
+02:29:34.830 --> 02:29:40.619
+Jitendra K: Now, this is my pad, and now each row is a sequence of 18 length, 18 word length, and this first
+
+1062
+02:29:40.840 --> 02:29:45.240
+Jitendra K: Few entries are zeros, and the last entries are the actual word indexes.
+
+1063
+02:29:45.930 --> 02:29:55.280
+Jitendra K: Now, I would like to use this padding sequence to predict the shape, so this is my shape, which you call it as X of I, right? Remember, I asked you, how did you find X of I?
+
+1064
+02:29:55.450 --> 02:29:57.319
+Jitendra K: This is how you should find XO file.
+
+1065
+02:29:58.810 --> 02:30:01.500
+Jitendra K: This is what your vocab size is.
+
+1066
+02:30:01.710 --> 02:30:07.100
+Jitendra K: 9,000… 96,314 words multiplied by 18.
+
+1067
+02:30:07.400 --> 02:30:08.500
+Jitendra K: columns.
+
+1068
+02:30:08.940 --> 02:30:12.570
+Jitendra K: So this is your… Rows multiply by column.
+
+1069
+02:30:13.010 --> 02:30:17.820
+Jitendra K: Now, I would like to split this into X and Y, so I'm saying, for each padded sequence.
+
+1070
+02:30:18.140 --> 02:30:20.160
+Jitendra K: I would like to remove the last character.
+
+1071
+02:30:20.740 --> 02:30:23.909
+Jitendra K: Last word, and then this is what my shape looks like.
+
+1072
+02:30:24.620 --> 02:30:37.840
+Jitendra K: Now, I would like to convert… X will take all the rows and columns except the last column, so X has a shape of 96,314 into 17, Y takes the last column of each rows, that is my target word index.
+
+1073
+02:30:37.990 --> 02:30:45.669
+Jitendra K: And the last word… no, there's no hidden layer. Have you… have I talked about hidden layer yet? No, right? This is just a sequence.
+
+1074
+02:30:46.060 --> 02:30:47.480
+Jitendra K: Number of columns.
+
+1075
+02:30:49.630 --> 02:30:52.680
+Jitendra K: There's… there's no hidden layer… till… till now.
+
+1076
+02:30:53.210 --> 02:30:59.370
+Jitendra K: Now, what are we going to do is, I'm going to use and convert this into categorical. Now, categorical variable
+
+1077
+02:30:59.530 --> 02:31:08.700
+Jitendra K: will… because we are using multi-categorical class classification, so I'm going to predict word among 8,000 199.
+
+1078
+02:31:09.260 --> 02:31:14.080
+Jitendra K: character, unique character. You've seen that, right? 8,199.
+
+1079
+02:31:14.570 --> 02:31:19.590
+Jitendra K: And there could be only one possible word which should be an outcome. So I have… how many classes I have.
+
+1080
+02:31:19.770 --> 02:31:20.899
+Jitendra K: Or prediction.
+
+1081
+02:31:21.710 --> 02:31:23.080
+Jitendra K: How many classes?
+
+1082
+02:31:25.190 --> 02:31:34.190
+Jitendra K: 8199, right? So basically, this is the number of classes, plus the padding token, which is 1. So if you add these two numbers, what will be the outcome?
+
+1083
+02:31:39.210 --> 02:31:40.880
+Jitendra K: 8200.
+
+1084
+02:31:41.160 --> 02:31:49.010
+Jitendra K: 819N plus 1, which is 8200. That's the reason you will see the output shape is… that only.
+
+1085
+02:31:53.550 --> 02:31:55.409
+Jitendra K: The padding character is also there.
+
+1086
+02:31:55.690 --> 02:32:01.879
+Jitendra K: Now, I'm using a one-hot encoding, That will convert.
+
+1087
+02:32:02.300 --> 02:32:09.890
+Jitendra K: my… layer into one hot encoder representation that my model will be used.
+
+1088
+02:32:10.000 --> 02:32:15.439
+Jitendra K: Now, here we are starting with models, so there's no hidden layer, nothing that we have talked about here.
+
+1089
+02:32:15.580 --> 02:32:20.889
+Jitendra K: It's just the input data that we play around with. So, till this point of time.
+
+1090
+02:32:21.220 --> 02:32:26.529
+Jitendra K: We are not using any KRAS, we are not using any LSTM. Now we are going to implement LSTM.
+
+1091
+02:32:27.070 --> 02:32:33.199
+Jitendra K: and pass X… Vectors to this model, after converting this into one hot encoder.
+
+1092
+02:32:34.170 --> 02:32:38.530
+Jitendra K: Now, I would like to import a necessary KDAS component, sequential.
+
+1093
+02:32:38.660 --> 02:32:40.369
+Jitendra K: Linear stack of arrays.
+
+1094
+02:32:40.600 --> 02:32:42.409
+Jitendra K: Linear stack of layers.
+
+1095
+02:32:42.680 --> 02:32:44.700
+Jitendra K: DANS for Fully Connected Layer.
+
+1096
+02:32:44.830 --> 02:32:48.150
+Jitendra K: LSTM for recurrent layers, and embedding two-layer map.
+
+1097
+02:32:49.260 --> 02:32:51.680
+Jitendra K: Integer words to dense vectors.
+
+1098
+02:32:52.170 --> 02:32:56.060
+Jitendra K: Now, I would like to initialize my class, model is equal to sequential.
+
+1099
+02:32:56.640 --> 02:33:04.629
+Jitendra K: So I'm saying my embedding layer comprise of 8,200 vocab size, including padding index, and 100 dimension of the embedding vector for each word.
+
+1100
+02:33:05.070 --> 02:33:12.199
+Jitendra K: So my input shape is… Each input sample is a sequence of 17 integers and 1 padding character.
+
+1101
+02:33:12.340 --> 02:33:19.609
+Jitendra K: The layer learns 100-dimension representation for each word. The output batch size should be… 100 into 17.
+
+1102
+02:33:19.840 --> 02:33:21.270
+Jitendra K: That is what I'm using.
+
+1103
+02:33:21.850 --> 02:33:30.019
+Jitendra K: Now, the embedding layer is essentially a kind of a lookup table. Each integer index is mapped to a trainable vector of size 100,
+
+1104
+02:33:30.390 --> 02:33:36.690
+Jitendra K: And this is equivalent to a linear transformation, where the input is one hot vector multiplied by the emitting matrix.
+
+1105
+02:33:36.990 --> 02:33:39.229
+Jitendra K: So my LSTM layer comprised of…
+
+1106
+02:33:39.910 --> 02:33:42.490
+Jitendra K: More than 100, so I'm keeping it 150.
+
+1107
+02:33:42.610 --> 02:33:45.100
+Jitendra K: For sake of… Convenience.
+
+1108
+02:33:45.370 --> 02:33:49.279
+Jitendra K: Because I have to use more than 100, right? If I use exactly 100,
+
+1109
+02:33:49.540 --> 02:33:55.410
+Jitendra K: this network may fail. So I'm just using an adjugated gas and make it 150. You can make it 120 as well.
+
+1110
+02:33:56.220 --> 02:33:58.669
+Jitendra K: Total number of hidden layers.
+
+1111
+02:33:58.930 --> 02:34:04.310
+Jitendra K: Which will process 17-word embedding and the output as a single vector of size 150.
+
+1112
+02:34:04.530 --> 02:34:13.249
+Jitendra K: So, LSTM have gated mechanism, you already know that, input, forget, and output, that allow to capture long-range dependencies.
+
+1113
+02:34:13.920 --> 02:34:23.260
+Jitendra K: And the formulas that we are using here, Mathematically, we are just saying… I'm using these formulas.
+
+1114
+02:34:23.480 --> 02:34:26.130
+Jitendra K: It will calculate these using these formulas.
+
+1115
+02:34:26.560 --> 02:34:40.510
+Jitendra K: Using LSTM architecture, right? So 8,200 neurons, each corresponding to a word in the vocabulary, with an activation function as softmax, convert the raw score into a probabilical distribution over all the words.
+
+1116
+02:34:41.320 --> 02:34:43.580
+Jitendra K: And this is a linear transformation.
+
+1117
+02:34:43.720 --> 02:34:47.160
+Jitendra K: Right? So the output is the probability of each word being the next word.
+
+1118
+02:34:48.000 --> 02:34:50.440
+Jitendra K: Right? That is what we are doing with LSTM.
+
+1119
+02:34:50.580 --> 02:34:51.740
+Jitendra K: Nothing else.
+
+1120
+02:34:52.170 --> 02:34:56.850
+Jitendra K: So, mathematically speaking, We are using a dense layer.
+
+1121
+02:34:57.190 --> 02:34:57.960
+Jitendra K: Off.
+
+1122
+02:34:58.440 --> 02:35:03.819
+Jitendra K: 100 neurons, sorry, 8,200 neurons, each corresponding to a word in the vocabulary.
+
+1123
+02:35:04.450 --> 02:35:12.810
+Jitendra K: And we are applying activation function as softmax that will convert the raw score into a probability distribution over all the words, and mathematically speaking, we are doing this.
+
+1124
+02:35:14.390 --> 02:35:16.300
+Jitendra K: Right? So once we have a model.
+
+1125
+02:35:16.730 --> 02:35:22.329
+Jitendra K: I can show you the summary, this is what I'm getting, the parameters. The total tenable parameters are…
+
+1126
+02:35:23.200 --> 02:35:27.039
+Jitendra K: embedding dimension plus LSTM plus dense.
+
+1127
+02:35:29.870 --> 02:35:38.070
+Jitendra K: So… This is 100 layers, so I'm using 8,200 into 100 parameter.
+
+1128
+02:35:42.290 --> 02:35:45.679
+Jitendra K: Sorry, what is the question? In the embedding layer, what does 100 represent?
+
+1129
+02:35:46.140 --> 02:35:50.300
+Jitendra K: 100 is your dimension, right? So, embedding layer means…
+
+1130
+02:35:50.670 --> 02:35:57.729
+Jitendra K: Okay, so 100 at emission of the emitting vector. So, we have used that emitting layer comprised of…
+
+1131
+02:35:59.230 --> 02:36:03.789
+Jitendra K: 17 as input shape. Are you… are you clear with 17, at least?
+
+1132
+02:36:04.610 --> 02:36:06.000
+Jitendra K: So this is the input shape.
+
+1133
+02:36:06.220 --> 02:36:10.399
+Jitendra K: Right? So, 100% dimension of the emitting vector. Each word in the vocabulary
+
+1134
+02:36:10.810 --> 02:36:17.659
+Jitendra K: Which is of size 8200, including the parent tokens, is represented by a dense vector of 100 numbers.
+
+1135
+02:36:18.070 --> 02:36:22.500
+Jitendra K: Flores, instead of sparse one-hot encoder of length 8,200.
+
+1136
+02:36:22.890 --> 02:36:27.350
+Jitendra K: So, 100 numbers are 10 cleanable parameter. So, choice of 100 is a hyperparameter.
+
+1137
+02:36:27.540 --> 02:36:33.060
+Jitendra K: You can capture more high dimension as well, if you need. But I'm capturing it to be 100.
+
+1138
+02:36:33.470 --> 02:36:38.109
+Jitendra K: To avoid, exhaustion of my GPUs.
+
+1139
+02:36:40.540 --> 02:36:45.150
+Jitendra K: Is it clear till this point? Everybody is on the same page? Can I have a quick yes?
+
+1140
+02:36:46.540 --> 02:36:50.550
+Jitendra K: Or no as well, that is fine. If you say no, then I can repeat.
+
+1141
+02:36:55.840 --> 02:36:58.840
+Jitendra K: Alright, great. So each word in the vocab
+
+1142
+02:36:59.050 --> 02:37:04.749
+Jitendra K: It's of size 8,200, including the padding token, and it has been represented by a dance vector of 100.
+
+1143
+02:37:05.140 --> 02:37:11.620
+Jitendra K: So I'm not using sparse was not encoder, I'm creating a dense one not encoder. So that's the only reason I'm keeping 100, right?
+
+1144
+02:37:12.090 --> 02:37:13.070
+Jitendra K: Now…
+
+1145
+02:37:14.020 --> 02:37:21.760
+Jitendra K: Let's forgot about model parameter, we will revisit this part, maybe, but let's assume that this is the total renewable parameter that we're getting.
+
+1146
+02:37:22.010 --> 02:37:28.090
+Jitendra K: Now, after getting this total trainable parameter, We are compiling the model.
+
+1147
+02:37:28.210 --> 02:37:36.049
+Jitendra K: And when you're compiling the model, you have to compile with objective. And the objective here is to classify the outcome into
+
+1148
+02:37:36.730 --> 02:37:40.079
+Jitendra K: 8,199 classes.
+
+1149
+02:37:40.950 --> 02:37:48.260
+Jitendra K: So it is suitable for multi-class classification with one hot encoder label, so I'm going to use categorical Cross Entropy with ADAM Optimizer.
+
+1150
+02:37:49.790 --> 02:37:58.680
+Jitendra K: And adaptive momentum will create an efficient grading descent that will adapt, learn, and adapt and learn per parameter.
+
+1151
+02:37:59.590 --> 02:38:07.000
+Jitendra K: So I'm fitting this model with 4T box, X is my input sequence, Y is the one hot target vectors.
+
+1152
+02:38:07.150 --> 02:38:11.840
+Jitendra K: Each epoch goes through 96,314 samples in batches.
+
+1153
+02:38:12.050 --> 02:38:20.989
+Jitendra K: During the training, the optimizer update awaits to minimize the categorical cross entropy loss, and the output will show some progress at each iteration.
+
+1154
+02:38:21.290 --> 02:38:25.089
+Jitendra K: And I'm using a SCUDA version, which has been…
+
+1155
+02:38:25.260 --> 02:38:31.510
+Jitendra K: a favorite from NVIDIA, and this will help you accelerate your training, and that's the reason I'm using it.
+
+1156
+02:38:31.670 --> 02:38:38.880
+Jitendra K: So once I accelerate this training, and by default… sorry, by… by the way, it is by default from TensorFlow, you need not to worry too much about it.
+
+1157
+02:38:39.040 --> 02:38:42.759
+Jitendra K: So TensorFlow has already made an agreement with NVIDIA, and they are…
+
+1158
+02:38:42.920 --> 02:38:51.749
+Jitendra K: providing that architecture. If you have a GPU from NVIDIA, as simple as that. If you're using AMD, then Intel, then it should be different provisions.
+
+1159
+02:38:52.630 --> 02:38:59.440
+Jitendra K: Now, I'm predicting the text generation, based upon the train modules, so I'm predicting it right now.
+
+1160
+02:38:59.800 --> 02:39:03.770
+Jitendra K: Now, here it is, my output, looks like, so I'm passing 3 tokens.
+
+1161
+02:39:04.060 --> 02:39:06.379
+Jitendra K: And it adds the surname of that
+
+1162
+02:39:06.810 --> 02:39:10.520
+Jitendra K: I don't know what is the character, I haven't… Read this novel.
+
+1163
+02:39:10.650 --> 02:39:12.210
+Jitendra K: And then it keep on adding.
+
+1164
+02:39:15.390 --> 02:39:22.609
+Jitendra K: Right? So this is what… So I started with my name is, and then it introduced a character, surname.
+
+1165
+02:39:22.950 --> 02:39:27.589
+Jitendra K: And, the other, character within it.
+
+1166
+02:39:27.730 --> 02:39:29.599
+Jitendra K: Right? So this is what we are getting.
+
+1167
+02:39:29.790 --> 02:39:37.060
+Jitendra K: The conclusion that we have achieved is, LSTM are great, to understand Sequences of increasing length.
+
+1168
+02:39:37.820 --> 02:39:45.329
+Jitendra K: So the input is a prefix, target is an X word, we have built a LST model with emitting layers, trained for 40 epoch.
+
+1169
+02:39:45.490 --> 02:39:49.350
+Jitendra K: Use trained model to generate text by iterative prediction, the next word.
+
+1170
+02:39:49.490 --> 02:39:51.660
+Jitendra K: And this is what we are getting as an output.
+
+1171
+02:39:52.580 --> 02:39:57.380
+Jitendra K: Right? So that means this model is doing Good amount of job.
+
+1172
+02:39:57.760 --> 02:40:05.570
+Jitendra K: With… greater amount of data, which has been severely failed by RNN, vanilla RNN.
+
+1173
+02:40:05.930 --> 02:40:06.720
+Jitendra K: Right?
+
+1174
+02:40:06.830 --> 02:40:13.849
+Jitendra K: And this limitation has been overcome by LSTN. We have seen that even vanilla RNN is not able to
+
+1175
+02:40:14.020 --> 02:40:17.079
+Jitendra K: Predict that character sequence. Forget about word sequence.
+
+1176
+02:40:18.020 --> 02:40:25.109
+Jitendra K: Even the character sequence, 26 character, it is not able to work. But here we are talking about 8,199 words.
+
+1177
+02:40:26.300 --> 02:40:32.229
+Jitendra K: With multiple characters, and it is able to do a great job in terms of predicting the next sequence.
+
+1178
+02:40:35.060 --> 02:40:39.900
+Jitendra K: So, any question on this notebook? Anything that you would like to ask, guys? Are you clear so far?
+
+1179
+02:41:04.260 --> 02:41:09.390
+Jitendra K: Alright, so I will share this notebook and the HTML file.
+
+1180
+02:41:10.060 --> 02:41:12.719
+Jitendra K: With you guys, so that you can take a reference.
+
+1181
+02:41:32.230 --> 02:41:34.320
+Jitendra K: the data also I will share.
+
+1182
+02:41:35.900 --> 02:41:37.560
+Jitendra K: Use this data.
+
+1183
+02:41:39.190 --> 02:41:45.260
+Jitendra K: And, yeah, I think that's it, so…
+
+1184
+02:41:45.430 --> 02:41:51.800
+Jitendra K: Let's go back to the slides. So we talked about LSTM now, and we have seen that LSTM are great.
+
+1185
+02:41:52.100 --> 02:41:53.540
+Jitendra K: For so many reasons.
+
+1186
+02:41:53.740 --> 02:41:56.739
+Jitendra K: There's not just one reason, but there are multiple reasons.
+
+1187
+02:41:57.530 --> 02:42:02.370
+Jitendra K: And we have seen that LSTM is a very different architecture as compared to
+
+1188
+02:42:03.330 --> 02:42:07.309
+Jitendra K: for, paid-forward neural network, which is RNN vanilla.
+
+1189
+02:42:10.840 --> 02:42:18.920
+Jitendra K: Now, we'll talk about gated recurrent unit in the next tutorial, and GRU is… the only purpose of GRU is…
+
+1190
+02:42:19.350 --> 02:42:23.020
+Jitendra K: It is slightly simpler than LSTM, that's the only difference.
+
+1191
+02:42:23.810 --> 02:42:31.240
+Jitendra K: So that means… your LSTM will have 3 gates, and GRE will have 2 gates.
+
+1192
+02:42:32.440 --> 02:42:38.679
+Jitendra K: So we'll talk about that part. So it will have only updated and reset. There's no forget gate in GRE.
+
+1193
+02:42:39.560 --> 02:42:47.949
+Jitendra K: And this decoupling architecture is of great use for several core tasks. We are going to talk about that part in the upcoming tutorial.
+
+1194
+02:42:48.160 --> 02:42:53.329
+Jitendra K: And then we'll compare the LSTM and GRUs, and then we'll try to understand
+
+1195
+02:42:53.460 --> 02:42:59.530
+Jitendra K: bi-directional RNN versus the benefit of LSTM, can we still tools…
+
+1196
+02:43:00.620 --> 02:43:06.589
+Jitendra K: sequence-to-sequence starts with bi-directional or LSTM. So that is something which is a debatable topic.
+
+1197
+02:43:07.290 --> 02:43:15.069
+Jitendra K: And finally, we'll move on to the attention revolution, which is the backbone of Transformers, and then we'll see
+
+1198
+02:43:15.510 --> 02:43:18.649
+Jitendra K: how the RNN family has been…
+
+1199
+02:43:19.750 --> 02:43:25.429
+Jitendra K: Anarched with the help of attention mechanism. And that, for that, you need to understand encoder-decoders.
+
+1200
+02:43:25.790 --> 02:43:29.960
+Jitendra K: So we'll understand encoder-decoder slightly, and then we'll move on to attention.
+
+1201
+02:43:37.930 --> 02:43:44.449
+Jitendra K: Can a new word, no scene in the training test appear? No, it will not.
+
+1202
+02:43:48.240 --> 02:43:51.869
+Jitendra K: Whatever is there in your vocab, it will use that only.
+
+1203
+02:44:15.050 --> 02:44:20.480
+Jitendra K: Okay, now coming back to the books that you need to refer for RNN,
+
+1204
+02:44:46.260 --> 02:44:52.059
+Jitendra K: So you can use the chapter number 10, which I'm… Questing in the chat.
+
+1205
+02:44:52.380 --> 02:44:54.689
+Jitendra K: Go to the chapter number 10 of this book.
+
+1206
+02:44:55.400 --> 02:44:59.970
+Jitendra K: It will give you… Most of the mathematical
+
+1207
+02:45:00.970 --> 02:45:03.810
+Jitendra K: models which you require to understand RNN.
+
+1208
+02:45:04.620 --> 02:45:08.120
+Jitendra K: Second is, there's a Springer book.
+
+1209
+02:45:09.070 --> 02:45:16.630
+Jitendra K: Which may be… A cheat sheet that you can use as well, from Stanfords.
+
+1210
+02:45:16.910 --> 02:45:24.239
+Jitendra K: And this is why Amity… share winemity, which is recently conducted a lecture
+
+1211
+02:45:24.780 --> 02:45:28.970
+Jitendra K: In Stanford, and this is a great lecture as well.
+
+1212
+02:45:32.490 --> 02:45:36.669
+Jitendra K: You can also go with 100-page book on machine learning.
+
+1213
+02:45:37.840 --> 02:45:45.160
+Jitendra K: And this will give you an idea on what the only drawback of this book is using TNO, which is outdated now.
+
+1214
+02:45:45.670 --> 02:45:49.690
+Jitendra K: So nobody's using Tiano, so you can ignore the quotes.
+
+1215
+02:45:50.650 --> 02:45:53.910
+Jitendra K: But you can still go with… editorial.
+
+1216
+02:46:03.540 --> 02:46:10.619
+Jitendra K: So this is a great illustration of RNN as well. You can use a second work, CS230 deep learning, from a standpoint.
+
+1217
+02:46:19.090 --> 02:46:23.679
+Jitendra K: Alright, what else, guys, you need, apart from this?
+
+1218
+02:46:24.610 --> 02:46:27.640
+Jitendra K: Board book… STML slides.
+
+1219
+02:46:28.970 --> 02:46:31.669
+Jitendra K: I think you require test as well now.
+
+1220
+02:46:33.000 --> 02:46:34.690
+Jitendra K: From next class onwards.
+
+1221
+02:46:40.270 --> 02:46:47.810
+Jitendra K: Okay, so anyway, so just, use this material to an extent, try to get maximum hands-on.
+
+1222
+02:46:48.430 --> 02:46:52.790
+Jitendra K: And then practice… Understand that problem.
+
+1223
+02:46:53.130 --> 02:46:58.530
+Jitendra K: Take the references from mathematical books, then…
+
+1224
+02:46:58.780 --> 02:47:01.919
+Jitendra K: Use the code to correlate the concept.
+
+1225
+02:47:02.900 --> 02:47:05.249
+Jitendra K: And then run this search.
+
+1226
+02:47:05.360 --> 02:47:08.199
+Jitendra K: Using ChatGPT, whatever you feel is a good tool.
+
+1227
+02:47:08.930 --> 02:47:13.080
+Jitendra K: Go line by line and understand every bit of your code.
+
+1228
+02:47:14.320 --> 02:47:15.660
+Jitendra K: make a note.
+
+1229
+02:47:16.370 --> 02:47:23.279
+Jitendra K: reuse the code for some other purpose, so that way you can get maximum confidence. Try to solve the problem with 3 different perspectives.
+
+1230
+02:47:23.570 --> 02:47:26.170
+Jitendra K: And that way, you can be able to become master.
+
+1231
+02:47:26.630 --> 02:47:28.810
+Jitendra K: If it's all, let's say I'm using…
+
+1232
+02:47:29.090 --> 02:47:33.030
+Jitendra K: Next word prediction, go for time series analysis using LSTM.
+
+1233
+02:47:35.070 --> 02:47:36.659
+Jitendra K: Use numbers to predict.
+
+1234
+02:47:37.540 --> 02:47:41.569
+Jitendra K: On the next sequence, right? So that will be useful for you.
+
+1235
+02:47:42.340 --> 02:47:44.389
+Jitendra K: Upcoming projects.
+
+1236
+02:47:46.870 --> 02:47:50.580
+Jitendra K: So, LSTMs are great for stock trading.
+
+1237
+02:47:50.860 --> 02:47:54.489
+Jitendra K: Because a lot of stock traders are using LSTM-based models.
+
+1238
+02:47:54.860 --> 02:47:59.939
+Jitendra K: For depicting, the next upcoming
+
+1239
+02:48:00.520 --> 02:48:07.360
+Jitendra K: Recessions, GDP shocks, etc. So they were able to do it with the help of LSTM. So why can't you do it?
+
+1240
+02:48:07.780 --> 02:48:09.339
+Jitendra K: With some sample data.
+
+1241
+02:48:18.880 --> 02:48:21.230
+Jitendra K: Alright, so there's a poll, guys, so…
+
+1242
+02:48:23.980 --> 02:48:28.609
+Jitendra K: Please fill the polls, and let me know if there's any issue with understanding part.
+
+1243
+02:48:59.020 --> 02:49:07.120
+Jitendra K: So you use good material, use good reference, use good code, use, challenging problems… Try to implement with…
+
+1244
+02:49:07.750 --> 02:49:13.090
+Jitendra K: LSTM, GRU, we will talk about Transformer in the upcoming tutorials.
+
+1245
+02:49:13.750 --> 02:49:17.179
+Jitendra K: And this will create a very, you know.
+
+1246
+02:49:18.060 --> 02:49:25.119
+Jitendra K: stepping stone for your agentic and Gen AI journey, if you are learning… willing to learn that technique in future.
+
+1247
+02:49:26.220 --> 02:49:33.519
+Jitendra K: I'm also taking those classes with IIT Madras, so I think you will be a part of that class.
+
+1248
+02:49:37.450 --> 02:49:40.190
+Jitendra K: Oh, it's not a… Bro.
+
+1249
+02:49:40.970 --> 02:49:47.899
+Jitendra K: Are you guys also going to have any AI sessions in the upcoming cohorts, or this is… you're just enrolled for machine learning?
+
+1250
+02:49:56.000 --> 02:50:02.350
+Jitendra K: ML and DL only, okay, okay, okay. I thought, like, it's a… Proper degree course.
+
+1251
+02:50:08.290 --> 02:50:10.960
+Jitendra K: Oh, those are separate certification, okay, understood.
+
+1252
+02:50:15.550 --> 02:50:24.279
+Jitendra K: Alright, but we will cover up to Transformers, so don't worry, I mean, even if you're not a part of that batch, it will give you a basics of transformers.
+
+1253
+02:50:28.210 --> 02:50:34.069
+Jitendra K: Okay, yeah, my purpose is not to advertise, by the way, but yeah, if you are keen to enroll, please go ahead.
+
+1254
+02:50:43.740 --> 02:50:49.579
+Jitendra K: It's the Agent Tech AI, cohort, I believe. You can search…
+
+1255
+02:50:50.310 --> 02:50:52.910
+Jitendra K: Let me share, maybe, if I have.
+
+1256
+02:50:56.770 --> 02:51:02.150
+Jitendra K: So this is an agentic and Gen AI course that we're conducting, and this is another
+
+1257
+02:51:02.560 --> 02:51:06.900
+Jitendra K: Exciting, things which is happening in the market.
+
+1258
+02:51:07.280 --> 02:51:15.759
+Jitendra K: So why I'm emphasizing on this is, if you generate an insight and, maybe an interest on solving text analytics.
+
+1259
+02:51:16.090 --> 02:51:19.440
+Jitendra K: Then the world is, endless from here.
+
+1260
+02:51:20.620 --> 02:51:22.349
+Jitendra K: So, that means,
+
+1261
+02:51:22.620 --> 02:51:28.870
+Jitendra K: You should… I would recommend, I mean, not me as a trainer, but you should definitely go and learn
+
+1262
+02:51:29.010 --> 02:51:31.099
+Jitendra K: Gen AI and AgentKai.
+
+1263
+02:51:31.290 --> 02:51:34.010
+Jitendra K: In the upcoming… 4Hz.
+
+1264
+02:51:39.840 --> 02:51:40.720
+Jitendra K: Yeah.
+
+1265
+02:51:41.580 --> 02:51:49.839
+Jitendra K: Definitely, yeah, that's why, I mean, basic is always important. So, basics… yeah, if you follow the basics, let's say, here we are talking about LSTM,
+
+1266
+02:51:50.130 --> 02:51:53.149
+Jitendra K: There, we are going to talk about transformers and agent.
+
+1267
+02:51:54.030 --> 02:52:02.080
+Jitendra K: Right? So… You just go with the fundamental. The fundamental will remain the same, even…
+
+1268
+02:52:02.580 --> 02:52:07.739
+Jitendra K: In the next future, let's say, in the upcoming year, you will see new technologies which are going to come.
+
+1269
+02:52:08.280 --> 02:52:12.220
+Jitendra K: But the basics will remain the same, the building block will remain the same, right?
+
+1270
+02:52:12.400 --> 02:52:15.580
+Jitendra K: So there's no change in that part. So make sure that
+
+1271
+02:52:15.990 --> 02:52:21.280
+Jitendra K: You understand the basics, and this is, something which we are discussing at this point of time.
+
+1272
+02:52:21.680 --> 02:52:25.470
+Jitendra K: So once you excel the basics, so this is what the programming certification is.
+
+1273
+02:52:25.980 --> 02:52:33.109
+Jitendra K: but as I mentioned, I'm not here to advertise, but yeah, you can… See the content and all.
+
+1274
+02:52:33.650 --> 02:52:36.919
+Jitendra K: So this is the content that we are covering for Agent AKI.
+
+1275
+02:52:37.640 --> 02:52:46.310
+Jitendra K: So once you have the basic of NLP, then you can go for advanced materials using Gen AI, agent TKI, prompts.
+
+1276
+02:52:46.440 --> 02:52:54.929
+Jitendra K: Because there's a lot of… Career path nowadays, right? So, it's not just about ML and DL.
+
+1277
+02:52:55.310 --> 02:52:58.229
+Jitendra K: or ML and statisticians.
+
+1278
+02:52:58.770 --> 02:53:06.720
+Jitendra K: Now, there are multiple jobs in the market. You have prompt engineer, you have data engineers, you have agent TKI engineers.
+
+1279
+02:53:07.060 --> 02:53:13.850
+Jitendra K: You've got AIOps. Previously, it is MLOps, now it is becoming AIOps. AIOps is also emerging.
+
+1280
+02:53:14.560 --> 02:53:21.900
+Jitendra K: So a lot of people are not making their career in AIOps. Some people are very interested in doing research on
+
+1281
+02:53:22.420 --> 02:53:25.219
+Jitendra K: LLM, so they are into that part.
+
+1282
+02:53:25.340 --> 02:53:28.820
+Jitendra K: Some of them are using LLM for commercial purpose.
+
+1283
+02:53:29.310 --> 02:53:37.869
+Jitendra K: So they are keen in that part. Some of them are very good in the architecture part, so they are making their GI in an architecture of… solution architecture for Agent DKI.
+
+1284
+02:53:39.230 --> 02:53:47.370
+Jitendra K: Right, so they are, I mean, the opportunities are increasing. I know that the market is… Basically…
+
+1285
+02:53:47.930 --> 02:53:51.650
+Jitendra K: Shrinking because of the automation done by these agents and stuff.
+
+1286
+02:53:58.820 --> 02:54:01.389
+Jitendra K: Oh, you have, Transformer…
+
+1287
+02:54:02.770 --> 02:54:08.180
+Jitendra K: Application of Gen AI, reinforcement learning. Okay, so application of Gen AI is only one module.
+
+1288
+02:54:09.140 --> 02:54:10.410
+Jitendra K: Okay, understood.
+
+1289
+02:54:11.180 --> 02:54:14.000
+Jitendra K: And GANS is also there.
+
+1290
+02:54:14.300 --> 02:54:17.210
+Jitendra K: Reinforcement learning, just one module.
+
+1291
+02:54:18.160 --> 02:54:21.410
+Jitendra K: Yeah, so reinforcement learning, hmm.
+
+1292
+02:54:22.160 --> 02:54:25.689
+Jitendra K: Is, advanced mathematics, so we have to…
+
+1293
+02:54:26.420 --> 02:54:32.640
+Jitendra K: first understand why we need reinforcement learning, and then we'll talk about several algorithms, actor critic.
+
+1294
+02:54:32.940 --> 02:54:38.449
+Jitendra K: There's Q star method, there's a lot of other methods that we're going to learn, but yeah, this is important for two reasons.
+
+1295
+02:54:38.800 --> 02:54:45.519
+Jitendra K: Plus, there's, Why we are learning, reinforcement learning, and what is the purpose, it's all.
+
+1296
+02:54:46.220 --> 02:54:54.870
+Jitendra K: And similarly, as I mentioned, module number 2 talks about application of Gen AI. Here, we're going to talk about prompts and engineering stuff, like how to write a prompt.
+
+1297
+02:54:55.110 --> 02:55:00.079
+Jitendra K: We'll not talk about models, because this is another cohort, as I mentioned.
+
+1298
+02:55:00.480 --> 02:55:06.720
+Jitendra K: The models are different, but here we talk about applications, not the… models, like how GPT…
+
+1299
+02:55:07.130 --> 02:55:13.109
+Jitendra K: model created, what is the purpose of GPT, how the GPT 2 and 3 has been differentiated.
+
+1300
+02:55:13.500 --> 02:55:15.030
+Jitendra K: So on and so forth. That…
+
+1301
+02:55:15.550 --> 02:55:17.870
+Jitendra K: Part will be just an application.
+
+1302
+02:55:22.740 --> 02:55:35.019
+Jitendra K: So 90% of your use cases, 99% in fact, of your use cases will be around text only, because that is the amount of data that you're going to play with. Image analytics, CNN, and all will be limited.
+
+1303
+02:55:35.690 --> 02:55:41.390
+Jitendra K: And it's already a saturated market, so you cannot do much on image analytics, for sure.
+
+1304
+02:55:42.100 --> 02:55:48.700
+Jitendra K: Text analytics is always an exciting part. Image analytics is very saturated, because there are a lot of models
+
+1305
+02:55:49.170 --> 02:55:55.560
+Jitendra K: from Google, Microsoft, And they have launched it already. So nobody's going to create a new model.
+
+1306
+02:55:56.280 --> 02:56:03.329
+Jitendra K: They will reuse their models, if they are open source, customize it to their requirement, and then use it as it is.
+
+1307
+02:56:04.100 --> 02:56:09.110
+Jitendra K: If you're a researcher, then it makes sense that you join Microsoft and Google, and then…
+
+1308
+02:56:10.280 --> 02:56:12.669
+Jitendra K: Challenge the architecture and do something new.
+
+1309
+02:56:14.620 --> 02:56:24.659
+Jitendra K: Alright guys, so this is pretty much what we have for today, and we will meet in the next cohort, and I can see still there are some silent learners whose…
+
+1310
+02:56:25.410 --> 02:56:28.959
+Jitendra K: Rating badly. Only one learner.
+
+1311
+02:56:29.810 --> 02:56:31.279
+Jitendra K: what I appreciate.
+
+1312
+02:56:31.540 --> 02:56:34.369
+Jitendra K: His effort to sleep in the class.
+
+1313
+02:56:35.460 --> 02:56:38.239
+Jitendra K: So… let it be, whatever.
+
+1314
+02:56:43.310 --> 02:56:55.470
+Jitendra K: So thank you, those who are appreciating, and I respect those users. Those who are silent listeners, I respect them that they are devoting their energy for sleeping in this class, which is good for them and their health.
+
+1315
+02:56:56.350 --> 02:57:01.380
+Jitendra K: Okay, guys, so thank you, and have a nice evening ahead, and we'll meet in the next tutorial. Thank you.
+

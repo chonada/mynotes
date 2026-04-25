@@ -1,0 +1,4614 @@
+WEBVTT
+
+1
+00:00:27.410 --> 00:00:29.449
+Jitendra K: Hi guys, good evening.
+
+2
+00:00:29.720 --> 00:00:31.710
+Jitendra K: I hope, you're doing well.
+
+3
+00:00:32.390 --> 00:00:37.659
+Jitendra K: So before we start a session, can we have a quick audio check? If my voice is audible, my screen is visible to everyone?
+
+4
+00:00:41.090 --> 00:00:42.290
+Jitendra K: Okay, thank you.
+
+5
+00:00:43.190 --> 00:00:44.509
+Jitendra K: You can see a thumbs up.
+
+6
+00:00:46.300 --> 00:00:47.750
+Jitendra K: Great, so…
+
+7
+00:00:48.180 --> 00:00:55.790
+Jitendra K: We are in module number 2 of RNN, and this is the second class for RNN. RNN, as you know, stands for Recurrent Neural Network.
+
+8
+00:00:56.070 --> 00:01:02.819
+Jitendra K: And this is one of the models that we are going to utilize for… Text analytics, and sequential analysis.
+
+9
+00:01:03.970 --> 00:01:11.450
+Jitendra K: Now, let's try to deep dive into the two important architecture, which is a part of a RNN family, which is LSTM and GRU.
+
+10
+00:01:11.670 --> 00:01:18.549
+Jitendra K: We'll start with LSTM and GRE, but before moving on to that, I just want to know your understanding first.
+
+11
+00:01:19.670 --> 00:01:23.980
+Jitendra K: So, when we say LSTM and GRU, what exactly they are trying to solve?
+
+12
+00:01:25.070 --> 00:01:30.660
+Jitendra K: why we have different architectures, what is the purpose of LSTM, and what is the purpose of GRU model?
+
+13
+00:01:31.950 --> 00:01:33.999
+Jitendra K: Did anybody understand that part?
+
+14
+00:01:40.470 --> 00:01:46.490
+Jitendra K: Vanishing gradient. But vanishing gradient… Will it be completely solved by LSTN?
+
+15
+00:01:53.370 --> 00:01:55.549
+Jitendra K: Then what is the purpose of LSTM?
+
+16
+00:02:03.570 --> 00:02:07.720
+Jitendra K: The question is very simple. Why we have multiple architecture?
+
+17
+00:02:18.510 --> 00:02:23.820
+Jitendra K: So we talked about RNN. RNN, we understand, is good for Sequential learning.
+
+18
+00:02:24.870 --> 00:02:30.399
+Jitendra K: and we are learning LSTM, and now there's something called GRU. So what is the purpose of these models?
+
+19
+00:02:32.650 --> 00:02:35.370
+Jitendra K: And why there are different variants of R&L?
+
+20
+00:02:37.820 --> 00:02:42.680
+Jitendra K: Memory management… But how will they do a memory management here?
+
+21
+00:02:52.010 --> 00:02:56.939
+Jitendra K: But what does that matter? We are living in deep learning. We have plenty of compute.
+
+22
+00:02:57.290 --> 00:03:02.400
+Jitendra K: 2 gates, 3 gates, 5 gates, 10 gates, what it does matter. If I have 3 gates.
+
+23
+00:03:02.730 --> 00:03:06.930
+Jitendra K: Which is also good. If I'm reducing it to 2 gig, what does it matter?
+
+24
+00:03:07.940 --> 00:03:10.969
+Jitendra K: Doesn't matter, right? We are living in the world where we have
+
+25
+00:03:11.510 --> 00:03:17.650
+Jitendra K: powerful GPUs, powerful computes, then why it does matter that I am reducing one gate?
+
+26
+00:03:18.030 --> 00:03:20.909
+Jitendra K: And to reduce one gate, I required another architecture.
+
+27
+00:03:25.580 --> 00:03:28.759
+Jitendra K: LSTM for large data set, and GRE for faster training.
+
+28
+00:03:42.510 --> 00:03:50.849
+Jitendra K: Alright, so let me give you an answer. So, LSTM is good when you're designing an RNN to learn long-term dependencies.
+
+29
+00:03:52.060 --> 00:03:56.139
+Jitendra K: Long-term dependency is what LSTM can help you to resolve.
+
+30
+00:03:56.740 --> 00:04:04.150
+Jitendra K: So you can able to retain information over longer sequences with the help of a memory cell, which maintains information over a period of time.
+
+31
+00:04:04.370 --> 00:04:09.470
+Jitendra K: And gates will control the flow of information into one… into out of the cell.
+
+32
+00:04:09.790 --> 00:04:13.010
+Jitendra K: Which improves your information flow.
+
+33
+00:04:13.780 --> 00:04:18.709
+Jitendra K: Some of the applications include long-term time series friction, advanced NLP,
+
+34
+00:04:19.700 --> 00:04:23.790
+Jitendra K: Implications, speech ad synthesis, time series analysis.
+
+35
+00:04:23.990 --> 00:04:30.509
+Jitendra K: And the advantage of LSTM is it can overcome vanishing gradient problem, effective at capturing the long-term
+
+36
+00:04:54.330 --> 00:04:56.590
+Jitendra K: So, now with the help of…
+
+37
+00:04:56.900 --> 00:05:00.450
+Jitendra K: LSTM, you can able to capture long-term dependency.
+
+38
+00:05:00.780 --> 00:05:05.640
+Jitendra K: So GRU is another type of RNN, similar to LSTM, but with a simplified architecture.
+
+39
+00:05:06.650 --> 00:05:12.669
+Jitendra K: So, it includes and update gates and reset gates, simplify the control of information flow compared to LSTM.
+
+40
+00:05:13.550 --> 00:05:17.620
+Jitendra K: And it will combine the memory cells and straight into a single structure.
+
+41
+00:05:18.090 --> 00:05:24.050
+Jitendra K: Which make it slightly powerful in terms of architecture and learning capabilities.
+
+42
+00:05:27.600 --> 00:05:34.310
+Jitendra K: So, RNN is good for short-term dependency, LSTM is for long-term dependency and handling complex sequences.
+
+43
+00:05:34.700 --> 00:05:40.230
+Jitendra K: GRU is balancing complexity and performance, you know, quite effective as LSTM, but
+
+44
+00:05:40.920 --> 00:05:42.800
+Jitendra K: It may reduce your training time.
+
+45
+00:05:43.940 --> 00:05:47.669
+Jitendra K: It is easy to implement, compared to LSTM.
+
+46
+00:05:49.180 --> 00:05:54.949
+Jitendra K: So, can you give me some scenarios where I have to use LSTM versus RNN versus GRU?
+
+47
+00:05:58.170 --> 00:06:02.049
+Jitendra K: What are the different scenarios in which I'm going to use this sequential model?
+
+48
+00:06:11.350 --> 00:06:14.199
+Jitendra K: What do you think, guys? Where should we use these models?
+
+49
+00:06:24.540 --> 00:06:27.140
+Jitendra K: One language to another language, okay.
+
+50
+00:06:36.160 --> 00:06:39.440
+Jitendra K: a listium for speech recognition.
+
+51
+00:06:50.830 --> 00:06:57.669
+Jitendra K: So I would say I would prefer RNN not for machine translation, but I'll STM for machine translation.
+
+52
+00:06:57.860 --> 00:07:03.280
+Jitendra K: And language modeling, because machine translation required capturing of long-term dependencies.
+
+53
+00:07:03.820 --> 00:07:06.189
+Jitendra K: And also the context over a long sequence.
+
+54
+00:07:06.400 --> 00:07:13.120
+Jitendra K: GRUI will use for speech recognition and real-time video processing, which will balance between training speed and performance.
+
+55
+00:07:13.360 --> 00:07:14.769
+Jitendra K: When it is desired.
+
+56
+00:07:15.170 --> 00:07:20.530
+Jitendra K: RNN, I will still go for… Stock price prediction on…
+
+57
+00:07:21.400 --> 00:07:28.570
+Jitendra K: Simple sequential modeling, where long-term dependencies are less critical as compared to the LSK model.
+
+58
+00:07:29.330 --> 00:07:34.110
+Jitendra K: So if I say, these three models are a part of the same family.
+
+59
+00:07:34.670 --> 00:07:43.219
+Jitendra K: So let's try to understand one over the other. We already discussed RNN. Now we are going to focus on understanding the LSTM.
+
+60
+00:07:45.820 --> 00:07:49.070
+Jitendra K: Now, the problem of long-term dependency…
+
+61
+00:07:49.310 --> 00:07:51.629
+Jitendra K: The core idea here is that
+
+62
+00:07:52.300 --> 00:07:58.270
+Jitendra K: One of the appealing issues with RNN is they might not be able to connect previous information to the previous task.
+
+63
+00:07:58.530 --> 00:07:59.899
+Jitendra K: Or the present task.
+
+64
+00:08:00.340 --> 00:08:05.919
+Jitendra K: Such as previous video frames might informish… might have some information.
+
+65
+00:08:06.170 --> 00:08:09.980
+Jitendra K: to understand the present frame. So, Arlen could not do this.
+
+66
+00:08:10.580 --> 00:08:12.730
+Jitendra K: They should be extremely…
+
+67
+00:08:16.550 --> 00:08:18.330
+Jitendra K: Unfit for this task.
+
+68
+00:08:20.240 --> 00:08:24.999
+Jitendra K: Now, when we are dealing with LSTM, which is here to resolve this issue.
+
+69
+00:08:25.250 --> 00:08:29.510
+Jitendra K: So let's try to understand what is the idea of… LSTM.
+
+70
+00:08:30.460 --> 00:08:39.410
+Jitendra K: Right? So first, we understand the basic idea of vanilla architecture of RNN. This is how the vanilla RNN works. We have discussed this in the last tutorial.
+
+71
+00:08:39.710 --> 00:08:41.099
+Jitendra K: That there are some…
+
+72
+00:08:41.760 --> 00:08:46.219
+Jitendra K: Bit of transformation which is happening at each layer, and then it will generate an output.
+
+73
+00:08:47.960 --> 00:08:53.779
+Jitendra K: Now we understand that, all this phenomena. Now we are going to move about, we are going to talk about LSDM.
+
+74
+00:08:53.930 --> 00:08:55.810
+Jitendra K: As our refined architecture.
+
+75
+00:08:56.390 --> 00:09:02.580
+Jitendra K: Now, when we say LSTM, LSTM stands for… Long, short-term memory.
+
+76
+00:09:04.050 --> 00:09:11.270
+Jitendra K: And we are going to use LSTM along with our previous case study, but try to understand what makes this model
+
+77
+00:09:11.790 --> 00:09:17.790
+Jitendra K: much powerful as compared to the previous version of RNN, which is… Vanilla structure.
+
+78
+00:09:18.310 --> 00:09:22.830
+Jitendra K: So, we are going to talk about This whole architecture now.
+
+79
+00:09:23.130 --> 00:09:27.610
+Jitendra K: Now, if I have to present you the architecture of LSTM, the architecture of LSTM looks like this.
+
+80
+00:09:30.060 --> 00:09:36.310
+Jitendra K: So this architecture of LSTM can be visualized as a series of repetitating blocks and cells.
+
+81
+00:09:37.270 --> 00:09:42.830
+Jitendra K: Where each one of them Contains a set of interconnected nodes.
+
+82
+00:09:43.590 --> 00:09:46.910
+Jitendra K: And this is the high-level overview of the architecture. You have an input.
+
+83
+00:09:47.420 --> 00:09:50.530
+Jitendra K: At each time step, the LSTM takes an input vector.
+
+84
+00:09:51.100 --> 00:09:53.589
+Jitendra K: which can be represented as X of T.
+
+85
+00:09:56.220 --> 00:09:59.460
+Jitendra K: Which represent the current observational token in the sequence.
+
+86
+00:09:59.830 --> 00:10:01.480
+Jitendra K: Followed by a hidden state.
+
+87
+00:10:01.840 --> 00:10:09.179
+Jitendra K: So, the hidden state… maintains… a vector H , which represents the current memory of the network.
+
+88
+00:10:09.600 --> 00:10:14.910
+Jitendra K: And the hidden state is initialized to a vector of 0 at the beginning of the sequence. Then you have a cell state.
+
+89
+00:10:15.300 --> 00:10:21.370
+Jitendra K: So, LST also maintains a cell-state vector, C of T, which is responsible for storing long-term information.
+
+90
+00:10:21.530 --> 00:10:27.649
+Jitendra K: Over the course of the sequence. And the cell state is initialized to a vector of 0 at the beginning of a sequence.
+
+91
+00:10:28.100 --> 00:10:31.930
+Jitendra K: Then you have a concept of gate. Dallas team use 3 types of gate.
+
+92
+00:10:32.570 --> 00:10:36.160
+Jitendra K: Each gate will flow some sort of information.
+
+93
+00:10:36.610 --> 00:10:41.250
+Jitendra K: We have got forget gate. This gate takes the previous hidden state, H of T.
+
+94
+00:10:42.130 --> 00:10:46.789
+Jitendra K: and the current input, X of t, and output a vector of value between 0 and 1.
+
+95
+00:10:48.060 --> 00:10:50.460
+Jitendra K: That represent how much the previous cell
+
+96
+00:10:52.870 --> 00:10:57.379
+Jitendra K: to retain, and how much do we forgot. So this allows LSTM to effectively
+
+97
+00:10:57.540 --> 00:11:00.519
+Jitendra K: Erase or remember information from the previous timestamp.
+
+98
+00:11:00.980 --> 00:11:04.419
+Jitendra K: So that means the input to this hidden state would be…
+
+99
+00:11:08.900 --> 00:11:10.130
+Jitendra K: two vector.
+
+100
+00:11:10.910 --> 00:11:13.129
+Jitendra K: H of T minus 1.
+
+101
+00:11:14.740 --> 00:11:17.410
+Jitendra K: which is a previous written state, and acts of T.
+
+102
+00:11:20.290 --> 00:11:21.650
+Jitendra K: The current input.
+
+103
+00:11:21.960 --> 00:11:23.720
+Jitendra K: Then you have got the input gate.
+
+104
+00:11:24.220 --> 00:11:34.179
+Jitendra K: So this gate takes the hidden state H of T minus 1, and the current input X of t, and output a vector between 0 and 1, that represent how much the current input
+
+105
+00:11:34.300 --> 00:11:43.700
+Jitendra K: to add to the cell, and this gate will allow the LSTM to select, add, and discard new information. Previous gate will use to erase or remember.
+
+106
+00:11:43.970 --> 00:11:48.639
+Jitendra K: Here, we are saying if I have to add new information or discard.
+
+107
+00:11:49.650 --> 00:11:53.759
+Jitendra K: Then you have got the output gate, This gate will be useful.
+
+108
+00:11:53.920 --> 00:11:56.859
+Jitendra K: Which will take the hidden state and the current input.
+
+109
+00:11:57.060 --> 00:11:58.730
+Jitendra K: And also the salad state.
+
+110
+00:11:59.150 --> 00:12:00.349
+Jitendra K: And the output?
+
+111
+00:12:00.560 --> 00:12:07.459
+Jitendra K: A vector of value between 0 to 1 that represent how much the current cell state to output as current state
+
+112
+00:12:08.010 --> 00:12:11.309
+Jitendra K: So this gate will allow the LSTM to effectively focus on
+
+113
+00:12:11.990 --> 00:12:17.039
+Jitendra K: Certain parts of the cell, or ignore certain parts of the cell when computing the output.
+
+114
+00:12:17.580 --> 00:12:20.309
+Jitendra K: And that is the memory concept in LSTM.
+
+115
+00:12:21.010 --> 00:12:23.109
+Jitendra K: Now, this memory can be a context.
+
+116
+00:12:23.420 --> 00:12:28.110
+Jitendra K: It can be, phrases, verbs, propositions, etc.
+
+117
+00:12:28.330 --> 00:12:35.980
+Jitendra K: So each time step, the LSTM output a vector that represents the network prediction or encoding of the current input.
+
+118
+00:12:36.700 --> 00:12:43.130
+Jitendra K: So basically, if I have to represent this forget gate equation, I can write this equation as F of T.
+
+119
+00:12:48.140 --> 00:13:00.470
+Jitendra K: Equals to… My… Function, which is my gate, factor weight, not product.
+
+120
+00:13:01.680 --> 00:13:04.359
+Jitendra K: the input, H of T minus 1,
+
+121
+00:13:09.360 --> 00:13:13.280
+Jitendra K: and X of T, the current state, or current input.
+
+122
+00:13:13.810 --> 00:13:16.280
+Jitendra K: Plus the bias term.
+
+123
+00:13:18.350 --> 00:13:23.950
+Jitendra K: So this is sigma is a sigmoid function, W of F is the weight matrix of the forget gate.
+
+124
+00:13:24.520 --> 00:13:27.889
+Jitendra K: H of T-1 is the concatenation of the previous hidden state.
+
+125
+00:13:28.100 --> 00:13:29.509
+Jitendra K: And the current input?
+
+126
+00:13:29.850 --> 00:13:33.259
+Jitendra K: B of F is the bias vector of the forget gate.
+
+127
+00:13:33.730 --> 00:13:37.890
+Jitendra K: And F of T is the vector of the forget gate value at the current time step.
+
+128
+00:13:39.150 --> 00:13:45.240
+Jitendra K: Now, the input gate, if I provide the equation, R U of P.
+
+129
+00:13:49.980 --> 00:13:51.570
+Jitendra K: This will be sigma.
+
+130
+00:13:52.310 --> 00:13:59.170
+Jitendra K: W of I… dot… H of T minus 1.
+
+131
+00:14:02.080 --> 00:14:03.480
+Jitendra K: acts of T.
+
+132
+00:14:05.080 --> 00:14:07.700
+Jitendra K: plus… B of I.
+
+133
+00:14:09.310 --> 00:14:13.130
+Jitendra K: Which is… Nothing but much solid state.
+
+134
+00:14:14.600 --> 00:14:18.870
+Jitendra K: And I can change this equation to… NH…
+
+135
+00:14:22.200 --> 00:14:23.640
+Jitendra K: WC.
+
+136
+00:14:24.340 --> 00:14:27.240
+Jitendra K: dot H of T minus 1.
+
+137
+00:14:28.520 --> 00:14:30.089
+Jitendra K: X of tea.
+
+138
+00:14:31.340 --> 00:14:33.680
+Jitendra K: Less… EFC.
+
+139
+00:14:34.250 --> 00:14:37.920
+Jitendra K: So this is my question, where sigma is a sigmoid function, W of i
+
+140
+00:14:38.410 --> 00:14:44.040
+Jitendra K: is, the weights matrix for the input gate. WFC is the weight matrix for input gate.
+
+141
+00:14:44.250 --> 00:14:49.979
+Jitendra K: H of T minus 1 and X of t is the concatenation of the previous real state and the current input.
+
+142
+00:14:50.260 --> 00:14:53.379
+Jitendra K: B of I and B of C are the bias vector of the input gate.
+
+143
+00:14:53.780 --> 00:14:57.659
+Jitendra K: And I of T is a vector of the input gate value for the current timestamp.
+
+144
+00:14:57.970 --> 00:15:00.660
+Jitendra K: And C of T is nothing but versatile state.
+
+145
+00:15:00.970 --> 00:15:07.820
+Jitendra K: The candidate cell state for the current time step, which is produced by applying the 10H activation in a nonlinear fashion.
+
+146
+00:15:08.670 --> 00:15:15.039
+Jitendra K: Right? So, this will combine my previous written state and the current input. So, this will act like a memory.
+
+147
+00:15:15.710 --> 00:15:16.979
+Jitendra K: A style state.
+
+148
+00:15:17.550 --> 00:15:19.049
+Jitendra K: So this is your memory.
+
+149
+00:15:19.990 --> 00:15:23.480
+Jitendra K: Right? This is deciding which one, which information to be…
+
+150
+00:15:23.630 --> 00:15:26.999
+Jitendra K: You retain this information to be discarded.
+
+151
+00:15:27.270 --> 00:15:31.069
+Jitendra K: This is where you are going to have focus on a particular phrases.
+
+152
+00:15:31.480 --> 00:15:39.119
+Jitendra K: the output gate, Takes an input of the previous hidden state, Which is…
+
+153
+00:15:39.560 --> 00:15:43.280
+Jitendra K: If I have to write down the equation, or fee.
+
+154
+00:15:43.990 --> 00:15:46.010
+Jitendra K: Which is my output gate equation.
+
+155
+00:15:46.330 --> 00:15:48.500
+Jitendra K: It will be equal to sigma.
+
+156
+00:15:48.720 --> 00:15:49.960
+Jitendra K: the function.
+
+157
+00:15:50.340 --> 00:15:52.610
+Jitendra K: W naught… thought.
+
+158
+00:15:53.320 --> 00:15:55.220
+Jitendra K: H of T minus 1.
+
+159
+00:15:57.130 --> 00:15:58.500
+Jitendra K: That's soft tea.
+
+160
+00:15:59.950 --> 00:16:03.110
+Jitendra K: plus… beta or B0.
+
+161
+00:16:03.720 --> 00:16:04.900
+Jitendra K: H of T.
+
+162
+00:16:05.650 --> 00:16:08.870
+Jitendra K: And this will be represented as OT.
+
+163
+00:16:10.150 --> 00:16:13.110
+Jitendra K: Multiply by… Turn off.
+
+164
+00:16:14.150 --> 00:16:15.850
+Jitendra K: HCOT.
+
+165
+00:16:16.080 --> 00:16:18.000
+Jitendra K: So it maintained a cell state here.
+
+166
+00:16:18.370 --> 00:16:21.019
+Jitendra K: Right? Depending upon the sales state, it'll decide.
+
+167
+00:16:23.000 --> 00:16:24.430
+Jitendra K: it will decide.
+
+168
+00:16:24.920 --> 00:16:34.070
+Jitendra K: And use the current hidden state, which is proposed by applying the tonnage activation function to the current cell, and multiplying it element-wise with the output rate value.
+
+169
+00:16:35.030 --> 00:16:37.569
+Jitendra K: It's not a concatenation, it's a multiplication.
+
+170
+00:16:39.510 --> 00:16:46.579
+Jitendra K: So basically, if I'm multiplying this value element-wise with output gate value, it will represent this transformation.
+
+171
+00:16:47.690 --> 00:16:49.629
+Jitendra K: So the idea is very simple.
+
+172
+00:16:50.770 --> 00:16:57.720
+Jitendra K: you're having some way to store information. Then put gate control the flow of information from the current input.
+
+173
+00:16:58.060 --> 00:17:01.090
+Jitendra K: And the previous hidden state into the memory cell.
+
+174
+00:17:01.410 --> 00:17:06.219
+Jitendra K: The forget gate controls the flow of information from the previous memory cell.
+
+175
+00:17:06.660 --> 00:17:10.339
+Jitendra K: to the current memory cell, it allows LSTN to selectively
+
+176
+00:17:10.839 --> 00:17:14.010
+Jitendra K: Forgot, remember, information from the previous time step.
+
+177
+00:17:14.339 --> 00:17:20.839
+Jitendra K: The memory cell, on the other hand, is the internal state of the LSTM. It stores information that can be selective, modified.
+
+178
+00:17:21.160 --> 00:17:29.700
+Jitendra K: By the input or the forget gate, and the output gate controls the flow of information from the memory cell to the current hidden state and the output.
+
+179
+00:17:30.790 --> 00:17:33.799
+Jitendra K: Right, so this is how LSTM works behind the scene.
+
+180
+00:17:34.170 --> 00:17:36.399
+Jitendra K: So, LSTM is an architecture.
+
+181
+00:17:36.970 --> 00:17:40.650
+Jitendra K: And each gate is operating for a particular purpose.
+
+182
+00:17:42.330 --> 00:17:49.449
+Jitendra K: Right? So this way, you can able to create a long-term dependency modeling for sequential data.
+
+183
+00:17:49.650 --> 00:17:54.509
+Jitendra K: Because here, the purpose is, it can selectively remember or forgot information.
+
+184
+00:17:54.740 --> 00:18:01.020
+Jitendra K: Over the period of time. And this makes them very useful for tasks like speech recognition, machine translation, text generation.
+
+185
+00:18:01.650 --> 00:18:05.289
+Jitendra K: And they are very robust to noise or missing data as well.
+
+186
+00:18:05.470 --> 00:18:12.879
+Jitendra K: That's another type of recurrent neural network. Since they can be selectively filter or outer irrelevant information or the noise.
+
+187
+00:18:13.070 --> 00:18:14.700
+Jitendra K: Using the Forgot Gate.
+
+188
+00:18:15.470 --> 00:18:21.230
+Jitendra K: So LSTM can be used for a variety of tasks, including classification, regression, sequence-to-sequence learning.
+
+189
+00:18:21.410 --> 00:18:23.269
+Jitendra K: And you can able to create,
+
+190
+00:18:25.020 --> 00:18:30.700
+Jitendra K: Algorithms like stock price predictions, machine translation, etc.
+
+191
+00:18:32.120 --> 00:18:40.440
+Jitendra K: Now, the cons of LSTM is they are expensive. They can be computationally expensive to train and evaluate, specifically for long sequences.
+
+192
+00:18:40.570 --> 00:18:41.820
+Jitendra K: or large data.
+
+193
+00:18:43.200 --> 00:18:49.859
+Jitendra K: And it may prawn to overfit. LSTM can be prone to overfit on a small data set, specifically if you are targeting
+
+194
+00:18:50.500 --> 00:18:54.219
+Jitendra K: A simple analysis on text data.
+
+195
+00:18:55.090 --> 00:19:06.359
+Jitendra K: Hyperparameter tuning, LSTM may have hyperparameter that need to be tuned in order to achieve optimal performance, which may include number of hidden layers, learning rate, and dropout rate. So you need to control it.
+
+196
+00:19:06.710 --> 00:19:08.240
+Jitendra K: To make it more effective.
+
+197
+00:19:10.150 --> 00:19:13.830
+Jitendra K: On the other hand, LSTM required a large amount of data to be trained.
+
+198
+00:19:13.930 --> 00:19:16.710
+Jitendra K: So that the model will learn complex patterns.
+
+199
+00:19:17.230 --> 00:19:21.009
+Jitendra K: And if there is no enough data available, the model may not perform well.
+
+200
+00:19:21.700 --> 00:19:24.699
+Jitendra K: But this is the pros and cons of LSTM.
+
+201
+00:19:25.160 --> 00:19:34.150
+Jitendra K: An LSTM is great, And this is one of the important building blocks of the modern-day sequential models.
+
+202
+00:19:34.550 --> 00:19:39.829
+Jitendra K: And LSTM is one of the stepping stones for that. So LSTM will help you to
+
+203
+00:19:40.060 --> 00:19:45.139
+Jitendra K: create a sequential learner with the help of a data, right? So basically.
+
+204
+00:19:45.300 --> 00:19:52.570
+Jitendra K: Each computation step from the current input to the previous short-term memory and the previous written state.
+
+205
+00:19:52.940 --> 00:19:58.909
+Jitendra K: We'll perform some typical Operations that will help us to do
+
+206
+00:19:59.830 --> 00:20:02.199
+Jitendra K: The analysis on the sequence of data.
+
+207
+00:20:03.630 --> 00:20:07.940
+Jitendra K: So the… so if you have to just understand the architecture.
+
+208
+00:20:08.600 --> 00:20:14.000
+Jitendra K: We are talking about 3 important Gates…
+
+209
+00:20:15.550 --> 00:20:20.830
+Jitendra K: So, the LSTM, we are trying to resolve the vanishing gradient problem, piece by RNN.
+
+210
+00:20:21.380 --> 00:20:27.709
+Jitendra K: Now… Here, you can see on my screen the internal function of LSTM, the network comprises of three parts.
+
+211
+00:20:28.950 --> 00:20:36.580
+Jitendra K: So the first part, whether the information coming from the previous timestamp, is to be remembered, or is it irrelevant, or can we forget it?
+
+212
+00:20:36.890 --> 00:20:41.530
+Jitendra K: In the second part, the cell tried to learn and adapt to a new information from the input.
+
+213
+00:20:42.050 --> 00:20:49.120
+Jitendra K: And the last, which is the third cell, it passed the updated information from the current step, or timestamp, to the next timestamp.
+
+214
+00:20:49.430 --> 00:20:53.479
+Jitendra K: So this is one cycle of LSTM, which is considered as a single time step.
+
+215
+00:20:55.590 --> 00:21:01.080
+Jitendra K: No… These three timestamps are nothing but the gates.
+
+216
+00:21:01.850 --> 00:21:07.189
+Jitendra K: There are 3 gates that we have discussed, which is input, fog out, and output.
+
+217
+00:21:07.930 --> 00:21:11.150
+Jitendra K: So just like simple RNN, LSTM also have it in a state.
+
+218
+00:21:11.540 --> 00:21:14.380
+Jitendra K: Represented by previous timestamp.
+
+219
+00:21:14.690 --> 00:21:18.969
+Jitendra K: In addition to LSTM, in addition to that, LSTM also have a cell state.
+
+220
+00:21:19.950 --> 00:21:22.200
+Jitendra K: That means we have how many variables?
+
+221
+00:21:22.610 --> 00:21:26.650
+Jitendra K: Hidden, input, and cell. Three variables.
+
+222
+00:21:26.850 --> 00:21:28.960
+Jitendra K: That we are going to use to train the model.
+
+223
+00:21:29.570 --> 00:21:33.420
+Jitendra K: So these three variables will be in part of your STM architecture.
+
+224
+00:21:34.400 --> 00:21:42.390
+Jitendra K: Right Now let's take an example of LSTM working with the help of a text data.
+
+225
+00:21:42.680 --> 00:21:44.979
+Jitendra K: So let's say I'm creating a text data.
+
+226
+00:21:45.110 --> 00:21:48.940
+Jitendra K: And I'm saying this phrase, Bob, is a nice person.
+
+227
+00:21:55.100 --> 00:22:02.250
+Jitendra K: Pull a stop. Dan, on the other hand, is…
+
+228
+00:22:02.890 --> 00:22:06.379
+Jitendra K: evil. I think we have discussed this in the last tutorial as well.
+
+229
+00:22:06.500 --> 00:22:09.869
+Jitendra K: But for RNN, now I'm discussing this for LSTM.
+
+230
+00:22:10.380 --> 00:22:11.810
+Jitendra K: Now, this is my input.
+
+231
+00:22:12.310 --> 00:22:15.150
+Jitendra K: Where I'm using two persons named Bob and Dan.
+
+232
+00:22:15.350 --> 00:22:17.999
+Jitendra K: And then, representing their characteristics.
+
+233
+00:22:18.680 --> 00:22:21.570
+Jitendra K: So here we have sentenced separated by a full stop.
+
+234
+00:22:21.680 --> 00:22:24.120
+Jitendra K: So, first sentence is, Bob is a nice person.
+
+235
+00:22:24.380 --> 00:22:30.540
+Jitendra K: And the second sentence is, Dan, on the other hand, is an evil. So, very clear in the first sentence that we are talking about Bob.
+
+236
+00:22:31.200 --> 00:22:36.280
+Jitendra K: As soon as we encounter a full stop, we should stop start talking about Dan.
+
+237
+00:22:36.760 --> 00:22:44.020
+Jitendra K: So as we move from the first sentence to the second sentence, our network should realize that we are no longer talking about Bob.
+
+238
+00:22:44.350 --> 00:22:46.120
+Jitendra K: Now, our subject is Dan.
+
+239
+00:22:46.230 --> 00:22:50.489
+Jitendra K: So, hence the forget gate of the network allow it to forget about it.
+
+240
+00:22:52.510 --> 00:23:00.019
+Jitendra K: So, the forward decade equation If I have to, again, draw it…
+
+241
+00:23:00.380 --> 00:23:10.150
+Jitendra K: The forward gate equation is F of T, Sigma… Current input.
+
+242
+00:23:12.970 --> 00:23:14.530
+Jitendra K: And their values.
+
+243
+00:23:15.370 --> 00:23:19.760
+Jitendra K: Plus… Hidden state, the previous written state.
+
+244
+00:23:21.410 --> 00:23:22.700
+Jitendra K: and their weights.
+
+245
+00:23:25.760 --> 00:23:27.890
+Jitendra K: So, X of T is the current timestamp.
+
+246
+00:23:28.570 --> 00:23:31.649
+Jitendra K: U of F is the weight associated with the input.
+
+247
+00:23:31.810 --> 00:23:34.839
+Jitendra K: Edge of T-1 is the hidden state of the previous timestamp.
+
+248
+00:23:35.190 --> 00:23:38.919
+Jitendra K: W is the weight associated with the hidden state.
+
+249
+00:23:39.500 --> 00:23:44.140
+Jitendra K: So, I'm applying a sigmoid, which will give me a value of 0 and 1.
+
+250
+00:23:44.460 --> 00:23:49.079
+Jitendra K: Zero means… Forgot everything about the first sentence.
+
+251
+00:23:50.500 --> 00:23:54.720
+Jitendra K: One means… remember something about?
+
+252
+00:23:55.070 --> 00:23:56.210
+Jitendra K: this person.
+
+253
+00:23:57.970 --> 00:24:02.470
+Jitendra K: Now, let's take an example of input gate. So, input gate…
+
+254
+00:24:04.170 --> 00:24:08.959
+Jitendra K: will be using one unit of information, so if I have to write down.
+
+255
+00:24:11.120 --> 00:24:15.330
+Jitendra K: Or maybe if I have to just give an example how InputGate works.
+
+256
+00:24:16.050 --> 00:24:20.450
+Jitendra K: So let's take an example. Let's say I'm saying now, bulb.
+
+257
+00:24:22.310 --> 00:24:23.630
+Jitendra K: No swimming.
+
+258
+00:24:30.290 --> 00:24:34.899
+Jitendra K: he told… Me over the phone.
+
+259
+00:24:37.540 --> 00:24:41.810
+Jitendra K: That… Heath.
+
+260
+00:24:41.960 --> 00:24:42.780
+Jitendra K: hard.
+
+261
+00:24:43.230 --> 00:24:50.369
+Jitendra K: serve… the Navy… Or… for long years.
+
+262
+00:24:54.400 --> 00:25:08.159
+Jitendra K: So, in both the sentences, we are talking about Bob. However, given the different kind of information about Bob, in the first sentence, we get the information that he knows swimming, whereas the second sentence tells, he used the phone and served in the Navy for 4 years.
+
+263
+00:25:08.680 --> 00:25:13.860
+Jitendra K: Based on the context given in the first sentence, which information the second sentence is critical?
+
+264
+00:25:14.190 --> 00:25:18.609
+Jitendra K: First, He used the phone to tell, or he served the army.
+
+265
+00:25:18.750 --> 00:25:21.100
+Jitendra K: So, in the context, it does not matter.
+
+266
+00:25:21.340 --> 00:25:27.190
+Jitendra K: whether he has phone… he used a phone or any other medium to communicate to pass the information. The fact that
+
+267
+00:25:27.750 --> 00:25:34.380
+Jitendra K: he was in Navy as an important, and this is something we want our model to remember for future competition.
+
+268
+00:25:34.600 --> 00:25:40.429
+Jitendra K: So this is a task of the input gate. So the input gate is used to quantify the information, or the new information.
+
+269
+00:25:40.620 --> 00:25:42.109
+Jitendra K: Carried by the input.
+
+270
+00:25:42.370 --> 00:25:44.490
+Jitendra K: So it will use this equation.
+
+271
+00:25:48.280 --> 00:25:54.130
+Jitendra K: I of T… It equals to sigma.
+
+272
+00:25:55.650 --> 00:25:56.990
+Jitendra K: X of T.
+
+273
+00:25:58.510 --> 00:25:59.900
+Jitendra K: U of F.
+
+274
+00:26:01.020 --> 00:26:03.429
+Jitendra K: plus H of T minus 1.
+
+275
+00:26:06.270 --> 00:26:07.450
+Jitendra K: The blue office.
+
+276
+00:26:09.230 --> 00:26:15.480
+Jitendra K: So, XFT is the input of the current time stamp. U of I is the… U of F is the weight of the matrix.
+
+277
+00:26:15.760 --> 00:26:22.689
+Jitendra K: H of T-1 is, again, the heading state of the previous timestamp, W of F is the weight of the input associated with the heading state.
+
+278
+00:26:23.390 --> 00:26:26.709
+Jitendra K: Now, the new information will use a transformation.
+
+279
+00:26:27.980 --> 00:26:30.489
+Jitendra K: So, new information I will retain.
+
+280
+00:26:31.110 --> 00:26:31.990
+Jitendra K: S.
+
+281
+00:26:34.560 --> 00:26:35.770
+Jitendra K: 10 of H.
+
+282
+00:26:37.690 --> 00:26:39.230
+Jitendra K: Xofie.
+
+283
+00:26:40.150 --> 00:26:41.370
+Jitendra K: UFC?
+
+284
+00:26:41.700 --> 00:26:45.069
+Jitendra K: Thus… H of T minus 1.
+
+285
+00:26:45.980 --> 00:26:47.360
+Jitendra K: WFC.
+
+286
+00:26:49.300 --> 00:26:52.409
+Jitendra K: So the new information needs to be passed to the cell.
+
+287
+00:26:52.950 --> 00:26:55.689
+Jitendra K: Which is a function of hidden state at the previous time stamp.
+
+288
+00:26:56.020 --> 00:27:00.210
+Jitendra K: And there's an activation function, which is 10H. Due to 10H, the function
+
+289
+00:27:00.820 --> 00:27:08.090
+Jitendra K: A value will lies between minus 1 to plus 1, and the value of N of T is negative. The information is subtracted from the cell state.
+
+290
+00:27:08.560 --> 00:27:12.130
+Jitendra K: And if the value is positive, the information is added to the cell state.
+
+291
+00:27:14.020 --> 00:27:19.850
+Jitendra K: Right, so this is the purpose of… input gate.
+
+292
+00:27:20.240 --> 00:27:25.719
+Jitendra K: Now, the output gate… If I have to give another example.
+
+293
+00:27:28.230 --> 00:27:38.110
+Jitendra K: the output gate, let's take an example. Let's say I'm saying now, Bob, Single-handedly.
+
+294
+00:27:42.980 --> 00:27:44.550
+Jitendra K: Fought the army.
+
+295
+00:27:48.150 --> 00:27:49.339
+Jitendra K: And died.
+
+296
+00:27:50.470 --> 00:27:51.970
+Jitendra K: for the country.
+
+297
+00:27:55.810 --> 00:27:57.800
+Jitendra K: for his contribution.
+
+298
+00:28:02.270 --> 00:28:04.420
+Jitendra K: Brave… Dash.
+
+299
+00:28:05.180 --> 00:28:08.320
+Jitendra K: So during the task, we have to complete the sentence.
+
+300
+00:28:08.940 --> 00:28:16.050
+Jitendra K: The second sentence. Now, the minute we see the word brave, we know that we are talking about a person in the sentence, which is Bob. Bob is brave.
+
+301
+00:28:16.390 --> 00:28:21.719
+Jitendra K: So we cannot say the enemy is brave, or country is brave, so based upon the current expression.
+
+302
+00:28:22.090 --> 00:28:25.269
+Jitendra K: We have given a relevant word to fill in the blanks.
+
+303
+00:28:25.810 --> 00:28:31.999
+Jitendra K: So the word is our output, and the function that we are using is our output gate.
+
+304
+00:28:32.570 --> 00:28:34.120
+Jitendra K: So my output gate…
+
+305
+00:28:39.190 --> 00:28:40.460
+Jitendra K: OF T…
+
+306
+00:28:46.040 --> 00:28:47.239
+Jitendra K: should give…
+
+307
+00:28:50.650 --> 00:28:52.159
+Jitendra K: The output in this form?
+
+308
+00:29:03.410 --> 00:29:07.420
+Jitendra K: So the value will lie between 0 to 1 because of the sigmoid function.
+
+309
+00:29:07.700 --> 00:29:16.810
+Jitendra K: Now, to calculate the current state, we use O of T and 10H to update the cell state. So, I will say my hidden state depends upon the cell state.
+
+310
+00:29:18.610 --> 00:29:19.810
+Jitendra K: O of T.
+
+311
+00:29:20.840 --> 00:29:26.130
+Jitendra K: Multiply by 10 of… C of T.
+
+312
+00:29:26.990 --> 00:29:28.210
+Jitendra K: an output.
+
+313
+00:29:29.910 --> 00:29:31.370
+Jitendra K: Is it softmax?
+
+314
+00:29:34.270 --> 00:29:35.810
+Jitendra K: probiotical function.
+
+315
+00:29:36.350 --> 00:29:37.960
+Jitendra K: Which is taking H of T.
+
+316
+00:29:39.430 --> 00:29:46.850
+Jitendra K: Right, so this is what… The idea of… LSTM-based network.
+
+317
+00:29:47.920 --> 00:29:51.679
+Jitendra K: So you can see that this is how it is generating this equation.
+
+318
+00:29:58.380 --> 00:30:06.200
+Jitendra K: Now, LSTM, that… the one that we have discussed, is just using information in one direction. That means they are unidirectional.
+
+319
+00:30:06.400 --> 00:30:09.630
+Jitendra K: That means I'm flowing the information from input to output.
+
+320
+00:30:10.270 --> 00:30:13.329
+Jitendra K: But what if… if I can make them bi-directional?
+
+321
+00:30:15.130 --> 00:30:22.709
+Jitendra K: So, bidirectional LSDM are a type of recurrent neural network that processes input data in both backward and forward direction.
+
+322
+00:30:23.640 --> 00:30:29.440
+Jitendra K: So in a traditional STM, the information flow only from past to future, making predictions based upon the
+
+323
+00:30:29.740 --> 00:30:33.350
+Jitendra K: preceding context. However, in bi-directional STM,
+
+324
+00:30:33.570 --> 00:30:40.230
+Jitendra K: The network consider future context, enabling it to capture dependencies in both directions.
+
+325
+00:30:40.550 --> 00:30:45.969
+Jitendra K: So the bidirectional STM comprised of two STM layers, one processing input sequence in the forward.
+
+326
+00:30:46.280 --> 00:30:51.480
+Jitendra K: Other in the backward direction, so this will help us to make network arrangement.
+
+327
+00:30:51.780 --> 00:30:57.090
+Jitendra K: to access information from past and future times simultaneously. As a result.
+
+328
+00:30:57.420 --> 00:31:00.739
+Jitendra K: Bidirectional STMs are particularly useful for…
+
+329
+00:31:01.480 --> 00:31:05.579
+Jitendra K: Task that required a comprehensive understanding of the sequence.
+
+330
+00:31:05.950 --> 00:31:11.670
+Jitendra K: Which may be tasks like natural language processing, like sentiment analysis, machine translation.
+
+331
+00:31:11.930 --> 00:31:18.420
+Jitendra K: Name identity recognition, etc. So you can be able to use… bi-directional STM.
+
+332
+00:31:18.840 --> 00:31:21.459
+Jitendra K: For doing this analysis.
+
+333
+00:31:26.700 --> 00:31:34.699
+Jitendra K: Alright, so is this clear to everyone? Did Profsa talk about anything about bidirectional STM? What is your understanding on bidirectional STM?
+
+334
+00:31:34.950 --> 00:31:39.570
+Jitendra K: How we are going to implement that? Can you… would like to talk about it?
+
+335
+00:31:41.210 --> 00:31:43.699
+Jitendra K: Do you have any idea about bi-directional STM?
+
+336
+00:31:44.700 --> 00:31:46.579
+Jitendra K: Or you are hearing for the first time?
+
+337
+00:32:07.100 --> 00:32:08.499
+Jitendra K: Have you heard about it?
+
+338
+00:32:08.950 --> 00:32:12.259
+Jitendra K: Professor dismissed. What is bi-directional STM? Anoop?
+
+339
+00:32:14.250 --> 00:32:17.719
+Jitendra K: why we required bi-directional esteem? I've already talked about it, but…
+
+340
+00:32:18.020 --> 00:32:20.210
+Jitendra K: This gave me some more additional information.
+
+341
+00:32:21.090 --> 00:32:22.569
+Jitendra K: Which I haven't disclosed.
+
+342
+00:32:32.420 --> 00:32:38.120
+Jitendra K: How will it join to architecture of LSTM to make it bi-directional? Past and future context is okay, but how?
+
+343
+00:32:57.870 --> 00:33:01.579
+Jitendra K: Feedback to the previous step to improve. How can you create a feedback?
+
+344
+00:33:02.210 --> 00:33:03.659
+Jitendra K: There's no feedback loop.
+
+345
+00:33:04.860 --> 00:33:07.109
+Jitendra K: And how will you measure the accuracy, by the way?
+
+346
+00:33:12.660 --> 00:33:14.440
+Jitendra K: There's no feedback loop here.
+
+347
+00:33:24.680 --> 00:33:29.379
+Jitendra K: Okay, you said, you understand prob-cell tutorials, so tell me what is bidirectional Istio.
+
+348
+00:33:32.150 --> 00:33:35.179
+Jitendra K: The output of the two LSTMs combine at each step.
+
+349
+00:33:35.370 --> 00:33:40.880
+Jitendra K: But again, how will you measure the sequence when you're going in one direction.
+
+350
+00:33:41.810 --> 00:33:44.550
+Jitendra K: And the LSTM is going in a different direction.
+
+351
+00:34:19.260 --> 00:34:25.689
+Jitendra K: Took… How will they maintain their hidden state and memory cells in bidirectional processing?
+
+352
+00:34:25.909 --> 00:34:29.259
+Jitendra K: Will it be common, or will it be different for each?
+
+353
+00:34:34.370 --> 00:34:38.410
+Jitendra K: If I have to create two LSTMs, one for forward, one for backward.
+
+354
+00:34:39.190 --> 00:34:42.350
+Jitendra K: How will I maintain the hidden state and the cell state?
+
+355
+00:34:42.659 --> 00:34:45.950
+Jitendra K: Do I require two separate states to maintain?
+
+356
+00:34:46.409 --> 00:34:48.250
+Jitendra K: Or are they going to use common?
+
+357
+00:34:53.100 --> 00:34:55.440
+Jitendra K: And what will happen during the backward pass?
+
+358
+00:35:22.740 --> 00:35:24.840
+Jitendra K: Swapping X and H.
+
+359
+00:35:26.350 --> 00:35:32.190
+Jitendra K: Swapping… I don't think that there's any swiping.
+
+360
+00:35:33.340 --> 00:35:35.189
+Jitendra K: Okay, let's try to debrief.
+
+361
+00:35:35.730 --> 00:35:37.650
+Jitendra K: What is bidirectional STM?
+
+362
+00:35:38.650 --> 00:35:40.810
+Jitendra K: The bidirectional STM looks like this.
+
+363
+00:35:41.150 --> 00:35:42.990
+Jitendra K: You have one LSTM layer.
+
+364
+00:35:43.540 --> 00:35:44.970
+Jitendra K: In a forward pass.
+
+365
+00:35:45.570 --> 00:35:49.370
+Jitendra K: And one LTM layer in the backward bus. There's no feedback as such, right?
+
+366
+00:35:49.860 --> 00:35:52.580
+Jitendra K: There's no feedback, no swapping, nothing.
+
+367
+00:35:52.800 --> 00:35:59.520
+Jitendra K: So, bidirectional STM is a type of RNN that processes sequential data in both forward and backward direction.
+
+368
+00:36:00.200 --> 00:36:02.460
+Jitendra K: With the help of this, it combines…
+
+369
+00:36:02.670 --> 00:36:05.660
+Jitendra K: the power of RSTM with bi-directional processing.
+
+370
+00:36:06.120 --> 00:36:11.320
+Jitendra K: Allowing the model to capture both past and future context of the input sequence.
+
+371
+00:36:13.160 --> 00:36:18.990
+Jitendra K: So, unlike traditional RNN, that processes input sequence in only one direction, either forward or backward.
+
+372
+00:36:19.210 --> 00:36:24.489
+Jitendra K: Bidirectional HTM processors sequence in both directions simultaneously. It comprised of two layers.
+
+373
+00:36:24.800 --> 00:36:28.670
+Jitendra K: One for processing the sequence in forward, and another two for sequence
+
+374
+00:36:28.810 --> 00:36:32.929
+Jitendra K: and backward. Each layer maintains its own hidden state and memory states.
+
+375
+00:36:33.650 --> 00:36:36.969
+Jitendra K: So during the forward pass, the input sequence is feed.
+
+376
+00:36:37.170 --> 00:36:41.540
+Jitendra K: to the forward LSTM from the first time step to the last.
+
+377
+00:36:42.040 --> 00:36:48.450
+Jitendra K: At each time step, the forward LSTM computes its hidden state, And updates the memory cell.
+
+378
+00:36:48.880 --> 00:36:52.629
+Jitendra K: Based upon the current input and the previous written state and memory cell.
+
+379
+00:36:53.170 --> 00:36:59.379
+Jitendra K: Simultaneously, the input sequence is also filled into backward LSTM and layer in a reverse order.
+
+380
+00:37:00.090 --> 00:37:02.249
+Jitendra K: From a time stem to the first.
+
+381
+00:37:02.540 --> 00:37:04.380
+Jitendra K: From the last time step to the first.
+
+382
+00:37:04.940 --> 00:37:12.049
+Jitendra K: Similar to forward pass. The backward LSTM computes its hidden layer, or hidden state, and updates its memory.
+
+383
+00:37:12.600 --> 00:37:15.649
+Jitendra K: Based on the current input and the previous hidden self.
+
+384
+00:37:17.050 --> 00:37:24.529
+Jitendra K: So combining forward and backward paths, once the forward and backward paths are complete, adding state from both LSTM layers.
+
+385
+00:37:24.790 --> 00:37:26.830
+Jitendra K: Are combined to each time step.
+
+386
+00:37:27.600 --> 00:37:33.620
+Jitendra K: And this combination can be as simple as concatenating the hidden state or applying some sort of transformation.
+
+387
+00:37:34.170 --> 00:37:37.170
+Jitendra K: The purpose of this architecture will help us to
+
+388
+00:37:37.630 --> 00:37:42.460
+Jitendra K: Not only capture the context, but also Determine.
+
+389
+00:37:42.900 --> 00:37:46.670
+Jitendra K: The specific time step, That context follow.
+
+390
+00:37:51.340 --> 00:37:54.250
+Jitendra K: So that is what we are doing with bidirectional listing.
+
+391
+00:37:54.560 --> 00:37:59.200
+Jitendra K: So, bidirectional LSTM capture long-term dependencies, similar to LSTM.
+
+392
+00:38:02.890 --> 00:38:12.279
+Jitendra K: But it can able to process data in both forward and backward directions. This makes them well-suited for tasks that required modeling context over a long period of time.
+
+393
+00:38:13.060 --> 00:38:18.540
+Jitendra K: And speech recognition is a great example, which can be fit to bidirectional esteem.
+
+394
+00:38:19.400 --> 00:38:23.510
+Jitendra K: Biodirectional STM also improved the performance better than traditional STM.
+
+395
+00:38:25.430 --> 00:38:29.320
+Jitendra K: In a task like sentiment analysis, where we can see some example.
+
+396
+00:38:29.630 --> 00:38:33.279
+Jitendra K: It is very flexible, which can customize by adding layers.
+
+397
+00:38:34.230 --> 00:38:35.760
+Jitendra K: to improve performance.
+
+398
+00:38:37.020 --> 00:38:43.670
+Jitendra K: The only drawback is it is computationally expensive, required large amount of data to train, difficult to interpret.
+
+399
+00:38:44.270 --> 00:38:45.260
+Jitendra K: At times.
+
+400
+00:38:48.930 --> 00:38:52.220
+Jitendra K: Yeah, training data remained the same. There's no change in the training data.
+
+401
+00:38:53.580 --> 00:38:57.580
+Jitendra K: Alright, so let's try to look into the example of all this…
+
+402
+00:38:58.460 --> 00:39:03.429
+Jitendra K: stack. So let's start to implement a bidirectional scheme.
+
+403
+00:39:03.730 --> 00:39:06.350
+Jitendra K: And here, I'm going to use a sentiment analysis.
+
+404
+00:39:07.190 --> 00:39:10.100
+Jitendra K: perform a sentiment analysis with bi-directional STM.
+
+405
+00:39:11.060 --> 00:39:13.840
+Jitendra K: So let me open my Google Colab.
+
+406
+00:41:53.290 --> 00:41:56.919
+Jitendra K: Okay, so in this example, I'm going to use TensorFlow.
+
+407
+00:41:57.290 --> 00:42:02.930
+Jitendra K: And all the modules… Which required to implement bi-directional STM, I will use TensorFlow.
+
+408
+00:42:03.980 --> 00:42:07.569
+Jitendra K: As a package, right, to implement this bi-directional esteem.
+
+409
+00:42:08.920 --> 00:42:13.179
+Jitendra K: So, let me explain, first run this code, and then I will explain this.
+
+410
+00:42:48.220 --> 00:42:52.499
+Jitendra K: Okay, so I'm using an IMDB dataset, which is having movie reviews.
+
+411
+00:42:52.640 --> 00:42:57.500
+Jitendra K: So I'm using 25,000 reviews for training and 25,000 reviews for testing.
+
+412
+00:42:58.350 --> 00:43:01.969
+Jitendra K: So I'm keeping the class slightly balanced.
+
+413
+00:43:03.340 --> 00:43:07.340
+Jitendra K: It will take a time, so let's try to do it… debit the code first.
+
+414
+00:43:08.330 --> 00:43:09.460
+Jitendra K: This is the code.
+
+415
+00:43:10.470 --> 00:43:15.259
+Jitendra K: So here, we are starting with import, importing operating system, regex.
+
+416
+00:43:15.930 --> 00:43:26.080
+Jitendra K: for HTML tags and URLs, removal, warnings for suppressing the warnings, Control, warning, displays, strings for… Constance…
+
+417
+00:43:26.640 --> 00:43:30.949
+Jitendra K: Typing, I'm using for typing for better code implementation and ID support.
+
+418
+00:43:31.280 --> 00:43:38.529
+Jitendra K: I'm also implementing, and using some packages from Python, including NumPy, Pandas might plot.
+
+419
+00:43:39.300 --> 00:43:40.130
+Jitendra K: Great.
+
+420
+00:43:45.120 --> 00:43:47.730
+Jitendra K: Also, collection dictionary to create a counter.
+
+421
+00:43:48.520 --> 00:43:56.569
+Jitendra K: I'm suppressing the log level, by seeing TensorFlow information warning to show any error up to 2… level only.
+
+422
+00:43:56.860 --> 00:44:04.989
+Jitendra K: Importing the main deep learning framework, TensorFlow, Keras, Neural network class here.
+
+423
+00:44:05.390 --> 00:44:10.969
+Jitendra K: And the callback functions for early stopping and reducing the learning rate on plateau region.
+
+424
+00:44:11.330 --> 00:44:16.170
+Jitendra K: Backhand, I'm keeping low-level operation, using a sparingly
+
+425
+00:44:16.440 --> 00:44:20.589
+Jitendra K: And using tokenizer to convert my input string to tokens.
+
+426
+00:44:20.970 --> 00:44:25.379
+Jitendra K: Using some pad sequence to make all the sequence of same land padding a padding character to it.
+
+427
+00:44:25.860 --> 00:44:30.610
+Jitendra K: So I start with import of scikit-learn package, including
+
+428
+00:44:31.390 --> 00:44:34.440
+Jitendra K: their analysis that I'm going to do.
+
+429
+00:44:37.520 --> 00:44:43.870
+Jitendra K: In this case, my classes are balanced, so I will may use recall and ROC UC curve to predict.
+
+430
+00:44:44.920 --> 00:44:48.039
+Jitendra K: I'm keeping the seed parameter for reproducibility purpose.
+
+431
+00:44:49.500 --> 00:44:53.860
+Jitendra K: And, I've just started with the class implementation of TextProcessor.
+
+432
+00:44:54.030 --> 00:44:59.230
+Jitendra K: So this class will handle all the tax preprocessing operation, starting with a constructor.
+
+433
+00:44:59.540 --> 00:45:04.100
+Jitendra K: where I'm using and keeping all the 25,000 most frequent words.
+
+434
+00:45:04.770 --> 00:45:08.479
+Jitendra K: Using a 256 token as a part truncation.
+
+435
+00:45:08.860 --> 00:45:16.449
+Jitendra K: over, out of vocab, I'm keeping it. Sometimes you may see Autobook have errors.
+
+436
+00:45:16.670 --> 00:45:18.800
+Jitendra K: When you're performing the analysis in text.
+
+437
+00:45:19.210 --> 00:45:22.410
+Jitendra K: padding sequence, I'm keeping it to be zeros.
+
+438
+00:45:22.990 --> 00:45:28.080
+Jitendra K: At the end of sequence, truncating, I'm keeping it to be pros, remove words from ending when cutting.
+
+439
+00:45:28.800 --> 00:45:30.800
+Jitendra K: So I'm initializing the tokenizer.
+
+440
+00:45:34.920 --> 00:45:36.249
+Jitendra K: in this line.
+
+441
+00:45:36.870 --> 00:45:45.359
+Jitendra K: It's keeping a Keras tokenizer that keep only number of words, most frequent words, replace unknown words, and remove all the punctuation and special characters listed.
+
+442
+00:45:46.200 --> 00:45:51.159
+Jitendra K: Now, once I have a cleaning method, I have to create a function for doing this.
+
+443
+00:45:52.520 --> 00:45:59.550
+Jitendra K: So I will remove HTML, URL, non-alpha, numeric characters, White space for my data.
+
+444
+00:45:59.890 --> 00:46:03.300
+Jitendra K: Then I will fit the transformation on all rows.
+
+445
+00:46:04.520 --> 00:46:08.539
+Jitendra K: So I have to load this data to perform this transformation, so I'm loading the data.
+
+446
+00:46:09.230 --> 00:46:14.829
+Jitendra K: Load IMDb Movie Review, 50,000 reviews. 25K train, 25K test.
+
+447
+00:46:15.180 --> 00:46:20.840
+Jitendra K: Keeping the index, get word, index mapping from Keras, reverse some mapping.
+
+448
+00:46:21.060 --> 00:46:23.390
+Jitendra K: Index to word with an offset of 3.
+
+449
+00:46:23.620 --> 00:46:30.560
+Jitendra K: An offset account for special token. Padding is starting and out of vote. Okay, so I'm keeping these sequences.
+
+450
+00:46:32.090 --> 00:46:35.130
+Jitendra K: Now I'm defining the special token and their indexes.
+
+451
+00:46:35.550 --> 00:46:38.980
+Jitendra K: So here, I'm loading the pre-token interior sequences.
+
+452
+00:46:39.690 --> 00:46:43.220
+Jitendra K: for… from KRAS library to perform this.
+
+453
+00:46:44.400 --> 00:46:47.479
+Jitendra K: Now, I'm splitting our data into training and test.
+
+454
+00:46:47.870 --> 00:46:50.740
+Jitendra K: So, as I mentioned, I'm keeping the test size.
+
+455
+00:46:51.330 --> 00:46:56.500
+Jitendra K: to be… Where's that? 15%?
+
+456
+00:47:05.130 --> 00:47:09.170
+Jitendra K: Yeah, test size, I'm keeping it to 15%, and training 85%.
+
+457
+00:47:09.430 --> 00:47:12.850
+Jitendra K: So this is, my split of my data.
+
+458
+00:47:13.270 --> 00:47:21.540
+Jitendra K: Now, I'm using something called globe embedding. Now, this is important. So, globe embedding has been created by Stanford University.
+
+459
+00:47:21.960 --> 00:47:29.920
+Jitendra K: And this is a great library for global vector for word representation. So that means you can represent the word's numerical values using this library.
+
+460
+00:47:30.710 --> 00:47:36.570
+Jitendra K: So what I'm doing is I'm using my text and representing them as numerical vectors, using this library.
+
+461
+00:47:37.520 --> 00:47:43.460
+Jitendra K: So I'm storing the word-to-back, mapping in a dictionary, create a matrix with a shape or vocab.
+
+462
+00:47:44.260 --> 00:47:49.980
+Jitendra K: Filled with random values, and then for each word in the vocabulary, a word exits in the globe.
+
+463
+00:47:50.230 --> 00:47:54.289
+Jitendra K: Replace random vector with a globe vector. Otherwise, keep it random, initialize.
+
+464
+00:47:54.760 --> 00:48:00.069
+Jitendra K: One important thing, I'm also using a self-attention layer, which is a recent tech architect.
+
+465
+00:48:00.460 --> 00:48:05.659
+Jitendra K: or recent architecture, where I'm keeping the word which I'm looking for at a query level.
+
+466
+00:48:06.000 --> 00:48:07.639
+Jitendra K: Which is called WFQ.
+
+467
+00:48:08.270 --> 00:48:09.320
+Jitendra K: the word…
+
+468
+00:48:10.730 --> 00:48:17.019
+Jitendra K: with a context I'm keeping as a key, and the actual information that I'm passing to forward pass, it will be my value.
+
+469
+00:48:17.620 --> 00:48:20.149
+Jitendra K: So I'm making this arrangement.
+
+470
+00:48:21.020 --> 00:48:23.069
+Jitendra K: To store these three parameters.
+
+471
+00:48:23.650 --> 00:48:31.709
+Jitendra K: Then I'm using a multi-head attention. So, multi-head attention, split attention to multiple head, to capture different relationship types.
+
+472
+00:48:32.620 --> 00:48:38.440
+Jitendra K: One thing that you can see that I'm using a transformer style, But I'm using LSTM.
+
+473
+00:48:40.230 --> 00:48:46.249
+Jitendra K: We'll discuss Transformer, and this concept will come into Transformer. But multi-attention is just like…
+
+474
+00:48:47.240 --> 00:48:51.910
+Jitendra K: You're reading some novel, Right?
+
+475
+00:48:52.270 --> 00:48:57.960
+Jitendra K: And, you understand each and every aspect of that novel, the character of the novel.
+
+476
+00:48:58.190 --> 00:49:01.819
+Jitendra K: And you have multiple focus that you're going to make for each character.
+
+477
+00:49:02.050 --> 00:49:06.740
+Jitendra K: Right? And that is what we are doing here. Similarly, if you're watching a movie.
+
+478
+00:49:07.670 --> 00:49:11.780
+Jitendra K: You might be giving a special preference to some character.
+
+479
+00:49:12.420 --> 00:49:20.149
+Jitendra K: And some character will be… looks like a supporting character for you, right? To understand, you may understand what is the centric character of the movie.
+
+480
+00:49:20.730 --> 00:49:29.050
+Jitendra K: But how did you understand that? By using multi-height attention. You don't have multiple heights, but you still have multiple focus on each character.
+
+481
+00:49:29.340 --> 00:49:32.460
+Jitendra K: And that is the purpose of multi-head attention, self-attention.
+
+482
+00:49:32.600 --> 00:49:34.259
+Jitendra K: So, it is splitting.
+
+483
+00:49:35.570 --> 00:49:39.320
+Jitendra K: This attention layer into multiple tasks.
+
+484
+00:49:40.420 --> 00:49:44.329
+Jitendra K: So basically, I'm just using bidirectional STM to do this analysis.
+
+485
+00:49:44.500 --> 00:49:48.130
+Jitendra K: Now, once I have done this, I'm also creating a…
+
+486
+00:49:48.860 --> 00:49:51.700
+Jitendra K: Model architecture to create a baseline.
+
+487
+00:49:52.070 --> 00:49:56.129
+Jitendra K: So, bidirectional STM process text left to right, and right to left.
+
+488
+00:49:56.460 --> 00:49:58.080
+Jitendra K: Keeping full sequence.
+
+489
+00:49:58.540 --> 00:50:05.320
+Jitendra K: I may have to also look for Dropout rate to remove overfitting.
+
+490
+00:50:05.610 --> 00:50:08.499
+Jitendra K: So I'm keeping some dropout rate of 30%.
+
+491
+00:50:09.590 --> 00:50:11.190
+Jitendra K: To create a baseline.
+
+492
+00:50:11.570 --> 00:50:17.650
+Jitendra K: And then, I'm passing this embedding matrix, which I have imported in the previous step, from Globe.
+
+493
+00:50:17.920 --> 00:50:20.650
+Jitendra K: to parse. So it's like, you have a text now.
+
+494
+00:50:21.450 --> 00:50:24.200
+Jitendra K: Which is converted into numerical vectors.
+
+495
+00:50:25.070 --> 00:50:30.739
+Jitendra K: And these numerical vectors will go through LSTM layer using multi-hyd attachions.
+
+496
+00:50:31.460 --> 00:50:37.339
+Jitendra K: To process this information, Into multiple chunks.
+
+497
+00:50:37.710 --> 00:50:44.960
+Jitendra K: And each chunk will have some output in a sentiment way, that this sentiment is 1, this sentiment is 0,
+
+498
+00:50:45.350 --> 00:50:49.129
+Jitendra K: This particular word looks positive, neutral, negative.
+
+499
+00:50:49.480 --> 00:50:56.150
+Jitendra K: And then at the last, you're going to come with a conclusion that overall sentence is positive or negative or neutral.
+
+500
+00:50:56.940 --> 00:51:03.739
+Jitendra K: Right, so it's a stacked bi-directional LSTM with a residual connection that I'm using to perform this analysis.
+
+501
+00:51:04.080 --> 00:51:05.639
+Jitendra K: So once I've done this.
+
+502
+00:51:08.780 --> 00:51:11.479
+Jitendra K: I will get some visualization, and also…
+
+503
+00:51:11.930 --> 00:51:17.099
+Jitendra K: We'll show you how this overall mechanism works, but I think it will take some time.
+
+504
+00:51:17.890 --> 00:51:19.719
+Jitendra K: So that is what is happening.
+
+505
+00:52:30.000 --> 00:52:34.559
+Jitendra K: Then it may take some time, but let's see if early stopping can prevent.
+
+506
+00:52:34.890 --> 00:52:36.050
+Jitendra K: for their training.
+
+507
+00:52:51.950 --> 00:52:55.350
+Jitendra K: So, are you guys clear with the architecture and the purpose of this code?
+
+508
+00:52:56.390 --> 00:52:59.750
+Jitendra K: Are you following so far? Let me share this code with everyone.
+
+509
+00:53:05.540 --> 00:53:10.919
+Jitendra K: So please use this link, and it is public, so you can use it as well at your end.
+
+510
+00:56:41.250 --> 00:56:45.510
+Jitendra K: I'm just waiting if it can hit the list stopping criteria.
+
+511
+00:59:04.460 --> 00:59:07.000
+Jitendra K: So this is how the architecture has been…
+
+512
+00:59:08.170 --> 00:59:14.690
+Jitendra K: it laid off. I mean, the foundation has been laid off, so this is the phase one, which is the data injection pipeline.
+
+513
+00:59:14.880 --> 00:59:16.909
+Jitendra K: We're just using our MDB dataset.
+
+514
+00:59:17.080 --> 00:59:21.069
+Jitendra K: We perform some indexing on the top of it, split the data into 25,
+
+515
+00:59:21.470 --> 00:59:26.139
+Jitendra K: K training and 25K test, balance the classes.
+
+516
+00:59:26.440 --> 00:59:34.350
+Jitendra K: Tax-free processing, we are just trying to reduce, some… HTML tags, URLs, and… some…
+
+517
+00:59:34.880 --> 00:59:37.909
+Jitendra K: Non-alphanumeric characters from the data.
+
+518
+00:59:38.190 --> 00:59:43.170
+Jitendra K: Then we split the data into 85% test, 15% validation.
+
+519
+00:59:43.520 --> 00:59:46.890
+Jitendra K: Start with an embedding layer. Here we are using Globe.
+
+520
+00:59:47.470 --> 00:59:52.720
+Jitendra K: For embedding representation. Then we created one of the four architecture.
+
+521
+00:59:52.920 --> 01:00:03.880
+Jitendra K: And I'm using, two different architecture for creating the baseline, and the… using the bi-directional STM with attention, or multi-retention, to perform this analysis.
+
+522
+01:00:04.140 --> 01:00:09.029
+Jitendra K: So once I compile, which I'm doing right now, I'm going to calculate the errors.
+
+523
+01:00:09.380 --> 01:00:13.050
+Jitendra K: And using error clipping, I would like to improve my training performance.
+
+524
+01:00:13.480 --> 01:00:16.670
+Jitendra K: And I will also call early stopping if my errors are not
+
+525
+01:00:16.820 --> 01:00:20.299
+Jitendra K: Increasing any further after certain iteration.
+
+526
+01:00:20.550 --> 01:00:24.049
+Jitendra K: I will evaluate the outcome and make a sentiments prediction.
+
+527
+01:00:24.410 --> 01:00:29.769
+Jitendra K: So let's see how it works. So it is still running, so I'm not sure how much time it is gonna take.
+
+528
+01:00:49.150 --> 01:00:54.170
+Jitendra K: But let it be run in the backend, and till the time it complete, we'll revisit this code.
+
+529
+01:00:54.530 --> 01:00:59.579
+Jitendra K: So, let's start with GRU now. So, we are going to talk about GRU, Gated Recurrent Unit.
+
+530
+01:01:00.020 --> 01:01:02.840
+Jitendra K: And LSTM and GRU are a farm part of.
+
+531
+01:01:03.240 --> 01:01:09.539
+Jitendra K: RNN itself. So we understand that RNN is a family, and GRU and LSTM are the two members.
+
+532
+01:01:09.830 --> 01:01:11.139
+Jitendra K: Of their family.
+
+533
+01:01:11.500 --> 01:01:14.910
+Jitendra K: So, we are going to start with catered recurrent unit, and what…
+
+534
+01:01:15.100 --> 01:01:20.369
+Jitendra K: make this architecture slightly spatialized compared to LSTM. That is something which we are going to talk about.
+
+535
+01:01:20.740 --> 01:01:22.750
+Jitendra K: So let's start to understand GRU.
+
+536
+01:01:23.890 --> 01:01:27.260
+Jitendra K: Models and their architecture from the scratch.
+
+537
+01:01:39.390 --> 01:01:44.780
+Jitendra K: Alright, so when you say gated recurrent unit, it's becoming a spatial…
+
+538
+01:01:46.740 --> 01:01:49.719
+Jitendra K: Model, which will be used to perform
+
+539
+01:01:50.060 --> 01:01:54.959
+Jitendra K: the sequential analysis, similar to LSTM, right? So there's no difference in way.
+
+540
+01:01:55.100 --> 01:02:00.380
+Jitendra K: In the way that they are passing the data, but only difference is you will have much reduce.
+
+541
+01:02:00.730 --> 01:02:03.810
+Jitendra K: Overhead, because here you are using
+
+542
+01:02:04.660 --> 01:02:12.299
+Jitendra K: one lesser gate. So GRU stands for Gated Recurrent Unit, which is a type of recurrent neural network that is similar to LSTM.
+
+543
+01:02:12.710 --> 01:02:20.419
+Jitendra K: So, like LSTM, GRU is designed to model sequential data by allowing information to be selectively remembered or forgotten over a time.
+
+544
+01:02:20.800 --> 01:02:25.509
+Jitendra K: However, GRU is slightly simpler than LSTM, with a few parameters.
+
+545
+01:02:25.720 --> 01:02:30.939
+Jitendra K: Which make it easy to train and more competition efficient. So you can see that LSTM is taking longer time to
+
+546
+01:02:31.270 --> 01:02:32.690
+Jitendra K: Generate an answer.
+
+547
+01:02:32.950 --> 01:02:37.270
+Jitendra K: During training, so GRU may be fast as compared to it.
+
+548
+01:02:37.650 --> 01:02:43.410
+Jitendra K: So the main difference between GRU and LSTM is the way they handle the memory state, the memory cell state.
+
+549
+01:02:44.740 --> 01:02:49.379
+Jitendra K: So, in the LSTM, the memory cell state is maintained separately from the hidden state.
+
+550
+01:02:50.530 --> 01:02:54.619
+Jitendra K: And it is updating using 3 gates. Input, output, and the forgett.
+
+551
+01:02:54.980 --> 01:02:59.860
+Jitendra K: In GRE, the memory state is replaced with a candidate activation vector.
+
+552
+01:03:00.720 --> 01:03:10.780
+Jitendra K: which is updating, or which is updated using two gates, the reset gate and the update gate. The reset gate determines how much of the previous hidden state to forgot.
+
+553
+01:03:11.220 --> 01:03:18.449
+Jitendra K: while the update determine how much of the candidate activation vector to incorporate into the next, next
+
+554
+01:03:18.550 --> 01:03:20.040
+Jitendra K: Or new hidden state.
+
+555
+01:03:20.480 --> 01:03:26.519
+Jitendra K: So overall, if I have to say, GRU is a popular alternative to LSTM for modeling sequential data.
+
+556
+01:03:26.720 --> 01:03:33.709
+Jitendra K: Specifically in the case where computational resources are limited, or where speed Or simpler architecture, doesn't matter.
+
+557
+01:03:35.130 --> 01:03:42.549
+Jitendra K: So, how GRU works… so, like other recurrent neural networks, GRU process sequential data, one element at a time.
+
+558
+01:03:42.810 --> 01:03:47.149
+Jitendra K: Updating its hidden state based upon the current input and the previous hidden state.
+
+559
+01:03:47.500 --> 01:03:52.689
+Jitendra K: So at each time step, the GRU computes a candidate activation vector.
+
+560
+01:03:53.320 --> 01:04:00.600
+Jitendra K: that combines information from the input and the previous hidden state. And this candidate vector is then used to
+
+561
+01:04:00.750 --> 01:04:03.380
+Jitendra K: Update the hidden state for the next time step.
+
+562
+01:04:04.970 --> 01:04:10.259
+Jitendra K: So the candidate activation vector is computed using two gates, the reset gate and the update gate.
+
+563
+01:04:10.560 --> 01:04:14.960
+Jitendra K: The reset gate determines how much of the previous hidden state to forgot.
+
+564
+01:04:15.350 --> 01:04:20.789
+Jitendra K: While the update can determine how much of the candidate activation vector to incorporate in the new state.
+
+565
+01:04:22.490 --> 01:04:26.510
+Jitendra K: So, if we have to talk about the mathematics behind GRU,
+
+566
+01:04:26.740 --> 01:04:29.699
+Jitendra K: It is slightly simpler as compared to LSTM.
+
+567
+01:04:30.330 --> 01:04:34.390
+Jitendra K: Because of the number of… Gates is less.
+
+568
+01:04:34.860 --> 01:04:41.839
+Jitendra K: So you have got reset gate R, You've got updated gate Z.
+
+569
+01:04:43.330 --> 01:04:46.339
+Jitendra K: which are computing using current input, X,
+
+570
+01:04:47.590 --> 01:04:50.290
+Jitendra K: And previous hidden state edge of T minus 1.
+
+571
+01:04:50.450 --> 01:04:52.280
+Jitendra K: Right, so these are your variables.
+
+572
+01:04:53.860 --> 01:04:57.250
+Jitendra K: So if I have to say R, Reset gate.
+
+573
+01:04:57.640 --> 01:05:01.629
+Jitendra K: at a current timestamp T, what is the input it will take?
+
+574
+01:05:02.640 --> 01:05:12.910
+Jitendra K: So it will take sigmoid… W of R, Multiply by…
+
+575
+01:05:13.810 --> 01:05:17.120
+Jitendra K: etch of hidden state of previous cell.
+
+576
+01:05:19.980 --> 01:05:22.530
+Jitendra K: And input of the current cell.
+
+577
+01:05:25.710 --> 01:05:29.199
+Jitendra K: while Z of T Which is yours?
+
+578
+01:05:31.040 --> 01:05:32.450
+Jitendra K: updated gate.
+
+579
+01:05:32.630 --> 01:05:34.840
+Jitendra K: We'll take sigmoid.
+
+580
+01:05:36.540 --> 01:05:38.130
+Jitendra K: W of Z.
+
+581
+01:05:39.400 --> 01:05:44.020
+Jitendra K: into… H off… T minus 1.
+
+582
+01:05:47.860 --> 01:05:48.850
+Jitendra K: Excellent.
+
+583
+01:05:49.090 --> 01:05:49.800
+Jitendra K: B.
+
+584
+01:05:51.850 --> 01:05:56.320
+Jitendra K: So where W and W are the weighted metrics that learn during training?
+
+585
+01:05:56.800 --> 01:06:06.770
+Jitendra K: So the candidate activation function, H of T, Will be calculated by… Dan Edge.
+
+586
+01:06:07.780 --> 01:06:09.680
+Jitendra K: Because it has to add.
+
+587
+01:06:10.570 --> 01:06:14.590
+Jitendra K: So minus 1 to plus 1. If you're writing information, it will use plus.
+
+588
+01:06:15.410 --> 01:06:18.630
+Jitendra K: If you're adding negative, you're deleting the information.
+
+589
+01:06:19.430 --> 01:06:27.290
+Jitendra K: W of H… into… the input from R of T.
+
+590
+01:06:28.670 --> 01:06:30.539
+Jitendra K: H of T minus 1.
+
+591
+01:06:33.300 --> 01:06:34.480
+Jitendra K: X of P.
+
+592
+01:06:37.320 --> 01:06:39.170
+Jitendra K: This will be multiplicative.
+
+593
+01:06:40.180 --> 01:06:42.170
+Jitendra K: And this is another factor.
+
+594
+01:06:43.260 --> 01:06:49.189
+Jitendra K: So basically, the new written state is computed by combining the candidate activation factor with the previous written state.
+
+595
+01:06:50.400 --> 01:06:55.270
+Jitendra K: Right, so GRE comprised of input layer, hidden layer, reset gate, updated gate.
+
+596
+01:06:55.380 --> 01:06:57.750
+Jitendra K: continuation activation function.
+
+597
+01:06:58.030 --> 01:07:01.509
+Jitendra K: Sorry, candidate activation vectors, and the output layer.
+
+598
+01:07:02.350 --> 01:07:05.079
+Jitendra K: So, the input layer is a sequential data.
+
+599
+01:07:05.610 --> 01:07:08.979
+Jitendra K: Such a sequence of words, or a time series of values.
+
+600
+01:07:09.460 --> 01:07:12.040
+Jitendra K: And this is what you are going to feed it to the GRU.
+
+601
+01:07:12.340 --> 01:07:19.920
+Jitendra K: The hidden layer is where the recurrent computation occurs at each time step. The hidden state is updated based upon the current time.
+
+602
+01:07:20.170 --> 01:07:27.050
+Jitendra K: and the previous hidden state. And the hidden state vector is a vector of numbers that represent the network memory of the previous inputs.
+
+603
+01:07:27.570 --> 01:07:35.009
+Jitendra K: Then the reset gate determines how much of the previous hidden state. To forward, it takes the input of the previous hidden state and the current input.
+
+604
+01:07:35.300 --> 01:07:41.370
+Jitendra K: And produce a vector of number between 0 to 1 that controls the degree to which freedom state is reset.
+
+605
+01:07:42.030 --> 01:07:48.430
+Jitendra K: Updated gate, on the other hand, determine how much of the candidate activation vector
+
+606
+01:07:48.850 --> 01:07:52.499
+Jitendra K: to incorporate into the new hidden state. We take our input.
+
+607
+01:07:53.390 --> 01:07:55.849
+Jitendra K: From the previous written state and current input.
+
+608
+01:07:56.110 --> 01:08:03.420
+Jitendra K: And produce a vector of 0 to 1 that control the degree to which candidate activation vector is incorporated in the new hidden state.
+
+609
+01:08:04.680 --> 01:08:07.639
+Jitendra K: So once the candidate activation vector is modified.
+
+610
+01:08:08.010 --> 01:08:09.990
+Jitendra K: Based upon the previous written state.
+
+611
+01:08:10.170 --> 01:08:14.780
+Jitendra K: It will either do a reset, or… Pass forward.
+
+612
+01:08:15.030 --> 01:08:18.660
+Jitendra K: That means it will use activation function, which is 10H.
+
+613
+01:08:19.290 --> 01:08:23.020
+Jitendra K: Where the value will squash between minus 1 to plus 1.
+
+614
+01:08:24.899 --> 01:08:33.270
+Jitendra K: The output layer takes a final hidden state as an input and produces a network output. So this could be a single number, a sequence of number, or a probability distribution.
+
+615
+01:08:33.540 --> 01:08:35.980
+Jitendra K: Over the classes, depending upon the task in hand.
+
+616
+01:08:36.640 --> 01:08:39.130
+Jitendra K: The pros and cons of GRU is…
+
+617
+01:08:39.810 --> 01:08:47.200
+Jitendra K: GRU is very similar to LSTM, but with few parameters, making them computationally less expensive and faster to frame.
+
+618
+01:08:47.569 --> 01:08:54.529
+Jitendra K: GRU Network can handle long-term dependency in a sequential data by selective remembering or forgetting the previous inputs.
+
+619
+01:08:55.250 --> 01:09:03.460
+Jitendra K: GRU network have been shown to perform well on a variety of tasks, including translation, speech recognition, music generation as well.
+
+620
+01:09:04.300 --> 01:09:08.700
+Jitendra K: And you can use GRU for sequence-to-sequence classification.
+
+621
+01:09:09.910 --> 01:09:20.260
+Jitendra K: The consequences of using GRE would be the GRE network may not be performed as well as LSTM on a task that required modeling very long-term dependency, or a complex sequential pattern.
+
+622
+01:09:21.279 --> 01:09:25.779
+Jitendra K: That means it will give you some fast prototype, but it will not guarantee the quality of output.
+
+623
+01:09:27.069 --> 01:09:28.899
+Jitendra K: It may prone to overfitting.
+
+624
+01:09:29.319 --> 01:09:31.250
+Jitendra K: Especially on a small dataset.
+
+625
+01:09:31.979 --> 01:09:36.279
+Jitendra K: you need required… Careful fine-tuning.
+
+626
+01:09:36.830 --> 01:09:39.830
+Jitendra K: When you're creating the GRE-based networks.
+
+627
+01:09:41.330 --> 01:09:45.220
+Jitendra K: Overall, I would say GRUs are powerful for modeling sequential data.
+
+628
+01:09:45.930 --> 01:09:51.150
+Jitendra K: Specifically in the cases where computational resources are limited, or where the simpler architecture is desired.
+
+629
+01:09:51.500 --> 01:09:56.480
+Jitendra K: However, like machine learning models, they have a limitation and require careful consideration.
+
+630
+01:09:56.830 --> 01:10:02.970
+Jitendra K: When you're choosing the appropriate model for particular tasks. So I would say when you're deploying it in production, I would prefer LSTM.
+
+631
+01:10:03.220 --> 01:10:04.310
+Jitendra K: Not GRU.
+
+632
+01:10:04.640 --> 01:10:08.189
+Jitendra K: GIU is good for experimentation, but not for productionization.
+
+633
+01:10:13.610 --> 01:10:16.880
+Jitendra K: Right, so this is how the GRU model operates.
+
+634
+01:10:17.360 --> 01:10:19.690
+Jitendra K: Now, the difference is very clear, that
+
+635
+01:10:20.160 --> 01:10:22.810
+Jitendra K: Both are serving the same purpose, near about…
+
+636
+01:10:22.980 --> 01:10:25.020
+Jitendra K: Same thing, but with less parameter.
+
+637
+01:10:30.100 --> 01:10:34.479
+Jitendra K: So, any question on GRU LSTM now? Are you clear so far?
+
+638
+01:10:35.080 --> 01:10:40.580
+Jitendra K: What is the difference? What makes these architectures so challenging, so different from each other?
+
+639
+01:10:51.530 --> 01:10:53.320
+Jitendra K: Alright, how are you there?
+
+640
+01:10:53.660 --> 01:10:54.920
+Jitendra K: Are you falling so far?
+
+641
+01:11:02.940 --> 01:11:07.599
+Jitendra K: Yeah, I mean, when you're creating a production-ready translation model, I would not use GRU.
+
+642
+01:11:11.640 --> 01:11:13.829
+Jitendra K: I can use it for POC purpose.
+
+643
+01:11:39.820 --> 01:11:46.050
+Jitendra K: Any other question, guys? So I think, this code will take some time.
+
+644
+01:12:14.790 --> 01:12:17.940
+Jitendra K: Now, if I have to just call out the three comparisons.
+
+645
+01:12:23.560 --> 01:12:25.629
+Jitendra K: So, if I have to just compare…
+
+646
+01:12:26.550 --> 01:12:32.289
+Jitendra K: the three architecture that we have discussed so far, which include Vanilla, LSTM, and RNN.
+
+647
+01:12:32.710 --> 01:12:34.780
+Jitendra K: So this is the difference between the three.
+
+648
+01:12:35.260 --> 01:12:38.330
+Jitendra K: So you can see the way that information has been progressed.
+
+649
+01:12:39.020 --> 01:12:46.729
+Jitendra K: will be slightly… less redundant than GRU as compared to LSTN.
+
+650
+01:12:47.400 --> 01:12:54.750
+Jitendra K: And here, RNN is… not even… Consider for high, complex tasks.
+
+651
+01:12:54.990 --> 01:12:58.369
+Jitendra K: So, definitely, I'm going to use LST or GRU.
+
+652
+01:12:58.560 --> 01:13:04.619
+Jitendra K: for doing this analysis, preferably the LSTM, if I might compute and… Infra is sufficient to operate.
+
+653
+01:13:44.330 --> 01:13:50.879
+Jitendra K: Yeah, it is, the word weights, not word, the word representation in vector form.
+
+654
+01:13:51.200 --> 01:13:53.970
+Jitendra K: That you're using to predict the next sequence.
+
+655
+01:13:55.750 --> 01:13:58.309
+Jitendra K: In CNN, we are using Pixel…
+
+656
+01:13:59.120 --> 01:14:05.919
+Jitendra K: geometries to train the model. Pixels are also represented by text, sorry, numbers, right?
+
+657
+01:14:06.680 --> 01:14:10.629
+Jitendra K: We're using integer ranges to define the pixels.
+
+658
+01:14:14.630 --> 01:14:16.430
+Jitendra K: Here we are talking about vectors.
+
+659
+01:14:26.350 --> 01:14:32.790
+Jitendra K: Globe is a pre-trained model, so Globe, is a pre-trained model from Stanford, right?
+
+660
+01:14:33.200 --> 01:14:36.569
+Jitendra K: So, if you have to look into the globe internal.
+
+661
+01:15:00.480 --> 01:15:02.780
+Jitendra K: This is how the globe looks like internally.
+
+662
+01:15:06.680 --> 01:15:11.759
+Jitendra K: This is just a one-dimensional representation of globe emitting vectors.
+
+663
+01:15:12.920 --> 01:15:16.210
+Jitendra K: So you can see that the words are represented as the clusters.
+
+664
+01:15:17.020 --> 01:15:20.209
+Jitendra K: And each cluster will have a similar word together.
+
+665
+01:15:32.360 --> 01:15:37.409
+Jitendra K: So basically what Globe does is, it will represent your data, your,
+
+666
+01:15:38.140 --> 01:15:43.700
+Jitendra K: Output into a frequency-based analysis, and then… generate…
+
+667
+01:15:44.840 --> 01:15:48.789
+Jitendra K: A distance criteria, using a distance criteria, it will represent the words.
+
+668
+01:15:59.850 --> 01:16:06.810
+Jitendra K: So you can check this… Visual library, which talks about word embedding using Gloves.
+
+669
+01:16:07.610 --> 01:16:10.759
+Jitendra K: And this is how it arranged internally.
+
+670
+01:16:24.810 --> 01:16:29.080
+Jitendra K: So in transform model, we will use some more advanced… Factors.
+
+671
+01:16:29.580 --> 01:16:34.990
+Jitendra K: This is… this is still a shallow-level embeddings. These are small embeddings.
+
+672
+01:16:35.580 --> 01:16:36.969
+Jitendra K: Very small embedding.
+
+673
+01:16:39.670 --> 01:16:41.760
+Jitendra K: So what embedding vector does is…
+
+674
+01:16:43.130 --> 01:16:50.120
+Jitendra K: If I have to just give you the evolution criteria, so what I'm bidding… is…
+
+675
+01:16:51.820 --> 01:16:56.370
+Jitendra K: One of the core feature engineering tasks that you're going to perform on an LP model.
+
+676
+01:16:56.590 --> 01:16:58.590
+Jitendra K: So there are different types of word embedding.
+
+677
+01:16:59.220 --> 01:17:04.480
+Jitendra K: So we started with traditional word embedding, including count vectorization, TFIDF,
+
+678
+01:17:05.140 --> 01:17:13.320
+Jitendra K: co-occurrence metrics. Then you might have the advanced models, like Word2VAC, Glow, fast text.
+
+679
+01:17:13.740 --> 01:17:17.420
+Jitendra K: Now, contextual word embedding, which talks about the context
+
+680
+01:17:18.080 --> 01:17:24.630
+Jitendra K: of the sentence in the form of a word, which includes ALMO, GPT-2 models, and the BERT model.
+
+681
+01:17:26.320 --> 01:17:33.290
+Jitendra K: The core idea here is, if you have to rank the embedding, It depends upon several parameters.
+
+682
+01:17:33.950 --> 01:17:36.610
+Jitendra K: So, the parameters are predefined.
+
+683
+01:17:37.590 --> 01:17:43.810
+Jitendra K: Some of the parameters are depending upon the business requirement. So if I'm going to concatenate.
+
+684
+01:17:44.300 --> 01:17:48.070
+Jitendra K: or combine all factors together, then I will create a leadership board.
+
+685
+01:17:48.550 --> 01:17:54.589
+Jitendra K: And this leadership board will help me to identify which model is performing well on a particular task.
+
+686
+01:18:00.620 --> 01:18:06.889
+Jitendra K: So there's a concept of leadership board to evaluate the performance of any embedding models.
+
+687
+01:18:08.010 --> 01:18:11.160
+Jitendra K: So, basically, embedding model is just like your…
+
+688
+01:18:13.370 --> 01:18:18.300
+Jitendra K: car fuel, or car oil, right, which you're feeding to the machine.
+
+689
+01:18:18.880 --> 01:18:23.620
+Jitendra K: If your car performance increased, then you will have to share it and repurchase the same engine oil.
+
+690
+01:18:23.780 --> 01:18:26.240
+Jitendra K: If it is not, then you will switch to the new.
+
+691
+01:18:28.010 --> 01:18:35.849
+Jitendra K: Same thing it is performing, fueling the model with the vectors representation, numerical representation of the data.
+
+692
+01:18:36.340 --> 01:18:37.560
+Jitendra K: So which may…
+
+693
+01:18:38.030 --> 01:18:45.010
+Jitendra K: help you to solve complex problems, like text summarization, text Q&A. It's a very complex problem, right?
+
+694
+01:18:45.440 --> 01:18:51.059
+Jitendra K: When you have a Word document and you're generating an answer by taking the question from the user.
+
+695
+01:18:51.410 --> 01:18:55.619
+Jitendra K: This is what ChatGPT does, right? So ChatGPT has been trained on
+
+696
+01:18:55.870 --> 01:18:58.739
+Jitendra K: Massive amount of data, all internet data.
+
+697
+01:18:58.890 --> 01:19:05.450
+Jitendra K: And then you're searching, Based upon your own context, and doing something
+
+698
+01:19:06.780 --> 01:19:11.500
+Jitendra K: Let's say we are doing maybe a resume modification, very simple task.
+
+699
+01:19:11.980 --> 01:19:14.689
+Jitendra K: You're explaining that how should my regime looks like.
+
+700
+01:19:15.320 --> 01:19:17.800
+Jitendra K: And you are giving some XYZ
+
+701
+01:19:18.010 --> 01:19:22.389
+Jitendra K: example that this is what I need in my resume, based upon the JD.
+
+702
+01:19:22.770 --> 01:19:25.500
+Jitendra K: Now, based upon that JD, it is trying to…
+
+703
+01:19:27.920 --> 01:19:34.049
+Jitendra K: Fit in your resume, and position your resume with those words, which is in the internet domain.
+
+704
+01:19:35.160 --> 01:19:38.020
+Jitendra K: Right? And then predicting the next word, based upon that.
+
+705
+01:19:38.800 --> 01:19:43.160
+Jitendra K: We'll start with… Phrasing your resume.
+
+706
+01:19:43.330 --> 01:19:46.160
+Jitendra K: With the degree of association that you want.
+
+707
+01:19:46.740 --> 01:19:49.390
+Jitendra K: And then predicting the next sentence from that.
+
+708
+01:19:50.380 --> 01:19:57.459
+Jitendra K: So, even the GPT models are nothing but a next-sentence prediction model. Next word, it's a prediction model, right? Nothing else.
+
+709
+01:19:58.910 --> 01:20:03.970
+Jitendra K: I think this has been done. Early stopping has been invoked.
+
+710
+01:20:04.900 --> 01:20:07.410
+Jitendra K: So, let me check…
+
+711
+01:20:43.650 --> 01:20:49.530
+Jitendra K: Okay, that did be complete. So, basically, the sentence… or a word.
+
+712
+01:20:49.770 --> 01:20:57.540
+Jitendra K: have to be represented with some numerical weights, right? So when you say numerical weights, Which is nothing but…
+
+713
+01:20:57.920 --> 01:21:02.109
+Jitendra K: The numerical will be determined by the language model itself.
+
+714
+01:21:02.320 --> 01:21:05.330
+Jitendra K: Or the word embedding model itself. So that means…
+
+715
+01:21:06.220 --> 01:21:12.819
+Jitendra K: Based upon the words which are available in DataNet, you're using all possible permutation combination.
+
+716
+01:21:13.840 --> 01:21:18.919
+Jitendra K: Using word embedding model, because these are known text, right? So, some of the words…
+
+717
+01:21:19.230 --> 01:21:22.670
+Jitendra K: Context may change. Let's say you're saying bank.
+
+718
+01:21:23.220 --> 01:21:25.119
+Jitendra K: We're using a concept of a bank.
+
+719
+01:21:25.230 --> 01:21:29.600
+Jitendra K: Maybe to the Holy Rivers, or maybe to the financial institution.
+
+720
+01:21:29.930 --> 01:21:36.419
+Jitendra K: So that context may change depending upon your application, but the words are fixed, right, in English domain dictionary.
+
+721
+01:21:36.880 --> 01:21:43.909
+Jitendra K: And if you're training the model with all the possible permutation combination of predicting the next sequence of that particular word.
+
+722
+01:21:44.110 --> 01:21:51.290
+Jitendra K: then you will be able to get and store that particular vector in a form of a dictionary, which is called word embedding. So it's a dictionary to your…
+
+723
+01:21:51.650 --> 01:21:55.060
+Jitendra K: model that you're going to use to train LLMs.
+
+724
+01:21:55.980 --> 01:22:00.220
+Jitendra K: Right, so embedding vectors… are pre-trained models.
+
+725
+01:22:00.460 --> 01:22:04.189
+Jitendra K: That means you have some pre-trained, and you are using transfer learning to operate.
+
+726
+01:22:05.450 --> 01:22:11.649
+Jitendra K: So you're just using a transfer learning approach to utilize these libraries, which is pre-existing.
+
+727
+01:22:12.010 --> 01:22:16.780
+Jitendra K: And then, using this library, you are trying to fit in your architecture to operate.
+
+728
+01:22:17.960 --> 01:22:20.970
+Jitendra K: And you can do… Simple tasks like…
+
+729
+01:22:21.550 --> 01:22:26.670
+Jitendra K: summarization, to the more complex tasks, like Q&A.
+
+730
+01:22:26.810 --> 01:22:34.860
+Jitendra K: And even, report generation. Generation task is very complex, right? Which we are discussing with… which we are going to discuss with the help of transformers.
+
+731
+01:22:35.320 --> 01:22:38.360
+Jitendra K: But RNN is good for prediction, not for generation.
+
+732
+01:22:39.930 --> 01:22:44.030
+Jitendra K: That's a limitation of LSTM, even your GRU.
+
+733
+01:22:44.550 --> 01:22:46.099
+Jitendra K: They're not generative model.
+
+734
+01:22:48.150 --> 01:22:51.830
+Jitendra K: We're not generating the help of wireless TM and GREs.
+
+735
+01:22:52.320 --> 01:22:55.370
+Jitendra K: We are predicting with the help of LSTM and GRE.
+
+736
+01:22:56.970 --> 01:22:59.450
+Jitendra K: By training them with examples.
+
+737
+01:22:59.780 --> 01:23:01.569
+Jitendra K: Here, I'm saying that I have a…
+
+738
+01:23:02.010 --> 01:23:06.389
+Jitendra K: List of positive, negative, and neutral characters, sentences.
+
+739
+01:23:06.770 --> 01:23:09.130
+Jitendra K: Can you understand them, and then…
+
+740
+01:23:09.690 --> 01:23:16.690
+Jitendra K: I will give you the new examples. Help me to label it appropriately. That is what we are doing with this example.
+
+741
+01:23:17.350 --> 01:23:21.740
+Jitendra K: Right? Similar to machine learning, we are feeding labels, And then…
+
+742
+01:23:21.940 --> 01:23:27.720
+Jitendra K: From labels, the model will understand the patterns, and then generate an answer on the unseen data.
+
+743
+01:23:28.080 --> 01:23:29.780
+Jitendra K: Similarly, we have done this.
+
+744
+01:23:30.900 --> 01:23:35.449
+Jitendra K: Example to ensure that we are feeding the data with.
+
+745
+01:23:36.240 --> 01:23:39.989
+Jitendra K: The pre-existing labels, and now we are using some demos.
+
+746
+01:23:40.530 --> 01:23:45.780
+Jitendra K: To see how it is predicting, what accuracy it is, making…
+
+747
+01:23:46.700 --> 01:23:48.489
+Jitendra K: Making a thought from the world.
+
+748
+01:23:59.160 --> 01:24:00.979
+Jitendra K: Alright, so I think,
+
+749
+01:24:01.400 --> 01:24:07.729
+Jitendra K: Let's take a quick break of 20 minutes. So once we come back, we'll see the example will be done.
+
+750
+01:24:08.740 --> 01:24:15.639
+Jitendra K: And, we will revisit the example, the code, and then we'll include… we will also include one code for GRU.
+
+751
+01:24:16.540 --> 01:24:21.050
+Jitendra K: And we'll compare the architecture in terms of implementation feasibility.
+
+752
+01:24:21.360 --> 01:24:28.070
+Jitendra K: And finally, we'll move on to something interesting called Transformers. The Transformer is the backbone of modern-day
+
+753
+01:24:29.220 --> 01:24:35.379
+Jitendra K: architecture, so transformer is the… Ore of everything. Just like neural network.
+
+754
+01:24:36.330 --> 01:24:40.850
+Jitendra K: The beginning of deep learning. The transformer is the beginning of…
+
+755
+01:24:43.130 --> 01:24:46.540
+Jitendra K: generative retrain, or I would say generative modeling.
+
+756
+01:24:46.930 --> 01:24:52.320
+Jitendra K: Right, so generative… Generative models are great in generating the data.
+
+757
+01:24:53.250 --> 01:25:02.570
+Jitendra K: So we'll talk about transformers, and how Transformer will help you to create More robust architecture.
+
+758
+01:25:03.090 --> 01:25:06.950
+Jitendra K: And, there's something called a tension mechanism in transformer.
+
+759
+01:25:07.260 --> 01:25:12.800
+Jitendra K: That will help you to differentiate The context predicts seamlessly.
+
+760
+01:25:13.050 --> 01:25:19.119
+Jitendra K: So we'll discuss transformers, Before that, let's cover the code.
+
+761
+01:25:19.510 --> 01:25:23.089
+Jitendra K: And once we complete the code, then we move on to the transform architecture.
+
+762
+01:25:25.100 --> 01:25:28.799
+Jitendra K: So let's take a quick 20 minutes break, and then we can start the session. Thank you, Race.
+
+763
+01:49:04.610 --> 01:49:07.790
+Jitendra K: Hi guys, I hope you're back, and we have a quick confirmation.
+
+764
+01:49:26.200 --> 01:49:27.210
+Jitendra K: Okay.
+
+765
+01:49:35.060 --> 01:49:40.889
+Jitendra K: Okay, so before we went over to the break, we talked about GRU, and I'm going to discuss about
+
+766
+01:49:41.110 --> 01:49:43.739
+Jitendra K: how to implement a GRU from the scratch.
+
+767
+01:49:44.430 --> 01:49:46.110
+Jitendra K: Just give me a moment.
+
+768
+01:50:13.400 --> 01:50:18.000
+Jitendra K: So, I will open the new… Cool lab.
+
+769
+01:51:18.600 --> 01:51:23.029
+Jitendra K: Okay, so first I will explain to you how to implement a GRU from the scratch.
+
+770
+01:51:23.840 --> 01:51:29.340
+Jitendra K: So, what are the building blocks that are required to implement a GRU model using TensorFlow?
+
+771
+01:51:29.990 --> 01:51:37.370
+Jitendra K: So basically, the first and foremost thing that he required Is the stacking layers.
+
+772
+01:51:38.440 --> 01:51:44.050
+Jitendra K: That means, there's a class in TensorFlow that will help you to build that. Let me explain you that class.
+
+773
+01:51:44.890 --> 01:51:46.190
+Jitendra K: This is the class.
+
+774
+01:51:46.320 --> 01:51:48.689
+Jitendra K: which is from Keras.layer.
+
+775
+01:51:48.930 --> 01:51:51.110
+Jitendra K: Which will help you to implement a GRU.
+
+776
+01:51:51.580 --> 01:51:52.480
+Jitendra K: model.
+
+777
+01:51:52.700 --> 01:52:00.000
+Jitendra K: Right? Now, I will show you what are the different parameters for this particular model and function that you're going to use.
+
+778
+01:52:00.810 --> 01:52:02.999
+Jitendra K: And what are the different components of?
+
+779
+01:52:03.440 --> 01:52:04.370
+Jitendra K: GRU.
+
+780
+01:52:05.850 --> 01:52:09.500
+Jitendra K: So… First and foremost thing.
+
+781
+01:52:09.710 --> 01:52:15.109
+Jitendra K: if I have to maybe use the same dataset that I'm using earlier, which is IMDB,
+
+782
+01:52:16.040 --> 01:52:26.920
+Jitendra K: I'm going to use the TensorFlow dataset from IMDB. I'm going to use sequential class, and this time I'm going to use GRU. Previously, I have used LSTM.
+
+783
+01:52:27.530 --> 01:52:28.729
+Jitendra K: as a class.
+
+784
+01:52:30.360 --> 01:52:33.540
+Jitendra K: Now I'm using a GRU functions to implement.
+
+785
+01:52:34.130 --> 01:52:40.270
+Jitendra K: Now, the maximum feature, so I'm considering here to be about 10,000 most frequent occurring quotes in the dataset.
+
+786
+01:52:40.710 --> 01:52:44.880
+Jitendra K: Maximum length, I'm keeping it with 500. We paired all the reviews so that
+
+787
+01:52:45.880 --> 01:52:50.450
+Jitendra K: We have exactly 500 votes, review shorter, than this.
+
+788
+01:52:51.690 --> 01:52:53.680
+Jitendra K: Now, I'm keeping the part sequence.
+
+789
+01:52:55.010 --> 01:52:59.710
+Jitendra K: to fill… And make the sequence.
+
+790
+01:53:00.430 --> 01:53:03.799
+Jitendra K: EQ proportionate, that means the length of the sequence should be equal.
+
+791
+01:53:04.170 --> 01:53:08.870
+Jitendra K: So I'm just using… The maximum lat… length.
+
+792
+01:53:09.000 --> 01:53:11.049
+Jitendra K: And then, using the…
+
+793
+01:53:11.730 --> 01:53:19.739
+Jitendra K: Training characters to fill with all zero. By parting all the sequence to the same line, the GRE will process each sequence as if it contained 500 time steps.
+
+794
+01:53:20.430 --> 01:53:22.680
+Jitendra K: Now, I would like to build a GRU model.
+
+795
+01:53:23.580 --> 01:53:29.790
+Jitendra K: Now, to build a model, you require two things. One is the parameters to the model, input parameter.
+
+796
+01:53:30.410 --> 01:53:33.849
+Jitendra K: And, what kind of activation function you're going to implement.
+
+797
+01:53:34.110 --> 01:53:41.730
+Jitendra K: So we start with an embedding layer to convert the integer words into a dense vector representation, because the GRU model will follow
+
+798
+01:53:42.400 --> 01:53:43.559
+Jitendra K: the process…
+
+799
+01:53:45.130 --> 01:53:51.320
+Jitendra K: So here the process is, it will follow the input sequence. So finally, we have a dense layer with sigmoid activation function.
+
+800
+01:53:51.470 --> 01:53:58.470
+Jitendra K: to output a probability for a binary classification, which is positive or negative in our case, which is sentiment analyzer.
+
+801
+01:53:58.670 --> 01:54:00.139
+Jitendra K: So I will compile this.
+
+802
+01:54:01.000 --> 01:54:07.929
+Jitendra K: Now, the layer con- converts word indexes into a dense vector of fixed size embedding 128.
+
+803
+01:54:11.450 --> 01:54:19.580
+Jitendra K: Now, what I'm going to do is, I would like to add a single GRU layer with a 64 unit. The number of units control the capability of the GRU to learn from sequence.
+
+804
+01:54:19.750 --> 01:54:23.659
+Jitendra K: You can increase or decrease this value based upon the…
+
+805
+01:54:24.250 --> 01:54:27.300
+Jitendra K: Complexity of the task and data set volume.
+
+806
+01:54:27.880 --> 01:54:37.469
+Jitendra K: I'm creating a dense activation layer with a sigmoid activation function, which will be a single probabilical value, which will yield a single probabilical value between 0 to 1.
+
+807
+01:54:37.640 --> 01:54:41.779
+Jitendra K: Representing 0 for negative, 1 for positive as a sentiment.
+
+808
+01:54:42.240 --> 01:54:45.730
+Jitendra K: Now, once I create the simple model, I would like to compile
+
+809
+01:54:46.820 --> 01:54:50.279
+Jitendra K: with the objectives, I will say, let's compile the model.
+
+810
+01:54:50.920 --> 01:54:59.659
+Jitendra K: So I'm compiling the model with an atom optimizer and binary cross-entropy loss, and the binary cross entropy loss is used for binary classification.
+
+811
+01:54:59.840 --> 01:55:07.870
+Jitendra K: And we are also tracking the accuracy during training. So I'm using Adaptive Momentum Optimizer, which is a popular choice for adaptive learning.
+
+812
+01:55:08.130 --> 01:55:12.250
+Jitendra K: And efficiency, and the loss function that I'm using is a binary cross entropy.
+
+813
+01:55:12.640 --> 01:55:17.299
+Jitendra K: Which is ideal for binary classification problems. And the matrix that I'm tracking is accuracy.
+
+814
+01:55:17.930 --> 01:55:20.939
+Jitendra K: Now, we train for 3POC, you can experiment with more.
+
+815
+01:55:21.450 --> 01:55:24.519
+Jitendra K: Depending upon the data set and the computational sources.
+
+816
+01:55:24.640 --> 01:55:30.609
+Jitendra K: A batch size of 64 is significant. Larger batch size typically train faster, but consume more memory.
+
+817
+01:55:30.940 --> 01:55:34.150
+Jitendra K: And then I will evaluate a model in terms of loss.
+
+818
+01:55:34.390 --> 01:55:39.240
+Jitendra K: and accuracy. So I'll say, can you give me the loss and accuracy of this model?
+
+819
+01:55:40.680 --> 01:55:47.770
+Jitendra K: And maybe, once I have trained the model, I can do some real-world prediction on the top of it. So I can use some
+
+820
+01:55:49.050 --> 01:55:55.819
+Jitendra K: prediction on the top of it. So, this is more simpler as compared to the previous example, where I'm not introducing any embeddings
+
+821
+01:55:56.000 --> 01:55:59.890
+Jitendra K: I'm just relying on pure data to work on this.
+
+822
+01:56:01.460 --> 01:56:06.170
+Jitendra K: So let's see how it works, and can I get… the better answer…
+
+823
+01:56:08.640 --> 01:56:10.749
+Jitendra K: This is still running, I think.
+
+824
+01:56:18.730 --> 01:56:22.830
+Jitendra K: But this one should finish soon, because it is running for 3POC.
+
+825
+01:56:48.480 --> 01:56:54.249
+Jitendra K: So I will go for a mute, because this will take slightly 5 to 6 minutes.
+
+826
+01:56:54.690 --> 01:56:55.940
+Jitendra K: Let it be done.
+
+827
+02:06:09.900 --> 02:06:15.930
+Jitendra K: Now the last epoch is started, so… It will finish.
+
+828
+02:10:46.090 --> 02:10:50.130
+Jitendra K: I think it's almost done. Just a few more seconds.
+
+829
+02:11:35.740 --> 02:11:41.039
+Jitendra K: So you can see that every time when I'm creating a model, it will create a checkback… callback history.
+
+830
+02:11:41.150 --> 02:11:42.690
+Jitendra K: To create a checkpoint.
+
+831
+02:11:42.970 --> 02:11:47.719
+Jitendra K: Now, I'm just evaluating the model on the… on the overall loss.
+
+832
+02:12:33.170 --> 02:12:38.670
+Jitendra K: So the accuracy of this model is radiate, Percent, 88.16.
+
+833
+02:12:38.770 --> 02:12:40.169
+Jitendra K: Close to 88.
+
+834
+02:12:40.760 --> 02:12:43.459
+Jitendra K: Now I'm loading some test data.
+
+835
+02:12:44.000 --> 02:12:48.780
+Jitendra K: And try to predict Or unseen data set, so the first…
+
+836
+02:12:49.140 --> 02:12:53.079
+Jitendra K: scenario, I'm saying I absolutely love this movie, the storylines was engaging.
+
+837
+02:12:53.320 --> 02:12:55.729
+Jitendra K: So, it ends up with positive sentence.
+
+838
+02:12:56.160 --> 02:13:01.149
+Jitendra K: The film was too slow, boring for my taste. It is still showing positive.
+
+839
+02:13:01.810 --> 02:13:06.849
+Jitendra K: A perfect blend of comedy and drama, truly enjoyable. It's positive. So that means there's some…
+
+840
+02:13:07.400 --> 02:13:09.100
+Jitendra K: Ambiguity in the second one.
+
+841
+02:13:10.620 --> 02:13:18.650
+Jitendra K: But overall, this looks good, with a very simple approach that we have done. But let's try to understand how… how did we perform the analysis?
+
+842
+02:13:19.070 --> 02:13:22.430
+Jitendra K: Internally, what are the things that has been happening internally?
+
+843
+02:13:24.160 --> 02:13:29.840
+Jitendra K: So, the first and foremost thing is… What year are you…
+
+844
+02:13:29.990 --> 02:13:34.659
+Jitendra K: does this, before diving into the code, let me explain what happens inside a GRU cell.
+
+845
+02:13:35.500 --> 02:13:41.570
+Jitendra K: So let's say… If I'm using the sentence… The movie was great.
+
+846
+02:13:42.500 --> 02:13:44.790
+Jitendra K: Very simple, positive sentence.
+
+847
+02:13:45.350 --> 02:13:49.400
+Jitendra K: So the two gates of GRU We'll perform this analysis.
+
+848
+02:13:51.230 --> 02:13:53.340
+Jitendra K: So it will process the word great.
+
+849
+02:13:53.860 --> 02:13:57.679
+Jitendra K: Input embedding vector for grade of certain size.
+
+850
+02:13:57.950 --> 02:14:01.239
+Jitendra K: And then use the hidden state of the previous timestamp.
+
+851
+02:14:01.760 --> 02:14:08.330
+Jitendra K: how much the update happened at a hidden state? That will determine the final output. So the final H of T is what
+
+852
+02:14:08.490 --> 02:14:10.320
+Jitendra K: Get passed to the next word.
+
+853
+02:14:10.580 --> 02:14:16.850
+Jitendra K: So these are the calculations which will happen on those numbers. So it will take… the metrics…
+
+854
+02:14:17.190 --> 02:14:21.379
+Jitendra K: Multiplication to come up with a transformation on this board.
+
+855
+02:14:21.690 --> 02:14:27.099
+Jitendra K: So, in a nutshell, what I'm trying to say is it will focus on a particular word, which is positive.
+
+856
+02:14:27.950 --> 02:14:29.379
+Jitendra K: Now I'm passing…
+
+857
+02:14:29.710 --> 02:14:37.060
+Jitendra K: And loading the data, so I'm saying that I have maximum feature 10,000, maximum length 500, embedding vector size is 128,
+
+858
+02:14:37.680 --> 02:14:43.969
+Jitendra K: So when I'm loading the data, it will load with a word index. It will say that I have a word index.
+
+859
+02:14:45.190 --> 02:14:53.620
+Jitendra K: on these unique words inside your vocabulary, and then I will split This sequence into…
+
+860
+02:14:53.960 --> 02:14:57.310
+Jitendra K: Two further metrics, training and test.
+
+861
+02:14:57.670 --> 02:15:01.570
+Jitendra K: And then add a padding sequence to it, so that it will balance it out.
+
+862
+02:15:02.310 --> 02:15:05.659
+Jitendra K: So I will add a padding sequence, internally it will look like this.
+
+863
+02:15:05.840 --> 02:15:11.720
+Jitendra K: Parding sequence, which is all 0 will be asserted to make it maximum length of 500.
+
+864
+02:15:12.880 --> 02:15:24.690
+Jitendra K: So why padding matters here? Because GRU process sequence step by step. 500 time steps per review. Without padding, batches would be impossible in different length. Zero means I'm adding nothing at the end.
+
+865
+02:15:24.960 --> 02:15:26.950
+Jitendra K: Nothing to process here, right?
+
+866
+02:15:27.240 --> 02:15:32.839
+Jitendra K: Now I'm adding a layer, building the GRU model. So I'm saying I would like to add a GRU model.
+
+867
+02:15:33.090 --> 02:15:34.970
+Jitendra K: With a sequential error.
+
+868
+02:15:35.750 --> 02:15:41.270
+Jitendra K: And the emitting feature, I'm keeping it to be 1000. 10,000, and output dimension is 128.
+
+869
+02:15:41.760 --> 02:15:51.120
+Jitendra K: So, what happens inside this embedding layer? It will convert the input training data into This numerical arrays.
+
+870
+02:15:51.510 --> 02:15:55.249
+Jitendra K: Each numerical array will be a 120-dimensional vector.
+
+871
+02:15:55.620 --> 02:15:58.429
+Jitendra K: So I will convert this into a forward pass.
+
+872
+02:15:59.420 --> 02:16:02.460
+Jitendra K: So I would say, I'm ready with my forward pass.
+
+873
+02:16:02.960 --> 02:16:05.320
+Jitendra K: With a representation on each layer.
+
+874
+02:16:05.720 --> 02:16:08.620
+Jitendra K: And GRU will use their cells
+
+875
+02:16:08.830 --> 02:16:13.889
+Jitendra K: That will learn during the training to create a focus Around positive words.
+
+876
+02:16:14.930 --> 02:16:21.869
+Jitendra K: and negative words, right? So… If I'm using positive words, it will keep a track.
+
+877
+02:16:22.710 --> 02:16:27.369
+Jitendra K: Now, it will process this sequence parallelly.
+
+878
+02:16:27.570 --> 02:16:30.010
+Jitendra K: And try to make a real-world prediction.
+
+879
+02:16:30.350 --> 02:16:39.539
+Jitendra K: That means when my model is learning to understand what is the most focused word in the sentence, and then depending upon that, it will take a…
+
+880
+02:16:40.860 --> 02:16:43.610
+Jitendra K: Call on the unseen scenarios.
+
+881
+02:16:43.860 --> 02:16:45.650
+Jitendra K: So, converting Word2VAC?
+
+882
+02:16:45.889 --> 02:16:50.880
+Jitendra K: Using embedding processing sequence through GRU cells that maintain a memory of what was read.
+
+883
+02:16:51.120 --> 02:16:56.450
+Jitendra K: Using it to decide what to remember and forget, and output a final probability of positive sentiments.
+
+884
+02:16:56.730 --> 02:17:00.830
+Jitendra K: This is what the overall model does.
+
+885
+02:17:01.309 --> 02:17:05.260
+Jitendra K: Inside my… GRU-based model.
+
+886
+02:17:06.730 --> 02:17:14.140
+Jitendra K: So I'll share this code with you guys. I want everybody to not run this, but yes, at least understand this code.
+
+887
+02:17:14.620 --> 02:17:17.330
+Jitendra K: Go line by line, and let me know if there's any question.
+
+888
+02:17:24.770 --> 02:17:32.090
+Jitendra K: you can skip ignoring… you can skip rerunning this, because I already run it for you, so you can just focus on
+
+889
+02:17:32.190 --> 02:17:33.379
+Jitendra K: report part.
+
+890
+02:19:42.650 --> 02:19:48.559
+Jitendra K: So please go through the code, let me know if there's any question, and then we can start with a new topic, which is Transformer.
+
+891
+02:22:47.330 --> 02:22:51.980
+Jitendra K: Yeah, and bidding size is one of the… Parameter that we're using.
+
+892
+02:22:52.280 --> 02:22:57.320
+Jitendra K: So, emetic size is nothing but the number of dimensions used to represent each word as a dance factor.
+
+893
+02:22:57.870 --> 02:23:04.350
+Jitendra K: So basically, in a nutshell, what we are trying to do here is we're trying to see how rich or detailed the word representation is.
+
+894
+02:23:05.350 --> 02:23:06.960
+Jitendra K: In the overall space.
+
+895
+02:23:07.150 --> 02:23:11.629
+Jitendra K: So think of embedding size as the number of coordinates in the map that represent word meaning.
+
+896
+02:23:12.120 --> 02:23:16.829
+Jitendra K: Larger the embedding size, Better the capturing.
+
+897
+02:23:17.210 --> 02:23:22.480
+Jitendra K: But you're, what do you… the processing… power…
+
+898
+02:23:22.640 --> 02:23:26.140
+Jitendra K: Or the processing will increase. The compute requirement will increase.
+
+899
+02:23:26.540 --> 02:23:32.039
+Jitendra K: So basically, how these models are generating each and every word from emitting is…
+
+900
+02:23:32.290 --> 02:23:37.079
+Jitendra K: It will represent your embedding into a dense embedding of 128 vectors.
+
+901
+02:23:37.330 --> 02:23:38.350
+Jitendra K: Like this.
+
+902
+02:23:38.680 --> 02:23:40.960
+Jitendra K: So each row will be a 128 number.
+
+903
+02:23:43.250 --> 02:23:47.420
+Jitendra K: And then I'm using a word index, right? I'm using some word index.
+
+904
+02:23:48.120 --> 02:23:50.590
+Jitendra K: to represent. So I'm saying the word index…
+
+905
+02:23:53.140 --> 02:23:54.999
+Jitendra K: let's say I'm using one word.
+
+906
+02:23:55.150 --> 02:23:59.179
+Jitendra K: Movie, so it will return me an array of 128 number.
+
+907
+02:24:02.760 --> 02:24:09.110
+Jitendra K: Now, the second point is your GRU size, which is the number of hidden layer, or hidden unit in the GRU layer.
+
+908
+02:24:09.420 --> 02:24:15.189
+Jitendra K: We determine the network memory capacity or representation power. So I'm using a GRU size of 64.
+
+909
+02:24:15.630 --> 02:24:17.190
+Jitendra K: In this example.
+
+910
+02:24:20.410 --> 02:24:22.319
+Jitendra K: I'm using it at 64.
+
+911
+02:24:28.000 --> 02:24:28.830
+Jitendra K: Yep.
+
+912
+02:24:29.860 --> 02:24:34.670
+Jitendra K: So, the think of GIS size as how many slots of memory network has.
+
+913
+02:24:35.230 --> 02:24:42.669
+Jitendra K: So, small GRO… Maybe it can remember 16 fact. Larger GRU, it can remember. Larger fact.
+
+914
+02:24:42.890 --> 02:24:47.090
+Jitendra K: So I'm keeping the GIU size to be, depending upon my requirement.
+
+915
+02:24:47.320 --> 02:24:50.570
+Jitendra K: And I'm keeping it something mediocre range 64.
+
+916
+02:24:54.140 --> 02:24:57.920
+Jitendra K: So this is what this model was doing internally.
+
+917
+02:24:58.460 --> 02:25:00.149
+Jitendra K: Does this answer your question?
+
+918
+02:25:06.950 --> 02:25:12.489
+Jitendra K: So, GRE size, you can use a formula as well. So, there's a formula for calculating the GRE size.
+
+919
+02:25:13.010 --> 02:25:20.249
+Jitendra K: If I'm keeping the GIU size, like, There's a formula, GRU size.
+
+920
+02:25:27.400 --> 02:25:39.339
+Jitendra K: Which is equals to 3 times… the embedded size… Multiply by H.
+
+921
+02:25:40.620 --> 02:25:47.090
+Jitendra K: plus… Edge square… plus H.
+
+922
+02:25:50.670 --> 02:25:53.299
+Jitendra K: And there's a formula that you can use for calculating it.
+
+923
+02:25:59.850 --> 02:26:09.570
+Jitendra K: The embedding size will determine how rich the word representation is, and the GRO size will determine how much context a network can remember, and how many patterns can detect simultaneously.
+
+924
+02:26:09.920 --> 02:26:12.330
+Jitendra K: So that's the whole idea of this two-parameter.
+
+925
+02:26:14.020 --> 02:26:22.189
+Jitendra K: Any further questions? Anything that you would like to ask, guys? Are you clear so far at STMG, are you… now your old concepts have been removed?
+
+926
+02:26:22.630 --> 02:26:27.499
+Jitendra K: I hope… That you're just thinking from…
+
+927
+02:26:29.070 --> 02:26:34.129
+Jitendra K: sequential learning, and I don't know, just talking about feedback as well. There's no feedback involved.
+
+928
+02:26:46.510 --> 02:26:48.189
+Jitendra K: Is it clear to everyone?
+
+929
+02:26:48.540 --> 02:26:52.020
+Jitendra K: Are you comfortable of use… in using LSTM now?
+
+930
+02:27:00.420 --> 02:27:04.050
+Jitendra K: This is still running. I think it can run for 3 to 4 hours.
+
+931
+02:27:11.580 --> 02:27:17.029
+Jitendra K: Yes, no, guys, thumbs up, thumbs down, what is, what is the issue here?
+
+932
+02:27:17.800 --> 02:27:20.510
+Jitendra K: Why you guys are so silent, I don't understand.
+
+933
+02:27:25.270 --> 02:27:27.499
+Jitendra K: Is it clear or not, yes or no?
+
+934
+02:27:32.120 --> 02:27:35.900
+Jitendra K: Okay, so shall we proceed with the next topic? Transformers?
+
+935
+02:27:38.450 --> 02:27:39.450
+Jitendra K: Okay, great.
+
+936
+02:27:39.950 --> 02:27:42.000
+Jitendra K: So let's start with transformers.
+
+937
+02:27:42.390 --> 02:27:46.039
+Jitendra K: The transformer is another member of RNN.
+
+938
+02:27:46.330 --> 02:27:49.120
+Jitendra K: Right, so we are still into R&L part.
+
+939
+02:27:51.040 --> 02:27:52.309
+Jitendra K: So, RNN…
+
+940
+02:27:53.410 --> 02:28:00.269
+Jitendra K: Yeah, you can watch Transformers later, so let's start with it, and we have 15 more moments to go.
+
+941
+02:28:00.460 --> 02:28:02.409
+Jitendra K: So let's try to just start with it.
+
+942
+02:28:02.530 --> 02:28:06.239
+Jitendra K: A transformer is the basic building block of modern-day
+
+943
+02:28:06.930 --> 02:28:12.100
+Jitendra K: architectures, including GPT, including Claude, including Sonnet, so everything that you're seeing.
+
+944
+02:28:12.630 --> 02:28:17.619
+Jitendra K: including GN AI evaluation, that has been started from Transformer.
+
+945
+02:28:18.150 --> 02:28:24.070
+Jitendra K: A transformer is a basic building block of the modern-day Gen AI-based.
+
+946
+02:28:26.040 --> 02:28:27.200
+Jitendra K: solutions.
+
+947
+02:28:29.470 --> 02:28:34.110
+Jitendra K: Now, let me explain what is Transformer is all about. What is the architecture of Transformer?
+
+948
+02:28:34.590 --> 02:28:40.590
+Jitendra K: A transformer is a very intuitive architecture, where you are going to use something called attention.
+
+949
+02:28:40.980 --> 02:28:42.579
+Jitendra K: Or attention layers.
+
+950
+02:28:42.820 --> 02:28:44.440
+Jitendra K: That will help you, too.
+
+951
+02:28:44.580 --> 02:28:47.860
+Jitendra K: Perform more complex text analytics.
+
+952
+02:28:47.970 --> 02:28:52.290
+Jitendra K: With the help of… Attention-based architecture.
+
+953
+02:28:52.880 --> 02:28:57.549
+Jitendra K: Right, so transformer, if I have to just show you the architecture.
+
+954
+02:28:58.100 --> 02:29:00.540
+Jitendra K: This is what a transformer architecture looks like.
+
+955
+02:29:01.030 --> 02:29:02.699
+Jitendra K: It's a layered architecture.
+
+956
+02:29:16.360 --> 02:29:18.859
+Jitendra K: Right? So this is what a transformer looks like.
+
+957
+02:29:19.650 --> 02:29:20.580
+Jitendra K: Nope.
+
+958
+02:29:20.860 --> 02:29:23.029
+Jitendra K: Transformer has several building blocks.
+
+959
+02:29:23.690 --> 02:29:27.000
+Jitendra K: So, we have seen that RNNs are effective for sequential data.
+
+960
+02:29:27.430 --> 02:29:30.439
+Jitendra K: Their limitation paved the way for transformer architecture.
+
+961
+02:29:30.860 --> 02:29:37.710
+Jitendra K: So, one of the limitations of the earlier architecture, including LSTM and… G-Audio is.
+
+962
+02:29:38.350 --> 02:29:42.289
+Jitendra K: We can use long-term dependency, but we cannot go with paragraphs.
+
+963
+02:29:43.130 --> 02:29:45.819
+Jitendra K: We can still end up at a sentence level.
+
+964
+02:29:47.460 --> 02:29:50.740
+Jitendra K: Right? So let's say if I'm using a paragraph to train my model.
+
+965
+02:29:51.200 --> 02:29:55.210
+Jitendra K: The LSTM and GRE will perform very, very bad on that.
+
+966
+02:29:55.760 --> 02:29:58.140
+Jitendra K: There's no way that we can improve the model.
+
+967
+02:29:58.370 --> 02:29:59.280
+Jitendra K: output.
+
+968
+02:30:00.010 --> 02:30:03.289
+Jitendra K: If we are using a paragraph, long, very long context.
+
+969
+02:30:03.540 --> 02:30:08.870
+Jitendra K: Long contests they can handle up to an extent, 50, 60, 70, maximum 100.
+
+970
+02:30:09.380 --> 02:30:14.040
+Jitendra K: board at a time. But after that, it will start it orientating the performance.
+
+971
+02:30:14.700 --> 02:30:21.370
+Jitendra K: So that's the whole idea of Transformer. So Transformer overcome these challenges through two key innovation.
+
+972
+02:30:22.040 --> 02:30:28.959
+Jitendra K: The first is called positional encoding. So this mechanism will enable the token position into a numerical representation.
+
+973
+02:30:29.220 --> 02:30:34.319
+Jitendra K: And help us to enrich time bidding with positional information. So, positional encoding.
+
+974
+02:30:34.510 --> 02:30:39.290
+Jitendra K: is used for positional incorporation. So by incorporating a positional context.
+
+975
+02:30:39.780 --> 02:30:44.540
+Jitendra K: The model achieved greater accuracy in processing and understanding the structure of the text.
+
+976
+02:30:45.240 --> 02:30:54.139
+Jitendra K: The second key innovation is called self-attention. So this innovation captures relationship across All tokens in parallel.
+
+977
+02:30:55.880 --> 02:31:02.050
+Jitendra K: And what it does, it leverages the native parallelized capability of GPUs to perform matrix calculation.
+
+978
+02:31:02.490 --> 02:31:08.800
+Jitendra K: By analyzing the interaction between all the tokens simultaneously, self-attention significantly enhanced the modelability.
+
+979
+02:31:09.070 --> 02:31:11.840
+Jitendra K: To grasp complex dependency within the text.
+
+980
+02:31:12.290 --> 02:31:20.799
+Jitendra K: And these innovations formed the backbone of the transformer's success, enabling it to process data with unprecedented efficiency and accuracy.
+
+981
+02:31:22.020 --> 02:31:25.449
+Jitendra K: So the transformer is a large language model.
+
+982
+02:31:25.590 --> 02:31:36.929
+Jitendra K: foundational architectures. So, a large language model in a deep learning model, built from multiple neural network blocks, arranged in a sequence. So, modern LMs, owe their advanced capabilities.
+
+983
+02:31:37.170 --> 02:31:40.319
+Jitendra K: to the transformer architecture and their core strengths.
+
+984
+02:31:41.520 --> 02:31:44.699
+Jitendra K: So, there are different types of transformer-based language models.
+
+985
+02:31:44.840 --> 02:31:46.880
+Jitendra K: Some are specialized to generate text.
+
+986
+02:31:47.380 --> 02:31:50.660
+Jitendra K: From a speech, some are generating audio, including speech.
+
+987
+02:31:51.090 --> 02:31:57.940
+Jitendra K: Some of them are very good at generating images, some of them are even good at generating videos, like Sora models.
+
+988
+02:31:59.610 --> 02:32:03.869
+Jitendra K: So, transformer is an encoder-decoder architecture.
+
+989
+02:32:04.410 --> 02:32:08.519
+Jitendra K: So if I have to give you the very simple definition of encoder-decoder.
+
+990
+02:32:10.200 --> 02:32:16.349
+Jitendra K: So this is how the encoder decoder looks like. So the encoder understands the input by organizing it into a contextual memory.
+
+991
+02:32:16.580 --> 02:32:22.949
+Jitendra K: And the decoder generates the output by further processing the contextual embedding against the requested task.
+
+992
+02:32:24.010 --> 02:32:29.859
+Jitendra K: So let's say… Again, going back to some simple example, let's say modifying your resume in.
+
+993
+02:32:30.600 --> 02:32:39.370
+Jitendra K: So you're modifying your resume by uploading the file to the ChartGPT and giving them a prompt, instruction prompt.
+
+994
+02:32:40.100 --> 02:32:42.739
+Jitendra K: That you need a resume in this shape and form.
+
+995
+02:32:44.910 --> 02:32:49.829
+Jitendra K: Right, I would like to sound like a 20-plus year of experience of data science.
+
+996
+02:32:50.620 --> 02:32:51.950
+Jitendra K: And,
+
+997
+02:32:52.130 --> 02:32:59.159
+Jitendra K: I have these many skills in my resume. This is the GD given bachel, so let's try to modify this resume to match
+
+998
+02:33:00.050 --> 02:33:04.329
+Jitendra K: 100% to this DD. That is what you are doing in ChatGPT, let's say.
+
+999
+02:33:05.060 --> 02:33:08.639
+Jitendra K: Now, how ChatGPT will utilize this input?
+
+1000
+02:33:09.210 --> 02:33:15.469
+Jitendra K: It'll take the prompt as an input, understand what kind of Search criterias you're looking for.
+
+1001
+02:33:15.910 --> 02:33:18.029
+Jitendra K: And then it will call the internet search.
+
+1002
+02:33:18.600 --> 02:33:22.440
+Jitendra K: Based upon the… Input data provided.
+
+1003
+02:33:23.920 --> 02:33:30.550
+Jitendra K: And then, based upon that, the decoder will generate output by further processing the contextual embedding against the requested task.
+
+1004
+02:33:31.570 --> 02:33:37.099
+Jitendra K: read a decoder layer. So encoder understands input by organizing into contextual embedding.
+
+1005
+02:33:37.580 --> 02:33:39.620
+Jitendra K: And decoder will perform the job.
+
+1006
+02:33:40.490 --> 02:33:44.810
+Jitendra K: So, encoder is to understand input by organizing it to a contextual embedding.
+
+1007
+02:33:45.120 --> 02:33:52.099
+Jitendra K: While the decoder is to generate a desired output by processing, or further processing the contextual embedding according to the objective of the task.
+
+1008
+02:33:52.360 --> 02:33:54.250
+Jitendra K: And finally, providing the text.
+
+1009
+02:33:54.930 --> 02:33:59.800
+Jitendra K: So the models that follow encoder-decoder architecture include text-to-text transformer, T5,
+
+1010
+02:34:00.760 --> 02:34:05.120
+Jitendra K: Because there are 5Ts, text-to-text Transfer Transformer, T5.
+
+1011
+02:34:05.270 --> 02:34:10.569
+Jitendra K: A versatile text-to-text model suitable for tasks like summarization, classification, and sentiment analysis.
+
+1012
+02:34:11.040 --> 02:34:14.390
+Jitendra K: There's something called bi-directional autoregressive Transformer, BART.
+
+1013
+02:34:14.930 --> 02:34:18.699
+Jitendra K: But incorporate biodeuction encoder and autoregressive decoder.
+
+1014
+02:34:18.900 --> 02:34:25.450
+Jitendra K: Making it specifically suitable for some relation tasks, where the encoder understands the text, and decoder produces a summary.
+
+1015
+02:34:25.930 --> 02:34:30.300
+Jitendra K: There's something called multilingual BART, which is an expansion of BART.
+
+1016
+02:34:30.630 --> 02:34:34.650
+Jitendra K: Design, where a decoder processes text in a source language.
+
+1017
+02:34:36.190 --> 02:34:41.500
+Jitendra K: Sorry, encoder processed the text into a source language, and decoder generated translation in the target language.
+
+1018
+02:34:46.730 --> 02:34:51.820
+Jitendra K: So, the idea of encoder-decoder is very simple. You're going to use two mechanisms.
+
+1019
+02:34:52.750 --> 02:34:57.210
+Jitendra K: Positional encoding, and… Attention. Self-attention.
+
+1020
+02:34:57.460 --> 02:34:59.840
+Jitendra K: Now, let me explain what is positional encoding.
+
+1021
+02:35:03.340 --> 02:35:05.709
+Jitendra K: Now, the paritional encoding looks like this.
+
+1022
+02:35:08.270 --> 02:35:13.800
+Jitendra K: So, let's say I have a sentence which says, telephone converts sounds to… into electronic signals.
+
+1023
+02:35:17.020 --> 02:35:20.479
+Jitendra K: Right, so… so here the token embedding capture word meaning.
+
+1024
+02:35:20.650 --> 02:35:24.119
+Jitendra K: And positional encoding ensures the model understands the word order.
+
+1025
+02:35:24.570 --> 02:35:25.960
+Jitendra K: As you can see.
+
+1026
+02:35:26.610 --> 02:35:31.069
+Jitendra K: When a word is appeared in the sentence, it is very critical to understand its meaning.
+
+1027
+02:35:31.270 --> 02:35:32.350
+Jitendra K: LModel Niche.
+
+1028
+02:35:32.630 --> 02:35:37.750
+Jitendra K: this… to perform a lot of complex tasks. Suppositional embeddings.
+
+1029
+02:35:38.530 --> 02:35:41.669
+Jitendra K: Or how the model determines the position of the each word.
+
+1030
+02:35:41.950 --> 02:35:44.310
+Jitendra K: Rather than simple numbering system.
+
+1031
+02:35:44.650 --> 02:35:46.960
+Jitendra K: Or index-based encoding.
+
+1032
+02:35:47.790 --> 02:35:53.259
+Jitendra K: The positional embedding used trigonometric functions, like sine and cosine, based upon the positional index.
+
+1033
+02:35:53.570 --> 02:35:58.439
+Jitendra K: And this approach provides a more nuanced numerical representation of each word position.
+
+1034
+02:35:58.710 --> 02:36:05.109
+Jitendra K: Relative to the length of the sentence, paragraph, or text. So when we are combining the vector for each positional encoding.
+
+1035
+02:36:07.660 --> 02:36:09.379
+Jitendra K: It will create this form.
+
+1036
+02:36:10.340 --> 02:36:15.859
+Jitendra K: So here you can see that I'm creating a combined metrics, including
+
+1037
+02:36:15.980 --> 02:36:22.430
+Jitendra K: both the meaning and the position of each word. And moreover, the positional encoding metrics can be processed very efficiently.
+
+1038
+02:36:22.560 --> 02:36:27.580
+Jitendra K: Using GPU-based matrix calculation, making the transformer architecture significantly faster.
+
+1039
+02:36:27.810 --> 02:36:29.870
+Jitendra K: and more scalable than RNN.
+
+1040
+02:36:31.600 --> 02:36:36.130
+Jitendra K: Now, the second important consideration is called self-attention.
+
+1041
+02:36:36.710 --> 02:36:41.069
+Jitendra K: Now, self-attention, as the name suggests, we are talking about attention layer.
+
+1042
+02:36:42.390 --> 02:36:43.950
+Jitendra K: So, self-attention…
+
+1043
+02:36:47.280 --> 02:36:53.209
+Jitendra K: layer is the first layer of the transformer, allow the model to evaluate the importance of each word.
+
+1044
+02:36:53.600 --> 02:36:55.310
+Jitendra K: In relation to the other.
+
+1045
+02:36:56.100 --> 02:37:01.050
+Jitendra K: So this will help the model to understand context, regardless of the word order.
+
+1046
+02:37:01.540 --> 02:37:08.449
+Jitendra K: Which is critical for translation… Sorry, which is critical for a task like translation, summarization, depending upon capturing.
+
+1047
+02:37:08.710 --> 02:37:11.029
+Jitendra K: The relationship across entire input.
+
+1048
+02:37:11.210 --> 02:37:16.280
+Jitendra K: During the training, the model learned to evaluate the importance of each word in a sentence.
+
+1049
+02:37:16.420 --> 02:37:24.149
+Jitendra K: And this process is called scale.product retention, which is the core deep learning operation In Transformer.
+
+1050
+02:37:27.980 --> 02:37:32.630
+Jitendra K: So, in practice, self-attention is implemented using multi-head attention block.
+
+1051
+02:37:33.030 --> 02:37:39.150
+Jitendra K: Which allow attention to be computed at various levels simultaneously. So the transformer uses multi-head attention block.
+
+1052
+02:37:39.430 --> 02:37:43.269
+Jitendra K: to implement attention, addressing the key limitation of RNN,
+
+1053
+02:37:43.430 --> 02:37:47.929
+Jitendra K: Including LSTM, which were briefly discussed earlier.
+
+1054
+02:37:48.090 --> 02:37:53.170
+Jitendra K: LSTM, for example, is struggling with long-term dependency and training stability.
+
+1055
+02:37:53.480 --> 02:38:00.400
+Jitendra K: While LSTM rely on a memory cell to capture dependency, their sequential data process slow, We have seen that.
+
+1056
+02:38:00.520 --> 02:38:03.860
+Jitendra K: during training and reduce the efficiency. In the contest.
+
+1057
+02:38:04.080 --> 02:38:06.730
+Jitendra K: In the same con- contrast.
+
+1058
+02:38:07.060 --> 02:38:11.429
+Jitendra K: The transform multi-head attention process long-range dependency in parallel.
+
+1059
+02:38:11.960 --> 02:38:17.289
+Jitendra K: So what it does is, it captures multiple aspects of the input simultaneously, in parallel.
+
+1060
+02:38:17.800 --> 02:38:22.880
+Jitendra K: And significantly improved both speed and contextual accuracy of the complex pattern.
+
+1061
+02:38:23.280 --> 02:38:29.050
+Jitendra K: So this multi-attention block and transformer architecture helps us to enhance the ability to analyze
+
+1062
+02:38:29.190 --> 02:38:39.559
+Jitendra K: Various relationship within the input, and each attention had focused on the specific aspects, such as grammar, syntax, sentence, structures, or high-level context.
+
+1063
+02:38:39.870 --> 02:38:50.969
+Jitendra K: So this design will allow the model to better capture more complex patterns in the data, and the number of attention hat is a model-specific. For example, GPT-2 have 16 attention height.
+
+1064
+02:38:51.680 --> 02:38:54.710
+Jitendra K: GPT-3 have 96 heights.
+
+1065
+02:38:55.030 --> 02:38:58.730
+Jitendra K: GPT-4 have 128… 120 attention heads.
+
+1066
+02:38:59.080 --> 02:39:03.230
+Jitendra K: So as the model improves, you will see multiple changes in the architecture.
+
+1067
+02:39:04.000 --> 02:39:10.669
+Jitendra K: The self-attention calls attention weights within the single sequence, enabling each position in the input to relate to other.
+
+1068
+02:39:11.280 --> 02:39:21.940
+Jitendra K: Including the word itself, and in the multi-head attention layer, this mechanism will ensure that each element capture relationship across the entire sentence.
+
+1069
+02:39:22.140 --> 02:39:26.699
+Jitendra K: Generate a weight representation that reflects the sequence full in a full context.
+
+1070
+02:39:28.650 --> 02:39:33.090
+Jitendra K: So, multi-head retention is a combination of multiple heads.
+
+1071
+02:39:33.860 --> 02:39:37.390
+Jitendra K: Which will… Perform in this manner.
+
+1072
+02:39:37.530 --> 02:39:40.159
+Jitendra K: So this is a single-handed tension, this is a multi-handed tension.
+
+1073
+02:39:43.390 --> 02:39:47.300
+Jitendra K: Now, you can see that there are 3 parameters, Q, K, and V.
+
+1074
+02:39:48.120 --> 02:39:56.760
+Jitendra K: So these three parameters is the… 4 of attention programming. Retention… Sequencing.
+
+1075
+02:39:57.100 --> 02:39:59.380
+Jitendra K: So, which is called query, key, and Value.
+
+1076
+02:40:00.330 --> 02:40:03.750
+Jitendra K: Now, think of query as your input to the model.
+
+1077
+02:40:05.720 --> 02:40:10.120
+Jitendra K: And the key will be your topics, and value will be the results.
+
+1078
+02:40:11.080 --> 02:40:14.030
+Jitendra K: That means you are asking some question, it will arrange the data.
+
+1079
+02:40:14.360 --> 02:40:20.309
+Jitendra K: Generate, and then pass on the elaborated criterias to perform the task.
+
+1080
+02:40:20.780 --> 02:40:26.810
+Jitendra K: So it can be a conversational task, like you're… When, you're making…
+
+1081
+02:40:27.340 --> 02:40:31.259
+Jitendra K: on a day-to-day basis, which at GPT, you're taking recommendation, you're…
+
+1082
+02:40:31.630 --> 02:40:36.239
+Jitendra K: Performing some search, you're modifying your resumes and stuff.
+
+1083
+02:40:37.320 --> 02:40:38.590
+Jitendra K: So these are all tasks.
+
+1084
+02:40:39.260 --> 02:40:40.700
+Jitendra K: Will help us, too.
+
+1085
+02:40:41.000 --> 02:40:44.790
+Jitendra K: Eal better result with the help of… attention layers.
+
+1086
+02:40:52.490 --> 02:40:59.240
+Jitendra K: Now, I would like to show you some… maybe some… would… blocks.
+
+1087
+02:40:59.910 --> 02:41:03.449
+Jitendra K: By which you can be able to understand transformers much more.
+
+1088
+02:41:07.920 --> 02:41:14.950
+Jitendra K: And I would like to show you this blog, which is a nice written blog by… Eugene Yan.
+
+1089
+02:41:15.620 --> 02:41:17.859
+Jitendra K: And you can use this block for…
+
+1090
+02:41:19.040 --> 02:41:24.250
+Jitendra K: this purpose. You can go through it, and then you can read it to… read from this blog.
+
+1091
+02:41:24.990 --> 02:41:27.429
+Jitendra K: Similarly, there's a video which has been…
+
+1092
+02:41:28.300 --> 02:41:32.720
+Jitendra K: focus on explaining the attention mechanism. You can watch this video as well.
+
+1093
+02:41:33.970 --> 02:41:34.970
+Jitendra K: R…
+
+1094
+02:41:47.930 --> 02:41:51.230
+Jitendra K: You can go with this block, Illustrative Transformer.
+
+1095
+02:41:51.870 --> 02:41:53.950
+Jitendra K: Which I feel is a very good block.
+
+1096
+02:41:56.120 --> 02:41:58.569
+Jitendra K: Specifically designed for beginners.
+
+1097
+02:41:58.990 --> 02:42:03.139
+Jitendra K: Which you can be able to use for your understanding on transformers.
+
+1098
+02:42:21.870 --> 02:42:25.310
+Jitendra K: So, unfortunately, this port is still running, so…
+
+1099
+02:42:25.610 --> 02:42:30.589
+Jitendra K: We need to maybe cover the outcome of this code in the next tutorial.
+
+1100
+02:42:31.140 --> 02:42:36.460
+Jitendra K: But, I'll share the code so you can also run overnight, and then you can see the result.
+
+1101
+02:42:36.880 --> 02:42:43.140
+Jitendra K: But this model, as compared to this model, will have better accuracy, as you can see.
+
+1102
+02:42:43.350 --> 02:42:50.310
+Jitendra K: The GRE model is doing good in terms of inference time reduction, but when it comes to accuracy.
+
+1103
+02:42:50.540 --> 02:42:51.980
+Jitendra K: You will see a difference.
+
+1104
+02:42:57.520 --> 02:42:59.939
+Jitendra K: So you can use this model for your…
+
+1105
+02:43:00.210 --> 02:43:05.649
+Jitendra K: real-time projects as well. Let's say, in your real-time world project, you need to often do sentence
+
+1106
+02:43:05.920 --> 02:43:10.679
+Jitendra K: So, sentiment analysis, right? So you can use this code to perform the sentiment analysis.
+
+1107
+02:43:10.940 --> 02:43:17.790
+Jitendra K: You can replace this globe with Word2VAC as well, which can improve more accuracy in your model.
+
+1108
+02:43:18.020 --> 02:43:21.039
+Jitendra K: Because Virtuac is more dense as compared to Gloves.
+
+1109
+02:43:21.800 --> 02:43:23.380
+Jitendra K: That is much more accurate.
+
+1110
+02:43:24.070 --> 02:43:29.250
+Jitendra K: So you're gonna… you're gonna adjust your embeddings, your side of training, etc.
+
+1111
+02:43:29.520 --> 02:43:32.369
+Jitendra K: With the help of this code, and make it more comprehensive.
+
+1112
+02:43:34.840 --> 02:43:42.300
+Jitendra K: So is there any other question, guys? I think we are near about the end of tutorial for today. Anything that you would like to ask?
+
+1113
+02:43:43.220 --> 02:43:45.720
+Jitendra K: Anything which is not clear?
+
+1114
+02:43:54.730 --> 02:43:58.330
+Jitendra K: So please ask now, we have time, I can cover.
+
+1115
+02:44:07.110 --> 02:44:12.319
+Jitendra K: So I'll assume that now you're very clear with RNN, LSTM, and GRE fundamentals.
+
+1116
+02:44:12.520 --> 02:44:14.750
+Jitendra K: You understand the building block of each.
+
+1117
+02:44:15.310 --> 02:44:19.600
+Jitendra K: Do you understand the difference between vanilla, LSTM, and GRU?
+
+1118
+02:44:20.200 --> 02:44:24.299
+Jitendra K: You can able to use TensorFlow to develop these models.
+
+1119
+02:44:25.070 --> 02:44:28.519
+Jitendra K: And, you can fit in the task on the top of it.
+
+1120
+02:44:33.740 --> 02:44:38.250
+Jitendra K: LSTM has one more important, application, which is for…
+
+1121
+02:44:38.640 --> 02:44:43.090
+Jitendra K: Sequence prediction using numbers, numerical numbers, like stock trading.
+
+1122
+02:44:44.150 --> 02:44:47.900
+Jitendra K: So I will share some code with you guys so that you can try this.
+
+1123
+02:44:48.020 --> 02:44:51.790
+Jitendra K: At your home, and then maybe if there's any question, you can ask.
+
+1124
+02:44:52.360 --> 02:44:56.209
+Jitendra K: That one… Let me share that quote with you.
+
+1125
+02:44:56.620 --> 02:44:59.699
+Jitendra K: And this is a homework for you guys, you need to run this code.
+
+1126
+02:45:00.650 --> 02:45:04.870
+Jitendra K: And… Yeah, I will share that.
+
+1127
+02:45:12.300 --> 02:45:14.790
+Jitendra K: So I want everybody to run this code.
+
+1128
+02:45:15.540 --> 02:45:19.570
+Jitendra K: After the class, right after the class, as your homework.
+
+1129
+02:45:20.030 --> 02:45:22.990
+Jitendra K: And try to implement a time series model with.
+
+1130
+02:45:23.110 --> 02:45:27.289
+Jitendra K: LSTM, which is a numerical data, all numerical data.
+
+1131
+02:45:30.660 --> 02:45:36.129
+Jitendra K: And this is for time series analysis. So we are using regression using LSTM.
+
+1132
+02:45:36.710 --> 02:45:38.449
+Jitendra K: Not just classification.
+
+1133
+02:45:43.890 --> 02:45:50.050
+Jitendra K: And it does have a 5-stack layer, vanilla stack, deep LSTM, bidirectional LSTM,
+
+1134
+02:45:50.350 --> 02:45:55.009
+Jitendra K: There's something called CNN and LST as well, which is a hybrid architecture, and encoder-decoder
+
+1135
+02:45:55.380 --> 02:46:01.150
+Jitendra K: layer with attention. So let's see which one is giving more accurate result.
+
+1136
+02:46:01.430 --> 02:46:05.919
+Jitendra K: And let me know… Once you complete this in the next tutorial.
+
+1137
+02:46:07.550 --> 02:46:12.620
+Jitendra K: So I hope this is an enjoyable session, and you have plenty of things to learn.
+
+1138
+02:46:12.960 --> 02:46:17.800
+Jitendra K: Plenty of things to digest. Let me share this… Notebook as well.
+
+1139
+02:47:35.250 --> 02:47:37.580
+Jitendra K: Yeah, that pipeline I'm sharing.
+
+1140
+02:47:40.190 --> 02:47:45.160
+Jitendra K: Alright guys, so I think I've shared everything, that you require to operate, so…
+
+1141
+02:47:45.900 --> 02:47:51.570
+Jitendra K: again, go through these quotes, which I know that RNN
+
+1142
+02:47:52.110 --> 02:48:00.820
+Jitendra K: is sim… is slightly complex as compared to CNN. So practice, read good books, And then…
+
+1143
+02:48:01.830 --> 02:48:05.310
+Jitendra K: You can use it for your own product purpose.
+
+1144
+02:48:08.150 --> 02:48:11.579
+Jitendra K: Yeah, Siri has been using deep neural networks.
+
+1145
+02:48:12.180 --> 02:48:15.610
+Jitendra K: And it is… they're using the…
+
+1146
+02:48:19.380 --> 02:48:22.120
+Jitendra K: The recurrent neural network to perform this.
+
+1147
+02:48:22.550 --> 02:48:26.359
+Jitendra K: And this is… and this is… yeah, that's a great material that you shared.
+
+1148
+02:48:26.920 --> 02:48:32.830
+Jitendra K: It will have frame-by-frame acoustic Voice transformation and stuff.
+
+1149
+02:48:33.420 --> 02:48:37.250
+Jitendra K: So thank you guys, and we will meet in the next tutorial with
+
+1150
+02:48:37.720 --> 02:48:41.149
+Jitendra K: Transformer, we'll continue with our discussion on Transformer.
+
+1151
+02:48:46.510 --> 02:48:50.849
+Jitendra K: Yeah, I mean, there's a deal between Google and Apple.
+
+1152
+02:48:51.260 --> 02:48:59.309
+Jitendra K: Let's see how it went… Alright, thank you guys, and we will… we will have…
+
+1153
+02:49:00.070 --> 02:49:04.129
+Jitendra K: The next session for Transformers will continue with the same topic. Thank you.
+

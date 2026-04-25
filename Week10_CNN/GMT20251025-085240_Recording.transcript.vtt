@@ -1,0 +1,3394 @@
+WEBVTT
+
+1
+00:01:36.360 --> 00:01:39.160
+Jitendra U: Hey guys, good evening, good afternoon.
+
+2
+00:01:39.260 --> 00:01:43.280
+Jitendra U: And warm welcome to another module.
+
+3
+00:01:43.790 --> 00:01:50.380
+Jitendra U: So before we start, wishing you a happy Diwali. I hope you have a great festival event last week.
+
+4
+00:01:50.590 --> 00:02:02.129
+Jitendra U: And now you're coming as a fresh, right? So, before we begin, any question related to the previous session, anything that you would like to ask?
+
+5
+00:02:02.710 --> 00:02:04.679
+Jitendra U: You got all the session material.
+
+6
+00:02:05.080 --> 00:02:08.859
+Jitendra U: All the… all the help, necessary help that you required from Emirates.
+
+7
+00:02:17.370 --> 00:02:22.190
+Jitendra U: Anything that you would like to discuss? Platform-related? Voquarium-related?
+
+8
+00:02:22.670 --> 00:02:24.749
+Jitendra U: Issue with the vocarium or anything.
+
+9
+00:02:25.320 --> 00:02:27.400
+Jitendra U: You're getting the session files on time.
+
+10
+00:02:32.200 --> 00:02:35.240
+Jitendra U: So everything is going well, you are revising the concepts?
+
+11
+00:02:38.850 --> 00:02:40.289
+Jitendra U: Alright, that's great.
+
+12
+00:02:41.620 --> 00:02:49.690
+Jitendra U: So, this is a week number 10, and we will start with another, exciting module called Image and Video Processing Application.
+
+13
+00:02:49.870 --> 00:03:00.489
+Jitendra U: So, first and the foremost thing, I would like to set up the agenda for today's tutorial, and then we'll move on to the contents. So, when we talk about, creating the
+
+14
+00:03:00.740 --> 00:03:04.729
+Jitendra U: Images, and processing the images and videos.
+
+15
+00:03:05.410 --> 00:03:28.769
+Jitendra U: So basically, we have different types of data, right? So when we talk about any sort of, visual aspects of images, let's say, even… I would like to perform some analysis on the healthcare medical reports. So let's say, as a doctor or as a practical app, I would like to identify what exactly the disease is from the X-ray reports. So, have you ever imagined how these
+
+16
+00:03:28.830 --> 00:03:33.379
+Jitendra U: image processing engine works behind the scenes, and that is something which we are going to talk about.
+
+17
+00:03:33.660 --> 00:03:38.470
+Jitendra U: So we'll talk about how to utilize image processing system, from…
+
+18
+00:03:39.190 --> 00:03:43.409
+Jitendra U: the basics of it. How can we be able to utilize image?
+
+19
+00:03:43.730 --> 00:03:47.810
+Jitendra U: To perform any classification of the objects on the top of it.
+
+20
+00:03:48.150 --> 00:03:56.970
+Jitendra U: So, we will discuss about these concepts, like how the images, as well as the video processing system, has been worked behind the scenes.
+
+21
+00:03:57.340 --> 00:04:12.200
+Jitendra U: So, we'll talk about that part. So, same thing applies for surveillance systems. So, when you're… imagine that you're using a surveillance system for managing the traffic condition, understanding the routes, understanding anything, including the violation in the traffic.
+
+22
+00:04:12.330 --> 00:04:19.399
+Jitendra U: And he would like to identify who is auditing this traffic, let's say including, scanning the number plates of the vehicle.
+
+23
+00:04:19.440 --> 00:04:33.889
+Jitendra U: identify the faces of the intruders, etc. So we'll talk about these things, and then there's a huge amount of deep learning packages. We will not discuss about in that detail, but as I mentioned, I don't
+
+24
+00:04:33.910 --> 00:04:48.490
+Jitendra U: I mean, we are just going to discuss the basics of it, like how the deep learning model works, and these all, all, image, video processing… audio processing engines are coming under deep learning methodology. So we'll talk about how deep learning model works.
+
+25
+00:04:48.490 --> 00:04:55.590
+Jitendra U: What exactly is a CNN architecture, how we will be able to utilize CNN architecture for performing this analysis?
+
+26
+00:04:57.970 --> 00:05:03.330
+Jitendra U: Alright, so just want to understand what is… What did you have?
+
+27
+00:05:03.730 --> 00:05:05.810
+Jitendra U: during the weeks…
+
+28
+00:05:06.000 --> 00:05:15.950
+Jitendra U: 10 module from the LMS. What do you understand from these systems? I just want to understand from you guys, like, what is your understanding on these systems?
+
+29
+00:05:16.050 --> 00:05:20.030
+Jitendra U: And, what exactly been discussed in the LMS?
+
+30
+00:05:30.640 --> 00:05:32.899
+Jitendra U: The word practical use case of what?
+
+31
+00:05:34.670 --> 00:05:36.930
+Jitendra U: When I say practical use case, that's a topic.
+
+32
+00:05:37.370 --> 00:05:38.969
+Jitendra U: Okay, speech to text.
+
+33
+00:05:43.090 --> 00:05:44.020
+Jitendra U: Okay.
+
+34
+00:05:44.370 --> 00:05:50.729
+Jitendra U: Fair enough. Speech-to-text, okay? So you have a voice, which is… from the user…
+
+35
+00:05:50.960 --> 00:05:59.930
+Jitendra U: frequency-modulated voice, and you're converting this to text, okay? One example, okay? What else? Text processing, image and video processing.
+
+36
+00:06:01.390 --> 00:06:03.130
+Jitendra U: Okay, image to text.
+
+37
+00:06:03.920 --> 00:06:07.600
+Jitendra U: So, image-to-text, what is the example been given?
+
+38
+00:06:08.030 --> 00:06:12.990
+Jitendra U: Okay, translating… how many people, clustering the images…
+
+39
+00:06:13.790 --> 00:06:19.330
+Jitendra U: More than just translating, identifying the tone, how many peoples, okay?
+
+40
+00:06:20.360 --> 00:06:24.420
+Jitendra U: Clustering the images, handwritten information, okay?
+
+41
+00:06:25.010 --> 00:06:31.610
+Jitendra U: That means OCRs, right? You're performing some OCR analysis, okay, optical character recognitions.
+
+42
+00:06:32.500 --> 00:06:33.839
+Jitendra U: What else?
+
+43
+00:06:35.460 --> 00:06:39.010
+Jitendra U: Automate reasoning image to answer of the question.
+
+44
+00:06:40.470 --> 00:06:41.540
+Jitendra U: Okay.
+
+45
+00:06:43.600 --> 00:06:49.930
+Jitendra U: Audio processing… extract insight from the image. What kind of insights?
+
+46
+00:06:57.690 --> 00:07:01.210
+Jitendra U: Patterns… Okay.
+
+47
+00:07:05.880 --> 00:07:10.250
+Jitendra U: Describing what is in an image, that means classifying the images, alright.
+
+48
+00:07:12.270 --> 00:07:29.579
+Jitendra U: Alright, so I think, you guys have seen what are the different types of models that we are going to use. Now, let me talk about, because these are all coming out of deep learning, right? So, when you talk about different types of images, we are talking about deep learning models, nothing else, right? Deep learning model is the…
+
+49
+00:07:29.850 --> 00:07:41.550
+Jitendra U: the backbone of these image processing systems, right? So when you're dealing with any sort of models, or any sort of image models, so behind the scenes, there's a deep learning model, which is going to work.
+
+50
+00:07:41.870 --> 00:07:47.399
+Jitendra U: Now, let me talk about how this image processing engine works, right? So…
+
+51
+00:07:47.770 --> 00:07:55.410
+Jitendra U: That's the whole crux of this class, right? Because, first and the foremost thing, what we have to learn is how this image processing model works.
+
+52
+00:07:55.810 --> 00:08:02.770
+Jitendra U: And there's an architecture that we are going to learn today, which is called CNN, right? So we will talk about the CNN architecture
+
+53
+00:08:04.240 --> 00:08:17.929
+Jitendra U: And how the CRN architecture works today, how the CRN architecture works, and what are the different types of other architecture that will help you to create visual transformers, and all these things. So…
+
+54
+00:08:18.310 --> 00:08:21.469
+Jitendra U: Well, let me share one content.
+
+55
+00:08:29.850 --> 00:08:31.570
+Jitendra U: Alright, one second.
+
+56
+00:09:08.140 --> 00:09:12.269
+Jitendra U: One second, guys, let me just, download this.
+
+57
+00:09:42.860 --> 00:09:50.740
+Jitendra U: Okay, so let me explain the convolution neural network, which is a building block of the image processing models.
+
+58
+00:09:56.630 --> 00:10:02.089
+Jitendra U: Alright, so basically, a convolution network is nothing but… it's a series of…
+
+59
+00:10:06.280 --> 00:10:07.470
+Jitendra U: units…
+
+60
+00:10:07.890 --> 00:10:13.070
+Jitendra U: Which will help you to perform this analysis, right? So this is what the convolution internet network looks like.
+
+61
+00:10:13.220 --> 00:10:16.510
+Jitendra U: So, a convolution neural network, or CNN architecture.
+
+62
+00:10:17.630 --> 00:10:21.730
+Jitendra U: Is one of the revolutionizing ideas in the field of computer vision.
+
+63
+00:10:21.890 --> 00:10:26.839
+Jitendra U: And it's becoming a kind of a cornerstone of image and video analysis system.
+
+64
+00:10:27.020 --> 00:10:36.270
+Jitendra U: So, in this tutorial, we'll just talk about the basics of it. We'll not deep dive into it, because that will be something which I have to park in the deep learning modules. So, we'll just…
+
+65
+00:10:36.370 --> 00:10:40.130
+Jitendra U: I will just give you an introduction to CNN, right? Not more than that.
+
+66
+00:10:40.200 --> 00:10:57.419
+Jitendra U: So in this particular tutorial, we will delve into the key components and the operation that makes the CNN architecture very powerful, very elegant, and how this concept, like convolution, max pooling, stride, padding, upsampling, downsampling, and many more. We will try to explore it.
+
+67
+00:10:57.610 --> 00:11:05.589
+Jitendra U: So, basically, in a nutshell, if I have to just give you a very brief information about CNN. So, CNN comprise of various layers.
+
+68
+00:11:05.910 --> 00:11:24.919
+Jitendra U: that work together in a hierarchical representation from input data all the way to the output. So each layer play a very unique role in overall architecture. So the input layer, as you can see here, I have an image of a zebra, and this input layer is initially a data entry point for a network.
+
+69
+00:11:24.950 --> 00:11:26.729
+Jitendra U: So, in this image.
+
+70
+00:11:27.020 --> 00:11:34.590
+Jitendra U: based tasks, then put layer represents a pixel of data, right? So I have a pixel of values of the image, and this
+
+71
+00:11:34.640 --> 00:11:40.130
+Jitendra U: Particular image can be a grayscale, it can be a color, it can be of any size.
+
+72
+00:11:40.130 --> 00:12:04.740
+Jitendra U: But predominantly, we are going to use 28 cross 28 pixel image as input, which is a better version to start with. Now here, once I start with this image, you can see there's a kernel, so we'll talk about what this kernel does, right? So kernel is… looks like a lens, right? Similar to our eyes. So when we are seeing an image, our eye will be able to understand, as a human, we will be able to understand this is this particular
+
+73
+00:12:04.740 --> 00:12:13.709
+Jitendra U: animal is a zebra in the photo. But how to train a model to identify that this is a zebra versus horse versus mule?
+
+74
+00:12:13.710 --> 00:12:28.419
+Jitendra U: Right? So, or even a donkey. So, how can the image processing engine will be able to identify whether the particular species is a zebra versus the other character that I just talked about? That is something which we have to train.
+
+75
+00:12:28.500 --> 00:12:33.509
+Jitendra U: Right? Because they are very similar in nature, very similar in shape and size, right?
+
+76
+00:12:33.630 --> 00:12:38.560
+Jitendra U: So the input layer is the initial data entry point for the network. So this image…
+
+77
+00:12:38.560 --> 00:12:57.829
+Jitendra U: the input layer represents a pixel value. So everything that you're passing to a model is a pixel value of the image. So let's assume that we are going to use 28 plus 28 pixel of the image, and the convolution layer are the core building block of the CNN. So basically, in the convolution, you can see that I have feature maps.
+
+78
+00:12:58.190 --> 00:13:00.670
+Jitendra U: I have got feature extraction.
+
+79
+00:13:00.960 --> 00:13:12.209
+Jitendra U: Then I have got something called flattening layers, and then classification based upon the probabilical distribution. So, we'll… let's try to understand this. The convolution layer…
+
+80
+00:13:12.930 --> 00:13:19.300
+Jitendra U: this convolution layer are the core building blocks of the CNN. So these layer apply convolution operation
+
+81
+00:13:19.460 --> 00:13:32.739
+Jitendra U: to the input data using learnable filter. Now, let me show you how the convolution operation performs behind the scene. Let me show you the 3D diagram of convolution, how this whole operation performed behind the scene.
+
+82
+00:13:33.170 --> 00:13:35.270
+Jitendra U: Let me show you one GIF.
+
+83
+00:14:04.130 --> 00:14:12.620
+Jitendra U: This is how the convolution operation being performed. So you can see that I have got a kernel function, which is trying to scan the image.
+
+84
+00:14:12.930 --> 00:14:20.320
+Jitendra U: And while scanning the image, it is creating a grid-like structure. Now, this grid-like structure is nothing but an array.
+
+85
+00:14:20.470 --> 00:14:31.449
+Jitendra U: Right? So what it does, it is trying to scan the image in the form of an array, right? And what it does is, this particular operation of converting
+
+86
+00:14:31.870 --> 00:14:45.039
+Jitendra U: a 28 cross 28 image to a 3 across 3 array is nothing but a convolution. You can see that I have a very good representation of my data in a form of a
+
+87
+00:14:47.190 --> 00:14:51.130
+Jitendra U: activation map, right? So when I talk about activation map.
+
+88
+00:14:51.410 --> 00:14:53.760
+Jitendra U: My activation map will look like this.
+
+89
+00:14:57.270 --> 00:15:09.279
+Jitendra U: So I have a kernel function which is scanning this image and converting this into an activation map function, right? So motivation behind in convolution is… convolution derives three important ideas.
+
+90
+00:15:09.510 --> 00:15:15.350
+Jitendra U: that motivate computer vision researcher. The first idea is the sparse interaction.
+
+91
+00:15:16.060 --> 00:15:24.999
+Jitendra U: The sparse interaction means you can compress the data, which is in the form of an image pixel. The second and the most important parameter is…
+
+92
+00:15:25.650 --> 00:15:27.870
+Jitendra U: EQ variant representation.
+
+93
+00:15:28.310 --> 00:15:30.610
+Jitendra U: And the third one is the parameter sharing.
+
+94
+00:15:30.910 --> 00:15:49.090
+Jitendra U: So basically, when we are performing any convolution on any layer, right, so basically what we are trying to do is, we are trying to combine the core building block of CNN and applying the convolution operation to the input data using the learnable filters. And that these filters…
+
+95
+00:15:49.320 --> 00:15:54.179
+Jitendra U: TERS can scan the input, extract the features, and generate some.
+
+96
+00:15:54.700 --> 00:16:09.660
+Jitendra U: methods on the top of it. So the first and foremost thing is that you have to understand is the kernel itself. So what is kernel here? So, kernel, this is one of the main function, or so-called, it's a small matrix used in the convolution.
+
+97
+00:16:09.850 --> 00:16:18.159
+Jitendra U: operation. So it's a set of learnable weights that are applied to the input data to produce the output feature map.
+
+98
+00:16:18.460 --> 00:16:27.739
+Jitendra U: Right? So the feature map is the core of this whole processing engine, and that's why I'm calling this a feature map. Now, you can see that in the feature map, I have a series of convolution operations.
+
+99
+00:16:27.800 --> 00:16:43.120
+Jitendra U: With the help of polling, right? So… so these are becoming a learnable parameter, or a spatial hierarchical of features with the input data. So in this date… in this operation, you are going to have a kernel
+
+100
+00:16:43.330 --> 00:16:45.119
+Jitendra U: That is going to perform.
+
+101
+00:16:45.300 --> 00:16:58.690
+Jitendra U: and generate a small matrix during the convolution operation. So it's a set of learnable weights that are applied to the input data to produce the output feature map. And kernels are the key element to allow CNN to automate, learn.
+
+102
+00:16:58.690 --> 00:17:10.059
+Jitendra U: spatial hierarchies of features with input data. The second and the most important parameter is called filters. The filter, on the other hand, is a set of multiple kernels.
+
+103
+00:17:10.089 --> 00:17:24.900
+Jitendra U: So in most cases, a convolution layer used multiple filters to capture different features in the input data. So let's say some of the learnable parameter for my image, which is here, the zebra image, is having
+
+104
+00:17:25.000 --> 00:17:30.749
+Jitendra U: He is having the stripes, the black stripes, right? That's how I can be able to recognize the zebra.
+
+105
+00:17:30.980 --> 00:17:42.880
+Jitendra U: Versus a horse or a mule, right? So a filter will apply these convolution operations and try to generate as many as learnable parameters, right? So it's like you're trying to…
+
+106
+00:17:44.590 --> 00:17:55.590
+Jitendra U: it's similar to a child. You're training a child and showing him the bunch of images, or her a bunch of images, and then you're saying that A for apple, B for something, right? So that is where
+
+107
+00:17:55.600 --> 00:18:09.120
+Jitendra U: the same thing applies to a convolution operation. The convolution will help the model to learn as a parameter that you're passing. So each filter is convoluted with the input to a producer feature map, and that feature map is nothing but…
+
+108
+00:18:09.120 --> 00:18:16.899
+Jitendra U: It's a network learnable parameter to extract various patterns by adjusting the weights of these filters during the training.
+
+109
+00:18:17.050 --> 00:18:24.820
+Jitendra U: So basically, what we are trying to do here is, the kernel is the most important function that will help to generate
+
+110
+00:18:25.180 --> 00:18:38.580
+Jitendra U: and convolve across the input data and filter the site of these kernels used to extract various features from the input, right? Such as edges, such as something at the top and the bottom.
+
+111
+00:18:38.740 --> 00:18:58.360
+Jitendra U: And so on and so forth. And that's the whole idea of using these kernels. The second and the most important parameter is called activation function. So after convolution operation, an activation function like ReLU, which is a rectified linear unit, will be triggered. So it's like a switch, right? So…
+
+112
+00:18:58.360 --> 00:19:11.950
+Jitendra U: When this operation has been performed, the convolution at first layer, you will have to switch. So, after the convolution operation, an activation function, which is called Rectified Linear Unit, or RELU, will be operated, which is an element-wise
+
+113
+00:19:11.960 --> 00:19:21.139
+Jitendra U: to… to induce a nonlinearity in the model. Now, why this is a nonlinear model? The reason being is, you have to perform
+
+114
+00:19:21.540 --> 00:19:40.430
+Jitendra U: you have to perform the complex transformation of the data, and that's why it cannot be a linear model. It has to be a nonlinear model. So Rally will help the network to learn complex relationship and make the model more expensive. So it completed depends upon the use case, which activation function you will use, and in most of the cases.
+
+115
+00:19:40.430 --> 00:19:43.440
+Jitendra U: Researchers or even data scientists are using.
+
+116
+00:19:43.440 --> 00:19:52.169
+Jitendra U: ReLU and their subtypes, like leaky value, ELUs, etc. But we will use ReLU for implementing this whole stuff.
+
+117
+00:19:52.440 --> 00:20:11.060
+Jitendra U: Now, the third and the most important idea is the max polling. So once you perform this convolution, then there's the polling layers, right? So there are different types of polling, which is called max polling and average polling. Now, what this polling mechanism does, so as the name says, polling, right? So you're performing…
+
+118
+00:20:11.890 --> 00:20:19.480
+Jitendra U: The two side of… there are two types of polling, and the idea of polling is to represent the data in a
+
+119
+00:20:19.900 --> 00:20:24.909
+Jitendra U: shrinkable format. So this is the pole size, right? This is the pool size that you're seeing.
+
+120
+00:20:24.910 --> 00:20:41.739
+Jitendra U: So, max polling versus average polling. I will talk about that part. So in the max polling, you will take the number, let's say if I'm using a kernel, let me draw this, let's say I'm using a kernel which is 2 cross 2, so it will start from here. So my kernel will start from here.
+
+121
+00:20:42.470 --> 00:20:49.980
+Jitendra U: So it will be at 2 cross 2, so the first kernel will start from here, then it will shift from here to… sorry.
+
+122
+00:20:50.450 --> 00:21:04.480
+Jitendra U: then it will shift from here to here, and then it will shift from here to here, and then it'll go down. Now, you can see that in the max polling, as the name suggests, I'm selecting the maximum number in that particular
+
+123
+00:21:04.760 --> 00:21:21.030
+Jitendra U: stride, which is coming out to be 100. Similarly, when I'm looking for the second, convolution operation between this… sorry, this has to be non-shareable grid, so let me represent like this. Yeah, so this is my second kernel function.
+
+124
+00:21:21.030 --> 00:21:30.060
+Jitendra U: So here, the maximum value is 184, so I'm representing this as 184. In this grid, I'm representing 12, and this grid, I'm representing 45.
+
+125
+00:21:30.060 --> 00:21:34.179
+Jitendra U: So this is what my kernel looks like. So it is always selecting the maximum value.
+
+126
+00:21:34.180 --> 00:21:52.779
+Jitendra U: In the average polling, I would like to utilize average polling, that means I would like to take, average mean of these four, and then try to determine what is the average value of these kernel. So basically, polling, or maximum polling, or average polling, reduce the spatial dimension of my feature map. So in my feature map, I have generated
+
+127
+00:21:53.020 --> 00:22:08.409
+Jitendra U: there's some values here, right? And from that value, I would like to represent my data into more shrinkable format. Now, you can understand why these image models are very extensive, memory-intensive, right? Because there's a lot of
+
+128
+00:22:09.100 --> 00:22:10.690
+Jitendra U: Excel data.
+
+129
+00:22:10.820 --> 00:22:22.469
+Jitendra U: which is represented into a numerical format, right? So you might have heard that these models are complex. So why it is complex? The reason being is, it has to be a proper
+
+130
+00:22:23.400 --> 00:22:39.370
+Jitendra U: executable machines. So basically, the max polling will reduce the spatial dimension of the feature map generated by the convolution layer. And max polling will select the maximum value from the group, focusing on the most salient features, and that's the reason we are choosing the maximum value.
+
+131
+00:22:39.720 --> 00:22:43.079
+Jitendra U: Right, so it will be able to select the most salient features, like…
+
+132
+00:22:44.020 --> 00:22:47.330
+Jitendra U: color, context, etc. The shape, size.
+
+133
+00:22:47.470 --> 00:22:54.989
+Jitendra U: So, as a human, I can be able to understand that this is a triangle, just because of the shape. This is a star.
+
+134
+00:22:55.330 --> 00:23:05.340
+Jitendra U: Because of the shape, right? But how will the machine will know that these two are in two different triangles? So machine will start saying this is an up triangle and a down triangle.
+
+135
+00:23:05.450 --> 00:23:12.279
+Jitendra U: Right? Like… like a nursery-going kid. He will also say the same thing, or maybe he'll say that this is a Israel map.
+
+136
+00:23:12.460 --> 00:23:13.919
+Jitendra U: It's not even a star.
+
+137
+00:23:14.150 --> 00:23:17.319
+Jitendra U: Right? So there are different theories that can come to a machine.
+
+138
+00:23:17.530 --> 00:23:24.910
+Jitendra U: So the same way applied to algorithm as well, like, he will start learning to understand the shapes
+
+139
+00:23:25.160 --> 00:23:34.030
+Jitendra U: it will be able to understand this is a round shape, this is a oval shape, and this is a square shape, this is a rectangle shape, right? And so this is a trapezium.
+
+140
+00:23:34.370 --> 00:23:48.510
+Jitendra U: So all these things, you have to make sure that a machine should have an example to learn from it. And you have to pass the label data, you have to say this is a trapezium. If you're saying this is a square in your training data, your machine learning model will also say that this is a square.
+
+141
+00:23:48.910 --> 00:23:53.880
+Jitendra U: Right, so you have to make sure that this is a trainable parameter. It's like you're training your kid.
+
+142
+00:23:54.050 --> 00:24:10.259
+Jitendra U: to understand this. You will not teach a wrong, I hope you will not teach any wrong words to your crit. So, same way, this language, this machine learning language has… or machine learning model, have to be trained on a labeled set of data. And then, based upon this data.
+
+143
+00:24:10.260 --> 00:24:16.640
+Jitendra U: The machine will identify these things based upon the shape, textures, colors, etc.
+
+144
+00:24:17.190 --> 00:24:26.690
+Jitendra U: Now, the third layer is called fully Connected Layer. Now, fully connected layer, FC layer, or fully connected layer, is the… is the most important layer here.
+
+145
+00:24:27.320 --> 00:24:34.219
+Jitendra U: The reason being is fully connected layer, connect every neuron. So here, what we are doing is with the help of a neuron.
+
+146
+00:24:34.340 --> 00:24:43.669
+Jitendra U: So, whatever we are doing in the convolution, we are using a neuron-like structure, right? So, fully connected layer, connect every neuron
+
+147
+00:24:45.760 --> 00:24:50.840
+Jitendra U: Okay, the pixels are different for same object, how machine will identify the correct image.
+
+148
+00:24:51.050 --> 00:25:05.619
+Jitendra U: The pixels are different for same object, so it has to be converted into some normalized scales, right? That is what we are doing. So, first and foremost thing, it will convert your image into BGV array. So, it will first convert this into black and white.
+
+149
+00:25:05.800 --> 00:25:08.700
+Jitendra U: Or grayscale image, and then it processed the data.
+
+150
+00:25:09.250 --> 00:25:11.249
+Jitendra U: So there's no color concept here.
+
+151
+00:25:13.410 --> 00:25:17.490
+Jitendra U: Alright, so fully connected layer, connect the neuron.
+
+152
+00:25:17.620 --> 00:25:29.999
+Jitendra U: one layer to every neuron, the next layer. So you can see this will look like a fully connected layer. So fully connected layer, you can see here, this is a fully connected layer, where every neuron is connected with every other thing.
+
+153
+00:25:30.230 --> 00:25:40.390
+Jitendra U: So these layers are typically found towards the end of the network. So that means you're transforming the learnable features into prediction or class probability.
+
+154
+00:25:40.520 --> 00:25:49.230
+Jitendra U: So, fully connected layers are typically used towards the end of the network, and then we will use this network to make sure that we will be able to get
+
+155
+00:25:49.520 --> 00:25:50.500
+Jitendra U: the…
+
+156
+00:25:51.150 --> 00:26:10.900
+Jitendra U: output in the form of a probabilical number. So let's say if I'm… if I would like to identify whether it's a horse, zebra, or a dog, then I will be able to get a probability on a scale of 0 to 1, and you can see the mod… my model is saying that this is… looks like a 20% horse, which is okay.
+
+157
+00:26:11.100 --> 00:26:14.899
+Jitendra U: 70% zebra, and 10% dog.
+
+158
+00:26:15.400 --> 00:26:24.829
+Jitendra U: So I can say that if I have to use a threshold where I'm going to pick the highest probability, the answer is correct, because a zebra, right, 70% looks like a zebra.
+
+159
+00:26:25.410 --> 00:26:31.570
+Jitendra U: So that's the whole idea of this machine learning algorithm. So this is how the behind the scene, this is how it works.
+
+160
+00:26:32.020 --> 00:26:33.799
+Jitendra U: So, any question, anything?
+
+161
+00:26:34.310 --> 00:26:35.790
+Jitendra U: On the top of it.
+
+162
+00:26:39.920 --> 00:26:42.520
+Jitendra U: So, you understand what is CNN now?
+
+163
+00:26:48.810 --> 00:26:52.239
+Jitendra U: What is Realu? Relu, you can consider it like a switch.
+
+164
+00:26:52.350 --> 00:26:54.480
+Jitendra U: So, value is an activation function.
+
+165
+00:26:54.690 --> 00:27:05.850
+Jitendra U: So it's like you're… So, it's like your brain cells, right? So, when you're performing any… judgment.
+
+166
+00:27:06.360 --> 00:27:12.849
+Jitendra U: you're using a condition to it, right? So, let's say… imagine that you're seeing the…
+
+167
+00:27:13.710 --> 00:27:17.920
+Jitendra U: picture for the very first time. So, how your brain operates in those pictures.
+
+168
+00:27:18.150 --> 00:27:23.249
+Jitendra U: We were able to understand some sort of correlation from that image.
+
+169
+00:27:23.500 --> 00:27:27.869
+Jitendra U: Let's say you're seeing… Some image, for the very first time.
+
+170
+00:27:28.240 --> 00:27:42.810
+Jitendra U: you're trying to correlate at whether I've seen this image somewhere else, or is it looks like something else, then you come to a conclusion. So whenever you're making a conclusion, you are making a switch between the neurons. So that's the same thing we are applying in the convolution.
+
+171
+00:27:42.980 --> 00:27:45.009
+Jitendra U: To switch between the conditions.
+
+172
+00:27:46.130 --> 00:27:48.580
+Jitendra U: Example of sample kernel…
+
+173
+00:27:51.420 --> 00:27:57.029
+Jitendra U: We'll discuss this in deep learning, so this is something, we are not going to discuss right now.
+
+174
+00:27:57.130 --> 00:28:09.530
+Jitendra U: Are other labeled image of horror zebra, which input to the CNN, but not shown… yes, this is just a inference part we are looking into, but in the training part, we will use a bunch of images.
+
+175
+00:28:16.080 --> 00:28:22.029
+Jitendra U: No, we are doing convolution. So, convolution is like this. Let me show you the convolution operation again.
+
+176
+00:28:22.320 --> 00:28:33.139
+Jitendra U: So when we talk about convolution operation, the behind the scene, it will use and operate in the three arrays, RGB arrays. You can see this is how the convolution looks like. So you have got red.
+
+177
+00:28:33.400 --> 00:28:39.709
+Jitendra U: Green and blue, and each filled kernel will operate on these three arrays, and generate
+
+178
+00:28:40.070 --> 00:28:42.310
+Jitendra U: The final array in this format.
+
+179
+00:28:42.610 --> 00:28:45.350
+Jitendra U: So that is what… we are not multiplying the kernel here.
+
+180
+00:28:51.320 --> 00:29:00.010
+Jitendra U: So, is it clear to everyone what is convolution? So, mathematically, if I have to represent convolution, I can say that my convolution looks like this.
+
+181
+00:29:01.780 --> 00:29:03.340
+Jitendra U: the RGB array?
+
+182
+00:29:03.550 --> 00:29:04.840
+Jitendra U: with a filter.
+
+183
+00:29:05.080 --> 00:29:07.130
+Jitendra U: And the output will be a more…
+
+184
+00:29:07.820 --> 00:29:11.090
+Jitendra U: Reduce image as compared to my input data.
+
+185
+00:29:19.070 --> 00:29:22.969
+Jitendra U: Right? So this is how the convolution operation will perform behind the scenes.
+
+186
+00:29:25.000 --> 00:29:27.620
+Jitendra U: Alright, so I think with that…
+
+187
+00:29:29.380 --> 00:29:38.459
+Jitendra U: The 2 cross 2 arrays, fix one for no nodes, you can change the parameter. You can change this to 3 cross 3 or 4 cross 4 as well. This is a parameter.
+
+188
+00:29:38.640 --> 00:29:41.470
+Jitendra U: So, we are just discussing one example of it.
+
+189
+00:29:54.810 --> 00:30:00.180
+Jitendra U: So, is it clear to everyone? Let me show you the evaluation of this.
+
+190
+00:30:00.380 --> 00:30:03.670
+Jitendra U: Like, how the CNN has been evolved, so…
+
+191
+00:30:04.350 --> 00:30:10.930
+Jitendra U: We'll talk about all these things in deep learning, so we are not discussing in-depth of deep learning, we're just scratching the surface.
+
+192
+00:30:11.140 --> 00:30:21.289
+Jitendra U: Okay, so… The evolution of convolution network to visual information transformers is a very significant Growth in this industry.
+
+193
+00:30:21.750 --> 00:30:31.239
+Jitendra U: Right, so when we talk about some of the powerful transformers which is existing in today's world, so everything starts from 1998, when the Leanet
+
+194
+00:30:31.810 --> 00:30:44.110
+Jitendra U: was first introduced, and it's, able to classify the handwritten digits content. So, there's a model called Lynnet, which has been launched in 1998, right? So, after that, there's the first
+
+195
+00:30:44.530 --> 00:30:50.149
+Jitendra U: most promising model comes, which is called AlexNet. AlexNet wins ImageNet competition.
+
+196
+00:30:50.300 --> 00:30:57.739
+Jitendra U: And it sparkled a deep learning community, and creating an evolution in the computer vision. So everything started with an evolution, as you know.
+
+197
+00:30:58.020 --> 00:31:10.530
+Jitendra U: Right? So the same thing applied in the, the image processing, video processing world as well. So 2022 is coming… is considered to be the breakthrough year for image processing order.
+
+198
+00:31:10.820 --> 00:31:19.110
+Jitendra U: Then the year 2014 and 15, there's something called ResNet, which has been introduced, which is having 152 plus layers network.
+
+199
+00:31:19.270 --> 00:31:26.400
+Jitendra U: So you can see that ResNet is getting more complex as compared to LXNet, and it will be able to solve more complex tasks.
+
+200
+00:31:26.750 --> 00:31:39.220
+Jitendra U: And from there, you have something called attention is all you need, and that is where the… this is a breakthrough here for transformer-based architecture. When the transformer-based architecture has been launched.
+
+201
+00:31:39.430 --> 00:31:42.880
+Jitendra U: With a notion of attention.
+
+202
+00:31:43.130 --> 00:31:52.189
+Jitendra U: then everything got changed from 2017 onwards. It's been just 8 years, right? So not more than that. So, from 8 years, from 2017,
+
+203
+00:31:52.240 --> 00:32:01.140
+Jitendra U: We have achieved a long way, right? So, the VIT has been enabled by Google Researcher team that will be able to perform.
+
+204
+00:32:01.180 --> 00:32:16.709
+Jitendra U: these state-of-the-artures and perform these inputs. Now, as I mentioned, the core of the… any image or video processing engines are convolution neural network, or convolution operation. So the core concept, as I mentioned, we are going to perform
+
+205
+00:32:16.710 --> 00:32:25.090
+Jitendra U: a processing of the grid-like data structures in the form of an image, pixels. And then, this particular architecture will employ
+
+206
+00:32:25.590 --> 00:32:37.059
+Jitendra U: these methods to come up with the output. Now, I will not discuss about the mathematical behind what is feature map, what exactly this whole operation performed, because this is a part of your deep learning.
+
+207
+00:32:37.190 --> 00:32:47.140
+Jitendra U: Now, what I'm trying to show is, I'm just trying to show you that how these hierarchies and layering architecture works as a part of the whole explanation.
+
+208
+00:32:52.980 --> 00:32:53.840
+Jitendra U: Great.
+
+209
+00:32:54.250 --> 00:32:57.199
+Jitendra U: So, let me go back…
+
+210
+00:33:19.180 --> 00:33:27.109
+Jitendra U: Okay, now we will apply this case study to our videos as well, right? So when we talk about video analysis, like, how the video analysis has been performed, because
+
+211
+00:33:27.330 --> 00:33:31.149
+Jitendra U: If I'm going to perform analysis on the video, it's nothing but a
+
+212
+00:33:31.330 --> 00:33:47.760
+Jitendra U: set of pixels again, in the form of a frame, right? So when we talk about video analysis, predominantly we are doing an image analytic itself, but in the form of a frame reference, right? So we are converting this into a frame, and each frame will operate on an individual image.
+
+213
+00:33:47.910 --> 00:33:58.380
+Jitendra U: And then, we were able to perform this analysis with the help of video processing system. Now, let me talk about how the video processing system, or deep learning video processing system, has been
+
+214
+00:33:58.890 --> 00:34:05.789
+Jitendra U: made, and what is the technology which has been utilized for that purpose. Now, let me talk about,
+
+215
+00:34:06.610 --> 00:34:08.570
+Jitendra U: the video processing system.
+
+216
+00:34:08.820 --> 00:34:13.860
+Jitendra U: So, in the video processing system, you have a concept of… Frames.
+
+217
+00:34:14.179 --> 00:34:15.050
+Jitendra U: Right?
+
+218
+00:34:15.270 --> 00:34:18.690
+Jitendra U: So, the frames are nothing but…
+
+219
+00:34:19.000 --> 00:34:27.229
+Jitendra U: the frame will be a single sort of instance of a video. So when, let's say, I'm creating…
+
+220
+00:34:27.570 --> 00:34:31.509
+Jitendra U: In image processing system for my inventory detection algorithm.
+
+221
+00:34:31.719 --> 00:34:36.149
+Jitendra U: Let's say I have a system like this, where I'm processing the image.
+
+222
+00:34:36.340 --> 00:34:47.560
+Jitendra U: And try to identify what sort of objects are there, right? So you can see that if I'm performing, this analysis, I can able to get some sort of layman
+
+223
+00:34:48.380 --> 00:34:55.339
+Jitendra U: output in a form of a probabilical number. So it'll say that this looks like a bottle, this looks like
+
+224
+00:34:55.659 --> 00:34:58.020
+Jitendra U: Some, some…
+
+225
+00:34:58.330 --> 00:35:02.810
+Jitendra U: alcoholic drinks, and so on and so forth, and I can be able to understand from it.
+
+226
+00:35:02.950 --> 00:35:09.209
+Jitendra U: Right? So basically, in a nutshell, what you're trying to do is, you're trying to create a model which will be able to infer
+
+227
+00:35:09.330 --> 00:35:24.450
+Jitendra U: the images, right? So, behind the scene, you're using the same concept as we have, using in the video processing system, which is called convolution networks, right? So, how video processing system works.
+
+228
+00:35:25.800 --> 00:35:31.170
+Jitendra U: Using CNN, That is something which we are going to talk about.
+
+229
+00:35:31.460 --> 00:35:33.000
+Jitendra U: Let me show you.
+
+230
+00:35:38.480 --> 00:35:48.640
+Jitendra U: Okay, so… The fundamental difference that you have to understand is, unlike images, video incorporates a temporal dimension.
+
+231
+00:35:49.030 --> 00:35:56.680
+Jitendra U: Right? So making classification more complex. That means they are time-bound analysts, because you are going to have a frames.
+
+232
+00:35:56.710 --> 00:36:03.630
+Jitendra U: which are continuously changing. So there's a time-bound difference between the two frames. So, first frame of reference versus second.
+
+233
+00:36:03.640 --> 00:36:14.330
+Jitendra U: Versus third, there could be multiple characters in each frame, right? So unlike static data, video incorporated temporal dimension to your calculation. So making a classification
+
+234
+00:36:14.330 --> 00:36:25.430
+Jitendra U: inherently more complex. So, specifically for a task where temporal features play a very crucial role due to its fundamental difference, CNN model has been designed differently for
+
+235
+00:36:25.510 --> 00:36:27.760
+Jitendra U: Video analytics, right?
+
+236
+00:36:27.950 --> 00:36:31.490
+Jitendra U: So, let me show you the methods that has been used
+
+237
+00:36:31.680 --> 00:36:48.049
+Jitendra U: to con… to calculate this analysis, and this is where you're going to use the fusion models, right? So the fusion models, which is going to be utilized for that purpose. So, fusion models are typically a CNN model that converts time information and compose to
+
+238
+00:36:48.190 --> 00:36:52.169
+Jitendra U: These frames, which is called early fusion, late fusion, and slow fusion.
+
+239
+00:36:52.430 --> 00:36:56.010
+Jitendra U: Now, the early fusion is nothing but… it's a time domain
+
+240
+00:36:56.100 --> 00:37:15.730
+Jitendra U: local frames that represent information about the direction of the capture object, their temporal dependencies, and so on and so forth. And then, based upon that, it will be able to identify the frame intervals. Let's say it will scan the first 15 images or 20 images in a single frame, and then decide which object that particular,
+
+241
+00:37:15.870 --> 00:37:29.430
+Jitendra U: location is going to be had, right? Similarly, you're going to have a mini-batches of training when you're performing this analysis, you're going to have a mini batch of training, and these training will be useful when you're performing
+
+242
+00:37:29.950 --> 00:37:40.639
+Jitendra U: the classification of the images or videos using these models. Now, there are different types of models that we are going to talk about, but as I mentioned, we are just going to
+
+243
+00:37:41.240 --> 00:37:46.560
+Jitendra U: scratch the surface, so I will not cover the detail, but let me just…
+
+244
+00:37:54.130 --> 00:37:56.330
+Jitendra U: Let me show you the models.
+
+245
+00:38:36.720 --> 00:38:47.309
+Jitendra U: Yeah, so this is the evolution of the models in terms of the whole architecture. So, as I mentioned, the first and the foremost model is Latin, which has been launched in 1998.
+
+246
+00:38:47.420 --> 00:38:58.570
+Jitendra U: Then we have started with AlexNet, then there's something called VGG in the year 2014, then Google Leanet, has been launched, ResNet has been launched by Microsoft.
+
+247
+00:38:58.800 --> 00:39:06.519
+Jitendra U: Then there's a model called Inception, which has come in the year 2016, and then, hence, we have MobileNet, TenseNet.
+
+248
+00:39:06.780 --> 00:39:21.290
+Jitendra U: And, some of the earlier models, like MobiNet and Efficient Night, right? So after that, there's a lot of things which have been changed, specifically when we are talking about the most powerful models, like Google Nano Bananas.
+
+249
+00:39:21.290 --> 00:39:34.019
+Jitendra U: And you are also using some TikTok-based models, right, for performing the image captioning, and try to modify some of these things, right? So have you ever wondered how Google Banana works behind the scenes?
+
+250
+00:39:34.100 --> 00:39:49.709
+Jitendra U: what's the idea, and what's the terminology of Google Banana? So the secret sauce of those models are nothing but a CNN architecture itself. So, everything starts from there, and then it becoming a transform-based architecture with a self-attention mechanism, and that's where
+
+251
+00:39:50.580 --> 00:39:52.929
+Jitendra U: The holdup breakthrough has been happened.
+
+252
+00:39:53.030 --> 00:40:02.810
+Jitendra U: So if I have to explain to you the basic architecture of Google Banana, it is also using the same set of convolution neural network, right?
+
+253
+00:40:03.090 --> 00:40:10.309
+Jitendra U: So… Let me… Just show you one slide.
+
+254
+00:40:47.150 --> 00:40:49.180
+Jitendra U: Yeah, let me show you the slide.
+
+255
+00:40:49.920 --> 00:40:57.749
+Jitendra U: So basically, when we talk about image processing models from… which is very powerful in the year 2025,
+
+256
+00:41:52.800 --> 00:41:55.969
+Jitendra U: One second, let me show you this architecture.
+
+257
+00:42:01.940 --> 00:42:05.999
+Jitendra U: Yeah, so you will see some sort of architecture like this, right?
+
+258
+00:42:06.380 --> 00:42:12.719
+Jitendra U: So… This is how you can see that my feature maps are growing significantly from
+
+259
+00:42:13.150 --> 00:42:18.369
+Jitendra U: All the way to 2024, 224 plus 224 plus 3.
+
+260
+00:42:18.570 --> 00:42:23.970
+Jitendra U: images to all the way to this operation, right? So you can imagine, like, how much,
+
+261
+00:42:24.070 --> 00:42:34.390
+Jitendra U: feature extraction and transformation I'm doing. And this is one of the architecture that we are going to use for VGG16 as well. So this is a VGG16 architecture that I'm just depicting at this moment.
+
+262
+00:42:34.480 --> 00:42:50.370
+Jitendra U: And this particular foundation model will be utilized even by the best of the best transformer-based model these days, right? That's a… that's a building block of any transform-based model, right? So basically, when… when you're using, typically.
+
+263
+00:42:50.970 --> 00:42:54.969
+Jitendra U: These fully connected layer to a more complex terminologies.
+
+264
+00:42:55.090 --> 00:43:08.939
+Jitendra U: You're using the most extensive operation that you can able to perform to process any image or video analysis data. That is one of the fundamental models that has been used to differentiate
+
+265
+00:43:09.230 --> 00:43:26.680
+Jitendra U: the type of the image and the characteristics of the image, because anything that you're trying to differentiate is nothing but a classification modeling, right? So, when you think of, I would like to differentiate an image, as a cat versus a dog, that means you're performing a binary classification on the top of it.
+
+266
+00:43:26.680 --> 00:43:44.490
+Jitendra U: Now, same thing applies for a video transformation. So, when you're performing a video analysis, what you're trying to achieve, you're trying to achieve the object location and the object classification in the image, right? And then, now you're adding different things, like pose estimation. I would like to identify whether the person is dancing.
+
+267
+00:43:44.490 --> 00:43:55.219
+Jitendra U: or sleeping, or standing, that is called pose estimation. Or you would like to identify the mood of a person, whether he is smiling, he's joyful, he's sad, he or she is sad.
+
+268
+00:43:55.220 --> 00:44:07.540
+Jitendra U: Or she's crying, or anything that you would like to find out. You would like to find out what she's wearing, what he's having in his hand, the watch, right? The kind of suit he's wearing.
+
+269
+00:44:07.550 --> 00:44:23.760
+Jitendra U: the kind of attires the celebrity is wearing, all these things you are going to perform with the help of these video analysts. Even I can give you a more complex example, like, let's say, even the sports event, during the sports event, you would like to find it out
+
+270
+00:44:23.780 --> 00:44:32.030
+Jitendra U: Whether the performance of the player is good, bad, depending upon the short selection, depending upon the type of analysis he's going to perform.
+
+271
+00:44:32.090 --> 00:44:33.399
+Jitendra U: So that's where…
+
+272
+00:44:33.680 --> 00:44:50.960
+Jitendra U: these models are very, very useful for converting these, these important considerations. Now, as I mentioned, for image classification, when you start training a model, you have to align a label to the entire image, and that
+
+273
+00:44:51.100 --> 00:44:57.969
+Jitendra U: Labeling will be one of the important exercises that you have to consider. So when you're starting with an image processing model.
+
+274
+00:44:58.090 --> 00:45:00.600
+Jitendra U: For classification purpose, you have to label the data.
+
+275
+00:45:00.670 --> 00:45:03.940
+Jitendra U: You have to define your problem statement at what I'm trying to solve.
+
+276
+00:45:03.940 --> 00:45:26.929
+Jitendra U: Right? So you have to first determine what I'm trying to solve. It's not… it cannot be a generic model. So you have to define what is your problem statement, what are you trying to solve, and then depending upon that, you have to assign a label to the entire images. And then you have to choose the architecture on… by which you will try to solve that problem. That architecture can be a CNN, it can be a vision transformer, it can be hybrid models.
+
+277
+00:45:27.000 --> 00:45:28.020
+Jitendra U: etc.
+
+278
+00:45:28.970 --> 00:45:31.010
+Jitendra U: Then, what you need to do is…
+
+279
+00:45:31.760 --> 00:45:42.960
+Jitendra U: you need to define the category of these image classification into multiples of features. Like, are you going to use this model for object detection, for semantic segmentation.
+
+280
+00:45:42.960 --> 00:45:54.809
+Jitendra U: Right? Or, for instance, segmentation. So I can use different types of models, like facial recognition models, semantic segmentation model. I would like to identify the primary objects in the image.
+
+281
+00:45:54.940 --> 00:46:05.709
+Jitendra U: Let's say I'm searching for something, and then I would like to instruct my model that I'm just looking for one type of an object in the all images, and it will look for that particular type of image.
+
+282
+00:46:05.710 --> 00:46:22.490
+Jitendra U: Video understanding, as I mentioned, is a temporal analysis. It's a time-bound analysis of the model, so where we have to generate series of images and try to perform this whole analysis. So in the video model, you have to perform pose estimation, tracking, and recognition.
+
+283
+00:46:22.490 --> 00:46:35.369
+Jitendra U: And any sort of features. As I mentioned, this all started in 1998, all the way to 2017, 20. Now, we are living in the world of diffusion models. So, the diffusion models is the main…
+
+284
+00:46:35.390 --> 00:46:37.429
+Jitendra U: Source behind.
+
+285
+00:46:37.650 --> 00:46:54.390
+Jitendra U: Gemini-based, image processing models, like Nano Banana. So diffusion models like DAL, Stable Diffusion, and, GPT-4, which is the backbone of these, so-called image processing models and video processing models these days.
+
+286
+00:46:54.700 --> 00:47:04.469
+Jitendra U: Now, as I mentioned, image models comprise of a CNN. The backbone of this model. So, CNN is stored with a LATNET, so you can see how simple this architecture is for LACNet.
+
+287
+00:47:04.530 --> 00:47:15.759
+Jitendra U: We just have 16 filters, 6 filters at the image processing layer, and as we progress, the architecture is getting more complex. Now, here we are talking about 1,000 classes.
+
+288
+00:47:15.980 --> 00:47:32.890
+Jitendra U: to the fully connected layer, which is a form… part of an AlexNet. So here we are just talking about 10 classes, which is a number from 0 to 9, which is 10 classes. Handwritten data set, right? Here we are talking about 100 classes, 1,000 classes, and the parameters are 60 million.
+
+289
+00:47:33.240 --> 00:47:45.069
+Jitendra U: And the error rate is 15.3, right? Now, when we talk about VGNet, it even grow from 54 million parameter, 60 million parameter, we move on to 138 million parameter.
+
+290
+00:47:45.070 --> 00:47:54.180
+Jitendra U: And here we are talking about very few layers, here we are talking about 16 to 19 layers, right? So as you can see that as we progress, the complexity of the model increases.
+
+291
+00:47:54.860 --> 00:48:12.530
+Jitendra U: Then in the 2015, you have more revolutionary models, where you're even using 152 layers, and better gradient flows, etc, right? Now, here we are talking about… I'm just talking about the most important CNN variants, like, we are going to use Google Lens, Latin.
+
+292
+00:48:12.550 --> 00:48:16.630
+Jitendra U: Moby Night, efficient night, dense night, for different purposes.
+
+293
+00:48:18.050 --> 00:48:29.519
+Jitendra U: So I will share this, this sheet with you guys, so that you can able to keep it in the record, but these details we are going to discuss during the deep learning. We will not… we are not discussing any model at this moment.
+
+294
+00:48:29.590 --> 00:48:42.809
+Jitendra U: So don't worry too much, we are just discussing the architectures. Now, for video analysis, as we know, these are all temporal models. That means that you have to add a time dimension data to the images, and that will become a video analysis, right?
+
+295
+00:48:42.810 --> 00:48:50.029
+Jitendra U: So you have to make sure that you can able to capture the motion detection from the image, and then if you have any video clip.
+
+296
+00:48:50.180 --> 00:48:58.120
+Jitendra U: You would like to perform the same operation by splitting that image, sorry, the moving image to this dimension.
+
+297
+00:48:58.790 --> 00:48:59.710
+Jitendra U: Right?
+
+298
+00:48:59.710 --> 00:49:23.760
+Jitendra U: And then, based upon that dimension, I'm going to utilize the same convolution operation that I've just discussed to perform and learn from those spatial-temporal features, right? And finally, what I'm going to do is, I would like to use this whole, transform-based architecture to perform this analysis on the top of it. Similarly, I can be able to perform an object detection, that means I would like to localize an object
+
+299
+00:49:23.760 --> 00:49:25.590
+Jitendra U: Based upon the region.
+
+300
+00:49:25.650 --> 00:49:33.060
+Jitendra U: And then I can able to utilize the region proposal network for that purpose. So let's say I would like to identify the, maybe…
+
+301
+00:49:33.170 --> 00:49:41.650
+Jitendra U: some particular object of my interest, and then depending upon that, I would like to perform this analysis, right? A pixel-wise analysis I will be able to perform.
+
+302
+00:49:42.670 --> 00:49:58.150
+Jitendra U: All right, so, okay, can you please explain, talk about filters one more time? So, filter is just like a function, right? So, consider filters as a function in CNN, right? So, the purpose of filters is to reduce the data, reduce the pixel data.
+
+303
+00:49:58.540 --> 00:50:06.749
+Jitendra U: So, it will help you to compress the data, right? So, when I talk about filters, filters in CNN are nothing words. It's a function.
+
+304
+00:50:07.210 --> 00:50:09.290
+Jitendra U: Right, it's a kernel function.
+
+305
+00:50:09.780 --> 00:50:23.059
+Jitendra U: in CNN, which will help you to reduce the data. When you're trying to reduce the data, what exactly you're trying to do? So, in… during the convolution operation, convolution operation, you are using a filter
+
+306
+00:50:23.250 --> 00:50:26.530
+Jitendra U: As a kernel, which is a small matrix of a number.
+
+307
+00:50:26.910 --> 00:50:38.049
+Jitendra U: And this particular small matrix of a number is used to detect the feature in the input image, such as edge, texture, shape, etc. So these… this is where you're going to scan the image.
+
+308
+00:50:38.360 --> 00:50:45.630
+Jitendra U: From top left corner, and all the way that you're going to perform this analysis towards the bottom right.
+
+309
+00:50:46.640 --> 00:50:53.740
+Jitendra U: Right? So this is the filter operation. The filter will convert your data into a smaller matrix.
+
+310
+00:50:56.470 --> 00:50:58.240
+Jitendra U: So you're creating a feature map.
+
+311
+00:50:59.960 --> 00:51:05.960
+Jitendra U: Alright, so… Any further question before we move on? Any question?
+
+312
+00:51:09.840 --> 00:51:14.050
+Jitendra U: These frameworks are open source, yes, these all frameworks are open source, yes.
+
+313
+00:51:45.150 --> 00:51:46.899
+Jitendra U: So, any other question, guys?
+
+314
+00:51:49.980 --> 00:51:51.939
+Jitendra U: How the dimensions are determined?
+
+315
+00:51:52.650 --> 00:52:01.659
+Jitendra U: Dimension depends upon your input data, right? So, the dimension will be set by your input data. What data you are going to have, what amount of quality of images you are using.
+
+316
+00:52:02.080 --> 00:52:16.649
+Jitendra U: All these things will be determined, but some models have their prerequisite in terms of dimension. Like, they will perform analysis on 256 plus 256, some models will use 128 plus 128, so you have to understand the specification of the model, and then decide the dimension.
+
+317
+00:52:28.170 --> 00:52:45.109
+Jitendra U: When we say 60 million parameters, so 60 million parameters will be determined by the architecture, the Google research team. So, this will be more research intensive, right? So they have come up with this architecture. So, they will decide whether I need 60 million architecture or 120 million architecture.
+
+318
+00:52:45.110 --> 00:52:51.619
+Jitendra U: But the purpose is to solve complex problem and improve the previous version of the model, and that's the reason the parameter has been keep on increasing.
+
+319
+00:52:51.690 --> 00:52:56.650
+Jitendra U: So when you're increasing the parameter, the complexity of the algorithm will also increase. However.
+
+320
+00:52:56.860 --> 00:53:05.790
+Jitendra U: the performance will increase as well. The performance in terms of error reduction, the performance in terms of proper classification will also improve.
+
+321
+00:53:07.500 --> 00:53:12.819
+Jitendra U: So, now, what we are going to do next is, I will talk about the basic
+
+322
+00:53:13.070 --> 00:53:15.340
+Jitendra U: I would like to create a very basic model.
+
+323
+00:53:15.790 --> 00:53:21.210
+Jitendra U: And I would like to create a very basic model, of CNN architecture.
+
+324
+00:53:21.340 --> 00:53:26.070
+Jitendra U: Which will help you to classify the image. So in this, I would like to use…
+
+325
+00:53:26.420 --> 00:53:40.879
+Jitendra U: the CIFAR dataset. So let me show you the CIFR dataset first, what this dataset talks about. This dataset is from University of Toronto, and this comprises of some 10 classes with 6,000 images per class.
+
+326
+00:53:41.910 --> 00:53:46.310
+Jitendra U: So, what are the images of this class? So, you can see there are some bunch of…
+
+327
+00:53:46.760 --> 00:53:48.240
+Jitendra U: images like this.
+
+328
+00:53:51.570 --> 00:53:54.600
+Jitendra U: So you have got 60,000 instances.
+
+329
+00:53:55.320 --> 00:53:57.449
+Jitendra U: And these are the…
+
+330
+00:54:03.080 --> 00:54:05.039
+Jitendra U: Different sort of images.
+
+331
+00:54:05.930 --> 00:54:10.619
+Jitendra U: Okay, where's the description labels? It should be…
+
+332
+00:54:21.930 --> 00:54:23.650
+Jitendra U: Yeah, so these are labels.
+
+333
+00:54:26.410 --> 00:54:33.510
+Jitendra U: So you have got an airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck.
+
+334
+00:54:36.260 --> 00:54:42.700
+Jitendra U: Right? So, what we are going to do is, we will create a very simple CNN architecture. Maybe it will not be very accurate.
+
+335
+00:54:43.070 --> 00:54:51.950
+Jitendra U: So, sometimes you will see a wrong answer. So, we'll create a very simple CNN architecture, and then we'll try to classify
+
+336
+00:54:53.040 --> 00:54:55.709
+Jitendra U: The output, in a form of a class.
+
+337
+00:54:56.210 --> 00:55:02.390
+Jitendra U: either of these classes, right? So we are going to create a very simple three-layer CNN architecture with max pooling.
+
+338
+00:55:02.590 --> 00:55:16.000
+Jitendra U: And we will use the 60,000 images, which is of 32 across 32 color images in 10 classes. We'll perform the training, validation, and splitting, and then try to identify the output, right? So this is what we are going to do.
+
+339
+00:55:16.560 --> 00:55:19.429
+Jitendra U: Yeah, the training required GPUs, yes, that's correct.
+
+340
+00:55:21.400 --> 00:55:23.420
+Jitendra U: The training will require GPUs.
+
+341
+00:55:48.060 --> 00:55:51.569
+Jitendra U: Okay, so you can see that I'm just trying to create a very simple model.
+
+342
+00:55:51.890 --> 00:55:58.860
+Jitendra U: So, when you're dealing with deep learning, you have to use some Existing Python frameworks.
+
+343
+00:55:59.330 --> 00:56:07.840
+Jitendra U: So there are different types of Python framework that we are going to learn when we start with deep learning, and one of the frameworks is called TensorFlow, right? So we'll talk about TensorFlow
+
+344
+00:56:08.060 --> 00:56:12.849
+Jitendra U: Maybe, in the deep learning class one, like what TensorFlow does.
+
+345
+00:56:13.030 --> 00:56:17.639
+Jitendra U: We'll also talk about how this TensorFlow will have
+
+346
+00:56:18.370 --> 00:56:20.899
+Jitendra U: Different functions that is going to operate together.
+
+347
+00:56:22.100 --> 00:56:31.050
+Jitendra U: Right? So, the first and the foremost thing, I would like to load my data. So, I'm going to load my data into the memory. You can see that and start downloading the data.
+
+348
+00:56:32.950 --> 00:56:35.499
+Jitendra U: Let's see how much images I have downloaded.
+
+349
+00:56:36.110 --> 00:56:41.790
+Jitendra U: So I've used 50,000 images for training, 10,000 images for testing purpose.
+
+350
+00:56:42.780 --> 00:56:50.799
+Jitendra U: is any cloud tech in our model for us on server-side or GP? Cloud, you have to purchase, right? There's no free cloud.
+
+351
+00:56:51.400 --> 00:56:57.949
+Jitendra U: You have to purchase. If you are using a free cloud, then Google Colab is there. You have to purchase a license to train your model on cloud.
+
+352
+00:56:58.710 --> 00:57:02.700
+Jitendra U: Or if your organization is providing you, then you can use that.
+
+353
+00:57:06.000 --> 00:57:17.959
+Jitendra U: Then, I would like to visualize the first 10 images from training data, so you can see that my data comprise of very faded images, but they are still well classified. Automobile, bird, sorry, frog.
+
+354
+00:57:18.080 --> 00:57:20.510
+Jitendra U: An image of a truck. Again, a truck.
+
+355
+00:57:20.940 --> 00:57:28.060
+Jitendra U: It's a deer. So the reason being this image looks, like, deteriorating, because the size of the image is very slow… low.
+
+356
+00:57:28.310 --> 00:57:32.760
+Jitendra U: So, when I'm projecting this image on my screen, it is even…
+
+357
+00:57:33.120 --> 00:57:36.990
+Jitendra U: Fading, right? Because the pixels are very, very narrow.
+
+358
+00:57:37.620 --> 00:57:43.920
+Jitendra U: Now, but the labels are accurate, so this is, again, a car, which is coming into automobile. This is ostrich.
+
+359
+00:57:44.630 --> 00:57:46.460
+Jitendra U: A kid's having a bark.
+
+360
+00:57:47.130 --> 00:57:47.990
+Jitendra U: One second.
+
+361
+00:58:40.920 --> 00:58:52.320
+Jitendra U: All right, so this is the kind of images that we are going to play around. Now, before we start with an image processing model, I have to normalize the data. Now, this is where I'm just performing a data normalization.
+
+362
+00:58:52.490 --> 00:59:09.119
+Jitendra U: And now, here I'm building the CNN model. Now, here you can see that I'm creating a model, which is having certain tenable parameters. So, I will not go into that detail, because it will confuse you rather than giving you any idea. So, just try to understand how systematically we are performing this CNN operation. So, first.
+
+363
+00:59:09.180 --> 00:59:14.050
+Jitendra U: You have to load the data, you have to label your classes, you have to split your data.
+
+364
+00:59:14.140 --> 00:59:17.600
+Jitendra U: And then you have to create an architecture. And finally.
+
+365
+00:59:18.130 --> 00:59:22.399
+Jitendra U: You have to compile the model, And then train the model.
+
+366
+00:59:22.570 --> 00:59:26.979
+Jitendra U: So this training will take time. You can see I'm running an epoch.
+
+367
+00:59:27.100 --> 00:59:40.119
+Jitendra U: And that's where you required a GPU. Right now, we are using a very simple data, 50,000 images, so this will at least take 2 to 3 minutes, maybe 5 minutes maximum to run this.
+
+368
+00:59:40.350 --> 00:59:45.629
+Jitendra U: So let it be complete, and we will see the accuracy of this model.
+
+369
+00:59:48.850 --> 00:59:52.189
+Jitendra U: But you understand the problem statement, what we are trying to solve.
+
+370
+01:00:00.360 --> 01:00:03.169
+Jitendra U: Where is TensorFlow.ca's not found?
+
+371
+01:00:03.290 --> 01:00:05.340
+Jitendra U: Which line you see into Sarah?
+
+372
+01:00:15.420 --> 01:00:17.160
+Jitendra U: Line number 3.
+
+373
+01:00:27.870 --> 01:00:29.560
+Jitendra U: I do not see this error.
+
+374
+01:00:47.130 --> 01:00:49.170
+Jitendra U: This is a version we are printing.
+
+375
+01:00:49.460 --> 01:00:50.670
+Jitendra U: Pier version.
+
+376
+01:00:51.680 --> 01:00:54.480
+Jitendra U: We're printing a TensorFlow version here.
+
+377
+01:00:59.720 --> 01:01:01.710
+Jitendra U: Oh, this… okay.
+
+378
+01:01:02.490 --> 01:01:05.740
+Jitendra U: Oh, TensorFlow.keras could not resolve.
+
+379
+01:01:06.690 --> 01:01:17.729
+Jitendra U: Okay, there's a version change, I think, so that's the reason it is still using the earlier version, so they have changed the way in which we are going to use the layers functionality, and that's the reason it is throwing an error.
+
+380
+01:01:20.060 --> 01:01:22.839
+Jitendra U: But this is a warning, so ignorable warning.
+
+381
+01:01:28.350 --> 01:01:32.440
+Jitendra U: Yeah, but is it restricting you to run this, or…
+
+382
+01:01:32.930 --> 01:01:34.090
+Jitendra U: Is it running?
+
+383
+01:01:35.450 --> 01:01:37.720
+Jitendra U: That's a warning, ignorable warning.
+
+384
+01:01:38.380 --> 01:01:39.320
+Jitendra U: Okay.
+
+385
+01:01:40.240 --> 01:01:43.269
+Jitendra U: They keep on changing the versions, as I mentioned.
+
+386
+01:01:43.390 --> 01:01:52.160
+Jitendra U: These modules are… you know… Some of them are still under development, some of them are refined, but…
+
+387
+01:01:52.430 --> 01:01:55.619
+Jitendra U: You have to always utilize
+
+388
+01:01:55.890 --> 01:02:04.040
+Jitendra U: the best of the best. So right now I'm using 2.19. Maybe I can change it to 2.18 to reduce this error. So TensorFlow version…
+
+389
+01:02:04.260 --> 01:02:06.309
+Jitendra U: Is, determining this error.
+
+390
+01:02:10.490 --> 01:02:13.669
+Jitendra U: So, I'm running this in an epoch. Now, when we say epoch.
+
+391
+01:02:13.820 --> 01:02:26.719
+Jitendra U: You can see that I'm using accuracy, loss, validation accuracy, validation loss as the key metrics. Now, when you say validation accuracy, what do you mean by validation accuracy? Can somebody explain me what is validation accuracy?
+
+392
+01:02:39.040 --> 01:02:44.400
+Jitendra U: Okay, let me explain. So, basically, in any model training process.
+
+393
+01:02:44.850 --> 01:02:48.100
+Jitendra U: What you're doing here is, you're splitting your data.
+
+394
+01:02:48.440 --> 01:02:50.760
+Jitendra U: So let's say you have 60,000 images.
+
+395
+01:02:51.890 --> 01:02:54.310
+Jitendra U: 60,000 images.
+
+396
+01:02:55.620 --> 01:02:57.459
+Jitendra U: You split them in two.
+
+397
+01:03:04.320 --> 01:03:05.870
+Jitendra U: 50,000.
+
+398
+01:03:08.310 --> 01:03:09.930
+Jitendra U: For training purpose?
+
+399
+01:03:12.330 --> 01:03:15.150
+Jitendra U: And remaining 10,000 for testing purpose.
+
+400
+01:03:17.390 --> 01:03:20.069
+Jitendra U: Now, when you're using these 50,000 images.
+
+401
+01:03:21.460 --> 01:03:24.630
+Jitendra U: You're further splitting this into validation data as well.
+
+402
+01:03:25.770 --> 01:03:29.379
+Jitendra U: Now, why? Because during the training.
+
+403
+01:03:29.610 --> 01:03:31.629
+Jitendra U: You can see training is expensive.
+
+404
+01:03:32.830 --> 01:03:34.480
+Jitendra U: Training is expensive.
+
+405
+01:03:35.110 --> 01:03:37.190
+Jitendra U: Because I'm using a compute.
+
+406
+01:03:38.890 --> 01:03:39.830
+Jitendra U: Cost.
+
+407
+01:03:40.160 --> 01:03:41.660
+Jitendra U: While training my model.
+
+408
+01:03:43.170 --> 01:03:50.390
+Jitendra U: Although this is a few signs, I'm not investing multi-million, But still, think of…
+
+409
+01:03:51.710 --> 01:04:00.720
+Jitendra U: This process is the most complex part of deep learning models. So when you're training the model, you have to perform the validation simultaneously, while training the model.
+
+410
+01:04:01.400 --> 01:04:03.509
+Jitendra U: Right? So you're going to expose…
+
+411
+01:04:04.060 --> 01:04:09.130
+Jitendra U: These labels by further splitting the label into validation and
+
+412
+01:04:10.030 --> 01:04:18.690
+Jitendra U: Training data parameters and try to identify how many horses have been identified as horses, how many cats has been identified as cat during the batch.
+
+413
+01:04:20.360 --> 01:04:32.390
+Jitendra U: And that will give you the model accuracy. Right now, my model is 60% accurate and improved, so you can see that it is getting improved with each epoch. And that is called learning.
+
+414
+01:04:38.740 --> 01:04:41.620
+Jitendra U: Right? So this is called learnable parameters of the model.
+
+415
+01:04:42.280 --> 01:04:51.159
+Jitendra U: You might have heard, That, the models start learning It is getting… Worst or best.
+
+416
+01:04:52.860 --> 01:04:55.120
+Jitendra U: Alright, so this is the magic behind the scene.
+
+417
+01:05:19.410 --> 01:05:22.509
+Jitendra U: EPOC is the steps that a modeler took to learn.
+
+418
+01:05:23.250 --> 01:05:24.649
+Jitendra U: Episodal task.
+
+419
+01:05:33.050 --> 01:05:35.829
+Jitendra U: This is something which I'm going to talk about in deep learning.
+
+420
+01:05:36.770 --> 01:05:38.310
+Jitendra U: How to configure this.
+
+421
+01:05:56.510 --> 01:05:58.649
+Jitendra U: So let's wait until this complete.
+
+422
+01:06:12.670 --> 01:06:15.739
+Jitendra U: No, we are training all mo… all… all data.
+
+423
+01:06:16.260 --> 01:06:18.870
+Jitendra U: But we're improving the data with each epoch.
+
+424
+01:06:19.000 --> 01:06:21.469
+Jitendra U: Improving the model accuracy with EGPOC.
+
+425
+01:06:30.740 --> 01:06:31.680
+Jitendra U: Yes.
+
+426
+01:06:32.450 --> 01:06:35.869
+Jitendra U: With EGPOC, the validation accuracy is getting improved.
+
+427
+01:06:49.520 --> 01:06:52.540
+Jitendra U: Okay, general rule of thumb, use epoch is equals to 10.
+
+428
+01:06:52.970 --> 01:06:58.219
+Jitendra U: That's a rule of thumb. If you don't have any idea, run for 10 epoch. That's a rule of thumb.
+
+429
+01:06:59.160 --> 01:07:07.829
+Jitendra U: Epoch will be agnostic. You can see there's a huge amount of time it is taking, but generally, by default, you're going to use 10.
+
+430
+01:07:09.680 --> 01:07:15.759
+Jitendra U: So I'm using a default parameter. All default parameter. Best size 64, validation split 20%.
+
+431
+01:07:16.060 --> 01:07:17.829
+Jitendra U: These are all default parameters.
+
+432
+01:07:18.120 --> 01:07:22.149
+Jitendra U: When you're in dilemma, which one should I use? So use these parameters.
+
+433
+01:07:51.380 --> 01:07:54.919
+Jitendra U: No, this has not been shared yet, so I will share after the class.
+
+434
+01:08:24.240 --> 01:08:26.250
+Jitendra U: Okay, it's almost completed.
+
+435
+01:08:29.990 --> 01:08:34.590
+Jitendra U: So, can somebody explain what we are trying to solve? I have seen one question, what we are trying to solve.
+
+436
+01:08:35.060 --> 01:08:37.180
+Jitendra U: Can somebody explain what we are trying to solve?
+
+437
+01:08:51.870 --> 01:08:54.760
+Jitendra U: Classifying the given picture, yes.
+
+438
+01:08:56.290 --> 01:08:57.890
+Jitendra U: Image classification.
+
+439
+01:09:01.500 --> 01:09:04.050
+Jitendra U: Correct. Training the model to classify the image.
+
+440
+01:09:09.069 --> 01:09:09.880
+Jitendra U: Correct.
+
+441
+01:09:13.720 --> 01:09:15.579
+Jitendra U: So I think this is completed.
+
+442
+01:09:16.010 --> 01:09:20.039
+Jitendra U: We got, accuracy of 66%. Let's see how…
+
+443
+01:09:20.270 --> 01:09:28.110
+Jitendra U: work, training completed. Now, I would like to plot the training accuracy, so these graphs are nothing but
+
+444
+01:09:28.220 --> 01:09:41.599
+Jitendra U: It will show you the overfitted model, underfitted model characteristics. The blue line is showing training accuracy, the yellow-orange line is showing the validation accuracy. So make sure that your training accuracy and validation accuracy should not be too far.
+
+445
+01:09:41.760 --> 01:09:47.060
+Jitendra U: So this is the case for this model as well, which are not too far, right?
+
+446
+01:09:47.300 --> 01:09:49.529
+Jitendra U: Then I would like to evaluate the model.
+
+447
+01:09:52.630 --> 01:09:54.370
+Jitendra U: On the test data now.
+
+448
+01:09:55.500 --> 01:10:03.400
+Jitendra U: Our trash accuracy is also 66%, train accuracy is 66% as well. That means my model is…
+
+449
+01:10:03.820 --> 01:10:10.310
+Jitendra U: Good enough, generalize, And you can see that the… some of the labels are tried.
+
+450
+01:10:11.150 --> 01:10:19.190
+Jitendra U: On the top of the model, this is a test data, and you can see how nicely it is predicting a cat as a cat. A ship as a ship.
+
+451
+01:10:19.460 --> 01:10:37.500
+Jitendra U: But here is an error. The automobile… the true label is a shape, but it is predicting as automobile. Here I'm getting a plane as a plane, a frog as a frog. Again, a frog as a frog, automobile as an automobile. Again, a frog as a frog. Here, I'm getting one error. Horse as cat.
+
+452
+01:10:37.790 --> 01:10:45.469
+Jitendra U: Automobile is automobiles. How many images I've tested? 1, 2, 3, 4, 5, 10 images, out of which 2 are having the errors.
+
+453
+01:10:46.090 --> 01:10:48.040
+Jitendra U: So it is 80% accurate.
+
+454
+01:10:48.170 --> 01:10:55.330
+Jitendra U: Right? Isn't it a good model, or is it a bad model? I will leave it up to you. But what do you think is a good model, bad model?
+
+455
+01:10:58.240 --> 01:10:59.850
+Jitendra U: It's a good model, right?
+
+456
+01:11:03.470 --> 01:11:06.539
+Jitendra U: No, we have a two category, automobile and ship, both.
+
+457
+01:11:06.650 --> 01:11:07.940
+Jitendra U: So it should be a ship.
+
+458
+01:11:09.980 --> 01:11:16.509
+Jitendra U: Right? Now, I will talk about how to save your work, right? So, when you're using.
+
+459
+01:11:16.920 --> 01:11:24.809
+Jitendra U: And the… when you completed training the model, you have to save the model as well, and you have to save the model in the form of an H5 file.
+
+460
+01:11:25.130 --> 01:11:28.090
+Jitendra U: So, H5 file… Is the…
+
+461
+01:11:28.350 --> 01:11:44.409
+Jitendra U: kind of an industrial standard for TXT, right? When you're using a model in a form of a pickle format files, use H5 files to store the model. So here, I'm storing the model as an H5, so that whatever training I have conducted.
+
+462
+01:11:44.570 --> 01:11:47.509
+Jitendra U: In this model, I need not to rerun the model.
+
+463
+01:11:48.430 --> 01:11:55.349
+Jitendra U: Right? So that is where I have to save the model. So that is called… something called model state saving.
+
+464
+01:11:55.560 --> 01:11:58.209
+Jitendra U: So I'm saving the state of the model that I've run.
+
+465
+01:11:58.630 --> 01:12:04.910
+Jitendra U: Yeah, can I increase the epoch? Will I get a more accuracy? The answer is… Depends.
+
+466
+01:12:05.950 --> 01:12:08.709
+Jitendra U: So, it depends, totally depends.
+
+467
+01:12:09.360 --> 01:12:15.190
+Jitendra U: There's no right and wrong answer, that if you're increasing the epoch, your accuracy will increase. It depends.
+
+468
+01:12:19.100 --> 01:12:21.519
+Jitendra U: Alright, so I've shared the code with everyone.
+
+469
+01:12:22.380 --> 01:12:24.569
+Jitendra U: H5 file will contain a binary.
+
+470
+01:12:25.080 --> 01:12:27.430
+Jitendra U: If you open this file, you will see a binary file.
+
+471
+01:12:28.080 --> 01:12:37.650
+Jitendra U: What is a model… it's like an EXE file of your tool in Windows, right? Or bat file in Windows. Similar to, we have model file, colouch file.
+
+472
+01:12:38.190 --> 01:12:40.890
+Jitendra U: What does the model encounter an image not trained?
+
+473
+01:12:41.400 --> 01:12:48.779
+Jitendra U: what if model encounters an image not being trained? Yeah, so it will show some output, but in a…
+
+474
+01:12:49.190 --> 01:12:51.940
+Jitendra U: Incorrect label output, right?
+
+475
+01:12:52.450 --> 01:12:59.410
+Jitendra U: If you're not using the… if you're using some image, if you're showing Ashwary or eye to him, he might say frog or a horse.
+
+476
+01:12:59.990 --> 01:13:07.250
+Jitendra U: Right? So that is the difference the model will create. It'll try to correlate with some similar class.
+
+477
+01:13:22.810 --> 01:13:31.910
+Jitendra U: But we are not training models to judge any image given to it. Yes, we are just talking about only these set of classes, 10 classes.
+
+478
+01:13:32.600 --> 01:13:35.959
+Jitendra U: Let's take a baby step. Let's not create Facebook.
+
+479
+01:13:36.210 --> 01:13:37.530
+Jitendra U: image model.
+
+480
+01:13:39.650 --> 01:13:47.080
+Jitendra U: Alright, so we are not creating a Facebook image model, which will be able to… or Google Lens model, which will be able to identify all the images in the universe.
+
+481
+01:13:47.640 --> 01:13:53.709
+Jitendra U: Right? So we have to take a baby step to learn these concepts. So we are just restricting our discussion to 10 classes.
+
+482
+01:13:57.180 --> 01:14:07.530
+Jitendra U: We'll talk about underfit or overfit in machine learning, don't worry about it, but just to give you a context, underfit models are generally… behave very well during training.
+
+483
+01:14:08.030 --> 01:14:11.440
+Jitendra U: But they are bad in… Testing.
+
+484
+01:14:12.150 --> 01:14:17.170
+Jitendra U: Overfit models, they are performing really well during training, but underperform during testing.
+
+485
+01:14:18.490 --> 01:14:23.540
+Jitendra U: We'll talk about overfitting and underfitting. You guys want to try this, let me know.
+
+486
+01:14:24.030 --> 01:14:30.289
+Jitendra U: What are you… what is your observation? Just give me the accuracy number once you finish.
+
+487
+01:14:31.390 --> 01:14:33.399
+Jitendra U: Shall I wait, or shall we continue?
+
+488
+01:14:39.190 --> 01:14:40.709
+Jitendra U: You would like to try this?
+
+489
+01:14:46.330 --> 01:14:49.750
+Jitendra U: Yeah, so please run this and let me know the accuracy of the model.
+
+490
+01:14:50.310 --> 01:14:52.890
+Jitendra U: So I will wait for your response.
+
+491
+01:14:53.000 --> 01:14:58.710
+Jitendra U: Just ping me the accuracy of the model once you're done, the same way that I am saying my model is 80% accurate.
+
+492
+01:14:59.090 --> 01:15:03.990
+Jitendra U: Because out of the 10 labels that I pass, it is predicting 8 levels correctly.
+
+493
+01:15:04.370 --> 01:15:10.129
+Jitendra U: But maybe some of you might be even getting 40%, 50%. Let's see how this overall looks like.
+
+494
+01:20:11.590 --> 01:20:16.280
+Jitendra U: Yeah, that's correct. If you are having… already have some model, you can reload it.
+
+495
+01:20:17.110 --> 01:20:19.050
+Jitendra U: So, I have commented this out.
+
+496
+01:20:20.710 --> 01:20:23.700
+Jitendra U: So you can uncomment this when you already have a model.
+
+497
+01:20:27.560 --> 01:20:32.580
+Jitendra U: Okay, can you please explain EPOC again? Okay, so let me explain what is EPOC.
+
+498
+01:20:32.950 --> 01:20:37.250
+Jitendra U: So, EPOC… Let me write down…
+
+499
+01:20:38.210 --> 01:20:45.070
+Jitendra U: So when we talk about our epoch, so EPOC is a one complete pass through the entire training data set. That is called EPOC.
+
+500
+01:20:46.310 --> 01:20:51.440
+Jitendra U: So, one epoch means you are going to throw an entire deck off, dataset.
+
+501
+01:20:51.870 --> 01:20:56.380
+Jitendra U: and train the model. So that means, during one epoch, the model will see
+
+502
+01:20:57.040 --> 01:21:08.080
+Jitendra U: every trainable example exactly once. So for each example, it will make a prediction, calculate the error loss, and update the weight in the algorithm using backpropagation.
+
+503
+01:21:09.670 --> 01:21:13.289
+Jitendra U: So if I'm using a one epoch, let's say if I'm having
+
+504
+01:21:13.670 --> 01:21:18.640
+Jitendra U: 1,000 train images, or one… 10,000 images to train.
+
+505
+01:21:18.790 --> 01:21:25.219
+Jitendra U: With a batch size of 100, And one batch… one epoch.
+
+506
+01:21:27.310 --> 01:21:35.319
+Jitendra U: is I'm running one epoch 100 iteration. That means I'm splitting my images' data into 100 batches.
+
+507
+01:21:36.150 --> 01:21:40.339
+Jitendra U: So the model will see all the 10,000 images 10 times.
+
+508
+01:21:42.720 --> 01:21:43.530
+Jitendra U: Right?
+
+509
+01:21:43.920 --> 01:21:46.560
+Jitendra U: And that means I'm using
+
+510
+01:21:50.030 --> 01:21:51.670
+Jitendra U: this iteration.
+
+511
+01:21:56.250 --> 01:22:02.740
+Jitendra U: to make… my model… less… Error. Prone.
+
+512
+01:22:05.650 --> 01:22:09.879
+Jitendra U: And that's the whole idea of epoch. So, for each epoch, I would like to reduce the error.
+
+513
+01:22:10.050 --> 01:22:13.729
+Jitendra U: And I want to see how much I've been able to reduce.
+
+514
+01:22:15.460 --> 01:22:16.830
+Jitendra U: Are you clear so far?
+
+515
+01:22:23.630 --> 01:22:24.850
+Jitendra U: Is it clear?
+
+516
+01:22:25.410 --> 01:22:26.720
+Jitendra U: What is the epoch?
+
+517
+01:22:28.970 --> 01:22:29.890
+Jitendra U: Alright.
+
+518
+01:22:30.260 --> 01:22:34.440
+Jitendra U: So any other question, guys? Are you facing some difficulty in running this algorithm?
+
+519
+01:22:37.860 --> 01:22:42.230
+Jitendra U: This is the simplest code that I can share with you. This is a very simple code.
+
+520
+01:22:42.640 --> 01:22:47.260
+Jitendra U: Remember, we haven't explained anything about TensorFlow, and not anything about
+
+521
+01:22:49.240 --> 01:22:51.449
+Jitendra U: The operation that we are performing in this.
+
+522
+01:22:54.830 --> 01:22:56.350
+Jitendra U: Or still going on.
+
+523
+01:23:04.000 --> 01:23:09.900
+Jitendra U: Okay, that's a good question. Does the CNN architecture change from one epoch to the next? The architecture will remain the same.
+
+524
+01:23:12.830 --> 01:23:15.960
+Jitendra U: The architecture will remain the same, there's no change in the architecture.
+
+525
+01:23:37.230 --> 01:23:41.469
+Jitendra U: Okay, all incorrect? You just run in one epoch?
+
+526
+01:23:42.830 --> 01:23:45.279
+Jitendra U: I can see only one epoch you have run, right?
+
+527
+01:23:48.300 --> 01:23:51.070
+Jitendra U: Or you run… use the training for all Epoch?
+
+528
+01:24:07.580 --> 01:24:13.570
+Jitendra U: Yeah, this could be also possible. All 10 can come incorrect. Just try with 100, and let me know.
+
+529
+01:24:18.490 --> 01:24:20.790
+Jitendra U: Just arrive at 21st, and let me know.
+
+530
+01:24:21.890 --> 01:24:29.699
+Jitendra U: Yeah, this could be possible, because we are saying 60% accurate. So, all the 40… remaining 40% of sample that you're getting.
+
+531
+01:24:30.050 --> 01:24:38.429
+Jitendra U: 34% of the sample. Maybe all 34% error sample you're getting during your test, because I haven't set the seat parameter here.
+
+532
+01:24:38.730 --> 01:24:43.379
+Jitendra U: If I'm setting the set feed parameter here, then you will all get the same response.
+
+533
+01:24:44.440 --> 01:24:46.240
+Jitendra U: Deliberty, I haven't set it up.
+
+534
+01:25:11.650 --> 01:25:18.269
+Jitendra U: Seed parameter, I think we have discussed already, right? Seed parameter is for recreatable purpose. When you're creating,
+
+535
+01:25:18.830 --> 01:25:21.490
+Jitendra U: Recreating this whole notebook.
+
+536
+01:25:21.820 --> 01:25:28.530
+Jitendra U: You have to set up the seat parameter so that your notebook will not… Give random inputs, random outputs.
+
+537
+01:25:29.050 --> 01:25:31.809
+Jitendra U: So, to make a recreatable output, we are using seed.
+
+538
+01:25:43.870 --> 01:25:47.820
+Jitendra U: Alright, any further question before we move on? Any question?
+
+539
+01:25:49.180 --> 01:25:52.400
+Jitendra U: Okay, 9% at 8 out of 10.
+
+540
+01:25:53.080 --> 01:25:55.100
+Jitendra U: That could be fine.
+
+541
+01:26:05.480 --> 01:26:10.150
+Jitendra U: So you're going to be all getting different results because of the seat parameter, which is missing.
+
+542
+01:26:19.600 --> 01:26:25.480
+Jitendra U: Alright, so… Let's move on to the slides. So, we have seen that.
+
+543
+01:26:25.600 --> 01:26:34.490
+Jitendra U: I can use the same sort of concept for creating the X-ray image detection algorithms. I can use the same CNN architecture for creating.
+
+544
+01:26:34.720 --> 01:26:37.019
+Jitendra U: The product online shopping.
+
+545
+01:26:37.220 --> 01:26:43.259
+Jitendra U: that I would like to identify a product. I can use the same CNN model for agriculture, crop.
+
+546
+01:26:43.410 --> 01:26:50.470
+Jitendra U: diseases identification from the… plant leaf images, I can be able to make sure that these,
+
+547
+01:26:50.650 --> 01:27:04.480
+Jitendra U: crop will have a proper pesticizer utilized if they're infected by some disease. I can perform the security scan using facial detection recognition algorithm, and then much more than that. So, in a nutshell.
+
+548
+01:27:04.640 --> 01:27:10.230
+Jitendra U: We are using… These models for performing the analysis.
+
+549
+01:27:10.550 --> 01:27:15.129
+Jitendra U: On different types of problem statement, different types of scenarios.
+
+550
+01:27:15.660 --> 01:27:21.360
+Jitendra U: Now, we will take another example. I will show you one more example that we're going to talk about.
+
+551
+01:27:21.960 --> 01:27:27.619
+Jitendra U: Which will be using the video detection, right? So in this, I will talk about the video detection algorithm.
+
+552
+01:27:27.770 --> 01:27:32.260
+Jitendra U: And we'll perform a video analysis, video detection analysis, rather, right?
+
+553
+01:27:32.450 --> 01:27:37.120
+Jitendra U: So let me… Use a collab again.
+
+554
+01:28:52.230 --> 01:28:55.170
+Jitendra U: Okay, so I'm going to enable a GPU for running this.
+
+555
+01:28:56.140 --> 01:28:59.069
+Jitendra U: I will talk about this whole architecture in a while.
+
+556
+01:28:59.840 --> 01:29:01.910
+Jitendra U: But let's try to run this.
+
+557
+01:29:08.450 --> 01:29:12.889
+Jitendra U: You will see a bunch of models, like YOLO, ULOOK only once.
+
+558
+01:29:13.360 --> 01:29:17.060
+Jitendra U: FFPG, MEG, and all these things, so…
+
+559
+01:29:19.860 --> 01:29:24.389
+Jitendra U: Remember, the purpose of this class is to just give you an overview how these models works.
+
+560
+01:29:24.900 --> 01:29:26.090
+Jitendra U: And,
+
+561
+01:29:30.880 --> 01:29:31.790
+Jitendra U: Okay.
+
+562
+01:29:43.560 --> 01:29:45.570
+Jitendra U: Let's see how this model works.
+
+563
+01:30:14.700 --> 01:30:19.319
+Jitendra U: So here, I'm using an OpenCV library, CV2, which is an OpenCV library.
+
+564
+01:30:19.510 --> 01:30:22.829
+Jitendra U: I will talk about this library in a very simple term.
+
+565
+01:30:36.510 --> 01:30:43.259
+Jitendra U: This is a video that we are trying to… Analyze our walking pedestrian.
+
+566
+01:31:09.770 --> 01:31:19.910
+Jitendra U: Yeah, I think it… We generally hang, because it is performing a very… Bad calculation.
+
+567
+01:32:48.610 --> 01:32:52.209
+Jitendra U: Okay, so I'm getting some error, let me just debug this.
+
+568
+01:36:26.930 --> 01:36:30.249
+Jitendra U: You can see it's a person, how nicely it is capturing.
+
+569
+01:36:31.760 --> 01:36:33.090
+Jitendra U: Alright, so…
+
+570
+01:36:37.600 --> 01:36:39.059
+Jitendra U: Let me rerun this.
+
+571
+01:36:39.660 --> 01:36:41.959
+Jitendra U: A cell phone, it is saying car.
+
+572
+01:36:42.060 --> 01:36:43.240
+Jitendra U: It's a car.
+
+573
+01:36:47.940 --> 01:36:50.609
+Jitendra U: Any other thing? A cyclist?
+
+574
+01:36:51.440 --> 01:36:52.370
+Jitendra U: Great.
+
+575
+01:37:04.840 --> 01:37:06.740
+Jitendra U: Again, a person is walking.
+
+576
+01:37:08.130 --> 01:37:11.769
+Jitendra U: A car is approaching, person with a bicycle.
+
+577
+01:37:17.200 --> 01:37:19.289
+Jitendra U: Yeah, isn't it amazing, right?
+
+578
+01:37:19.510 --> 01:37:24.290
+Jitendra U: So this is a great model. We are able to get, very true labels.
+
+579
+01:37:24.650 --> 01:37:28.150
+Jitendra U: So… So, this is one of the…
+
+580
+01:37:28.250 --> 01:37:32.099
+Jitendra U: best model that we are using, which is called ULOC Only Once, or Yulo.
+
+581
+01:37:32.490 --> 01:37:37.470
+Jitendra U: Right? So, let me explain a bit of a code, not in depth.
+
+582
+01:37:37.960 --> 01:37:45.929
+Jitendra U: So what we are doing here is, we are creating a model estimation and the pose detection algorithm. Pose means,
+
+583
+01:37:46.130 --> 01:37:56.740
+Jitendra U: Basically, it will be like, the human poses. When we are dancing, we have different poses, and when we are walking, we have different poses. When we are standing, we have different poses. When we're sitting, we have different poses.
+
+584
+01:37:57.040 --> 01:37:59.680
+Jitendra U: So this is what the pose estimation algorithm will do.
+
+585
+01:37:59.920 --> 01:38:12.970
+Jitendra U: So, we are going to use something called OpenCV, Python library, called Computer Vision Library, right? CV stands for Computer Vision. And this is one of the important libraries that we're going to use for video classification.
+
+586
+01:38:13.020 --> 01:38:24.490
+Jitendra U: And in that, you have TensorFlow, MediaPipe, Ultra Analytics, all packages as well, which is basically going to be utilized for the purpose of…
+
+587
+01:38:24.570 --> 01:38:38.700
+Jitendra U: the object detection and segmentation. So here we are performing object detection and segmentation, and I'm just using a sample download from the open source data. I just downloaded that data from this URL.
+
+588
+01:38:38.990 --> 01:38:45.649
+Jitendra U: Which is having, some… some, pedestrian walking and so on and so forth, that we have just seen.
+
+589
+01:38:45.980 --> 01:38:54.810
+Jitendra U: And from that URL, I would like to perform the analysis. So first, download the URL, convert this into a frame of reference. You can see that each object
+
+590
+01:38:55.090 --> 01:38:59.729
+Jitendra U: Or each, video, inputs is converting into a frame.
+
+591
+01:39:00.250 --> 01:39:05.479
+Jitendra U: Right, so I've got of these frames, and each… each frame, I would like to analyze
+
+592
+01:39:05.750 --> 01:39:12.939
+Jitendra U: the moving object. So I've got such 768s, Sorry, 647 frames.
+
+593
+01:39:13.280 --> 01:39:16.210
+Jitendra U: With a duration of 53 seconds of data.
+
+594
+01:39:17.020 --> 01:39:24.729
+Jitendra U: And the FPS rate is… 12. That means 12 frame per second. It is moving.
+
+595
+01:39:25.330 --> 01:39:33.449
+Jitendra U: And then I'm using the algorithm to identify from the frame. It's like, now it becomes an image analytics model, right? So, when you're converting the video into a frame.
+
+596
+01:39:34.090 --> 01:39:43.000
+Jitendra U: You can do this analysis with the help of image analytics model as well. So we are just using the image object localization.
+
+597
+01:39:43.150 --> 01:39:52.570
+Jitendra U: Using Yulo, and from there, we are able to convert this whole output into a measurable format.
+
+598
+01:39:53.160 --> 01:39:57.830
+Jitendra U: Right? So this is what this algorithm does. So any question on this? Let me share the notebook.
+
+599
+01:39:58.410 --> 01:39:59.970
+Jitendra U: Any question on this?
+
+600
+01:40:00.210 --> 01:40:03.140
+Jitendra U: So you understand how video analytics been performed?
+
+601
+01:40:06.080 --> 01:40:07.509
+Jitendra U: I hope, yes.
+
+602
+01:40:17.620 --> 01:40:19.489
+Jitendra U: Yeah, mind-blowing, correct?
+
+603
+01:40:20.010 --> 01:40:21.529
+Jitendra U: Because we are able to guide…
+
+604
+01:40:23.620 --> 01:40:27.590
+Jitendra U: Yeah, so you can create a intelligent camera.
+
+605
+01:40:28.670 --> 01:40:31.560
+Jitendra U: Maybe as a project outside your house.
+
+606
+01:40:33.670 --> 01:40:37.940
+Jitendra U: And you can get the picture of all your neighbors from your app.
+
+607
+01:40:39.290 --> 01:40:44.220
+Jitendra U: And then you can be able to identify what is… who's the intruder who's trying to forcefully enter your house.
+
+608
+01:40:46.020 --> 01:40:48.649
+Jitendra U: Right? You can use this for surveillance purpose.
+
+609
+01:40:51.530 --> 01:40:54.230
+Jitendra U: So you can create a video analytics using this.
+
+610
+01:40:55.430 --> 01:40:57.900
+Jitendra U: Image detection or localization.
+
+611
+01:40:58.900 --> 01:41:02.080
+Jitendra U: of video frames as well. You can identify…
+
+612
+01:41:02.760 --> 01:41:07.640
+Jitendra U: If some pet or some street dog is trying to enter your house.
+
+613
+01:41:08.220 --> 01:41:10.890
+Jitendra U: You will get a message in your phone that
+
+614
+01:41:11.610 --> 01:41:18.219
+Jitendra U: Some animal is crawling towards your house, and you capture just a video on the top of it.
+
+615
+01:41:21.890 --> 01:41:26.939
+Jitendra U: Yeah, you need to start up the GPU runtime to run this analysis.
+
+616
+01:41:36.080 --> 01:41:39.479
+Jitendra U: Will this work on laptop? I don't think so, it will work.
+
+617
+01:41:44.730 --> 01:41:48.399
+Jitendra U: If you are having 32GB RAM, then it might work, but…
+
+618
+01:41:48.730 --> 01:41:51.240
+Jitendra U: Anything below that, it might not work.
+
+619
+01:42:01.190 --> 01:42:12.159
+Jitendra U: All right, so I think, just the GPU runtime, anything else? No, only just the GPU runtime we can change. So I think it's a time to take a break, so right now the time is,
+
+620
+01:42:13.010 --> 01:42:14.569
+Jitendra U: I think,
+
+621
+01:42:20.080 --> 01:42:28.009
+Jitendra U: 1642, 1645. So let's take a quick 25, sorry, 20 minutes break, and then we can start the session again.
+
+622
+01:42:28.200 --> 01:42:33.380
+Jitendra U: So let's take a 20-minute break. In the meantime, you can run this algorithm in your laptop.
+
+623
+01:42:33.990 --> 01:42:37.869
+Jitendra U: And, let it be run, and then once you come back, you can see the results.
+
+624
+01:42:38.220 --> 01:42:41.220
+Jitendra U: Our total accuracy is 67%, which is great.
+
+625
+01:42:42.710 --> 01:42:48.170
+Jitendra U: Training loss, test loss is 9%, 92%, okay, okay, that's good.
+
+626
+01:42:51.360 --> 01:42:55.620
+Jitendra U: Alright, so let's take a quick 20 minutes break, and then we'll start the session again. Thank you, guys.
+
+627
+02:06:03.200 --> 02:06:05.169
+Jitendra U: Hi guys, I hope you're back.
+
+628
+02:06:06.330 --> 02:06:11.480
+Jitendra U: Can we have a quick confirmation if we're able to run this, video analysis.
+
+629
+02:06:16.390 --> 02:06:21.410
+Jitendra U: In this action to object detection, couldn't guide video to run it blank.
+
+630
+02:06:22.290 --> 02:06:25.619
+Jitendra U: Okay, so how many of you are getting the output?
+
+631
+02:06:25.760 --> 02:06:27.790
+Jitendra U: In a similar format as I'm getting.
+
+632
+02:06:36.170 --> 02:06:39.749
+Jitendra U: So, you have to go to the files, and then download it.
+
+633
+02:06:40.240 --> 02:06:42.499
+Jitendra U: So, it will be saved in your file system.
+
+634
+02:06:43.420 --> 02:06:47.979
+Jitendra U: So it's not blank. You have to click on your file, and then it will appear over there.
+
+635
+02:06:54.580 --> 02:06:59.779
+Jitendra U: So I think you're trying to click here, but it'll not work like that. You have to go to your file, and then…
+
+636
+02:06:59.900 --> 02:07:02.060
+Jitendra U: It will store in the file system.
+
+637
+02:07:13.100 --> 02:07:14.199
+Jitendra U: Like this.
+
+638
+02:07:19.800 --> 02:07:29.720
+Jitendra U: Yeah, so this is a… yeah, that's the right answer, yeah. Cell phone, it will change the output to… from cell phone to a car.
+
+639
+02:07:30.250 --> 02:07:34.369
+Jitendra U: Maybe in one frame it is trying to identify this as a cell phone. It looks like a Samsung…
+
+640
+02:07:34.600 --> 02:07:40.540
+Jitendra U: some Galaxy, I think there's a V5 or something, right? That's for the cell phone.
+
+641
+02:07:44.540 --> 02:07:46.590
+Jitendra U: But in the second frame, it may change.
+
+642
+02:07:48.060 --> 02:07:54.689
+Jitendra U: Alright, so… So I hope, you're clear with the video analytics, you're clear with,
+
+643
+02:07:55.250 --> 02:07:57.779
+Jitendra U: The image analytics now.
+
+644
+02:07:58.450 --> 02:08:09.600
+Jitendra U: Now, we'll talk about, the last part of the tutorial, which is the voice analytics, right? Voice analytics also play a very pivotal role in,
+
+645
+02:08:09.900 --> 02:08:14.030
+Jitendra U: Or creating a… Analytics on the top of your voice.
+
+646
+02:08:24.320 --> 02:08:27.629
+Jitendra U: So, I will talk about how to create a voice analytical system.
+
+647
+02:08:27.960 --> 02:08:47.129
+Jitendra U: Using, deep learning modules, and so voice is nothing but the frequency modulation, right? So when you talk about a voice, it's nothing but a frequency of a caustic. So when you're running… when you're speaking, or when you're communicating your words to someone, you are using a frequency of modulation.
+
+648
+02:08:52.610 --> 02:09:03.409
+Jitendra U: Yes, that's correct. So after splitting them into a frame, it will use the same methodology as image analytics. That's the whole idea of video analytics versus image analytics. So that is what we are doing here as well.
+
+649
+02:09:03.620 --> 02:09:04.640
+Jitendra U: That's correct.
+
+650
+02:09:08.760 --> 02:09:17.169
+Jitendra U: Okay, so… so basically, what I'm trying to say is, when we are talking about a frequency analysis, a frequency modulation using voice data.
+
+651
+02:09:17.430 --> 02:09:22.509
+Jitendra U: We are dealing with the… Performing the analysis on the topper.
+
+652
+02:09:22.730 --> 02:09:27.530
+Jitendra U: something called a caustic property of your voice. Now.
+
+653
+02:09:27.650 --> 02:09:39.740
+Jitendra U: when you're trying to decode that particular frequency of voice of any person, and convert it into a text, so what are the techniques and tools that we require? That is something which I'm going to talk now.
+
+654
+02:09:39.880 --> 02:09:44.690
+Jitendra U: Like, how voice analysts… how voice-to-text works…
+
+655
+02:09:45.100 --> 02:09:59.830
+Jitendra U: Using deep learning models, right? So that is something which we are going to talk about now. Like, what is the science behind ASR, automatic speech recognition algorithm, and how this algorithm works, and what's the backbone of these algorithms, right? So we'll talk about that part.
+
+656
+02:09:59.880 --> 02:10:08.150
+Jitendra U: So, as I mentioned, when you're performing a voice analytics, or speech-to-text analytics, you're just using a transcript
+
+657
+02:10:08.230 --> 02:10:18.240
+Jitendra U: that will be basically a voice model to data, and converting that particular audio wave to a transcript. So behind the scenes… behind… sorry, behind the scene.
+
+658
+02:10:18.370 --> 02:10:24.440
+Jitendra U: The algorithm will use… Different channel of speech.
+
+659
+02:10:24.700 --> 02:10:41.000
+Jitendra U: and try to resample and convert it into a stereo voice, and then use some sort of fixed-length annotation to understand the speech spectrograms, right? So you have to start with input data that will be loading the AW… sorry.
+
+660
+02:10:41.090 --> 02:10:50.260
+Jitendra U: WAV file, which is audio file format, or MP3 format, and then you are going to do a read of this file and load it into a two-dimensional NumPy array.
+
+661
+02:10:51.060 --> 02:11:11.020
+Jitendra U: Right? So first and foremost thing that what you're going to do is to read the audio file from the formatted WAV or MP3 format, and read the audio data from the file, and load it to a two-dimensional NumPy array. And this array comprises of sequence of number, where the number are representing a measurement of the intensity
+
+662
+02:11:11.060 --> 02:11:15.120
+Jitendra U: Or amplitude of the sound at a particular time.
+
+663
+02:11:15.250 --> 02:11:32.639
+Jitendra U: Right? Because you can see there's, when we talk about certain, you know, certain words, we speech… we speak differently, right? So we are using something called speech modulation when we are speaking. So you can see some of the frequencies are higher, some of them are lower.
+
+664
+02:11:32.900 --> 02:11:47.199
+Jitendra U: And some of them are, even zero. We are taking a pause in between as well, right? So this is where the audio will be an intensified amplitude of the sound at a particular moment of a time. So the number of measurement is determined
+
+665
+02:11:47.300 --> 02:12:00.680
+Jitendra U: by the sampling rate. For instance, if I'm using a sampling rate which is standard to be 44 kilohertz, the NumPy array will store 44,100 numbers for 1 second of audio.
+
+666
+02:12:00.720 --> 02:12:10.829
+Jitendra U: So imagine the size of this file, right? Now, audio can have one or two channels, which is known as mono or stereo, right? So this is where…
+
+667
+02:12:10.830 --> 02:12:30.389
+Jitendra U: your voice modulation has to be done. So you are going to have mono or stereo types of, common power lines. And with these two-channel audio, we will have similar sequence of amplitude numbers in a form of a numpy array. So basically, what I'm trying to do is, I'm trying to convert this to a uniform dimension.
+
+668
+02:12:30.400 --> 02:12:41.369
+Jitendra U: So I'm saying that I have a mono and stereo, both types of a voice, and I would like to use a sampling rate to convert this to a resizable matrix of fixed length.
+
+669
+02:12:41.420 --> 02:12:48.079
+Jitendra U: So that we should not have too many noise in the audio. Noise does not mean it's a background noise or something else.
+
+670
+02:12:48.080 --> 02:13:01.749
+Jitendra U: But even the modulated voice, a single person voice, will have a lot of noise, right? So our deep learning model will expect all the input items to have same, similar size, and then we perform some data cleansing to separate the standards.
+
+671
+02:13:01.830 --> 02:13:09.849
+Jitendra U: dimension of our audio data, and we will resample the audio so that every item will have the same sampling rate, right? Now.
+
+672
+02:13:10.120 --> 02:13:16.770
+Jitendra U: After doing this, We'll perform the analysis on these spectrums.
+
+673
+02:13:17.090 --> 02:13:24.409
+Jitendra U: From the audio wave, and then try to perform try to use…
+
+674
+02:13:24.730 --> 02:13:39.860
+Jitendra U: a few bidirectional LSTM, and these are all bi-directional LSTMs, that will process the feature map as a series of distinct time features. So here, I'm going to use LSTM-based model. LSTM stands for Long Short-Term Memory.
+
+675
+02:13:40.070 --> 02:13:46.249
+Jitendra U: And this is one of the architecture of RNN models. We'll talk about RNN, we have talked about CNN.
+
+676
+02:13:46.660 --> 02:13:50.369
+Jitendra U: So, CNN and RNN are the two important
+
+677
+02:13:50.510 --> 02:14:08.050
+Jitendra U: building blocks of a deep learning-based model. So, we talked about CNN, we haven't talked about RNN yet, but RNN stands for Recursive Neural Network, or Recurrent Neural Network, right? So, recurrent Neural Network is a very specialized model for solving the text analytics
+
+678
+02:14:12.080 --> 02:14:14.059
+Jitendra U: And voice analytics data.
+
+679
+02:14:15.460 --> 02:14:22.299
+Jitendra U: So we'll use RNN for text and voice, right? And for CNN, we will prefer this to be work on.
+
+680
+02:14:22.690 --> 02:14:26.890
+Jitendra U: videos… and images.
+
+681
+02:14:35.180 --> 02:14:41.689
+Jitendra U: Sorry, I can see a car on the screen, is it okay? Are you not seeing what I'm writing in the screen?
+
+682
+02:14:45.230 --> 02:14:47.919
+Jitendra U: Are you able to see the screen properly, guys?
+
+683
+02:14:50.820 --> 02:14:51.820
+Jitendra U: Alright.
+
+684
+02:14:51.990 --> 02:14:55.329
+Jitendra U: So there's no car. I cannot see any car.
+
+685
+02:14:56.030 --> 02:14:58.089
+Jitendra U: It's a spectrogram that I'm showing.
+
+686
+02:15:00.570 --> 02:15:20.470
+Jitendra U: All right, so, as I mentioned, CNN and RNN are two important architecture that we are going to utilize for the purpose of solving the deep learning model challenges, right? So, one of the things that we would like to determine is for text and voice data. And for that, we required a spectrogram analysis. A spectrogram is nothing but you can consider it to be a wave
+
+687
+02:15:20.590 --> 02:15:33.189
+Jitendra U: of different length, right? So it's a wave nature of the voice that we are going to utilize using LSTM. And what LSTM will do is, it will be able to utilize the input sequence of the voice
+
+688
+02:15:33.300 --> 02:15:36.750
+Jitendra U: And convert these signals into a text.
+
+689
+02:15:37.200 --> 02:15:42.409
+Jitendra U: So what we are going to do next is, I would like to show you a demo
+
+690
+02:15:43.030 --> 02:15:46.300
+Jitendra U: By which we can able to… convert.
+
+691
+02:15:46.900 --> 02:15:53.270
+Jitendra U: Okay, thanks, Deepak. So, we'll use this module to convert the…
+
+692
+02:15:53.940 --> 02:16:05.430
+Jitendra U: voice data to a text data. So let me show you how we can perform the voice analytics now. So we talked about video analytics, we talked about image analytics, now we are talking about
+
+693
+02:16:05.900 --> 02:16:08.520
+Jitendra U: Frequency-based voice analysis.
+
+694
+02:16:09.300 --> 02:16:11.530
+Jitendra U: Let me open the full app.
+
+695
+02:16:58.360 --> 02:17:01.079
+Jitendra U: So you can see that I'm using a bunch of packages.
+
+696
+02:17:01.320 --> 02:17:04.140
+Jitendra U: Which is all OpenAI-based models.
+
+697
+02:17:04.540 --> 02:17:11.489
+Jitendra U: and transformer-based architectures. So we'll not go into depth of these architectures, I just want to showcase
+
+698
+02:17:12.049 --> 02:17:15.539
+Jitendra U: What are the things that are required when you're dealing with?
+
+699
+02:17:18.770 --> 02:17:22.709
+Jitendra U: voice data, right? So let's first import the packages.
+
+700
+02:17:34.260 --> 02:17:38.659
+Jitendra U: So I'm just… Downloading this file.
+
+701
+02:20:03.890 --> 02:20:06.619
+Jitendra U: Okay, this file is, I think, deleted.
+
+702
+02:20:07.160 --> 02:20:09.410
+Jitendra U: But let me find some other files.
+
+703
+02:20:16.700 --> 02:20:19.949
+Jitendra U: Okay, this website itself is discontinued.
+
+704
+02:22:44.770 --> 02:22:47.959
+Jitendra U: Let me install this, and then we'll try this again.
+
+705
+02:23:00.840 --> 02:23:02.720
+Jitendra U: Okay, this has been installed.
+
+706
+02:23:04.090 --> 02:23:09.599
+Jitendra U: Let me check if all the modules have been… there or not.
+
+707
+02:23:27.840 --> 02:23:33.650
+Jitendra U: So, here I'm adding one condition. If the GPU is not available, then I will switch over to CPU.
+
+708
+02:23:33.930 --> 02:23:40.290
+Jitendra U: I think this package is also having… Some issue with version.
+
+709
+02:23:40.660 --> 02:23:42.230
+Jitendra U: Let me remove this.
+
+710
+02:23:50.070 --> 02:23:52.660
+Jitendra U: Okay, no, another helper function.
+
+711
+02:23:53.730 --> 02:23:55.300
+Jitendra U: Generating…
+
+712
+02:24:05.000 --> 02:24:08.870
+Jitendra U: This is where the issue is with versions, so…
+
+713
+02:24:09.230 --> 02:24:11.810
+Jitendra U: We were able to get the audio file.
+
+714
+02:28:56.920 --> 02:28:59.199
+Jitendra U: Just give me a moment, guys, I think it is…
+
+715
+02:28:59.350 --> 02:29:01.890
+Jitendra U: Having some error, I'm just trying to debug it.
+
+716
+02:30:35.400 --> 02:30:36.970
+Jitendra U: Okay, this is done.
+
+717
+02:31:01.050 --> 02:31:02.740
+Jitendra U: This is also done.
+
+718
+02:31:54.360 --> 02:31:58.560
+Jitendra U: Okay, let me download some other files. This file looks to be empty.
+
+719
+02:34:14.440 --> 02:34:16.539
+Jitendra U: Okay, so I will use this audio.
+
+720
+02:34:23.550 --> 02:34:27.640
+Jitendra U: But I cannot be able to hear anything from this… this strange.
+
+721
+02:34:33.580 --> 02:34:35.410
+Jitendra U: Let me give it a try.
+
+722
+02:35:24.430 --> 02:35:26.430
+Jitendra U: See, you can see the text.
+
+723
+02:35:28.900 --> 02:35:31.709
+Jitendra U: Right, so this is what the speech-to-text does.
+
+724
+02:35:32.080 --> 02:35:32.840
+Jitendra U: Right?
+
+725
+02:35:33.250 --> 02:35:37.750
+Jitendra U: So, I will share this file and the audio file with you.
+
+726
+02:35:38.160 --> 02:35:40.890
+Jitendra U: So that you can run this.
+
+727
+02:36:00.810 --> 02:36:03.580
+Jitendra U: Let me share you the audio file as well.
+
+728
+02:36:37.610 --> 02:36:47.829
+Jitendra U: All right, so this is what, the audio… sorry, the text-to-audio work. This is how the transcript work. So you will see this kind of software installed in your Teams, in your…
+
+729
+02:36:48.400 --> 02:36:50.319
+Jitendra U: Different,
+
+730
+02:36:50.890 --> 02:37:08.429
+Jitendra U: kind of Alexa apps and all, right? This is how this whole idea of audio to text works. This is how Alexa works. So Alexa will be able to understand your command, and it will convert this… your command into text, and then use those text to generate an answer, right? So…
+
+731
+02:37:09.190 --> 02:37:20.770
+Jitendra U: This is how Siri works, this is how you're taking a meeting of minutes, notes from team, Zoom calls. These are all transcripts. It's possible with the help of these modules.
+
+732
+02:37:24.660 --> 02:37:26.859
+Jitendra U: So is it, is it clear to everyone?
+
+733
+02:37:27.390 --> 02:37:29.029
+Jitendra U: Are you clear so far?
+
+734
+02:37:32.120 --> 02:37:38.530
+Jitendra U: So, as I mentioned, I'm just covering the basics, so we haven't deep-dived into the modules.
+
+735
+02:37:39.280 --> 02:37:43.719
+Jitendra U: Architecture. We have just covered the architecture and the basic mechanism, how it works.
+
+736
+02:37:44.540 --> 02:37:47.290
+Jitendra U: So there are 3 things that we have learned so far.
+
+737
+02:37:52.950 --> 02:37:56.290
+Jitendra U: We have understood that for image, we have to use CNN.
+
+738
+02:37:56.660 --> 02:37:58.670
+Jitendra U: For video, we have to use TNN.
+
+739
+02:37:59.670 --> 02:38:03.589
+Jitendra U: For voice, we have to use something called RNN, right?
+
+740
+02:38:03.810 --> 02:38:14.590
+Jitendra U: For text, we will talk about text data analytics as well in the next tutorial, and then we will talk about how the text analytics will also use RNN, RNLSTM-based architecture.
+
+741
+02:38:15.130 --> 02:38:21.720
+Jitendra U: So, I hope this is clear to everyone. Would you like to run this analysis and let me know the response?
+
+742
+02:38:27.210 --> 02:38:30.199
+Jitendra U: Alright, so please run this, and let me know the response.
+
+743
+02:38:42.540 --> 02:38:44.180
+Jitendra U: Yeah, I'll share this.
+
+744
+02:39:03.130 --> 02:39:09.029
+Jitendra U: Yeah, you can restart the session, the Google Collab ones, after installation of all the packages. That should be okay.
+
+745
+02:39:39.440 --> 02:39:42.590
+Jitendra U: I'm not getting the image recognition when I run.
+
+746
+02:39:45.150 --> 02:39:52.540
+Jitendra U: You will get a video recording, right? The video sequence instead of one image.
+
+747
+02:39:53.230 --> 02:39:58.250
+Jitendra U: You will not get an image, you will get a video as a video input and video output, with the labels.
+
+748
+02:40:07.160 --> 02:40:09.719
+Jitendra U: Yes, yes, I'm talking about a video analysis only.
+
+749
+02:40:18.510 --> 02:40:24.460
+Jitendra U: No, you are running this in the cell, that's why it is not playing. You have to go to your file system and then download it.
+
+750
+02:40:24.740 --> 02:40:27.719
+Jitendra U: Go to the file system of Polab and download from there.
+
+751
+02:40:28.230 --> 02:40:30.850
+Jitendra U: Then only you can be able to run this, like this.
+
+752
+02:40:31.820 --> 02:40:37.529
+Jitendra U: It'll show you the video file in this folder. You click on this folder, and then get this.
+
+753
+02:40:38.500 --> 02:40:39.480
+Jitendra U: From here.
+
+754
+02:40:41.290 --> 02:40:42.990
+Jitendra U: I think it's been deleted.
+
+755
+02:40:43.200 --> 02:40:47.940
+Jitendra U: So similarly, you have to get into this file system and then download from there.
+
+756
+02:40:49.860 --> 02:40:55.539
+Jitendra U: It will not run here. I think you're trying to run from here, right? It will not run, even I'm not able to run it.
+
+757
+02:42:46.690 --> 02:42:50.810
+Jitendra U: Yeah, try to run it in Vocarium or any other tool as well, that should be okay.
+
+758
+02:43:37.760 --> 02:43:39.030
+Jitendra U: Okay, great.
+
+759
+02:43:49.600 --> 02:44:01.609
+Jitendra U: Alright, guys, so I think this will work, don't worry, because I'll just make sure that the program is properly written, and it will work, so don't worry about it. So, I would request you to run it after this.
+
+760
+02:44:01.860 --> 02:44:08.139
+Jitendra U: I think I can see that I've added some of the important features, like, you can able to identify who spoke
+
+761
+02:44:08.360 --> 02:44:11.250
+Jitendra U: When… when a particular speaker spoke.
+
+762
+02:44:11.380 --> 02:44:13.499
+Jitendra U: What's the tone of the speaker?
+
+763
+02:44:14.190 --> 02:44:20.969
+Jitendra U: And, I would also look for… type of…
+
+764
+02:44:21.340 --> 02:44:23.400
+Jitendra U: Topic which they are speaking on.
+
+765
+02:44:23.590 --> 02:44:25.030
+Jitendra U: Right? So let's say…
+
+766
+02:44:25.540 --> 02:44:30.610
+Jitendra U: this can be a very good tool for YouTube videos, right? You can be able to convert this into…
+
+767
+02:44:30.770 --> 02:44:33.150
+Jitendra U: What do you call the transcripts?
+
+768
+02:44:33.680 --> 02:44:35.219
+Jitendra U: from YouTube to…
+
+769
+02:44:35.400 --> 02:44:44.399
+Jitendra U: And you can use this… this particular model for coming up with a topic in YouTube, right? That is how the YouTube will be able to understand what's a topic.
+
+770
+02:44:44.840 --> 02:44:52.209
+Jitendra U: of the, it'll categorize these topics. So, basically, behind the scenes, when you're uploading a video on YouTube.
+
+771
+02:44:52.410 --> 02:44:59.980
+Jitendra U: It will be able to understand you're saying some hate speech, or some parliamentary language, and it will delete automatically that video.
+
+772
+02:45:01.270 --> 02:45:07.579
+Jitendra U: Yeah, content grading is a great example of this, yes. You can do a content grading on the top of it.
+
+773
+02:45:07.830 --> 02:45:17.499
+Jitendra U: So, it can do much more than that. So, once you upload a talk data to YouTube or Facebook, they will do all this analysis behind the scene.
+
+774
+02:45:19.770 --> 02:45:25.769
+Jitendra U: And then they will decide whether to publish or not. What's the type of… content it is.
+
+775
+02:45:26.820 --> 02:45:31.539
+Jitendra U: And, whether it is authorized to be a part of YouTube community, Facebook community, or not.
+
+776
+02:45:33.760 --> 02:45:35.089
+Jitendra U: What is DRM?
+
+777
+02:45:42.840 --> 02:45:45.100
+Jitendra U: Data right management layer.
+
+778
+02:45:46.000 --> 02:45:52.750
+Jitendra U: I don't think so, because they are the owner of, so, once you upload in their platform.
+
+779
+02:45:53.120 --> 02:45:58.050
+Jitendra U: You know, using your platform, right? It's not your proprietary data anymore.
+
+780
+02:45:58.480 --> 02:46:04.290
+Jitendra U: They're uploading and publishing to the community, and they have to… Make sure that…
+
+781
+02:46:05.170 --> 02:46:08.930
+Jitendra U: This user is authentic, and…
+
+782
+02:46:09.500 --> 02:46:12.989
+Jitendra U: And all these things. So I'm not sure what a publisher, right?
+
+783
+02:46:13.140 --> 02:46:15.539
+Jitendra U: So, but yes, as far as I know.
+
+784
+02:46:15.700 --> 02:46:20.000
+Jitendra U: This is a copyright of Netflix, or whoever is the publisher.
+
+785
+02:46:21.050 --> 02:46:23.870
+Jitendra U: So once you upload it, your…
+
+786
+02:46:25.460 --> 02:46:30.410
+Jitendra U: You're no longer controllable in terms of the nature of the data.
+
+787
+02:46:30.730 --> 02:46:33.909
+Jitendra U: They have all the rights to perform the analysis on your data.
+
+788
+02:46:42.890 --> 02:46:45.000
+Jitendra U: They will do the analysis first.
+
+789
+02:46:46.210 --> 02:46:47.880
+Jitendra U: Before uploading later.
+
+790
+02:46:51.810 --> 02:46:55.650
+Jitendra U: Alright, so I think, guys, this is pretty much what we have for today.
+
+791
+02:46:55.810 --> 02:47:03.280
+Jitendra U: So, any more questions before we wind up for today, guys? Any question that you would like to ask? I've shared all the content and all the materials.
+
+792
+02:47:03.560 --> 02:47:09.919
+Jitendra U: So that you can have access to it. And I would request everybody to rerun this, after the end of the class.
+
+793
+02:47:18.330 --> 02:47:20.340
+Jitendra U: So, any more question, guys?
+
+794
+02:47:32.970 --> 02:47:41.729
+Jitendra U: You just need to run it, no need to do analysis of the code, because anyway, we haven't discussed anything about the code yet.
+
+795
+02:47:42.930 --> 02:47:46.270
+Jitendra U: So you can skip the code, logic right now.
+
+796
+02:47:47.430 --> 02:47:54.689
+Jitendra U: Oh, that's great, you are able to run it. That's so nice of you, Krishna. Angry, sad, fearful, happy.
+
+797
+02:47:55.290 --> 02:47:57.850
+Jitendra U: Neutral… Okay.
+
+798
+02:47:58.150 --> 02:48:01.319
+Jitendra U: So this speech looks like an angry speech, okay?
+
+799
+02:48:11.140 --> 02:48:24.899
+Jitendra U: So those who are rating badly, clear explanation of topic and all, I can see there's some bad rating 2. You're rating 2, right? Some of you are rating 2, so I just want to understand why you're rating 2 and 1 for some session. Are you not able to understand
+
+800
+02:48:25.200 --> 02:48:34.009
+Jitendra U: Anything out of it, or what is the reason you are giving 2 rating or 1 rating? I won't expect… I'm expecting at least 4 and 5 out of this session.
+
+801
+02:48:35.980 --> 02:48:42.640
+Jitendra U: So please make sure that when you're rating, either rate badly or rate good. Don't use average ratings.
+
+802
+02:48:44.130 --> 02:48:51.779
+Jitendra U: I don't mind bad ratings, but I want to justify the user who's generally interested To understand technology.
+
+803
+02:48:53.250 --> 02:48:58.630
+Jitendra U: Those who are struggling with Python, I would humbly request After the class.
+
+804
+02:48:59.380 --> 02:49:05.189
+Jitendra U: make sure that you put effort, to understand Python, because that is the most,
+
+805
+02:49:05.910 --> 02:49:13.009
+Jitendra U: biggest blocker in your learning, right? You have a… you have an interest to learn, but eventually.
+
+806
+02:49:13.300 --> 02:49:18.349
+Jitendra U: you're not able to learn because of the Python understanding. So you have to invest time on Python.
+
+807
+02:49:18.970 --> 02:49:21.490
+Jitendra U: And unfortunately, this class is not for Python.
+
+808
+02:49:31.190 --> 02:49:32.190
+Jitendra U: Yup.
+
+809
+02:49:47.130 --> 02:49:50.119
+Jitendra U: So that's great. I can see speech.
+
+810
+02:49:50.640 --> 02:49:53.500
+Jitendra U: Yeah, that's a speech, actually, a monologue.
+
+811
+02:50:02.590 --> 02:50:05.860
+Jitendra U: Yeah, Python is very important. Python is a de facto here.
+
+812
+02:50:05.970 --> 02:50:08.859
+Jitendra U: So, we will start with,
+
+813
+02:50:10.060 --> 02:50:15.580
+Jitendra U: more advanced analysis on Python, so I would request everybody to spare time.
+
+814
+02:50:17.300 --> 02:50:22.449
+Jitendra U: I'm getting continuously error on installing required library. Okay, so…
+
+815
+02:50:24.900 --> 02:50:41.079
+Jitendra U: Okay, so these are ignorable errors, so if you are having a NumPy version as 2.0 and higher, that should work for this use case. No module not… One second, let me check this error. I'm seeing this error for the first time. So you're getting some SciPy error.
+
+816
+02:50:41.420 --> 02:50:44.680
+Jitendra U: Which is… at JWN.
+
+817
+02:50:45.870 --> 02:50:47.270
+Jitendra U: Let me check…
+
+818
+02:50:51.190 --> 02:50:54.069
+Jitendra U: So this you can reduce with the help of…
+
+819
+02:51:01.350 --> 02:51:06.829
+Jitendra U: sci-Py version, so… Let me give you the code.
+
+820
+02:51:08.210 --> 02:51:09.840
+Jitendra U: Can you change the code?
+
+821
+02:51:10.210 --> 02:51:11.200
+Jitendra U: to this…
+
+822
+02:51:15.840 --> 02:51:17.740
+Jitendra U: And just give it a try, it will work.
+
+823
+02:51:41.300 --> 02:51:45.559
+Jitendra U: Okay, so those who are struggling with the code, right, so…
+
+824
+02:51:45.880 --> 02:51:53.050
+Jitendra U: make sure that you have some Python understanding from the next class, and those who are
+
+825
+02:51:54.190 --> 02:51:58.549
+Jitendra U: having a clear understanding on Python, I would request them to
+
+826
+02:51:58.990 --> 02:52:07.949
+Jitendra U: also, you know, work on the statistical understanding of the code, right? So this class is for data science, right? So I would like
+
+827
+02:52:08.080 --> 02:52:13.260
+Jitendra U: Make sure that you have a proper understanding on the modules going forward.
+
+828
+02:52:17.750 --> 02:52:23.240
+Jitendra U: This error, I'm getting this error, let me check, what is the error?
+
+829
+02:52:26.600 --> 02:52:31.290
+Jitendra U: This is, again, a NumPy, so can you run this… Upgrade.
+
+830
+02:52:31.710 --> 02:52:33.500
+Jitendra U: And try this, it will remove.
+
+831
+02:52:34.720 --> 02:52:37.329
+Jitendra U: Or maybe you can fix the NumPy.
+
+832
+02:52:37.850 --> 02:52:42.850
+Jitendra U: to 1.26.4, this will also work.
+
+833
+02:52:43.300 --> 02:52:46.569
+Jitendra U: So there are different ways that you can be able to debug this.
+
+834
+02:52:50.180 --> 02:52:59.679
+Jitendra U: All right, guys, so I think this is pretty much what we have for today, and thank you for attending this session, and it was nice to have an interaction. Remember, these are just,
+
+835
+02:53:00.580 --> 02:53:04.870
+Jitendra U: We're just scratching the surface of deep learning. We haven't started with deep learning yet.
+
+836
+02:53:05.030 --> 02:53:10.700
+Jitendra U: So this module is, basically main 4, and give you some idea about how these
+
+837
+02:53:11.020 --> 02:53:14.129
+Jitendra U: Technology works, how this,
+
+838
+02:53:14.390 --> 02:53:21.949
+Jitendra U: these, the one that you're using in day-to-day work right now, like ChatGPT, you're using Siri, you're using…
+
+839
+02:53:22.180 --> 02:53:27.010
+Jitendra U: some sort of Alexa apps. You're also using Google Lenses.
+
+840
+02:53:27.310 --> 02:53:47.069
+Jitendra U: you're also using TikTok, image captioning model, Google Banana, Nano Banana, etc. So the idea is, we are just understanding how these big systems works, because we are living in this era, right? It's important to understand how this system works behind the scenes, and what's the building block of it.
+
+841
+02:53:47.380 --> 02:53:53.999
+Jitendra U: And we haven't talked about anything about deep learning. So deep learning is something which we are going to start with, module…
+
+842
+02:53:54.110 --> 02:53:55.590
+Jitendra U: further modules.
+
+843
+02:53:55.730 --> 02:54:08.950
+Jitendra U: And, from the next module onwards, we will start with machine learning. Again, we'll revisit the machine learning concepts again, and this module is just kind of an eye-opener that these technologies are there, right? So make sure that you should not feel
+
+844
+02:54:09.060 --> 02:54:18.310
+Jitendra U: too much overwhelming if you're not able to understand this. Just try to understand the basic concept of the technical stuff, right? So it's like…
+
+845
+02:54:18.470 --> 02:54:20.580
+Jitendra U: You are just doing…
+
+846
+02:54:20.960 --> 02:54:39.589
+Jitendra U: how thing works, right? So, you might have seen some of the videos, like STW, how thing works. So, consider these video tutorials as how ThingWorks, and the rest of the things will be… automatically get clear once we start delving into the details of it. So, with that, you can preserve this code.
+
+847
+02:54:40.420 --> 02:54:43.670
+Jitendra U: We will revisit these codes during deep learning.
+
+848
+02:54:43.880 --> 02:54:55.470
+Jitendra U: So, with that, let me, thank you for attending the session, and then we will speak in the next tutorial with some more exciting stuff. So thank you, and have a pleasant evening ahead.
+

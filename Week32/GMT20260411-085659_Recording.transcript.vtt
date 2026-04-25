@@ -1,0 +1,4370 @@
+WEBVTT
+
+1
+00:02:59.430 --> 00:03:03.510
+Jitendra K: Hello, guys, I hope you guys are doing well.
+
+2
+00:03:04.750 --> 00:03:10.699
+Jitendra K: You have a nice Saturday. So, today we are going to start with something new called Transformers.
+
+3
+00:03:11.090 --> 00:03:15.810
+Jitendra K: And we'll deep dive into the transformer architecture, and then…
+
+4
+00:03:16.350 --> 00:03:18.649
+Jitendra K: I will talk about what are the various…
+
+5
+00:03:19.130 --> 00:03:22.179
+Jitendra K: Mechanism in which the transform has been constructed.
+
+6
+00:03:22.460 --> 00:03:30.980
+Jitendra K: So before we start, let me have a quick audio check and video check. If you're able to see my screen, my voice is audible as well.
+
+7
+00:03:37.620 --> 00:03:39.030
+Jitendra K: Okay, thank you.
+
+8
+00:03:39.750 --> 00:03:41.600
+Jitendra K: So before you start,
+
+9
+00:03:42.050 --> 00:03:50.870
+Jitendra K: I just want to know your opinion from the lecture. What do you understand about transformer? Why Transformer? When we already have RNN, LSTM?
+
+10
+00:03:51.790 --> 00:03:56.679
+Jitendra K: CNN architecture, GREUs, we have seen. So what is the purpose of Transformer, then?
+
+11
+00:03:58.110 --> 00:03:59.600
+Jitendra K: Why use Transformer?
+
+12
+00:04:15.770 --> 00:04:17.070
+Jitendra K: No answers?
+
+13
+00:04:18.100 --> 00:04:22.440
+Jitendra K: overcome limitation with RNN parallelization. What is parallelization?
+
+14
+00:04:26.630 --> 00:04:28.579
+Jitendra K: to implement retention.
+
+15
+00:04:28.980 --> 00:04:30.919
+Jitendra K: But why we require attention?
+
+16
+00:04:42.330 --> 00:04:46.919
+Jitendra K: Can't we do text analytics without attention? There are some great models, right?
+
+17
+00:04:47.200 --> 00:04:50.120
+Jitendra K: LSTMs can summarize your text.
+
+18
+00:04:50.590 --> 00:04:52.579
+Jitendra K: GI, you can summarize your text.
+
+19
+00:05:00.080 --> 00:05:02.130
+Jitendra K: So what is the purpose of Transformer?
+
+20
+00:05:17.950 --> 00:05:20.210
+Jitendra K: Connected deleted entities.
+
+21
+00:05:20.730 --> 00:05:25.450
+Jitendra K: But, that can be done by LSTM as well, right? We can connect dedicated entities with LSTM.
+
+22
+00:05:40.880 --> 00:05:46.380
+Jitendra K: To transform models is nothing but they are one of the modest, modern approach.
+
+23
+00:05:47.230 --> 00:05:51.709
+Jitendra K: Where you are going to utilize long context to preserve.
+
+24
+00:05:52.150 --> 00:05:53.270
+Jitendra K: For a model.
+
+25
+00:05:53.630 --> 00:05:59.269
+Jitendra K: So when you say I talk about long context, we are talking about paragraphs, stuff like books.
+
+26
+00:05:59.820 --> 00:06:01.149
+Jitendra K: All sort of data.
+
+27
+00:06:01.790 --> 00:06:06.279
+Jitendra K: So transformers are the new development in machine learning that has been making a lot of
+
+28
+00:06:06.550 --> 00:06:11.439
+Jitendra K: value proposition, including GPT models that you are using, code writing.
+
+29
+00:06:11.720 --> 00:06:25.689
+Jitendra K: They're all backed by transformer architecture. So they're incredibly good at keeping a track of the context, and this is why the text that they write makes sense. So in this chapter, we will cover the architecture, how they work.
+
+30
+00:06:26.200 --> 00:06:34.060
+Jitendra K: So, first of all, we understand, that transform is also a family of recurrent neural network, that's a foundation of sequential modeling.
+
+31
+00:06:34.470 --> 00:06:44.559
+Jitendra K: We understand that, traditional feed-forward neural network treat each input independently. That means we cannot able to correlate the time sequence or temporal dependencies.
+
+32
+00:06:45.930 --> 00:06:52.050
+Jitendra K: And temporal dependency is something very critical for speech, text, as well as image analytics.
+
+33
+00:06:52.600 --> 00:07:02.139
+Jitendra K: So machine translation, speech recognition, sentiment analysis, time series forecasting, music generation, video captioning are all applications we have seen using RMM and
+
+34
+00:07:02.640 --> 00:07:05.659
+Jitendra K: Even the state-of-the-art GRUs.
+
+35
+00:07:06.190 --> 00:07:14.399
+Jitendra K: So, sequence have some fixed order, and the context, and the meaning of the word depend upon the preceding words, the previous words. And RNN
+
+36
+00:07:14.500 --> 00:07:21.179
+Jitendra K: It uses a concept of hidden state that carries an information across the time step. That means you're having a memory.
+
+37
+00:07:22.230 --> 00:07:29.069
+Jitendra K: That would enable the network to remember the past input. So that is what we have learned in RNN, and we have understood these functions
+
+38
+00:07:29.500 --> 00:07:31.409
+Jitendra K: The hidden state and the output.
+
+39
+00:07:31.750 --> 00:07:35.659
+Jitendra K: And then, we understand that RNN is heavily…
+
+40
+00:07:37.090 --> 00:07:46.839
+Jitendra K: associated with the initial loss or exploding gradient problem. To overcome that, we have used something called gated architecture, and the first gated architecture is called LSTM.
+
+41
+00:07:47.520 --> 00:07:52.670
+Jitendra K: So, we have seen the LSTM variation, and then we move on to the gated recurrent unit.
+
+42
+00:07:53.040 --> 00:07:58.220
+Jitendra K: And then we understand how to use bidirectional listings and things, and… Like that.
+
+43
+00:07:58.750 --> 00:08:06.240
+Jitendra K: Now… With the advent of architecture, of encoder-decoder, that is the foundation of transformers.
+
+44
+00:08:06.650 --> 00:08:10.090
+Jitendra K: So, encoder and decoder architecture will set up
+
+45
+00:08:10.220 --> 00:08:17.999
+Jitendra K: a kind of a communication channel between each other. So, encoder will read the entire input sequence and compress into a fixed-length vector.
+
+46
+00:08:18.530 --> 00:08:21.040
+Jitendra K: Which I'm going to call it as context vector.
+
+47
+00:08:21.760 --> 00:08:25.399
+Jitendra K: And the vector must encode all information about a source.
+
+48
+00:08:26.220 --> 00:08:28.010
+Jitendra K: And a decoder will generate
+
+49
+00:08:28.430 --> 00:08:35.680
+Jitendra K: As the name said, a decoder will generate the output sequence one token at a time. And at each step, it receives the context.
+
+50
+00:08:36.039 --> 00:08:42.370
+Jitendra K: and previous generated token using a sequence of autoregressive generational function. Sweet.
+
+51
+00:08:43.780 --> 00:08:45.459
+Jitendra K: Now, this is the key to…
+
+52
+00:08:45.580 --> 00:08:52.870
+Jitendra K: architecture of Transformer. So, transformer is basically An encoder-decoder architecture.
+
+53
+00:08:54.450 --> 00:08:57.410
+Jitendra K: So, if I have to just give you the concept…
+
+54
+00:09:04.100 --> 00:09:06.140
+Jitendra K: In a very layman format.
+
+55
+00:09:07.060 --> 00:09:09.680
+Jitendra K: So these are the building block of the transformer.
+
+56
+00:09:17.530 --> 00:09:19.910
+Jitendra K: So you can see transformers are the model.
+
+57
+00:09:21.380 --> 00:09:25.269
+Jitendra K: And it has been introduced with the paper call attention is all you need.
+
+58
+00:09:25.850 --> 00:09:29.400
+Jitendra K: And, this has been published in the year 2018.
+
+59
+00:09:29.930 --> 00:09:36.410
+Jitendra K: And Transformer can use… to create… Tax generation.
+
+60
+00:09:37.340 --> 00:09:39.729
+Jitendra K: So, that is the whole idea of…
+
+61
+00:09:40.150 --> 00:09:52.390
+Jitendra K: transformers and GPT-based foundational models that you have seen. So transformer has come a long way. It's not a nascent model anymore. That means you have come a very long way from Transformer from 2018.
+
+62
+00:09:52.520 --> 00:09:59.009
+Jitendra K: all the way to 2026, where we are living right now. And we have seen there's so many machine, so many…
+
+63
+00:09:59.270 --> 00:10:04.500
+Jitendra K: Models, architectures, that we are utilizing for
+
+64
+00:10:04.980 --> 00:10:09.079
+Jitendra K: dealing with large language models, right? So you have everything
+
+65
+00:10:09.370 --> 00:10:18.609
+Jitendra K: That you can do with large language model, including code writing, including paraphrasing, including including your…
+
+66
+00:10:19.060 --> 00:10:25.499
+Jitendra K: High business proportions, where you can write reports, you can do investigations, and much more than that.
+
+67
+00:10:25.990 --> 00:10:32.239
+Jitendra K: The transformers are the backbone of every system that you'll see today, right? So what it does is.
+
+68
+00:10:32.650 --> 00:10:36.710
+Jitendra K: It will use some mechanism to process the data.
+
+69
+00:10:36.880 --> 00:10:41.420
+Jitendra K: And some mechanism to process the data is nothing but the architecture.
+
+70
+00:10:42.760 --> 00:10:49.700
+Jitendra K: So we'll discuss about this architecture in a detailed manner, and we will try to understand how the model
+
+71
+00:10:49.820 --> 00:10:52.089
+Jitendra K: has been a cube with different components.
+
+72
+00:10:52.210 --> 00:10:56.720
+Jitendra K: Including attention, by which we can able to generate insights.
+
+73
+00:10:57.430 --> 00:11:00.890
+Jitendra K: So how transformer works is something which we are going to explore today.
+
+74
+00:11:01.360 --> 00:11:07.790
+Jitendra K: So let's start to explore the architecture of the transformer model that has been revolutionized data through self-attention mechanism.
+
+75
+00:11:08.560 --> 00:11:17.150
+Jitendra K: Now, some of the key components of Transformer is… is again a neural network architecture that uses self-attention mechanism to process sequential data in parallel.
+
+76
+00:11:17.540 --> 00:11:19.849
+Jitendra K: Replacing the need for reoccurrence.
+
+77
+00:11:20.430 --> 00:11:23.350
+Jitendra K: Some of the key components include input embedding.
+
+78
+00:11:23.650 --> 00:11:28.039
+Jitendra K: So, you will have an input embedding, vectors, positional encoding.
+
+79
+00:11:28.430 --> 00:11:30.850
+Jitendra K: We should talk about the sequence of the words.
+
+80
+00:11:31.020 --> 00:11:38.829
+Jitendra K: tokens… And multi-head self-attention layer, and then followed by a feed-forward neural network and residual connection.
+
+81
+00:11:39.210 --> 00:11:46.249
+Jitendra K: So, encoder-decoder structure create a contextual representation and decoder-generate output sequence using autoregressive functions.
+
+82
+00:11:46.860 --> 00:11:55.770
+Jitendra K: It's not the modern variant of Transformer, as you might have heard about, GPT-5, Claude, Llamas, Gemini, and they're all great language models.
+
+83
+00:11:56.040 --> 00:12:00.249
+Jitendra K: Similarly, there are visual information transformers, which are great for image processing.
+
+84
+00:12:00.790 --> 00:12:03.999
+Jitendra K: That means transformers are capable of multimodal.
+
+85
+00:12:04.620 --> 00:12:08.680
+Jitendra K: combined inputs as well. You can read images, you can read data.
+
+86
+00:12:09.930 --> 00:12:17.370
+Jitendra K: Now, some of the efficient innovation which has been ongoing, include the variance of attention mechanism.
+
+87
+00:12:17.570 --> 00:12:21.499
+Jitendra K: So there are different variants of retention mechanism. Now, it's normal, linear.
+
+88
+00:12:21.640 --> 00:12:27.880
+Jitendra K: There's something called rotary position embedding, flash attentions, which are the backbone of mixture of experts model, etc.
+
+89
+00:12:28.470 --> 00:12:36.650
+Jitendra K: So, this is a quite fascinating world, where attention is all you need, article by Google, the transform architecture has been set up.
+
+90
+00:12:36.850 --> 00:12:38.999
+Jitendra K: And then it began a new era of.
+
+91
+00:12:39.350 --> 00:12:45.749
+Jitendra K: deep learning applications. So Transfer was the first developer to solve the problem of sequence transfusion.
+
+92
+00:12:46.020 --> 00:12:48.390
+Jitendra K: Or a neural machine translation.
+
+93
+00:12:49.150 --> 00:12:55.039
+Jitendra K: The transformer is a neural network that learns the context of sequential data and generate new data out of it.
+
+94
+00:12:57.830 --> 00:12:58.780
+Jitendra K: Right?
+
+95
+00:12:59.400 --> 00:13:04.019
+Jitendra K: So, you're getting some sort of input, the sequence.
+
+96
+00:13:04.690 --> 00:13:09.220
+Jitendra K: And generating another sequence as an output. So that is what transformer does in a while.
+
+97
+00:13:09.840 --> 00:13:12.520
+Jitendra K: So these are just our next word prediction models.
+
+98
+00:13:13.950 --> 00:13:22.329
+Jitendra K: So, as I mentioned, it has been originated in 2017, research paper by Google, one of the most recent and fluent development in machine learning.
+
+99
+00:13:22.450 --> 00:13:25.979
+Jitendra K: In the last decade, the first transformer model was explained
+
+100
+00:13:26.760 --> 00:13:30.730
+Jitendra K: with a paper of attention is all you need. So this is a pioneer concept.
+
+101
+00:13:30.910 --> 00:13:36.280
+Jitendra K: Which was not just a theoretical advancement, but also a foundation of practical implementation.
+
+102
+00:13:37.100 --> 00:13:39.110
+Jitendra K: And that is where the Tensor
+
+103
+00:13:39.720 --> 00:13:41.800
+Jitendra K: Flow 2 package has been launched.
+
+104
+00:13:42.240 --> 00:13:45.639
+Jitendra K: Further, the Harvard NLP group contributed to this
+
+105
+00:13:46.140 --> 00:13:51.469
+Jitendra K: Burgoing field by offering an annotated guide to the paper, supplement with PyTorch implementation.
+
+106
+00:13:52.300 --> 00:13:56.800
+Jitendra K: And then they have implemented a transformer model.
+
+107
+00:13:58.770 --> 00:14:06.599
+Jitendra K: And, the first model that has been launched is called BERT, Bidirectional encoder Representation of Transform by Google in the year 2007… 2018.
+
+108
+00:14:07.140 --> 00:14:16.179
+Jitendra K: And then in the year 2020, researcher at OpenAI announced GPT-3. Within weeks, GPT-3 versatility was quickly demonstrated when people were using
+
+109
+00:14:16.280 --> 00:14:22.520
+Jitendra K: It took great poem, program, song, website, and more competitive and imagining work.
+
+110
+00:14:23.170 --> 00:14:27.960
+Jitendra K: So, observing this shift, from Stanford Scholars.
+
+111
+00:14:28.540 --> 00:14:36.580
+Jitendra K: they created a foundational model on the top of it. They start creating it, commercialized, commoditized, and making sure that
+
+112
+00:14:36.780 --> 00:14:44.719
+Jitendra K: They are the best model in this space. A platform like Hugging Face emerged as a vital hub for sharing models, but a landscape fundamentally changed.
+
+113
+00:14:44.920 --> 00:14:49.120
+Jitendra K: In the year 2023, which is the release of Meta Llama Family.
+
+114
+00:14:50.910 --> 00:15:01.010
+Jitendra K: So, Llama model sparked an open rate movement, improving developers no longer need to rely on close corporate ecosystems to build state-of-the-art AI.
+
+115
+00:15:01.300 --> 00:15:06.550
+Jitendra K: Throughout 2024-25, the open source model accelerated fiercely, model-like.
+
+116
+00:15:06.830 --> 00:15:09.050
+Jitendra K: Meta, massive, Llama.
+
+117
+00:15:09.650 --> 00:15:16.439
+Jitendra K: subsequent Llama 4 series, and then along the side, DeepSeek, Mistral, they're all very powerful models.
+
+118
+00:15:16.670 --> 00:15:22.050
+Jitendra K: So, meanwhile, the closed source model continued to improve, evolve, GPT-4 in 2023,
+
+119
+00:15:22.340 --> 00:15:29.840
+Jitendra K: which has introduced multimodal capability at GPT-40 in 2024, which is unified text, vision, and audio processing in a single model.
+
+120
+00:15:30.390 --> 00:15:34.700
+Jitendra K: And then the late 2024, OpenAI has launched
+
+121
+00:15:35.460 --> 00:15:38.899
+Jitendra K: O1 series, and then DeepSeek launch, R1 series.
+
+122
+00:15:39.570 --> 00:15:46.060
+Jitendra K: By the late 2025-26, the landscape shifted entirely from conversational assistant to an autonomous system.
+
+123
+00:15:46.170 --> 00:15:55.599
+Jitendra K: with the launch of GPT-5 family, bringing advanced multi-step planning, long-term memory, and robust agent-tech AI workflows to enterprise infrastructure.
+
+124
+00:15:56.740 --> 00:16:06.460
+Jitendra K: So the shift is very clear, I need not explain it, but yes, this is what a transformer can do. So basically, you have an input which takes some phrases.
+
+125
+00:16:07.760 --> 00:16:14.200
+Jitendra K: So let's say you're performing very simple task, translation task, you need to feed some input and generate some output.
+
+126
+00:16:14.660 --> 00:16:23.299
+Jitendra K: So it has been original device for sequence transducution on neural machine translation purpose. So transformer accident in converting these input sequence to output sequence.
+
+127
+00:16:23.840 --> 00:16:33.709
+Jitendra K: So there's a first transducution model, relying entirely on self-attention to compute a representation of its input and output without using sequence alignment.
+
+128
+00:16:34.580 --> 00:16:39.740
+Jitendra K: And the main core concept of this transform architecture is they maintain the encoder-ecoder model.
+
+129
+00:16:41.500 --> 00:16:46.520
+Jitendra K: So Encoder takes your input and output a metrics representation of that input.
+
+130
+00:16:47.010 --> 00:16:52.109
+Jitendra K: And then the coder takes the encoder representation and iteratively generate an output.
+
+131
+00:16:52.950 --> 00:16:58.740
+Jitendra K: So basically, both encoder and decoder are actually stacked with a multiple layer, same number of each.
+
+132
+00:16:59.020 --> 00:17:03.510
+Jitendra K: All encoder represent the same structure and put gate, get into each of them.
+
+133
+00:17:04.500 --> 00:17:12.459
+Jitendra K: So this is the original transformer architecture, which is having a six-layer encoder-decoder architecture that was first launched.
+
+134
+00:17:13.280 --> 00:17:16.279
+Jitendra K: And you can see on my screen, this is here.
+
+135
+00:17:16.390 --> 00:17:20.469
+Jitendra K: Both encoder and decoder actually are stacked with multiple layers, same number of each.
+
+136
+00:17:20.740 --> 00:17:25.169
+Jitendra K: All encoder represent the same structure, and the input guide into each of them.
+
+137
+00:17:25.470 --> 00:17:28.389
+Jitendra K: As it passed through the next one. So all decoder represent.
+
+138
+00:17:28.530 --> 00:17:33.289
+Jitendra K: The same structure as well, and get the input from the last encoder and previous decoder.
+
+139
+00:17:36.600 --> 00:17:45.430
+Jitendra K: Now, how the information flow into the encoder, that is something which we are going to talk about. So, encoder is a fundamental component of the transformer. This is the primary function.
+
+140
+00:17:45.630 --> 00:17:46.930
+Jitendra K: of an encoder.
+
+141
+00:17:47.090 --> 00:17:57.009
+Jitendra K: Or I would say the purpose of encoder is to transform the input token into a contextualized representation. So unlike earlier model that processes token independently.
+
+142
+00:17:57.170 --> 00:18:02.139
+Jitendra K: The transformer encoders capture the context of each token with respect to the entire sequence.
+
+143
+00:18:02.920 --> 00:18:13.739
+Jitendra K: And by doing so, they are using some sort of… processing functions, Which include your multi-add retention.
+
+144
+00:18:13.890 --> 00:18:19.839
+Jitendra K: Additive normalization, feed-forward neural network, and again, decoderate at normalization layer.
+
+145
+00:18:20.330 --> 00:18:28.240
+Jitendra K: So here, if I have to break down this process, the first and foremost thing is the embedding only happens in the bottom-most encoder.
+
+146
+00:18:28.650 --> 00:18:35.780
+Jitendra K: So the encoder begins by converting input token into a word, source of words, into a vector using embedding layers.
+
+147
+00:18:35.990 --> 00:18:40.830
+Jitendra K: And these embeddings capture the semantic meaning of the tokens, and convert them into numerical vectors.
+
+148
+00:18:41.700 --> 00:18:47.720
+Jitendra K: So all the encoder receive a list of vectors, each of size, 512, fixed size.
+
+149
+00:18:48.280 --> 00:18:56.980
+Jitendra K: And then… It will use its fixed size tokens, or sequence of tokens, To perform the analysis.
+
+150
+00:18:57.270 --> 00:19:03.180
+Jitendra K: So basically, what you're doing is, in the encoder layer, You're just feeding.
+
+151
+00:19:03.810 --> 00:19:08.070
+Jitendra K: let's say I'm performing a translation task, you're converting them to embedding vector.
+
+152
+00:19:09.750 --> 00:19:11.660
+Jitendra K: Now, there's a positional encoding.
+
+153
+00:19:13.360 --> 00:19:17.609
+Jitendra K: that you're going to assert. So, step two is
+
+154
+00:19:18.620 --> 00:19:24.520
+Jitendra K: Since transformers do not have a recurrent machine like RNN, they are positional encoding added to the input.
+
+155
+00:19:25.440 --> 00:19:29.030
+Jitendra K: To provide the information about the position of each token in the sequence.
+
+156
+00:19:29.400 --> 00:19:34.690
+Jitendra K: And this will allow to understand the portion of each word within the sentence.
+
+157
+00:19:35.890 --> 00:19:40.199
+Jitendra K: So, in a nutshell, what you're doing is, you're doing some sort of transformation.
+
+158
+00:19:41.380 --> 00:19:44.100
+Jitendra K: To represent the sequence of tokens.
+
+159
+00:19:44.910 --> 00:19:50.250
+Jitendra K: And there are different ways in which you can do this positional encoding. One is by sign, second is by cost.
+
+160
+00:19:54.310 --> 00:19:59.290
+Jitendra K: Now, the transform model, the third layer, is a stack of encoder layers.
+
+161
+00:19:59.770 --> 00:20:08.769
+Jitendra K: We're a transformer comprised of a stack of identical layer, and the encoder layers serve to transform all the input sequence into a continuous abstract representation.
+
+162
+00:20:09.210 --> 00:20:12.650
+Jitendra K: That encapsulate the learned information from the entire sequence.
+
+163
+00:20:13.050 --> 00:20:17.089
+Jitendra K: And then followed by a multi-head attention, which is a fully connected here.
+
+164
+00:20:17.630 --> 00:20:20.340
+Jitendra K: Now, if I have to talk about multi-head attention.
+
+165
+00:20:20.590 --> 00:20:27.070
+Jitendra K: Multi-head attention is the most important block of the entire architecture.
+
+166
+00:20:27.660 --> 00:20:34.789
+Jitendra K: Now, the encoder, this is a part of encoder, right? Multi-head retention. You can see that decoder as well will use multi-head retention.
+
+167
+00:20:34.970 --> 00:20:41.230
+Jitendra K: So, in the encoder, the multi-attention utilizes spatial attention mechanism known as self-attention.
+
+168
+00:20:41.870 --> 00:20:47.639
+Jitendra K: So this approach will enable the model to relate each word in the input with the other words.
+
+169
+00:20:48.530 --> 00:20:52.219
+Jitendra K: For instance, in this example that we are trying to solve.
+
+170
+00:20:52.630 --> 00:20:55.830
+Jitendra K: If I'm just reading 3 vectors, how are you?
+
+171
+00:20:57.270 --> 00:21:03.850
+Jitendra K: So, the model might learn to connect the word, how are you? Are you is connected.
+
+172
+00:21:05.120 --> 00:21:12.210
+Jitendra K: And this mechanism will allow the encoder to focus on the different parts of the input sequence as it processes each token.
+
+173
+00:21:12.710 --> 00:21:15.570
+Jitendra K: To compute attention score based upon the query.
+
+174
+00:21:16.040 --> 00:21:19.820
+Jitendra K: A query is a vector that represents a specific word, or a token.
+
+175
+00:21:20.190 --> 00:21:25.269
+Jitendra K: from the input sequence in the attention mechanism. And the key is also a vector and attention layer.
+
+176
+00:21:25.510 --> 00:21:30.449
+Jitendra K: Corresponding to each word or a token in the input sequence. And each value is associated with a key.
+
+177
+00:21:31.440 --> 00:21:40.850
+Jitendra K: And it is used to construct the output of the attention layer, where a query and a key match wells, which basically means that they have a high attention score.
+
+178
+00:21:41.300 --> 00:21:44.589
+Jitendra K: And the corresponding value is emphasized on the top of it.
+
+179
+00:21:45.500 --> 00:21:54.249
+Jitendra K: So… Basically, it's a three-parameter model, attention, QKV, which stands for Query, key, and Value.
+
+180
+00:21:55.970 --> 00:22:02.469
+Jitendra K: Right, so we'll talk about these three building blocks. But have… have all this discussed with your professors.
+
+181
+00:22:03.340 --> 00:22:10.899
+Jitendra K: Have you guys get some idea about QKB, caching? Any idea about this, or you're hearing it for the very first time?
+
+182
+00:22:15.590 --> 00:22:17.889
+Jitendra K: What is QKB, if I have to ask you?
+
+183
+00:22:21.800 --> 00:22:24.310
+Jitendra K: Can you explain me what is query vector?
+
+184
+00:22:35.060 --> 00:22:41.370
+Jitendra K: Can anybody explain to me what is query vector here? When you say query, What is query here?
+
+185
+00:22:54.470 --> 00:22:55.510
+Jitendra K: No idea.
+
+186
+00:23:05.090 --> 00:23:08.569
+Jitendra K: An input would be a query. But what is your input?
+
+187
+00:23:09.220 --> 00:23:10.189
+Jitendra K: to the model.
+
+188
+00:23:40.510 --> 00:23:47.460
+Jitendra K: So basically, a query is a vector that represents a specific word or token from the input sequence in the attention mechanism.
+
+189
+00:23:51.100 --> 00:23:57.000
+Jitendra K: And the key is also a vector in a tension mechanism corresponding to each word or token in the input sequence.
+
+190
+00:23:57.500 --> 00:23:59.690
+Jitendra K: And each value is associated with the key.
+
+191
+00:23:59.890 --> 00:24:02.760
+Jitendra K: It is used to construct the output of the attention layer.
+
+192
+00:24:03.220 --> 00:24:09.940
+Jitendra K: So when a query and a key value matches, which basically… Generate a high attention score.
+
+193
+00:24:12.130 --> 00:24:14.390
+Jitendra K: So this is the purpose of QKV.
+
+194
+00:24:14.940 --> 00:24:21.720
+Jitendra K: So once a query key and values are passed through a linear layer, a dot product matrix multiplication will take place.
+
+195
+00:24:23.580 --> 00:24:28.089
+Jitendra K: It is performed between your query and the key, resulting in the creation of a score.
+
+196
+00:24:29.140 --> 00:24:35.519
+Jitendra K: And this score established a degree of emphasis on each word that should be placed on other
+
+197
+00:24:36.330 --> 00:24:41.859
+Jitendra K: refinement. Therefore, each word is assigned a score in relation to the other word.
+
+198
+00:24:42.100 --> 00:24:43.870
+Jitendra K: With the same timestamp.
+
+199
+00:24:44.010 --> 00:24:46.079
+Jitendra K: And the highest score indicator, great focus.
+
+200
+00:24:46.460 --> 00:24:50.879
+Jitendra K: So what we are trying to do is, we are trying to understand the correlation between the words.
+
+201
+00:24:57.210 --> 00:25:01.939
+Jitendra K: And then, reducing the magnitude out of the attention layer by performing some mathematical operation.
+
+202
+00:25:06.530 --> 00:25:18.509
+Jitendra K: All right, so what we are going to do now is, I think, you guys haven't understand QKV, you don't have any understanding on the mathematical model either.
+
+203
+00:25:19.350 --> 00:25:26.510
+Jitendra K: But yeah, I hope we understand the matrix multiplication dot products, right? So there's no doubt about that.
+
+204
+00:25:34.890 --> 00:25:40.900
+Jitendra K: Okay, let me explain this architecture with some visuals. So, this is a great website, you can use this.
+
+205
+00:25:41.360 --> 00:25:46.939
+Jitendra K: And this visual website will help you to understand architecture of Transformer, maybe in a very layman term.
+
+206
+00:25:47.170 --> 00:25:54.819
+Jitendra K: So you can refer to this website as 20-page presentation, which will give you a very systematic opinion over transformer does.
+
+207
+00:25:55.090 --> 00:26:00.979
+Jitendra K: Now, again, as I mentioned, Transformer is the core architecture behind modern AI.
+
+208
+00:26:01.150 --> 00:26:05.039
+Jitendra K: which is powering models like Gemini, GPT, etc.
+
+209
+00:26:05.500 --> 00:26:14.210
+Jitendra K: And, the purpose of Transformer is to… use… Certain attention mechanism to generate
+
+210
+00:26:14.380 --> 00:26:20.570
+Jitendra K: the context of the information. So it's a kind of an information generation process.
+
+211
+00:26:21.010 --> 00:26:26.519
+Jitendra K: So they are generator models, right? They are no longer a sequence prediction model, they are generative models.
+
+212
+00:26:27.050 --> 00:26:36.450
+Jitendra K: Now, when you talk about generative models, generative models are… Quite powerful, because of…
+
+213
+00:26:38.170 --> 00:26:43.080
+Jitendra K: Because of their nature. So the transformer has 3 components, embedding.
+
+214
+00:26:44.150 --> 00:26:46.810
+Jitendra K: You've got embedding vectors, which is your input.
+
+215
+00:26:46.940 --> 00:26:50.629
+Jitendra K: Embedding is nothing but a representation of your data in numerical format.
+
+216
+00:26:51.270 --> 00:26:52.719
+Jitendra K: Then you have got…
+
+217
+00:26:59.030 --> 00:27:02.049
+Jitendra K: So once you have an embedding representation of your data.
+
+218
+00:27:02.470 --> 00:27:09.160
+Jitendra K: then you're going to use something called tokenization and, preservation. Let me just…
+
+219
+00:27:10.190 --> 00:27:13.900
+Jitendra K: One second, I think I'm getting some memory issues.
+
+220
+00:27:54.890 --> 00:28:04.099
+Jitendra K: Okay, so embedding, that means your text input is divided into smaller units called tokens, where each word or subword has been converted into numerical representation.
+
+221
+00:28:04.230 --> 00:28:12.140
+Jitendra K: The transform block, where it's a fundamental block of the transformer, which is processing, the transformation of the input.
+
+222
+00:28:12.370 --> 00:28:17.269
+Jitendra K: And you have got retention mechanism, that is a core building block of your transformer.
+
+223
+00:28:17.570 --> 00:28:25.070
+Jitendra K: Where you are going to use a tension mechanism to deal with the, understanding the sequence information.
+
+224
+00:28:25.370 --> 00:28:27.360
+Jitendra K: That means we are going to communicate
+
+225
+00:28:27.670 --> 00:28:31.339
+Jitendra K: With other tokens, capturing contextual information and relationship.
+
+226
+00:28:32.030 --> 00:28:35.710
+Jitendra K: So this is one of the main building blocks of transformer, which is attention.
+
+227
+00:28:35.860 --> 00:28:43.290
+Jitendra K: Now, the output… will be utilized as a probabilical generation. That means you're predicting an X word.
+
+228
+00:28:43.480 --> 00:28:46.150
+Jitendra K: So your probability will be based upon that.
+
+229
+00:28:46.580 --> 00:28:47.380
+Jitendra K: Right?
+
+230
+00:28:52.960 --> 00:28:59.740
+Jitendra K: So this… Mechanism will give you very good descriptive of what transformer does.
+
+231
+00:29:00.070 --> 00:29:06.019
+Jitendra K: how we are creating the embeddings and stuff, right? So this is a good website, you can refer to it.
+
+232
+00:29:06.280 --> 00:29:09.810
+Jitendra K: But let me go back to our original discussion.
+
+233
+00:29:10.090 --> 00:29:14.049
+Jitendra K: So basically, once the query and the key vector value has been passed.
+
+234
+00:29:14.490 --> 00:29:19.950
+Jitendra K: They are going through a linear layer, where we are taking a dot product, matrix multiplication as we perform.
+
+235
+00:29:20.260 --> 00:29:25.920
+Jitendra K: And the matrix multiplication will be performed between your query and the key, resulting in the creation of a score matrix.
+
+236
+00:29:26.290 --> 00:29:28.620
+Jitendra K: And this core matrix will establish
+
+237
+00:29:29.620 --> 00:29:35.040
+Jitendra K: The degree of, relationship between the highly contextual words… words.
+
+238
+00:29:36.310 --> 00:29:41.740
+Jitendra K: Now… Once we have performed this, all thing.
+
+239
+00:29:42.050 --> 00:29:45.440
+Jitendra K: Then we require to perform some more mathematical transformation.
+
+240
+00:29:46.060 --> 00:29:55.019
+Jitendra K: And that is something which we are going to discuss now, where we will talk about how QKV information has been performed, what is the mechanism behind.
+
+241
+00:29:55.470 --> 00:30:00.359
+Jitendra K: QKV, and what other attention mechanism is all about.
+
+242
+00:30:01.350 --> 00:30:04.070
+Jitendra K: So, in a very simple term.
+
+243
+00:30:06.130 --> 00:30:09.549
+Jitendra K: If I have to explain to you, attention is a function.
+
+244
+00:30:10.270 --> 00:30:15.429
+Jitendra K: And this function can be described as a mapping of a query and a set of key values.
+
+245
+00:30:15.570 --> 00:30:17.120
+Jitendra K: Pairs to the output.
+
+246
+00:30:17.400 --> 00:30:21.189
+Jitendra K: Where the query, key and values, and output are all vectors.
+
+247
+00:30:25.400 --> 00:30:29.839
+Jitendra K: Right? So basically, what we are doing is… We are…
+
+248
+00:30:30.490 --> 00:30:34.090
+Jitendra K: Trying to understand the relationship between the contextual words.
+
+249
+00:30:35.050 --> 00:30:36.620
+Jitendra K: Using the probability.
+
+250
+00:30:37.930 --> 00:30:43.890
+Jitendra K: Now, this is where I'm just saying that the query tried to find exactly match to the key.
+
+251
+00:30:44.100 --> 00:30:46.840
+Jitendra K: And then we can call it a hard indexing.
+
+252
+00:30:47.480 --> 00:30:52.259
+Jitendra K: And then… For partial match, it will use oftindexing.
+
+253
+00:30:52.750 --> 00:30:58.169
+Jitendra K: So the basic purpose of this algorithm is to create an attention.
+
+254
+00:30:59.740 --> 00:31:06.620
+Jitendra K: And attention is a function, as I mentioned, so you can write the attention function as… Attention.
+
+255
+00:31:13.490 --> 00:31:19.409
+Jitendra K: Using three-value parameter KQV, Which will be equal to…
+
+256
+00:31:20.020 --> 00:31:23.019
+Jitendra K: dot product of your Q and K.
+
+257
+00:31:27.780 --> 00:31:32.700
+Jitendra K: Divide by square root of… T into V.
+
+258
+00:31:35.150 --> 00:31:37.779
+Jitendra K: Where D is the dimension of the vector space.
+
+259
+00:31:38.240 --> 00:31:44.280
+Jitendra K: And, this particular dot product He's a… Product between query and key.
+
+260
+00:31:44.780 --> 00:31:46.990
+Jitendra K: That determine the strength of attention.
+
+261
+00:31:47.860 --> 00:31:52.770
+Jitendra K: No… This is where you're going to have an attention layer.
+
+262
+00:31:55.390 --> 00:32:01.670
+Jitendra K: So, attention is nothing but We are using some sort of weight mechanism.
+
+263
+00:32:02.470 --> 00:32:04.830
+Jitendra K: To understand the correlation between the words.
+
+264
+00:32:06.240 --> 00:32:10.119
+Jitendra K: Now, we are using a scaled score divided by normalization.
+
+265
+00:32:10.430 --> 00:32:18.969
+Jitendra K: So the scores are downscaled… sorry, the scores are done by dividing them into a square root of the dimension of the query and the key vectors.
+
+266
+00:32:19.400 --> 00:32:22.670
+Jitendra K: And this step will implement to ensure more stable gradient.
+
+267
+00:32:23.100 --> 00:32:26.960
+Jitendra K: As the multiplication of the value can lead to excessive large gradients.
+
+268
+00:32:27.250 --> 00:32:29.080
+Jitendra K: So we are just trying to control them.
+
+269
+00:32:29.360 --> 00:32:35.610
+Jitendra K: And then applying a softwatch function to find out the predicted probability at the last layer.
+
+270
+00:32:35.810 --> 00:32:43.810
+Jitendra K: That'll give us… All the particular words, that should come as our next word, probable next word.
+
+271
+00:32:46.150 --> 00:32:50.579
+Jitendra K: So you're… what you're doing is, you're combining a softmax result with a value vector.
+
+272
+00:32:51.260 --> 00:32:53.989
+Jitendra K: So that is the step that you're performing in.
+
+273
+00:32:54.810 --> 00:32:56.240
+Jitendra K: sulfotential layer.
+
+274
+00:32:57.160 --> 00:32:59.790
+Jitendra K: Now, there's a term called multi-head attention.
+
+275
+00:33:01.680 --> 00:33:08.689
+Jitendra K: So, multi-tension means We break our query key and value, Etch number of times.
+
+276
+00:33:09.320 --> 00:33:14.909
+Jitendra K: And this process is known as self-attention, which happens separately in each of these smaller stages or heights.
+
+277
+00:33:15.360 --> 00:33:18.620
+Jitendra K: So, each had worked its magical dependency.
+
+278
+00:33:19.880 --> 00:33:27.519
+Jitendra K: And, we are now going to use something called ensemble passes that passes through a final linear layer.
+
+279
+00:33:27.760 --> 00:33:31.629
+Jitendra K: And then, much like a filter that fine-tuned their collective performance.
+
+280
+00:33:31.920 --> 00:33:36.690
+Jitendra K: Here, we are just using multi-head attention to do the analysis.
+
+281
+00:33:39.810 --> 00:33:48.790
+Jitendra K: Now, this is about encoder. Now, what happened at a decoder layer? So, this is all about encoder, but what happened at a decoder layer? So, let's start to understand a decoder architecture as well.
+
+282
+00:33:52.810 --> 00:33:56.070
+Jitendra K: Now, as I mentioned, the decoder role depends.
+
+283
+00:33:56.480 --> 00:33:58.750
+Jitendra K: So, it depends upon…
+
+284
+00:33:59.950 --> 00:34:07.250
+Jitendra K: or I would say decoder rule centers towards crafting text sequences. So it is mirroring the decoder… sorry, encoder.
+
+285
+00:34:07.490 --> 00:34:11.380
+Jitendra K: The decoder's job is to equip with a similar set of sublayers.
+
+286
+00:34:11.750 --> 00:34:20.189
+Jitendra K: And boost to multi-head retention layer, a pointwise feed-forward neural network, and incorporate both residual connection and layer normalization.
+
+287
+00:34:20.659 --> 00:34:26.809
+Jitendra K: So, basically, your decoder is trying to have some components, and these components function in a way
+
+288
+00:34:27.170 --> 00:34:28.830
+Jitendra K: To the encoder layer.
+
+289
+00:34:29.050 --> 00:34:33.430
+Jitendra K: Each multi-attention layer in the decoder has its own unique mission.
+
+290
+00:34:34.489 --> 00:34:42.380
+Jitendra K: So here, the decoder process involves a linear layer serving as a classifier, topped off with a softmax function to calculate the probability of the different words.
+
+291
+00:34:42.750 --> 00:34:48.010
+Jitendra K: The transformer decoder has a structure specifically designed to generate this output by decoding
+
+292
+00:34:48.139 --> 00:34:54.460
+Jitendra K: The encoded, information step by step, and then perform this whole idea.
+
+293
+00:34:56.449 --> 00:35:01.409
+Jitendra K: Now, you can see that I'm using a multi-eyed attention in the decoder layer.
+
+294
+00:35:03.080 --> 00:35:04.899
+Jitendra K: And the encoder layer as well.
+
+295
+00:35:05.550 --> 00:35:12.550
+Jitendra K: So, when I say multi-attention, or mass self-attention, this is very similar to a self-attention mechanism in the encoder.
+
+296
+00:35:12.830 --> 00:35:14.879
+Jitendra K: But there are crucial differences.
+
+297
+00:35:15.190 --> 00:35:19.530
+Jitendra K: So what it does here is, it prevents cohesion from attending.
+
+298
+00:35:19.920 --> 00:35:25.729
+Jitendra K: To subsequent position, which means that each word in the sequence isn't influenced by the feature token.
+
+299
+00:35:33.150 --> 00:35:36.169
+Jitendra K: So that is the difference between the two-layer architecture.
+
+300
+00:35:36.570 --> 00:35:40.270
+Jitendra K: Now, if you're combining both, The encoder and decoder.
+
+301
+00:35:41.170 --> 00:35:43.550
+Jitendra K: You will get a transformer.
+
+302
+00:35:46.070 --> 00:35:47.829
+Jitendra K: So this is your transformer.
+
+303
+00:35:50.400 --> 00:35:53.839
+Jitendra K: Right? So Google has released the first transformer.
+
+304
+00:35:54.340 --> 00:35:59.409
+Jitendra K: Biodirectional encoder Representation of Transformer, which is an open-source natural language processing framework.
+
+305
+00:35:59.980 --> 00:36:02.150
+Jitendra K: That has been launched in 2018.
+
+306
+00:36:02.890 --> 00:36:12.440
+Jitendra K: By understanding the context from all sides of the world, BERT outperformed previous models in the tasks like Q&A, understanding ambiguous language.
+
+307
+00:36:13.500 --> 00:36:17.469
+Jitendra K: And, even some relation tasks has been improved pretty drastically.
+
+308
+00:36:18.860 --> 00:36:23.469
+Jitendra K: Then the Lambda model has been launched, which is called Language Model for Dialog Application.
+
+309
+00:36:23.910 --> 00:36:31.850
+Jitendra K: Again, where Google launched in 2021, and then followed by GPT and Claude and other variants of Transformers.
+
+310
+00:36:32.350 --> 00:36:36.640
+Jitendra K: So that is where the natural language has been… quite,
+
+311
+00:36:36.800 --> 00:36:43.710
+Jitendra K: Aggressively moving from multiple refinements, and then now we are living in the world of agents.
+
+312
+00:36:44.280 --> 00:36:48.910
+Jitendra K: But still, the backbone remained the transformer architecture, right?
+
+313
+00:36:49.220 --> 00:36:56.990
+Jitendra K: Now, again, if I have to just give you, again, a simple analogy, how transformer operates, so it's an expert prediction model.
+
+314
+00:36:57.610 --> 00:37:04.249
+Jitendra K: So, Transformer purpose initially was to create machine translation, but now it's become a reasoning-based model.
+
+315
+00:37:07.290 --> 00:37:12.950
+Jitendra K: Right, so there are several ways that you can able to look for attention mechanism.
+
+316
+00:37:13.130 --> 00:37:17.470
+Jitendra K: One way, let's say, I would like to read this sentence.
+
+317
+00:37:20.410 --> 00:37:25.900
+Jitendra K: So, let's say I'm putting up… the sentence… And this sentence…
+
+318
+00:37:26.290 --> 00:37:32.399
+Jitendra K: if you are… if we have seen in the RNN that, how we maintain a hidden state.
+
+319
+00:37:32.970 --> 00:37:46.189
+Jitendra K: And that should instead allow RNN to incorporate its representation of the previous word it processed with the current word. So, self-attention is a method that transformer use to bake the understanding on the other relevant words into the
+
+320
+00:37:46.490 --> 00:37:48.500
+Jitendra K: One, we are currently processing.
+
+321
+00:37:55.470 --> 00:38:00.879
+Jitendra K: So the first step is… When you're using the self-attention.
+
+322
+00:38:01.100 --> 00:38:04.729
+Jitendra K: The first step is… You're going to…
+
+323
+00:38:09.250 --> 00:38:14.100
+Jitendra K: You're going to use… 3 vectors.
+
+324
+00:38:14.230 --> 00:38:17.830
+Jitendra K: From each of the input, from each of the encoder input vectors.
+
+325
+00:38:18.820 --> 00:38:23.840
+Jitendra K: So first, for each word, we create a query vector, and a key vector, and a value vector.
+
+326
+00:38:24.100 --> 00:38:30.800
+Jitendra K: And these vectors are calculated by multiplying the embeddings by three metrics that we have trained during the training process.
+
+327
+00:38:32.050 --> 00:38:34.309
+Jitendra K: So, this is the fundamental of…
+
+328
+00:38:34.520 --> 00:38:37.900
+Jitendra K: Attention, where you're going to use all the three vectors.
+
+329
+00:38:38.360 --> 00:38:42.090
+Jitendra K: And performing some… Manipulation on the weights.
+
+330
+00:38:44.340 --> 00:38:53.280
+Jitendra K: Now, once you have created this, the second step is to calculate a score. So we are calculating a self-attention for the first word in this example.
+
+331
+00:38:53.940 --> 00:38:55.340
+Jitendra K: Let's say, thinking.
+
+332
+00:38:55.840 --> 00:39:01.260
+Jitendra K: We need to score each word of the input against its words, and the score determines how much focus
+
+333
+00:39:01.380 --> 00:39:04.690
+Jitendra K: To place on the other world, in the input sequence.
+
+334
+00:39:05.450 --> 00:39:09.769
+Jitendra K: And the score is calculated by taking a dot product of the query vector and the key vector.
+
+335
+00:39:12.090 --> 00:39:19.149
+Jitendra K: The third and the fourth step would be, you're going to take Some sort of metrics manipulation.
+
+336
+00:39:19.330 --> 00:39:24.169
+Jitendra K: To generate a softmax probability, which will pick the next word based upon that.
+
+337
+00:39:25.310 --> 00:39:30.259
+Jitendra K: So, in a nutshell, you are using something called WQW.
+
+338
+00:39:31.370 --> 00:39:33.189
+Jitendra K: a K and WV.
+
+339
+00:39:33.760 --> 00:39:39.779
+Jitendra K: as input, And then you're applying a softmax probability to generate an output.
+
+340
+00:39:45.090 --> 00:39:52.179
+Jitendra K: Right, so this is what you're doing inside the transformer. And now, if I'm using a multi-head tension.
+
+341
+00:39:52.920 --> 00:39:54.969
+Jitendra K: I can split my weights in two.
+
+342
+00:39:55.770 --> 00:39:58.489
+Jitendra K: Sequence of processing unit.
+
+343
+00:40:00.190 --> 00:40:03.309
+Jitendra K: Instead of just doing a one-level assertion.
+
+344
+00:40:07.640 --> 00:40:13.030
+Jitendra K: That means, whatever you are feeding, it will be going through this transformation.
+
+345
+00:40:14.060 --> 00:40:16.869
+Jitendra K: Based upon the model selection criterias.
+
+346
+00:40:17.980 --> 00:40:29.029
+Jitendra K: So, now the question is, if I'm using this architecture, is it really…
+
+347
+00:40:29.960 --> 00:40:35.879
+Jitendra K: a large model or a small model, or can I use any universal transformation to compare?
+
+348
+00:40:36.510 --> 00:40:39.319
+Jitendra K: So the answer lies here, so you can see that
+
+349
+00:40:40.220 --> 00:40:44.049
+Jitendra K: With the advent of transformers, things are moving and changing.
+
+350
+00:40:44.800 --> 00:40:49.860
+Jitendra K: The transformers are a big model, apart from a few outlikes, like Distilled Bird, that is a
+
+351
+00:40:50.120 --> 00:40:51.640
+Jitendra K: That is a small model.
+
+352
+00:40:51.920 --> 00:40:54.109
+Jitendra K: But Transformer overall is a large model.
+
+353
+00:40:57.730 --> 00:41:01.110
+Jitendra K: This means that they have been trained on large amount of raw text.
+
+354
+00:41:01.730 --> 00:41:03.750
+Jitendra K: In a self-supervised fashion.
+
+355
+00:41:07.840 --> 00:41:10.590
+Jitendra K: The transformers are big, they can adapt.
+
+356
+00:41:11.420 --> 00:41:15.180
+Jitendra K: You can use Domain Corpus to train them and make it align.
+
+357
+00:41:17.310 --> 00:41:23.779
+Jitendra K: Right? But the architecture still lies on the same principle that we have discussed, which is attention is all you need.
+
+358
+00:41:33.110 --> 00:41:37.499
+Jitendra K: So, any question on this? Any doubt? Are we clear with the architecture now?
+
+359
+00:41:50.330 --> 00:41:52.300
+Jitendra K: Any question on the slides?
+
+360
+00:41:56.850 --> 00:41:58.970
+Jitendra K: Is this architecture clear to everyone?
+
+361
+00:42:08.630 --> 00:42:17.189
+Jitendra K: The token… Your token is, your input, yes. The token that I'm talking about is the Clot tokens, and…
+
+362
+00:42:17.360 --> 00:42:19.150
+Jitendra K: GPT token that you're using.
+
+363
+00:42:27.120 --> 00:42:31.820
+Jitendra K: But there, you're not training anything. In the transformer, you're not training anything.
+
+364
+00:42:34.710 --> 00:42:40.439
+Jitendra K: You're just using Inference Pipeline, which has been hosted by Claude and OpenAI.
+
+365
+00:42:40.870 --> 00:42:45.509
+Jitendra K: They are pre-trained models that they're using. Here, I'm talking about a core architecture of Transformer.
+
+366
+00:42:46.390 --> 00:42:50.559
+Jitendra K: So don't get confused with those tokens and this token. That's a different token.
+
+367
+00:43:00.610 --> 00:43:07.560
+Jitendra K: Okay, let's try to understand the attention mechanism again with some example. So, let me write down one word.
+
+368
+00:43:08.790 --> 00:43:15.810
+Jitendra K: Now, I'm saying… the sentence… The boy is holding…
+
+369
+00:43:25.030 --> 00:43:26.379
+Jitendra K: a blue ball.
+
+370
+00:43:31.210 --> 00:43:36.290
+Jitendra K: Now, if you look into the sentence, there are… Various…
+
+371
+00:43:36.680 --> 00:43:38.970
+Jitendra K: Way that you can produce attention.
+
+372
+00:43:39.850 --> 00:43:46.219
+Jitendra K: So attention will help us to enable the model to focus on other words in the input that are closely related to that word.
+
+373
+00:43:46.680 --> 00:43:49.720
+Jitendra K: So, ball is closely related to the word blue.
+
+374
+00:43:53.990 --> 00:43:55.990
+Jitendra K: And holding, on the other hand.
+
+375
+00:43:58.320 --> 00:44:00.830
+Jitendra K: Glue's not limited to the boy, right?
+
+376
+00:44:01.170 --> 00:44:05.390
+Jitendra K: So, a blue ball has been hauled by… someone
+
+377
+00:44:06.650 --> 00:44:12.930
+Jitendra K: So, transformer architecture uses a self-attention mechanism by relating every word in the input sequence to every other word.
+
+378
+00:44:13.690 --> 00:44:18.449
+Jitendra K: So, let's say, consider two sentences. Let's say I'm writing two sentences again.
+
+379
+00:44:19.860 --> 00:44:21.540
+Jitendra K: The first sentence,
+
+380
+00:44:24.900 --> 00:44:29.230
+Jitendra K: the cat… drank.
+
+381
+00:44:31.910 --> 00:44:33.160
+Jitendra K: the MOOC…
+
+382
+00:44:36.870 --> 00:44:42.230
+Jitendra K: Because… It was hungry.
+
+383
+00:44:47.030 --> 00:44:49.469
+Jitendra K: I will say the second word, the cat.
+
+384
+00:44:51.170 --> 00:44:52.210
+Jitendra K: Drank.
+
+385
+00:44:54.290 --> 00:45:05.220
+Jitendra K: the MOOC… Because… It was… Sweet.
+
+386
+00:45:08.050 --> 00:45:13.089
+Jitendra K: So the first sentence, the word 8 here, which I'm writing here, the word 8,
+
+387
+00:45:13.900 --> 00:45:15.469
+Jitendra K: He's referring to a cat.
+
+388
+00:45:18.300 --> 00:45:21.770
+Jitendra K: But in the second world, I'm referring to a milk.
+
+389
+00:45:31.160 --> 00:45:33.420
+Jitendra K: So this is attention to a word.
+
+390
+00:45:33.600 --> 00:45:40.579
+Jitendra K: So the same… similar sentence, A slightly different annotation is given two different meaning.
+
+391
+00:45:41.340 --> 00:45:43.629
+Jitendra K: So, the first sentence, I'm referring to a cat.
+
+392
+00:45:44.220 --> 00:45:50.969
+Jitendra K: While in the second sentence, I'm referring to a milk, when the model processes the word ate, self-attention gives the model more information about the meaning.
+
+393
+00:45:51.280 --> 00:45:56.049
+Jitendra K: So that it can associate the correct word to that meaning.
+
+394
+00:45:56.300 --> 00:45:59.500
+Jitendra K: And that is what attention is doing inside your model.
+
+395
+00:46:01.200 --> 00:46:06.050
+Jitendra K: So, to enable… the references… in the board.
+
+396
+00:46:06.580 --> 00:46:11.760
+Jitendra K: which we are using at an encoder and decoder layer. So the transform goal is to learn
+
+397
+00:46:11.880 --> 00:46:16.909
+Jitendra K: How the output or target by using both input and target sequence?
+
+398
+00:46:18.470 --> 00:46:23.410
+Jitendra K: So, the transformer processed the data will then sequence is converted into embedding.
+
+399
+00:46:23.780 --> 00:46:26.660
+Jitendra K: With positional encoding and feed for our neural network.
+
+400
+00:46:26.880 --> 00:46:31.870
+Jitendra K: The stack of encoder process it and produce an encoder representation of the input sequence.
+
+401
+00:46:32.060 --> 00:46:38.280
+Jitendra K: The target sequence is prepended with the positional encoding, and the stack of decoder processes it.
+
+402
+00:46:39.400 --> 00:46:42.080
+Jitendra K: And the output layer converted into probabertical.
+
+403
+00:46:42.330 --> 00:46:45.020
+Jitendra K: Tokens, or probiotical numbers.
+
+404
+00:46:45.230 --> 00:46:48.430
+Jitendra K: Which you are going to use to predict the next word.
+
+405
+00:46:48.700 --> 00:46:49.820
+Jitendra K: sequence.
+
+406
+00:46:51.000 --> 00:46:54.329
+Jitendra K: So, predominantly, this is what your transformer does, in a nutshell.
+
+407
+00:47:01.960 --> 00:47:10.050
+Jitendra K: Don't talk about GPT, I think it will be very complex for the… I don't think so. I will be able to answer without giving you the architecture.
+
+408
+00:47:10.260 --> 00:47:11.780
+Jitendra K: Discussion on GPT.
+
+409
+00:47:12.790 --> 00:47:27.600
+Jitendra K: So when you're giving a prompt to GPT to compare that the pre-trained model, provide the output, or this goes… no, no, it will not go to encoder-decoder. That's the reason I'm not… I will differ not to answer this question, because you don't know about GBT any architecture. It's a decoder model architecture.
+
+410
+00:47:27.750 --> 00:47:29.550
+Jitendra K: It's not even having encoders.
+
+411
+00:47:30.800 --> 00:47:36.429
+Jitendra K: Now, your second question will be how it is processing, right? So that's the reason I will not go into that.
+
+412
+00:47:42.040 --> 00:47:56.520
+Jitendra K: No, this is a transformer in general, so there should be something, right? As a seed, you're purchasing something as a seed, and foundation models. We are talking about foundation models. We are not talking about large language models. Large language models and foundation models are totally different.
+
+413
+00:47:59.890 --> 00:48:02.959
+Jitendra K: So here we are talking about foundational models, so don't mix…
+
+414
+00:48:03.090 --> 00:48:05.480
+Jitendra K: Large language model is foundational models.
+
+415
+00:48:06.300 --> 00:48:07.150
+Jitendra K: Alright.
+
+416
+00:48:09.230 --> 00:48:17.439
+Jitendra K: So, you understand the flow of these transformers, like, how transformers process the information, right? So, the input sequence is converted into embedding.
+
+417
+00:48:17.770 --> 00:48:25.419
+Jitendra K: With a position encoding and feed into the encoder, the stack of encoder process this and produce an encoder representation of the input sequence.
+
+418
+00:48:25.870 --> 00:48:29.529
+Jitendra K: So instead of target sequence, we use an empty space.
+
+419
+00:48:30.000 --> 00:48:37.230
+Jitendra K: which is called positional embedding, and then feed it to a decoder layer. And the stack of decoder processes this along with the encoder stack.
+
+420
+00:48:38.230 --> 00:48:46.720
+Jitendra K: And then encoded representation is used to produce a target sequence. And the output layer is converted your target sequence into a word probability.
+
+421
+00:48:47.020 --> 00:48:51.069
+Jitendra K: And produce some sort of next-word depiction, right?
+
+422
+00:48:51.240 --> 00:48:54.449
+Jitendra K: And then we take the highest among the all.
+
+423
+00:48:54.990 --> 00:48:58.970
+Jitendra K: To predict the next token, or next sequence prediction.
+
+424
+00:49:01.290 --> 00:49:06.600
+Jitendra K: So this is the layer-by-layer architecture of a transformer.
+
+425
+00:49:06.940 --> 00:49:22.240
+Jitendra K: Now, we have talked about a few money things as well, like, there are three factors, QKV and stuff, right? So all these things are coming under attention mechanism, and in attention, you're trying to pay attention towards the specific information in detail.
+
+426
+00:49:22.530 --> 00:49:30.780
+Jitendra K: And then, depending upon that, you're going to process that information with the highest Sequence, or our highest weights.
+
+427
+00:49:33.490 --> 00:49:36.530
+Jitendra K: So we understand that what is multi-head attention.
+
+428
+00:49:37.020 --> 00:49:43.060
+Jitendra K: So, if I have to just give you a very simple answer, multi-are retention in transformer architecture.
+
+429
+00:49:43.210 --> 00:49:47.359
+Jitendra K: Enhance the model ability to analyze various relationships within the input.
+
+430
+00:49:47.730 --> 00:49:51.069
+Jitendra K: So each attention had focus on a specific aspect.
+
+431
+00:49:51.360 --> 00:49:55.670
+Jitendra K: Like, grammatical, statistical, sentence structures.
+
+432
+00:49:55.900 --> 00:49:57.690
+Jitendra K: Or even high-level context.
+
+433
+00:49:57.800 --> 00:50:02.149
+Jitendra K: But this design will allow the model to better capture complex patterns in the data.
+
+434
+00:50:02.590 --> 00:50:04.670
+Jitendra K: And the number of attention had.
+
+435
+00:50:05.070 --> 00:50:08.609
+Jitendra K: will increase your parameter of the model. So let's say…
+
+436
+00:50:08.770 --> 00:50:14.159
+Jitendra K: GPT-2 have 16 attention heights. GPT-3 have 96Hz.
+
+437
+00:50:14.490 --> 00:50:20.620
+Jitendra K: GPT-4 have 120 attention hat. That means you are increasing the complexity of the architecture and make it better.
+
+438
+00:50:21.450 --> 00:50:33.859
+Jitendra K: So, self-attention will calculate the attention weights with a single sequence, which will help us to enable position in the input to relate all other output position, including itself.
+
+439
+00:50:34.350 --> 00:50:41.299
+Jitendra K: So, in the multi-tention layer, this mechanism will ensure that each element capture relationship across entire sequence.
+
+440
+00:50:41.590 --> 00:50:51.470
+Jitendra K: And generating a weighted representation that reflects the sequence for context. So each had in the block employer.products operation.
+
+441
+00:50:51.690 --> 00:50:54.150
+Jitendra K: Which we are calling as Attention Mechanism.
+
+442
+00:50:54.420 --> 00:50:57.569
+Jitendra K: And the dot product is between your query and the key value.
+
+443
+00:50:58.320 --> 00:50:59.650
+Jitendra K: Or the two vectors?
+
+444
+00:51:00.200 --> 00:51:03.980
+Jitendra K: And then you're using a scale factor to normalize the weights.
+
+445
+00:51:05.130 --> 00:51:08.249
+Jitendra K: And this is what you're doing at an attention layer.
+
+446
+00:51:11.050 --> 00:51:14.289
+Jitendra K: Right? And that makes this architecture so powerful.
+
+447
+00:51:14.790 --> 00:51:16.520
+Jitendra K: That you can able to do.
+
+448
+00:51:17.610 --> 00:51:24.320
+Jitendra K: and create models… Like, large language models, with the help of this architecture.
+
+449
+00:51:27.440 --> 00:51:28.960
+Jitendra K: Alright, so…
+
+450
+00:51:29.100 --> 00:51:34.910
+Jitendra K: This is what we are going to cover in theory, but let me go back to my slides.
+
+451
+00:51:40.910 --> 00:51:46.490
+Jitendra K: Yeah, so the tension mechanism is a four-step process, where you're going to compute alignments between
+
+452
+00:51:47.200 --> 00:51:51.170
+Jitendra K: The vectors normalize, and perhaps lying the softmax.
+
+453
+00:51:51.530 --> 00:51:54.880
+Jitendra K: To order all the encoders, and then determine the weights.
+
+454
+00:51:55.380 --> 00:51:57.200
+Jitendra K: To your encoder states.
+
+455
+00:52:02.510 --> 00:52:09.020
+Jitendra K: No, no, there's no such comparison between CNN and Transformers. Transformers are altogether a different architecture.
+
+456
+00:52:12.960 --> 00:52:19.950
+Jitendra K: Transformer is a very different architecture, so there's no comparison between CNN
+
+457
+00:52:20.080 --> 00:52:27.829
+Jitendra K: And I don't think the weird feature maps you're talking about, right? Feature map is just… just a kind of a processing engine which will understand the…
+
+458
+00:52:28.050 --> 00:52:34.049
+Jitendra K: pixels, intensities, but here we are talking about Word vectors and sequences.
+
+459
+00:52:39.060 --> 00:52:43.650
+Jitendra K: So I think this is what we have covered, multi-head positional encoding, feet forward.
+
+460
+00:52:49.880 --> 00:52:53.500
+Jitendra K: Okay, so now the question is,
+
+461
+00:52:55.550 --> 00:53:00.530
+Jitendra K: What are the drawbacks and limitations of Transformer? What do you have understood from Professor Tutorial?
+
+462
+00:53:00.730 --> 00:53:03.629
+Jitendra K: If I have to just talk about the drawbacks.
+
+463
+00:53:04.140 --> 00:53:07.169
+Jitendra K: What are the drawbacks and limitations of transformers?
+
+464
+00:53:26.300 --> 00:53:28.479
+Jitendra K: Have this discussed already, or not?
+
+465
+00:53:32.900 --> 00:53:37.720
+Jitendra K: If I have to just call it out the drawbacks of transformer, limitation of transformer, what should be that?
+
+466
+00:53:56.770 --> 00:54:00.110
+Jitendra K: Okay, there's no answer. Need heavy training.
+
+467
+00:54:00.650 --> 00:54:04.239
+Jitendra K: Okay, large computation required, yes?
+
+468
+00:54:11.090 --> 00:54:13.190
+Jitendra K: Competition cost is high.
+
+469
+00:54:13.990 --> 00:54:17.550
+Jitendra K: So, all… it boils down to complexity.
+
+470
+00:54:18.710 --> 00:54:20.689
+Jitendra K: To self-attention required.
+
+471
+00:54:20.880 --> 00:54:22.859
+Jitendra K: Quadratic complexity.
+
+472
+00:54:24.540 --> 00:54:28.070
+Jitendra K: Because you're using a… multiplication dot product.
+
+473
+00:54:28.790 --> 00:54:31.480
+Jitendra K: It's a quadratic complex.
+
+474
+00:54:33.000 --> 00:54:39.650
+Jitendra K: The order of N-square is your complexity, time-space complexity, or time complexity.
+
+475
+00:54:39.920 --> 00:54:43.960
+Jitendra K: With a sequence length, making very long contexts computationally expensive.
+
+476
+00:54:44.240 --> 00:54:48.959
+Jitendra K: That's the reason there's something called GPU machines, which is used to perform this.
+
+477
+00:54:49.450 --> 00:54:50.750
+Jitendra K: multiplication.
+
+478
+00:54:51.820 --> 00:54:57.990
+Jitendra K: The memory requirement, large model required significant GPU memory, limited deployment options.
+
+479
+00:54:58.540 --> 00:55:05.569
+Jitendra K: Training data requirement, transformative, because you need massive, large data set to achieve strong performance.
+
+480
+00:55:06.090 --> 00:55:14.969
+Jitendra K: Lack of explicit reasoning, where powerful patterns match, like, transformer does not perform symbolic reasoning, and can hallucinate as well, so transformer can hallucinate.
+
+481
+00:55:16.340 --> 00:55:25.830
+Jitendra K: And positional encoding limitation, that means standard positional encoding struggle to generate or generalize a sequence length not during… not seen during the training.
+
+482
+00:55:28.860 --> 00:55:34.970
+Jitendra K: That's the reason there are different changes in the architecture, like flash retention has been introduced.
+
+483
+00:55:35.130 --> 00:55:44.010
+Jitendra K: Mixture of experts, expert model has been introduced. There's something called RAG, Retrieval Augment Generation, which is also useful for that purpose.
+
+484
+00:55:45.250 --> 00:55:46.860
+Jitendra K: To reduce hallucination.
+
+485
+00:55:48.450 --> 00:55:59.159
+Jitendra K: Okay, so this is about transformer basic, like, how the transformers are performing, and what are the different ways to represent the information from the transformer.
+
+486
+00:55:59.470 --> 00:56:03.920
+Jitendra K: Now, what we are going to do next is, we are going to create a transformer from the scratch.
+
+487
+00:56:04.580 --> 00:56:10.029
+Jitendra K: And I'm going to show you the building blocks for the transformers, and what are their…
+
+488
+00:56:10.520 --> 00:56:12.090
+Jitendra K: Commercial looks like.
+
+489
+00:56:12.650 --> 00:56:19.370
+Jitendra K: We will create a… Multi-attention, positional voice, feed-forward neural network from the scratch.
+
+490
+00:56:19.880 --> 00:56:23.400
+Jitendra K: And then try to understand the encoder-decoder stack.
+
+491
+00:56:23.520 --> 00:56:27.240
+Jitendra K: And then create both stack, and then full transformers.
+
+492
+00:56:27.400 --> 00:56:29.970
+Jitendra K: And finally, we will create some synthetic data.
+
+493
+00:56:30.450 --> 00:56:37.599
+Jitendra K: Try to perform some translation, and then see how it runs, right? So we have created a basic transformer from the scratch.
+
+494
+00:56:38.180 --> 00:56:40.669
+Jitendra K: So, let me go back to my Google Colab.
+
+495
+00:57:02.780 --> 00:57:04.520
+Jitendra K: I'll open this.
+
+496
+00:57:27.820 --> 00:57:29.020
+Jitendra K: That can seem good.
+
+497
+00:57:29.200 --> 00:57:35.480
+Jitendra K: this output… Let me first run this, and then I will explain the code. Let me connect.
+
+498
+00:57:41.240 --> 00:57:48.839
+Jitendra K: So this I have built with the cloud, so that you can also take a reference. There's a unique directory, which is also available.
+
+499
+00:57:49.490 --> 00:57:52.699
+Jitendra K: Which talks about how to use Transform from the scratch.
+
+500
+00:58:00.630 --> 00:58:05.970
+Jitendra K: So, let it be connected, and then I will run it, and then I will show you the port, line by line.
+
+501
+00:58:07.420 --> 00:58:09.949
+Jitendra K: Can you please share some insight on skills?
+
+502
+00:58:10.460 --> 00:58:13.719
+Jitendra K: Claude skill you want to say, right? And it's using AI tools.
+
+503
+00:58:14.240 --> 00:58:23.049
+Jitendra K: Yeah, so once we move on to the agentic AI aspect, then I will discuss about Cloud Skills, and what is the purpose of Cloud Skills.
+
+504
+00:58:23.910 --> 00:58:28.350
+Jitendra K: But in general, Cloud Skills is one of the ways that you are going to use.
+
+505
+00:58:28.960 --> 00:58:33.749
+Jitendra K: The available tools within your agents that will perform the task.
+
+506
+00:58:33.890 --> 00:58:35.070
+Jitendra K: more optimally.
+
+507
+00:58:35.700 --> 00:58:40.480
+Jitendra K: So, skills is a new task force in plot code.
+
+508
+00:58:41.330 --> 00:58:46.029
+Jitendra K: They have a tool, which they have registered in the MCP server, and then they are performing
+
+509
+00:58:47.030 --> 00:58:53.119
+Jitendra K: This right selection of tools to do the task, and that is called skills, right?
+
+510
+00:58:53.850 --> 00:59:02.330
+Jitendra K: So… but yeah, this is beyond the scope of this discussion, so let's… let's try to first complete the transformers, and then…
+
+511
+00:59:02.920 --> 00:59:04.550
+Jitendra K: We'll talk about that.
+
+512
+00:59:08.730 --> 00:59:14.670
+Jitendra K: RAG is a different, mechanism. So, RAG is very different, where you're going to use
+
+513
+00:59:15.130 --> 00:59:23.619
+Jitendra K: your own documents to train the model, and it's not about training the model, you're augmenting the model. You're not training the model in RAG.
+
+514
+00:59:24.410 --> 00:59:29.230
+Jitendra K: You're feeding your data Back to the rack or model pipeline.
+
+515
+00:59:29.650 --> 00:59:36.869
+Jitendra K: Using RAC pipeline, and then try to make sure that your model will respond with a high contextual output all the time.
+
+516
+00:59:37.410 --> 00:59:41.750
+Jitendra K: So context is what is needed to build this rack pipeline.
+
+517
+00:59:47.480 --> 00:59:51.580
+Jitendra K: So let me run this, and then I will explain the code in the meantime.
+
+518
+00:59:52.080 --> 00:59:55.429
+Jitendra K: So, let's start with the sequences. So this is my data.
+
+519
+00:59:56.460 --> 01:00:00.680
+Jitendra K: And, this is the transformation of data to French.
+
+520
+01:00:01.860 --> 01:00:06.290
+Jitendra K: So, now, I will simply perform some…
+
+521
+01:00:07.620 --> 01:00:11.529
+Jitendra K: Creation, and then try to test some sentences on the top of it.
+
+522
+01:00:14.930 --> 01:00:20.129
+Jitendra K: So, you can see this output is generating. I will explain what is GD reporting is.
+
+523
+01:00:20.580 --> 01:00:25.280
+Jitendra K: And it is generating this whole paragraph, or whole sentence into French.
+
+524
+01:00:25.880 --> 01:00:28.159
+Jitendra K: And, we can see the outcome.
+
+525
+01:00:28.320 --> 01:00:35.839
+Jitendra K: Now, the simple point that I'm trying to make here is, I'm using an encoder-decoder architecture and comprises of
+
+526
+01:00:36.330 --> 01:00:40.170
+Jitendra K: the same elements that we have discussed. The first element is here.
+
+527
+01:00:40.720 --> 01:00:41.830
+Jitendra K: Attention.
+
+528
+01:00:42.160 --> 01:00:43.819
+Jitendra K: Scale dot attention.
+
+529
+01:00:44.610 --> 01:00:47.000
+Jitendra K: The second element is multi-head retention.
+
+530
+01:00:47.850 --> 01:00:51.649
+Jitendra K: The third element is position-wide feed-forward neural network.
+
+531
+01:00:52.430 --> 01:00:58.050
+Jitendra K: including positional encoding. I will talk about what is sinusoidal conversion.
+
+532
+01:00:58.490 --> 01:01:01.910
+Jitendra K: And then you have encoder layer, followed by a decoder layer.
+
+533
+01:01:02.490 --> 01:01:06.939
+Jitendra K: And then you are going to integrate a full transformer using these two layers.
+
+534
+01:01:07.320 --> 01:01:11.279
+Jitendra K: Which will be able to take up some simple tasks like this.
+
+535
+01:01:11.800 --> 01:01:16.670
+Jitendra K: to convert… your data, from English to French.
+
+536
+01:01:16.800 --> 01:01:18.330
+Jitendra K: And this is a training.
+
+537
+01:01:18.970 --> 01:01:22.980
+Jitendra K: That we are doing, with the help of… This whole framework.
+
+538
+01:01:23.600 --> 01:01:25.909
+Jitendra K: And finally, we will generate some output.
+
+539
+01:01:26.540 --> 01:01:29.060
+Jitendra K: Which will be consumed by the…
+
+540
+01:01:30.370 --> 01:01:33.770
+Jitendra K: Users like us to understand the machine translation.
+
+541
+01:01:42.380 --> 01:01:45.240
+Jitendra K: So I'll go line by line in this code.
+
+542
+01:01:45.890 --> 01:01:48.690
+Jitendra K: And, we'll explain this in depth.
+
+543
+01:01:50.240 --> 01:01:54.069
+Jitendra K: So basically, you understand what are the parameters.
+
+544
+01:01:54.520 --> 01:02:00.080
+Jitendra K: Now, let's begin with. We are going to start with… The first parameter.
+
+545
+01:02:01.230 --> 01:02:06.539
+Jitendra K: Which is to import PyTorch functions. So what are the PyTorch functions that we require to operate?
+
+546
+01:02:06.960 --> 01:02:11.379
+Jitendra K: I required a Torch library for neural network building.
+
+547
+01:02:11.880 --> 01:02:17.389
+Jitendra K: torch function, where I can able to implement softmax, ReLU, and other activation functions.
+
+548
+01:02:17.660 --> 01:02:21.099
+Jitendra K: I required optimization algorithm from Torch, which is ADAM.
+
+549
+01:02:21.400 --> 01:02:27.409
+Jitendra K: Adaptive momentum, and then data loader for bash shuffling and counter for frequency.
+
+550
+01:02:27.730 --> 01:02:28.720
+Jitendra K: counting.
+
+551
+01:02:28.940 --> 01:02:30.930
+Jitendra K: When building the vocabulary.
+
+552
+01:02:31.220 --> 01:02:37.969
+Jitendra K: Now, I'm setting up the… random initialization for this run, so I'm setting up the seed parameter 42.
+
+553
+01:02:38.320 --> 01:02:46.090
+Jitendra K: device detection, if any CPU or GPU is enabled in my machine. I think I will enable it, but it's a simple
+
+554
+01:02:46.340 --> 01:02:48.209
+Jitendra K: CPU machine that I'm using.
+
+555
+01:02:49.770 --> 01:02:58.919
+Jitendra K: Then I'm writing a scale.attentionProduct. So this is important, so when you're calling a scale.production, or scale.product.
+
+556
+01:02:59.260 --> 01:03:05.269
+Jitendra K: Using self-attention. What are you trying to achieve is, you're creating this formula.
+
+557
+01:03:06.500 --> 01:03:09.289
+Jitendra K: the same formula that I have written earlier, attention.
+
+558
+01:03:11.170 --> 01:03:16.749
+Jitendra K: with a three parameter, Q, query, K, Key and value.
+
+559
+01:03:17.340 --> 01:03:20.620
+Jitendra K: And then using a softmax, function.
+
+560
+01:03:22.260 --> 01:03:26.439
+Jitendra K: To perform a transformation on… Q dot K.
+
+561
+01:03:26.640 --> 01:03:31.220
+Jitendra K: And to represent this mathematically, Q dot K will look like a big vector.
+
+562
+01:03:31.330 --> 01:03:32.280
+Jitendra K: Like this.
+
+563
+01:03:33.060 --> 01:03:40.269
+Jitendra K: so many, columns and so many rows, right? But if you're taking a transformation, You can make it…
+
+564
+01:03:41.400 --> 01:03:45.350
+Jitendra K: Maybe N cross M to M cross N.
+
+565
+01:03:46.390 --> 01:03:51.499
+Jitendra K: Right? And that's the only purpose we are taking a transpose of this, predictability purpose.
+
+566
+01:03:52.160 --> 01:03:56.320
+Jitendra K: And then, taking a normalization on dimension, D of K.
+
+567
+01:03:57.580 --> 01:03:59.960
+Jitendra K: And then multiply the whole setup with 3.
+
+568
+01:04:01.680 --> 01:04:04.609
+Jitendra K: Now here, the function signature says query.
+
+569
+01:04:04.960 --> 01:04:08.659
+Jitendra K: Which is… Your shape of the input.
+
+570
+01:04:09.460 --> 01:04:10.550
+Jitendra K: the heights?
+
+571
+01:04:11.030 --> 01:04:12.150
+Jitendra K: sequence.
+
+572
+01:04:12.700 --> 01:04:14.029
+Jitendra K: and dimension.
+
+573
+01:04:14.410 --> 01:04:22.079
+Jitendra K: The key is also… useful. That means it will look for the… what had contained the data.
+
+574
+01:04:22.650 --> 01:04:28.819
+Jitendra K: And what actually has been returned is your value. And masked to prevent attention to certain positions.
+
+575
+01:04:29.470 --> 01:04:33.179
+Jitendra K: An output dropout, I'm just using for regularization.
+
+576
+01:04:34.700 --> 01:04:41.849
+Jitendra K: So… so query is your search term, keys… so imagine that you're searching a library, searching in a library.
+
+577
+01:04:42.210 --> 01:04:43.809
+Jitendra K: So if you're looking for a book.
+
+578
+01:04:44.130 --> 01:04:50.200
+Jitendra K: you're looking for a query in your search item that I'm looking for some XYZ machine learning book.
+
+579
+01:04:50.470 --> 01:04:53.959
+Jitendra K: From this author. So this is your query, yes, what you are searching for.
+
+580
+01:04:54.150 --> 01:04:56.199
+Jitendra K: So imagine that you enter a library.
+
+581
+01:04:56.720 --> 01:04:58.659
+Jitendra K: And you are searching for a book.
+
+582
+01:04:58.940 --> 01:05:01.119
+Jitendra K: And you know which book I'm going to refer.
+
+583
+01:05:01.550 --> 01:05:03.969
+Jitendra K: But you do not remember the author name.
+
+584
+01:05:04.630 --> 01:05:12.849
+Jitendra K: So keys are the book titles, and values are the book content. So you match your query against all the key, and then retrieve a weighted combination of the value.
+
+585
+01:05:13.160 --> 01:05:16.990
+Jitendra K: So once you visit the library, you understand the sections are there.
+
+586
+01:05:17.320 --> 01:05:21.960
+Jitendra K: where I'm having a machine learning book in the university library.
+
+587
+01:05:22.220 --> 01:05:27.080
+Jitendra K: But which book I need to refer, I will just… Understand.
+
+588
+01:05:28.070 --> 01:05:35.319
+Jitendra K: The author, and then reading slightly, the starting page of every section, or every book.
+
+589
+01:05:35.500 --> 01:05:39.760
+Jitendra K: And then I will try to remember which… author I would prefer.
+
+590
+01:05:42.340 --> 01:05:47.060
+Jitendra K: So, basically, You're also doing the same operation here in Attention.
+
+591
+01:05:49.200 --> 01:05:53.189
+Jitendra K: Now, there are several transformation applies to this retention. One is…
+
+592
+01:05:53.580 --> 01:05:57.749
+Jitendra K: You're getting this query key and value, and mask.
+
+593
+01:05:58.880 --> 01:06:01.429
+Jitendra K: So, mask is important.
+
+594
+01:06:01.650 --> 01:06:04.280
+Jitendra K: That prevent attention to certain positions.
+
+595
+01:06:04.490 --> 01:06:09.059
+Jitendra K: And the position can be… A padded sequence, or a feature token.
+
+596
+01:06:11.440 --> 01:06:16.889
+Jitendra K: Now, this is the line that you are using for dimension, to get a dimension of the query tensor.
+
+597
+01:06:17.360 --> 01:06:19.160
+Jitendra K: The dimensionality of each head.
+
+598
+01:06:21.700 --> 01:06:23.930
+Jitendra K: And then you're generating a scores.
+
+599
+01:06:24.390 --> 01:06:30.110
+Jitendra K: Using a torch function, and then performing a mathematical multiplication on your query and the key vectors.
+
+600
+01:06:30.410 --> 01:06:36.500
+Jitendra K: And then… taking a… Division by under root of… DK.
+
+601
+01:06:37.880 --> 01:06:44.490
+Jitendra K: So, this is where the transposition… transpose will be done. Transpose the two-dimensional vector.
+
+602
+01:06:46.050 --> 01:06:52.470
+Jitendra K: we are performing a matrix multiplication. So, to perform a batch of matrix multiplication, And each batch…
+
+603
+01:06:52.580 --> 01:06:54.999
+Jitendra K: And each hat works independently.
+
+604
+01:06:55.570 --> 01:06:59.229
+Jitendra K: The scaling factor is D of K, which is a dot product
+
+605
+01:06:59.890 --> 01:07:02.820
+Jitendra K: If the rot product grows large in magnitude.
+
+606
+01:07:03.980 --> 01:07:08.000
+Jitendra K: you're going to push softmac into a region with extremely small gradient.
+
+607
+01:07:08.160 --> 01:07:12.530
+Jitendra K: Which is a saturation region. So we are dividing by under the root of TK.
+
+608
+01:07:12.680 --> 01:07:14.900
+Jitendra K: To keep the variant of the dot product.
+
+609
+01:07:15.370 --> 01:07:19.390
+Jitendra K: Approximately less than 1, regardless of the decay.
+
+610
+01:07:20.680 --> 01:07:27.950
+Jitendra K: Then I'm checking for the condition when mask is zero means there's no attention, we fulfill the score within
+
+611
+01:07:28.380 --> 01:07:30.349
+Jitendra K: Something called negative 1 billion.
+
+612
+01:07:31.720 --> 01:07:38.690
+Jitendra K: So, this is the score that we are going to avoid, because it leads to… high,
+
+613
+01:07:38.850 --> 01:07:43.579
+Jitendra K: Gradients, and it will explode your gradient with that high negative score.
+
+614
+01:07:44.310 --> 01:07:46.590
+Jitendra K: So that is what we are doing in this.
+
+615
+01:07:47.390 --> 01:07:48.210
+Jitendra K: line.
+
+616
+01:07:53.450 --> 01:07:59.950
+Jitendra K: Then, the padding structure, So there are two types of masks that we are providing.
+
+617
+01:08:01.250 --> 01:08:03.489
+Jitendra K: One is padding mask.
+
+618
+01:08:04.800 --> 01:08:12.300
+Jitendra K: Where we are performing some meaningful filters and causal lookhead mass that will prevent our decoder from seeing feature token.
+
+619
+01:08:12.560 --> 01:08:17.099
+Jitendra K: Because it will be cheating during autoregressive generation if you are already looking into the tokens.
+
+620
+01:08:21.160 --> 01:08:24.090
+Jitendra K: Now, with a multi-year retention.
+
+621
+01:08:28.010 --> 01:08:33.410
+Jitendra K: Once we've created this multi-year retention, then we'll move on to the… encoder layer.
+
+622
+01:08:38.870 --> 01:08:41.350
+Jitendra K: So, in the encoder layer, you have got…
+
+623
+01:08:48.890 --> 01:08:50.920
+Jitendra K: Yeah, so this is the encoder class.
+
+624
+01:08:51.390 --> 01:08:59.570
+Jitendra K: You have got self-attention followed by added normalization, fast feed-forward neural network, and then added additional normalization.
+
+625
+01:09:00.220 --> 01:09:06.639
+Jitendra K: Now, this is where you're going to create The position-wise, feet-forward neural network.
+
+626
+01:09:07.700 --> 01:09:10.549
+Jitendra K: Now, what is position-wise feet for our neural network?
+
+627
+01:09:11.600 --> 01:09:18.230
+Jitendra K: So the idea is, the position-wise will create two linear layers, forming a bottleneck architecture.
+
+628
+01:09:19.560 --> 01:09:25.330
+Jitendra K: So, position-wise means that this same network is applied independently to each position, each token.
+
+629
+01:09:25.990 --> 01:09:31.999
+Jitendra K: And there's no interaction between the positions at the attention layer. So it's the attention layer job.
+
+630
+01:09:32.240 --> 01:09:34.669
+Jitendra K: To decide what information to gather.
+
+631
+01:09:34.950 --> 01:09:39.100
+Jitendra K: And feed-forward neural network will decide how to process that gather information.
+
+632
+01:09:41.330 --> 01:09:42.940
+Jitendra K: So, provisional encoding…
+
+633
+01:09:46.490 --> 01:09:50.229
+Jitendra K: have no reoccurrence, unlike RNN.
+
+634
+01:09:50.880 --> 01:09:56.269
+Jitendra K: They have no inheritant notion of position or order. So without position encoding.
+
+635
+01:09:56.940 --> 01:10:01.819
+Jitendra K: If I'm just looking for two sentences, let's say the first sentence, say, the cat sat on the mat.
+
+636
+01:10:02.120 --> 01:10:09.260
+Jitendra K: And the second sentence say, Matt, The sad, the mat, the onset
+
+637
+01:10:09.520 --> 01:10:16.279
+Jitendra K: Okay, let me write down, I think I'm still confused by myself, so… let's say if I'm using these sentences.
+
+638
+01:10:16.870 --> 01:10:18.100
+Jitendra K: the cat…
+
+639
+01:10:23.870 --> 01:10:30.599
+Jitendra K: sat… on the mat. So they are proposition, they are grammar, they are grammatically correct sentence.
+
+640
+01:10:32.150 --> 01:10:38.820
+Jitendra K: And now I'm s… just rephrasing this sentence by saying, Matt, the…
+
+641
+01:10:39.740 --> 01:10:42.169
+Jitendra K: on. I mean, just reversing it.
+
+642
+01:10:42.650 --> 01:10:45.680
+Jitendra K: start… Correct.
+
+643
+01:10:45.820 --> 01:10:48.870
+Jitendra K: So this is just the reverse of the previous sentence.
+
+644
+01:10:49.550 --> 01:10:54.220
+Jitendra K: The positional encoding inject positional transformation, or information on the embedding layer.
+
+645
+01:10:55.090 --> 01:11:00.360
+Jitendra K: So we are using something called Sinusoodial, or sine… transformation.
+
+646
+01:11:01.470 --> 01:11:04.050
+Jitendra K: To perform this preservation.
+
+647
+01:11:05.060 --> 01:11:08.799
+Jitendra K: So, positional encoding will use sinusoidal
+
+648
+01:11:09.160 --> 01:11:12.590
+Jitendra K: Transformation to preserve the embedding sequences.
+
+649
+01:11:15.140 --> 01:11:20.709
+Jitendra K: Now, why sign-in costs? Maybe you can see some togetherness as well.
+
+650
+01:11:21.280 --> 01:11:24.769
+Jitendra K: So… Because they are linear functions.
+
+651
+01:11:25.250 --> 01:11:29.830
+Jitendra K: And it will allow the model to learn relative poison… Easily.
+
+652
+01:11:32.030 --> 01:11:36.179
+Jitendra K: Now, once I have the encoder stack, now I will move on to a decoder stack.
+
+653
+01:11:37.180 --> 01:11:40.570
+Jitendra K: So, in the decoder stack, we have 3 sublayers.
+
+654
+01:11:41.670 --> 01:11:43.719
+Jitendra K: Two separate multi-heart attention.
+
+655
+01:11:47.910 --> 01:11:54.379
+Jitendra K: Which is having self-attention over the target sequence, and the cross-attention, where the decoder attends to the encoder output.
+
+656
+01:11:55.000 --> 01:12:00.010
+Jitendra K: So these three-layer normalization are the three dropout, one per sublayer.
+
+657
+01:12:04.340 --> 01:12:15.549
+Jitendra K: So remember, for mass self-attention, the query… Will… be your target.
+
+658
+01:12:16.050 --> 01:12:17.680
+Jitendra K: Because it's a reverse, right?
+
+659
+01:12:19.400 --> 01:12:24.579
+Jitendra K: So here, the decoder current representation is what is… You want to know.
+
+660
+01:12:25.050 --> 01:12:29.370
+Jitendra K: And the key will be the encoder output, what is available to look at.
+
+661
+01:12:29.580 --> 01:12:32.319
+Jitendra K: And the value will be the encoder output.
+
+662
+01:12:32.540 --> 01:12:36.670
+Jitendra K: what to be retrieved. This is a reverse sequence of decoder.
+
+663
+01:12:37.600 --> 01:12:44.529
+Jitendra K: Now, why are labor sequences important with, with, with all the… Objective that we have seen.
+
+664
+01:12:44.730 --> 01:12:47.950
+Jitendra K: Because for language translation tasks, what you are trying to do?
+
+665
+01:12:48.800 --> 01:12:54.889
+Jitendra K: So when you're writing a sentence, sentence 1, or word one, Word 2, word 3.
+
+666
+01:12:56.870 --> 01:12:59.219
+Jitendra K: You understand the meaning of each word.
+
+667
+01:13:00.010 --> 01:13:05.850
+Jitendra K: Now, you're trying to reverse… This sequence in a decoder construction layer.
+
+668
+01:13:06.070 --> 01:13:08.780
+Jitendra K: So the logic should be exact.
+
+669
+01:13:09.040 --> 01:13:11.609
+Jitendra K: Oppose it to what you have in the encoder.
+
+670
+01:13:12.840 --> 01:13:18.719
+Jitendra K: So we are going to just perform this transformation using decoder, and then we'll see the outcome.
+
+671
+01:13:19.410 --> 01:13:20.890
+Jitendra K: That we are going to get.
+
+672
+01:13:21.680 --> 01:13:24.440
+Jitendra K: Which is… this part.
+
+673
+01:13:31.190 --> 01:13:36.709
+Jitendra K: So if you look into the architecture summary, The architecture summary suggested that
+
+674
+01:13:37.520 --> 01:13:40.809
+Jitendra K: We are using this architecture, which is a transformer.
+
+675
+01:13:41.200 --> 01:13:44.320
+Jitendra K: Where your total parameter is close to 700,000.
+
+676
+01:13:45.070 --> 01:13:46.680
+Jitendra K: Huge model.
+
+677
+01:13:46.830 --> 01:13:50.989
+Jitendra K: Right? With just a simple task that we are performing here.
+
+678
+01:13:52.590 --> 01:13:59.400
+Jitendra K: So I'll share this code with you guys, and I want you to go line by line, and then let me know if there's any question.
+
+679
+01:13:59.770 --> 01:14:01.749
+Jitendra K: I'll be open to answer.
+
+680
+01:14:04.670 --> 01:14:06.199
+Jitendra K: So please go through this.
+
+681
+01:14:08.390 --> 01:14:10.579
+Jitendra K: I'll share the slides as well.
+
+682
+01:14:13.770 --> 01:14:19.890
+Jitendra K: So, I will take a pause here, I will wait for your questions in the screen, and then I will answer accordingly.
+
+683
+01:14:20.620 --> 01:14:23.449
+Jitendra K: So let's go through this code and let me know if there's any questions.
+
+684
+01:20:47.200 --> 01:20:53.859
+Jitendra K: Okay, so what is the purpose of dropout and scale dotattention, product attention?
+
+685
+01:20:54.600 --> 01:21:00.410
+Jitendra K: So, basically, when you're implementing A dropout in scale.product dimension.
+
+686
+01:21:00.870 --> 01:21:04.320
+Jitendra K: We are trying to apply the tension weight after softmax.
+
+687
+01:21:04.460 --> 01:21:07.149
+Jitendra K: Not to the query or the values.
+
+688
+01:21:08.080 --> 01:21:12.389
+Jitendra K: So, we are preventing overfitting to specific attention parameters.
+
+689
+01:21:12.510 --> 01:21:16.189
+Jitendra K: So we drop out the model learned to rely too heavily on attention.
+
+690
+01:21:16.320 --> 01:21:20.629
+Jitendra K: Sorry, too heavily on attending the same or few positions for every input.
+
+691
+01:21:21.930 --> 01:21:25.300
+Jitendra K: So, here we are encouraging a diversified attention head.
+
+692
+01:21:25.580 --> 01:21:27.350
+Jitendra K: Or regularization scheme.
+
+693
+01:21:27.600 --> 01:21:31.070
+Jitendra K: That will improve the overall generalization of the model.
+
+694
+01:21:36.410 --> 01:21:39.939
+Jitendra K: So basically, dropout on attention is just like,
+
+695
+01:21:41.260 --> 01:21:47.220
+Jitendra K: Training model to work with partial information, so it learned to not put all its
+
+696
+01:21:48.280 --> 01:21:50.430
+Jitendra K: Output in one basket.
+
+697
+01:21:50.570 --> 01:21:56.370
+Jitendra K: But it will give you full attention at test time. So it will help you to generalize your model.
+
+698
+01:22:24.360 --> 01:22:28.010
+Jitendra K: Okay, any further question, guys? So we will see some…
+
+699
+01:22:28.640 --> 01:22:33.269
+Jitendra K: summarization and some Q&A as well, from Transformers.
+
+700
+01:22:34.210 --> 01:22:37.229
+Jitendra K: But any question before we move on to that part?
+
+701
+01:23:33.330 --> 01:23:38.540
+Jitendra K: Alright, so if there's no further questions, let's take a quick 20 minutes break, and once we come back.
+
+702
+01:23:39.010 --> 01:23:41.910
+Jitendra K: Then we'll take some more example on transformers.
+
+703
+01:23:42.260 --> 01:23:47.399
+Jitendra K: And, this time we'll take text summarization and Q&A as the two majority tasks.
+
+704
+01:23:48.180 --> 01:23:52.150
+Jitendra K: So let's take a quick break of 20 minutes, and then we can come back. Thank you.
+
+705
+01:58:57.150 --> 01:59:00.659
+Jitendra K: Hi guys, I hope you're back. Can we have a quick confirmation?
+
+706
+01:59:05.530 --> 01:59:06.900
+Jitendra K: Alright, thank you.
+
+707
+01:59:07.460 --> 01:59:15.569
+Jitendra K: So, now we will take two more examples, and the two examples will showcase some more capability of transformers.
+
+708
+01:59:16.010 --> 01:59:20.269
+Jitendra K: to generate a summarization on the text. So there are two types of summarization technique.
+
+709
+01:59:20.950 --> 01:59:30.089
+Jitendra K: In general, and this is all an NLP-based technique, right? So once we discuss NLP, I think your curriculum does not have an NLP as such.
+
+710
+01:59:30.420 --> 01:59:32.940
+Jitendra K: But, in general speaking.
+
+711
+01:59:33.160 --> 01:59:39.859
+Jitendra K: In NLP world, there are two types of summarization technique. One is called abstractive, and second one is called extractive summarization.
+
+712
+01:59:40.320 --> 01:59:46.559
+Jitendra K: So here we are talking about abstractive summarization, and I will talk about how to perform summarization.
+
+713
+01:59:46.790 --> 01:59:48.550
+Jitendra K: Using transformer module.
+
+714
+01:59:49.100 --> 01:59:51.360
+Jitendra K: So, you might be using,
+
+715
+01:59:52.490 --> 01:59:58.970
+Jitendra K: tag summarization using GPT-based models, Claude models, right? So, this is just a basic…
+
+716
+01:59:59.340 --> 02:00:03.140
+Jitendra K: building block. Let's say if I have got this document.
+
+717
+02:00:03.440 --> 02:00:08.640
+Jitendra K: which talks about a few topics like AI, climatic actions.
+
+718
+02:00:08.990 --> 02:00:10.670
+Jitendra K: space exploration.
+
+719
+02:00:11.210 --> 02:00:17.130
+Jitendra K: And, so on and so forth. So, what if I have to use Transformer to summarize this text?
+
+720
+02:00:18.890 --> 02:00:26.159
+Jitendra K: So I will run this example, and then we'll walk it through the, the coding part of it. So first, let me run this.
+
+721
+02:00:33.860 --> 02:00:39.429
+Jitendra K: So the architecture layer will be the same, but the only difference is I'm going to use some preparation on the data.
+
+722
+02:00:39.760 --> 02:00:43.359
+Jitendra K: Where I'm going to perform some bit of cleaning, and
+
+723
+02:00:43.640 --> 02:00:47.969
+Jitendra K: Then performing abstractive summarization using encoder-decoder architecture.
+
+724
+02:00:55.240 --> 02:00:57.079
+Jitendra K: So, I think it has been generated.
+
+725
+02:00:58.090 --> 02:01:01.710
+Jitendra K: So let me explain the code, and then we will move on to the output.
+
+726
+02:01:02.220 --> 02:01:08.490
+Jitendra K: So this code is, the transformer generated some radiation.
+
+727
+02:01:09.000 --> 02:01:14.410
+Jitendra K: And we are going to use the same encoder decoder that we have earlier used for language translation.
+
+728
+02:01:14.940 --> 02:01:20.639
+Jitendra K: So, if you have to talk about the two types of mechanism, abstractive and extractive, that's the core of this.
+
+729
+02:01:21.140 --> 02:01:27.250
+Jitendra K: layer. So, for abstractive summarization, I'm going to use encoder-decoder.
+
+730
+02:01:27.550 --> 02:01:29.670
+Jitendra K: That generate new summarization text.
+
+731
+02:01:30.610 --> 02:01:39.049
+Jitendra K: I will train on some article and then generate a summary. For extractive summary, I required only encoder. That scores and select the most important sentences.
+
+732
+02:01:39.210 --> 02:01:40.670
+Jitendra K: Using attention weight.
+
+733
+02:01:40.910 --> 02:01:44.839
+Jitendra K: And then I will build it, as an extract to some radiation.
+
+734
+02:01:45.290 --> 02:01:50.280
+Jitendra K: So, these are the two techniques that I'm going to use. So, I will start with… the modules…
+
+735
+02:01:52.470 --> 02:01:59.629
+Jitendra K: So the first thing that I would like to do is to import multi-ret attention, so unlike standard transformer, that only
+
+736
+02:01:59.940 --> 02:02:08.499
+Jitendra K: Written output. This required attention weights, too. This is crucial for abstractive summary, because I need to use a visualization cross-attention.
+
+737
+02:02:08.830 --> 02:02:14.659
+Jitendra K: Which stores word influence and generated word correlation to generate a summary.
+
+738
+02:02:15.040 --> 02:02:23.720
+Jitendra K: In case of extractive summarization, because my extractive summary will also use encoder, so it will compound a sentence using important score.
+
+739
+02:02:24.430 --> 02:02:32.389
+Jitendra K: Now I will use this multi-retrenchion, where I'm going to pass on the query queue and value parameter, query key and value parameter.
+
+740
+02:02:32.690 --> 02:02:37.670
+Jitendra K: I never like to use a sequential model from Neural network.
+
+741
+02:02:38.030 --> 02:02:42.939
+Jitendra K: And I will place… I will place the sinusoidal, positional encoding.
+
+742
+02:02:43.280 --> 02:02:46.940
+Jitendra K: So these positional encodings are added to preserve dimensionality.
+
+743
+02:02:47.470 --> 02:02:55.980
+Jitendra K: Then in… after that, I will use some… Maybe a simple… Second…
+
+744
+02:03:03.680 --> 02:03:08.509
+Jitendra K: Yeah, so I'm using here some spatial literals, like padding sequences.
+
+745
+02:03:09.220 --> 02:03:14.930
+Jitendra K: Some pausing characters, end of the sentence, the beginning of the sentence, etc.
+
+746
+02:03:15.090 --> 02:03:18.530
+Jitendra K: So this is important for two reasons. When you're creating…
+
+747
+02:03:19.220 --> 02:03:27.439
+Jitendra K: the model, you need to use a sequence of same length when you're training the model. The sequence of same length in each sentence is important.
+
+748
+02:03:27.680 --> 02:03:35.230
+Jitendra K: criteria. So some sentence may have, let's say, 10 words, some sentence may have 15 words.
+
+749
+02:03:35.360 --> 02:03:41.690
+Jitendra K: So to level up that, I'm going to add some padding sequence. And padding sequence is… I'm going to add it after
+
+750
+02:03:42.000 --> 02:03:47.469
+Jitendra K: the sentence. That means I'm not going to add before the sentence, I'm going to add after the sentence.
+
+751
+02:03:47.670 --> 02:03:50.330
+Jitendra K: So, padding character will help me to construct
+
+752
+02:03:50.690 --> 02:03:56.719
+Jitendra K: a token for variable length sequences. So it will have a start of the sequence maker.
+
+753
+02:03:56.900 --> 02:04:04.370
+Jitendra K: and end of the sequence maker, so that my transformer model will understand that this are padding character, right? So this is important for that purpose.
+
+754
+02:04:04.660 --> 02:04:10.979
+Jitendra K: So once I add a padding character, using… Token with index 0.
+
+755
+02:04:11.530 --> 02:04:19.979
+Jitendra K: starting of the sentence, end of the sentence, and UNK stands for unknown token for a word, not in vocabulary, so I will add it.
+
+756
+02:04:21.260 --> 02:04:27.530
+Jitendra K: Then I would like to use a constructor that takes a list of sentence and minimum frequency threshold.
+
+757
+02:04:27.980 --> 02:04:35.760
+Jitendra K: And it will create a counter object to count word frequency. So it will iterate through sentences, tokenize each and update counter.
+
+758
+02:04:37.680 --> 02:04:43.650
+Jitendra K: Then, I'm using two important… Initialization.
+
+759
+02:04:43.870 --> 02:04:49.480
+Jitendra K: for creating index to string, list, and special token first, then frequent words. I will create…
+
+760
+02:04:49.840 --> 02:04:52.850
+Jitendra K: A string to index dictionary for faster lookup.
+
+761
+02:04:53.210 --> 02:04:54.710
+Jitendra K: And then tokenize it.
+
+762
+02:04:54.850 --> 02:04:58.610
+Jitendra K: So, tokenization, I'm using a regex, word boundary.
+
+763
+02:04:59.800 --> 02:05:05.800
+Jitendra K: And one or more word character, letter number or underscore, and converting everything into a lowercase.
+
+764
+02:05:06.440 --> 02:05:12.769
+Jitendra K: Then in the encode, I'm converting text to token IDs, list of comprehensions, example.
+
+765
+02:05:12.900 --> 02:05:17.610
+Jitendra K: which will get the IDs for each token, And optionally, I'd,
+
+766
+02:05:18.540 --> 02:05:25.789
+Jitendra K: start of the sentence at the beginning, an end of the sentence at the last, and return a list of integers, and convert ID back to the text.
+
+767
+02:05:27.650 --> 02:05:31.469
+Jitendra K: So this is just a preparation, and then once I have that preparation done.
+
+768
+02:05:31.920 --> 02:05:37.750
+Jitendra K: To level up the sentence length, I would like to use obstructive summarization, encoder decoder full architecture.
+
+769
+02:05:37.980 --> 02:05:44.399
+Jitendra K: Where I'm going to use a constructor to initialize multi-head module, feed-forward module, 2-layer, normalization, and true dropout layer.
+
+770
+02:05:44.810 --> 02:05:46.390
+Jitendra K: And this is what I'm doing.
+
+771
+02:05:46.600 --> 02:05:57.639
+Jitendra K: And then the decoder layer will be 3 sub-stack layer, where I'm using mass self-attention, cross-attention, and feed-forward network to perform this analysis.
+
+772
+02:05:58.070 --> 02:06:07.259
+Jitendra K: So, masked self-attention will use caudal masking. That will prevent any kind of futuristic lookup from encoder layer, because there is a data leakage if I'm doing that.
+
+773
+02:06:08.050 --> 02:06:17.109
+Jitendra K: So, cross-attention, we'll use query from encoder, key values from encoder output, and then using residual layer, feed-forward layer with residuals.
+
+774
+02:06:17.240 --> 02:06:20.510
+Jitendra K: And it will return the decoder output and cross-retention bits.
+
+775
+02:06:21.350 --> 02:06:29.999
+Jitendra K: Now, for abstract summarization, I'm going to just use encoder architecture. So, I will have an embedding layer for source and target vocabulary, position embedding.
+
+776
+02:06:30.420 --> 02:06:37.079
+Jitendra K: Then I will have several stacks where encoder's source sequence will use visual encoding to generate a response.
+
+777
+02:06:37.600 --> 02:06:41.570
+Jitendra K: Now, once I generate both, then I will pass on my data.
+
+778
+02:06:42.030 --> 02:06:44.510
+Jitendra K: This is my summarization that I'm using for training.
+
+779
+02:06:46.890 --> 02:06:49.790
+Jitendra K: And then I will run some abstractive summary on this text.
+
+780
+02:06:50.640 --> 02:06:54.060
+Jitendra K: And let's see how it went. So this is what we are getting.
+
+781
+02:07:04.240 --> 02:07:09.020
+Jitendra K: So this score you are getting is a ranking score, so I'm just generating…
+
+782
+02:07:09.420 --> 02:07:15.599
+Jitendra K: the higher the rank, better the proportion, so that is what I'm trying to convey from this output.
+
+783
+02:07:16.270 --> 02:07:18.720
+Jitendra K: Now, how this model has been trained…
+
+784
+02:07:24.030 --> 02:07:25.890
+Jitendra K: So, the first and foremost thing.
+
+785
+02:07:29.190 --> 02:07:30.810
+Jitendra K: We have training data.
+
+786
+02:07:32.050 --> 02:07:33.800
+Jitendra K: So this is our training data.
+
+787
+02:07:40.940 --> 02:07:48.069
+Jitendra K: Right, so we prepare the training data, build our vocabularies, and then perform encoding, and padding.
+
+788
+02:07:48.420 --> 02:07:55.559
+Jitendra K: And then we create our attention mask, and then forward mass to the model. So what happens inside is… inside this model is…
+
+789
+02:07:56.090 --> 02:07:59.799
+Jitendra K: It will use, these feature vectors.
+
+790
+02:08:01.040 --> 02:08:06.660
+Jitendra K: And then… it will use… backpropocation and optimization using ADAM.
+
+791
+02:08:06.790 --> 02:08:10.579
+Jitendra K: to generate the output. So basically, if I have to generalize this flow.
+
+792
+02:08:15.870 --> 02:08:17.460
+Jitendra K: This is what it is doing.
+
+793
+02:08:23.110 --> 02:08:27.670
+Jitendra K: Right? So basically, once I produce the training, Hmm…
+
+794
+02:08:27.830 --> 02:08:30.650
+Jitendra K: I will use some sample to test it out.
+
+795
+02:08:52.510 --> 02:08:56.039
+Jitendra K: So let me represent the log diagram for this.
+
+796
+02:08:57.140 --> 02:09:02.970
+Jitendra K: So basically, what we are doing here is, we have two types of summarization, extractive and abstractive.
+
+797
+02:09:03.420 --> 02:09:09.090
+Jitendra K: So, in the abstracted summarization, we have an article, we convert it into tokens, represent an ID,
+
+798
+02:09:09.260 --> 02:09:14.879
+Jitendra K: And then use encoder-decoder, both architecture, to represent the positional embeddings and generate a summary.
+
+799
+02:09:15.210 --> 02:09:20.160
+Jitendra K: But in extractive, where we are just focusing on attention rates rather than representation.
+
+800
+02:09:20.440 --> 02:09:31.950
+Jitendra K: So, we will just use the attention weight, which is having the highest score, with the help of the formula that we have discussed. Q multiplied by K transpose, divide bundles from DK, multiply by V,
+
+801
+02:09:32.050 --> 02:09:38.120
+Jitendra K: So if the, higher the score, better the attention. So we'll use this to generate the output.
+
+802
+02:09:38.310 --> 02:09:42.250
+Jitendra K: So, first and foremost thing is, we have several layers in this architecture.
+
+803
+02:09:42.580 --> 02:09:47.430
+Jitendra K: And each layer is performing different function.
+
+804
+02:09:47.990 --> 02:09:51.129
+Jitendra K: So at the encoder layer, you have these functions.
+
+805
+02:09:52.660 --> 02:09:54.509
+Jitendra K: Right, and a decoder layer.
+
+806
+02:09:54.630 --> 02:09:55.580
+Jitendra K: We'll have.
+
+807
+02:09:56.340 --> 02:09:57.720
+Jitendra K: their own functions.
+
+808
+02:09:58.190 --> 02:10:01.989
+Jitendra K: Right? So basically, if I had to just represent both stacked together.
+
+809
+02:10:03.360 --> 02:10:04.820
+Jitendra K: This is what we are getting.
+
+810
+02:10:04.950 --> 02:10:06.420
+Jitendra K: So, during the training.
+
+811
+02:10:08.710 --> 02:10:14.500
+Jitendra K: Your source ID will be converted into numerical representation. You will preserve this into a form of embedding.
+
+812
+02:10:14.720 --> 02:10:19.700
+Jitendra K: Add a positional coding to make it as a… single…
+
+813
+02:10:20.240 --> 02:10:23.570
+Jitendra K: length sentences, and then use encoderLayer
+
+814
+02:10:24.140 --> 02:10:29.460
+Jitendra K: and decoder layer to perform the abstractive summarization. For abstractive summarization, you are using
+
+815
+02:10:29.690 --> 02:10:34.049
+Jitendra K: The encoder representation only, without self-attention.
+
+816
+02:10:34.490 --> 02:10:41.170
+Jitendra K: So basically, This will form a transformer, like this.
+
+817
+02:10:41.670 --> 02:10:44.640
+Jitendra K: Where you're going to have… each layer…
+
+818
+02:10:45.110 --> 02:10:48.840
+Jitendra K: And then they work together to perform this calculation.
+
+819
+02:10:52.920 --> 02:10:58.189
+Jitendra K: So let me share this code with you guys, and I want you to run this code and go through it.
+
+820
+02:10:58.700 --> 02:11:02.989
+Jitendra K: And let me know if there's any doubt, because this will be…
+
+821
+02:11:03.590 --> 02:11:06.100
+Jitendra K: You can assume it like this is a simple GPT.
+
+822
+02:11:06.950 --> 02:11:09.310
+Jitendra K: Right? That you are creating from the scratch.
+
+823
+02:11:10.650 --> 02:11:16.090
+Jitendra K: And this simple GPT will set the foundation for the… Polar Advance.
+
+824
+02:11:16.200 --> 02:11:20.290
+Jitendra K: code that you're going to learn in future, from Gen AI perspective.
+
+825
+02:11:20.590 --> 02:11:23.469
+Jitendra K: So go through this quote and let me know if there's any question.
+
+826
+02:11:24.070 --> 02:11:29.440
+Jitendra K: And the architecture diagram I will share with you again.
+
+827
+02:11:29.750 --> 02:11:31.730
+Jitendra K: Open the architecture diagram.
+
+828
+02:11:31.910 --> 02:11:33.640
+Jitendra K: Understand the steps.
+
+829
+02:11:34.550 --> 02:11:36.450
+Jitendra K: That we have discussed so far.
+
+830
+02:11:37.230 --> 02:11:40.609
+Jitendra K: Go through this diagram. This diagram is important.
+
+831
+02:11:41.230 --> 02:11:43.870
+Jitendra K: Try to see if there's anything missing in this spot.
+
+832
+02:11:45.490 --> 02:11:49.459
+Jitendra K: Right? And then let me know if there's anything that you do not understand.
+
+833
+02:12:09.950 --> 02:12:14.010
+Jitendra K: So you'll go through it, I will be on mute, I will have a look into your question. Thank you.
+
+834
+02:21:30.290 --> 02:21:34.739
+Jitendra K: Yes, so the idea is to use the keywords and recreate
+
+835
+02:21:35.360 --> 02:21:38.700
+Jitendra K: in a generative layer, similar to GPT model.
+
+836
+02:21:40.540 --> 02:21:44.730
+Jitendra K: The obstructive summarization, so it's an encoder-only model in this case.
+
+837
+02:22:32.680 --> 02:22:33.440
+Jitendra K: Bye.
+
+838
+02:23:00.730 --> 02:23:06.190
+Jitendra K: Multi-retention is to find a keyword across multiple documents and phrases.
+
+839
+02:23:06.630 --> 02:23:11.090
+Jitendra K: Multi-hair retention is to find a keyword across.
+
+840
+02:23:11.390 --> 02:23:16.379
+Jitendra K: Yeah, that's correct. And connecting them, using the mechanism.
+
+841
+02:23:16.660 --> 02:23:22.169
+Jitendra K: That means you're trying to find every, association with the other words.
+
+842
+02:23:23.010 --> 02:23:25.500
+Jitendra K: So that is the whole crux of attention.
+
+843
+02:23:26.740 --> 02:23:30.220
+Jitendra K: So, each word will be compounded with the other
+
+844
+02:23:30.850 --> 02:23:36.000
+Jitendra K: words, so that you can able to understand the association. Let's say we take this example, right?
+
+845
+02:23:36.340 --> 02:23:44.130
+Jitendra K: We talked about… This example, the cat and the mat, I think that example. Yeah.
+
+846
+02:23:44.530 --> 02:23:52.179
+Jitendra K: So the cat drank the milk because it was hungry, and the cat drank the milk because it was sweet. So there's a difference between the references.
+
+847
+02:23:52.440 --> 02:23:55.669
+Jitendra K: So here we reference… referring to the cat.
+
+848
+02:23:56.050 --> 02:24:04.019
+Jitendra K: And here we are referring to the mill, right? So that is the property of attention. And multi-head attention will help you to create a series of
+
+849
+02:24:04.640 --> 02:24:06.970
+Jitendra K: These operations simultaneously.
+
+850
+02:24:07.120 --> 02:24:11.210
+Jitendra K: So that you can able to work on multiple sentences simultaneously.
+
+851
+02:24:11.320 --> 02:24:16.599
+Jitendra K: And that is the whole power of compute these days, right? That's the reason we require GPU to operate on
+
+852
+02:24:16.800 --> 02:24:20.260
+Jitendra K: Yeah, for parallelism and for synchronization.
+
+853
+02:24:20.400 --> 02:24:26.160
+Jitendra K: So we required a huge amount of GPU, and that's the reason NVIDIA are getting
+
+854
+02:24:26.950 --> 02:24:31.370
+Jitendra K: Richer and richer day by day, because their demand for GPU is increasing.
+
+855
+02:24:31.680 --> 02:24:36.110
+Jitendra K: the amount of data that you're processing. So, if you ever imagine.
+
+856
+02:24:36.380 --> 02:24:38.330
+Jitendra K: When you're writing a simple prompt.
+
+857
+02:24:39.080 --> 02:24:41.760
+Jitendra K: In ChatGPT, what are the things which is happening?
+
+858
+02:24:44.780 --> 02:24:46.300
+Jitendra K: Have you ever imagined that?
+
+859
+02:25:03.480 --> 02:25:05.069
+Jitendra K: So, let me show you.
+
+860
+02:25:09.340 --> 02:25:11.290
+Jitendra K: So the big picture is,
+
+861
+02:25:12.470 --> 02:25:16.530
+Jitendra K: Transformer GPT-5 is a decoder model, only decoder model.
+
+862
+02:25:17.140 --> 02:25:21.399
+Jitendra K: So, when you're writing a prompt, let's say you simply say, explain
+
+863
+02:25:22.260 --> 02:25:24.950
+Jitendra K: multi-year attention to me in ChatGPT.
+
+864
+02:25:25.600 --> 02:25:31.459
+Jitendra K: So what you're doing is… Maybe I can show it here.
+
+865
+02:25:33.550 --> 02:25:36.729
+Jitendra K: So when you're writing a prompt in ChatGPT model.
+
+866
+02:25:38.690 --> 02:25:40.919
+Jitendra K: What are the things happening behind the scene?
+
+867
+02:25:41.760 --> 02:25:45.489
+Jitendra K: So let's say you're asking a model to explain quantum computing.
+
+868
+02:25:46.180 --> 02:25:47.570
+Jitendra K: In a simple term.
+
+869
+02:25:48.250 --> 02:25:53.449
+Jitendra K: So you say, I would like to… you… can you explain me quantum computing? I go to ChartGPT model.
+
+870
+02:26:06.680 --> 02:26:09.180
+Jitendra K: And I will write this question, explain.
+
+871
+02:26:13.930 --> 02:26:19.580
+Jitendra K: Quantum… computing… Simply.
+
+872
+02:26:20.960 --> 02:26:22.819
+Jitendra K: And I will put up this.
+
+873
+02:26:34.980 --> 02:26:39.880
+Jitendra K: Okay, let me go to DeepSeek, I don't know why it is… my subscription is not working.
+
+874
+02:27:00.250 --> 02:27:03.750
+Jitendra K: So you can see that it starts writing… Something.
+
+875
+02:27:04.290 --> 02:27:10.330
+Jitendra K: So basically, what the idea that we are using here is… Once you write any prompt.
+
+876
+02:27:10.910 --> 02:27:17.710
+Jitendra K: It will tokenize. Your prompt is also tokenized. So, explain will become some token, quantum will become some token.
+
+877
+02:27:18.020 --> 02:27:24.369
+Jitendra K: Compounding will become some token, and it will remove the… INGs from here.
+
+878
+02:27:24.640 --> 02:27:27.130
+Jitendra K: It will convert every word into a rote word.
+
+879
+02:27:27.530 --> 02:27:30.050
+Jitendra K: And then simply, and then all these things.
+
+880
+02:27:30.280 --> 02:27:38.120
+Jitendra K: So, once you have this tokenization done, then you're going to add some byte pair encoding or beginning of sentences to fill this
+
+881
+02:27:38.480 --> 02:27:39.320
+Jitendra K: Land.
+
+882
+02:27:39.650 --> 02:27:41.449
+Jitendra K: Now, once I have our tokens.
+
+883
+02:27:41.880 --> 02:27:43.860
+Jitendra K: I'll say I have a token IDE.
+
+884
+02:27:45.690 --> 02:27:47.440
+Jitendra K: Token embedding generated.
+
+885
+02:27:49.000 --> 02:27:51.729
+Jitendra K: Then, it will use a position encoding.
+
+886
+02:27:54.370 --> 02:27:58.740
+Jitendra K: Followed by combined embedding, input plus position.
+
+887
+02:28:00.620 --> 02:28:05.000
+Jitendra K: And then it will use a 120 layer of transformer architecture.
+
+888
+02:28:05.450 --> 02:28:09.570
+Jitendra K: And then it will pass through your data to a 120 decoder block.
+
+889
+02:28:10.070 --> 02:28:15.389
+Jitendra K: And then it will use a series of attention layers to predict the next probability.
+
+890
+02:28:15.640 --> 02:28:21.940
+Jitendra K: And depending upon the question complexity, it will use something called KV caching, key-value caching.
+
+891
+02:28:22.430 --> 02:28:28.500
+Jitendra K: The KAV caching is what modern day architecture is using by using GPUs.
+
+892
+02:28:29.000 --> 02:28:34.740
+Jitendra K: And that is the whole purpose of the GPU-based machines at inference level.
+
+893
+02:28:35.310 --> 02:28:41.359
+Jitendra K: So, from tokenization to inference, Total… Time it will take.
+
+894
+02:28:41.990 --> 02:28:44.669
+Jitendra K: And this is what it is doing inside.
+
+895
+02:28:45.000 --> 02:28:53.450
+Jitendra K: your, your, I would say your GPD pipeline or any other model pipeline.
+
+896
+02:29:07.950 --> 02:29:14.530
+Jitendra K: The train, the model will use internet data. You already have trained the model on internet data.
+
+897
+02:29:15.220 --> 02:29:22.469
+Jitendra K: It will also use some tools to generate the answer from the internet. If quantum computing is not there in 2020 and before.
+
+898
+02:29:22.960 --> 02:29:25.090
+Jitendra K: Then it will use Internet Data to answer.
+
+899
+02:29:35.170 --> 02:29:42.000
+Jitendra K: Alright, so we'll take a last example for today, and this example will talk about another…
+
+900
+02:29:42.400 --> 02:29:46.019
+Jitendra K: transformer-based approach, where I'm going to use Q&A.
+
+901
+02:29:46.380 --> 02:29:51.370
+Jitendra K: That means I can able to run some Q&A tasks using transformer model as well.
+
+902
+02:29:51.580 --> 02:29:54.170
+Jitendra K: So what if, if I have to ask some question.
+
+903
+02:29:54.430 --> 02:29:57.689
+Jitendra K: I provide some document, or maybe some phrases.
+
+904
+02:29:57.990 --> 02:30:01.120
+Jitendra K: By which I can be able to generate some answers on the top of it.
+
+905
+02:30:03.270 --> 02:30:07.160
+Jitendra K: So I will use… a new code.
+
+906
+02:30:07.810 --> 02:30:09.290
+Jitendra K: To do this task.
+
+907
+02:30:15.270 --> 02:30:21.279
+Jitendra K: The architecture will remain the same, the only thing that you are going to change is the way that you are positioning your data.
+
+908
+02:30:21.920 --> 02:30:28.109
+Jitendra K: Right, so architecture-wise, I think if you understand one code, that should be sufficient. I need not to…
+
+909
+02:30:28.250 --> 02:30:31.879
+Jitendra K: Revisit architecture blocks one by one again.
+
+910
+02:30:32.150 --> 02:30:35.939
+Jitendra K: So, if you understand one part of it, that is sufficient.
+
+911
+02:31:02.060 --> 02:31:04.170
+Jitendra K: You can see that I'm passing a tuple.
+
+912
+02:31:04.430 --> 02:31:07.200
+Jitendra K: The context question and the answer text.
+
+913
+02:31:08.300 --> 02:31:10.280
+Jitendra K: So I'm just giving some training data.
+
+914
+02:31:11.010 --> 02:31:13.840
+Jitendra K: So, assume it, like, this is data is available in internet.
+
+915
+02:31:14.960 --> 02:31:19.950
+Jitendra K: Right, so this is how the model has been trained upon GPT models. Assume that this is what
+
+916
+02:31:20.290 --> 02:31:23.149
+Jitendra K: GPT used to generate the answer.
+
+917
+02:31:23.320 --> 02:31:28.529
+Jitendra K: And then, if I'm going to ask a new question, or reframe the question in different format.
+
+918
+02:31:28.940 --> 02:31:31.249
+Jitendra K: Then it will be able to generate the right answer.
+
+919
+02:31:34.570 --> 02:31:36.369
+Jitendra K: So right now, my model is training.
+
+920
+02:31:40.530 --> 02:31:44.210
+Jitendra K: So this is just a simple architecture, transformer, one-layer architecture.
+
+921
+02:31:44.900 --> 02:31:49.530
+Jitendra K: There's no generative free-trained transformers. I have to use my labels.
+
+922
+02:32:03.100 --> 02:32:04.890
+Jitendra K: No, there's no training involved.
+
+923
+02:32:06.890 --> 02:32:11.509
+Jitendra K: So, when you're using a GPT model, there's no training, it's just an inference that you're using.
+
+924
+02:32:11.620 --> 02:32:13.099
+Jitendra K: They already have trained.
+
+925
+02:32:17.470 --> 02:32:21.010
+Jitendra K: So you're just using the model, which has been trained by Google, Microsoft?
+
+926
+02:32:21.450 --> 02:32:24.539
+Jitendra K: Google, Microsoft, and OpenAI.
+
+927
+02:32:26.450 --> 02:32:30.870
+Jitendra K: So you're not training the model, so when you're running any query, it is just an inference.
+
+928
+02:32:31.590 --> 02:32:36.890
+Jitendra K: Similar to your machine learning model, right? You host your model to your client to predict fraud.
+
+929
+02:32:37.350 --> 02:32:42.739
+Jitendra K: But… So you're not training the model when you're predicting, it's just an inference that you're creating.
+
+930
+02:33:02.580 --> 02:33:06.189
+Jitendra K: So you can see that, it is generating the Q&A task as well.
+
+931
+02:33:06.570 --> 02:33:11.849
+Jitendra K: We can also create a chatbot with it, simple chatbot.
+
+932
+02:33:12.110 --> 02:33:14.000
+Jitendra K: where I can take a document.
+
+933
+02:33:44.960 --> 02:33:52.759
+Jitendra K: So, we can also use some simple chatbot, where I will upload some document, and then it generates an output from that document.
+
+934
+02:33:53.030 --> 02:33:54.789
+Jitendra K: So, Ian,
+
+935
+02:33:55.390 --> 02:34:03.009
+Jitendra K: I mean, as I mentioned, this is like a building block. You can create anything out of it. The transform is a building block of modern-day GPT.
+
+936
+02:34:03.220 --> 02:34:08.719
+Jitendra K: or LLM-based models, And you can do wonders with it, I mean, sky's the limit for you.
+
+937
+02:34:09.070 --> 02:34:10.919
+Jitendra K: If you understand transformers.
+
+938
+02:34:15.440 --> 02:34:17.290
+Jitendra K: It's a million dollar industry.
+
+939
+02:34:17.740 --> 02:34:24.849
+Jitendra K: If you want to make your career in agentic AI journey AI, try to take Transformers seriously.
+
+940
+02:34:25.640 --> 02:34:30.519
+Jitendra K: Understand the mass, understand the building elements, understand the mathematics.
+
+941
+02:34:30.900 --> 02:34:33.880
+Jitendra K: Understand the small quotes which I'm sharing.
+
+942
+02:34:34.330 --> 02:34:38.519
+Jitendra K: And then you can start… Yeah, maybe a trillion dollar in future, that's correct.
+
+943
+02:34:38.910 --> 02:34:45.890
+Jitendra K: This is a big industry, and if you would really want to become a good data scientist or a good gen AI engineer.
+
+944
+02:34:46.320 --> 02:34:50.310
+Jitendra K: This is the first thing that you need to understand, is transformers.
+
+945
+02:34:52.190 --> 02:34:56.030
+Jitendra K: The transformer architecture is… must to understand.
+
+946
+02:34:56.620 --> 02:34:58.129
+Jitendra K: Must to have.
+
+947
+02:34:58.600 --> 02:35:02.499
+Jitendra K: In your resume, in your engineering projects.
+
+948
+02:35:02.980 --> 02:35:09.620
+Jitendra K: And then, you can able to… Start with any other… Gen AI projects and stuff.
+
+949
+02:35:12.730 --> 02:35:16.130
+Jitendra K: Yeah, as I mentioned, the attention layers are different.
+
+950
+02:35:16.320 --> 02:35:20.459
+Jitendra K: So, there's no transformer changes. Transformer is a transformer.
+
+951
+02:35:21.390 --> 02:35:24.520
+Jitendra K: So, let's take an example of your…
+
+952
+02:35:25.200 --> 02:35:29.999
+Jitendra K: Electrical transformer. So, principle of electrical transformer, do you think that it has been changed?
+
+953
+02:35:30.630 --> 02:35:34.920
+Jitendra K: From 1800 to 2026. Is there any change in the…
+
+954
+02:35:35.570 --> 02:35:38.829
+Jitendra K: Concept of the way that that transformer operates.
+
+955
+02:35:42.520 --> 02:35:46.160
+Jitendra K: No, right? So it still remains the same. You have got…
+
+956
+02:35:46.600 --> 02:35:53.250
+Jitendra K: Electrical signals with generating magnetic fields, and then you're operating on the voltage fluctuations.
+
+957
+02:35:53.550 --> 02:35:56.339
+Jitendra K: The same way that this transformer will not change.
+
+958
+02:35:56.770 --> 02:35:59.439
+Jitendra K: It's just about, yeah, just using…
+
+959
+02:36:00.890 --> 02:36:03.669
+Jitendra K: The way that you can able to differentiate.
+
+960
+02:40:24.620 --> 02:40:29.919
+Jitendra K: Yeah, so I will share this code with you guys, just please try it, and let me know if there's any issue.
+
+961
+02:40:30.110 --> 02:40:32.400
+Jitendra K: Any doubt that you're having.
+
+962
+02:40:33.030 --> 02:40:38.569
+Jitendra K: And then we'll move on to the last part of this curriculum, this tutorial, which is the Q&A part of it.
+
+963
+02:40:38.790 --> 02:40:42.439
+Jitendra K: a Q&A, model. We're using Transformer.
+
+964
+02:40:42.760 --> 02:40:47.750
+Jitendra K: So I will share this code, just try a new machine and let me know if it is working.
+
+965
+02:40:48.150 --> 02:40:50.549
+Jitendra K: And if you have any doubt on the top of it.
+
+966
+02:45:33.450 --> 02:45:39.350
+Jitendra K: Yes, the answer is yes. Each attention had different learned projection metrics.
+
+967
+02:45:39.970 --> 02:45:45.640
+Jitendra K: So that means your… each attention will have, different, QKV parameters.
+
+968
+02:46:01.120 --> 02:46:05.709
+Jitendra K: What do you mean by code and what we are doing back? This is a building block, right?
+
+969
+02:46:13.760 --> 02:46:15.940
+Jitendra K: So we are using a linear projection.
+
+970
+02:46:16.380 --> 02:46:19.829
+Jitendra K: And this is a constructor, so this constructor will call…
+
+971
+02:46:20.050 --> 02:46:23.670
+Jitendra K: Whenever you're creating a new multi-attention from the scratch.
+
+972
+02:46:24.020 --> 02:46:25.220
+Jitendra K: Pretty running in a loop.
+
+973
+02:46:28.750 --> 02:46:31.350
+Jitendra K: This is a blueprint of your code, plus…
+
+974
+02:46:31.580 --> 02:46:34.100
+Jitendra K: What did you understand by class in Python?
+
+975
+02:46:35.540 --> 02:46:39.570
+Jitendra K: Class is used for reusability only, right? So when you're calling this class object.
+
+976
+02:46:39.740 --> 02:46:43.199
+Jitendra K: In multi-attention, it will con- convert a new object
+
+977
+02:46:43.660 --> 02:46:48.629
+Jitendra K: And then, execute a new multi-head attention with a separate QK wave values.
+
+978
+02:46:56.760 --> 02:47:01.929
+Jitendra K: The class is a blueprint for an object, and when you're initializing the object of this class, you will be able to do that.
+
+979
+02:47:19.880 --> 02:47:21.659
+Jitendra K: Alright guys, any other questions?
+
+980
+02:47:27.780 --> 02:47:34.649
+Jitendra K: Yes, class will handle it. Once you create an object of this class, multi-attention, you're using it here.
+
+981
+02:47:37.980 --> 02:47:41.689
+Jitendra K: This is your class definition, and you're using your ID encoder.
+
+982
+02:47:53.610 --> 02:47:55.429
+Jitendra K: And even inside the decoder.
+
+983
+02:48:05.880 --> 02:48:13.390
+Jitendra K: If you would like to see the visual, it's a bit challenging, if I have to explain this, to use this website.
+
+984
+02:48:13.610 --> 02:48:17.079
+Jitendra K: You will see what is happening inside our transformer layer.
+
+985
+02:48:17.450 --> 02:48:18.850
+Jitendra K: at each tokens.
+
+986
+02:48:28.610 --> 02:48:35.110
+Jitendra K: So this website will provide you very clear visuals to understand transformers.
+
+987
+02:48:35.680 --> 02:48:40.739
+Jitendra K: Like, what is happening at each layer? Potential encoding, what… why… what orders matter?
+
+988
+02:48:41.600 --> 02:48:47.970
+Jitendra K: how to… Where… what are the different… you can see multi-retention.
+
+989
+02:48:48.090 --> 02:48:51.420
+Jitendra K: Where you are segregating QKV at each layer.
+
+990
+02:48:54.370 --> 02:48:59.800
+Jitendra K: So it will give you the very good visual on the… Wiring architecture of the transformer.
+
+991
+02:49:18.250 --> 02:49:21.280
+Jitendra K: So I'm going to talk about the last part of this class.
+
+992
+02:49:22.140 --> 02:49:25.360
+Jitendra K: Sorry, which is performing some Q&A on the…
+
+993
+02:49:26.900 --> 02:49:30.240
+Jitendra K: document, and this is where we are going to use Transformer.
+
+994
+02:49:30.510 --> 02:49:33.230
+Jitendra K: But accuracy of this model will not be that great.
+
+995
+02:49:34.330 --> 02:49:39.630
+Jitendra K: Because… This is just a very, say, basic model that we are using.
+
+996
+02:49:45.930 --> 02:49:49.490
+Jitendra K: Yeah, so this is what I'm using as a sample document.
+
+997
+02:49:50.050 --> 02:49:55.599
+Jitendra K: And I will run this… And then I will ask some questions on the top of this document.
+
+998
+02:49:58.610 --> 02:50:00.370
+Jitendra K: Again, the very similar layer.
+
+999
+02:50:05.380 --> 02:50:09.080
+Jitendra K: So, first question that I'm asking, this is a training transformer model.
+
+1000
+02:50:09.220 --> 02:50:10.609
+Jitendra K: to start training.
+
+1001
+02:50:11.170 --> 02:50:14.830
+Jitendra K: to understand… What are the ways to answer?
+
+1002
+02:50:16.330 --> 02:50:18.300
+Jitendra K: Once the training gets completed.
+
+1003
+02:50:18.810 --> 02:50:23.520
+Jitendra K: Then I have a test… series of test questions that I will plug in, and then it will generate an answer for that.
+
+1004
+02:50:24.350 --> 02:50:33.410
+Jitendra K: So this is the… The basic, transformer, which will help to help to generate the… Q&A task.
+
+1005
+02:50:35.500 --> 02:50:39.590
+Jitendra K: And transformers are… useful for Q&A.
+
+1006
+02:50:41.250 --> 02:50:45.770
+Jitendra K: The reason is, again, the same, that they're using a tension mechanism.
+
+1007
+02:50:45.960 --> 02:50:48.019
+Jitendra K: To deliver the outcome.
+
+1008
+02:50:53.320 --> 02:50:55.870
+Jitendra K: Still running. It will take a while.
+
+1009
+02:50:59.280 --> 02:51:04.720
+Jitendra K: So this is the main concept of RAC that we are going to maybe…
+
+1010
+02:51:05.270 --> 02:51:17.229
+Jitendra K: If you have already heard about rack pipelines in Agent Tech AI, Gen AI, this is very similar to a basic rack, you can consider it like a basic rack, where you're passing a document
+
+1011
+02:51:17.410 --> 02:51:23.419
+Jitendra K: Enriching the model capability to understand a document, and then generate an answer on the top of it.
+
+1012
+02:51:25.400 --> 02:51:28.699
+Jitendra K: So we are just doing that, similar behavior as rack.
+
+1013
+02:51:29.070 --> 02:51:35.079
+Jitendra K: but with a less accuracy. RAG use an open source, closed-source model, which is pre-trained.
+
+1014
+02:51:35.330 --> 02:51:37.199
+Jitendra K: On a massive amount of data.
+
+1015
+02:51:37.470 --> 02:51:43.979
+Jitendra K: And then they will generate, very good answers on the top of it. But here, we are not training any… with any massive amount of data.
+
+1016
+02:51:44.240 --> 02:51:49.960
+Jitendra K: Because I'm just using a 16GB RAM and a few 4GB virtual RAM.
+
+1017
+02:51:50.210 --> 02:51:54.520
+Jitendra K: And this is not sufficient to generate any sort of Q&A.
+
+1018
+02:51:54.680 --> 02:51:56.599
+Jitendra K: Now, let me ask some question.
+
+1019
+02:52:00.980 --> 02:52:10.240
+Jitendra K: Let me first read the document. So this is about attention and… some stuff…
+
+1020
+02:52:12.240 --> 02:52:14.070
+Jitendra K: But this is about Transformer.
+
+1021
+02:52:16.350 --> 02:52:19.510
+Jitendra K: Okay, let me ask when the transform has been invented.
+
+1022
+02:52:19.980 --> 02:52:22.470
+Jitendra K: Then I will ask him to…
+
+1023
+02:52:27.690 --> 02:52:30.570
+Jitendra K: Yeah, what is the original transformer trained on?
+
+1024
+02:52:51.560 --> 02:52:53.729
+Jitendra K: So, it has been invented by Google.
+
+1025
+02:52:54.310 --> 02:52:56.109
+Jitendra K: Now I will ask this question.
+
+1026
+02:52:57.430 --> 02:52:58.930
+Jitendra K: Okay…
+
+1027
+02:53:14.330 --> 02:53:16.769
+Jitendra K: I think this is giving wrong answer.
+
+1028
+02:53:17.350 --> 02:53:21.030
+Jitendra K: But… Maybe I can try some more.
+
+1029
+02:53:35.810 --> 02:53:37.609
+Jitendra K: What is the size of Bert?
+
+1030
+02:53:48.720 --> 02:53:52.150
+Jitendra K: Okay, it's hallucinated, not very convenient.
+
+1031
+02:53:52.740 --> 02:54:00.960
+Jitendra K: And that is a problem, with a single-layer architecture. So you can see it's hallucinated pretty significantly, not able to generate right answers.
+
+1032
+02:54:01.530 --> 02:54:09.990
+Jitendra K: So… but anyway, some of the answers that we have read in is exceptionally good.
+
+1033
+02:54:24.730 --> 02:54:29.050
+Jitendra K: I don't know why it is following the sequence that we have used to train.
+
+1034
+02:54:29.990 --> 02:54:33.749
+Jitendra K: This is just a sequence that we have used to train.
+
+1035
+02:54:34.570 --> 02:54:37.510
+Jitendra K: Yeah, it is submitting the same answer.
+
+1036
+02:54:50.450 --> 02:54:52.340
+Jitendra K: Let me improve it a bit.
+
+1037
+02:58:59.890 --> 02:59:03.710
+Jitendra K: Okay, so this is, not working that great.
+
+1038
+02:59:07.360 --> 02:59:11.610
+Jitendra K: So this is the limitation of single transformer, but anyway…
+
+1039
+02:59:12.170 --> 02:59:17.670
+Jitendra K: We can fine-tune and then refine it further to make it more… Useful.
+
+1040
+02:59:18.220 --> 02:59:20.260
+Jitendra K: So, I'll share this code with you again.
+
+1041
+02:59:24.630 --> 02:59:31.960
+Jitendra K: And this is for Q&A purpose, so we can modify this for… Further use cases.
+
+1042
+02:59:34.440 --> 02:59:39.889
+Jitendra K: So, I think that is for today, guys. So, if there's any question, we have one more class.
+
+1043
+02:59:40.040 --> 02:59:45.830
+Jitendra K: Two more classes for Transformer. We will continue to discuss about the recent happening in Transformer architecture.
+
+1044
+02:59:46.350 --> 02:59:50.799
+Jitendra K: We'll talk about, flash, flash retention, as well as…
+
+1045
+02:59:51.220 --> 02:59:56.140
+Jitendra K: some more about GPT-based model architectures. We'll try to discuss that.
+
+1046
+02:59:56.920 --> 03:00:01.949
+Jitendra K: And I will talk about how the real world RAT pipeline has been operated.
+
+1047
+03:00:02.680 --> 03:00:08.349
+Jitendra K: So if you're really interested to learn RAC, I would request you to create an account here.
+
+1048
+03:00:10.760 --> 03:00:11.820
+Jitendra K: in this…
+
+1049
+03:00:15.200 --> 03:00:18.300
+Jitendra K: And then just purchase the credential for $5.
+
+1050
+03:00:18.760 --> 03:00:22.069
+Jitendra K: I mean, that's the minimum tokens that we are going to use.
+
+1051
+03:00:22.300 --> 03:00:28.619
+Jitendra K: So there's an API called GPT-40 and GPT Models that we are going to use for demonstration purpose.
+
+1052
+03:00:28.790 --> 03:00:35.459
+Jitendra K: If you're really interested to learn, some bit of RAG, then the X2 classes will be useful for that purpose.
+
+1053
+03:00:37.630 --> 03:00:39.710
+Jitendra K: So let me launch a poll now.
+
+1054
+03:00:52.660 --> 03:00:56.519
+Jitendra K: So, please rate on the higher side if you feel that these are great value.
+
+1055
+03:00:56.820 --> 03:01:06.620
+Jitendra K: And I can see that, yes, you're still… I have limited knowledge with The recorded sessions, so…
+
+1056
+03:01:07.290 --> 03:01:13.899
+Jitendra K: That is, again, a blocker for me as well. I don't have to blame anybody, but yes, that's a big blocker.
+
+1057
+03:01:15.360 --> 03:01:19.199
+Jitendra K: Because if you understand this concept, then I need not to invest.
+
+1058
+03:01:20.830 --> 03:01:25.830
+Jitendra K: the time to build a concept, I can directly use… Case studies to solve.
+
+1059
+03:01:37.760 --> 03:01:40.339
+Jitendra K: But, are you attending the lectures?
+
+1060
+03:01:40.660 --> 03:01:48.410
+Jitendra K: From professors, or you're skipping it, and then you… Combine all, pre-recorded, and then…
+
+1061
+03:01:51.310 --> 03:01:54.239
+Jitendra K: Professor Tutorials, and then take it as a one go.
+
+1062
+03:01:54.880 --> 03:01:58.560
+Jitendra K: That is also, I don't have a mechanism to track
+
+1063
+03:02:14.820 --> 03:02:19.379
+Jitendra K: Okay, those who are attending, That is good.
+
+1064
+03:02:21.040 --> 03:02:22.730
+Jitendra K: Pre-recorded videos.
+
+1065
+03:02:23.720 --> 03:02:27.819
+Jitendra K: And, what is the quality of those videos, if I have to ask you?
+
+1066
+03:02:28.620 --> 03:02:32.689
+Jitendra K: Out of rate, rate, in a scale of 5.
+
+1067
+03:02:33.490 --> 03:02:35.439
+Jitendra K: What is the quality of those videos?
+
+1068
+03:02:50.580 --> 03:02:52.289
+Jitendra K: 2, 3, 4…
+
+1069
+03:02:58.330 --> 03:02:59.870
+Jitendra K: Mostly theoretical.
+
+1070
+03:03:00.300 --> 03:03:07.980
+Jitendra K: That is the issue. If it is just theoretical, then you should… You're not able to link…
+
+1071
+03:03:08.860 --> 03:03:11.270
+Jitendra K: With modules and,
+
+1072
+03:03:15.710 --> 03:03:17.220
+Jitendra K: The syntax, right?
+
+1073
+03:03:20.380 --> 03:03:22.540
+Jitendra K: Hysterian mass vector model.
+
+1074
+03:03:22.880 --> 03:03:23.600
+Jitendra K: Good.
+
+1075
+03:03:39.040 --> 03:03:40.680
+Jitendra K: Alright, no worries.
+
+1076
+03:03:42.230 --> 03:03:44.910
+Jitendra K: Okay, there's a Madison Whiteboard, okay.
+
+1077
+03:03:48.000 --> 03:03:49.949
+Jitendra K: Yeah, thanks. Thanks, Anish.
+
+1078
+03:03:51.070 --> 03:03:56.710
+Jitendra K: So that is the whole crux, so I would recommend everybody to attend at lectures, whatever it is.
+
+1079
+03:03:57.320 --> 03:04:05.530
+Jitendra K: And, maybe… We have a few sessions left. I mean, we have…
+
+1080
+03:04:05.870 --> 03:04:10.110
+Jitendra K: Transformers, then CANs we are going to cover.
+
+1081
+03:04:10.530 --> 03:04:13.069
+Jitendra K: Then some JNA application and MLOps.
+
+1082
+03:04:13.310 --> 03:04:22.419
+Jitendra K: And you can see that the Gen AI is just one session, they have… so I don't know how they have created a structure, but just a one session. All of a sudden, there's a Gen AI.
+
+1083
+03:04:22.920 --> 03:04:28.130
+Jitendra K: And then ML Ops, then Cloud Deployment, then reinforcement learning, which is fine.
+
+1084
+03:04:28.560 --> 03:04:34.309
+Jitendra K: But JN AI should have multiple sessions, so I will do one thing, I will take the AI session
+
+1085
+03:04:34.760 --> 03:04:35.690
+Jitendra K: Here.
+
+1086
+03:04:36.360 --> 03:04:39.510
+Jitendra K: And then we'll rediscover this as well.
+
+1087
+03:04:39.650 --> 03:04:40.970
+Jitendra K: Your time permits.
+
+1088
+03:04:41.230 --> 03:04:43.309
+Jitendra K: So, we will talk about…
+
+1089
+03:04:44.440 --> 03:04:48.959
+Jitendra K: some more architecture, and then we move on to the RAT pipeline creation using GenAI.
+
+1090
+03:04:52.120 --> 03:04:55.960
+Jitendra K: So that you can able to have some idea about Gen AI as well.
+
+1091
+03:04:58.580 --> 03:05:04.490
+Jitendra K: All right, guys, so this is pretty much what we have for today, so it was nice to have an interaction, so we'll meet next week.
+
+1092
+03:05:04.890 --> 03:05:07.559
+Jitendra K: So thank you, and have a nice day. Thank you.
+

@@ -1,0 +1,4626 @@
+WEBVTT
+
+1
+00:02:01.200 --> 00:02:03.739
+Jitendra K: Hey guys, good evening, good afternoon.
+
+2
+00:02:04.960 --> 00:02:08.549
+Jitendra K: And warm welcome to another module of SVMs. This is gonna be…
+
+3
+00:02:10.180 --> 00:02:15.859
+Jitendra K: session number 2 for SVM. So before we start, can we have a quick audio check if my voice is audible to everyone?
+
+4
+00:02:16.390 --> 00:02:18.170
+Jitendra K: My screen is visible as well.
+
+5
+00:02:24.830 --> 00:02:27.069
+Jitendra K: Alright, thank you, thanks for the confirmation.
+
+6
+00:02:40.180 --> 00:02:47.949
+Jitendra K: Okay, so we will start with support vector machine. This is gonna be session 2, so let me talk about what are we going to cover in this tutorial.
+
+7
+00:02:48.090 --> 00:02:55.039
+Jitendra K: So we are going to start with what we have, a kind of a basic revision of what support vector machine algorithm does, and…
+
+8
+00:02:55.380 --> 00:02:57.350
+Jitendra K: We will understand,
+
+9
+00:02:57.880 --> 00:03:09.430
+Jitendra K: support vector machine from the classification problem formulation. We've already taken some example for support vector machine in the last tutorial. We understand how support vector machine mathematical
+
+10
+00:03:09.590 --> 00:03:17.750
+Jitendra K: Frameworks work in behind the scene. And then, we have, we have to take one more example, which is support vector regression.
+
+11
+00:03:18.020 --> 00:03:26.110
+Jitendra K: So, we'll talk about support vector regressor in this tutorial, and then you understand that how support vector machine works behind the scenes.
+
+12
+00:03:26.420 --> 00:03:32.389
+Jitendra K: So, as we already know, that support vector machine predominantly works on a concept of hyperplane.
+
+13
+00:03:32.590 --> 00:03:36.900
+Jitendra K: So when we say hyperplane, It is trying to separate
+
+14
+00:03:41.100 --> 00:03:46.920
+Jitendra K: It is trying to separate the data points by projecting them into a high-dimensional space.
+
+15
+00:03:47.140 --> 00:03:50.610
+Jitendra K: And from that hybrid dimension space, you're going to create…
+
+16
+00:03:51.610 --> 00:03:54.490
+Jitendra K: A hyperplane, which will separate these two vectors.
+
+17
+00:03:54.890 --> 00:03:56.550
+Jitendra K: To support vector machines.
+
+18
+00:03:56.660 --> 00:04:10.309
+Jitendra K: classically, sorry, I would say it has been classified into supervised machine learning algorithm, and it has been used for classification as well as for regression tasks, and they have been widely used in various fields, including pattern recognition, image analysis.
+
+19
+00:04:10.480 --> 00:04:15.109
+Jitendra K: We'll take one more example today about natural language processing.
+
+20
+00:04:15.320 --> 00:04:21.779
+Jitendra K: So, how support vector machine can be used for sentiment analysis. We will take one example to understand that as well.
+
+21
+00:04:22.010 --> 00:04:29.699
+Jitendra K: But we understand that the core idea is the hyperplane, so where you're going to have a hyperplane, which will be separating the two classes.
+
+22
+00:04:32.070 --> 00:04:33.899
+Jitendra K: In a high dimensional space.
+
+23
+00:04:34.050 --> 00:04:51.550
+Jitendra K: with a maximum separability. So hyperplane is a decision boundary that separate data points into different classes in a high-dimension space. And in two-dimension space, a hyperplane can be represented by a line that separates a data point into two classes. In three-dimensional space, I will call it a hyperplane.
+
+24
+00:04:52.500 --> 00:04:53.450
+Jitendra K: Now…
+
+25
+00:04:53.890 --> 00:05:09.360
+Jitendra K: We already understand the concept of margin support vectors, using this diagram. We understand that when we are using support vector machine, a margin is a distance between a decient boundary, or a hyperplane, and the closest point from that each class.
+
+26
+00:05:09.690 --> 00:05:16.160
+Jitendra K: And we remember, we talked about the goal of SVM is to maximize this margin while minimizing the classification errors.
+
+27
+00:05:16.420 --> 00:05:22.909
+Jitendra K: So a large margin between the classes indicates a greater degree of confidence in the classification, right?
+
+28
+00:05:23.090 --> 00:05:28.539
+Jitendra K: So, that means there are a large gap between the decision boundary and the closest data point from each class.
+
+29
+00:05:28.810 --> 00:05:33.770
+Jitendra K: So the margin is a measure of how well separated a class are in the feature space.
+
+30
+00:05:33.880 --> 00:05:39.160
+Jitendra K: So, SBM has been designed to find the hyperplane, That maximize this margin.
+
+31
+00:05:39.540 --> 00:05:43.850
+Jitendra K: And that's why it is sometimes referred to as maximum margin classifiers.
+
+32
+00:05:45.180 --> 00:05:49.889
+Jitendra K: Now, we understand that how support vector machine operates behind the scene.
+
+33
+00:05:51.210 --> 00:05:59.900
+Jitendra K: We understand the concept of support vectors. They are the nearest point to the separating hyperplane, and then it works on the concept of margin.
+
+34
+00:06:00.000 --> 00:06:03.880
+Jitendra K: If you're getting a maximum margin with these two support vectors.
+
+35
+00:06:06.360 --> 00:06:10.070
+Jitendra K: In fact, 3 support vectors, that means support vector from each classes.
+
+36
+00:06:10.230 --> 00:06:28.390
+Jitendra K: then you will call this a maximum margin classifier, right? And that is what we have learned. So they are the data point that lies closest to radiation boundary, or hyperplane, in a support vector machine, and these data points are important because they determine the position and the orientation of the hyperplane.
+
+37
+00:06:28.650 --> 00:06:39.940
+Jitendra K: So, basically, we have to give specific significance on classification accuracy. In fact, support vector machines are named after these support vectors, because they are supporting the decision boundary.
+
+38
+00:06:42.620 --> 00:06:55.150
+Jitendra K: So these support vectors are used to calculate the margin while the distance between the hyperplane and the closest point from each class. So the goal of SVM is to maximize this margin while minimizing the classification error.
+
+39
+00:06:55.400 --> 00:06:58.990
+Jitendra K: So this is very similar to… I would say…
+
+40
+00:06:59.160 --> 00:07:02.560
+Jitendra K: Some too disputed boundary between the two countries.
+
+41
+00:07:02.970 --> 00:07:12.849
+Jitendra K: And, just like Kashmir, they support terrorists sometimes, the locals, right? So that same way you can say support vectors, they're supporting, the margin here.
+
+42
+00:07:12.990 --> 00:07:24.320
+Jitendra K: So that is the whole idea of support vector machine. So they had been named after these support vectors. So support vectors means they were able to ensure that we will get a maximum separation between the two classes.
+
+43
+00:07:24.580 --> 00:07:32.659
+Jitendra K: So this idea of support vector machine is very simple. So what we are trying to achieve is, we are trying to draw a hyperplane with a maximum margin.
+
+44
+00:07:36.000 --> 00:07:42.200
+Jitendra K: Alright, so we have already understood all these things, we understand analogy, then we talked about something called kernel trig.
+
+45
+00:07:42.470 --> 00:07:44.469
+Jitendra K: Now, when you talk about kernel Trick.
+
+46
+00:07:45.240 --> 00:07:47.979
+Jitendra K: It is very evident from this diagram.
+
+47
+00:07:49.010 --> 00:07:54.079
+Jitendra K: That if I'm going to use a hyperplane, a simple hyperplane, I cannot be able to separate these two classes.
+
+48
+00:07:54.270 --> 00:07:57.859
+Jitendra K: So I need a nonlinear transformation to do this separation.
+
+49
+00:07:58.150 --> 00:08:05.369
+Jitendra K: So if I'm thinking of this as a, maybe a geographical figure, which is a circle, it will represent it by equation.
+
+50
+00:08:05.720 --> 00:08:07.880
+Jitendra K: X squared plus Y square.
+
+51
+00:08:08.660 --> 00:08:09.960
+Jitendra K: It equals to 1.
+
+52
+00:08:12.620 --> 00:08:15.980
+Jitendra K: Right? So this is the equation of the circle.
+
+53
+00:08:16.240 --> 00:08:20.790
+Jitendra K: Now, as you can see, that these equations have a square magnitude of the terms.
+
+54
+00:08:21.240 --> 00:08:27.360
+Jitendra K: Right, so X squared plus Y squared, so this become a nonlinear plane.
+
+55
+00:08:28.190 --> 00:08:30.860
+Jitendra K: And this plane can be represented by a circle.
+
+56
+00:08:35.270 --> 00:08:36.049
+Jitendra K: Right?
+
+57
+00:08:36.450 --> 00:08:38.809
+Jitendra K: So now, when we are using a hyperplane.
+
+58
+00:08:39.530 --> 00:08:46.869
+Jitendra K: Assuming that you would like it separated by a linear hyperplane. That means you have to think of an algorithm which can separate the margin between the two classes.
+
+59
+00:08:47.630 --> 00:08:50.650
+Jitendra K: And this margin is nothing but this intra.
+
+60
+00:08:50.840 --> 00:08:57.460
+Jitendra K: circumference of the two circle. Difference between the circumference of the two circle. I would say it's a diameter.
+
+61
+00:08:58.160 --> 00:09:03.800
+Jitendra K: minus, this is, let's say, D2, minus D1.
+
+62
+00:09:06.470 --> 00:09:11.819
+Jitendra K: or I would say, The gap between these two circles will be represented by this margin.
+
+63
+00:09:12.020 --> 00:09:17.820
+Jitendra K: Now, if I'm going to do a support vector classification, this will… Yield multiple solutions.
+
+64
+00:09:18.040 --> 00:09:20.070
+Jitendra K: Multiple suboptimal solution.
+
+65
+00:09:21.110 --> 00:09:23.340
+Jitendra K: And that become a kind of a…
+
+66
+00:09:24.720 --> 00:09:30.140
+Jitendra K: problem, because if I have to find a single solution for this, I cannot able to utilize it.
+
+67
+00:09:30.400 --> 00:09:34.410
+Jitendra K: And that's why support vector machines use something called kernel Trick.
+
+68
+00:09:35.800 --> 00:09:47.060
+Jitendra K: So kernelTrick is a function which will able to apply non-linearity on your SVM algorithm, and try to make it more comprehensive in terms of separating these two classes.
+
+69
+00:09:47.900 --> 00:10:00.970
+Jitendra K: So the idea is, when we have a two feature, X and Y, and the data which are nonlinearly classifiable, what we need to do is to add another dimension in which, if the data point is plotted, it becomes a linearly separable plane.
+
+70
+00:10:01.520 --> 00:10:04.690
+Jitendra K: And then, we are trying to separate
+
+71
+00:10:05.270 --> 00:10:09.739
+Jitendra K: These two data planes with the help of a linear separable class.
+
+72
+00:10:10.380 --> 00:10:12.719
+Jitendra K: And that trick, which we are performing.
+
+73
+00:10:12.840 --> 00:10:18.000
+Jitendra K: on the above dataset, it's called kernel transformation.
+
+74
+00:10:18.830 --> 00:10:20.170
+Jitendra K: Orcinal trick.
+
+75
+00:10:20.620 --> 00:10:27.889
+Jitendra K: And how it is using? It is representing your function, Z, with an equation F,
+
+76
+00:10:28.670 --> 00:10:32.799
+Jitendra K: of X comma Y, which is other two coordinates.
+
+77
+00:10:33.070 --> 00:10:38.289
+Jitendra K: that representing a function on X and Y, and it is using Achillidean distance from the origin.
+
+78
+00:10:38.430 --> 00:10:44.259
+Jitendra K: So it is converting an equation like this, z is equal to X squared, plus Y squared.
+
+79
+00:10:46.290 --> 00:10:48.050
+Jitendra K: To the power, 1x2.
+
+80
+00:10:57.080 --> 00:11:03.500
+Jitendra K: So basically, radial-based function will be able to perform a kind of a kernel trick instead of adding another dimension.
+
+81
+00:11:03.750 --> 00:11:05.860
+Jitendra K: To represent this whole equation.
+
+82
+00:11:06.040 --> 00:11:16.110
+Jitendra K: So the idea of kernel trick is, we have seen that we have a few kernels, like polynomial, Gaussian, Laplace, hyperbolic tangent, sigmoid.
+
+83
+00:11:16.270 --> 00:11:22.950
+Jitendra K: We'll… there are some more kernels, including ANOVA retail-based kernel, linear lines kernels, basel functions.
+
+84
+00:11:23.080 --> 00:11:27.899
+Jitendra K: But we'll talk about very few, just to give you a conceptual representation of these kernel tricks.
+
+85
+00:11:29.240 --> 00:11:38.460
+Jitendra K: We also talk about something called hyperparameter, which is C gamma, and lambda.
+
+86
+00:11:40.820 --> 00:11:43.969
+Jitendra K: Of the kernel tractor… oh, sorry, of the support vector machine.
+
+87
+00:11:44.410 --> 00:11:53.300
+Jitendra K: So we have understand that how we can able to apply C, gamma, and lambda and try to optimize this whole equation to separate the hyperplane.
+
+88
+00:11:54.820 --> 00:11:59.319
+Jitendra K: Okay, I can see some question. Is IQ distance from both classes really optimal?
+
+89
+00:12:00.290 --> 00:12:12.010
+Jitendra K: Equidistance from the two classes is optimal because the margin is maximum. So if you separate India-Pakistan boundary by maximum margin, then the whole idea of terrorism will be solved.
+
+90
+00:12:12.630 --> 00:12:15.479
+Jitendra K: So the buffer zone is created for that purpose, right?
+
+91
+00:12:15.930 --> 00:12:32.989
+Jitendra K: So the same idea has been applied here. So we are saying that we have two margins, the maximum margin will be given by the separation between the two classes. So there… there will be a buffer zone in between this margin, so that nobody can enter this buffer zone. If there's… they are entering this buffer zone, there's an order to shoot inside.
+
+92
+00:12:35.250 --> 00:12:45.579
+Jitendra K: For linear… okay, there's one more question. For linear, we use hyperplane, and for nonlinear, we use kernel trick. So, we are using kernel transformation. Kernel transformation, sometimes…
+
+93
+00:12:46.220 --> 00:12:57.530
+Jitendra K: Sounds like a trick. So when you're applying a transformation on your data, you're still using a linear hyperplane to separate your classes, but you're projecting your data points in a high-dimensional space.
+
+94
+00:12:57.660 --> 00:12:59.069
+Jitendra K: By using Colonel Trick.
+
+95
+00:13:01.330 --> 00:13:04.680
+Jitendra K: So that's the transformation that you're applying on the data.
+
+96
+00:13:04.810 --> 00:13:15.319
+Jitendra K: And the function that you're using to apply this transformation will be a kernel function. So it will understand the distribution of your data, and try to project it so that it should be maximum separable.
+
+97
+00:13:17.340 --> 00:13:22.290
+Jitendra K: Okay, but class-separated is nonlinear in space, right? Which is why I asked.
+
+98
+00:13:23.300 --> 00:13:25.599
+Jitendra K: First class separated.
+
+99
+00:13:26.460 --> 00:13:36.349
+Jitendra K: or spreadness is a nonlinear space, right? Which is… yes, so when you're separating the class, so this will become a nonlinear transformation.
+
+100
+00:13:36.720 --> 00:13:39.899
+Jitendra K: So you can see that I'm projecting my data points like this now.
+
+101
+00:13:40.720 --> 00:13:42.760
+Jitendra K: So it almost looks like a cone.
+
+102
+00:13:42.870 --> 00:13:52.099
+Jitendra K: the cone have… the… height, Which is from here to here.
+
+103
+00:13:52.480 --> 00:13:57.850
+Jitendra K: And I'm using some function to separate that cone, and by splitting the cone into two parts.
+
+104
+00:13:59.310 --> 00:14:01.410
+Jitendra K: And that is what I'm talking about, projection.
+
+105
+00:14:02.480 --> 00:14:05.809
+Jitendra K: So this circle has been represented like a three-dimensional cone.
+
+106
+00:14:06.450 --> 00:14:08.180
+Jitendra K: You can see it's a cone, right?
+
+107
+00:14:10.350 --> 00:14:17.120
+Jitendra K: So this cone… is now… Separated by this.
+
+108
+00:14:17.930 --> 00:14:20.330
+Jitendra K: Hyperplane into two classes.
+
+109
+00:14:20.820 --> 00:14:24.880
+Jitendra K: So this transformation that you're performing, to…
+
+110
+00:14:25.110 --> 00:14:29.330
+Jitendra K: at just this whole margin, is nothing what has been performed by Cardinal.
+
+111
+00:14:37.680 --> 00:14:52.540
+Jitendra K: So those vectors will have an epsilon adjustment slack variables. Yes, so slack variable lambda will come into display. Basically, when you are using a nonlinear transformation, you require the slack variable, which is similar to support vector machine, but they are not directly
+
+112
+00:14:53.190 --> 00:14:56.219
+Jitendra K: a part of support vector. So basically, kernel
+
+113
+00:14:56.400 --> 00:14:59.039
+Jitendra K: If I have to simply give you an answer.
+
+114
+00:14:59.500 --> 00:15:04.480
+Jitendra K: So let's say if I'm separating this class…
+
+115
+00:15:13.240 --> 00:15:16.249
+Jitendra K: these classes, so I have to consider…
+
+116
+00:15:18.220 --> 00:15:21.409
+Jitendra K: A hyperplane that will classify the points correctly.
+
+117
+00:15:22.090 --> 00:15:28.999
+Jitendra K: What we are trying to do is, we are trying to convert this lower dimension space to a higher dimension space using some quadratic function.
+
+118
+00:15:29.410 --> 00:15:41.020
+Jitendra K: Which will allow us to find a decision boundary that clearly divides us data points. And these functions which help us to do is called kernel. And which kernel to use is purely determined by the hyperparameter tuning.
+
+119
+00:15:41.140 --> 00:15:45.450
+Jitendra K: So there are different types of kernel. The first and foremost thing is polynomial.
+
+120
+00:15:46.500 --> 00:15:48.640
+Jitendra K: So when you say polynomial kernel.
+
+121
+00:16:01.330 --> 00:16:08.300
+Jitendra K: So, polynomial kernel equation will look like this. Function of, let's say, two arbitrary data points, X1, X2.
+
+122
+00:16:09.000 --> 00:16:10.720
+Jitendra K: There's a comma in between.
+
+123
+00:16:11.240 --> 00:16:21.190
+Jitendra K: I can represent this as… X1 transpose, multiply by X2, transformation I'm talking about, plus 1.
+
+124
+00:16:21.500 --> 00:16:26.379
+Jitendra K: to a degree of some certain extent. So this degree can go up to any number.
+
+125
+00:16:26.900 --> 00:16:32.269
+Jitendra K: Now, here, the degree of polynomial we can mention. Let's say if I'm taking 2,
+
+126
+00:16:32.600 --> 00:16:36.289
+Jitendra K: It will be converted, this equation, into a matrix.
+
+127
+00:16:47.090 --> 00:16:48.290
+Jitendra K: This is dot.
+
+128
+00:16:52.510 --> 00:16:55.589
+Jitendra K: So basically, now we are representing this equation.
+
+129
+00:16:56.200 --> 00:16:57.410
+Jitendra K: In this form.
+
+130
+00:16:58.220 --> 00:16:59.200
+Jitendra K: Like me.
+
+131
+00:17:02.730 --> 00:17:04.849
+Jitendra K: So this is the form of this equation.
+
+132
+00:17:08.950 --> 00:17:13.200
+Jitendra K: So SVM of polynomial 2 will be represented by a parabola.
+
+133
+00:17:14.060 --> 00:17:16.669
+Jitendra K: Similarly, I can use a sigmoid kernel.
+
+134
+00:17:16.859 --> 00:17:18.870
+Jitendra K: The sigmoid kernel will look like.
+
+135
+00:17:21.750 --> 00:17:25.239
+Jitendra K: For… X1, X2.
+
+136
+00:17:27.240 --> 00:17:33.550
+Jitendra K: It requires to… Hyperbolic tangent, because sigmoid can be derived from it.
+
+137
+00:17:34.370 --> 00:17:41.049
+Jitendra K: alpha transformation factor, plus X. So I'm just writing some function here.
+
+138
+00:17:41.820 --> 00:17:45.250
+Jitendra K: Right? So, now, if I have to represent this function.
+
+139
+00:17:46.410 --> 00:17:49.639
+Jitendra K: This function can be represented by this diagram.
+
+140
+00:17:51.660 --> 00:18:01.149
+Jitendra K: And this is a support vector machine for sigmoid kernel. Now, what I'm trying to say is, you will have a different mathematical representation of each kernel.
+
+141
+00:18:01.500 --> 00:18:04.700
+Jitendra K: So that you can be able to separate these classes based upon the…
+
+142
+00:18:05.290 --> 00:18:15.340
+Jitendra K: choice of the parameters. Now, here you can see that when I'm using this linear kernel, or sorry, nonlinear kernel using sigmoid, I still have a lot of errors.
+
+143
+00:18:17.270 --> 00:18:22.080
+Jitendra K: Now, I can be able to reduce these errors, so this is an example of, I think, Iris dataset.
+
+144
+00:18:22.600 --> 00:18:24.220
+Jitendra K: We have to still remove.
+
+145
+00:18:27.640 --> 00:18:31.420
+Jitendra K: I can go with more advanced kernel, which is called radial-based function.
+
+146
+00:18:31.770 --> 00:18:35.370
+Jitendra K: And this radial-based function will be represented by equation.
+
+147
+00:18:39.710 --> 00:18:42.060
+Jitendra K: X1 minus X2.
+
+148
+00:18:43.510 --> 00:18:45.020
+Jitendra K: Whole square.
+
+149
+00:18:45.450 --> 00:18:49.720
+Jitendra K: Divided by 2 sigma squared. So that means it is working on a distribution.
+
+150
+00:18:50.540 --> 00:18:54.760
+Jitendra K: of Gaussian… Space.
+
+151
+00:18:58.960 --> 00:19:07.000
+Jitendra K: So when I'm performing this equation, or performing this, type of transformation, it will give me more accurate result.
+
+152
+00:19:15.560 --> 00:19:22.550
+Jitendra K: Now, the question is, if it is giving me that accurate result, why don't we consider this as a default function?
+
+153
+00:19:22.990 --> 00:19:30.019
+Jitendra K: The answer is… as VM… library, which is scikit-learn.
+
+154
+00:19:31.170 --> 00:19:34.369
+Jitendra K: It's considering your kernel parameter.
+
+155
+00:19:35.710 --> 00:19:37.670
+Jitendra K: by default as RBF.
+
+156
+00:19:39.760 --> 00:19:48.390
+Jitendra K: So it is using this transformation to perform the analysis, every time, until you change it, or you are performing some hyperparametric tuning.
+
+157
+00:19:48.550 --> 00:19:52.359
+Jitendra K: If you're saying that I would like to try 2 or 3 kernels and decide.
+
+158
+00:19:52.550 --> 00:20:05.680
+Jitendra K: which kernel is fine for my implementation, then you can use hyperparameter tuning for that. But by default, it will be radial waste function, which is going to be using the closest proximity of these distances to find it out.
+
+159
+00:20:05.850 --> 00:20:11.899
+Jitendra K: the margin, or the multi-class margin between the two classes. That is what RBF will do.
+
+160
+00:20:14.850 --> 00:20:18.820
+Jitendra K: So… RBF kernel is,
+
+161
+00:20:19.100 --> 00:20:25.519
+Jitendra K: By default, a part of a support vector machine class, and we will use this for many purposes.
+
+162
+00:20:26.500 --> 00:20:29.730
+Jitendra K: Now, we will… slightly…
+
+163
+00:20:29.990 --> 00:20:36.789
+Jitendra K: digress from our original example, we talked about something called Slack variables, right? So, I know that
+
+164
+00:20:37.030 --> 00:20:41.990
+Jitendra K: You guys have… must have some idea about Slack variable, because we have discussed this.
+
+165
+00:20:42.100 --> 00:20:52.230
+Jitendra K: But let me define, given the comprehensive knowledge of support vector classification, which is support vector regressor. So what are these slack variables are doing in both equations?
+
+166
+00:20:52.580 --> 00:20:59.720
+Jitendra K: So if I have to just justify the slack variables, In both cases.
+
+167
+00:21:00.720 --> 00:21:03.280
+Jitendra K: So here you can see that I'm using a slack variable.
+
+168
+00:21:04.070 --> 00:21:05.900
+Jitendra K: And there's a term called epsilon.
+
+169
+00:21:07.190 --> 00:21:14.520
+Jitendra K: Right? So, if I have to define what is the concept, what is the change of
+
+170
+00:21:14.810 --> 00:21:17.179
+Jitendra K: Way in which support vector regressive work.
+
+171
+00:21:17.460 --> 00:21:25.119
+Jitendra K: So there's no change in it. So unlike support vector machine, which is used for classification tasks, support vector machine, or sorry, support vector regressor.
+
+172
+00:21:25.380 --> 00:21:27.829
+Jitendra K: So, I will use two terminology, as we are…
+
+173
+00:21:29.680 --> 00:21:36.380
+Jitendra K: And as we see, so as we are represent, regression, and C represent classification.
+
+174
+00:21:36.850 --> 00:21:41.140
+Jitendra K: So, support vector regressor, or regression, used for…
+
+175
+00:21:42.890 --> 00:21:47.419
+Jitendra K: Seeking to find a hyperplane that best fit the data point in a continuous space.
+
+176
+00:21:47.630 --> 00:21:52.410
+Jitendra K: So for regression, this hyperplane is a linear function, that approximate a target variable.
+
+177
+00:21:53.220 --> 00:21:55.500
+Jitendra K: So I will say that I have a parameter.
+
+178
+00:21:55.950 --> 00:22:02.150
+Jitendra K: Similar to linear equation, linear regression equation, Right? With a tolerance
+
+179
+00:22:02.930 --> 00:22:06.460
+Jitendra K: error, I mean, how much error should I tolerate?
+
+180
+00:22:06.790 --> 00:22:12.449
+Jitendra K: And that error that I'm using is a parameter epsilon that defines the width of the
+
+181
+00:22:12.790 --> 00:22:15.989
+Jitendra K: Epsilon intensive tube around the regression function.
+
+182
+00:22:17.530 --> 00:22:19.970
+Jitendra K: So, SVR is not allowing error.
+
+183
+00:22:20.090 --> 00:22:26.370
+Jitendra K: So I would say I would like to minimize I would like to minimize.
+
+184
+00:22:30.860 --> 00:22:32.440
+Jitendra K: minimize…
+
+185
+00:22:33.900 --> 00:22:43.220
+Jitendra K: my error by governing the weights and the biasness in my data points. I will say it should be equal to W…
+
+186
+00:22:44.060 --> 00:22:52.789
+Jitendra K: square… Subjective to… So it's subjective to…
+
+187
+00:22:58.890 --> 00:23:01.900
+Jitendra K: Y minus WX1.
+
+188
+00:23:02.380 --> 00:23:03.859
+Jitendra K: minus P.
+
+189
+00:23:04.810 --> 00:23:09.589
+Jitendra K: Previously, we're not using any factor, but right now, we are using a factor, epsilon.
+
+190
+00:23:10.020 --> 00:23:11.990
+Jitendra K: And W of X1.
+
+191
+00:23:12.230 --> 00:23:18.190
+Jitendra K: plus B, minus W of phi should be less than or equal to epsilon.
+
+192
+00:23:18.720 --> 00:23:22.530
+Jitendra K: So here, W and W is a weight, and B is the bias term.
+
+193
+00:23:22.700 --> 00:23:25.269
+Jitendra K: Now, how I'm deciding this epsilon?
+
+194
+00:23:26.070 --> 00:23:30.270
+Jitendra K: That is something… Which we are using as a slack variable.
+
+195
+00:23:31.100 --> 00:23:32.310
+Jitendra K: So here, the weight…
+
+196
+00:23:33.770 --> 00:23:38.829
+Jitendra K: W, and a bias term has been represented as W and B, respectively, and then you have a slack term.
+
+197
+00:23:39.430 --> 00:23:47.080
+Jitendra K: Now, this is your Slack term, which will help you to identify… this margin.
+
+198
+00:23:48.120 --> 00:23:50.860
+Jitendra K: Now the SVR has been subjective to…
+
+199
+00:23:53.790 --> 00:24:03.020
+Jitendra K: Second conditions, I will say minimization of… 1 over 2… W Square.
+
+200
+00:24:03.710 --> 00:24:11.020
+Jitendra K: plus C, penalty coefficient, summation of… epsilon i.
+
+201
+00:24:11.680 --> 00:24:12.970
+Jitendra K: Epsilon.
+
+202
+00:24:13.090 --> 00:24:14.740
+Jitendra K: I.S. trick.
+
+203
+00:24:14.960 --> 00:24:16.230
+Jitendra K: Which is this term.
+
+204
+00:24:16.500 --> 00:24:18.310
+Jitendra K: I'm just calculating a distance.
+
+205
+00:24:19.580 --> 00:24:24.540
+Jitendra K: Right? Subjective to… The same constraint?
+
+206
+00:24:24.640 --> 00:24:27.140
+Jitendra K: But I'm going to use a coefficient.
+
+207
+00:24:28.620 --> 00:24:29.770
+Jitendra K: Why?
+
+208
+00:24:30.440 --> 00:24:38.130
+Jitendra K: minus WX… I minus B, Instead of just saying.
+
+209
+00:24:38.920 --> 00:24:43.310
+Jitendra K: Epsilon, I will say psi, this is psi symbol. This is epsilin, this is psi.
+
+210
+00:24:44.160 --> 00:24:47.499
+Jitendra K: And then I will say W of Xi.
+
+211
+00:24:48.330 --> 00:24:51.849
+Jitendra K: plus B, minus Y of I.
+
+212
+00:24:53.120 --> 00:24:56.799
+Jitendra K: epsilon minus… sorry, plus psi of phi.
+
+213
+00:24:57.640 --> 00:24:58.520
+Jitendra K: A trick.
+
+214
+00:24:58.870 --> 00:25:02.910
+Jitendra K: So I'm saying all the data points in this site, and all the data points in this site.
+
+215
+00:25:03.800 --> 00:25:13.460
+Jitendra K: Right? Subjective to this constraint. Psi I, and sci-I-Strike, Should be positive integer.
+
+216
+00:25:15.550 --> 00:25:18.250
+Jitendra K: So this is the equation of my SVR.
+
+217
+00:25:18.970 --> 00:25:20.289
+Jitendra K: That I'm trying to solve.
+
+218
+00:25:25.470 --> 00:25:28.470
+Jitendra K: Very similar to, as we… C.
+
+219
+00:25:28.660 --> 00:25:35.810
+Jitendra K: But only differences I'm using… the adjustment by… A concept of margin.
+
+220
+00:25:36.360 --> 00:25:40.019
+Jitendra K: Now remember, when you're trying to solve any regression problem, what is your outcome?
+
+221
+00:25:41.030 --> 00:25:43.490
+Jitendra K: Your outcome of interest is continuous.
+
+222
+00:25:45.930 --> 00:25:47.420
+Jitendra K: continuous variable.
+
+223
+00:25:49.150 --> 00:25:52.850
+Jitendra K: You're predicting, let's say, house prices.
+
+224
+00:25:53.620 --> 00:25:55.889
+Jitendra K: You're predicting the annual rainfall.
+
+225
+00:25:57.290 --> 00:26:02.109
+Jitendra K: You are predicting the GDP of the country. You are predicting the unemployment rate.
+
+226
+00:26:03.580 --> 00:26:06.929
+Jitendra K: you're predicting… The hunger index.
+
+227
+00:26:10.130 --> 00:26:14.659
+Jitendra K: you're predicting… the share prices.
+
+228
+00:26:16.090 --> 00:26:22.850
+Jitendra K: I cannot say the share price of Tesla will be 120 US dollar in the… tomorrow. I would say it will be 120 to 140.
+
+229
+00:26:23.360 --> 00:26:24.880
+Jitendra K: Of that sort, right?
+
+230
+00:26:25.120 --> 00:26:28.900
+Jitendra K: So, prediction is always based upon certain scale.
+
+231
+00:26:29.990 --> 00:26:34.649
+Jitendra K: You will say, this is my upper confidence, this is my… sorry, lower confidence, this is my upper confidence.
+
+232
+00:26:35.370 --> 00:26:39.380
+Jitendra K: You will have a range of confidence when you're using a regression.
+
+233
+00:26:40.120 --> 00:26:43.440
+Jitendra K: Same thing applies here. When you're thinking of range.
+
+234
+00:26:43.630 --> 00:26:48.640
+Jitendra K: You have to use a slack variable with a margin based errors.
+
+235
+00:26:48.820 --> 00:26:50.959
+Jitendra K: Which will be able to reduce this.
+
+236
+00:26:54.180 --> 00:27:00.560
+Jitendra K: Misclassification along this line when you're drawing a perpendicular distance from each point to this hyperplane.
+
+237
+00:27:02.100 --> 00:27:04.860
+Jitendra K: So that is what support vector regression does.
+
+238
+00:27:05.080 --> 00:27:07.799
+Jitendra K: Now, how SVR is different from linear regression?
+
+239
+00:27:11.060 --> 00:27:14.799
+Jitendra K: So we understand the regression, linear regression equation.
+
+240
+00:27:14.980 --> 00:27:18.129
+Jitendra K: That it assumes the separation between the two classes.
+
+241
+00:27:18.550 --> 00:27:21.669
+Jitendra K: Should be in linearly… linear scale.
+
+242
+00:27:22.380 --> 00:27:26.929
+Jitendra K: But this hypothesis will be failed when you're applying a support vector regressor.
+
+243
+00:27:27.430 --> 00:27:29.060
+Jitendra K: It can or cannot be.
+
+244
+00:27:30.260 --> 00:27:34.100
+Jitendra K: That's the advantage of using support vector regression.
+
+245
+00:27:34.820 --> 00:27:37.460
+Jitendra K: To create a regression algorithm.
+
+246
+00:27:39.150 --> 00:27:44.049
+Jitendra K: So, any question on this? Anything that you would like to ask before we proceed with the example?
+
+247
+00:27:44.710 --> 00:27:46.180
+Jitendra K: Is it clear to everyone?
+
+248
+00:28:04.110 --> 00:28:11.859
+Jitendra K: Yeah, so use this, equation if somebody is asking you during the interview, To explain as we are.
+
+249
+00:28:14.810 --> 00:28:18.119
+Jitendra K: Otherwise, just… Try to keep it in your records.
+
+250
+00:28:18.360 --> 00:28:22.720
+Jitendra K: Are we going to use this equation to run any Python function? The answer is no.
+
+251
+00:28:25.600 --> 00:28:35.860
+Jitendra K: Okay, so Slack variables are supported vector in SVR. Slack variable concept will remain the same. Support vector still remain this point.
+
+252
+00:28:36.190 --> 00:28:38.810
+Jitendra K: And this will be a Slack variable, temporary support.
+
+253
+00:28:43.260 --> 00:28:44.970
+Jitendra K: like the BSF force.
+
+254
+00:28:47.330 --> 00:28:49.670
+Jitendra K: temporary stuff for Indian Army.
+
+255
+00:28:52.620 --> 00:28:57.360
+Jitendra K: Right? So this is what we are showing here, a slack variable, which will help
+
+256
+00:28:58.850 --> 00:29:04.270
+Jitendra K: Support vector machine, or support vector data points, to come up with a conclusion.
+
+257
+00:29:07.320 --> 00:29:19.589
+Jitendra K: Is Slack variable is a margin? No, Slack variable is not directly a margin, but it is helping, and to an extent. So the answer is yes, they are helping to create a maximum margin. The slack variable is just, like.
+
+258
+00:29:22.620 --> 00:29:29.590
+Jitendra K: You can say that's kind of a allocator, or it's not a part of… it does not found in the descend boundary, you can see?
+
+259
+00:29:29.880 --> 00:29:33.310
+Jitendra K: They're not a part of Editian boundary, so they're outside edition boundary.
+
+260
+00:29:33.890 --> 00:29:41.009
+Jitendra K: The slack variable in the support vector machine measure the distance for a data point that falls outside the acceptable error margin.
+
+261
+00:29:42.930 --> 00:29:46.100
+Jitendra K: So, it is very useful when you are using
+
+262
+00:29:46.910 --> 00:29:50.209
+Jitendra K: The regression, because that is what you're trying to identify.
+
+263
+00:29:50.630 --> 00:29:55.469
+Jitendra K: So, this concept of Slack variable is very simple. When you're trying to apply.
+
+264
+00:29:56.840 --> 00:30:06.480
+Jitendra K: The support vector algorithm on the top of your function, You're trying to predict You're trying to predict.
+
+265
+00:30:07.140 --> 00:30:09.859
+Jitendra K: How much permissible error that I should have?
+
+266
+00:30:10.440 --> 00:30:13.509
+Jitendra K: And that is something which we determined by the slack variable.
+
+267
+00:30:14.130 --> 00:30:16.509
+Jitendra K: how much permissible error that I can make.
+
+268
+00:30:16.940 --> 00:30:21.039
+Jitendra K: And that will be designed by this support vector, sorry, Slack variable.
+
+269
+00:30:22.560 --> 00:30:25.349
+Jitendra K: So again, I'm giving you another example.
+
+270
+00:30:29.070 --> 00:30:37.249
+Jitendra K: Let's take this example. So let's say you are creating a support vector. We will take this example in a Python notebook.
+
+271
+00:30:37.430 --> 00:30:40.780
+Jitendra K: But let's say you're creating a house pricing regression model.
+
+272
+00:30:40.970 --> 00:30:46.130
+Jitendra K: Remember, we have used, California house pricing regression model.
+
+273
+00:30:46.440 --> 00:30:50.810
+Jitendra K: Which is having certain factors like number of rooms, house prices.
+
+274
+00:30:51.270 --> 00:30:54.769
+Jitendra K: If the number of room increases, the house price also increases.
+
+275
+00:30:56.640 --> 00:30:59.410
+Jitendra K: So, based on housing riders also we have seen.
+
+276
+00:30:59.660 --> 00:31:03.730
+Jitendra K: Now, here you can see that the support vector machine, or support vector regressor.
+
+277
+00:31:03.900 --> 00:31:07.970
+Jitendra K: Show a result of a train as we are modeled on a boost on housing price data.
+
+278
+00:31:08.640 --> 00:31:10.930
+Jitendra K: Now, if I'm looking to this red line.
+
+279
+00:31:11.550 --> 00:31:14.559
+Jitendra K: So, this right line represents a line for the best fit.
+
+280
+00:31:14.700 --> 00:31:16.990
+Jitendra K: The black line represents the margin.
+
+281
+00:31:17.250 --> 00:31:18.380
+Jitendra K: of errors.
+
+282
+00:31:19.150 --> 00:31:22.269
+Jitendra K: which is start 2, which I can start advising epsilon.
+
+283
+00:31:22.970 --> 00:31:28.679
+Jitendra K: So, basically, the concept of slack variable is, is very simple. For any value that falls outside epsilon.
+
+284
+00:31:29.640 --> 00:31:33.440
+Jitendra K: We can denote It's division from the margin S.
+
+285
+00:31:34.050 --> 00:31:35.619
+Jitendra K: a factor called psi.
+
+286
+00:31:38.960 --> 00:31:47.319
+Jitendra K: So your objective will become… this… Minimization of the original problem.
+
+287
+00:31:47.770 --> 00:31:50.190
+Jitendra K: Plus, additional penalty coefficient.
+
+288
+00:31:50.470 --> 00:31:53.500
+Jitendra K: Multiply by… this factor.
+
+289
+00:31:55.050 --> 00:31:56.050
+Jitendra K: site.
+
+290
+00:31:56.150 --> 00:31:58.520
+Jitendra K: So, C is known as regulation parameter.
+
+291
+00:31:59.570 --> 00:32:04.090
+Jitendra K: And this factor… It's subjective to this constraint.
+
+292
+00:32:06.520 --> 00:32:08.440
+Jitendra K: This is a constraint that I'm employing.
+
+293
+00:32:09.690 --> 00:32:15.059
+Jitendra K: So here, What I'm trying to do is, I'm trying to find a base value of C,
+
+294
+00:32:15.510 --> 00:32:21.689
+Jitendra K: to determine the epsilon. This matrix will measure how many of the total points within our test sets
+
+295
+00:32:22.160 --> 00:32:26.439
+Jitendra K: is fall within our margin of error. The margin of error, like.
+
+296
+00:32:26.800 --> 00:32:29.249
+Jitendra K: In the… in the boundary scenarios.
+
+297
+00:32:29.660 --> 00:32:31.910
+Jitendra K: I will allow… maybe…
+
+298
+00:32:35.640 --> 00:32:39.470
+Jitendra K: Few factors, including, lineage.
+
+299
+00:32:39.970 --> 00:32:42.660
+Jitendra K: Right? So that is what maximum margin does here.
+
+300
+00:32:43.770 --> 00:32:50.029
+Jitendra K: The concept of maximum margin is to separate the two classes with a proper precision.
+
+301
+00:32:50.950 --> 00:33:01.899
+Jitendra K: So our objective is… that is to find a decision boundary so that we can reduce slack variable value. Slack variable will give us a permissible limit. We'll not reduce the slack variable.
+
+302
+00:33:02.270 --> 00:33:05.489
+Jitendra K: We'll define the permissible limit with the help of these variables.
+
+303
+00:33:07.380 --> 00:33:08.790
+Jitendra K: will not reduce.
+
+304
+00:33:09.140 --> 00:33:11.070
+Jitendra K: We'll define the permissible limit.
+
+305
+00:33:12.140 --> 00:33:18.660
+Jitendra K: Like, sometimes, you have seen India-Pakistan border open for some… during 1999.
+
+306
+00:33:19.260 --> 00:33:23.239
+Jitendra K: Or some… some cash shares or some… something. Not properly seized.
+
+307
+00:33:23.760 --> 00:33:27.789
+Jitendra K: So, assume it like a Slack variable. Some event can be permissible.
+
+308
+00:33:29.920 --> 00:33:32.379
+Jitendra K: So, something of that sort you can think of.
+
+309
+00:33:33.060 --> 00:33:36.490
+Jitendra K: So, Slack variable will help you to define the margin.
+
+310
+00:33:36.840 --> 00:33:43.720
+Jitendra K: And Si, or Slack variable, will help you to quantify the Permissible errors.
+
+311
+00:33:44.970 --> 00:33:46.330
+Jitendra K: Within that boundary.
+
+312
+00:33:58.080 --> 00:34:03.499
+Jitendra K: Alright, so with that, let's take an example of implementation part now.
+
+313
+00:34:04.080 --> 00:34:06.140
+Jitendra K: Now, we'll take one example.
+
+314
+00:34:06.650 --> 00:34:10.810
+Jitendra K: Which is, I'm not going to take Boston Housing, but I will take,
+
+315
+00:34:11.659 --> 00:34:17.030
+Jitendra K: our famous, data site, which is, California Housing Data… problem.
+
+316
+00:34:17.489 --> 00:34:21.870
+Jitendra K: So, I hope you're aware about the California housing data problem.
+
+317
+00:34:26.210 --> 00:34:30.719
+Jitendra K: If not, then this is… the dataset that I'm talking about.
+
+318
+00:34:34.500 --> 00:34:38.880
+Jitendra K: So you can see that this data comprise of 20,640 samples.
+
+319
+00:34:39.690 --> 00:34:41.239
+Jitendra K: With all the features.
+
+320
+00:34:41.340 --> 00:34:43.130
+Jitendra K: Coming under real values.
+
+321
+00:34:44.659 --> 00:34:50.409
+Jitendra K: And, these are the features. Let me show you the features, if I have…
+
+322
+00:34:55.610 --> 00:34:57.709
+Jitendra K: Okay, should have been Kirk Cagle.
+
+323
+00:35:05.390 --> 00:35:10.470
+Jitendra K: Yeah, so this is our data set, and these are the features. We've got some 10 features.
+
+324
+00:35:10.760 --> 00:35:13.379
+Jitendra K: All our real value numbers.
+
+325
+00:35:13.630 --> 00:35:19.109
+Jitendra K: Including the output, which is the median income… sorry, median house value.
+
+326
+00:35:20.840 --> 00:35:22.519
+Jitendra K: Which is not target predictor.
+
+327
+00:35:23.680 --> 00:35:27.920
+Jitendra K: Now, we will use this dataset to create a regression model.
+
+328
+00:35:28.340 --> 00:35:34.780
+Jitendra K: And, the idea is, we will use support vector regressor, just because we are learning it right now.
+
+329
+00:35:35.160 --> 00:35:40.530
+Jitendra K: And, we'll try to run the support vector regressor on the top of this dataset.
+
+330
+00:35:40.950 --> 00:35:42.769
+Jitendra K: Now, let me open my collab.
+
+331
+00:36:09.200 --> 00:36:12.840
+Jitendra K: Okay, I will start with the import of the packages.
+
+332
+00:36:13.100 --> 00:36:17.140
+Jitendra K: So, first I will import numpy, Pandasmatplot Seabond.
+
+333
+00:36:17.670 --> 00:36:23.240
+Jitendra K: I will also use hyperparameter tuning in this example, so that's the reason I'm using grid search.
+
+334
+00:36:23.850 --> 00:36:29.580
+Jitendra K: And performing some standardization on my variables, because these variables are…
+
+335
+00:36:29.750 --> 00:36:33.430
+Jitendra K: quite, distance apart, so I would like to perform a standardization.
+
+336
+00:36:33.790 --> 00:36:41.359
+Jitendra K: Now, here, one thing that I would like to talk about is SVR class, which is a part of your scikit-len package. Now, this is similar to SVC.
+
+337
+00:36:41.510 --> 00:36:48.180
+Jitendra K: If you replace SV… as we are with SVC, it will also import SVC from the same package.
+
+338
+00:36:48.480 --> 00:36:53.800
+Jitendra K: That means the same class will have both placeholder, whereas we are an SVC.
+
+339
+00:36:54.260 --> 00:36:59.760
+Jitendra K: Now, here I'm importing, the usual, what do you call, the cost function of linear regression.
+
+340
+00:36:59.930 --> 00:37:07.470
+Jitendra K: Also called general regression. So I'm using mean square errors, R squared, mean absolute errors. There's no spatial function I'm going to use.
+
+341
+00:37:07.950 --> 00:37:13.160
+Jitendra K: The one that I show you in the screen, in the… in the whiteboard, it does not…
+
+342
+00:37:13.930 --> 00:37:15.889
+Jitendra K: Need to explicitly mention.
+
+343
+00:37:16.080 --> 00:37:18.720
+Jitendra K: Right, so those errors will still…
+
+344
+00:37:18.980 --> 00:37:27.169
+Jitendra K: generic across aggression. We are not going to discover or invent a new cross function for aggression, we will rely on the old regression.
+
+345
+00:37:27.320 --> 00:37:28.440
+Jitendra K: Methodologies.
+
+346
+00:37:28.860 --> 00:37:31.230
+Jitendra K: So let me quickly compile this.
+
+347
+00:37:33.560 --> 00:37:37.829
+Jitendra K: Let me set up the style for better visibility of plots.
+
+348
+00:37:38.920 --> 00:37:43.690
+Jitendra K: So I'm just enabling the… lines.
+
+349
+00:37:45.930 --> 00:38:04.109
+Jitendra K: I will talk about some concepts, like when to use as VR, when not to use. So this is what I've created. So, support vector machine, or support vector regressor concept is to… is a function that deviates from actual target at mostly epsilon, and it tries to find the best line with a threshold.
+
+350
+00:38:04.520 --> 00:38:09.940
+Jitendra K: And the point outside this tube considered to be an error, so we would like to reduce this error with the help of slack variables.
+
+351
+00:38:10.190 --> 00:38:17.580
+Jitendra K: Now, I've just given the tolerance limit and other things that we have just now discussed, the types of kernel, and what I'll be trying to…
+
+352
+00:38:18.600 --> 00:38:23.350
+Jitendra K: optimize as a hyperparameter. So we are going to optimize C, epsilon, and gamma.
+
+353
+00:38:23.780 --> 00:38:29.779
+Jitendra K: And I would like to use a range of karma between high range to low range to make sure that my…
+
+354
+00:38:30.150 --> 00:38:33.779
+Jitendra K: Data may not overfit, but at the same time, it's not underfit.
+
+355
+00:38:34.550 --> 00:38:40.549
+Jitendra K: So that is what I'm going to use as a hyperparameter. Now, when to use SVR? When you have a small to medium-sized data set.
+
+356
+00:38:40.850 --> 00:38:47.470
+Jitendra K: You know that nonlinear relationship exists between the data points, which is, clearly a
+
+357
+00:38:54.490 --> 00:38:56.020
+Jitendra K: Then you have to choose.
+
+358
+00:39:02.810 --> 00:39:11.470
+Jitendra K: Between… linear and… SVR, linear regression versus SVR.
+
+359
+00:39:12.530 --> 00:39:15.009
+Jitendra K: Right? So when your hypotheses are failing.
+
+360
+00:39:17.130 --> 00:39:19.189
+Jitendra K: The 7 hypothesis that we have.
+
+361
+00:39:19.420 --> 00:39:24.000
+Jitendra K: discuss in the, I think, few clubs back.
+
+362
+00:39:24.120 --> 00:39:26.680
+Jitendra K: then you should apply as we are, directly.
+
+363
+00:39:27.190 --> 00:39:35.249
+Jitendra K: And you can able to make your production more robust, even with outliers and higher dimension space. That is what this algorithm will be useful for.
+
+364
+00:39:36.850 --> 00:39:41.770
+Jitendra K: Now, let me quickly… Load and explore the data.
+
+365
+00:39:43.330 --> 00:39:47.779
+Jitendra K: So I would like to first… Generate the data.
+
+366
+00:39:51.640 --> 00:39:54.709
+Jitendra K: So this is my dataset, so I've got all the attributes.
+
+367
+00:39:57.440 --> 00:40:01.289
+Jitendra K: So, total variable that I'm having, the mean value of these
+
+368
+00:40:01.730 --> 00:40:04.169
+Jitendra K: It's close to this value, median is this.
+
+369
+00:40:04.720 --> 00:40:13.659
+Jitendra K: And the standard division is this. And they are all in 100,000, that means 1 lakh range of INR, but they are USD, so that's why it is 1 million.
+
+370
+00:40:13.980 --> 00:40:16.900
+Jitendra K: 19 million, 17 million, 10 million.
+
+371
+00:40:17.280 --> 00:40:20.790
+Jitendra K: House price value, which is a target value of distribution.
+
+372
+00:40:21.530 --> 00:40:27.810
+Jitendra K: Now, I would like to prepare my data. So, to prepare my data, I have to consider standardization first.
+
+373
+00:40:28.010 --> 00:40:30.470
+Jitendra K: So, to standardize my data, I'm fitting
+
+374
+00:40:32.860 --> 00:40:37.199
+Jitendra K: Okay, now one thing I would like to talk about, there's something called data leakage.
+
+375
+00:40:39.130 --> 00:40:42.380
+Jitendra K: Now, when you're performing any algorithm, or…
+
+376
+00:40:42.760 --> 00:40:48.930
+Jitendra K: Or maybe you're performing any type of classification or regression exercise.
+
+377
+00:40:49.690 --> 00:40:56.589
+Jitendra K: Do remember, when you're doing, A standard skill… oh, sorry, standardization of your data set.
+
+378
+00:40:58.110 --> 00:41:00.759
+Jitendra K: You will always have a potential of data leak.
+
+379
+00:41:01.070 --> 00:41:02.320
+Jitendra K: Now, what is data leak?
+
+380
+00:41:04.110 --> 00:41:06.049
+Jitendra K: Now, data leak is a problem.
+
+381
+00:41:07.050 --> 00:41:14.029
+Jitendra K: When you're exposing your labels, To the algorithm prior to.
+
+382
+00:41:14.530 --> 00:41:15.860
+Jitendra K: generalization.
+
+383
+00:41:16.230 --> 00:41:22.219
+Jitendra K: So data leakage is always being a problem with machine learning. So when you're performing a split.
+
+384
+00:41:23.820 --> 00:41:30.010
+Jitendra K: Try to treat your X underscore train Separately with wire underscore test.
+
+385
+00:41:32.090 --> 00:41:34.830
+Jitendra K: So data leakage is always a problem.
+
+386
+00:41:37.510 --> 00:41:38.979
+Jitendra K: Let me explain.
+
+387
+00:41:41.100 --> 00:41:42.230
+Jitendra K: a game.
+
+388
+00:41:46.740 --> 00:41:49.289
+Jitendra K: So, let me show you with the help of…
+
+389
+00:41:58.470 --> 00:42:00.390
+Jitendra K: The charts for a second.
+
+390
+00:42:10.880 --> 00:42:13.630
+Jitendra K: There are 4 types of data leakage that you are going to have.
+
+391
+00:42:13.900 --> 00:42:16.210
+Jitendra K: Now, first and foremost thing, what is data leakage?
+
+392
+00:42:17.880 --> 00:42:22.349
+Jitendra K: So, our data leakage… In machine learning, it's nothing but…
+
+393
+00:42:22.720 --> 00:42:30.500
+Jitendra K: As I mentioned, we are going to construct everything as a pipeline in data modeling. In machine learning, everything will look like a pipeline.
+
+394
+00:42:30.680 --> 00:42:34.940
+Jitendra K: So assume these pipelines are nothing but your model building blocks.
+
+395
+00:42:35.310 --> 00:42:42.759
+Jitendra K: So, data leakage is often associated with a security risk in application, where sensitive data ends up into wrong hands.
+
+396
+00:42:43.160 --> 00:42:47.189
+Jitendra K: But in the world of machine learning, it has been completely different meaning.
+
+397
+00:42:49.340 --> 00:42:56.279
+Jitendra K: So, we'll see how… what are the types of data leakage. What is data leakage, first of all? So, data leakage is a situation
+
+398
+00:42:56.530 --> 00:43:01.609
+Jitendra K: where the information that should not be accessible to the ML model during training process.
+
+399
+00:43:02.050 --> 00:43:04.039
+Jitendra K: Become a part of a training dataset.
+
+400
+00:43:04.780 --> 00:43:12.380
+Jitendra K: So it's as simple as that. Let's say you're going to appear in the final exam, In December 2026,
+
+401
+00:43:17.900 --> 00:43:24.149
+Jitendra K: December 2026, but I have given you a hint that… out of…
+
+402
+00:43:24.330 --> 00:43:30.730
+Jitendra K: 10 questions, 8 questions will appear from this topic. Or maybe I have given… shared you the question in the January itself.
+
+403
+00:43:33.490 --> 00:43:39.469
+Jitendra K: So the remaining 11 months, you will just do a time pass, because you already know that I am going to pass.
+
+404
+00:43:39.930 --> 00:43:43.079
+Jitendra K: The exam with the highest score, 80% is more than enough.
+
+405
+00:43:45.240 --> 00:43:46.040
+Jitendra K: Right?
+
+406
+00:43:46.370 --> 00:43:50.890
+Jitendra K: So, the same fundamental applied to a machine learning concept.
+
+407
+00:43:51.340 --> 00:43:57.439
+Jitendra K: So, data leakage refers to a situation where the information that should not be accessible to the machine learning model during training
+
+408
+00:43:57.780 --> 00:43:59.779
+Jitendra K: Become a part of a training dataset.
+
+409
+00:44:00.450 --> 00:44:03.190
+Jitendra K: And one of the problems associated with the labels.
+
+410
+00:44:03.660 --> 00:44:10.980
+Jitendra K: So you're passing the labels… To the model during training, which is fine, But…
+
+411
+00:44:11.330 --> 00:44:18.550
+Jitendra K: you're also exposing the label during test data. Now, this misleading information artificially impacted the model performance.
+
+412
+00:44:22.810 --> 00:44:25.170
+Jitendra K: So, there are 4 types of data leakage.
+
+413
+00:44:26.050 --> 00:44:28.700
+Jitendra K: The first one is called Target Data Leakage.
+
+414
+00:44:33.360 --> 00:44:35.100
+Jitendra K: Target data leakage.
+
+415
+00:44:35.720 --> 00:44:37.189
+Jitendra K: I will talk about this.
+
+416
+00:44:38.190 --> 00:44:40.549
+Jitendra K: So, first is a target data leakage.
+
+417
+00:44:47.650 --> 00:44:50.379
+Jitendra K: The second one is called feature data leakage.
+
+418
+00:44:55.780 --> 00:44:57.840
+Jitendra K: The third one is called Train Test.
+
+419
+00:44:59.750 --> 00:45:02.010
+Jitendra K: Data leakage or contamination.
+
+420
+00:45:04.510 --> 00:45:07.080
+Jitendra K: The fourth type is called temporal cutoff.
+
+421
+00:45:12.710 --> 00:45:18.440
+Jitendra K: Now, target data leakage means… let's take a machine learning model, which will predict, let's say.
+
+422
+00:45:19.200 --> 00:45:26.290
+Jitendra K: I'm just giving a hypothetical example. Let's say I'm creating a machine learning model that predicts whether a bank customer will repay their loan.
+
+423
+00:45:26.780 --> 00:45:32.970
+Jitendra K: Or not. So I'm having a feature like repayment status, which shows that whether the customer has already paid.
+
+424
+00:45:33.500 --> 00:45:39.829
+Jitendra K: And it will cause a data leakage because the repayment status is linked to the outcome we are trying to predict.
+
+425
+00:45:40.010 --> 00:45:43.079
+Jitendra K: So the model knows the answer before it is making the prediction.
+
+426
+00:45:44.030 --> 00:45:48.570
+Jitendra K: So, when the models have access to the features that are directly related to the outcome.
+
+427
+00:45:49.690 --> 00:45:53.319
+Jitendra K: Including the futuristic repayment of the loan, the model will…
+
+428
+00:45:53.540 --> 00:45:56.450
+Jitendra K: Learn that pattern, similar to this.
+
+429
+00:45:57.840 --> 00:46:01.790
+Jitendra K: You already know that 8 questions will arrive, so I will learn that questions.
+
+430
+00:46:03.180 --> 00:46:06.820
+Jitendra K: That is 11 months, whatever you are going to do.
+
+431
+00:46:07.150 --> 00:46:11.150
+Jitendra K: That depends upon your appetite to acquire more knowledge.
+
+432
+00:46:12.100 --> 00:46:14.690
+Jitendra K: But at least you are getting 80%, which is fine.
+
+433
+00:46:15.440 --> 00:46:27.510
+Jitendra K: Why you will waste the time in studying, right? So that's the whole idea of feature learning, feature leakage. So when it occurs, the feature engineering introduced a variable that contained the hidden dependency on the target variable.
+
+434
+00:46:29.230 --> 00:46:41.979
+Jitendra K: So the impact would be overfitting can occur during the resilience or a leaked feature, and make that… make the model more prone to fluctuation and less stable over the time. So let's say if I change this approach.
+
+435
+00:46:42.340 --> 00:46:49.740
+Jitendra K: And this is just, I have deliberately said that this eight questions will appear, and in the final December paper, I flipped the paper.
+
+436
+00:46:50.470 --> 00:46:53.139
+Jitendra K: This will be a big surprise for everyone, right?
+
+437
+00:46:53.390 --> 00:46:56.769
+Jitendra K: The same thing when you're using these
+
+438
+00:46:57.260 --> 00:47:00.550
+Jitendra K: Features, which has been leaked inside your model.
+
+439
+00:47:00.780 --> 00:47:04.839
+Jitendra K: Your model will fail to acquire a new patterns capability.
+
+440
+00:47:06.150 --> 00:47:08.540
+Jitendra K: So the impact would be your model is worth it.
+
+441
+00:47:08.650 --> 00:47:09.650
+Jitendra K: your data.
+
+442
+00:47:14.950 --> 00:47:20.950
+Jitendra K: Second type of, leakage is feature leakage. So when you talk about feature leakage.
+
+443
+00:47:21.920 --> 00:47:29.169
+Jitendra K: That will happen when you're passing any feature, Correlated with a target feature.
+
+444
+00:47:29.370 --> 00:47:31.120
+Jitendra K: When the target variable
+
+445
+00:47:34.700 --> 00:47:37.340
+Jitendra K: It's highly correlated with the feature.
+
+446
+00:47:38.590 --> 00:47:43.439
+Jitendra K: And you're still considering them as a part of your training samples, that is where the leakage will happen.
+
+447
+00:47:44.600 --> 00:47:46.549
+Jitendra K: So this information will be leaked.
+
+448
+00:47:47.340 --> 00:47:52.390
+Jitendra K: Now, is machine learning is learning anything from this leakage? The answer is no.
+
+449
+00:47:52.720 --> 00:47:57.340
+Jitendra K: It is constructing… an RBF function.
+
+450
+00:48:00.660 --> 00:48:03.750
+Jitendra K: That will fit to this target outcome optimization.
+
+451
+00:48:04.170 --> 00:48:05.720
+Jitendra K: So it is also learning.
+
+452
+00:48:10.840 --> 00:48:15.760
+Jitendra K: The third type of leakage is called strain test contamination.
+
+453
+00:48:16.040 --> 00:48:20.070
+Jitendra K: So, let's consider you're building a model to predict whether the customer will churn.
+
+454
+00:48:20.540 --> 00:48:24.490
+Jitendra K: Based upon their account uses. So let's say you are using for telecom.
+
+455
+00:48:25.440 --> 00:48:30.970
+Jitendra K: You have a data of customers, which include their mobile log, subscription rate.
+
+456
+00:48:31.520 --> 00:48:34.109
+Jitendra K: Hours of call that they are making.
+
+457
+00:48:34.670 --> 00:48:41.070
+Jitendra K: Including their internet users, WhatsApp, etc, WhatsApp call, Facebook time, screen time.
+
+458
+00:48:41.230 --> 00:48:44.020
+Jitendra K: How much data point they are consuming on a day basis.
+
+459
+00:48:44.460 --> 00:48:49.250
+Jitendra K: Let's say you're trying to predict the churn probability of a customer based upon these factors.
+
+460
+00:48:50.930 --> 00:48:53.359
+Jitendra K: Now, when you say churn probability, it's a range.
+
+461
+00:48:54.390 --> 00:48:59.299
+Jitendra K: You cannot say 90% chance that customer will churn, but you'll say 90-95% chance.
+
+462
+00:48:59.570 --> 00:49:01.080
+Jitendra K: That customer will churn.
+
+463
+00:49:02.290 --> 00:49:09.149
+Jitendra K: So, basically, When you're performing such sort of analysis, maybe you have accidentally included data from the test set.
+
+464
+00:49:09.650 --> 00:49:14.219
+Jitendra K: When pre-processing the training set. That means you're calculating the mean
+
+465
+00:49:14.930 --> 00:49:18.919
+Jitendra K: Normalization imputation for both training and test data, together.
+
+466
+00:49:19.480 --> 00:49:25.170
+Jitendra K: So this means that these are… the model will have a prior knowledge of your test data during training itself.
+
+467
+00:49:26.300 --> 00:49:31.370
+Jitendra K: During your training, Process, the model have exposure to the test data samples.
+
+468
+00:49:33.160 --> 00:49:37.470
+Jitendra K: And that is called… Train, test, contamination.
+
+469
+00:49:38.150 --> 00:49:41.710
+Jitendra K: So always try to separate the training and the test data.
+
+470
+00:49:42.290 --> 00:49:46.110
+Jitendra K: And try to perform the analysis separately.
+
+471
+00:49:51.240 --> 00:49:53.500
+Jitendra K: Now, the last point is temporal cutoff.
+
+472
+00:49:54.450 --> 00:50:00.339
+Jitendra K: So, considering a point that you're creating a model for stock prices based upon historical data.
+
+473
+00:50:01.180 --> 00:50:07.010
+Jitendra K: So you're trying to predict the stock price in the upcoming months or days.
+
+474
+00:50:07.610 --> 00:50:11.970
+Jitendra K: So when you use the data up to current date for both training and test.
+
+475
+00:50:12.080 --> 00:50:19.140
+Jitendra K: If we include a future stock price, example data from the period after your model training phase is over.
+
+476
+00:50:19.920 --> 00:50:24.890
+Jitendra K: So the model will… Indeliberately learned pattern from the future.
+
+477
+00:50:26.860 --> 00:50:29.209
+Jitendra K: So, it will occur when the future data
+
+478
+00:50:29.340 --> 00:50:33.180
+Jitendra K: Which should not be available during the training phase, is used by the model.
+
+479
+00:50:34.470 --> 00:50:38.290
+Jitendra K: But you're giving that, I'm using…
+
+480
+00:50:39.110 --> 00:50:41.200
+Jitendra K: Let's say a data point's like this.
+
+481
+00:50:43.960 --> 00:50:52.349
+Jitendra K: January… to December… 2025… And I'm also putting January 2026 data
+
+482
+00:50:53.420 --> 00:50:57.000
+Jitendra K: to our training examples. But this is what I would like to predict.
+
+483
+00:50:58.520 --> 00:51:01.690
+Jitendra K: Right? So that is what… it is called temporal cutoff.
+
+484
+00:51:02.300 --> 00:51:06.049
+Jitendra K: So you should be able to make sure that when you are using
+
+485
+00:51:06.560 --> 00:51:10.260
+Jitendra K: These fundamentals, you should isolate your data.
+
+486
+00:51:10.820 --> 00:51:13.779
+Jitendra K: From being accidentally used by the training.
+
+487
+00:51:14.690 --> 00:51:15.690
+Jitendra K: algorithm.
+
+488
+00:51:16.740 --> 00:51:19.639
+Jitendra K: And that is what the data leakage is all about.
+
+489
+00:51:21.030 --> 00:51:24.950
+Jitendra K: So, here I'm preventing the data leakage by splitting the data first.
+
+490
+00:51:25.660 --> 00:51:31.870
+Jitendra K: And then fitting my transformation on X train and Xtest.
+
+491
+00:51:33.680 --> 00:51:35.049
+Jitendra K: So let me run this.
+
+492
+00:51:36.370 --> 00:51:42.380
+Jitendra K: So this is our data leakage, avoidation. Sorry, I would say I'm avoiding the data leakage here.
+
+493
+00:51:42.690 --> 00:51:49.190
+Jitendra K: Now, I would like to start with… the… Support vector classifier, regressor.
+
+494
+00:51:50.390 --> 00:51:53.679
+Jitendra K: So, first and foremost thing, I would like to apply kernels.
+
+495
+00:51:53.780 --> 00:51:55.370
+Jitendra K: I have 3 choices.
+
+496
+00:51:55.990 --> 00:52:02.299
+Jitendra K: linear kernel, radial base function, and the polynomial kernel. And I'm creating 3 models.
+
+497
+00:52:02.550 --> 00:52:05.149
+Jitendra K: So I would like to compare the result of three models.
+
+498
+00:52:05.530 --> 00:52:07.780
+Jitendra K: Three models using 3 different kernels.
+
+499
+00:52:08.120 --> 00:52:11.329
+Jitendra K: And then I would like to fit in certain…
+
+500
+00:52:11.500 --> 00:52:15.399
+Jitendra K: parameters for polynomial, I will consider degree to be 3.
+
+501
+00:52:15.980 --> 00:52:20.049
+Jitendra K: I'm changing the degree from 3 to 2, then running it.
+
+502
+00:52:21.580 --> 00:52:26.110
+Jitendra K: And then I would like to calculate the results using R-square RMSE.
+
+503
+00:52:26.420 --> 00:52:28.529
+Jitendra K: And want to see the result.
+
+504
+00:52:29.260 --> 00:52:30.580
+Jitendra K: And compare them.
+
+505
+00:52:30.830 --> 00:52:37.100
+Jitendra K: So, the result that I'm getting, I can compare the score…
+
+506
+00:52:37.620 --> 00:52:41.069
+Jitendra K: So I can see the result for linear kernel looks like…
+
+507
+00:52:41.740 --> 00:52:47.069
+Jitendra K: Pretty good. R-square is awesome. 99.38, 99.48.
+
+508
+00:52:47.860 --> 00:52:50.829
+Jitendra K: Training RMSE is 0.79.
+
+509
+00:52:51.000 --> 00:52:53.390
+Jitendra K: Test RMSC 0.76.
+
+510
+00:52:53.640 --> 00:52:56.980
+Jitendra K: Mean absolute error is 0.61.
+
+511
+00:52:57.860 --> 00:53:05.050
+Jitendra K: And, the support vector which has been used is… 3645.
+
+512
+00:53:05.800 --> 00:53:08.130
+Jitendra K: If I compare this result with this one.
+
+513
+00:53:11.760 --> 00:53:14.569
+Jitendra K: Okay, if I have to compare these four results, right?
+
+514
+00:53:14.870 --> 00:53:25.620
+Jitendra K: So I can say that after comparison of these results, I can definitely say that RBF kernel.
+
+515
+00:53:26.420 --> 00:53:31.249
+Jitendra K: Is giving me slightly good result, because it is not overfitted.
+
+516
+00:53:31.420 --> 00:53:33.010
+Jitendra K: But not underfit either.
+
+517
+00:53:33.160 --> 00:53:38.189
+Jitendra K: And the kernel, or the supporting vector it is using, is slightly less.
+
+518
+00:53:43.360 --> 00:53:46.509
+Jitendra K: So, now the question is, how should we compare?
+
+519
+00:53:49.050 --> 00:53:55.439
+Jitendra K: So basically, the idea is, the linear SVRs, this is decisively best model for this problem.
+
+520
+00:53:56.600 --> 00:54:00.070
+Jitendra K: Because it outperformed RBF in terms of R-square value.
+
+521
+00:54:02.740 --> 00:54:08.170
+Jitendra K: So, I can say that the model explained 99% of the variance on unseen data.
+
+522
+00:54:08.920 --> 00:54:15.909
+Jitendra K: And if I look into a deviation of test versus strain, it is less as compared to this. Almost similar, but…
+
+523
+00:54:17.070 --> 00:54:18.930
+Jitendra K: I would say, still, it is less.
+
+524
+00:54:20.890 --> 00:54:27.060
+Jitendra K: So, train and test data scores are nearly identical, that means there's no traces of overfitting. Errors are very small.
+
+525
+00:54:27.440 --> 00:54:32.380
+Jitendra K: And 3645 kernel… Point lies close to the margin.
+
+526
+00:54:34.810 --> 00:54:42.210
+Jitendra K: In case of RBF, I can see that it is… Introducing a nonlinearity.
+
+527
+00:54:43.310 --> 00:54:45.560
+Jitendra K: But it is improving the fit.
+
+528
+00:54:45.770 --> 00:54:50.790
+Jitendra K: I mean, it is not overfit, but if I compare the overall score, R-square, it is less.
+
+529
+00:54:52.400 --> 00:55:06.280
+Jitendra K: the model is unable to exploit nonlinear structure because there's no much nonlinearity to learn from the algorithm. That means you're giving an easy task to this kernel, and that's why it is failing in this case.
+
+530
+00:55:09.530 --> 00:55:22.370
+Jitendra K: Polynomial kernel, I would say it is even not worth to even look into the result. This is much, much lesser than the above results, with a high overfitting as compared to. So we have to just compare these two kernels.
+
+531
+00:55:22.650 --> 00:55:25.719
+Jitendra K: I would say linear kernel is the winner for this.
+
+532
+00:55:27.080 --> 00:55:36.879
+Jitendra K: Now, why linear kernel beats RBF, or polynomial kernel? The reason being is the features are strong, the signals are well-structured, and it is low noise.
+
+533
+00:55:37.120 --> 00:55:41.599
+Jitendra K: And mostly linearly separable in the feature space. That's the reason it is.
+
+534
+00:55:41.830 --> 00:55:45.329
+Jitendra K: Slightly better generalized in terms of linear kernel only.
+
+535
+00:55:47.410 --> 00:55:52.769
+Jitendra K: Now, we have seen that there are a few more factors we should determine.
+
+536
+00:55:53.650 --> 00:55:55.350
+Jitendra K: the algorithm efficiency.
+
+537
+00:55:55.540 --> 00:55:58.230
+Jitendra K: And these factors are called hyperparameter.
+
+538
+00:55:58.770 --> 00:56:02.680
+Jitendra K: Now, we will try to get an opportunity if I'm using a linear kernel.
+
+539
+00:56:03.190 --> 00:56:06.459
+Jitendra K: Can I use optimal value of C?
+
+540
+00:56:06.880 --> 00:56:08.560
+Jitendra K: Epsilon and gamma.
+
+541
+00:56:10.540 --> 00:56:15.080
+Jitendra K: And see how it is coming along. But C epsilon gamma is a part of RBF.
+
+542
+00:56:15.630 --> 00:56:20.690
+Jitendra K: So, in a nutshell, I'm picking linear kernel in the first iteration.
+
+543
+00:56:20.880 --> 00:56:24.489
+Jitendra K: But I'm still trying to improve RBF, radial waste function.
+
+544
+00:56:24.810 --> 00:56:27.770
+Jitendra K: So here I'm saying that I would like to run RBF kernel.
+
+545
+00:56:28.300 --> 00:56:34.740
+Jitendra K: Try to improvise… improvise the outcome of the algorithm by fine-tuning these three parameters using grid search.
+
+546
+00:56:35.290 --> 00:56:40.200
+Jitendra K: Let's see how it works. It will take some time to optimally run this.
+
+547
+00:56:48.400 --> 00:56:53.550
+Jitendra K: So once it's generalized, then you'll be able to see the result, and compare this result with the previous
+
+548
+00:56:54.020 --> 00:56:55.150
+Jitendra K: iteration.
+
+549
+00:57:39.990 --> 00:57:43.750
+Jitendra K: It's not linear regression, it's linear kernel I'm talking about.
+
+550
+00:57:44.840 --> 00:57:46.650
+Jitendra K: You're not using linear regression.
+
+551
+00:58:34.520 --> 00:58:36.900
+Jitendra K: It will take some more time, I think.
+
+552
+01:00:25.170 --> 01:00:29.540
+Jitendra K: Yes, the best way to do is to plot your data points.
+
+553
+01:00:30.160 --> 01:00:34.309
+Jitendra K: You can plot your data points and understand the tendency of the data.
+
+554
+01:00:34.810 --> 01:00:39.309
+Jitendra K: And then take a call whether they are linearly following or nonlinearly separable.
+
+555
+01:00:40.890 --> 01:00:44.289
+Jitendra K: So, best way is to plot. You perform an ADA on the top of it.
+
+556
+01:02:06.550 --> 01:02:08.920
+Jitendra K: It is taking some more time.
+
+557
+01:02:11.020 --> 01:02:12.269
+Jitendra K: It's 5 minutes…
+
+558
+01:02:20.990 --> 01:02:23.940
+Jitendra K: Kill this kernel, and try to…
+
+559
+01:02:27.540 --> 01:02:32.580
+Jitendra K: Find out… On the existing models.
+
+560
+01:02:45.880 --> 01:02:51.330
+Jitendra K: Okay, I have to find it out, this as well… Change everything.
+
+561
+01:03:08.180 --> 01:03:09.600
+Jitendra K: Let me reduce this…
+
+562
+01:05:33.060 --> 01:05:34.760
+Jitendra K: Okay, it does work.
+
+563
+01:05:35.290 --> 01:05:38.679
+Jitendra K: So I'm getting the parameters to be this tree.
+
+564
+01:05:38.920 --> 01:05:40.100
+Jitendra K: Which is fine.
+
+565
+01:05:43.600 --> 01:05:46.969
+Jitendra K: Now, I would like to analyze the outcome, so I've got
+
+566
+01:05:47.820 --> 01:05:54.880
+Jitendra K: 3,379, 84.47% of supporting vectors, which is a part of my algorithm.
+
+567
+01:05:55.260 --> 01:05:57.910
+Jitendra K: So, now I would like to visualize…
+
+568
+01:06:00.240 --> 01:06:05.710
+Jitendra K: the outcome, and then I will try to see the features, which has been used as important features.
+
+569
+01:06:05.900 --> 01:06:07.549
+Jitendra K: So first, let me analyze.
+
+570
+01:06:11.850 --> 01:06:14.370
+Jitendra K: Okay, so this is the actual R-square.
+
+571
+01:06:15.080 --> 01:06:17.820
+Jitendra K: This is what my distribution of residual looks like.
+
+572
+01:06:18.410 --> 01:06:21.680
+Jitendra K: These are the comparison of the three kernels.
+
+573
+01:06:22.020 --> 01:06:25.429
+Jitendra K: We already know that linear kernel is performing really good.
+
+574
+01:06:25.860 --> 01:06:29.409
+Jitendra K: Then we have, RMSE comparison, and then…
+
+575
+01:06:30.030 --> 01:06:34.230
+Jitendra K: Last but not least, the support vector, which has been used by the algorithm.
+
+576
+01:06:34.670 --> 01:06:37.259
+Jitendra K: Now, finally, I would like to generate a summary.
+
+577
+01:06:59.600 --> 01:07:03.549
+Jitendra K: Before summary, let me quickly show you the feature importance.
+
+578
+01:07:31.250 --> 01:07:37.320
+Jitendra K: So these are the feature importance. I've got house age, average number of rooms, latitude.
+
+579
+01:07:37.590 --> 01:07:40.109
+Jitendra K: Every occupancy of that flat.
+
+580
+01:07:40.730 --> 01:07:47.270
+Jitendra K: The longitude, population index, average bedroom size as the prominent features.
+
+581
+01:07:48.130 --> 01:07:49.960
+Jitendra K: So…
+
+582
+01:07:53.490 --> 01:07:55.309
+Jitendra K: Yeah, so I think this is…
+
+583
+01:07:55.740 --> 01:08:03.809
+Jitendra K: Done. Some of the errors that you're seeing on my screen is basically because of the directory structure, so let me change the directory structure.
+
+584
+01:08:04.650 --> 01:08:06.099
+Jitendra K: to my home.
+
+585
+01:08:09.300 --> 01:08:11.359
+Jitendra K: Through the store in my local…
+
+586
+01:08:12.850 --> 01:08:14.850
+Jitendra K: Because I'm running this in my…
+
+587
+01:08:15.230 --> 01:08:18.740
+Jitendra K: windsurf tool, so that's the reason you can see Claude here.
+
+588
+01:08:19.180 --> 01:08:22.980
+Jitendra K: Running in my local Windsurf white coding tool.
+
+589
+01:08:24.160 --> 01:08:29.399
+Jitendra K: I'll just change it to… Google directories.
+
+590
+01:08:33.279 --> 01:08:34.069
+Jitendra K: Yeah.
+
+591
+01:08:35.510 --> 01:08:38.590
+Jitendra K: This is running fine now, this should also run fine.
+
+592
+01:08:41.520 --> 01:08:42.279
+Jitendra K: Yeah.
+
+593
+01:08:43.149 --> 01:08:46.620
+Jitendra K: So you'll see these two files here, so… I can just…
+
+594
+01:08:48.590 --> 01:08:51.000
+Jitendra K: Refresh, and it will show both the files.
+
+595
+01:08:52.270 --> 01:08:57.339
+Jitendra K: Okay, I'm saving one file. Feature importance should be a part of…
+
+596
+01:09:26.340 --> 01:09:31.480
+Jitendra K: Okay, so let me share this code with you, and I would encourage everybody to run this.
+
+597
+01:09:32.090 --> 01:09:35.279
+Jitendra K: So this is the SVR code, support vector regressor.
+
+598
+01:09:35.689 --> 01:09:38.460
+Jitendra K: And, you just need to run this code.
+
+599
+01:09:39.000 --> 01:09:42.580
+Jitendra K: Go line by line and let me know if there's any question that you're having.
+
+600
+01:09:43.890 --> 01:09:45.649
+Jitendra K: So, I'm just sharing the code.
+
+601
+01:10:00.250 --> 01:10:09.449
+Jitendra K: So, share the code, guys. So, can you please try on your machine and let me know any difficulty in recreating this, or any doubt in understanding this code?
+
+602
+01:10:11.480 --> 01:10:15.550
+Jitendra K: So, in this code, you can see that I'm not talking about epsilon, I'm not talking about
+
+603
+01:10:15.730 --> 01:10:17.940
+Jitendra K: Ita, and all this thing.
+
+604
+01:10:18.290 --> 01:10:20.740
+Jitendra K: Right, which is internal to the algorithm.
+
+605
+01:10:21.030 --> 01:10:23.089
+Jitendra K: So we didn't talk about any…
+
+606
+01:10:23.340 --> 01:10:26.840
+Jitendra K: Such parameter, but we are talking about only 3 hyperparameters.
+
+607
+01:10:27.110 --> 01:10:30.240
+Jitendra K: C… Lambda and gamma.
+
+608
+01:10:39.020 --> 01:10:43.419
+Jitendra K: Just try to run this, and let me know if there's any questions that I can be able to help you with.
+
+609
+01:10:43.920 --> 01:10:49.049
+Jitendra K: If not, then we will take another example, and this time we will use some NLP-based examples.
+
+610
+01:10:49.440 --> 01:10:54.710
+Jitendra K: So let me know once you're done. I will be waiting for your… Revert?
+
+611
+01:18:20.040 --> 01:18:23.210
+Jitendra K: Yes, we are tuning with the help of RBF kernel.
+
+612
+01:18:23.620 --> 01:18:27.800
+Jitendra K: To see if there's any opportunity to further improve the model.
+
+613
+01:18:28.190 --> 01:18:30.669
+Jitendra K: And after fine-tuning it.
+
+614
+01:18:35.550 --> 01:18:38.409
+Jitendra K: Let me show you those layers, yeah.
+
+615
+01:18:38.850 --> 01:18:44.370
+Jitendra K: So after fine-tuning it, you can see that, we are even… Improving the score.
+
+616
+01:18:45.890 --> 01:18:47.889
+Jitendra K: Compared to the previous version.
+
+617
+01:19:05.640 --> 01:19:08.739
+Jitendra K: GridSource is an algorithm which will be able to identify
+
+618
+01:19:09.230 --> 01:19:13.530
+Jitendra K: the hyperparameter, including C, gamma, and lambda.
+
+619
+01:19:14.130 --> 01:19:18.769
+Jitendra K: As a part of your parameter search. You're plugging these features, right?
+
+620
+01:19:18.970 --> 01:19:22.649
+Jitendra K: You're saying that I'm having a range of C epsilon gamma.
+
+621
+01:19:22.980 --> 01:19:27.700
+Jitendra K: So out of these 3, 4 parameters, I would like to find out the optimal range.
+
+622
+01:19:28.220 --> 01:19:31.859
+Jitendra K: to operate. So that is what this algorithm will give you.
+
+623
+01:19:32.170 --> 01:19:35.289
+Jitendra K: Now, here it is giving you these parameters of fine-tune.
+
+624
+01:19:36.240 --> 01:19:39.119
+Jitendra K: Yes, we are tuning those parameters, that's great.
+
+625
+01:19:53.510 --> 01:19:57.569
+Jitendra K: Alright, so everybody is in the same page, are you able to run the algorithm?
+
+626
+01:19:57.860 --> 01:19:59.169
+Jitendra K: Getting the result.
+
+627
+01:20:11.660 --> 01:20:17.730
+Jitendra K: Alright, so I think, you are getting the concept of SVR. Any issue with understanding SVR?
+
+628
+01:20:23.430 --> 01:20:28.810
+Jitendra K: Is it clear to everyone what SVR does? What is the purpose of SVR? How it is working behind the scenes?
+
+629
+01:20:39.190 --> 01:20:43.199
+Jitendra K: Alright, so I think let's take a quick, 20 minutes break.
+
+630
+01:20:43.580 --> 01:20:52.099
+Jitendra K: And then when we come back, then we'll take one more example of support vector classification. And this time, I'm going to use something called an LP-based model.
+
+631
+01:20:52.260 --> 01:20:54.129
+Jitendra K: Natural language processing model.
+
+632
+01:20:54.270 --> 01:20:59.209
+Jitendra K: And the idea is, we would like to predict the sentiment scores from the sentences.
+
+633
+01:20:59.460 --> 01:21:08.140
+Jitendra K: So we use this model to predict the sentiment score, and I have to create One more… feature…
+
+634
+01:21:11.400 --> 01:21:12.809
+Jitendra K: Which is not numeric.
+
+635
+01:21:14.450 --> 01:21:17.209
+Jitendra K: And that feature is called TF Idea Bait.
+
+636
+01:21:18.560 --> 01:21:20.460
+Jitendra K: We will talk about TF-IDF.
+
+637
+01:21:21.490 --> 01:21:26.359
+Jitendra K: Which is called term frequency inverse document frequency of the sentence.
+
+638
+01:21:26.540 --> 01:21:27.779
+Jitendra K: At a world level.
+
+639
+01:21:28.370 --> 01:21:31.779
+Jitendra K: So we'll use this feature to create as VM,
+
+640
+01:21:33.810 --> 01:21:42.190
+Jitendra K: And it will predict your outcome into… to class… Which is… positive.
+
+641
+01:21:45.390 --> 01:21:47.730
+Jitendra K: And negative sentiment.
+
+642
+01:21:48.430 --> 01:21:52.640
+Jitendra K: So let's take a quick 20 minutes break, and then we'll start with this problem formulation.
+
+643
+01:21:52.770 --> 01:21:56.369
+Jitendra K: So I'll show you what is TF-IDF, how to calculate TF-IDF,
+
+644
+01:21:56.680 --> 01:22:02.460
+Jitendra K: And then, once we know what is TFIDF, we'll use the TFIDF feature to create an algorithm.
+
+645
+01:22:03.930 --> 01:22:08.390
+Jitendra K: So, thank you, and we will have a quick break, and then we'll come back.
+
+646
+01:55:21.520 --> 01:55:25.079
+Jitendra K: Hi guys, I hope you are back. Can we have a quick confirmation?
+
+647
+01:55:30.810 --> 01:55:33.190
+Jitendra K: Alright, thank you for the confirmation.
+
+648
+01:55:33.560 --> 01:55:36.579
+Jitendra K: So… yeah, there's a question which…
+
+649
+01:55:37.360 --> 01:55:42.399
+Jitendra K: This was on random. No, it's not random, but we have generated a synthetic data for this.
+
+650
+01:55:43.630 --> 01:55:47.650
+Jitendra K: So it's not random generated data, it's a synthetic data that we are using.
+
+651
+01:56:01.610 --> 01:56:08.630
+Jitendra K: Okay, now we will take one more example, and as I mentioned, we are going to continue with an LP-based problem.
+
+652
+01:56:08.910 --> 01:56:14.639
+Jitendra K: So the idea is we are going to use something called TF-IDF. So let me first explain what is TF-IDF, and then…
+
+653
+01:56:15.000 --> 01:56:19.949
+Jitendra K: We'll take this example. So first, let me explain what is TF-IDF is all about.
+
+654
+01:56:20.570 --> 01:56:28.099
+Jitendra K: Now, basically, TF-IDF stands for Term Frequency and Inverse Document Frequency, so it's a multiplicative factor.
+
+655
+01:56:28.460 --> 01:56:30.779
+Jitendra K: So there's something called term frequency.
+
+656
+01:56:31.120 --> 01:56:32.380
+Jitendra K: Which is TF.
+
+657
+01:56:32.910 --> 01:56:36.999
+Jitendra K: which has been multiplied by a normalization factor called IDF.
+
+658
+01:56:37.720 --> 01:56:40.520
+Jitendra K: Which stands for Inverse Document Frequency.
+
+659
+01:56:40.820 --> 01:56:47.270
+Jitendra K: Now, this particular… Terminology is associated with the word vectors.
+
+660
+01:56:48.630 --> 01:56:55.610
+Jitendra K: So, some of the use case around TF IDF would be, you can able to use it for
+
+661
+01:56:56.430 --> 01:56:58.380
+Jitendra K: weight representations.
+
+662
+01:57:04.250 --> 01:57:05.459
+Jitendra K: By word.
+
+663
+01:57:06.480 --> 01:57:10.399
+Jitendra K: So let's say, given a sentence, what is the weight of that particular word?
+
+664
+01:57:10.950 --> 01:57:13.259
+Jitendra K: So let me explain this with an example.
+
+665
+01:57:14.490 --> 01:57:19.990
+Jitendra K: So let's say I've got… First…
+
+666
+01:57:20.950 --> 01:57:24.000
+Jitendra K: Okay, now, first and the foremost thing, what is TF?
+
+667
+01:57:24.190 --> 01:57:26.400
+Jitendra K: TF stands for term frequency.
+
+668
+01:57:26.520 --> 01:57:31.980
+Jitendra K: So that means, how often does the word appear in the document corpus?
+
+669
+01:57:32.940 --> 01:57:39.709
+Jitendra K: So, how often… Or what is the frequency of? How many times?
+
+670
+01:57:49.210 --> 01:57:51.559
+Jitendra K: The word appear in this particular?
+
+671
+01:57:54.120 --> 01:57:55.270
+Jitendra K: document.
+
+672
+01:57:57.230 --> 01:58:03.739
+Jitendra K: Second is called IDF, which is called inverse Document Frequency. That means how rare the word is across all documents.
+
+673
+01:58:04.040 --> 01:58:08.130
+Jitendra K: So when you're trying to multiply these two together, you are getting a normalized score.
+
+674
+01:58:12.550 --> 01:58:17.589
+Jitendra K: So, some of the… Important consideration by using this factor is…
+
+675
+01:58:20.840 --> 01:58:27.710
+Jitendra K: So… If I'm going to use this particular factor.
+
+676
+01:58:28.770 --> 01:58:32.000
+Jitendra K: At a sentence level, across a document.
+
+677
+01:58:32.250 --> 01:58:35.080
+Jitendra K: I will be able to get rare words.
+
+678
+01:58:38.100 --> 01:58:39.779
+Jitendra K: And frequent words.
+
+679
+01:58:44.840 --> 01:58:47.980
+Jitendra K: And then, if I'm going to multiply these two together.
+
+680
+01:58:48.950 --> 01:58:51.400
+Jitendra K: then I will get a normalized weight.
+
+681
+01:58:55.270 --> 01:58:57.880
+Jitendra K: Let's try to understand this with an example.
+
+682
+01:58:59.110 --> 01:59:03.820
+Jitendra K: So, I will create a simple document corpus, just to give an example.
+
+683
+01:59:04.280 --> 01:59:06.690
+Jitendra K: I will create a very simple document corpus.
+
+684
+01:59:13.270 --> 01:59:17.580
+Jitendra K: First, let me write down what is TFIDS, so that you can…
+
+685
+01:59:20.640 --> 01:59:22.860
+Jitendra K: So here, we are performing again.
+
+686
+01:59:42.700 --> 01:59:45.040
+Jitendra K: So I've got a document, let's say.
+
+687
+01:59:45.390 --> 01:59:47.650
+Jitendra K: Each document comprised of one sentence.
+
+688
+01:59:48.520 --> 01:59:55.650
+Jitendra K: And I will call this as a corpus. So this is a document corpus. So when you're creating a file of document, you call it as a corpus.
+
+689
+01:59:56.060 --> 02:00:02.739
+Jitendra K: So I'm saying that I've got, the first document, which comprises of 1, 2, 3, 4, 5, 6 words.
+
+690
+02:00:03.840 --> 02:00:07.239
+Jitendra K: Which says, the cat sat on a mat. On the mat.
+
+691
+02:00:07.940 --> 02:00:13.530
+Jitendra K: The second word talks about… or second sentence, or second document talks about the dog, chase the cat.
+
+692
+02:00:13.960 --> 02:00:16.730
+Jitendra K: The third document says a bird flew over the mat.
+
+693
+02:00:18.020 --> 02:00:23.129
+Jitendra K: Very simple example. I've got, 3 sentences. Each sentence represents a word.
+
+694
+02:00:23.430 --> 02:00:25.270
+Jitendra K: Sorry, a document.
+
+695
+02:00:25.670 --> 02:00:32.120
+Jitendra K: So I've got 1, 2, 3, 4, 5, 6 words here, 1, 2, 3, 4, 5 words here, 1, 2, 3, 4, 5, 6 words here.
+
+696
+02:00:32.710 --> 02:00:37.319
+Jitendra K: Now, what I'm going to do is, first and foremost thing is, I would like to compute TFIDF.
+
+697
+02:00:37.720 --> 02:00:39.760
+Jitendra K: And try to see the outcome.
+
+698
+02:00:41.170 --> 02:00:42.949
+Jitendra K: Right? Which word is important?
+
+699
+02:00:43.130 --> 02:00:45.760
+Jitendra K: Now, if I look into this…
+
+700
+02:00:46.070 --> 02:00:48.629
+Jitendra K: Let's take an example of TF.
+
+701
+02:00:52.800 --> 02:00:56.100
+Jitendra K: So I can say that a word… duh.
+
+702
+02:00:57.070 --> 02:01:01.709
+Jitendra K: occurs. 1, 2… In a given document?
+
+703
+02:01:02.650 --> 02:01:06.849
+Jitendra K: And the total term is 1, 2, 3, 4, 5, 6, so 2 out of 6.
+
+704
+02:01:07.660 --> 02:01:09.360
+Jitendra K: That is my term frequency.
+
+705
+02:01:10.570 --> 02:01:15.579
+Jitendra K: IDF will be the log of total document divided by document containing that particular term.
+
+706
+02:01:16.080 --> 02:01:18.599
+Jitendra K: The total document is 3 divided by…
+
+707
+02:01:18.870 --> 02:01:24.719
+Jitendra K: Document containing that term is close to 1234566.
+
+708
+02:01:25.420 --> 02:01:30.030
+Jitendra K: 3 by 2, 1 by 2, which is 0.5, log of 0.5.
+
+709
+02:01:31.380 --> 02:01:36.580
+Jitendra K: So if I multiply log of 0.5 with… 2x6.
+
+710
+02:01:37.380 --> 02:01:41.689
+Jitendra K: 2x6, yes. 1x3. 0.33.
+
+711
+02:01:41.850 --> 02:01:44.289
+Jitendra K: then I will get a weight of that particular word.
+
+712
+02:01:45.140 --> 02:01:47.790
+Jitendra K: So you can see that I'm normalizing the word.
+
+713
+02:01:48.620 --> 02:01:50.770
+Jitendra K: Which is frequently occurring.
+
+714
+02:01:50.880 --> 02:01:52.160
+Jitendra K: propositions.
+
+715
+02:01:53.140 --> 02:01:56.220
+Jitendra K: Automatically. So that is the idea of TFID.
+
+716
+02:01:56.830 --> 02:01:58.829
+Jitendra K: Now, let me run this.
+
+717
+02:02:02.510 --> 02:02:11.030
+Jitendra K: I will use scikit-learn module, To calculate this…
+
+718
+02:02:33.680 --> 02:02:36.359
+Jitendra K: Okay, so I'm getting a TF-IDF score.
+
+719
+02:02:37.230 --> 02:02:40.460
+Jitendra K: of… Certain words.
+
+720
+02:02:41.270 --> 02:02:44.589
+Jitendra K: Including the fillers of propositions like the.
+
+721
+02:02:45.060 --> 02:02:49.769
+Jitendra K: So I'm getting bird, cat, chase, dog, flu, Matt, on, oversight.
+
+722
+02:02:49.960 --> 02:02:55.230
+Jitendra K: the… So I'm getting the weights of each word. So you can see the first character
+
+723
+02:02:59.010 --> 02:03:00.060
+Jitendra K: duh.
+
+724
+02:03:02.140 --> 02:03:04.040
+Jitendra K: Which is this sentence.
+
+725
+02:03:04.520 --> 02:03:13.089
+Jitendra K: have a zero score. That means this particular word does not carry any meaningful Weight associated with my word.
+
+726
+02:03:13.530 --> 02:03:18.209
+Jitendra K: So the weight associated with this is… these vectors.
+
+727
+02:03:20.370 --> 02:03:26.680
+Jitendra K: Second cat carries 35%, sat carries 0%, on carries 0, the carry again.
+
+728
+02:03:26.810 --> 02:03:28.840
+Jitendra K: The second phrase, second time.
+
+729
+02:03:29.110 --> 02:03:30.720
+Jitendra K: It is getting a different weight.
+
+730
+02:03:30.940 --> 02:03:35.810
+Jitendra K: So the idea is, basically, what I'm trying to do is, I'm trying to use a formula
+
+731
+02:03:36.120 --> 02:03:40.250
+Jitendra K: To differentiate a word, Without weights…
+
+732
+02:03:41.670 --> 02:03:44.299
+Jitendra K: And this formula will help us to build a model.
+
+733
+02:03:44.570 --> 02:03:52.690
+Jitendra K: So let's say if I have to build a model, Which talks about… Maybe a summarization of text.
+
+734
+02:03:53.010 --> 02:03:55.459
+Jitendra K: So I should know what are the words.
+
+735
+02:03:56.000 --> 02:04:03.470
+Jitendra K: which are important to that particular phrase or sentences before generating a summary? And how should I identify the numerical weights?
+
+736
+02:04:03.770 --> 02:04:11.620
+Jitendra K: is by using this particular feature. So this is called feature engineering in RLP. So you're going to use feature engineering in RLP based upon TFIDF,
+
+737
+02:04:11.910 --> 02:04:17.560
+Jitendra K: We'll talk about some more technique, but TF-IDF is one of the primary techniques that we will use for
+
+738
+02:04:17.770 --> 02:04:19.200
+Jitendra K: Weight classification.
+
+739
+02:04:20.720 --> 02:04:27.799
+Jitendra K: Now, what we are going to do is… we will use… the same feature.
+
+740
+02:04:28.360 --> 02:04:30.240
+Jitendra K: And I will create a pipeline.
+
+741
+02:04:31.200 --> 02:04:33.400
+Jitendra K: So the pipeline will look like this.
+
+742
+02:04:34.150 --> 02:04:41.159
+Jitendra K: So first, I'm going to use TFIDF to convert raw text into numerical features that will determine the importance across the words.
+
+743
+02:04:41.760 --> 02:04:49.080
+Jitendra K: Then I will simply use SVM linear kernel to find the optimal hyperplane that separates a positive and negative review in high dimensional space.
+
+744
+02:04:49.610 --> 02:04:56.110
+Jitendra K: And then, I would like to classify the… these learning to a new sentence level.
+
+745
+02:04:57.150 --> 02:05:06.290
+Jitendra K: So, that is what I'm going to do. So, let me start with… the analysis… Let me… Post.
+
+746
+02:05:07.920 --> 02:05:09.309
+Jitendra K: Comment them out.
+
+747
+02:05:09.940 --> 02:05:15.820
+Jitendra K: So I'm going to show you text classification using… TF IDF plus SVM.
+
+748
+02:05:16.500 --> 02:05:20.759
+Jitendra K: The steps that we are going to take is, we are going to take sentences.
+
+749
+02:05:21.420 --> 02:05:23.790
+Jitendra K: Convert them into TFID updates.
+
+750
+02:05:24.360 --> 02:05:27.270
+Jitendra K: train as VM classifiers on the features.
+
+751
+02:05:27.600 --> 02:05:32.280
+Jitendra K: And then we'll classify on the new sentences, unseen sentences, to see
+
+752
+02:05:32.510 --> 02:05:36.809
+Jitendra K: How this enters has been classified, whether it is making sense or not.
+
+753
+02:05:38.690 --> 02:05:47.030
+Jitendra K: Let me import the libraries, so I'm going to import… Support Rector Classifier, And then…
+
+754
+02:05:48.040 --> 02:05:52.729
+Jitendra K: I would like to use TFID vectorizer package as well, from Scikit-lab.
+
+755
+02:05:54.460 --> 02:05:57.819
+Jitendra K: Now, first and foremost thing, I would like to create are labels.
+
+756
+02:05:57.960 --> 02:06:04.130
+Jitendra K: So I will say label 1, positive review, label 0, negative review. So I have a li- I have a dictionary.
+
+757
+02:06:04.520 --> 02:06:07.340
+Jitendra K: Which will have some sample data.
+
+758
+02:06:08.070 --> 02:06:11.160
+Jitendra K: which include both the labels. So label 1 is positive.
+
+759
+02:06:11.840 --> 02:06:15.300
+Jitendra K: let's say I'm reviewing movie, performance, or…
+
+760
+02:06:15.760 --> 02:06:21.210
+Jitendra K: The movie reviews from the user, so these are the positive reviews, and these are the negative reviews.
+
+761
+02:06:24.410 --> 02:06:29.530
+Jitendra K: So I'm just using a simple… labels, so I've got
+
+762
+02:06:30.660 --> 02:06:34.340
+Jitendra K: Positive and negative level both into my data sets.
+
+763
+02:06:35.450 --> 02:06:38.950
+Jitendra K: Now, I would like to convert these data points into TF IDF.
+
+764
+02:06:39.920 --> 02:06:43.169
+Jitendra K: So the idea is, I would like to use TFIDF,
+
+765
+02:06:43.560 --> 02:06:49.619
+Jitendra K: to represent a numerical form of this data, because this is a text data, right? And I cannot use text data to train SVM.
+
+766
+02:06:49.720 --> 02:06:52.380
+Jitendra K: SVM is required numerical data to operate.
+
+767
+02:06:53.010 --> 02:06:57.870
+Jitendra K: So, if I'm just feeding this data directly to SVM, SVM will not be able to
+
+768
+02:06:58.040 --> 02:07:01.340
+Jitendra K: Make any meaningful outcome out of this.
+
+769
+02:07:01.910 --> 02:07:07.090
+Jitendra K: Because as VM works on numerical data. Every machine learning algorithm works on numerical data.
+
+770
+02:07:07.990 --> 02:07:10.349
+Jitendra K: Be it logistic regression, be it,
+
+771
+02:07:10.640 --> 02:07:15.260
+Jitendra K: Support vector, be it, random forest, DC entry, logistic regression.
+
+772
+02:07:15.440 --> 02:07:17.019
+Jitendra K: Even neural networks.
+
+773
+02:07:17.810 --> 02:07:20.250
+Jitendra K: Even the ChatGPT that you're using.
+
+774
+02:07:20.990 --> 02:07:26.090
+Jitendra K: They are all numerical models. They're not using any sentence or text data, too.
+
+775
+02:07:26.550 --> 02:07:27.410
+Jitendra K: Find.
+
+776
+02:07:28.780 --> 02:07:32.310
+Jitendra K: anything from it. If you're asking ChatGPT, can you…
+
+777
+02:07:32.640 --> 02:07:38.840
+Jitendra K: Give me a negative sentence, or label of this sentence. It will read and convert this data into numerical format first.
+
+778
+02:07:40.580 --> 02:07:42.520
+Jitendra K: How it is doing, that is different.
+
+779
+02:07:42.700 --> 02:07:44.950
+Jitendra K: But first and foremost thing you have to understand.
+
+780
+02:07:45.420 --> 02:07:50.730
+Jitendra K: Every machine learning algorithm, or gen AI algorithm, is using a numerical data to operate.
+
+781
+02:07:50.870 --> 02:07:51.869
+Jitendra K: As an input.
+
+782
+02:07:52.870 --> 02:07:55.789
+Jitendra K: So I'm doing the same thing here, I'm just trying to…
+
+783
+02:07:57.800 --> 02:08:00.460
+Jitendra K: fit in the numerical data using TF idea.
+
+784
+02:08:00.970 --> 02:08:04.279
+Jitendra K: So I'm saying I would like to convert this data into TFIDF.
+
+785
+02:08:05.000 --> 02:08:08.699
+Jitendra K: This is the features I'm creating. Under features.
+
+786
+02:08:09.270 --> 02:08:14.930
+Jitendra K: with a combination of unigrams and bigrams. So, here I'm using a sliding… sliding window technique.
+
+787
+02:08:15.450 --> 02:08:17.720
+Jitendra K: So what is sliding window technique? So…
+
+788
+02:08:17.940 --> 02:08:20.870
+Jitendra K: At a sentence level, I can construct multiple.
+
+789
+02:08:21.190 --> 02:08:22.270
+Jitendra K: Patents.
+
+790
+02:08:22.960 --> 02:08:24.719
+Jitendra K: Let's say this is my sentence.
+
+791
+02:08:25.670 --> 02:08:28.440
+Jitendra K: So I can be able to join these two words.
+
+792
+02:08:29.140 --> 02:08:33.940
+Jitendra K: And the next two words… Next two words, next two words…
+
+793
+02:08:34.230 --> 02:08:39.080
+Jitendra K: Next two words, and next to words, like this. And then click on bigram for me.
+
+794
+02:08:39.290 --> 02:08:44.150
+Jitendra K: So I can be able to do all this analysis with the help of… unigram and bigrams.
+
+795
+02:08:44.610 --> 02:08:48.330
+Jitendra K: And then I would like to find out a TFIDF, or that my…
+
+796
+02:08:48.480 --> 02:08:50.480
+Jitendra K: for my features. So I've got a…
+
+797
+02:08:51.320 --> 02:08:54.959
+Jitendra K: feature rates, and then now I would like to use
+
+798
+02:08:55.370 --> 02:09:00.830
+Jitendra K: Some features, you can see that A lot of positive… Words.
+
+799
+02:09:01.130 --> 02:09:03.269
+Jitendra K: Lot of negative words towards the end.
+
+800
+02:09:03.630 --> 02:09:05.560
+Jitendra K: Which is the learnable features.
+
+801
+02:09:06.110 --> 02:09:13.840
+Jitendra K: Now, I would like to represent these learnable features and fit into my algorithm. And the algorithm that I'm going to use is support vector classifier.
+
+802
+02:09:14.170 --> 02:09:15.550
+Jitendra K: With a linear converter.
+
+803
+02:09:16.180 --> 02:09:20.530
+Jitendra K: So I would like to train my algorithm with these data sets, with the labels.
+
+804
+02:09:21.520 --> 02:09:23.159
+Jitendra K: Generated by features.
+
+805
+02:09:25.200 --> 02:09:26.710
+Jitendra K: So I've got a bunch of…
+
+806
+02:09:26.940 --> 02:09:30.650
+Jitendra K: Words which are positive sentiment won't show words which are negative sentiment.
+
+807
+02:09:31.170 --> 02:09:35.560
+Jitendra K: I would like to… Make sure that my algorithm has learned
+
+808
+02:09:35.780 --> 02:09:40.340
+Jitendra K: And then apply this knowledge on a new sentences, or a new
+
+809
+02:09:45.230 --> 02:09:46.260
+Jitendra K: outcome.
+
+810
+02:09:47.270 --> 02:09:54.350
+Jitendra K: So, if you read this… This is the new sentences that I'm passing it to my SVM outcome.
+
+811
+02:09:54.920 --> 02:10:02.820
+Jitendra K: So they're showing me this movie was amazing, experience, loved it, is a positive review, and my model is also predicting as a positive review with a confidence of 52%.
+
+812
+02:10:03.460 --> 02:10:08.480
+Jitendra K: Terrible product, complete waste of money, so somebody from Amazon has purchased something.
+
+813
+02:10:08.700 --> 02:10:11.870
+Jitendra K: And he's writing these comments, and it's a negative review.
+
+814
+02:10:13.080 --> 02:10:14.499
+Jitendra K: Predicted by the model.
+
+815
+02:10:15.420 --> 02:10:17.089
+Jitendra K: The quality exceed maximum.
+
+816
+02:10:17.840 --> 02:10:22.560
+Jitendra K: Sorry, quality exceeded my expectation, positive review with a confidence of 58%.
+
+817
+02:10:23.930 --> 02:10:28.199
+Jitendra K: I regret buying this, very disappointing negative review. Similarly, we have.
+
+818
+02:10:28.420 --> 02:10:33.939
+Jitendra K: all the outcome. So you can see that, the model is performing really good in terms of
+
+819
+02:10:35.620 --> 02:10:37.009
+Jitendra K: generating a review.
+
+820
+02:10:37.300 --> 02:10:40.129
+Jitendra K: Based upon the highlighted data points.
+
+821
+02:10:40.460 --> 02:10:45.970
+Jitendra K: So the idea is very simple. When you're running any machine learning model on a text data.
+
+822
+02:10:46.450 --> 02:10:48.850
+Jitendra K: You have to represent that data numerically.
+
+823
+02:10:50.350 --> 02:10:56.080
+Jitendra K: So that… there's something called as feature engineering. So you're performing a feature engineering.
+
+824
+02:10:56.410 --> 02:11:00.179
+Jitendra K: And a technique that we're using to perform this engineering is TF IDR.
+
+825
+02:11:03.250 --> 02:11:07.029
+Jitendra K: So once we represent these words, we have a label.
+
+826
+02:11:08.280 --> 02:11:11.409
+Jitendra K: Associated with the training sample, 0 and 1.
+
+827
+02:11:11.650 --> 02:11:15.040
+Jitendra K: So we'll use this word… Weeds.
+
+828
+02:11:15.360 --> 02:11:18.419
+Jitendra K: to train the SVM model using linear kernel.
+
+829
+02:11:19.690 --> 02:11:27.270
+Jitendra K: And as we are able to identify that these are the labels associated with the positive, these are the labels associated with negative, and then it will apply this learnable parameter
+
+830
+02:11:27.600 --> 02:11:32.320
+Jitendra K: to the new… Test samples.
+
+831
+02:11:32.790 --> 02:11:34.370
+Jitendra K: And generating the outcome.
+
+832
+02:11:34.790 --> 02:11:39.800
+Jitendra K: So as a human, I can read this outcome generated by the SVM, and then I can be able to
+
+833
+02:11:40.370 --> 02:11:46.930
+Jitendra K: distinguish whether it is right or wrong. So I can say that I'm able to read this And,
+
+834
+02:11:47.350 --> 02:11:48.839
+Jitendra K: It looks pretty aligned.
+
+835
+02:11:49.020 --> 02:11:52.259
+Jitendra K: This is also a negative review, this is positive, this is…
+
+836
+02:11:52.600 --> 02:12:00.080
+Jitendra K: This is negative review, or customer service, never again. So this is the only… Outcome, which looks…
+
+837
+02:12:00.510 --> 02:12:04.199
+Jitendra K: One other way around. Rest of the output looks fine.
+
+838
+02:12:08.530 --> 02:12:12.059
+Jitendra K: So is it clear to everyone, like, how to do this analysis?
+
+839
+02:12:12.440 --> 02:12:21.669
+Jitendra K: We will revisit TF-IDF during NLP discussion, so don't worry about this part. We'll revisit TFIDF.
+
+840
+02:12:21.880 --> 02:12:26.650
+Jitendra K: But overall, the concept that we are using to run support vector classifier is… is it…
+
+841
+02:12:27.210 --> 02:12:31.660
+Jitendra K: clear to everyone, like, how to fit numeric textual data to SVM.
+
+842
+02:12:40.240 --> 02:12:41.680
+Jitendra K: Is it clear to everyone?
+
+843
+02:12:56.680 --> 02:12:58.790
+Jitendra K: Alright, so you guys want to try this?
+
+844
+02:12:59.500 --> 02:13:03.519
+Jitendra K: How are we converting text to positive and negative? And we already have labels.
+
+845
+02:13:06.470 --> 02:13:09.300
+Jitendra K: We already have labels associated with that text.
+
+846
+02:13:14.350 --> 02:13:16.770
+Jitendra K: These are the labels that we use for training data.
+
+847
+02:13:25.850 --> 02:13:30.940
+Jitendra K: So we are passing this data as a label. This is my positive class, this is my negative classes.
+
+848
+02:13:32.610 --> 02:13:34.170
+Jitendra K: During the training phase.
+
+849
+02:13:36.890 --> 02:13:41.289
+Jitendra K: So during the training, my algorithm knows that this is the negative class.
+
+850
+02:13:41.670 --> 02:13:46.289
+Jitendra K: This is the positive class. Now, what it's going to do is, it will try trying to identify
+
+851
+02:13:46.590 --> 02:13:50.910
+Jitendra K: the words… Which contribute to the positive part.
+
+852
+02:13:51.430 --> 02:13:55.949
+Jitendra K: Like, fantastic, amazing, performance, brilliant performance.
+
+853
+02:13:56.100 --> 02:13:59.370
+Jitendra K: Highly recommended. All these phrases it will be able to identify.
+
+854
+02:14:07.340 --> 02:14:08.250
+Jitendra K: Yes.
+
+855
+02:14:08.420 --> 02:14:09.600
+Jitendra K: Like this one.
+
+856
+02:14:19.690 --> 02:14:24.429
+Jitendra K: The only positive… so, the only positive level for negative review in this case…
+
+857
+02:14:25.710 --> 02:14:28.569
+Jitendra K: The only positive level for negative review.
+
+858
+02:14:29.890 --> 02:14:32.869
+Jitendra K: In this case, you do find him in the parlor.
+
+859
+02:14:34.700 --> 02:14:39.619
+Jitendra K: Now, where would you run the parameter grade? I haven't run any grid algorithm in this case.
+
+860
+02:14:40.370 --> 02:14:42.120
+Jitendra K: We're just using linear connot.
+
+861
+02:14:47.460 --> 02:14:52.979
+Jitendra K: No, we are not doing any hyperparameter tuning. We are just using a fixed baseline model this time.
+
+862
+02:14:56.990 --> 02:15:01.049
+Jitendra K: We can optimize this using parameter tuning, but right now I'm not doing it.
+
+863
+02:15:03.320 --> 02:15:07.920
+Jitendra K: So I'm fixing the parameter. Kernel linear, C1, probability 2.
+
+864
+02:15:20.540 --> 02:15:22.690
+Jitendra K: Yes, if you need to optimize this.
+
+865
+02:15:23.110 --> 02:15:24.860
+Jitendra K: Then he can use a grid search.
+
+866
+02:15:24.980 --> 02:15:25.800
+Jitendra K: Yes.
+
+867
+02:15:27.260 --> 02:15:33.069
+Jitendra K: If you would like to optimize this further, then you can use a grid search algorithm. So this is where you are going to say.
+
+868
+02:15:33.330 --> 02:15:37.249
+Jitendra K: I would like to use a grid search, which will find out the kernel.
+
+869
+02:15:37.990 --> 02:15:43.100
+Jitendra K: Lambda C… And karma for me.
+
+870
+02:16:09.350 --> 02:16:13.270
+Jitendra K: Alright, let me share this, bored with everyone.
+
+871
+02:16:14.030 --> 02:16:16.220
+Jitendra K: So, can you guys just try and let me know?
+
+872
+02:16:33.120 --> 02:16:35.410
+Jitendra K: So you can see the weights are coming along.
+
+873
+02:16:46.280 --> 02:16:48.640
+Jitendra K: So just try this and let me know how it is.
+
+874
+02:16:49.840 --> 02:16:51.669
+Jitendra K: Are you able to recreate or not?
+
+875
+02:21:08.490 --> 02:21:11.379
+Jitendra K: No, I think, you need to comment.
+
+876
+02:21:12.770 --> 02:21:14.040
+Jitendra K: this line…
+
+877
+02:21:54.750 --> 02:21:56.900
+Jitendra K: I think, yeah, you're just copying.
+
+878
+02:21:57.680 --> 02:21:59.119
+Jitendra K: Enable that line.
+
+879
+02:22:04.200 --> 02:22:06.079
+Jitendra K: Number 15.
+
+880
+02:22:08.100 --> 02:22:09.719
+Jitendra K: Where's number 15?
+
+881
+02:22:34.430 --> 02:22:36.470
+Jitendra K: Yeah, this one, you have to comment it out.
+
+882
+02:22:52.810 --> 02:22:57.059
+Jitendra K: Reduce timing, the word probably turned the poor, this will get negative.
+
+883
+02:22:57.270 --> 02:22:58.140
+Jitendra K: Yes.
+
+884
+02:22:59.030 --> 02:23:03.340
+Jitendra K: So, spamming will convert this into root words, that we're just trying to look for.
+
+885
+02:23:04.200 --> 02:23:10.339
+Jitendra K: the nascent words without even converting or trimming it as affixes and prefixes.
+
+886
+02:23:41.910 --> 02:23:43.399
+Jitendra K: Any other question?
+
+887
+02:26:10.310 --> 02:26:13.299
+Jitendra K: No, after labeling, we have to incorporate the technique.
+
+888
+02:26:13.910 --> 02:26:20.200
+Jitendra K: Okay, one question on SVM. SVM itself is a binary classifier, but SVM with kernel can be used for regression.
+
+889
+02:26:20.400 --> 02:26:24.309
+Jitendra K: No, it's not about Colonel who is converting this into…
+
+890
+02:26:24.420 --> 02:26:31.259
+Jitendra K: lean regression model or classification model. In fact, kernel is applicable for both classification and regression.
+
+891
+02:26:31.650 --> 02:26:35.710
+Jitendra K: But here we are using, regression.
+
+892
+02:26:35.820 --> 02:26:37.110
+Jitendra K: For the purpose of?
+
+893
+02:26:37.230 --> 02:26:38.640
+Jitendra K: target predictor.
+
+894
+02:26:39.590 --> 02:26:40.829
+Jitendra K: Right? So when you have…
+
+895
+02:26:41.030 --> 02:26:46.090
+Jitendra K: It depends upon the target variable that you're trying to fit in. You're still separating the boundary.
+
+896
+02:26:46.230 --> 02:26:47.610
+Jitendra K: With both methods.
+
+897
+02:26:50.880 --> 02:26:56.000
+Jitendra K: So there's no dependency on kernel and the type of method that you're employing to solve the problem.
+
+898
+02:27:10.520 --> 02:27:12.790
+Jitendra K: Alright, so everybody is able to do this.
+
+899
+02:27:12.980 --> 02:27:14.200
+Jitendra K: Complete this.
+
+900
+02:28:35.360 --> 02:28:40.339
+Jitendra K: Alright, so let's revisit what we have learned so far, and I will try to compare the algorithms as well.
+
+901
+02:28:40.880 --> 02:28:46.170
+Jitendra K: So, we have seen that how support vector machine can be able to, work on
+
+902
+02:28:46.440 --> 02:28:49.320
+Jitendra K: Different challenges, and then we have seen that
+
+903
+02:28:49.500 --> 02:29:01.550
+Jitendra K: how support vector machine can be useful for a different purpose. Now, let's try to compare the support vector machine with other set of algorithms. The first algorithm that I'm going to use is logistic regression versus support vector machine.
+
+904
+02:29:01.660 --> 02:29:09.149
+Jitendra K: So, you know that logistic regression works well with linear separation, again, because logistic regression
+
+905
+02:29:09.480 --> 02:29:21.980
+Jitendra K: is nothing but it is taking a saturation transformation, into consideration. So it provides you a clear separable, and works best with the clear separable data points. But when there's a nonlinear
+
+906
+02:29:22.100 --> 02:29:26.680
+Jitendra K: Separation between data points, logistic regression might not be a good algorithm to fit in.
+
+907
+02:29:27.040 --> 02:29:32.640
+Jitendra K: It is easy to understand and explain, past and elegant to handle large data as well.
+
+908
+02:29:32.830 --> 02:29:37.779
+Jitendra K: But support vector machine, on the other hand, it performed really well in high-dimensional spaces.
+
+909
+02:29:37.970 --> 02:29:45.019
+Jitendra K: Where you have to handle complex patterns using kernel trig. So, logistic regression is rather useful for baseline.
+
+910
+02:29:45.420 --> 02:29:49.219
+Jitendra K: And support vector machine can be useful for solving the complex challenges.
+
+911
+02:29:51.870 --> 02:29:57.490
+Jitendra K: If I have to compare support actor machine with a decient tree and their family, including random forest.
+
+912
+02:29:57.690 --> 02:30:00.530
+Jitendra K: So, support vector machine,
+
+913
+02:30:00.670 --> 02:30:06.510
+Jitendra K: does not need to scale features. I mean, you need to scale features to fit it well.
+
+914
+02:30:07.680 --> 02:30:13.819
+Jitendra K: It is also memory-intensive because of the kernel operation, and it is less likely to overfit in complex space.
+
+915
+02:30:14.040 --> 02:30:19.270
+Jitendra K: But random forest, on the other hand… Desientree, on the other hand, is more…
+
+916
+02:30:19.540 --> 02:30:23.539
+Jitendra K: prone to overfitting, it does not fit really well without scaling.
+
+917
+02:30:23.920 --> 02:30:29.229
+Jitendra K: And it will have, extra processing overhead when you are combining different solutions.
+
+918
+02:30:29.390 --> 02:30:33.379
+Jitendra K: Random Forest, on the other hand, which is an updated version of this entry.
+
+919
+02:30:33.650 --> 02:30:39.660
+Jitendra K: It fails, only in one case when you have, some missing values.
+
+920
+02:30:39.960 --> 02:30:45.750
+Jitendra K: Or, when you're combining trees to reduce overfitting, and it will…
+
+921
+02:30:45.990 --> 02:31:01.450
+Jitendra K: work on, creating multiple trees in parallel. However, the only drawback of using random forest with support vector machine is, when, again, when you have exhibit a nonlinear relationship, even random forest will not be able to provide you
+
+922
+02:31:01.800 --> 02:31:04.650
+Jitendra K: Much more clarity on the top of it.
+
+923
+02:31:05.790 --> 02:31:13.220
+Jitendra K: So, we'll talk about neural networks in the upcoming tutorials, but let's try to see when to use SVM.
+
+924
+02:31:13.510 --> 02:31:19.690
+Jitendra K: So, you should use SVM when you have small to medium data samples, predominantly 10K and above.
+
+925
+02:31:20.070 --> 02:31:25.860
+Jitendra K: Features are high-dimensional, including text, genetics, images, wise.
+
+926
+02:31:26.200 --> 02:31:28.699
+Jitendra K: You can use support vector machine for that purpose.
+
+927
+02:31:31.190 --> 02:31:35.859
+Jitendra K: And, you will also use, the classes which are clearly separable.
+
+928
+02:31:35.980 --> 02:31:43.780
+Jitendra K: And you can use support vector machine to solve complex challenges. So when to avoid SVM, you can avoid SVM when you have data set in a very large
+
+929
+02:31:44.490 --> 02:31:48.159
+Jitendra K: Millions of samples, and it is noisy.
+
+930
+02:31:48.580 --> 02:31:57.239
+Jitendra K: Class is highly overlapping when you need to calibrate programmatical outcomes, so do not use support vector machine when you have these limitations.
+
+931
+02:31:59.110 --> 02:32:02.319
+Jitendra K: Yes, we have completed random forest industry already.
+
+932
+02:32:02.650 --> 02:32:05.869
+Jitendra K: We will revisit one more concept of random forest.
+
+933
+02:32:06.370 --> 02:32:12.530
+Jitendra K: Alright, so support reactor machine is complexity, or I would say… the…
+
+934
+02:32:13.760 --> 02:32:18.249
+Jitendra K: Operation type complexity of support actor machine can… ranges from n squared to NQ.
+
+935
+02:32:18.560 --> 02:32:25.869
+Jitendra K: So that is what, it works on quadratic space, so it may increase as your kernel complexity increases.
+
+936
+02:32:30.160 --> 02:32:35.070
+Jitendra K: Alright, so what we can do is now is, we are done with, support vector machine.
+
+937
+02:32:38.220 --> 02:32:43.500
+Jitendra K: I think I just need to take one more example, and then we can… Complete this topic.
+
+938
+02:32:43.660 --> 02:32:47.580
+Jitendra K: But before moving on to another example, any question that you would like to ask?
+
+939
+02:33:39.060 --> 02:33:42.029
+Jitendra K: Alright, so let's take one more example.
+
+940
+02:33:42.670 --> 02:33:48.380
+Jitendra K: And, I would like to show you all the topics that we have covered so far.
+
+941
+02:34:23.100 --> 02:34:25.300
+Jitendra K: Let me show you the examples.
+
+942
+02:35:13.330 --> 02:35:16.789
+Jitendra K: Okay, I will pick one Kegel problem, to solve this.
+
+943
+02:35:17.910 --> 02:35:24.789
+Jitendra K: And… I've got, some data set from Kegel, which is called 20 News Group Datasite.
+
+944
+02:35:25.490 --> 02:35:27.530
+Jitendra K: The 20 news group.
+
+945
+02:35:27.870 --> 02:35:32.779
+Jitendra K: dataset… is what I would like to solve.
+
+946
+02:35:33.360 --> 02:35:40.030
+Jitendra K: Now, this dataset comprises of different topics, And, these topics…
+
+947
+02:35:40.220 --> 02:35:46.109
+Jitendra K: are as follows, so you can see that this is a… kind of… dataset that I'm having.
+
+948
+02:35:47.070 --> 02:35:52.340
+Jitendra K: And this dataset has been… coming as a Kegel challenge, and this…
+
+949
+02:35:52.880 --> 02:35:59.019
+Jitendra K: Talks about multiple topics, and you will be able to use these topics to perform the analysis.
+
+950
+02:35:59.500 --> 02:36:01.760
+Jitendra K: Now, what I'm going to do is…
+
+951
+02:36:02.070 --> 02:36:10.379
+Jitendra K: I would like to have several categories, like politics, space, science fictions, graphics, computer design, etc.
+
+952
+02:36:10.560 --> 02:36:15.999
+Jitendra K: And then use this dataset to perform the analysis. So I will use this dataset to perform the analysis.
+
+953
+02:36:16.420 --> 02:36:19.069
+Jitendra K: The first and foremost thing, let me import the libraries.
+
+954
+02:36:20.280 --> 02:36:25.810
+Jitendra K: And this dataset is available in scikit-learn dataset, so I would just like to import this API.
+
+955
+02:36:26.300 --> 02:36:28.500
+Jitendra K: So once I import this API,
+
+956
+02:36:29.110 --> 02:36:32.460
+Jitendra K: then I'm ready to use this data.
+
+957
+02:36:32.930 --> 02:36:34.810
+Jitendra K: As input to my algorithm.
+
+958
+02:36:35.260 --> 02:36:42.980
+Jitendra K: So before doing this, I would like to target some categories that I'm trying to utilize. So I'm targeting 1, 2, 3, 4 categories.
+
+959
+02:36:43.530 --> 02:36:45.080
+Jitendra K: And I would like to read…
+
+960
+02:36:45.790 --> 02:36:48.679
+Jitendra K: All data points, which belongs to these four categories.
+
+961
+02:36:54.170 --> 02:36:58.740
+Jitendra K: Maybe in the time being, I can show you How the data looks like.
+
+962
+02:36:59.860 --> 02:37:05.610
+Jitendra K: So you can see that we have… Different types of files.
+
+963
+02:37:08.790 --> 02:37:11.840
+Jitendra K: Yeah, so you can see that each data points
+
+964
+02:37:12.450 --> 02:37:15.869
+Jitendra K: talks about a specific topic. So let's say if I'm reading this.
+
+965
+02:37:16.050 --> 02:37:19.840
+Jitendra K: MS Window. So it talks about MS Window.
+
+966
+02:37:20.090 --> 02:37:30.880
+Jitendra K: article, And, this article… talks about different components of that MS window.
+
+967
+02:37:32.050 --> 02:37:36.260
+Jitendra K: part. Similarly, if I'm looking into this topic, it talks about Windows.
+
+968
+02:37:37.040 --> 02:37:38.160
+Jitendra K: And then…
+
+969
+02:37:38.300 --> 02:37:44.630
+Jitendra K: or let's… this looks like that I'm having a hashtag in Twitter, similar to that this data has been created.
+
+970
+02:37:44.840 --> 02:37:52.820
+Jitendra K: the political topics, So, it talks about some Middle East… Turkish…
+
+971
+02:37:57.990 --> 02:38:00.339
+Jitendra K: Yeah, so this is a topic that I'm getting.
+
+972
+02:38:00.730 --> 02:38:02.009
+Jitendra K: In Middle East.
+
+973
+02:38:02.590 --> 02:38:07.489
+Jitendra K: So, similarly, I've got, some other sales topic.
+
+974
+02:38:09.250 --> 02:38:13.489
+Jitendra K: So there are different types of topics, that is what I'm trying to say in this dataset.
+
+975
+02:38:13.610 --> 02:38:16.679
+Jitendra K: So we are just using 4… sorry.
+
+976
+02:38:16.820 --> 02:38:23.829
+Jitendra K: We're just using 4 data points, 4 topics, to begin with. You can expand this to all other topics as well.
+
+977
+02:38:25.200 --> 02:38:28.940
+Jitendra K: But right now, I'm keep it simple, so I'm just using 4 topics.
+
+978
+02:38:29.850 --> 02:38:35.390
+Jitendra K: Now, once I have these categories, I'm just creating a class with 4 categories.
+
+979
+02:38:35.610 --> 02:38:40.740
+Jitendra K: I would like to start training my data samples, so I would like to split my data.
+
+980
+02:38:41.790 --> 02:38:43.940
+Jitendra K: Again, creating a pipeline.
+
+981
+02:38:45.310 --> 02:38:49.199
+Jitendra K: to fit TFIDF vector weights, and then using…
+
+982
+02:38:51.960 --> 02:38:55.700
+Jitendra K: The kernel, linear kernel, to solve this outcome.
+
+983
+02:38:56.660 --> 02:39:01.590
+Jitendra K: I will also try with polynomial kernel and radial-based kernel to see
+
+984
+02:39:01.950 --> 02:39:05.709
+Jitendra K: If it is generating anything additional on the top of it.
+
+985
+02:39:07.130 --> 02:39:09.369
+Jitendra K: So first, let me do this analysis.
+
+986
+02:39:12.200 --> 02:39:16.390
+Jitendra K: So, for each topic, I'm getting a different… Precision.
+
+987
+02:39:16.860 --> 02:39:21.820
+Jitendra K: So, micro-average of my precision is 89%, which is fine. Let me try with RBF.
+
+988
+02:39:27.440 --> 02:39:31.130
+Jitendra K: So, for RBF, I'm getting 88, so 89 to 88.
+
+989
+02:39:31.920 --> 02:39:32.990
+Jitendra K: So…
+
+990
+02:39:36.320 --> 02:39:41.489
+Jitendra K: I can also try some hyperparameter tuning and try to run this optimally.
+
+991
+02:39:42.150 --> 02:39:48.739
+Jitendra K: So I can do a lot of things with this. So first, let me… look for…
+
+992
+02:39:51.500 --> 02:39:56.709
+Jitendra K: Support vectors, which has been there in both algorithms, how many support vectors are there?
+
+993
+02:39:57.010 --> 02:39:58.260
+Jitendra K: per class.
+
+994
+02:39:59.250 --> 02:40:04.499
+Jitendra K: So I've got 2,281 support vectors for the last pipeline.
+
+995
+02:40:05.060 --> 02:40:10.640
+Jitendra K: And I would like to see the decision function with maximum and marginal supports…
+
+996
+02:40:14.030 --> 02:40:17.139
+Jitendra K: And finally, I would like to run the grid search.
+
+997
+02:40:17.860 --> 02:40:19.649
+Jitendra K: I will run the grid search.
+
+998
+02:40:19.840 --> 02:40:21.760
+Jitendra K: Try to fine-tune this algorithm.
+
+999
+02:40:23.020 --> 02:40:29.479
+Jitendra K: And then try to… use… the best parameters.
+
+1000
+02:40:31.630 --> 02:40:32.600
+Jitendra K: to predict.
+
+1001
+02:40:38.010 --> 02:40:42.890
+Jitendra K: So basically, what I'm trying to do here is, I'm just using the same analogy as we have learned earlier.
+
+1002
+02:40:43.100 --> 02:40:51.799
+Jitendra K: So I'm creating a feature using these four classes, multi… so basically it's not binary anymore, so multi-categorical class variables, four classes.
+
+1003
+02:40:52.120 --> 02:41:00.179
+Jitendra K: And then using TFIDF features to generate the list of weights, And then trying different kernels.
+
+1004
+02:41:00.540 --> 02:41:02.129
+Jitendra K: To perform the analysis.
+
+1005
+02:41:03.190 --> 02:41:05.940
+Jitendra K: And finally, I'm just trying to fit in the grid search.
+
+1006
+02:41:06.340 --> 02:41:13.669
+Jitendra K: to fit in even the best parameters, so that I can be able to improve the model. But overall, the model looks okay. 88, 89 is fine.
+
+1007
+02:41:13.940 --> 02:41:16.729
+Jitendra K: Because sometimes you will see that some topics
+
+1008
+02:41:18.220 --> 02:41:22.860
+Jitendra K: in… as I input data, I will have a lot of noise, a lot of incorrectness.
+
+1009
+02:41:23.320 --> 02:41:26.459
+Jitendra K: Right? So… You cannot do much about it.
+
+1010
+02:41:27.110 --> 02:41:33.189
+Jitendra K: So when you have such sort of data quality issues, so you're not able to Simply fine-tune the model.
+
+1011
+02:41:33.680 --> 02:41:35.409
+Jitendra K: There's a… there's a…
+
+1012
+02:41:35.750 --> 02:41:40.870
+Jitendra K: and approach to it, right? So you have to think also from the data quality and other parameters.
+
+1013
+02:41:45.190 --> 02:41:47.540
+Jitendra K: So I think the best parameters is…
+
+1014
+02:41:48.080 --> 02:41:53.379
+Jitendra K: The CV accuracy has been not improved, I would say. It remains stable.
+
+1015
+02:41:54.160 --> 02:41:56.559
+Jitendra K: Let me run this final.
+
+1016
+02:41:58.280 --> 02:41:59.710
+Jitendra K: execution.
+
+1017
+02:42:00.440 --> 02:42:02.900
+Jitendra K: So, this is what I'm getting.
+
+1018
+02:42:03.390 --> 02:42:09.500
+Jitendra K: That short topic the misclassification rate between each topic that I'm getting.
+
+1019
+02:42:09.910 --> 02:42:12.529
+Jitendra K: Is this… so if I look into graphics.
+
+1020
+02:42:12.850 --> 02:42:15.070
+Jitendra K: Some of them are considering to be size…
+
+1021
+02:42:15.260 --> 02:42:22.170
+Jitendra K: space, scientific space. Some of them are coming under politics, and some of them are coming under reconciliation.
+
+1022
+02:42:22.610 --> 02:42:28.419
+Jitendra K: So… This is how I should be able to see that option rate per class.
+
+1023
+02:42:28.910 --> 02:42:34.620
+Jitendra K: And the number of misclassified Outcomes, which is given by these columns.
+
+1024
+02:42:36.960 --> 02:42:40.210
+Jitendra K: So I think 12% inaccuracy is there in my model.
+
+1025
+02:42:40.470 --> 02:42:43.799
+Jitendra K: 11-12%, which I can able to improve with the help of.
+
+1026
+02:42:43.980 --> 02:42:47.200
+Jitendra K: Data quality inspection, more labeling, and more…
+
+1027
+02:42:47.460 --> 02:42:54.639
+Jitendra K: precise, model controls on the parameter part. Or maybe changing the feature engineering as well.
+
+1028
+02:42:55.850 --> 02:43:02.370
+Jitendra K: So, feature engineering, I'm using TFIDE, which is a very simple technique, but I can able to use more complex techniques, like Word2VAC.
+
+1029
+02:43:03.020 --> 02:43:07.249
+Jitendra K: Or even BERT-based models to improve this model accuracy.
+
+1030
+02:43:09.280 --> 02:43:12.710
+Jitendra K: So, any question on this, guys? Any question, any doubt?
+
+1031
+02:43:22.860 --> 02:43:25.350
+Jitendra K: Are you able to see what are we trying to do?
+
+1032
+02:43:25.530 --> 02:43:31.910
+Jitendra K: So this… this problem is similar to the previous problem, but here, instead of binary, we are using multi-class categorical problem.
+
+1033
+02:43:32.080 --> 02:43:42.019
+Jitendra K: So here we are solving four-class problem, and there we are solving two-class problem. That's the only change. Apart from that, we are fitting, one additional
+
+1034
+02:43:42.410 --> 02:43:45.400
+Jitendra K: Mechanism called stop words removal.
+
+1035
+02:43:45.560 --> 02:43:53.190
+Jitendra K: So here, I'm removing the stop words. Stop words are classical words, like fillers, propositions, articles.
+
+1036
+02:43:53.590 --> 02:43:57.129
+Jitendra K: That is most common, like D, T-H-E, that.
+
+1037
+02:43:57.560 --> 02:44:05.900
+Jitendra K: where, who, why, when, etc. So these are stop words. I'm removing these stop words because it does not carry any meaningful
+
+1038
+02:44:06.740 --> 02:44:12.979
+Jitendra K: summary by itself, but if I'm joining two sentences, then I need these pillars.
+
+1039
+02:44:13.440 --> 02:44:15.589
+Jitendra K: But when I'm working on the Word.
+
+1040
+02:44:16.110 --> 02:44:19.220
+Jitendra K: and grams, unigrams, then I do not need fillers.
+
+1041
+02:44:19.400 --> 02:44:23.899
+Jitendra K: to identify the weights of the fillers. That's the reason I'm removing the stop words.
+
+1042
+02:44:24.500 --> 02:44:26.329
+Jitendra K: So that is what we have done.
+
+1043
+02:44:26.730 --> 02:44:29.770
+Jitendra K: So let me share this, with everyone.
+
+1044
+02:44:30.710 --> 02:44:34.329
+Jitendra K: I would request you to run this last example and let me know.
+
+1045
+02:44:35.390 --> 02:44:38.269
+Jitendra K: If you're facing some issue, or is it clear?
+
+1046
+02:44:39.170 --> 02:44:45.450
+Jitendra K: And then I will open the question for Q&A. I'll open the forum for Q&A. If there's no question, then we can wind up.
+
+1047
+02:44:50.420 --> 02:44:52.819
+Jitendra K: So I'll share the file, can you please have a look?
+
+1048
+02:45:41.160 --> 02:45:48.809
+Jitendra K: We are taking unigram, bigram, is that implicit hyperparameter? Also, in general, does the accuracy of multi-class decrease the number of classes?
+
+1049
+02:45:49.090 --> 02:45:53.290
+Jitendra K: No, not really. Depends upon your class, balance, and ratios.
+
+1050
+02:45:53.520 --> 02:45:59.280
+Jitendra K: As well as the quality of data. Let's say I have one class which is having very few examples to train the model.
+
+1051
+02:45:59.420 --> 02:46:04.939
+Jitendra K: That will definitely go into retoriate. But here you can see the class is quite proportional.
+
+1052
+02:46:05.410 --> 02:46:09.050
+Jitendra K: 240 topics per class.
+
+1053
+02:47:16.480 --> 02:47:20.599
+Jitendra K: Alright, so is, everybody is able to run, so can we take a quiz now?
+
+1054
+02:47:24.860 --> 02:47:26.500
+Jitendra K: This is slightly difficult.
+
+1055
+02:47:27.170 --> 02:47:32.550
+Jitendra K: So… I would… I would request everybody to think a while, and then…
+
+1056
+02:47:33.010 --> 02:47:35.179
+Jitendra K: Yeah, 2 minutes, okay, I will wait.
+
+1057
+02:48:15.780 --> 02:48:17.690
+Jitendra K: Alright, shall we start with the quiz?
+
+1058
+02:48:25.300 --> 02:48:30.210
+Jitendra K: Alright, so the first question is, in soft margin, which we have learned in the last tutorial.
+
+1059
+02:48:30.430 --> 02:48:35.229
+Jitendra K: soft margin classifier, SVM, what is the C parameter primary control?
+
+1060
+02:48:37.190 --> 02:48:40.069
+Jitendra K: Is it controlling the kernel dimensionality?
+
+1061
+02:48:40.290 --> 02:48:44.830
+Jitendra K: margin, And misclassification penalty.
+
+1062
+02:48:45.190 --> 02:48:48.949
+Jitendra K: Number of support vectors, distance metrics in kernel.
+
+1063
+02:48:53.960 --> 02:48:56.089
+Jitendra K: Yes, the correct answer is B.
+
+1064
+02:48:56.940 --> 02:49:02.000
+Jitendra K: trade-off between margin and misclassification penalty. So C is the learnable parameter.
+
+1065
+02:49:03.320 --> 02:49:09.659
+Jitendra K: Second question is, which optimization problem is directly solved by most kernel SVM implementation?
+
+1066
+02:49:10.790 --> 02:49:11.850
+Jitendra K: Primal?
+
+1067
+02:49:12.840 --> 02:49:17.839
+Jitendra K: Dual quadratic optimization with Lagrange multiplier, which is nothing but your Slack variables.
+
+1068
+02:49:18.410 --> 02:49:20.499
+Jitendra K: Gradient descent on hinge losses.
+
+1069
+02:49:21.050 --> 02:49:26.000
+Jitendra K: Maximum likelihood estimation, which is your…
+
+1070
+02:49:29.760 --> 02:49:32.929
+Jitendra K: Solved by logistic regression.
+
+1071
+02:49:37.200 --> 02:49:41.010
+Jitendra K: Okay, B… Yes?
+
+1072
+02:49:41.410 --> 02:49:43.500
+Jitendra K: Because we are working on Slack variables.
+
+1073
+02:49:46.370 --> 02:49:52.499
+Jitendra K: A data point becomes a support vector when it is correctly classified, it lies far from the decision boundary.
+
+1074
+02:49:53.620 --> 02:49:56.020
+Jitendra K: The alpha value is greater than zero.
+
+1075
+02:49:56.450 --> 02:49:58.870
+Jitendra K: That means they're subjective to a constraint.
+
+1076
+02:49:59.290 --> 02:50:01.390
+Jitendra K: The kernel value exceeds a threshold.
+
+1077
+02:50:06.180 --> 02:50:08.309
+Jitendra K: Yes, subjected to a constraint.
+
+1078
+02:50:12.560 --> 02:50:19.029
+Jitendra K: what happens when gamma is set too high in an RBF kernel SVM? So, gamma, remember what is gamma?
+
+1079
+02:50:19.520 --> 02:50:24.180
+Jitendra K: So, we talked about gamma when we are looking from
+
+1080
+02:50:25.290 --> 02:50:30.930
+Jitendra K: as RBF, radial-based kernel, right? So… Remember what gamma solved?
+
+1081
+02:50:31.610 --> 02:50:39.190
+Jitendra K: It will… Try to evaluate the complexity of the problem, and then try to… Fit the method.
+
+1082
+02:50:39.590 --> 02:50:44.939
+Jitendra K: So, the gamma will control the complexity of the SVM kernel.
+
+1083
+02:50:45.430 --> 02:50:49.529
+Jitendra K: It ought to be if… So, what is the correct answer in this case?
+
+1084
+02:50:54.250 --> 02:50:55.120
+Jitendra K: Yes?
+
+1085
+02:50:57.320 --> 02:51:01.830
+Jitendra K: Why are linear SVM often preferred for text classification tasks?
+
+1086
+02:51:13.140 --> 02:51:18.650
+Jitendra K: So, text classification have multiple words. So, multiple words will increase the…
+
+1087
+02:51:19.970 --> 02:51:23.449
+Jitendra K: Sparsity of the model, or the features.
+
+1088
+02:51:23.910 --> 02:51:28.820
+Jitendra K: So when you're creating as VM, it will work pretty well with high dimensions sparse pace.
+
+1089
+02:51:29.170 --> 02:51:31.690
+Jitendra K: So the space is complex.
+
+1090
+02:51:31.890 --> 02:51:33.990
+Jitendra K: The volume of data is complex.
+
+1091
+02:51:34.260 --> 02:51:36.200
+Jitendra K: The linear kernel will adapt.
+
+1092
+02:51:36.530 --> 02:51:42.840
+Jitendra K: Because they are linearly separable. When it's a positive class, negative class, worse, They're linear, there's no overlap.
+
+1093
+02:51:43.350 --> 02:51:44.080
+Jitendra K: Eric?
+
+1094
+02:51:44.960 --> 02:51:50.610
+Jitendra K: In multi-class classification, which strategy is used by default? We have already talked about it.
+
+1095
+02:51:56.720 --> 02:51:58.479
+Jitendra K: This will be 1 to 1.
+
+1096
+02:51:59.800 --> 02:52:01.540
+Jitendra K: So the right answer is 1 to 1.
+
+1097
+02:52:04.730 --> 02:52:08.389
+Jitendra K: What is geometric, meaning… of SVM margin.
+
+1098
+02:52:09.000 --> 02:52:13.129
+Jitendra K: Distance between the class and troy, distance between support vector of different classes.
+
+1099
+02:52:13.410 --> 02:52:19.850
+Jitendra K: Minimum distance from the hyperplane to the closest data point, average classification confidence. So we talked about both classes.
+
+1100
+02:52:25.710 --> 02:52:30.249
+Jitendra K: Yes, the minimum distance of the hyperplane to the closest data point from both classes.
+
+1101
+02:52:30.850 --> 02:52:33.240
+Jitendra K: So the answer is… C.
+
+1102
+02:52:36.250 --> 02:52:39.979
+Jitendra K: Which loss is simply implicitly minimized by SVM?
+
+1103
+02:52:40.340 --> 02:52:44.820
+Jitendra K: Cross entropy, mean square, log loss, hinge loss. I think we haven't discussed this part.
+
+1104
+02:52:45.010 --> 02:52:48.650
+Jitendra K: But let me answer this question for you. This is hinge loss.
+
+1105
+02:52:49.010 --> 02:52:52.350
+Jitendra K: We haven't completed this, so I will come back on hinged losses.
+
+1106
+02:52:53.210 --> 02:52:57.780
+Jitendra K: Why do kernel SVM training scale poorly with large data sets?
+
+1107
+02:53:00.300 --> 02:53:07.639
+Jitendra K: Due to complexity, we understand that complexity is the majority of the Reason why IZM is…
+
+1108
+02:53:08.680 --> 02:53:11.819
+Jitendra K: failed to fit high-dimensional data. Above?
+
+1109
+02:53:11.960 --> 02:53:15.150
+Jitendra K: 10,000 sample. What should be the answer, guys?
+
+1110
+02:53:17.450 --> 02:53:21.710
+Jitendra K: Now, think from the kernel perspective, degree of polynomials.
+
+1111
+02:53:22.970 --> 02:53:24.839
+Jitendra K: Think from degree of polynomial.
+
+1112
+02:53:27.390 --> 02:53:28.290
+Jitendra K: Yes.
+
+1113
+02:53:30.900 --> 02:53:33.459
+Jitendra K: So, degree of polynomial for kernel will increase.
+
+1114
+02:53:34.380 --> 02:53:35.839
+Jitendra K: With a sample size.
+
+1115
+02:53:36.200 --> 02:53:40.260
+Jitendra K: This part, support vector increased linearly, which is also good, but
+
+1116
+02:53:41.110 --> 02:53:46.449
+Jitendra K: It's not about support vectors increasing, it's about kernel complexity increase.
+
+1117
+02:53:47.770 --> 02:53:50.639
+Jitendra K: Which statement about support vector machine is true?
+
+1118
+02:53:52.300 --> 02:53:55.910
+Jitendra K: Removing all unknown support vector changes decision boundary.
+
+1119
+02:53:56.060 --> 02:54:01.589
+Jitendra K: It's true, I mean to say. All trading points influence the final model. This is wrong.
+
+1120
+02:54:01.780 --> 02:54:04.510
+Jitendra K: Only support vector determine the hyperplane.
+
+1121
+02:54:08.630 --> 02:54:11.930
+Jitendra K: Yes, only support vector determine the hyperplane.
+
+1122
+02:54:12.370 --> 02:54:15.800
+Jitendra K: So, the correct answer is… C.
+
+1123
+02:54:16.300 --> 02:54:20.689
+Jitendra K: I think I have the answer key with me. Let me share that.
+
+1124
+02:54:22.520 --> 02:54:25.290
+Jitendra K: And I will share this answer key…
+
+1125
+02:54:31.230 --> 02:54:32.789
+Jitendra K: Yeah, this is answers.
+
+1126
+02:54:39.140 --> 02:54:44.729
+Jitendra K: Yeah, so I think, let me share this quiz as well, so that you can keep it in your record, and this…
+
+1127
+02:54:45.570 --> 02:54:50.619
+Jitendra K: is a part of a… some of the questions are coming from Gate as well, last year.
+
+1128
+02:54:51.200 --> 02:54:57.230
+Jitendra K: So this is a good refresher for you to revisit some of the questions.
+
+1129
+02:55:03.170 --> 02:55:13.249
+Jitendra K: So, this is pretty much what we have for today, guys. So, I think, you enjoy Support Vector now. You are… you are confident in support vector. You understand
+
+1130
+02:55:13.680 --> 02:55:17.200
+Jitendra K: How supportVector works internally, and what are the various
+
+1131
+02:55:17.510 --> 02:55:24.350
+Jitendra K: Application of support vector, that is very important. So you have seen NLP, you have seen regression, you have seen classification.
+
+1132
+02:55:24.620 --> 02:55:28.689
+Jitendra K: all three flavors. That will boost your confidence, for sure.
+
+1133
+02:55:29.090 --> 02:55:41.930
+Jitendra K: So I would encourage you to rate on the higher side if you're feeling the same. My perception is the same, that you have doing good in terms of understanding the support vector regression const… support vector machine concept in general.
+
+1134
+02:55:42.690 --> 02:55:49.210
+Jitendra K: So, support vector machine… It's one of the complex algorithms that we have understood.
+
+1135
+02:55:49.360 --> 02:55:57.379
+Jitendra K: And this algorithm will definitely going to be… help you to develop more POCs and… Lot of product grid.
+
+1136
+02:55:58.180 --> 02:56:00.989
+Jitendra K: Problems that you are going to solve in your future?
+
+1137
+02:56:01.670 --> 02:56:03.979
+Jitendra K: Ventures, right? Fantastic ventures.
+
+1138
+02:56:04.180 --> 02:56:09.990
+Jitendra K: However, we… we will start with some more complex algorithm, which is called neural networks.
+
+1139
+02:56:10.480 --> 02:56:14.650
+Jitendra K: So, neural network will be the first And the foremost…
+
+1140
+02:56:15.990 --> 02:56:23.950
+Jitendra K: I would say, steps that you're going to take toward deep learning. So we'll talk about neural network, how to create neural networks, CNN, RNN,
+
+1141
+02:56:24.520 --> 02:56:31.840
+Jitendra K: and LSTM, and then we'll try to understand the mechanism behind ANN, Artificial neural network.
+
+1142
+02:56:35.860 --> 02:56:38.780
+Jitendra K: Yeah, so I would encourage everybody to participate in the poll.
+
+1143
+02:56:44.420 --> 02:56:47.399
+Jitendra K: I will wait for one more minute before we can wind up.
+
+1144
+02:57:05.730 --> 02:57:07.790
+Jitendra K: Yeah, thanks, thanks, Richard, yeah.
+
+1145
+02:57:08.400 --> 02:57:10.330
+Jitendra K: Yeah, let me share the quiz.
+
+1146
+02:57:10.740 --> 02:57:12.060
+Jitendra K: Good, everyone.
+
+1147
+02:57:18.050 --> 02:57:22.690
+Jitendra K: Yeah, I think, that will be emailed separately.
+
+1148
+02:57:22.940 --> 02:57:25.159
+Jitendra K: Just keep a watch on your email.
+
+1149
+02:57:30.800 --> 02:57:33.809
+Jitendra K: But yes, I think it should be 10, 10th of Jan.
+
+1150
+02:57:36.610 --> 02:57:41.249
+Jitendra K: Yeah, thank you, and happy holidays, and looking forward for the next year.
+
+1151
+02:57:41.790 --> 02:57:45.680
+Jitendra K: So next year, we'll start with some advanced topics, like deep learning.
+
+1152
+02:57:45.970 --> 02:57:49.260
+Jitendra K: So, just revise this topic, you have got good amount of…
+
+1153
+02:57:50.500 --> 02:57:53.549
+Jitendra K: A time and ample opportunity to revisit.
+
+1154
+02:57:53.730 --> 02:57:59.429
+Jitendra K: So please revisit the topic that we have discussed, and Happy New Year to you and your family, and then…
+
+1155
+02:57:59.780 --> 02:58:04.380
+Jitendra K: It was a pleasure to have an interaction, so we'll meet in the next year. Thank you, guys.
+
+1156
+02:58:05.250 --> 02:58:06.120
+Jitendra K: Thank you.
+

@@ -1,0 +1,27 @@
+# 1. Install Cohere SDK (uninstall openai if you want a clean env)
+pip install -r requirements.txt
+
+# 2. Get a free key at https://dashboard.cohere.com/api-keys
+
+# 3. Set it for this terminal session
+$env:COHERE_API_KEY = "your-cohere-key-here"
+
+# 4. Verify
+echo $env:COHERE_API_KEY
+
+# 5. Run
+python .\rag_pipeline.py ingest
+python .\rag_pipeline.py ask "What is multi-head attention?"
+python .\rag_pipeline.py chat
+
+
+
+
+
+
+# Core RAG stack
+openai>=1.50.0          # client.embeddings.create + client.chat.completions
+chromadb>=1.0.0         # PersistentClient, get_or_create_collection
+PyMuPDF>=1.24.0         # imported as `fitz`; PDF text extraction
+cohere>=5.13.0          # ClientV2 with co.embed() / co.chat()
+# (Optional) pin a known-good Python: 3.10–3.12 are all fine.

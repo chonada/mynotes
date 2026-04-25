@@ -1,0 +1,3766 @@
+WEBVTT
+
+1
+00:00:40.350 --> 00:00:43.920
+Jitendra K: Hi guys, we'll start in a while, just give me a moment.
+
+2
+00:00:49.370 --> 00:00:52.960
+Jitendra K: Let some more candidates join in, and then we can start a session.
+
+3
+00:03:32.020 --> 00:03:36.970
+Jitendra K: Alright, so let's start with today's tutorial, guys. I hope you guys are doing well.
+
+4
+00:03:37.540 --> 00:03:47.530
+Jitendra K: And you have a great weekend as well. So, before we start the session, is there anything that you would like to ask from the last tutorial before I set up the context for today's tutorial?
+
+5
+00:03:49.890 --> 00:03:54.210
+Jitendra K: Any doubt, any question? Are you finding CNNs so far so good?
+
+6
+00:03:54.740 --> 00:03:57.139
+Jitendra K: Any issue with execution code?
+
+7
+00:04:16.310 --> 00:04:20.569
+Jitendra K: I'm audible, guys. My screen visible? I'm audible to everyone.
+
+8
+00:04:28.420 --> 00:04:31.519
+Jitendra K: Alright, sure. So, if…
+
+9
+00:04:31.970 --> 00:04:37.890
+Jitendra K: We are able to run execute and everything, and there's no issue. Let's continue with our tutorial.
+
+10
+00:04:38.240 --> 00:04:44.339
+Jitendra K: So, in today's tutorial, we are going to start with some more advanced CNN walkthroughs.
+
+11
+00:04:45.120 --> 00:04:55.349
+Jitendra K: And I'm going to use some open source data, which is available in Kaggle and other repository, and then I would like to walk you through some of the fundamental questions that we are going to utilize.
+
+12
+00:04:55.720 --> 00:05:00.560
+Jitendra K: So we have, three case studies that we are going to talk about today. One is called…
+
+13
+00:05:01.440 --> 00:05:04.450
+Jitendra K: the fruit classification, where I'm going to feed in
+
+14
+00:05:04.680 --> 00:05:09.380
+Jitendra K: Several bunch of images from different segments of the fruit categories.
+
+15
+00:05:09.650 --> 00:05:17.700
+Jitendra K: And then use a CNN model, RESNAT50 specifically, to quantify the outcome into certain labels.
+
+16
+00:05:18.310 --> 00:05:25.260
+Jitendra K: So, this particular notebook that we are going to utilize is for The background is, it is…
+
+17
+00:05:26.490 --> 00:05:30.299
+Jitendra K: Use for fruit classification, which will have significant practical value.
+
+18
+00:05:30.550 --> 00:05:40.129
+Jitendra K: with deep learning implications. So we can create and explore multiple compiling use cases for this technology. One is, you can able to identify the sorting of ripe fruits.
+
+19
+00:05:40.790 --> 00:05:44.320
+Jitendra K: So, one practical application is for sorting ripe fruits.
+
+20
+00:05:44.460 --> 00:05:54.099
+Jitendra K: is from unripe ones. For instance, you can automate fruit sorting system powered by deep learning, which can efficiently categorize ripe banana from the green one.
+
+21
+00:05:54.540 --> 00:05:56.099
+Jitendra K: Or the unripe ones.
+
+22
+00:05:56.610 --> 00:06:00.249
+Jitendra K: Right? You can also use a packaging process to separate
+
+23
+00:06:00.720 --> 00:06:04.309
+Jitendra K: Those from the inventories, or you can detect the spoiled foods.
+
+24
+00:06:04.640 --> 00:06:12.660
+Jitendra K: Which can able to detect fungus, presence on their skins. By automating this process, we can minimize the waste, analyze the quality.
+
+25
+00:06:12.940 --> 00:06:15.820
+Jitendra K: Controlling fruit distribution centers.
+
+26
+00:06:15.920 --> 00:06:20.180
+Jitendra K: Third and the most important thing is you can rate the fruit according to the grade.
+
+27
+00:06:20.290 --> 00:06:23.949
+Jitendra K: And decide a dynamic price on the fruits as well.
+
+28
+00:06:24.600 --> 00:06:31.660
+Jitendra K: You can also perform an inventory management. Fruit classification can assist in inventory management for grocery stores and warehouses.
+
+29
+00:06:31.870 --> 00:06:39.920
+Jitendra K: With the ability to automatically classify and count different fruits in the stock, business can optimize their supply chain and ensure adequate stock level.
+
+30
+00:06:40.560 --> 00:06:41.789
+Jitendra K: On the top of it.
+
+31
+00:06:42.880 --> 00:06:53.400
+Jitendra K: You can also use, by analyzing the fruit images, deep learning model can spot… sign the disease or any requirement for press controls.
+
+32
+00:06:54.000 --> 00:07:03.279
+Jitendra K: To identify the early warning detection, and it can be timely escalated or intervened, preventing the spread of disease and safeguarding the crop yields.
+
+33
+00:07:03.710 --> 00:07:11.129
+Jitendra K: So, with our deep learning capabilities, fruit classification can be implemented as a replacement of traditional manual methods in agriculture.
+
+34
+00:07:12.030 --> 00:07:21.060
+Jitendra K: botany, which is our biological sciences. By utilizing this model, we can introduce efficient and accuracy into Various…
+
+35
+00:07:21.160 --> 00:07:22.840
+Jitendra K: fruit-related process.
+
+36
+00:07:24.360 --> 00:07:27.090
+Jitendra K: So, the challenge here is, we are going to implement
+
+37
+00:07:28.350 --> 00:07:32.910
+Jitendra K: Various types of food, with a different grades, textures, color, shape.
+
+38
+00:07:33.370 --> 00:07:34.170
+Jitendra K: Sorry.
+
+39
+00:07:34.450 --> 00:07:37.230
+Jitendra K: And the main challenge here we have to solve is…
+
+40
+00:07:37.970 --> 00:07:41.400
+Jitendra K: Identifying and differentiating the types of fruit, and distinguish
+
+41
+00:07:41.620 --> 00:07:46.969
+Jitendra K: Among various variety of the same fruit. And accurately predicting fruit classification
+
+42
+00:07:47.570 --> 00:07:49.529
+Jitendra K: And their prices in the supermarket.
+
+43
+00:07:50.190 --> 00:07:56.749
+Jitendra K: So, we are going to use 360 fruit data sets, and the deep model will run OKRAS,
+
+44
+00:07:57.110 --> 00:08:01.639
+Jitendra K: Based on the aim to proficient, proficiently
+
+45
+00:08:01.790 --> 00:08:04.360
+Jitendra K: Classified 10 different types of fruit.
+
+46
+00:08:05.630 --> 00:08:08.180
+Jitendra K: So, we are going to start with a few…
+
+47
+00:08:08.670 --> 00:08:12.040
+Jitendra K: data sets. So in this, I will…
+
+48
+00:08:15.380 --> 00:08:20.560
+Jitendra K: Try to use this particular category, and then differentiate the type of dataset.
+
+49
+00:08:21.690 --> 00:08:23.420
+Jitendra K: One second…
+
+50
+00:08:30.160 --> 00:08:33.460
+Jitendra K: Let me open my… Notebook.
+
+51
+00:08:33.740 --> 00:08:44.589
+Jitendra K: Yeah, so I'm open. So in this class, I'm going to run this notebook as it is. I mean, without executing full-fledged. So I have already run this, and the results are stored in my…
+
+52
+00:08:45.060 --> 00:08:52.409
+Jitendra K: local, I will just show you the results, rather than rerunning this, because my system is supported by GPU, so…
+
+53
+00:08:52.960 --> 00:09:03.760
+Jitendra K: It's already run and took some time to come up with an answer. So instead of wasting the time in running an XD executing, we will just reuse the same template as it is.
+
+54
+00:09:04.180 --> 00:09:12.519
+Jitendra K: So I will going to… I'm going to work on this entire notebook, and explain to you what are we trying to achieve, so the objective is clear.
+
+55
+00:09:13.150 --> 00:09:17.729
+Jitendra K: Is the objective clear to everyone? What are we trying to solve? Any question on the objective?
+
+56
+00:09:26.700 --> 00:09:27.680
+Jitendra K: Alright.
+
+57
+00:09:29.970 --> 00:09:31.749
+Jitendra K: Can we get more thumbs up?
+
+58
+00:09:32.250 --> 00:09:36.870
+Jitendra K: Those who are… Recently joined, this is a case study for CNN.
+
+59
+00:09:37.180 --> 00:09:38.929
+Jitendra K: That we are solving right now.
+
+60
+00:09:42.060 --> 00:09:46.000
+Jitendra K: Okay, so first and foremost thing, let's start with some import functions.
+
+61
+00:09:46.200 --> 00:09:50.059
+Jitendra K: So this is the first… Thing that we are going to do is…
+
+62
+00:09:50.300 --> 00:09:54.480
+Jitendra K: We are going to import several libraries, including OS,
+
+63
+00:09:54.830 --> 00:09:59.250
+Jitendra K: Operating system, shell utility, file globeing method.
+
+64
+00:09:59.480 --> 00:10:02.789
+Jitendra K: some warning suppressor. We are going to use some…
+
+65
+00:10:03.940 --> 00:10:07.940
+Jitendra K: with data visualization tools, including Matplot and Seaborn.
+
+66
+00:10:08.200 --> 00:10:14.699
+Jitendra K: And the user library is for managing our KRAS and TensorFlow, which is sequential layer.
+
+67
+00:10:14.990 --> 00:10:21.820
+Jitendra K: We are going to create a linear API layer on CNN, which is a building block for…
+
+68
+00:10:22.030 --> 00:10:24.220
+Jitendra K: The model, and we are going to use it.
+
+69
+00:10:24.860 --> 00:10:26.639
+Jitendra K: So, we have,
+
+70
+00:10:29.980 --> 00:10:35.149
+Jitendra K: Basically, we have… Let me show you the diagram.
+
+71
+00:10:37.500 --> 00:10:41.529
+Jitendra K: We are going to work on this. So we have different categories of labels.
+
+72
+00:10:42.290 --> 00:10:51.179
+Jitendra K: Which include fruit of 366… 360 dataset, which has been classified into 131 classes of different fruits and vegetable category.
+
+73
+00:10:51.670 --> 00:10:57.689
+Jitendra K: We'll perform some, walk on the top of the files, try to…
+
+74
+00:10:58.050 --> 00:11:05.599
+Jitendra K: use our command shall utility to differentiate training and test data, and then perform some EDL on the top of it. That's the first step that we're going to do.
+
+75
+00:11:06.040 --> 00:11:12.639
+Jitendra K: So this is the first step that we're going to do. We'll try to count the number of labels. The number of labels comes out to be 131.
+
+76
+00:11:12.960 --> 00:11:15.029
+Jitendra K: And then, after that.
+
+77
+00:11:15.430 --> 00:11:21.429
+Jitendra K: we can see that if I'm going to explore the training data, I have got these varieties of fruits.
+
+78
+00:11:21.820 --> 00:11:28.530
+Jitendra K: Which include different varieties of apple, Apricot, avocado, Banana…
+
+79
+00:11:29.060 --> 00:11:35.350
+Jitendra K: There are different categories of banana as well, beetroot, which is a fruit category, blueberry, cactus fruit.
+
+80
+00:11:36.050 --> 00:11:41.760
+Jitendra K: And then so on and so forth. So we have got majority of the fruits into those 131 category.
+
+81
+00:11:42.220 --> 00:11:52.489
+Jitendra K: Now, what I'm going to do is, I would like to go layer by layer on the CNN architecture. So, this is the input data. Now, how about using the CNN architecture to solve this problem?
+
+82
+00:11:52.990 --> 00:11:59.500
+Jitendra K: So we're going to start with the input size. So, we have got different category.
+
+83
+00:11:59.870 --> 00:12:06.690
+Jitendra K: So, the layer 1, if I have to give you the layer by layer, so I'm using a convolution 2D operation, which is having
+
+84
+00:12:06.860 --> 00:12:11.299
+Jitendra K: predicted to neurons, kernel size of 3 cross 3, activation function as redu.
+
+85
+00:12:11.610 --> 00:12:15.299
+Jitendra K: Input shape of… Given by the image.
+
+86
+00:12:15.900 --> 00:12:23.559
+Jitendra K: Right? So a 3 across 3 sliding filters can across these 100 plus 100 pixel image with a padding value is also valid.
+
+87
+00:12:23.770 --> 00:12:28.340
+Jitendra K: And each convolution saves one pixel for each edge.
+
+88
+00:12:28.760 --> 00:12:31.120
+Jitendra K: And, this is what I'm going to have.
+
+89
+00:12:31.290 --> 00:12:35.619
+Jitendra K: So, let me explain with the code first, and then we'll revisit its architecture.
+
+90
+00:12:35.970 --> 00:12:39.169
+Jitendra K: So in the code, what I'm trying to do is, I'm trying to…
+
+91
+00:12:42.220 --> 00:12:43.999
+Jitendra K: This is just exploration.
+
+92
+00:12:45.970 --> 00:12:50.849
+Jitendra K: And these are the category of fruits. My top category, you will see some fruits are
+
+93
+00:12:51.090 --> 00:12:53.649
+Jitendra K: Highly in terms of image data.
+
+94
+00:12:54.610 --> 00:12:56.820
+Jitendra K: Okay, now I'm talking about this part.
+
+95
+00:12:58.590 --> 00:13:00.990
+Jitendra K: So I'm going to use convolution layer.
+
+96
+00:13:38.510 --> 00:13:40.100
+Jitendra K: This is a split.
+
+97
+00:13:41.350 --> 00:13:44.470
+Jitendra K: This is where I'm going to create a class.
+
+98
+00:13:45.880 --> 00:13:50.230
+Jitendra K: This is, again, preparing the data, and then… Building the…
+
+99
+00:13:50.500 --> 00:13:53.850
+Jitendra K: Define the CN. So this is the code that I'm talking about.
+
+100
+00:13:54.300 --> 00:13:59.219
+Jitendra K: Now, in this code, one second, let me…
+
+101
+00:14:01.230 --> 00:14:05.750
+Jitendra K: First, open the image as well, parallelally, so that you can understand.
+
+102
+00:14:29.250 --> 00:14:31.589
+Jitendra K: Okay, so let me open this diagram.
+
+103
+00:14:44.030 --> 00:14:50.840
+Jitendra K: Okay, so we have an input image of certain root category, which is of 100 plus 100 cross 3 pixels.
+
+104
+00:14:51.470 --> 00:15:00.699
+Jitendra K: So what we are doing is, in the first layer, we are resizing and rescaling for embedding processing, so that means we are just trying to make it normalized.
+
+105
+00:15:00.950 --> 00:15:06.980
+Jitendra K: And then we start building the convolution layers. The convulsion block one comprises of 32 neurons.
+
+106
+00:15:07.570 --> 00:15:16.170
+Jitendra K: And, this is 3 cross-3 channel, because of the RGB, and the output is expected to be 98 cross 98 cross 32.
+
+107
+00:15:16.310 --> 00:15:21.779
+Jitendra K: I'm using a max pooling layer. Remember what is the purpose of max pooling layer? It's to perform
+
+108
+00:15:22.440 --> 00:15:25.049
+Jitendra K: The sampling of the image.
+
+109
+00:15:25.200 --> 00:15:30.480
+Jitendra K: Features… feature sites, so it will convert your pixels into feature sets.
+
+110
+00:15:30.940 --> 00:15:38.099
+Jitendra K: And then convolution block 2 will have 3 cross-3LU, and the max pooling I'm applying here as well.
+
+111
+00:15:38.240 --> 00:15:43.669
+Jitendra K: The third layer, the same operation, nearly same operation, but the dimensions are shrinking.
+
+112
+00:15:44.460 --> 00:15:47.090
+Jitendra K: Until convolution, block 5.
+
+113
+00:15:47.460 --> 00:15:57.670
+Jitendra K: Then I'm flattening that particular layer, and then representing the dance using 512 neuron, and dropout rate of 25%, so that I can able to avoid any
+
+114
+00:15:58.190 --> 00:15:59.780
+Jitendra K: Overfitting in the model.
+
+115
+00:16:00.070 --> 00:16:06.949
+Jitendra K: And finally, I would like to have a class probability on all the classes that I'm trying to categorize in the outcome.
+
+116
+00:16:07.360 --> 00:16:14.880
+Jitendra K: So this is the simple, or I would say this is one of the important things that I'm dealing with it. So I'm starting with the sequential layering.
+
+117
+00:16:15.270 --> 00:16:21.749
+Jitendra K: So I'm having a sequential linear stack of my inputs, which I'm using from this library.
+
+118
+00:16:21.920 --> 00:16:27.729
+Jitendra K: And also, I'm using a convulsion 2D convulsion layer for feature extraction and max pooling for
+
+119
+00:16:28.460 --> 00:16:32.899
+Jitendra K: Max Pooling 2 is that, max pooling…
+
+120
+00:16:46.130 --> 00:16:49.409
+Jitendra K: Yeah, so in the layer, I'm defining this max pooling function.
+
+121
+00:16:49.840 --> 00:16:57.120
+Jitendra K: So this max pooling function will help me to… do… Yeah, here.
+
+122
+00:16:57.900 --> 00:17:05.000
+Jitendra K: So in this function, I'm doing downsampling, and then flattening the layers from 2D maps one dimension for dense layer.
+
+123
+00:17:05.859 --> 00:17:15.359
+Jitendra K: And then I'm using a series of optimizer, RMS propagations, and adaptive momentum. And the loss that I'm using, because this is categorical.
+
+124
+00:17:15.660 --> 00:17:21.629
+Jitendra K: So I will use multi-class classification or sparse categorical cross-entropy.
+
+125
+00:17:21.910 --> 00:17:24.970
+Jitendra K: For measuring the outcome efficiencies.
+
+126
+00:17:25.680 --> 00:17:29.400
+Jitendra K: So, first and foremost thing, I have to load this data, so I'm loading the data…
+
+127
+00:17:29.680 --> 00:17:32.200
+Jitendra K: I'm keeping the path to dataset.
+
+128
+00:17:32.310 --> 00:17:37.510
+Jitendra K: of Route360 dataset, and that dataset has separate training and test folders.
+
+129
+00:17:37.750 --> 00:17:41.720
+Jitendra K: With 135 subfolders using different fruit varieties.
+
+130
+00:17:42.100 --> 00:17:47.379
+Jitendra K: I'm just trying to create a count, the number of labels, folder, classes in the category.
+
+131
+00:17:48.150 --> 00:17:52.600
+Jitendra K: And then counting the number of labels, folders in each directory.
+
+132
+00:17:54.190 --> 00:18:03.149
+Jitendra K: Then I'm listing all the class name alphabetically here, which is given by this So, A to W,
+
+133
+00:18:03.560 --> 00:18:07.229
+Jitendra K: And then I'm creating different folders, subsetting the data.
+
+134
+00:18:08.340 --> 00:18:12.830
+Jitendra K: To only fruits. So right now, I'm just trying to extract only fruits.
+
+135
+00:18:12.960 --> 00:18:25.069
+Jitendra K: I can do it for variables as well, after, I train the fruit categories. So I'm subsetting the data to only fruits, copying the selected folders, and these are my fruits categories.
+
+136
+00:18:25.580 --> 00:18:26.820
+Jitendra K: That I'm using.
+
+137
+00:18:27.220 --> 00:18:33.869
+Jitendra K: Now, once I copy this selected routes into a working directory, including their variants.
+
+138
+00:18:34.100 --> 00:18:38.810
+Jitendra K: I would like to pass on the list of selected fruits that I'm targeting to train the model.
+
+139
+00:18:39.330 --> 00:18:44.809
+Jitendra K: Now, I would like to check the distribution of the data. So, these are the distribution…
+
+140
+00:18:45.090 --> 00:18:47.989
+Jitendra K: I have got majority of the grapes blue.
+
+141
+00:18:48.520 --> 00:18:54.059
+Jitendra K: Followed by cherry and apple. So, this is where the distribution looks like.
+
+142
+00:18:56.140 --> 00:18:58.929
+Jitendra K: The total image count comes out to be 19.
+
+143
+00:18:59.430 --> 00:19:04.870
+Jitendra K: 1,606 and 6,599 per test.
+
+144
+00:19:05.180 --> 00:19:07.039
+Jitendra K: So I'm going to visualize the top.
+
+145
+00:19:07.230 --> 00:19:09.779
+Jitendra K: plus distribution, this is what I'm getting.
+
+146
+00:19:10.360 --> 00:19:18.060
+Jitendra K: So I will start data preparation now. I'm saying the best size, which is my hyperparameter, best size, 32, image size of 100 plus 100 pixels.
+
+147
+00:19:18.460 --> 00:19:22.619
+Jitendra K: with RGB array, which is 3-channel, and TaniPock I'm going to use.
+
+148
+00:19:22.930 --> 00:19:29.080
+Jitendra K: So I'll start with the pipeline creation now, and this will load the image from the training subfolder
+
+149
+00:19:29.220 --> 00:19:36.719
+Jitendra K: Automatically infer class label from the subfolders, etc, and return the tf.data.dataset.
+
+150
+00:19:36.870 --> 00:19:40.230
+Jitendra K: Batch, where labels are integer from 0 to 37.
+
+151
+00:19:41.240 --> 00:19:48.120
+Jitendra K: Then I'm creating and returning a TensorFlow dataset, where the labels are between 0 to 37.
+
+152
+00:19:48.440 --> 00:19:52.499
+Jitendra K: And then, based upon that, I would like to use this for model training purpose.
+
+153
+00:19:53.480 --> 00:19:59.440
+Jitendra K: Some data extraction, I'm just trying to see and display 25 random images from the train data with their labels.
+
+154
+00:19:59.760 --> 00:20:03.950
+Jitendra K: So you can see these are the labels associated with the fruits. It's pretty much…
+
+155
+00:20:04.920 --> 00:20:11.890
+Jitendra K: It looks like well integrated, and, give proper depictions on the fruits.
+
+156
+00:20:12.820 --> 00:20:21.010
+Jitendra K: Now, I'm going to prepare my dataset for training and validation, so I'm splitting the data into 80% train and 20% validation.
+
+157
+00:20:21.330 --> 00:20:27.650
+Jitendra K: So I'm going to run 490 training batches, since the batch size is 32, so I'm going to use
+
+158
+00:20:27.810 --> 00:20:32.039
+Jitendra K: One… 19,606 images on 49 pages.
+
+159
+00:20:32.650 --> 00:20:36.889
+Jitendra K: So, that is what I'm using here. I'm converting this into a batch.
+
+160
+00:20:38.720 --> 00:20:43.330
+Jitendra K: And then, I would like to perform some rescaling on the images.
+
+161
+00:20:43.650 --> 00:20:51.490
+Jitendra K: And try to normalize the pixels between 0 to 1 using this factor, 1 divided by 255, which is the maximum integer range.
+
+162
+00:20:51.780 --> 00:20:56.569
+Jitendra K: And then the architecture I'm defining here. This is the architecture that I'm defining.
+
+163
+00:20:56.750 --> 00:20:59.880
+Jitendra K: So I've got… The input, 32.
+
+164
+00:21:00.440 --> 00:21:05.540
+Jitendra K: 100 cross 100 plus 3, An output would be 32, 98 plus 98.
+
+165
+00:21:05.990 --> 00:21:11.489
+Jitendra K: After validating, with the help of, the CNN layers.
+
+166
+00:21:11.760 --> 00:21:23.679
+Jitendra K: I'm downsampling by a factor of 2, so max pooling is for downsampling, reducing the spatial dimension to 49 cross 49, instead of 100 cross 100, and the number of filters remain unchanged.
+
+167
+00:21:24.050 --> 00:21:26.140
+Jitendra K: So it'll help me to extract dominant features.
+
+168
+00:21:26.530 --> 00:21:29.970
+Jitendra K: And it may reduce overfitting. The idea is simple.
+
+169
+00:21:30.150 --> 00:21:34.840
+Jitendra K: I would like to reduce overfitting, and making sure that I have
+
+170
+00:21:36.870 --> 00:21:41.349
+Jitendra K: I have a great amount of feature extraction being performed by this model.
+
+171
+00:21:41.890 --> 00:21:47.019
+Jitendra K: So I've got several convolution layers, and a series of flattening layers as well.
+
+172
+00:21:47.160 --> 00:21:51.560
+Jitendra K: And the last layer is a dense layer, with a dropout rate of 25% on the input.
+
+173
+00:21:52.060 --> 00:21:58.890
+Jitendra K: to prevent overfitting. So my output comprised of… 38 neurons.
+
+174
+00:21:59.250 --> 00:22:02.750
+Jitendra K: with, 38 classes.
+
+175
+00:22:03.210 --> 00:22:17.159
+Jitendra K: And I'm just using this particular model. Now, this is the layers that I'm using. I'm compiling the model and generating a summary, so it'll give you the artifacts that has been used by model. The total attainable parameter is close to 224,000.
+
+176
+00:22:17.710 --> 00:22:21.079
+Jitendra K: Which is pretty huge parameters in the model.
+
+177
+00:22:21.460 --> 00:22:27.250
+Jitendra K: Now, I would like to use the optimizer, and the optimizer I'm using is RMS propagation.
+
+178
+00:22:27.690 --> 00:22:33.020
+Jitendra K: And the reason why I'm choosing this, because it has sparse gradient due to multiple category.
+
+179
+00:22:33.290 --> 00:22:38.180
+Jitendra K: And it may have varying complexities, like color, shape, size.
+
+180
+00:22:38.480 --> 00:22:44.119
+Jitendra K: So RMS propagation adapt learning rates per parameter, which can help me to converge faster.
+
+181
+00:22:44.550 --> 00:22:52.420
+Jitendra K: And the last function that I'm choosing here is sparse categorical cross entropy. So I'm using when the labels are integer, not when hot encoders.
+
+182
+00:22:52.910 --> 00:22:58.930
+Jitendra K: So that means I'm using the actual probabilities Rather than…
+
+183
+00:22:59.620 --> 00:23:03.400
+Jitendra K: I would say, individual one, right? So the core idea of using
+
+184
+00:23:11.760 --> 00:23:14.320
+Jitendra K: Let me just conclude with that.
+
+185
+00:23:20.410 --> 00:23:21.340
+Jitendra K: Yeah.
+
+186
+00:23:21.940 --> 00:23:28.870
+Jitendra K: So basically, what I'm trying to do is, we are using RMSProp instead of atom due to its ability to handle sparse gradient.
+
+187
+00:23:29.200 --> 00:23:39.250
+Jitendra K: And this can be useful when you are handling multi-label tasking, and this means we are dealing with sparse gradient due to multiple categories and subcategories. You can see there are subcategories as well.
+
+188
+00:23:39.530 --> 00:23:52.679
+Jitendra K: apple of different categories, grapes of different category, banana of different category, etc. Also, our data set has varying complexities and different number of images in each class. That means the samples are disproportionated.
+
+189
+00:23:52.810 --> 00:23:54.769
+Jitendra K: So, RMS prop can be used
+
+190
+00:23:54.940 --> 00:24:01.540
+Jitendra K: instead of ADAM to leverage its adaptive learning fundamentals and learning rate mechanism for better.
+
+191
+00:24:01.650 --> 00:24:07.719
+Jitendra K: fine-tuning to learn rates. And this is… can we possibly provide a better convergence and performance
+
+192
+00:24:07.850 --> 00:24:10.790
+Jitendra K: On our specific image classification task.
+
+193
+00:24:11.140 --> 00:24:17.600
+Jitendra K: Now, once I have defined this, I have trained the model on Tanipoc, so you can see the validation loss, I'm keeping a track.
+
+194
+00:24:17.840 --> 00:24:22.490
+Jitendra K: try to reduce overfitting as well, as I progress, so the model training…
+
+195
+00:24:22.730 --> 00:24:28.010
+Jitendra K: For Tan Epoch, using the training and validation data sets, And I'm training…
+
+196
+00:24:28.130 --> 00:24:36.090
+Jitendra K: I'm also keeping a track of the logs, which will show the accuracy, which has been reached up to 99%, and near about 100% on validation.
+
+197
+00:24:36.380 --> 00:24:40.729
+Jitendra K: After 10 EPA. Did it indicate that, potentially overfitting?
+
+198
+00:24:41.190 --> 00:24:45.089
+Jitendra K: But validation accuracy remains high, so to be generalized well.
+
+199
+00:24:46.500 --> 00:24:49.830
+Jitendra K: Now, I'm going to plot the losses.
+
+200
+00:24:50.690 --> 00:24:59.659
+Jitendra K: So, if you look into the plot, it shows both losses decreasing quickly, with validation loss slightly higher as some epoch, but overall stable.
+
+201
+00:25:00.100 --> 00:25:03.550
+Jitendra K: And the model seems to be not heavily overfitted either.
+
+202
+00:25:04.070 --> 00:25:09.229
+Jitendra K: That means there's no huge gap between training laws and validation laws. They are nearly same.
+
+203
+00:25:09.780 --> 00:25:13.400
+Jitendra K: Throughout. Only there's a spike here on certain images.
+
+204
+00:25:14.240 --> 00:25:18.239
+Jitendra K: Now, key observation here is, I'm extracting hierarchical features.
+
+205
+00:25:18.720 --> 00:25:21.880
+Jitendra K: Detecting edge, texture, color, shape…
+
+206
+00:25:23.130 --> 00:25:31.440
+Jitendra K: could be… there's no verbal data, right? So, as I… if I have to ask you, how will you differentiate
+
+207
+00:25:32.130 --> 00:25:38.689
+Jitendra K: these two fruits. Let me go back to the diagram. So what will be your answer? I just want to hear from everyone.
+
+208
+00:25:39.390 --> 00:25:43.040
+Jitendra K: Okay, can you explain me why there are two different types of apple?
+
+209
+00:25:43.400 --> 00:25:45.709
+Jitendra K: What is the differentiation between the two apples?
+
+210
+00:25:46.070 --> 00:25:47.170
+Jitendra K: on the screen.
+
+211
+00:25:47.390 --> 00:25:49.080
+Jitendra K: Or let's say this apple.
+
+212
+00:25:53.820 --> 00:25:57.900
+Jitendra K: So let's say you went to a market and then buying these two apples.
+
+213
+00:25:59.310 --> 00:26:00.810
+Jitendra K: Shape and color.
+
+214
+00:26:00.950 --> 00:26:01.950
+Jitendra K: Okay.
+
+215
+00:26:02.780 --> 00:26:05.289
+Jitendra K: Gradient of red, okay, great.
+
+216
+00:26:08.980 --> 00:26:12.530
+Jitendra K: Shape is… One thing, yes, I agree.
+
+217
+00:26:20.840 --> 00:26:23.610
+Jitendra K: glossiness of screen. How about these two apples?
+
+218
+00:26:23.760 --> 00:26:25.090
+Jitendra K: They're of same shape.
+
+219
+00:26:33.020 --> 00:26:34.659
+Jitendra K: Percentage of red.
+
+220
+00:26:35.200 --> 00:26:36.110
+Jitendra K: Fair enough.
+
+221
+00:26:37.150 --> 00:26:44.899
+Jitendra K: Pillars, brightness, thoughts… That means the texture and the shape are the two important categories, right? And then…
+
+222
+00:26:45.300 --> 00:26:52.480
+Jitendra K: Based upon this, you can able to identify, as a human, that these two apples are different, and they will be two different price for it.
+
+223
+00:26:53.050 --> 00:26:53.920
+Jitendra K: Right?
+
+224
+00:26:54.360 --> 00:26:58.080
+Jitendra K: So, you can be able to find it out based upon texture, color.
+
+225
+00:26:58.710 --> 00:27:03.950
+Jitendra K: And, you can be able to identify that these two apples are different, and,
+
+226
+00:27:04.290 --> 00:27:09.190
+Jitendra K: If you're buying for authentic stores, there's no… fake.
+
+227
+00:27:10.120 --> 00:27:14.440
+Jitendra K: Provisions, so you're going to trust that store and then buy it, right?
+
+228
+00:27:14.870 --> 00:27:23.200
+Jitendra K: So the whole idea here is very simple. Machine learning also used different criterias, or hierarchical features.
+
+229
+00:27:23.780 --> 00:27:29.330
+Jitendra K: So, you still have different features, like Edge, texture, shape…
+
+230
+00:27:30.160 --> 00:27:34.660
+Jitendra K: And some more deep layer, we can learn the complex root-specific patterns.
+
+231
+00:27:36.100 --> 00:27:41.260
+Jitendra K: So, I'm… so, by default, this algorithm will generate too many features.
+
+232
+00:27:42.460 --> 00:27:47.090
+Jitendra K: Right? It will say that, okay, the yellow percentage in this apple is high.
+
+233
+00:27:47.470 --> 00:27:50.150
+Jitendra K: The rat percentage is also high.
+
+234
+00:27:50.480 --> 00:27:56.469
+Jitendra K: the dots is in yellow, so all this kind of features they will start creating. So it will look for a pattern here.
+
+235
+00:27:56.820 --> 00:28:03.900
+Jitendra K: But it will become too many features to train the model. So max folding will help us reduce spatial dimension, controlling the number of parameters.
+
+236
+00:28:04.290 --> 00:28:07.170
+Jitendra K: To help us provide translation in variance.
+
+237
+00:28:07.620 --> 00:28:14.980
+Jitendra K: And then I'm increasing the filter count, allowing to capture more complex features. So you can see that this is what I'm doing in my CNN layer.
+
+238
+00:28:15.320 --> 00:28:18.240
+Jitendra K: That my hidden layer will have more complex features.
+
+239
+00:28:25.670 --> 00:28:26.450
+Jitendra K: Right?
+
+240
+00:28:26.920 --> 00:28:32.979
+Jitendra K: So the key idea here is I'm just allowing to capture more complex features as spatial resolution decreased.
+
+241
+00:28:33.340 --> 00:28:36.129
+Jitendra K: So, it will increase the resolution of your image.
+
+242
+00:28:37.910 --> 00:28:43.459
+Jitendra K: So… so, maybe… That is what… It does, internally.
+
+243
+00:28:43.740 --> 00:28:51.000
+Jitendra K: So basically, we are transforming the extracted feature into class prediction probability, and using a dropout to regularize to prevent overfitting.
+
+244
+00:28:51.660 --> 00:28:58.390
+Jitendra K: And then, we are using adaptive learning rate, which is suited for this problem with noisy gradient and or sparse features.
+
+245
+00:28:58.610 --> 00:29:05.080
+Jitendra K: This model Might be trained, or might be overparameterized, given the dataset size.
+
+246
+00:29:06.400 --> 00:29:14.479
+Jitendra K: And the data is in good number, and that's the reason we are getting a good result. But 100% is too…
+
+247
+00:29:15.060 --> 00:29:17.410
+Jitendra K: overestimated result, I would say.
+
+248
+00:29:18.000 --> 00:29:24.640
+Jitendra K: But, we can still go with some more models, like ResNet, EfficientNet for better performance with fewer data as well.
+
+249
+00:29:25.010 --> 00:29:29.810
+Jitendra K: But right now, we are using CNN, and this model gave us 100% accuracy.
+
+250
+00:29:30.180 --> 00:29:37.150
+Jitendra K: Now, I would like to create a test pipeline, and try to see What are the predictor samples?
+
+251
+00:29:38.530 --> 00:29:41.419
+Jitendra K: So this says cherry, which is fine.
+
+252
+00:29:41.860 --> 00:29:43.430
+Jitendra K: The first image to predict.
+
+253
+00:29:45.340 --> 00:29:47.780
+Jitendra K: I would like to look for some more.
+
+254
+00:29:48.530 --> 00:29:55.550
+Jitendra K: And this is what I'm getting. Actual is GABA, predicted is GABA with 100% coefficient, coefficients, confidence.
+
+255
+00:29:56.040 --> 00:30:05.199
+Jitendra K: Actually, it's Apple… Bourbon, and this is also ridiculous apple bourbon, confidence of 100%.
+
+256
+00:30:05.500 --> 00:30:07.030
+Jitendra K: Apple Granny Smith.
+
+257
+00:30:08.390 --> 00:30:11.090
+Jitendra K: Okay, this is where you have an error.
+
+258
+00:30:11.640 --> 00:30:13.740
+Jitendra K: Okay, the rest of the things looks fine.
+
+259
+00:30:16.180 --> 00:30:19.519
+Jitendra K: So you can see that this is doing a great job.
+
+260
+00:30:19.690 --> 00:30:22.909
+Jitendra K: In terms of predicting the overall
+
+261
+00:30:23.420 --> 00:30:26.659
+Jitendra K: Outcome from the image classification model.
+
+262
+00:30:27.450 --> 00:30:31.139
+Jitendra K: I can have more predictions set, just to get more confidence.
+
+263
+00:30:31.850 --> 00:30:33.560
+Jitendra K: And this is what I'm getting.
+
+264
+00:30:39.840 --> 00:30:42.890
+Jitendra K: So, basically, what I did is I used,
+
+265
+00:30:43.600 --> 00:30:49.639
+Jitendra K: CNN model with a simple setup, to convert this whole architecture into
+
+266
+00:30:50.290 --> 00:30:57.290
+Jitendra K: the prediction model, right? So our core idea here is very simple. I have a bunch of images, I have a bunch of
+
+267
+00:30:57.580 --> 00:31:00.220
+Jitendra K: categories, and I'm just training the model.
+
+268
+00:31:00.540 --> 00:31:07.229
+Jitendra K: With our different classes, and then using these bunch of convolution layers to quantify the outcome.
+
+269
+00:31:07.950 --> 00:31:13.539
+Jitendra K: Let me share this notebook with everyone. I want everybody to go through this notebook.
+
+270
+00:31:14.290 --> 00:31:16.359
+Jitendra K: And let me know if there's any question.
+
+271
+00:31:16.650 --> 00:31:18.389
+Jitendra K: Let me share all…
+
+272
+00:31:26.870 --> 00:31:29.699
+Jitendra K: So go through the notebook and let me know if there's any question.
+
+273
+00:31:39.870 --> 00:31:45.300
+Jitendra K: Average polling will lead to loss of information. Maximum polling will preserve maximum information.
+
+274
+00:31:45.970 --> 00:31:48.930
+Jitendra K: So we are using max polling here, not average one.
+
+275
+00:31:49.290 --> 00:31:52.100
+Jitendra K: Average polling will lead to some loss of information.
+
+276
+00:31:52.290 --> 00:31:58.869
+Jitendra K: Because it is going to take an average of all feature sets, and then use that number to represent the information.
+
+277
+00:32:04.430 --> 00:32:09.469
+Jitendra K: So just spend 15 minutes, guys, on this program, and let me know if there's any question.
+
+278
+00:36:16.040 --> 00:36:26.329
+Jitendra K: Yeah, so representation learning is a process where your model or machine learning model automatically discover the features or representation that is needed for a task from raw data.
+
+279
+00:36:26.820 --> 00:36:30.349
+Jitendra K: So here in this deep learning model, they are representative learning models.
+
+280
+00:36:30.670 --> 00:36:36.500
+Jitendra K: So usually I learned low-level features, including edge, shape, objects, part of objects.
+
+281
+00:36:36.820 --> 00:36:41.240
+Jitendra K: And the mid-level patterns will even go deeper into a specific task.
+
+282
+00:36:41.910 --> 00:36:45.170
+Jitendra K: So the final pre-layer will use…
+
+283
+00:36:46.380 --> 00:36:49.280
+Jitendra K: This analysis, and then code the high-level features.
+
+284
+00:36:49.750 --> 00:36:57.390
+Jitendra K: and feature vector for transfer learning training. So that is what we are trying to utilize here, and then we are using clustering and similarity.
+
+285
+00:36:57.570 --> 00:37:01.920
+Jitendra K: to represent a final answer. So that is what it does in a nutshell.
+
+286
+00:42:23.810 --> 00:42:26.890
+Jitendra K: So, any question, guys, on this code that I've shared?
+
+287
+00:43:01.330 --> 00:43:03.310
+Jitendra K: Are you guys go into the code.
+
+288
+00:43:32.390 --> 00:43:37.650
+Jitendra K: Okay, so let's spend 5 more minutes, and then we can start with a new… case study
+
+289
+00:46:20.970 --> 00:46:24.470
+Jitendra K: Okay, there's a question why we are prefetching the training data.
+
+290
+00:46:24.950 --> 00:46:27.810
+Jitendra K: So when you're training the model,
+
+291
+00:46:28.630 --> 00:46:34.819
+Jitendra K: Here, I'm using a CPU, which repairs the batches for reading images, resizing, and augmenting the images.
+
+292
+00:46:35.150 --> 00:46:40.750
+Jitendra K: While if I'm using a GPU or TPU, it performs forward and backward passes.
+
+293
+00:46:40.950 --> 00:46:46.320
+Jitendra K: So without prefetching, the hardware might sit idle while waiting for the next fetch.
+
+294
+00:46:46.480 --> 00:46:54.530
+Jitendra K: So prefetch will help me to create a buffer, or overlap between data processing and model execution by preloading a buffer of data asynchronously.
+
+295
+00:46:54.750 --> 00:46:57.579
+Jitendra K: That's why I'm using a prefetching on the training data.
+
+296
+00:47:00.580 --> 00:47:06.069
+Jitendra K: And there's a parameter that I'm passing, buffer size, that will control how many batches are preloaded.
+
+297
+00:47:20.470 --> 00:47:22.990
+Jitendra K: Refaching will be done in virtual memory.
+
+298
+00:47:23.400 --> 00:47:26.869
+Jitendra K: For CPU, yes, it is RAM, and for GPU, it will be VRAM.
+
+299
+00:48:27.030 --> 00:48:30.919
+Jitendra K: Yeah, that's correct. Similarly, can be used for face recognition project as well.
+
+300
+00:48:33.170 --> 00:48:42.659
+Jitendra K: Okay, now what we're going to do is, I'm going to create one more notebook for cancer detection problems. Skin cancer, basically. And skin cancer, I have too many different types.
+
+301
+00:48:43.050 --> 00:48:49.460
+Jitendra K: So we'll use, something called pathogic cancer detection using CNN.
+
+302
+00:48:50.130 --> 00:48:55.230
+Jitendra K: So what… in this particular notebook, what I'm going to do is, I have a dataset which comprises of
+
+303
+00:48:56.530 --> 00:49:05.410
+Jitendra K: different… metastatic cancers images. So, our goal is to create an algorithm to identify metastatic cancers.
+
+304
+00:49:05.580 --> 00:49:09.969
+Jitendra K: In a small image, patches taken from a large retail pathology scans.
+
+305
+00:49:10.730 --> 00:49:18.819
+Jitendra K: So, histopathology is a study of sign of diseases using microscope examination of biopsy or surgical specimen.
+
+306
+00:49:19.040 --> 00:49:25.799
+Jitendra K: That is processed and fixed into glass slides to visualize different components of the tissue under a microscope.
+
+307
+00:49:26.610 --> 00:49:34.289
+Jitendra K: So, the motivation is, there's something called lymph nodes, or small glands, that filter the fluid in the lymphatic system.
+
+308
+00:49:34.520 --> 00:49:36.240
+Jitendra K: And they are the first place…
+
+309
+00:49:37.150 --> 00:49:41.400
+Jitendra K: Maybe the breast cancer is likely to spread.
+
+310
+00:49:41.610 --> 00:49:49.189
+Jitendra K: And, histological assessment of lymph node metastates is a part of detecting the state of the breast cancer.
+
+311
+00:49:49.590 --> 00:49:56.830
+Jitendra K: Classification, where… which is globally recognized standard for classifying the extent of spread of the cancer cell.
+
+312
+00:49:57.100 --> 00:50:02.739
+Jitendra K: To diagnose will produce by a pathologist, which is a tedious and time-consuming process.
+
+313
+00:50:03.200 --> 00:50:07.209
+Jitendra K: And a large area of tissue has to be examined in a small metadata set.
+
+314
+00:50:07.480 --> 00:50:09.080
+Jitendra K: Can be easily missed.
+
+315
+00:50:10.430 --> 00:50:13.550
+Jitendra K: So we are going to use machine learning or deep learning algorithms.
+
+316
+00:50:14.280 --> 00:50:15.620
+Jitendra K: To come up with.
+
+317
+00:50:16.210 --> 00:50:20.279
+Jitendra K: This particular model that will help us to quantify this outcome.
+
+318
+00:50:20.660 --> 00:50:25.940
+Jitendra K: So, a dataset is coming from… let me show you this dataset where it is coming from.
+
+319
+00:50:27.820 --> 00:50:29.520
+Jitendra K: So this is our dataset.
+
+320
+00:50:34.200 --> 00:50:37.319
+Jitendra K: You can download this data, pretty huge dataset.
+
+321
+00:50:39.310 --> 00:50:41.390
+Jitendra K: And, one more challenge.
+
+322
+00:50:46.320 --> 00:50:48.299
+Jitendra K: Let me share that as well.
+
+323
+00:51:08.780 --> 00:51:11.900
+Jitendra K: Okay, so this is a website where you can able to see the data.
+
+324
+00:51:13.150 --> 00:51:18.610
+Jitendra K: And this data have multiple types of… problems.
+
+325
+00:51:19.020 --> 00:51:23.040
+Jitendra K: So this data set is also registered under the same challenge.
+
+326
+00:51:24.200 --> 00:51:27.990
+Jitendra K: So you can use this data or this data. Both are nearly same.
+
+327
+00:51:28.600 --> 00:51:32.869
+Jitendra K: Now, what are we going to do is, we are going to use,
+
+328
+00:51:33.350 --> 00:51:36.800
+Jitendra K: This particular data set to train our model.
+
+329
+00:51:37.070 --> 00:51:42.400
+Jitendra K: And then predict the cancer cells, From the image.
+
+330
+00:51:42.960 --> 00:51:46.330
+Jitendra K: That means we are trying to quantify the outcome into…
+
+331
+00:51:49.880 --> 00:51:53.639
+Jitendra K: Into two parts, which is maligant and benign.
+
+332
+00:51:53.990 --> 00:51:58.239
+Jitendra K: Whether the cancer cell or not a cancerous cell.
+
+333
+00:51:58.880 --> 00:52:02.859
+Jitendra K: So that is what we are trying to solve, and we are going to use the set of
+
+334
+00:52:03.940 --> 00:52:07.739
+Jitendra K: ADAs and data processing capabilities.
+
+335
+00:52:08.010 --> 00:52:12.480
+Jitendra K: to come up with a downsampling, and then we are going to use PyTorch to solve this.
+
+336
+00:52:15.370 --> 00:52:27.370
+Jitendra K: So let me go one by one. So the… I think the data set and the problem is clear, so I've written this. You can use this as well. This is a Kegel challenge, so the write-up will remain same for a lot of problems.
+
+337
+00:52:27.680 --> 00:52:33.290
+Jitendra K: The solution can change and vary, depending upon the type of architecture that you're using.
+
+338
+00:52:33.440 --> 00:52:38.830
+Jitendra K: This is pretty much open source data that you can also use for the purpose of… Examination.
+
+339
+00:52:39.330 --> 00:52:46.230
+Jitendra K: So here, I'm going to use a certain set of libraries, which include Matplot, NumPy, and Pandas.
+
+340
+00:52:46.460 --> 00:52:49.870
+Jitendra K: And computer vision package, which will help me to…
+
+341
+00:52:50.180 --> 00:52:53.899
+Jitendra K: Perform the image recognition more comprehensively.
+
+342
+00:52:54.160 --> 00:53:01.040
+Jitendra K: And this time, I'm going to use Torch, not TensorFlow, so PyTorch I'm going to use for this model.
+
+343
+00:53:01.320 --> 00:53:03.509
+Jitendra K: And I'm going to go with…
+
+344
+00:53:10.050 --> 00:53:11.120
+Jitendra K: One second.
+
+345
+00:53:25.110 --> 00:53:32.170
+Jitendra K: Yeah, so we are going to go with, each and every component in depth, and try to understand this whole data side.
+
+346
+00:53:32.440 --> 00:53:38.189
+Jitendra K: With the help of, the… the, process.
+
+347
+00:53:38.300 --> 00:53:47.799
+Jitendra K: So, this notebook comprises of several parts. One is the EDA. So, we have got 57,000 plus images, and dataset comprise of
+
+348
+00:53:47.930 --> 00:53:52.560
+Jitendra K: 220… That means 2 million images.
+
+349
+00:53:53.030 --> 00:53:55.730
+Jitendra K: It's a pretty huge dataset, that's why it is 6GB.
+
+350
+00:53:56.150 --> 00:54:03.470
+Jitendra K: And, I'm going to test it on 60,000 images, with each size of pixel is 96 plus 96.
+
+351
+00:54:03.890 --> 00:54:11.620
+Jitendra K: And they are RGB array in a microscopic lens. So labels are binary, which is one, presents of a tumor tissue in the central.
+
+352
+00:54:12.470 --> 00:54:16.090
+Jitendra K: Or region of the patch, 0 indicates no tumor.
+
+353
+00:54:16.810 --> 00:54:26.880
+Jitendra K: So we are going to measure the efficacy of this model with the help of ROC and AUC, Region Operating Characteristics and area under the curve, which will measure the model ability to distinguish
+
+354
+00:54:27.130 --> 00:54:36.770
+Jitendra K: Between the two classes. It's a pure binary classification. There's no multi-categorical variables, right? Either you… either the patient will have tumor or not in the cells.
+
+355
+00:54:37.280 --> 00:54:43.720
+Jitendra K: So I'm going to use, some EDA tasks and performing some downstream downsampling.
+
+356
+00:54:43.830 --> 00:54:49.309
+Jitendra K: And then maybe I can go for a… the,
+
+357
+00:54:49.540 --> 00:54:51.920
+Jitendra K: The training the model with a parameter.
+
+358
+00:54:52.100 --> 00:54:57.830
+Jitendra K: So, first and foremost thing I'm using This particular line to fetch
+
+359
+00:54:58.500 --> 00:55:02.100
+Jitendra K: and load the training labels. It will read the CSV with ID.
+
+360
+00:55:02.250 --> 00:55:07.479
+Jitendra K: Columns, image file name without extension, and label it as 0 and 1.
+
+361
+00:55:08.520 --> 00:55:10.459
+Jitendra K: So I'm trying to displace a few…
+
+362
+00:55:10.820 --> 00:55:18.189
+Jitendra K: Counts, training data comprise of 220,000, test data 60,000 samples, near about 57,000 samples.
+
+363
+00:55:19.260 --> 00:55:36.240
+Jitendra K: If I'm looking for a distribution of the classes, I have got more data into a non-tumor against a tumor, cancerous cells from the images. So 40% of the data, 40, in fact, 40.5% of the data comprise of a patient who is having
+
+364
+00:55:36.590 --> 00:55:38.570
+Jitendra K: Detected cancer in the past.
+
+365
+00:55:38.900 --> 00:55:41.440
+Jitendra K: So the class distribution looks okay to me.
+
+366
+00:55:41.800 --> 00:55:47.429
+Jitendra K: I would like to visualize how the cancer cells look like, you know, at a microscopic level.
+
+367
+00:55:47.800 --> 00:55:55.620
+Jitendra K: So this is how the cancer cell looks like at a microscopic level. You can see here… Here.
+
+368
+00:55:55.970 --> 00:55:57.629
+Jitendra K: And these are healthy cells.
+
+369
+00:55:58.730 --> 00:56:04.030
+Jitendra K: So I'm just visualizing 20 random images, so displaying 20 random images with their labels.
+
+370
+00:56:04.790 --> 00:56:06.359
+Jitendra K: Is what I'm getting.
+
+371
+00:56:06.560 --> 00:56:08.179
+Jitendra K: The label zero means?
+
+372
+00:56:08.330 --> 00:56:09.300
+Jitendra K: It is.
+
+373
+00:56:11.090 --> 00:56:14.520
+Jitendra K: Label zero means it is negative.
+
+374
+00:56:15.150 --> 00:56:17.370
+Jitendra K: And, 1 means positive.
+
+375
+00:56:17.700 --> 00:56:24.890
+Jitendra K: So cancer means positive 1, non-cancer means 0. This is non-cancerous, this is non-cancerous.
+
+376
+00:56:25.270 --> 00:56:30.500
+Jitendra K: This is having cancer, this is non-cancerous, non-cancerous, non-cancerous.
+
+377
+00:56:31.230 --> 00:56:35.430
+Jitendra K: This is also non-cancerous, non… this is cancerous.
+
+378
+00:56:36.380 --> 00:56:46.370
+Jitendra K: And similarly, I have got… Here, it is cancerous, cancerous… Cancerous and cancerous, non-cancerous.
+
+379
+00:56:46.990 --> 00:56:54.339
+Jitendra K: Just visualizing 20 random images, which are 96 for 96 RGB, the center, 32 across 32 region.
+
+380
+00:56:54.990 --> 00:57:00.520
+Jitendra K: And the outer region provide context for fully convolution mode models.
+
+381
+00:57:01.000 --> 00:57:03.050
+Jitendra K: Now, I'm taking a sample of…
+
+382
+00:57:04.470 --> 00:57:12.790
+Jitendra K: 80,000. Take 80,000 negative and 80,000 positive. The total sample size is 16… 160,000 total trainable samples.
+
+383
+00:57:13.210 --> 00:57:22.050
+Jitendra K: So, the full dataset is very large, samples speed up the training while maintaining the class balance and shuffling to concatenated data frames. So, I'm just using that.
+
+384
+00:57:22.300 --> 00:57:24.219
+Jitendra K: So I'm just sampling the first
+
+385
+00:57:24.540 --> 00:57:27.679
+Jitendra K: 80,000 images from each classes, 1 and 0.
+
+386
+00:57:29.010 --> 00:57:37.860
+Jitendra K: So I'm creating a custom data, so I need a class which will annotate a PyTorch data format, so I need to convert this data into a PyTorch consumable format.
+
+387
+00:57:38.140 --> 00:57:45.330
+Jitendra K: It will return a numpy array in BGR or RGB orders, and apply transformation, if any, and return the image labels.
+
+388
+00:57:45.820 --> 00:57:50.709
+Jitendra K: Then I'm using a train transformer dataset creation, so in this case, I'm saying
+
+389
+00:57:50.840 --> 00:57:57.010
+Jitendra K: I would like to convert NumPy to a pillow image, Random horizon vertical flipping.
+
+390
+00:57:57.500 --> 00:57:58.930
+Jitendra K: Doing some sort of…
+
+391
+00:57:59.250 --> 00:58:04.670
+Jitendra K: Manipulation to convert this into a tensor, normalize the range to minus 1 to plus 1.
+
+392
+00:58:05.120 --> 00:58:07.930
+Jitendra K: And the standard normation work for RGB array.
+
+393
+00:58:08.590 --> 00:58:17.069
+Jitendra K: Then I'm splitting my data, into training and test samples. 10% of the training data used for validation, that means 16,000 images.
+
+394
+00:58:17.330 --> 00:58:24.479
+Jitendra K: I'm shuffling the indexes for each epoch, and for that, I'm using a subsample… subset random sampler.
+
+395
+00:58:24.750 --> 00:58:28.389
+Jitendra K: And then using the model to train on the top of it.
+
+396
+00:58:28.580 --> 00:58:42.709
+Jitendra K: Now, here I'm doing a test transformation, only converting to a tensor and normalize, no data augmentation, and the test dataset used a sample submission file, which is having all the test image IDs and load images.
+
+397
+00:58:43.060 --> 00:58:46.350
+Jitendra K: Now, coming to the most important part, the model architecture.
+
+398
+00:58:46.460 --> 00:58:50.830
+Jitendra K: So this model architecture is very similar to what we have used in the previous example.
+
+399
+00:58:51.040 --> 00:58:58.100
+Jitendra K: Where I'm using a 5-convolution block, each with a convolution 2D bash normalization, ReLU and max pooling, 2 dimension.
+
+400
+00:58:58.260 --> 00:59:02.710
+Jitendra K: So the first convolution layer is 3-channel, 32… sorry, 3…
+
+401
+00:59:03.160 --> 00:59:11.149
+Jitendra K: Channel, kernel size is 3, stride 1, padding 0, input image is 96 from 96.
+
+402
+00:59:11.410 --> 00:59:15.979
+Jitendra K: And after I'm exporting, I'm converting this into half. 48 costs 48.
+
+403
+00:59:16.420 --> 00:59:20.370
+Jitendra K: Similarly, convolution 2 will convert after pulling
+
+404
+00:59:20.500 --> 00:59:23.220
+Jitendra K: 48 cross 48 to 24 plus 24.
+
+405
+00:59:23.360 --> 00:59:28.010
+Jitendra K: And then to 12 and 12, then to 6 and 6, and finally 3 cross 3.
+
+406
+00:59:28.690 --> 00:59:33.270
+Jitendra K: So I'm using… Fully connected part, flattening the images.
+
+407
+00:59:33.970 --> 00:59:36.800
+Jitendra K: And then, using a sigmoid at the last layer.
+
+408
+00:59:37.260 --> 00:59:39.129
+Jitendra K: So the core idea here is…
+
+409
+00:59:40.430 --> 00:59:48.539
+Jitendra K: to use the output given a probability for a class. So I'm going to print a probability and decide the thresholds on the top of it.
+
+410
+00:59:49.070 --> 00:59:51.989
+Jitendra K: Now, for training the model, I have to check whether the
+
+411
+00:59:52.630 --> 01:00:01.080
+Jitendra K: GPU is available or not, and I will try to seek if GPU is available, training, turn on the GPU, and then count a total trainable parameter.
+
+412
+01:00:01.670 --> 01:00:06.180
+Jitendra K: So this is the total trainable parameter that I'm using, which is close to 68 million.
+
+413
+01:00:06.450 --> 01:00:09.409
+Jitendra K: 6 million, which is a pretty huge model.
+
+414
+01:00:09.750 --> 01:00:22.580
+Jitendra K: And here, I'm going to use a loss parameter as binary cross entropy, because it is a binary model, not multi-class categorical variable, right? And using, again, back to switch back to Adam, instead of RMS prop.
+
+415
+01:00:22.910 --> 01:00:26.540
+Jitendra K: RMS prop will be good for multi-categorical classes.
+
+416
+01:00:26.690 --> 01:00:29.550
+Jitendra K: But for binary categorical classes, you can go with item.
+
+417
+01:00:29.700 --> 01:00:33.960
+Jitendra K: With a learning rate of… 0.00015.
+
+418
+01:00:34.290 --> 01:00:42.030
+Jitendra K: Now, I'm training this model in 20 epoch, looping over that… And during this training, model…
+
+419
+01:00:42.510 --> 01:00:47.630
+Jitendra K: will reshape Target to… a particular shape.
+
+420
+01:00:48.050 --> 01:00:54.380
+Jitendra K: Use forward pass, compute loss, Performing the back propagations and accumulate the losses.
+
+421
+01:00:54.650 --> 01:01:00.479
+Jitendra K: And then performing a validation on the top of it. So finally, once the validation has been done, I can print a graph.
+
+422
+01:01:01.470 --> 01:01:05.719
+Jitendra K: For loss accuracy, and this is also showing a very significant graph.
+
+423
+01:01:06.230 --> 01:01:11.479
+Jitendra K: without very, sta- I mean, it's very steady, you see.
+
+424
+01:01:11.630 --> 01:01:14.290
+Jitendra K: If I just print you the AUC, it's very sturdy.
+
+425
+01:01:19.360 --> 01:01:24.330
+Jitendra K: Yeah, so, yeah, this is the AUC graph. This is a very steady graph, which is 98% accurate.
+
+426
+01:01:24.830 --> 01:01:31.869
+Jitendra K: And if I'm just going to show you the outcome, For visualization or prediction.
+
+427
+01:01:32.390 --> 01:01:37.800
+Jitendra K: This is what I'm getting. So this is the actual… this is the predicted, and this is the actual…
+
+428
+01:01:39.040 --> 01:01:44.710
+Jitendra K: And… No, sorry, this is all predicted from the model.
+
+429
+01:01:44.890 --> 01:01:48.610
+Jitendra K: So I'm getting a 98% accuracy based upon that.
+
+430
+01:01:53.120 --> 01:02:00.709
+Jitendra K: So, the core idea is very important. So, you have to target this model with a higher precision.
+
+431
+01:02:01.170 --> 01:02:04.040
+Jitendra K: Right? Because… The class or balance.
+
+432
+01:02:04.440 --> 01:02:08.090
+Jitendra K: The proportion of the classes are very good, 50-50.
+
+433
+01:02:08.360 --> 01:02:09.390
+Jitendra K: for both.
+
+434
+01:02:09.900 --> 01:02:12.079
+Jitendra K: And, when you're dealing with
+
+435
+01:02:12.400 --> 01:02:16.010
+Jitendra K: Any medical diagnostic data, the precision should be high.
+
+436
+01:02:17.060 --> 01:02:20.760
+Jitendra K: Right? So here, we are saying that 98% of the time.
+
+437
+01:02:21.050 --> 01:02:24.939
+Jitendra K: We are able to predict the cancer cell with more accuracy.
+
+438
+01:02:27.150 --> 01:02:32.020
+Jitendra K: Let me see if there's any question. Are we using pre-activation batch normalization?
+
+439
+01:02:33.300 --> 01:02:43.599
+Jitendra K: No, we are doing a… okay, so… Are we using… The pre-activation bash normalization.
+
+440
+01:02:44.130 --> 01:02:50.100
+Jitendra K: What do you mean by pre-activation batch normalization? You mean to say in the pre-processing layer, that is what your question is?
+
+441
+01:02:54.110 --> 01:02:59.349
+Jitendra K: Because we are using a standard port convolution batch normalization, not pre-activation batch normalization.
+
+442
+01:02:59.760 --> 01:03:04.200
+Jitendra K: So the order that we are constructing here is… we are going with a construction of…
+
+443
+01:03:05.170 --> 01:03:11.439
+Jitendra K: Convolution layers, followed by batch normalization, followed by your activation function, and then followed by a sampling.
+
+444
+01:03:12.030 --> 01:03:17.060
+Jitendra K: This means that bash normalization is applied after the convolution, but before the activation function.
+
+445
+01:03:17.300 --> 01:03:19.329
+Jitendra K: And this is our traditional placement.
+
+446
+01:03:19.560 --> 01:03:21.540
+Jitendra K: That we are going to use for…
+
+447
+01:03:21.930 --> 01:03:26.569
+Jitendra K: the post-convolution vational variation. It's not a pre-activation rational operation.
+
+448
+01:03:39.430 --> 01:03:41.879
+Jitendra K: Alright, so let me share this…
+
+449
+01:03:42.060 --> 01:03:48.339
+Jitendra K: data with you guys again, and I want everybody to spend 10 to 15 minutes on this board.
+
+450
+01:03:48.700 --> 01:03:52.549
+Jitendra K: And try to look forward. So, I'm… right now, I'm using…
+
+451
+01:03:53.360 --> 01:03:56.310
+Jitendra K: PyTorch now, previously we're using TensorFlow.
+
+452
+01:03:56.480 --> 01:04:00.770
+Jitendra K: That means you will get both PyTorch and TensorFlow.
+
+453
+01:04:01.220 --> 01:04:04.589
+Jitendra K: Exposure in these two tutorials.
+
+454
+01:04:05.190 --> 01:04:13.560
+Jitendra K: So just go line by line and understand this code, and let me know if there's any issue. I have written all the comments, which will help you to understand this code seamlessly.
+
+455
+01:04:16.680 --> 01:04:21.259
+Jitendra K: So it's well-written, well documented, so just go through it and let me know if there's any question.
+
+456
+01:11:16.620 --> 01:11:24.050
+Jitendra K: Yeah, the data set is quite large, so it will take some time to download, so you need not to re-execute this. You can re-execute after some time, maybe.
+
+457
+01:11:24.450 --> 01:11:32.169
+Jitendra K: Okay, now talking about, how to execute this, so these are Kegel datasets. We need to use Kegel, notebooks to run this
+
+458
+01:11:32.570 --> 01:11:33.560
+Jitendra K: model.
+
+459
+01:11:33.810 --> 01:11:41.309
+Jitendra K: So you have to create your account in Kegel, and then you have to provision this notebook into the Kegel repository, or you can download the data directly.
+
+460
+01:13:21.640 --> 01:13:23.810
+Jitendra K: Alright, so I think,
+
+461
+01:13:24.830 --> 01:13:28.720
+Jitendra K: Are you… are you able to run, sorry, not run, at least understand this?
+
+462
+01:13:29.160 --> 01:13:30.130
+Jitendra K: Whole thing.
+
+463
+01:13:50.770 --> 01:13:52.410
+Jitendra K: Okay, so…
+
+464
+01:13:55.930 --> 01:14:03.390
+Jitendra K: So what we are going to do now is, we will take, One last example…
+
+465
+01:14:04.500 --> 01:14:10.139
+Jitendra K: And before moving on to that example, let me quickly summarize what we have learned so far.
+
+466
+01:14:12.830 --> 01:14:16.849
+Jitendra K: Okay, so this is… Yes, one second.
+
+467
+01:14:53.810 --> 01:15:02.169
+Jitendra K: Okay, so we have discussed about this part. So we have started with multiple architecture. We cover Linet, AlexNet, VGG16.
+
+468
+01:15:02.790 --> 01:15:08.929
+Jitendra K: Then, in the efficiency era, which is in 2019 to 2021,
+
+469
+01:15:09.120 --> 01:15:13.209
+Jitendra K: CNN architecture have gone through several transformations using
+
+470
+01:15:13.680 --> 01:15:19.900
+Jitendra K: Depth-wise separation, they have used more compounded scales to approximate the outcome.
+
+471
+01:15:20.490 --> 01:15:39.360
+Jitendra K: And which is, the best model… the best of the best models has been launched in the year 2019-21, Mobinet, Connet, and EfficientNet. There are different versions on the top of it. In the hybrid era, which is the current era, we have a great model called UNO V12, which we are going to discuss right now.
+
+472
+01:15:39.560 --> 01:15:47.799
+Jitendra K: So, YOLO V12 is a… basically, it depends upon the transformer-based architecture, and it is using attention layers to generalize the outcome.
+
+473
+01:15:47.930 --> 01:15:52.589
+Jitendra K: So we'll see how to use YOLO V12, which is a recent architecture of CNN.
+
+474
+01:15:53.200 --> 01:16:01.329
+Jitendra K: So what we can do is, let's take a quick break of 20 minutes. So once we come back, then we will discuss on YOLO V12 as a fresh.
+
+475
+01:16:01.760 --> 01:16:09.699
+Jitendra K: And I have to explain a few things. I hope you're not very familiar with transformers, but I have to give you some idea about attentions and stuff.
+
+476
+01:16:10.230 --> 01:16:13.560
+Jitendra K: So let's take a quick 20 minutes break, and then we can start the session again.
+
+477
+01:16:14.010 --> 01:16:15.089
+Jitendra K: Thank you, guys.
+
+478
+01:46:17.190 --> 01:46:21.229
+Jitendra K: Hi guys, so I hope, you're back. Can we have a quick confirmation?
+
+479
+01:46:34.920 --> 01:46:36.769
+Jitendra K: I'm audible to everyone.
+
+480
+01:46:39.480 --> 01:46:43.489
+Jitendra K: All right Thank you, thanks for the confirmation.
+
+481
+01:46:43.790 --> 01:46:48.880
+Jitendra K: So, we are going to start with the last topic for CNN, which is called YOLO. You look only once.
+
+482
+01:46:49.310 --> 01:46:53.499
+Jitendra K: And, we are going to talk about a recent architecture, which is YOLO…
+
+483
+01:46:53.800 --> 01:46:58.540
+Jitendra K: V12, which is a version 12, for ULOONY ones.
+
+484
+01:46:59.920 --> 01:47:08.029
+Jitendra K: And if I have to explain you in a very simple term, this particular architecture use transformers, and they are using attention layers.
+
+485
+01:47:08.310 --> 01:47:12.299
+Jitendra K: To come up with the model parameters.
+
+486
+01:47:12.910 --> 01:47:13.950
+Jitendra K: Now…
+
+487
+01:47:14.170 --> 01:47:21.629
+Jitendra K: Let me talk about, what is the purpose of this model, and how to read the document of this model.
+
+488
+01:47:22.040 --> 01:47:25.020
+Jitendra K: So I will share this document with you guys as well.
+
+489
+01:47:25.990 --> 01:47:27.779
+Jitendra K: Where you can take a reference.
+
+490
+01:47:28.240 --> 01:47:33.070
+Jitendra K: And this is the paper of… The original paper of this… model.
+
+491
+01:47:33.580 --> 01:47:34.770
+Jitendra K: from archive.
+
+492
+01:47:34.980 --> 01:47:42.959
+Jitendra K: And you can see how recent it is, launched in the last year, 2025, 2025 FAB month, which is almost…
+
+493
+01:47:43.540 --> 01:47:47.219
+Jitendra K: One year from now, and this is the original paper of ULO.
+
+494
+01:47:48.670 --> 01:47:53.949
+Jitendra K: Now, if I have to just give you a very simple terminology of YOLO,
+
+495
+01:47:56.210 --> 01:48:04.920
+Jitendra K: So, YOLO depends upon RPN, which is called Regional Proposal Network, or RPN is Region Proposal… Proposal Network.
+
+496
+01:48:05.170 --> 01:48:10.130
+Jitendra K: And this is the backbone of YOLO, right? So, if I have to just explain you the architecture.
+
+497
+01:48:10.480 --> 01:48:12.189
+Jitendra K: What is the…
+
+498
+01:48:12.480 --> 01:48:19.239
+Jitendra K: underlying criteria of this architecture, and how YOLO has been overall working as a part of integral
+
+499
+01:48:19.540 --> 01:48:24.250
+Jitendra K: component of CNN, so that is something which we are going to talk about right now.
+
+500
+01:48:26.070 --> 01:48:27.110
+Jitendra K: So…
+
+501
+01:48:27.460 --> 01:48:33.990
+Jitendra K: YOLO, as I mentioned, they're a different version. So, the first version of YOLO has been launched in the year 2015.
+
+502
+01:48:34.400 --> 01:48:41.179
+Jitendra K: Where the model has introduced fast and efficient detection in terms of small object identification problems.
+
+503
+01:48:41.500 --> 01:48:47.059
+Jitendra K: And then there's some improved version, which has been launched in the year 2016, which has improved
+
+504
+01:48:47.560 --> 01:48:52.250
+Jitendra K: Via batch normalization and multi-scale training efficiencies.
+
+505
+01:48:52.660 --> 01:48:57.490
+Jitendra K: And then in the year 2018, the Darknet 53 has been launched.
+
+506
+01:48:57.790 --> 01:49:05.179
+Jitendra K: So Yolo V3 has been launched with some more scalable features, which will be able to boost precision in complex scenes.
+
+507
+01:49:05.550 --> 01:49:08.589
+Jitendra K: And the year 2020, YOLO
+
+508
+01:49:09.180 --> 01:49:15.940
+Jitendra K: V4 has been launched for better performance and also for better augmentation and self-adversial training.
+
+509
+01:49:17.400 --> 01:49:22.640
+Jitendra K: In the year 2022, the UV4 V7 has been launched.
+
+510
+01:49:22.980 --> 01:49:28.480
+Jitendra K: Which is the advanced architecture which improves both accuracy and speed of training.
+
+511
+01:49:28.840 --> 01:49:35.799
+Jitendra K: So, we'll talk about YOLO v3, and we'll try to see how YOLO v3 overall architecture works.
+
+512
+01:49:38.000 --> 01:49:41.980
+Jitendra K: And what are the different, architecture components of YOLO V3?
+
+513
+01:49:42.140 --> 01:49:44.560
+Jitendra K: So, if I have to give you a very simple answer.
+
+514
+01:49:44.890 --> 01:49:47.119
+Jitendra K: This is the architecture of Yulo V3.
+
+515
+01:49:49.000 --> 01:49:54.619
+Jitendra K: So you can see it's comprised of some existing architectures and some improvisation on the top of it.
+
+516
+01:49:54.810 --> 01:49:59.289
+Jitendra K: So this is YOLO V3, which has been inspired by two models called ResNet.
+
+517
+01:50:05.900 --> 01:50:09.410
+Jitendra K: and FPN, which is called Feature Pyramid Network.
+
+518
+01:50:13.470 --> 01:50:16.910
+Jitendra K: So these two models combine the YOLO V3.
+
+519
+01:50:17.870 --> 01:50:23.860
+Jitendra K: And this combination is called Darknet 53. So it is having 52 convolution layers.
+
+520
+01:50:24.240 --> 01:50:32.579
+Jitendra K: So, in the previous example, we have used just 3 or 4, or maximum 5 convolution layers, but YOLO have 52 convolution layers.
+
+521
+01:50:33.290 --> 01:50:40.370
+Jitendra K: 52 is a pretty huge number, and it contains skip connections, like rest nets and 3 protection heads, like FPN.
+
+522
+01:50:40.750 --> 01:50:45.220
+Jitendra K: So, it is making each processing the image at a different spatial compression.
+
+523
+01:50:45.760 --> 01:50:53.489
+Jitendra K: So, YOLO V3 boasts the good performance over a wide range of input resolution, And it is also using…
+
+524
+01:50:54.230 --> 01:51:01.890
+Jitendra K: The state-of-the-art architecture to break down Different advanced features.
+
+525
+01:51:02.260 --> 01:51:08.799
+Jitendra K: Like, anchor formation in your image, which is very, very important for complex analysis, like this.
+
+526
+01:51:09.400 --> 01:51:14.240
+Jitendra K: So it is converting each image into multiple frames, and then each cell
+
+527
+01:51:14.570 --> 01:51:17.669
+Jitendra K: Inside the box to predict the object.
+
+528
+01:51:19.010 --> 01:51:25.999
+Jitendra K: So, the objectiveness is a new concept, and it is worth, as a discussion, that will take place in a few paragraphs. So basically, the idea is
+
+529
+01:51:26.270 --> 01:51:30.180
+Jitendra K: Why Yulo performed better than previous architecture?
+
+530
+01:51:31.950 --> 01:51:42.080
+Jitendra K: So I would say that Euro has a small and simple topological architecture, but it is… quite compact.
+
+531
+01:51:42.510 --> 01:51:43.710
+Jitendra K: And faster.
+
+532
+01:51:44.500 --> 01:51:47.560
+Jitendra K: So, it used input resolution augmentation.
+
+533
+01:51:47.970 --> 01:51:50.989
+Jitendra K: As a part of Divide and Conquer, the image.
+
+534
+01:51:51.640 --> 01:51:55.620
+Jitendra K: So it is using box prediction, not exactly covering an object.
+
+535
+01:51:55.760 --> 01:52:02.230
+Jitendra K: And then, using IOU call image over unit, Prediction for classifying the losses.
+
+536
+01:52:02.680 --> 01:52:08.280
+Jitendra K: And that's why YOLO is very important for that purpose. The YOLO can…
+
+537
+01:52:08.830 --> 01:52:12.340
+Jitendra K: Maybe, we'll see one example.
+
+538
+01:52:12.700 --> 01:52:18.780
+Jitendra K: YOLO can be… Very, very useful for… That particular task.
+
+539
+01:52:19.090 --> 01:52:24.150
+Jitendra K: Now, let me explain the loss function of YOLO, how the loss function of YOLO looks like.
+
+540
+01:52:24.540 --> 01:52:30.660
+Jitendra K: So this is called a loss function of Yulo. As I mentioned, it is using IOU, which is?
+
+541
+01:52:30.890 --> 01:52:32.360
+Jitendra K: Image over unit.
+
+542
+01:52:34.430 --> 01:52:36.480
+Jitendra K: Some anchor box concepts.
+
+543
+01:52:36.880 --> 01:52:40.429
+Jitendra K: And also some parameters to create a box aggression.
+
+544
+01:52:41.080 --> 01:52:50.280
+Jitendra K: So it will create frame-by-frame references. So each frame will have Different object segmentation.
+
+545
+01:52:51.090 --> 01:52:54.299
+Jitendra K: Based upon which you can able to classify.
+
+546
+01:52:54.820 --> 01:52:58.760
+Jitendra K: And, an image into an object, like this.
+
+547
+01:52:58.930 --> 01:53:02.380
+Jitendra K: It is saying that I have few frames which I've captured.
+
+548
+01:53:02.620 --> 01:53:05.769
+Jitendra K: And each frame is saying it's a CAD, but with different percentage.
+
+549
+01:53:06.390 --> 01:53:11.280
+Jitendra K: That means with each boxes, it is trying to regress around this.
+
+550
+01:53:11.530 --> 01:53:13.140
+Jitendra K: And then generate an answer.
+
+551
+01:53:13.760 --> 01:53:18.980
+Jitendra K: taking multiple samples, but it looks like you look only once, that means one frame will be fixed.
+
+552
+01:53:23.890 --> 01:53:35.839
+Jitendra K: So basically, at inference, we usually have multiple boxes with varying coverage for each object, and we want to use post-processing algorithm to cover, or choose the box that covers the box object in the most effective manner.
+
+553
+01:53:37.130 --> 01:53:39.419
+Jitendra K: So that is what YOLO is.
+
+554
+01:53:39.560 --> 01:53:41.170
+Jitendra K: Doing behind the scenes.
+
+555
+01:53:41.800 --> 01:53:48.500
+Jitendra K: So it will generate more confidence in object segmentation and classification tasks as compared to traditional models.
+
+556
+01:53:48.710 --> 01:53:50.050
+Jitendra K: That we have discussed.
+
+557
+01:53:50.300 --> 01:53:55.700
+Jitendra K: It's a part of a CNN family, but it is more advanced.
+
+558
+01:54:00.270 --> 01:54:04.120
+Jitendra K: So what we are going to do is, we are going to… Create.
+
+559
+01:54:05.470 --> 01:54:10.559
+Jitendra K: one model, And, we will use YOLO P12.
+
+560
+01:54:11.420 --> 01:54:13.619
+Jitendra K: To detect the cancer cells.
+
+561
+01:54:14.730 --> 01:54:17.759
+Jitendra K: So let me open my Google Colab GPU.
+
+562
+01:55:05.330 --> 01:55:07.219
+Jitendra K: Okay, let me connect.
+
+563
+01:55:39.800 --> 01:55:45.849
+Jitendra K: Okay, now I will run… Cells first, and then I will explain the code.
+
+564
+01:55:46.850 --> 01:55:49.770
+Jitendra K: I think it will take some time to complete.
+
+565
+01:56:14.020 --> 01:56:20.289
+Jitendra K: So it is… you can see it, it is having a very exhaustive search space, 6 million parameters.
+
+566
+01:56:20.850 --> 01:56:24.480
+Jitendra K: And this is a pretty huge model that we're using.
+
+567
+01:56:25.500 --> 01:56:27.469
+Jitendra K: Let me fix this error…
+
+568
+01:58:16.410 --> 01:58:19.519
+Jitendra K: I can fix this class, there's some issue with this.
+
+569
+02:00:27.850 --> 02:00:32.470
+Jitendra K: The scale need to be defined? That's the issue with this model.
+
+570
+02:00:41.080 --> 02:00:43.159
+Jitendra K: This is a data loader issue.
+
+571
+02:01:39.340 --> 02:01:41.320
+Jitendra K: Showing the error here.
+
+572
+02:01:43.020 --> 02:01:45.890
+Jitendra K: Sectional worker pluses.
+
+573
+02:02:14.140 --> 02:02:15.779
+Jitendra K: Okay, this has been fixed.
+
+574
+02:02:17.620 --> 02:02:19.449
+Jitendra K: Victor said visualization.
+
+575
+02:02:20.690 --> 02:02:22.500
+Jitendra K: Some small errors, but…
+
+576
+02:04:23.810 --> 02:04:26.310
+Jitendra K: Okay, let the training finish, and then…
+
+577
+02:04:40.550 --> 02:04:47.199
+Jitendra K: Once the training cat finished, then we'll discuss the code, again. So let's… let it be run and then execute.
+
+578
+02:08:40.850 --> 02:08:44.969
+Jitendra K: Okay, I think this has been run, with only 4 epoch.
+
+579
+02:08:45.700 --> 02:08:50.289
+Jitendra K: But still, I can see a good result in terms of anchor box.
+
+580
+02:08:51.270 --> 02:08:53.380
+Jitendra K: Data preview…
+
+581
+02:08:56.480 --> 02:08:58.290
+Jitendra K: Pretty well…
+
+582
+02:09:03.640 --> 02:09:07.950
+Jitendra K: Impending run with… Okay.
+
+583
+02:09:08.820 --> 02:09:12.500
+Jitendra K: Overall, this is satisfactory in terms of interpretation.
+
+584
+02:09:13.300 --> 02:09:19.539
+Jitendra K: Now, let me explain what is the code is all about. So, basically, We are using YOLO.
+
+585
+02:09:20.180 --> 02:09:29.550
+Jitendra K: Which is having attention mechanism. That means it can use the attention mechanism to generate an answer. So attention, what is attention, by the way? Attention is like human attention.
+
+586
+02:09:29.800 --> 02:09:36.230
+Jitendra K: You're doing, you're paying attention to what's necessary detail, the granularity of information, and…
+
+587
+02:09:37.170 --> 02:09:41.859
+Jitendra K: particular specific points, right? So similarly, YOLO will look for a particular
+
+588
+02:09:42.790 --> 02:09:47.480
+Jitendra K: Shape and size and distortion in a particular cell geometry, and then explain.
+
+589
+02:09:47.970 --> 02:09:52.850
+Jitendra K: Whether it is… and understand whether it is a cancerous tumor or non-cancerous tumor.
+
+590
+02:09:56.500 --> 02:10:05.860
+Jitendra K: So, we will use this code analysis again, line by line, and in-depth analysis on the architecture, Overview.
+
+591
+02:10:06.660 --> 02:10:08.419
+Jitendra K: Let me start with this.
+
+592
+02:10:09.090 --> 02:10:15.350
+Jitendra K: So, first and foremost thing, we start with the first cell, which is your import functions, usually import functions.
+
+593
+02:10:15.860 --> 02:10:25.289
+Jitendra K: Where I'm checking if, I'm having a proper… Functions implemented.
+
+594
+02:10:25.540 --> 02:10:30.980
+Jitendra K: Then I'm going to start with my convolution layer, we'll start…
+
+595
+02:10:40.070 --> 02:10:41.529
+Jitendra K: One second…
+
+596
+02:11:00.420 --> 02:11:03.350
+Jitendra K: Yeah, this is better, so I can make it more readable.
+
+597
+02:11:40.870 --> 02:11:48.580
+Jitendra K: Okay, so as compared to the previous, basically previous, execution that we have done with different architecture.
+
+598
+02:11:48.700 --> 02:11:55.540
+Jitendra K: We're not creating anything from the scratch, so we are using a transfer learning approach. So you can see that I'm using a neural network.module.
+
+599
+02:11:55.800 --> 02:12:01.830
+Jitendra K: And then using a transfer learning… learner method to create these spatial features.
+
+600
+02:12:02.480 --> 02:12:09.989
+Jitendra K: So, this… this is the main architecture of YOLO, where you're going to use self-attention layer on a particular feature map.
+
+601
+02:12:11.910 --> 02:12:27.090
+Jitendra K: So, the idea of token is nothing but the pixels. So, each pixel will create a kind of a token for each attention layer, and then it will split your SDL layers into multiple weight components as a part of it.
+
+602
+02:12:27.300 --> 02:12:34.990
+Jitendra K: And this attention layer will be able to give you certain inner dimension to resolve, or identify the particular
+
+603
+02:12:35.410 --> 02:12:36.840
+Jitendra K: granularity of.
+
+604
+02:12:37.310 --> 02:12:40.089
+Jitendra K: Cross-stage partial attentions.
+
+605
+02:12:40.210 --> 02:12:50.800
+Jitendra K: So that means, in a very simple term, if I have to just give you an explanation, this whole architecture will give you an attention layer. That means you're going to focus on a specific area of the image.
+
+606
+02:12:51.300 --> 02:12:52.750
+Jitendra K: to differentiate.
+
+607
+02:12:53.480 --> 02:12:59.750
+Jitendra K: and identify the issue with it. So you can see that we are having different parameters.
+
+608
+02:13:00.030 --> 02:13:07.469
+Jitendra K: On a particular scale, and then based upon that parameter, we are differentiating a key component of the image as it is.
+
+609
+02:13:07.670 --> 02:13:15.310
+Jitendra K: And based upon that, it will be able to focus on certain type of tumor cells, more focus on tumor cells identification.
+
+610
+02:13:15.500 --> 02:13:22.599
+Jitendra K: As compared to the normal cell. And there are some inflammatory cells as well, and some dead cells, which is pretty much…
+
+611
+02:13:23.710 --> 02:13:25.870
+Jitendra K: Refined by this layer.
+
+612
+02:13:26.440 --> 02:13:27.380
+Jitendra K: So let's…
+
+613
+02:13:28.870 --> 02:13:35.740
+Jitendra K: move on to the code again. So basically, the first and the foremost thing that we are doing is to import all the packages.
+
+614
+02:13:35.890 --> 02:13:42.170
+Jitendra K: Try to see if there's any missing dependencies, including PyTorch, TorchVision.
+
+615
+02:13:42.270 --> 02:13:45.840
+Jitendra K: OpenCV and Progress Bar, which is TQDM.
+
+616
+02:13:46.320 --> 02:13:53.130
+Jitendra K: And we are looping through each import packages. If it is missing, then we'll install it in this line of code.
+
+617
+02:13:53.720 --> 02:13:59.599
+Jitendra K: So, then we are moving on to the configuration cell, the class. We have two classes, basically.
+
+618
+02:14:00.850 --> 02:14:08.289
+Jitendra K: In this scenario, we have four classes, normal nuclei, tumor, tumorous nuclei, inflammatory cells, and dead cell.
+
+619
+02:14:08.740 --> 02:14:13.419
+Jitendra K: Inflammatory cells is also dangerous, because it can convert to a tumor cells.
+
+620
+02:14:13.570 --> 02:14:14.850
+Jitendra K: In future.
+
+621
+02:14:15.710 --> 02:14:19.150
+Jitendra K: We have 4 cells of, 4 classes of nuclei.
+
+622
+02:14:19.630 --> 02:14:23.829
+Jitendra K: Healthy cells, small, uniform, cancerous cell, large, irregular.
+
+623
+02:14:24.050 --> 02:14:28.680
+Jitendra K: Inflammatory cells, immune cells in the tissue, that cell…
+
+624
+02:14:29.200 --> 02:14:35.260
+Jitendra K: necrotic cells inside the body. And then we are using a scale, different scales here.
+
+625
+02:14:35.480 --> 02:14:37.850
+Jitendra K: By saying that the scales are in nano…
+
+626
+02:14:38.400 --> 02:14:45.089
+Jitendra K: Small, medium, large, extra large. And this is in millimeter, micrometers.
+
+627
+02:14:45.350 --> 02:14:52.119
+Jitendra K: The model scaling factor, including depth multiplier, width multiplier, ratio, so we are creating some features on the top of it.
+
+628
+02:14:53.630 --> 02:15:03.670
+Jitendra K: So, the input image size, the standard YOLO architecture, Except is… 416 pixels.
+
+629
+02:15:04.140 --> 02:15:06.850
+Jitendra K: And the stride is 3.
+
+630
+02:15:07.420 --> 02:15:12.459
+Jitendra K: Number of area, that means feature map. I'm going to use 4 horizontal strips for tensions.
+
+631
+02:15:13.130 --> 02:15:17.480
+Jitendra K: And, I'm going to also create a bounding box regressor with a 4 box.
+
+632
+02:15:18.520 --> 02:15:20.240
+Jitendra K: Now, this is my foundation.
+
+633
+02:15:21.000 --> 02:15:30.279
+Jitendra K: layer, where I'm involving this class, a standard convolution layer class, from the CNN module.
+
+634
+02:15:31.110 --> 02:15:32.720
+Jitendra K: And try to modify it.
+
+635
+02:15:33.520 --> 02:15:38.199
+Jitendra K: further. So I've got several parameters, including kernel, stride, groups.
+
+636
+02:15:38.660 --> 02:15:43.270
+Jitendra K: For diploid convolution, then I've got momentum for batch normalization.
+
+637
+02:15:43.580 --> 02:15:57.429
+Jitendra K: And then I'm using a bottleneck class, which will decide to convolution with a residual connection. So there, there's a residual connection RPN concept involving YOLO. So we are using a residual connection in this class.
+
+638
+02:15:58.020 --> 02:16:09.520
+Jitendra K: So once we have this, then we are going to use cross-stage partial module, which is a part of YOLO architecture. It's a backbone component, which will split into two branches, CV1 and CV2.
+
+639
+02:16:09.860 --> 02:16:22.649
+Jitendra K: And then, finally perform the convolution on top of it. And then you have got something called spatial pyramid polling functions. This is a polling layer, but a different polling layer, as compared to CNN.
+
+640
+02:16:23.230 --> 02:16:27.950
+Jitendra K: So here, what you did is, you have a single max pool with 3 sequential applications.
+
+641
+02:16:28.340 --> 02:16:31.930
+Jitendra K: And, some multiple kernels are operating on the top of it.
+
+642
+02:16:33.440 --> 02:16:40.150
+Jitendra K: Now, this is a core attention layer mechanism. So basically, attention is a key innovation of YOLO B12.
+
+643
+02:16:40.280 --> 02:16:46.570
+Jitendra K: Which divide feature map into a number of areas, horizontal strips, and each strip processes attention independently.
+
+644
+02:16:47.000 --> 02:16:55.180
+Jitendra K: And it reduced the complexity from order of n squared to order of n squared by M, which is the number of multi-layers that you're incorporating.
+
+645
+02:16:57.480 --> 02:17:05.269
+Jitendra K: Now, we will also use something called distributed training in YOLO, which is very important, so that is the function of distributed focal loss.
+
+646
+02:17:05.520 --> 02:17:08.459
+Jitendra K: Convert distribution to a continuous values.
+
+647
+02:17:08.790 --> 02:17:11.610
+Jitendra K: And then it starts binning on the average weights.
+
+648
+02:17:12.500 --> 02:17:16.490
+Jitendra K: Then, this is another important parameter of YOLO.
+
+649
+02:17:18.190 --> 02:17:22.330
+Jitendra K: where I'm using YOLO backbone, this function, sorry, this class.
+
+650
+02:17:22.690 --> 02:17:30.080
+Jitendra K: This is a backbone. So what this backbone architecture does is, it will have several stages of low feature attention features.
+
+651
+02:17:30.340 --> 02:17:32.789
+Jitendra K: And some multi-scale features aggregation.
+
+652
+02:17:33.150 --> 02:17:40.049
+Jitendra K: And then the NAC is your region proportion, sorry, Future Proportion Network, or Pyramid.
+
+653
+02:17:40.330 --> 02:17:46.830
+Jitendra K: And then you're going to use a path aggregation network, which is feature pyramid network and path aggregation network.
+
+654
+02:17:47.219 --> 02:17:53.429
+Jitendra K: So, I will share some content with you guys, so that you can study it, and then you can go through it.
+
+655
+02:17:53.559 --> 02:18:00.430
+Jitendra K: But the idea is to show you the recent architecture, which is happening in CNN. That's the only purpose of showing this example.
+
+656
+02:18:03.049 --> 02:18:11.719
+Jitendra K: Then, this is the last layer, where we are going to integrate everything into model phase, number of classes, and the configuration that we are using.
+
+657
+02:18:11.840 --> 02:18:13.930
+Jitendra K: And this creates a whole architecture.
+
+658
+02:18:14.209 --> 02:18:22.870
+Jitendra K: And finally, we have a loss function. The loss function is, again, binary cross-entropy, so we are using a symmetric focal loss for classification.
+
+659
+02:18:23.070 --> 02:18:26.969
+Jitendra K: And positive sample, which is, the non-cancerous
+
+660
+02:18:27.230 --> 02:18:33.780
+Jitendra K: cells will be weighted by image or unit quality, IOU. This is called IOU.
+
+661
+02:18:34.160 --> 02:18:36.459
+Jitendra K: In, in, deep learning.
+
+662
+02:18:36.600 --> 02:18:46.169
+Jitendra K: So we are going to use these three factors, and then consider the overall outcome. So you can see that, the overall model looks perfect, and
+
+663
+02:18:46.690 --> 02:18:52.270
+Jitendra K: I think the accuracy of the model, if I just… for…
+
+664
+02:19:04.260 --> 02:19:11.529
+Jitendra K: Yeah, it is above 90%, so this is a good model. I mean, this is a great model in terms of
+
+665
+02:19:13.629 --> 02:19:18.070
+Jitendra K: In terms of the architecture and the recency of the architecture that you're going to use.
+
+666
+02:19:19.180 --> 02:19:27.639
+Jitendra K: So, I will share this code with you guys, so I want you to run in your local, and let me know if you have thought, if there's any issue with the code.
+
+667
+02:19:28.360 --> 02:19:33.959
+Jitendra K: Okay, there's some question, we don't have to define the CNN in this model. You need to…
+
+668
+02:19:34.360 --> 02:19:37.919
+Jitendra K: use transfer learning, that is what I'm saying. So you're using a transfer learning.
+
+669
+02:19:38.650 --> 02:19:42.009
+Jitendra K: CNN dot, when you're using this class.
+
+670
+02:19:44.760 --> 02:19:46.789
+Jitendra K: So you're using neural network module.
+
+671
+02:19:47.190 --> 02:19:49.770
+Jitendra K: And you are advancing.
+
+672
+02:19:49.960 --> 02:19:51.610
+Jitendra K: the CNN architecture.
+
+673
+02:20:09.960 --> 02:20:12.630
+Jitendra K: Alright, is it clear now to everyone?
+
+674
+02:20:13.930 --> 02:20:20.080
+Jitendra K: Let me share this code with… You guys, and dispanged.
+
+675
+02:20:21.510 --> 02:20:23.569
+Jitendra K: sometime on this quote, and let me know.
+
+676
+02:23:50.670 --> 02:23:57.029
+Jitendra K: Yeah, that's correct. Each part is a component of the architecture, so you have to read this document, slightly.
+
+677
+02:23:57.300 --> 02:24:03.989
+Jitendra K: Carefully, and then you can able to… Understand all the scenarios.
+
+678
+02:24:12.280 --> 02:24:14.140
+Jitendra K: Just read this document.
+
+679
+02:24:34.990 --> 02:24:35.920
+Jitendra K: Mingo.
+
+680
+02:24:40.410 --> 02:24:47.120
+Jitendra K: So the idea is, I would like to share this code with you guys, so that you can reuse this code for any other recent task.
+
+681
+02:24:47.770 --> 02:24:51.819
+Jitendra K: So this is, one of the code that you can reuse for any other task.
+
+682
+02:24:53.050 --> 02:24:55.330
+Jitendra K: This will help you to understand.
+
+683
+02:25:14.030 --> 02:25:16.849
+Jitendra K: Okay, so during, during your…
+
+684
+02:25:17.920 --> 02:25:23.730
+Jitendra K: In your LMS, the props editorial, is there any talk about YOLO yet, or there's nothing?
+
+685
+02:25:24.900 --> 02:25:27.320
+Jitendra K: We've been discussing YOLO and other sites.
+
+686
+02:25:32.450 --> 02:25:36.570
+Jitendra K: Is there any discussion being made on YOLO architecture from professors?
+
+687
+02:25:37.750 --> 02:25:39.050
+Jitendra K: One module.
+
+688
+02:25:41.110 --> 02:25:49.099
+Jitendra K: Okay… So, can somebody summarize what is YOLO from Professor Perspective?
+
+689
+02:25:58.740 --> 02:26:00.839
+Jitendra K: Okay, very brief introduction.
+
+690
+02:27:18.100 --> 02:27:22.459
+Jitendra K: So this is a great website where you can see multiple architectures, and…
+
+691
+02:27:23.030 --> 02:27:28.000
+Jitendra K: Each architecture is giving you some improvement over the previous one.
+
+692
+02:27:32.330 --> 02:27:38.020
+Jitendra K: So just go through this website, and then… There are plenty of…
+
+693
+02:27:40.740 --> 02:27:45.870
+Jitendra K: Comparison being given as a part of architectural fitments we can use this for.
+
+694
+02:27:46.690 --> 02:27:48.030
+Jitendra K: readable purpose.
+
+695
+02:28:20.070 --> 02:28:27.140
+Jitendra K: So I think this is pretty much what we have, guys, for today, but any question on CNN or any other architecture?
+
+696
+02:28:27.650 --> 02:28:34.300
+Jitendra K: that you would like to discuss, so I will keep this 30 minutes for Q&A. If any question that I can address.
+
+697
+02:28:39.180 --> 02:28:42.390
+Jitendra K: And, as I mentioned, this particular code is not
+
+698
+02:28:43.310 --> 02:28:48.649
+Jitendra K: The purpose is not to scare you, that this is complex. The purpose is to make you…
+
+699
+02:28:49.730 --> 02:28:58.380
+Jitendra K: aware that this is something which is in the recent architecture, and you can reuse this code for any other task, as I mentioned, right? So you're free to modify this code.
+
+700
+02:28:58.980 --> 02:29:02.030
+Jitendra K: And you can just reuse for any other task.
+
+701
+02:29:02.280 --> 02:29:04.449
+Jitendra K: So this is our total transfer learning code.
+
+702
+02:29:05.190 --> 02:29:14.529
+Jitendra K: And, you can… So this is working at micro level, sorry, even not at micro, macro level.
+
+703
+02:29:15.730 --> 02:29:23.530
+Jitendra K: under a microscopic cell. So, imagine if you're having a good intensity of images, like facial, or even…
+
+704
+02:29:25.480 --> 02:29:30.330
+Jitendra K: motion detection. ByteDance is using motion detection these days, right?
+
+705
+02:29:30.710 --> 02:29:35.219
+Jitendra K: So, you're dancing in front of your camera, and then it will understand your poses.
+
+706
+02:29:36.150 --> 02:29:41.470
+Jitendra K: You're playing some sports, and then it will give you the recommendation where you need to improve.
+
+707
+02:29:41.830 --> 02:29:43.809
+Jitendra K: Let's say you're using a balling arm.
+
+708
+02:29:44.690 --> 02:29:51.800
+Jitendra K: You're a fastballer, and then you would like to improve your accuracy and speed, and… agility in…
+
+709
+02:29:51.940 --> 02:29:55.910
+Jitendra K: In… during that particular… Sports.
+
+710
+02:29:56.410 --> 02:30:04.600
+Jitendra K: So there are different sensors which can be able to visualize your arm movement, your foot movement, and then how you land to a crease, and what's your approach.
+
+711
+02:30:05.420 --> 02:30:08.320
+Jitendra K: How does your hands are synchronized?
+
+712
+02:30:09.020 --> 02:30:16.960
+Jitendra K: And all those things are very important with the help of, these models, right? So there are many advanced models for motion detection these days.
+
+713
+02:30:17.250 --> 02:30:18.830
+Jitendra K: I will show you one.
+
+714
+02:31:00.780 --> 02:31:04.869
+Jitendra K: Yeah, all these defects and all will be generated by…
+
+715
+02:31:05.330 --> 02:31:08.199
+Jitendra K: The same augmentation model, and this is…
+
+716
+02:31:09.030 --> 02:31:13.459
+Jitendra K: Yeah, 3D human force detection, that is what I would like to talk about.
+
+717
+02:31:17.150 --> 02:31:19.110
+Jitendra K: So you can see how it is.
+
+718
+02:31:19.870 --> 02:31:25.020
+Jitendra K: Matching the movement of this… Lady pretty firmly.
+
+719
+02:31:32.190 --> 02:31:38.019
+Jitendra K: Those who are giving rating as 3, I would like to hear from you guys where we are lacking in terms of
+
+720
+02:31:38.120 --> 02:31:42.360
+Jitendra K: I think you guys are just listening without interacting.
+
+721
+02:31:42.620 --> 02:31:44.529
+Jitendra K: How should I know your issues?
+
+722
+02:31:46.030 --> 02:31:55.210
+Jitendra K: Those who are passive learners, active learners, I appreciate them. Those who are asking questions. Those who are just sitting, watching movies, and then doing time pass.
+
+723
+02:31:55.750 --> 02:32:00.259
+Jitendra K: I don't care about them. I'm really strict on that part.
+
+724
+02:32:00.640 --> 02:32:04.600
+Jitendra K: If you're not speaking, I cannot understand what is the issue that you're facing.
+
+725
+02:32:05.450 --> 02:32:09.520
+Jitendra K: It's not, your brain is not tied to my screen.
+
+726
+02:32:09.740 --> 02:32:11.940
+Jitendra K: That I can get the feedback automatically.
+
+727
+02:32:12.150 --> 02:32:15.979
+Jitendra K: And maybe in 10 years down the line, there will be some technology which will come.
+
+728
+02:32:16.920 --> 02:32:22.779
+Jitendra K: Where your brain cells will examine by the camera, and then I'll get a feedback as a trainer.
+
+729
+02:32:22.980 --> 02:32:33.820
+Jitendra K: But right now, you have to understand that we are doing a session which is almost virtual. I cannot understand what is your query, and then you're silently making the rating burst.
+
+730
+02:32:34.080 --> 02:32:36.970
+Jitendra K: Without giving any hint to the trainer.
+
+731
+02:32:37.100 --> 02:32:40.149
+Jitendra K: Which is up to you. These are all outlier rating for me.
+
+732
+02:32:40.440 --> 02:32:43.280
+Jitendra K: Anyway, okay, so there's a question.
+
+733
+02:32:43.450 --> 02:32:48.439
+Jitendra K: I want to understand if I have to visualize the output of the convolution layer and polling layer of an image.
+
+734
+02:32:48.800 --> 02:32:52.409
+Jitendra K: How does this look like? Is there any animation for visualized purpose?
+
+735
+02:32:53.080 --> 02:32:57.620
+Jitendra K: I have to visualize the output of the convolution layer and polling layer of an image.
+
+736
+02:32:58.570 --> 02:33:03.840
+Jitendra K: You mean to say the raw format of data?
+
+737
+02:33:07.230 --> 02:33:14.569
+Jitendra K: So it will be not very human-readable. Like this, it will look like. So here, you can see broadening boxes, which is appearing.
+
+738
+02:33:14.950 --> 02:33:21.109
+Jitendra K: Which has been used by YOLO. So similarly, if you're using convolution layer, polling layer, you will get a faded image.
+
+739
+02:33:21.540 --> 02:33:25.089
+Jitendra K: An expanded image, like you're doing a cropping, and
+
+740
+02:33:25.530 --> 02:33:28.770
+Jitendra K: You may be extending the pixel size.
+
+741
+02:33:28.990 --> 02:33:39.160
+Jitendra K: So that way, you will get this image data. It will not of that use for you. So you have to focus on numbers when you're identifying the output. You have to focus on numbers only, like.
+
+742
+02:33:39.530 --> 02:33:43.389
+Jitendra K: How many classes are coming along? How many of them are…
+
+743
+02:33:43.710 --> 02:33:47.390
+Jitendra K: having some issue. Is there any data issue as well?
+
+744
+02:34:04.530 --> 02:34:07.080
+Jitendra K: Yeah, like this. That's correct.
+
+745
+02:34:08.980 --> 02:34:14.819
+Jitendra K: So, passive listeners whose are giving ratings, can you want to speak up? What is the issue here?
+
+746
+02:34:18.940 --> 02:34:22.610
+Jitendra K: I can see some passive listeners, that's why I'm not taking the advanced courses.
+
+747
+02:34:22.890 --> 02:34:25.619
+Jitendra K: I think he does not deserve these advanced courses.
+
+748
+02:34:28.950 --> 02:34:32.909
+Jitendra K: If you would go with very basics, some simple toy data sets and all.
+
+749
+02:34:37.150 --> 02:34:39.090
+Jitendra K: I really hate passive listeners.
+
+750
+02:34:41.380 --> 02:34:44.340
+Jitendra K: Such a stupid students, I don't care about them.
+
+751
+02:34:51.440 --> 02:34:53.209
+Jitendra K: Okay, any more question, guys?
+
+752
+02:34:53.510 --> 02:34:55.660
+Jitendra K: Anyone have any other question?
+
+753
+02:34:56.750 --> 02:35:04.070
+Jitendra K: For working with notebooks on MacBook with Apple, there's a mixed MLX library for Apple that will be used and be used.
+
+754
+02:35:04.480 --> 02:35:07.450
+Jitendra K: Yeah, that's a great idea. So, if you're using,
+
+755
+02:35:08.890 --> 02:35:12.779
+Jitendra K: Apple and PUs, you will get better…
+
+756
+02:35:13.310 --> 02:35:18.909
+Jitendra K: training time, the inference time that you're facing in Google Collab.
+
+757
+02:35:19.170 --> 02:35:23.310
+Jitendra K: Or even with Windows laptop, I would say Apple laptop will have better…
+
+758
+02:35:24.020 --> 02:35:27.290
+Jitendra K: amendments as compared to Windows laptop. So…
+
+759
+02:35:28.230 --> 02:35:30.509
+Jitendra K: So, which version of Apple laptop you have?
+
+760
+02:35:33.010 --> 02:35:37.120
+Jitendra K: MLX is a very old library, so I would not recommend to use MLX.
+
+761
+02:35:38.110 --> 02:35:39.829
+Jitendra K: MLX is very, very old.
+
+762
+02:35:41.220 --> 02:35:46.959
+Jitendra K: Someone with 32GB, and that's a decent… that's a decent, inference.
+
+763
+02:35:47.060 --> 02:35:48.330
+Jitendra K: That you can use.
+
+764
+02:35:49.940 --> 02:35:56.239
+Jitendra K: But don't use MLX, it's a very… I would say outdated framework.
+
+765
+02:35:56.620 --> 02:35:59.899
+Jitendra K: Instead of that, use the power of GPU in your local laptop.
+
+766
+02:36:05.230 --> 02:36:13.860
+Jitendra K: In lecture, professor talks about encoder… we will cover encoder-decoder in transformers. So, once we reach transformer, then we'll discuss encoder-decoder.
+
+767
+02:36:14.400 --> 02:36:21.870
+Jitendra K: So the idea is, we'll go step by step. First, we have core CNN, then we'll move on to RNN, then RNN to sequential.
+
+768
+02:36:22.320 --> 02:36:26.259
+Jitendra K: And then to transformer. There, we will discuss encoder and decoder architecture.
+
+769
+02:36:37.320 --> 02:36:41.310
+Jitendra K: Anybody have, have any question with the code or anything?
+
+770
+02:36:42.740 --> 02:36:51.329
+Jitendra K: Is CoLab used professionally in company? No. CoLab is just a free resource that we are using for learning purpose.
+
+771
+02:36:51.510 --> 02:36:59.569
+Jitendra K: But in actual scenarios in your company, you're going to use some other cloud-based notebooks, like SageMaker, or…
+
+772
+02:36:59.750 --> 02:37:04.799
+Jitendra K: Maybe if you're using Visual Studio, that should be the one that you're going to end up using it.
+
+773
+02:37:05.050 --> 02:37:11.050
+Jitendra K: Or you can use servers as well to write code. But Google Go Lab is just for… Learning purpose.
+
+774
+02:37:11.580 --> 02:37:14.170
+Jitendra K: In actual scenarios, you're not going to use Google for that.
+
+775
+02:37:29.130 --> 02:37:38.070
+Jitendra K: what is C3K2 in code referring to? So, this is an abbreviation, as I mentioned. We are using an abbreviation.
+
+776
+02:37:38.700 --> 02:37:44.319
+Jitendra K: So, C, C3K2 is a… Basically, known for…
+
+777
+02:37:45.410 --> 02:37:48.120
+Jitendra K: Let me show you the explanation in the code.
+
+778
+02:37:59.060 --> 02:38:03.139
+Jitendra K: Yeah, so this is a layer. So, you can see that we have convolution foundational layer.
+
+779
+02:38:03.350 --> 02:38:08.399
+Jitendra K: Followed by C3K2, or C3K2 layer, which is called…
+
+780
+02:38:09.490 --> 02:38:17.610
+Jitendra K: Which is nothing but it's called cross-stage partial with two branches, which is a dense accumulation. So it's a building block which has been used by YOLO V12.
+
+781
+02:38:18.220 --> 02:38:25.920
+Jitendra K: And it is using cross-stage partial network. So, assume it, like, when you're reducing your search space.
+
+782
+02:38:26.270 --> 02:38:31.230
+Jitendra K: And getting more dense accumulation of your features. So this layer will act like a…
+
+783
+02:38:32.210 --> 02:38:38.700
+Jitendra K: intermediate layer, which will be able to learn more complex features. So, in this example, we are talking about cells.
+
+784
+02:38:39.260 --> 02:38:45.499
+Jitendra K: the cell's geometry in a micron scale, right? So, in micron scale, it is very, very complex.
+
+785
+02:38:45.830 --> 02:38:49.460
+Jitendra K: So we are using one layer which we're able to help and adapt.
+
+786
+02:38:49.840 --> 02:38:50.929
+Jitendra K: On this layer.
+
+787
+02:38:51.070 --> 02:38:54.549
+Jitendra K: The primary process to learn efficiently, and making…
+
+788
+02:38:55.140 --> 02:38:59.970
+Jitendra K: Yeah, rich feature representation while reducing the complexity of cost.
+
+789
+02:39:00.840 --> 02:39:10.989
+Jitendra K: That means computational cost, and it will also improve the gradient flows using this. That's the reason you have to read the paper first. I think I have made a mistake, I should not share this example with you guys.
+
+790
+02:39:11.130 --> 02:39:14.219
+Jitendra K: It's, like, very advanced for you guys, and…
+
+791
+02:39:15.900 --> 02:39:19.799
+Jitendra K: Specifically, those passive learners, I should not share all this.
+
+792
+02:39:24.060 --> 02:39:27.179
+Jitendra K: What software will be needed to learn for MLOps part?
+
+793
+02:39:29.400 --> 02:39:34.780
+Jitendra K: What do you mean by softwares? You mean to say libraries or softwares? I don't understand what a software mean.
+
+794
+02:39:47.060 --> 02:39:51.649
+Jitendra K: Are you talking about libraries or softwares? I don't get your softwares definition here.
+
+795
+02:39:59.640 --> 02:40:04.119
+Jitendra K: Yeah, we'll discuss about MLOps in upcoming tutorials, and there's a lot of,
+
+796
+02:40:04.700 --> 02:40:07.080
+Jitendra K: things that we have to cover in MLOps.
+
+797
+02:40:07.430 --> 02:40:11.090
+Jitendra K: MLOps of what? Machine learning ops, you mean to say?
+
+798
+02:40:11.410 --> 02:40:13.889
+Jitendra K: So, I'm an ML officer, you have,
+
+799
+02:40:14.440 --> 02:40:24.129
+Jitendra K: Different techniques, different libraries that we're going to use, and these libraries include well-grained and… you have,
+
+800
+02:40:24.930 --> 02:40:37.219
+Jitendra K: product-specific libraries as well, where you can able to use even scikit-learn to modify capture criteria. And there are different sort of dashboards that you'd be required to create for tracking this
+
+801
+02:40:37.480 --> 02:40:39.920
+Jitendra K: Experimentation, diligently.
+
+802
+02:40:47.960 --> 02:40:53.330
+Jitendra K: Any other question, guys, before we end up today's tutorial? Any question that you would like to ask?
+
+803
+02:40:53.600 --> 02:41:01.919
+Jitendra K: We'll be moving from… moving to RNN and LSTM, yes. We'll move on to recurrent neural network, which is a text-based neural network.
+
+804
+02:41:02.150 --> 02:41:04.069
+Jitendra K: Right now, we talked about image.
+
+805
+02:41:04.790 --> 02:41:08.700
+Jitendra K: So Image Analytics, if you're preferring image analytics, go with CNN.
+
+806
+02:41:08.990 --> 02:41:15.990
+Jitendra K: When we talk about sequential data, like text, which is a well-written sentences, paragraph, so we'll go with RNN.
+
+807
+02:41:16.590 --> 02:41:19.600
+Jitendra K: And then LSTM will be another…
+
+808
+02:41:19.710 --> 02:41:23.749
+Jitendra K: layer, or another advancement on RNN architecture.
+
+809
+02:41:24.200 --> 02:41:30.009
+Jitendra K: That we will use for unit storage of memory. So we'll use LSTM for that purpose.
+
+810
+02:41:45.620 --> 02:41:51.390
+Jitendra K: CNN one-dimension can be used for text. You can use for text as well, yes.
+
+811
+02:41:51.840 --> 02:41:55.099
+Jitendra K: But there's a better model, then why should you use a CNN for that?
+
+812
+02:41:56.180 --> 02:41:59.630
+Jitendra K: That's why it is becoming very specific to images and videos.
+
+813
+02:42:00.360 --> 02:42:06.799
+Jitendra K: So, CNN… Some limitations that you cannot improve any further for text analytics.
+
+814
+02:42:11.970 --> 02:42:14.100
+Jitendra K: Yeah, thanks.
+
+815
+02:42:14.320 --> 02:42:20.090
+Jitendra K: So I appreciate those users who are putting efforts, those who are here for watching 3 hours movie.
+
+816
+02:42:20.220 --> 02:42:23.729
+Jitendra K: It is up to them what they would like to pursue from this class.
+
+817
+02:42:24.280 --> 02:42:30.799
+Jitendra K: But those who are serious learners, very serious about their careers, transition, I respect them.
+
+818
+02:42:31.460 --> 02:42:33.620
+Jitendra K: I will share some more good books if you need.
+
+819
+02:42:34.110 --> 02:42:36.669
+Jitendra K: Those who are doing time pass, it's up to them.
+
+820
+02:42:37.390 --> 02:42:39.110
+Jitendra K: How they're seeing their careers.
+
+821
+02:42:40.140 --> 02:42:44.070
+Jitendra K: Okay, that's where we use RNN.
+
+822
+02:42:46.680 --> 02:42:52.319
+Jitendra K: RNN have a variety of problems, that we are going to talk about in the next tutorial, so we'll talk about…
+
+823
+02:42:53.190 --> 02:43:01.710
+Jitendra K: solving, let's say, a tax data to summarize. There are different sort of summarization techniques we are going to learn, abstractive and extractive, both.
+
+824
+02:43:02.080 --> 02:43:14.650
+Jitendra K: We will also talk about sentiment analysis. All these things, anything that you can think of a text can be solved with RNN, and there are advanced models, including LSTM and Transformer. Even Transformers has been…
+
+825
+02:43:15.430 --> 02:43:21.839
+Jitendra K: originated because of several issues that has been faced by LSTM, so we'll discuss all these things.
+
+826
+02:43:27.700 --> 02:43:30.250
+Jitendra K: Yeah, let me share the notes as well.
+
+827
+02:44:00.590 --> 02:44:06.789
+Jitendra K: All right, so we have 15 more minutes. Any question, any more questions that you would like to ask, guys? Anything?
+
+828
+02:44:07.430 --> 02:44:11.420
+Jitendra K: Which is… how many of you are working on CNN in actual projects?
+
+829
+02:44:12.480 --> 02:44:16.300
+Jitendra K: Or you're learning the concept for the very first time in their entire life.
+
+830
+02:44:18.350 --> 02:44:21.469
+Jitendra K: Is anybody who's working on CNN actual projects?
+
+831
+02:44:22.910 --> 02:44:23.960
+Jitendra K: Western.
+
+832
+02:44:27.490 --> 02:44:28.360
+Jitendra K: True.
+
+833
+02:44:39.090 --> 02:44:41.709
+Jitendra K: work with Yulo. Okay.
+
+834
+02:44:57.740 --> 02:45:02.799
+Jitendra K: Google Vertex AI is a cloud platform. The model is still you have to write, right?
+
+835
+02:45:02.980 --> 02:45:05.590
+Jitendra K: So here, we're learning about model, not platform.
+
+836
+02:45:06.310 --> 02:45:13.860
+Jitendra K: Which is fine, if you're using Google Vertex or Amazon Bedrock, that does not matter. The core concept remains the model.
+
+837
+02:45:16.720 --> 02:45:21.989
+Jitendra K: Okay, but anyway, thanks for sharing. You're using Google Vertex AI by third party.
+
+838
+02:45:22.350 --> 02:45:24.569
+Jitendra K: Which is at a deployment level.
+
+839
+02:45:25.010 --> 02:45:28.290
+Jitendra K: For image and video processing, okay, great.
+
+840
+02:45:29.150 --> 02:45:35.600
+Jitendra K: Video processing has also been… automated these days, like ATM surveillance, or…
+
+841
+02:45:36.340 --> 02:45:41.759
+Jitendra K: There's a lot of surveillance requirement, right, for monitoring and tracking.
+
+842
+02:45:42.050 --> 02:45:44.040
+Jitendra K: The missiles these days.
+
+843
+02:45:44.150 --> 02:45:48.930
+Jitendra K: So there's… these all has been developed by… the advance,
+
+844
+02:45:49.720 --> 02:45:53.500
+Jitendra K: YOLO and other, transform-based architectures.
+
+845
+02:46:00.500 --> 02:46:05.440
+Jitendra K: So it's a multi-million dollar market, where you can see lot of…
+
+846
+02:46:05.670 --> 02:46:14.609
+Jitendra K: things are in proper shape. I mean, we have architecture, we have data, we have… Compute. We have models.
+
+847
+02:46:15.900 --> 02:46:17.560
+Jitendra K: So, we have everything.
+
+848
+02:46:17.930 --> 02:46:22.050
+Jitendra K: I mean, if you look into 2026, you have everything.
+
+849
+02:46:23.050 --> 02:46:29.200
+Jitendra K: So, I just want to share my case story that I've developed. I have developed one app for deaf
+
+850
+02:46:29.770 --> 02:46:32.290
+Jitendra K: Those who cannot able to hear, right?
+
+851
+02:46:32.640 --> 02:46:38.970
+Jitendra K: And I'm using a sign gestures using Eulo and other advanced transformer architectures.
+
+852
+02:46:39.200 --> 02:46:45.289
+Jitendra K: Where I have trained the model from the scratch to identify the Indian, sign language.
+
+853
+02:46:45.630 --> 02:46:49.369
+Jitendra K: And then using that sign language, I was able to publish…
+
+854
+02:46:50.130 --> 02:46:55.810
+Jitendra K: the dashboards, or so-called gestures, to public authorities, like airport and bus
+
+855
+02:46:55.990 --> 02:47:05.879
+Jitendra K: transportation, etc, so that it will have those communities to communicate effectively. So, as a text, you're going to provide a text to the model.
+
+856
+02:47:06.040 --> 02:47:11.050
+Jitendra K: And it will convert to a cash share. So that is what we have done as a part of this whole training.
+
+857
+02:47:12.220 --> 02:47:18.500
+Jitendra K: Another thing, I have also created an insurance product for several…
+
+858
+02:47:19.800 --> 02:47:31.450
+Jitendra K: car manufacturing company, and then, let's say you met with an incident, met with an accident, and you're filing a claim. So as a claim, you have to submit a proof of damages.
+
+859
+02:47:32.180 --> 02:47:37.310
+Jitendra K: So they will be able to identify whether the proof of damages is real or fake.
+
+860
+02:47:38.690 --> 02:47:43.340
+Jitendra K: That means you have maybe changed something, and then put it
+
+861
+02:47:43.920 --> 02:47:49.369
+Jitendra K: badly with some other car, or some other pictures, right? And then you're just…
+
+862
+02:47:50.580 --> 02:47:57.129
+Jitendra K: managing whole body. So, from the video images, I can be able to extract those false positives.
+
+863
+02:48:02.390 --> 02:48:10.450
+Jitendra K: Yeah, there was a group of, I mean, people who's working with me as well. Maybe they have put up a video on LinkedIn.
+
+864
+02:48:11.300 --> 02:48:17.940
+Jitendra K: But is it for ISL or British Sign Language? We have developed two models, ISL and BSL.
+
+865
+02:48:20.510 --> 02:48:34.540
+Jitendra K: Never company, they use handwritten return timesheet to manually input data. Yeah, this is an old use case, handwritten timesheet to manually input data. Yeah, this is a very old use case, which has been automated, even the facial and biometric authentication.
+
+866
+02:48:34.660 --> 02:48:36.950
+Jitendra K: Has been automated with this.
+
+867
+02:48:37.920 --> 02:48:42.379
+Jitendra K: Handwritten, I think it's a 10-year-old problem that has already been solved.
+
+868
+02:48:46.030 --> 02:48:48.940
+Jitendra K: What all professional roles are these using?
+
+869
+02:48:50.180 --> 02:48:56.999
+Jitendra K: I mean, you cannot, in a data science, data scientist, position.
+
+870
+02:48:57.380 --> 02:49:01.920
+Jitendra K: You should be good in either image exception or tax data analytics.
+
+871
+02:49:02.480 --> 02:49:06.870
+Jitendra K: So you should be… Either good in both, or at least one.
+
+872
+02:49:08.080 --> 02:49:14.839
+Jitendra K: So, when you're applying for a job in data science communities, so they will give you some challenges first.
+
+873
+02:49:15.010 --> 02:49:17.469
+Jitendra K: They will be hacker rank and stuff, right?
+
+874
+02:49:17.670 --> 02:49:21.430
+Jitendra K: So in the hacker rank, you are going to solve DSA and system design problems.
+
+875
+02:49:21.870 --> 02:49:29.789
+Jitendra K: But actual… Test will be given by someone who may ask you to produce some models.
+
+876
+02:49:30.010 --> 02:49:31.349
+Jitendra K: As a use case.
+
+877
+02:49:32.570 --> 02:49:40.300
+Jitendra K: So make sure that you have sufficient experience to develop a model, explain what The technical nitty-gritties are.
+
+878
+02:49:41.070 --> 02:49:42.520
+Jitendra K: And,
+
+879
+02:49:42.700 --> 02:49:47.920
+Jitendra K: then you will be able to crack the interview. So, considering these classes will help you to do that.
+
+880
+02:49:52.310 --> 02:49:55.730
+Jitendra K: This company is a mining company, is Lodore Opti, okay.
+
+881
+02:49:56.570 --> 02:49:58.210
+Jitendra K: The handwritten one, okay.
+
+882
+02:50:02.350 --> 02:50:04.799
+Jitendra K: Any further question, guys? We have…
+
+883
+02:50:05.210 --> 02:50:08.150
+Jitendra K: 8 more minutes before we can wind up.
+
+884
+02:50:09.160 --> 02:50:14.440
+Jitendra K: Anything that you would like to ask? How's the code, complexity looks like?
+
+885
+02:50:14.590 --> 02:50:15.800
+Jitendra K: Is it too much?
+
+886
+02:50:16.160 --> 02:50:18.100
+Jitendra K: Not too easy to digest.
+
+887
+02:50:23.160 --> 02:50:25.589
+Jitendra K: Not easy to digest, or is it good?
+
+888
+02:50:29.210 --> 02:50:35.939
+Jitendra K: Bit complex for me. But if I'm taking a toy dataset similar to professors, then will you think that this class will make sense?
+
+889
+02:50:36.620 --> 02:50:39.940
+Jitendra K: So let's do one thing. From next class, we'll take toy dataset.
+
+890
+02:50:40.640 --> 02:50:45.849
+Jitendra K: I don't want you to understand the whole ecosystem. Why should I care about that?
+
+891
+02:50:46.150 --> 02:50:47.189
+Jitendra K: First of all.
+
+892
+02:50:48.350 --> 02:50:50.830
+Jitendra K: Let's go with the simple analogies, then.
+
+893
+02:50:51.190 --> 02:50:52.350
+Jitendra K: From next class.
+
+894
+02:50:58.730 --> 02:51:03.380
+Jitendra K: If you want depth and breadth, then it is a good, good thing that you should acquire.
+
+895
+02:51:03.660 --> 02:51:08.260
+Jitendra K: And you have to put efforts. Without efforts, nobody is going to achieve anything here.
+
+896
+02:51:09.220 --> 02:51:16.570
+Jitendra K: You will attend 3 hours classes, I will give you lectures, After that, you're not practicing.
+
+897
+02:51:17.270 --> 02:51:24.280
+Jitendra K: Maybe you're not… Coming with the questions, then you're hampering your own productivity.
+
+898
+02:51:25.480 --> 02:51:32.850
+Jitendra K: So I'm not saying it's all about revisions and all. You need not to do any kind of revisions like you're doing in your 12th grade or college days.
+
+899
+02:51:33.110 --> 02:51:38.869
+Jitendra K: It's all about Making sure that you have a sufficient motivation to explore more.
+
+900
+02:51:40.700 --> 02:51:46.060
+Jitendra K: Right after the class. I'm sharing some reading material, some text material, so you have to go back and then sit
+
+901
+02:51:46.660 --> 02:51:49.530
+Jitendra K: and read… That's the best thing you can do.
+
+902
+02:51:50.640 --> 02:51:52.949
+Jitendra K: To understand the architecture and the challenges.
+
+903
+02:51:53.380 --> 02:51:56.970
+Jitendra K: And if anything is not clear, then you have to come back.
+
+904
+02:52:08.700 --> 02:52:09.969
+Jitendra K: Yeah, Nilesh.
+
+905
+02:52:10.800 --> 02:52:17.280
+Jitendra K: Now, those friends who are not speaking, I think they are the… Always.
+
+906
+02:52:19.100 --> 02:52:26.290
+Jitendra K: an issue in every class. There's an outlier in every class, so I cannot do anything about that. They're just silent listeners, or…
+
+907
+02:52:27.130 --> 02:52:29.859
+Jitendra K: I have no idea what is their issues.
+
+908
+02:52:43.480 --> 02:52:55.739
+Jitendra K: All right, so with that, let me summarize this class. So, what you need to do as a part of this whole class is, you have to read this YOLO v3, V12 model architecture.
+
+909
+02:52:56.230 --> 02:53:00.860
+Jitendra K: Go to the… archive page. Read this.
+
+910
+02:53:01.280 --> 02:53:07.900
+Jitendra K: Second is, they… you have to read this… Ultra Analytics Yolo Docs.
+
+911
+02:53:08.410 --> 02:53:14.019
+Jitendra K: And, you can start with YOLO first model, try to understand the configuration of YOLO model.
+
+912
+02:53:14.500 --> 02:53:17.760
+Jitendra K: And then you can go and compare the models, right?
+
+913
+02:53:17.880 --> 02:53:20.480
+Jitendra K: What is the purpose of YOLO and stuff?
+
+914
+02:53:20.900 --> 02:53:31.079
+Jitendra K: And then you have to go with, the decision-making of YOLO, what are the components of YOLO? There are different components, like RPN, FPN, all these things you will heard.
+
+915
+02:53:31.610 --> 02:53:39.830
+Jitendra K: So, do we need to understand all these things? The answer is no, because we are just using transfer learning, and the remaining thing will come along with it.
+
+916
+02:53:40.260 --> 02:53:45.950
+Jitendra K: You just don't need to understand how to integrate YOLO in your existing CNN architecture.
+
+917
+02:53:46.150 --> 02:53:50.549
+Jitendra K: And what are the different ways to test this architecture? And that is what you need.
+
+918
+02:53:50.750 --> 02:53:57.730
+Jitendra K: And you need to get familiar with some standard datasets like COPO. This is a common object in context, which is a dataset
+
+919
+02:53:58.300 --> 02:54:04.370
+Jitendra K: been used to train and benchmark Freddin models. We can use this for multiple purposes.
+
+920
+02:54:05.240 --> 02:54:09.740
+Jitendra K: So you need to create some sort of excitement on your own.
+
+921
+02:54:09.840 --> 02:54:12.950
+Jitendra K: And then explore these logs, ports.
+
+922
+02:54:13.450 --> 02:54:16.460
+Jitendra K: I'll share some code with you, take a reference.
+
+923
+02:54:16.890 --> 02:54:22.890
+Jitendra K: Right? Otherwise, these things are… why it… otherwise, it will be a shallow learning, right? Why it is called deep learning.
+
+924
+02:54:24.490 --> 02:54:27.680
+Jitendra K: I will say it's just a parameter learning.
+
+925
+02:54:28.000 --> 02:54:32.299
+Jitendra K: That's why it is called deep learning, right? Because the complexity of these algorithms is high.
+
+926
+02:54:33.210 --> 02:54:38.789
+Jitendra K: And you have to learn Each and everything, with a limited amount of time, and with a
+
+927
+02:54:39.050 --> 02:54:41.470
+Jitendra K: Proper emphasis on the concepts.
+
+928
+02:54:41.740 --> 02:54:42.979
+Jitendra K: And the hands on.
+
+929
+02:54:43.770 --> 02:54:46.999
+Jitendra K: So hands-on is very important for acquiring these skills.
+
+930
+02:54:49.850 --> 02:54:53.000
+Jitendra K: Alright, so with that, let's…
+
+931
+02:54:53.450 --> 02:55:01.340
+Jitendra K: take, I mean, let's call it a day, and then we'll meet in the next tutorial with RNN. So RNN is something which we are going to start.
+
+932
+02:55:01.860 --> 02:55:07.169
+Jitendra K: And then, just go through the lectures first. I will ask… I will change my…
+
+933
+02:55:07.540 --> 02:55:09.029
+Jitendra K: Way of teaching now.
+
+934
+02:55:09.310 --> 02:55:16.219
+Jitendra K: I would like to ask you guys about your understanding from the lectures first, because I'm here to help you to digest those lectures.
+
+935
+02:55:16.590 --> 02:55:19.759
+Jitendra K: So, first and foremost thing, I need to know what are you watching.
+
+936
+02:55:20.610 --> 02:55:23.729
+Jitendra K: what is your previous knowledge? And then I will start to set up
+
+937
+02:55:23.930 --> 02:55:26.719
+Jitendra K: The additional parameters on the top of it.
+
+938
+02:55:26.990 --> 02:55:35.880
+Jitendra K: Because I know some people are coming blank, without watching any lectures, without watching and doing anything. They're just using this 3 hours for popcorn
+
+939
+02:55:36.740 --> 02:55:41.009
+Jitendra K: kind of a popcorn movie reviews, right? Which is not good.
+
+940
+02:55:42.450 --> 02:55:48.969
+Jitendra K: So, you need to put some efforts. I would like to track the efforts now, and that is what I have to do now for the next class.
+
+941
+02:55:50.010 --> 02:55:58.139
+Jitendra K: So, thank you for attending the session, and it was a pleasure to have an interaction, so we'll meet for another in the next class, and with some more exciting stuff. Thank you.
+

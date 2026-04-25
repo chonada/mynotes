@@ -1,0 +1,5130 @@
+WEBVTT
+
+1
+00:00:06.630 --> 00:00:08.949
+Jitendra K: Hey guys, good evening, good afternoon.
+
+2
+00:00:09.310 --> 00:00:15.179
+Jitendra K: My abs sincere apologies, there's some power cut at my locality, so that's the reason there's a delay.
+
+3
+00:00:15.470 --> 00:00:27.539
+Jitendra K: So let's start with the session. So… so we are going to start with another module, where we are going to talk about regression methods. So we'll continue with the regression method, so I think,
+
+4
+00:00:27.750 --> 00:00:32.489
+Jitendra K: In the last tutorial, we have talked about the various hypotheses of linear regression model.
+
+5
+00:00:32.680 --> 00:00:39.450
+Jitendra K: And we are going to start with some more basics of regression, and the cost functions, and the evaluation of regression.
+
+6
+00:00:39.690 --> 00:00:41.160
+Jitendra K: So,
+
+7
+00:00:41.790 --> 00:00:53.449
+Jitendra K: So basically what we are going to do next is we will talk about several types of cost functions, which is required to perform and validate the regression analysis. Let me admit some more guys in the waiting room.
+
+8
+00:00:54.220 --> 00:00:57.739
+Jitendra K: I don't know why it is not… Able to join.
+
+9
+00:00:58.270 --> 00:01:00.070
+Jitendra K: Let me admit all.
+
+10
+00:01:02.110 --> 00:01:07.430
+Jitendra K: Hey, hi Anurag, are you there? I can see two participants in the waiting room, can you please add them?
+
+11
+00:01:07.430 --> 00:01:12.019
+Tech Cert 008: Yes, I've admitted them, I think there is some network issue or whatever at the end.
+
+12
+00:01:12.020 --> 00:01:12.590
+Jitendra K: Okay.
+
+13
+00:01:12.590 --> 00:01:13.450
+Tech Cert 008: Howdy, Shane?
+
+14
+00:01:13.850 --> 00:01:15.480
+Jitendra K: Alright, sure. Okay.
+
+15
+00:01:23.040 --> 00:01:30.379
+Jitendra K: Okay, so, so what we are going to do next is we will talk about the, the methods to evaluate regression.
+
+16
+00:01:30.540 --> 00:01:45.880
+Jitendra K: Let me share my screen, and then today's tutorial will be more towards understanding the efficacies of regression. So, when we… when we say regression analysis, so basically, what are we going to do with the help of the cost functions and evaluation?
+
+17
+00:01:46.150 --> 00:01:50.509
+Jitendra K: So, let me talk about that part. So, the second and the most important aspect is,
+
+18
+00:01:50.860 --> 00:01:52.789
+Jitendra K: We'll understand,
+
+19
+00:01:53.150 --> 00:02:06.309
+Jitendra K: We have already seen that how to validate the hypothesis of linear regression, so this is just a breakdown of cost function in linear regression. And we'll talk about how linear regression, will be useful for various
+
+20
+00:02:09.110 --> 00:02:14.180
+Jitendra K: Okay, so without delaying further, let me move on to the topic.
+
+21
+00:02:18.020 --> 00:02:19.969
+Jitendra K: Let me open my whiteboard.
+
+22
+00:02:38.770 --> 00:02:45.900
+Jitendra K: Okay, so basically we are going to talk about different types of cost functions that we can able to evaluate with a linear regression model.
+
+23
+00:02:46.120 --> 00:02:57.720
+Jitendra K: or so-called… cost functions… For regression analysis.
+
+24
+00:03:01.770 --> 00:03:06.329
+Jitendra K: So we already know that when you're performing a regression analysis, we have a variable X,
+
+25
+00:03:06.680 --> 00:03:08.640
+Jitendra K: Which is dependent variables.
+
+26
+00:03:10.560 --> 00:03:14.730
+Jitendra K: And we have something called Y, right? Which is called…
+
+27
+00:03:15.630 --> 00:03:18.749
+Jitendra K: dependent variable, right? So we have various X.
+
+28
+00:03:20.860 --> 00:03:25.479
+Jitendra K: And we have… a Y variable.
+
+29
+00:03:26.560 --> 00:03:28.689
+Jitendra K: Which is depending upon these.
+
+30
+00:03:29.120 --> 00:03:30.980
+Jitendra K: Coefficient of determination.
+
+31
+00:03:31.090 --> 00:03:35.100
+Jitendra K: Now, when we say regression analysis, so we have to perform
+
+32
+00:03:36.050 --> 00:03:46.959
+Jitendra K: our output of interest will be in continuous in nature, in a range format, right? Our output will be in the form of a range, not as a, I would say.
+
+33
+00:03:46.960 --> 00:04:03.269
+Jitendra K: not as a categorical, binary, categorical, or multi-categorical variable, but it will be rather a range, right? So in this particular blog, we will see how the cost function and which situation we will use different types of cost function, and how to choose the right cost function.
+
+34
+00:04:03.570 --> 00:04:06.220
+Jitendra K: To understand the efficacy of regression method.
+
+35
+00:04:06.340 --> 00:04:23.300
+Jitendra K: So, first and foremost thing that you have to understand what is cost function. So, I think, when you talk about cost function, it's nothing but a mathematical function that used to measure the error, or the difference between the actual and the predicted value. So, here we are talking about a two notation, actual and the predicted value.
+
+36
+00:04:23.440 --> 00:04:32.240
+Jitendra K: So, it is applicable to any machine learning algorithm, right? The cost function is nothing but where you're going to sum up these errors for all data points, in terms of…
+
+37
+00:04:33.310 --> 00:04:46.799
+Jitendra K: how this particular variable has been differentiated by the model. So, we will talk about several types of cost function in regression model. The first and foremost thing is called mean squared errors, right? Which is a very basic
+
+38
+00:04:47.590 --> 00:04:58.230
+Jitendra K: and, yet elegant method to determine the efficiency of a linear regression model. So when you talk about MSC, I can represent the equation for MSC as summation of…
+
+39
+00:05:00.080 --> 00:05:08.520
+Jitendra K: Y of I… minus Y of I hat, Holy square.
+
+40
+00:05:08.960 --> 00:05:14.710
+Jitendra K: And I can, when I'm representing my data points from i is equal to 1, to N.
+
+41
+00:05:15.170 --> 00:05:32.249
+Jitendra K: I'm going to add a normalization form, 1 over n, and it's a multiplicative of this whole equation. So I can say that this mean squared error is nothing but we are calculating the mean squared differences between the actual values and the predicted values of a machine learning model.
+
+42
+00:05:32.350 --> 00:05:36.830
+Jitendra K: Specifically, we are talking about linear regression, so here we are talking,
+
+43
+00:05:41.190 --> 00:05:48.319
+Jitendra K: Here we are talking about the difference between actual values and the predicted values of machine learning models, specifically in lines with linear regression.
+
+44
+00:05:48.450 --> 00:05:56.430
+Jitendra K: So, it is a very simple equation, where we are going to create… Maybe a bunch of…
+
+45
+00:05:56.650 --> 00:06:00.699
+Jitendra K: Variables, and then try to represent this particular function.
+
+46
+00:06:00.830 --> 00:06:06.000
+Jitendra K: But let's say if I have to take this discussion to a next level. So, let's say…
+
+47
+00:06:07.130 --> 00:06:15.780
+Jitendra K: If we simply use the above equation as a cost function in linear regression, we will get a quadratic equation of a cost function. So a quadratic equation of this
+
+48
+00:06:15.880 --> 00:06:20.870
+Jitendra K: equation will be in this format. I can represent this as A of X squared.
+
+49
+00:06:21.880 --> 00:06:23.850
+Jitendra K: plus B of X.
+
+50
+00:06:24.910 --> 00:06:27.509
+Jitendra K: plus the constant term C,
+
+51
+00:06:27.670 --> 00:06:34.430
+Jitendra K: And this will be 0, right? So this is the quadratic equation. So it's a simple quadratic equation, where you have one…
+
+52
+00:06:34.450 --> 00:06:50.310
+Jitendra K: variable, which is growing in a square magnitude. So that's why it is quadratic, nonlinear, right? So, I can say that if I have to simply use this above equation as a cost function linear regression equation, we will get a quadratic equation of a cost function.
+
+53
+00:06:50.430 --> 00:06:52.229
+Jitendra K: So, a quadratic equation
+
+54
+00:06:52.780 --> 00:07:09.539
+Jitendra K: I can represent this into this form. Now the question arises when… why we need a quadratic equation, because when we have a MSE as a cost function for linear equation… least linear regression model. So we have to update the coefficient and intercept until we find the minima of the cost function, with the help of…
+
+55
+00:07:09.740 --> 00:07:10.980
+Jitendra K: derivatives.
+
+56
+00:07:11.140 --> 00:07:15.920
+Jitendra K: And when we talk about derivative of this function, if I have to take a derivative of this function.
+
+57
+00:07:16.390 --> 00:07:22.959
+Jitendra K: Right? I can simply take DY by dx, and then represent this equation into
+
+58
+00:07:23.820 --> 00:07:29.780
+Jitendra K: a simplistic form, right? And this form is called global minima. So basically, when I'm saying that
+
+59
+00:07:30.470 --> 00:07:37.530
+Jitendra K: And I'm trying to fit in this equation, right, and try to measure the linear regression outcome.
+
+60
+00:07:37.740 --> 00:07:51.699
+Jitendra K: Using this MSE as a cost function. So I have to take a derivative of this whole equation to get the updated coefficient and intercept value. And we have to differentiate the cost function with respect to each and every coefficient.
+
+61
+00:07:51.770 --> 00:08:04.519
+Jitendra K: And the quadratic equations are differential equations, or quadratic equations are convex in nature. That means they have a global and local minima at the same point, and the quadratic equation has only one local minima, where
+
+62
+00:08:04.720 --> 00:08:17.519
+Jitendra K: It may have several… sorry, it may have one global minima, it may have several local minima. So when we say I'm representing a mini-square errors, so this is the quadratic form of mini-square error. This is a linear form.
+
+63
+00:08:17.680 --> 00:08:36.900
+Jitendra K: So when I'm trying to solve this equation linearly, this is okay, this is a simplistic equation where I'm trying to find out actual minus predicted, and taking a square magnitude. But when I'm trying to solve nonlinear equations with the help of MSE, I have to take a derivative of this function, and I can represent this derivative in the form of a
+
+64
+00:08:38.200 --> 00:08:48.060
+Jitendra K: Parabolic curve, and this parabolic curve will have a kind of convex shape, and here you can look from this particular graph.
+
+65
+00:08:48.160 --> 00:08:50.619
+Jitendra K: That when we are taking a mean square error.
+
+66
+00:08:50.820 --> 00:09:00.279
+Jitendra K: this is where I'm going to find out the global minima. And the objective of this equation is to find the global minima, right?
+
+67
+00:09:01.230 --> 00:09:08.090
+Jitendra K: Okay, so… Now, how to interpret a mean square error? That is very, very important.
+
+68
+00:09:08.320 --> 00:09:13.460
+Jitendra K: So when we are saying that I would like to interpret the mean square error, so what does that mean?
+
+69
+00:09:13.830 --> 00:09:16.480
+Jitendra K: Now… Let's assume that.
+
+70
+00:09:16.590 --> 00:09:27.160
+Jitendra K: I'm just writing… let's assume that a person Has a salary of… a particular person, As a salary, or…
+
+71
+00:09:27.870 --> 00:09:30.489
+Jitendra K: 1 lakh Indian rupees.
+
+72
+00:09:31.660 --> 00:09:32.690
+Jitendra K: per month.
+
+73
+00:09:33.320 --> 00:09:37.309
+Jitendra K: And our model predicts that his salary is $90,000.
+
+74
+00:09:39.280 --> 00:09:45.040
+Jitendra K: That means we are committing an error of… 10 is to power 5.
+
+75
+00:09:45.570 --> 00:09:49.130
+Jitendra K: Minus 9 into 10 is to the power 4.
+
+76
+00:09:50.130 --> 00:09:52.850
+Jitendra K: Which is equals to 1,000 lakh.
+
+77
+00:09:53.090 --> 00:09:53.860
+Jitendra K: Right?
+
+78
+00:09:54.350 --> 00:10:01.070
+Jitendra K: So, we are committing an error of 10,000 rupees, right? And this is the error that we have, should we penalized.
+
+79
+00:10:01.280 --> 00:10:04.300
+Jitendra K: As we increase the error, it may,
+
+80
+00:10:04.400 --> 00:10:07.550
+Jitendra K: You know, increase the uncertainty in prediction.
+
+81
+00:10:07.670 --> 00:10:14.010
+Jitendra K: Similarly, let's say if I'm trying to find out the weather, temperature, conditions outside.
+
+82
+00:10:14.250 --> 00:10:20.950
+Jitendra K: And I'm using a regression model, or maybe annual rainfall is a good example. Let's say I'm predicting that I'm going to have 5…
+
+83
+00:10:21.300 --> 00:10:26.589
+Jitendra K: millimeter… To 7 millimeter rainfall this year.
+
+84
+00:10:26.960 --> 00:10:32.929
+Jitendra K: And if I'm making an error, let's say the actual info comes out to be 8, to 10.
+
+85
+00:10:33.660 --> 00:10:48.050
+Jitendra K: And I'm actually committing a huge error. And that will create a lot of uncertainty in my prediction, right? So mean square error is robust to outliers. So mean square errors are always robust to outliers. So when I say mean square errors, mean square error…
+
+86
+00:10:48.170 --> 00:10:52.999
+Jitendra K: is nothing but they are very robust to outliers. The reason being is.
+
+87
+00:10:53.580 --> 00:10:56.110
+Jitendra K: You're going to have a square magnitude of the errors.
+
+88
+00:10:56.440 --> 00:10:59.390
+Jitendra K: Right? And that leads to several miscalculations.
+
+89
+00:10:59.570 --> 00:11:11.530
+Jitendra K: So, mean square errors, as the name suggests, you're taking a square magnitude of the errors, and that is where you're going to use a… maybe a quasilinear format of the cost function to predict the outcome.
+
+90
+00:11:12.350 --> 00:11:20.770
+Jitendra K: Alright, so let's try to… See how we can able to use mean square error, and try to use…
+
+91
+00:11:21.640 --> 00:11:24.660
+Jitendra K: Maybe I will show you one simple example.
+
+92
+00:11:24.880 --> 00:11:28.789
+Jitendra K: And how to calculate the errors with a simple dataset.
+
+93
+00:11:29.430 --> 00:11:32.780
+Jitendra K: So let me just launch my Google Colab.
+
+94
+00:11:43.230 --> 00:11:55.659
+Jitendra K: Yes, number of samples, because in linear regression, MSE has 1 over 2, yes. So it's a power, so we are calculating, normalization factor as 1 over n, which is nothing but a number of variables.
+
+95
+00:11:55.970 --> 00:12:00.720
+Jitendra K: Inside that equation, or inside that particular, problem statement.
+
+96
+00:12:03.720 --> 00:12:06.980
+Jitendra K: Okay, so when you're trying to use any cost function.
+
+97
+00:12:09.300 --> 00:12:20.360
+Jitendra K: in machine learning, right? So, this is the first cost function that we are going to talk about. So similarly, you will have many cost functions in the upcoming tutorial, so let me show you how to import the libraries.
+
+98
+00:12:20.460 --> 00:12:25.520
+Jitendra K: So, you have to import… scikit-learn.
+
+99
+00:12:25.800 --> 00:12:29.020
+Jitendra K: dot metrics, and this is one library.
+
+100
+00:12:29.390 --> 00:12:33.380
+Jitendra K: And I'm going to import… Mean… Square.
+
+101
+00:12:34.120 --> 00:12:37.780
+Jitendra K: And you can see that it is having all the… Relevant.
+
+102
+00:12:38.340 --> 00:12:43.090
+Jitendra K: cost functions, so I'm importing mean square error, I'm also importing numpy.
+
+103
+00:12:43.500 --> 00:12:47.529
+Jitendra K: I would like to import Pandas, Smackplot, C1.
+
+104
+00:12:49.150 --> 00:12:54.630
+Jitendra K: Okay, I will represent this as MSE, just for readability purposes. So I will say it's an MSE error.
+
+105
+00:12:55.710 --> 00:12:58.819
+Jitendra K: Now, I would like to create some sample.
+
+106
+00:12:59.460 --> 00:13:04.660
+Jitendra K: So let me create a sample dataset. So let's say I'm creating a dataset for experience and salary.
+
+107
+00:13:05.000 --> 00:13:09.390
+Jitendra K: So, the experience will be in year, and the salary will be in thousand.
+
+108
+00:13:09.860 --> 00:13:15.070
+Jitendra K: So I'm just creating a very simple list of employees. So this is my dataset.
+
+109
+00:13:15.490 --> 00:13:20.360
+Jitendra K: a linear list. I'm saying a list comprises of experience in years.
+
+110
+00:13:20.830 --> 00:13:29.410
+Jitendra K: 1.2 years means 14 months, 1.5 means 16, 18 months, 1.9 means you have 1 year.
+
+111
+00:13:29.530 --> 00:13:30.480
+Jitendra K: 9 months.
+
+112
+00:13:30.680 --> 00:13:40.679
+Jitendra K: 21 months of experience, etc. And this talks about the salary in thousands, so if you multiply this number by 1,000, you will get a salary in US dollar.
+
+113
+00:13:40.990 --> 00:13:46.259
+Jitendra K: So the data comprise of a… data frame comprised of a salary and experience as a key.
+
+114
+00:13:46.380 --> 00:13:53.920
+Jitendra K: And these will become… list will become a value for it, right? So I'm just going to store this, and I would like to print. Now, it'll become a data frame for me.
+
+115
+00:13:54.110 --> 00:13:58.980
+Jitendra K: Now, I would like to plot this data frame. Now, I would like to explore the dataset by…
+
+116
+00:13:59.960 --> 00:14:04.999
+Jitendra K: exploring the relationship between experience and salary. So, my hypothesis is that
+
+117
+00:14:05.200 --> 00:14:13.309
+Jitendra K: the year of experience increased, salary should also increase, ideally. So that is what I would like to see, and I can see a pattern here, which is true.
+
+118
+00:14:13.410 --> 00:14:19.749
+Jitendra K: As experience increased, the salary of an employee Maybe increase as well, right?
+
+119
+00:14:20.070 --> 00:14:28.789
+Jitendra K: So you can see a linear relationship between experience and salary, and that is what we are expecting. So let's now by… let's now start by plotting the lines.
+
+120
+00:14:28.920 --> 00:14:32.670
+Jitendra K: By various values of beta and coefficients.
+
+121
+00:14:32.820 --> 00:14:41.189
+Jitendra K: So start with, I'm going to make beta as equals to very low value, 0.01, right? And then I will take intercept to be 1.1.
+
+122
+00:14:41.410 --> 00:14:45.170
+Jitendra K: And I would like to create a model, maybe a simple model.
+
+123
+00:14:46.460 --> 00:14:51.320
+Jitendra K: to predict the… Salary of an employee, based upon the number of years.
+
+124
+00:14:51.630 --> 00:15:01.099
+Jitendra K: So, this is what I'm getting. So, let me explain this code. So, what is beta and alpha? Okay, so let me explain this. So, beta…
+
+125
+00:15:01.850 --> 00:15:04.060
+Jitendra K: line that I'm making.
+
+126
+00:15:04.370 --> 00:15:08.960
+Jitendra K: is nothing but… I'm making this coefficient.
+
+127
+00:15:09.370 --> 00:15:15.830
+Jitendra K: To determine the rate of change of Salary with experience.
+
+128
+00:15:16.100 --> 00:15:17.929
+Jitendra K: And that is one beta, right?
+
+129
+00:15:18.110 --> 00:15:26.610
+Jitendra K: So, beta, I'm just taking it to be very low, I'm considering it to be 0.1, and B, I'm making an interceptor 1.1. So, because I have got…
+
+130
+00:15:26.870 --> 00:15:32.540
+Jitendra K: some experience starting from 1 and above, right? So I'm taking 1.1 as a pivot.
+
+131
+00:15:32.770 --> 00:15:43.380
+Jitendra K: Now, with these two parameters, I would like to plot it over the scattered plot. Now, I will apply the relationship to create each of these lines, and then I plot over a centric scattered plot.
+
+132
+00:15:43.590 --> 00:15:49.089
+Jitendra K: So I… you can see that my regression line does not cover, so we have one line for…
+
+133
+00:15:49.510 --> 00:15:57.640
+Jitendra K: For this, let me see what is MSE. If MSC mini square address is high, let me check this for this model.
+
+134
+00:15:58.830 --> 00:16:00.490
+Jitendra K: So the MSE is high.
+
+135
+00:16:00.760 --> 00:16:01.900
+Jitendra K: For this model.
+
+136
+00:16:02.140 --> 00:16:06.360
+Jitendra K: Now, what I'm going to do is, I would like to change my beta.
+
+137
+00:16:06.890 --> 00:16:11.389
+Jitendra K: Maybe to some other value, and then try to perform the same analysis.
+
+138
+00:16:11.820 --> 00:16:17.810
+Jitendra K: So… so basically, this is what regression does behind the scene, right? It keeps on changing the beta.
+
+139
+00:16:18.190 --> 00:16:26.869
+Jitendra K: So basically, what I'm going to do is, I would like to loop through, instead of fixing the beta value, so that my model will be able to find it out by themselves.
+
+140
+00:16:27.540 --> 00:16:29.459
+Jitendra K: Okay, let me…
+
+141
+00:16:35.130 --> 00:16:36.250
+Jitendra K: Run this…
+
+142
+00:17:24.150 --> 00:17:27.629
+Jitendra K: Let me check, it's not a syntax error.
+
+143
+00:17:49.480 --> 00:17:52.760
+Jitendra K: Yeah, I can see indentation errors here.
+
+144
+00:18:04.470 --> 00:18:09.980
+Jitendra K: I changed this… Okay, this should work. Okay, this is working.
+
+145
+00:18:11.680 --> 00:18:26.999
+Jitendra K: Okay, Y is equal to MX plus C, so M is a beta, yes. M is your coefficient of determination, so M is your beta, that's correct. So, M is your beta, and then the remaining thing will be this. Now, I would like to calculate the range of slope, and I'm going to increase
+
+146
+00:18:27.400 --> 00:18:29.070
+Jitendra K: an incremental slope.
+
+147
+00:18:30.340 --> 00:18:34.459
+Jitendra K: in a loop, and then I would like to visualize the beta.
+
+148
+00:18:35.070 --> 00:18:38.219
+Jitendra K: and see if I'm increasing the value of beta.
+
+149
+00:18:38.440 --> 00:18:41.099
+Jitendra K: What are the implications that I'm getting?
+
+150
+00:18:44.290 --> 00:18:46.970
+Jitendra K: on the cost. Okay.
+
+151
+00:18:54.950 --> 00:18:57.689
+Jitendra K: So you can see that this is what my output looks like.
+
+152
+00:18:58.030 --> 00:19:07.230
+Jitendra K: So, what… What it does is, for betas equals to 0.04, we are getting the cost to be 11.97.
+
+153
+00:19:08.030 --> 00:19:09.710
+Jitendra K: Right? Which is the lowest.
+
+154
+00:19:10.330 --> 00:19:14.300
+Jitendra K: Now, if I'm going to plot, The cost corresponding
+
+155
+00:19:15.080 --> 00:19:20.470
+Jitendra K: to the values of beta, I will get an equation, like this.
+
+156
+00:19:21.180 --> 00:19:27.730
+Jitendra K: So we can see that the value of cost at zero Which is here, is highest.
+
+157
+00:19:29.800 --> 00:19:36.190
+Jitendra K: And after that, error goes… Down, increasing the value of beta, and it reaches a minimum value.
+
+158
+00:19:37.160 --> 00:19:43.410
+Jitendra K: Now, the question is… When we know this relationship, what are the values of beta and B for which
+
+159
+00:19:43.830 --> 00:19:47.669
+Jitendra K: We can find out this particular location where my cost is minimum.
+
+160
+00:19:49.020 --> 00:19:55.310
+Jitendra K: Right? So that is where you are going to perform the regression analysis, to find it out, a line
+
+161
+00:19:55.480 --> 00:20:06.350
+Jitendra K: Which represent the minimum distance from all data points towards the regression line, and it should be minimum. Right? That is what we are trying to find it out.
+
+162
+00:20:06.560 --> 00:20:12.580
+Jitendra K: And predominantly, MSE will help you to do this analysis.
+
+163
+00:20:12.950 --> 00:20:20.840
+Jitendra K: So the, the purpose of MSC, or mean squared error, Right? S2… do…
+
+164
+00:20:21.650 --> 00:20:26.340
+Jitendra K: Nothing but it is going to perform the analysis on all the data points.
+
+165
+00:20:26.640 --> 00:20:29.660
+Jitendra K: Right? Pivot around this regression line.
+
+166
+00:20:29.810 --> 00:20:39.339
+Jitendra K: And try to find a distance as a coefficient. So basically, mean square error is a very popular metrics, which we are going to use to evaluate.
+
+167
+00:20:39.670 --> 00:20:46.409
+Jitendra K: The performance of regression model, and it measures the average square differences between the predicted value and the actual value.
+
+168
+00:20:47.010 --> 00:20:56.559
+Jitendra K: Right? So… so for each data point, we are trying to find out the difference between actual values and the predicted value. So I'm representing actual value as Y.
+
+169
+00:20:57.730 --> 00:21:00.109
+Jitendra K: And predicted value is Y hat.
+
+170
+00:21:02.000 --> 00:21:02.770
+Jitendra K: Right?
+
+171
+00:21:02.940 --> 00:21:05.249
+Jitendra K: And I'm calculating a difference between the two.
+
+172
+00:21:07.550 --> 00:21:11.059
+Jitendra K: And then, taking a square magnitude of the error to generalize.
+
+173
+00:21:11.670 --> 00:21:17.280
+Jitendra K: Right? This will ensure that all the values are positive, so the positive and the negative error does not cancel each other.
+
+174
+00:21:17.460 --> 00:21:30.529
+Jitendra K: And we are giving more weightage to the large error. So we would like to capture the large error in prediction, and try to calculate the output. Now, when you're taking a mean, so we are summing up all the errors.
+
+175
+00:21:31.220 --> 00:21:35.229
+Jitendra K: And divide by the number of data points. That is called mean, right, of any number.
+
+176
+00:21:36.350 --> 00:21:38.959
+Jitendra K: So that is why it is called mean square error.
+
+177
+00:21:39.370 --> 00:21:46.300
+Jitendra K: Right? So where your n is the data points, number of data points, Y of I, Is your…
+
+178
+00:21:46.520 --> 00:21:50.730
+Jitendra K: actual value of the i-th observation, y of i hat.
+
+179
+00:21:51.070 --> 00:21:54.000
+Jitendra K: is the predicted value of the i8th observation.
+
+180
+00:21:54.240 --> 00:21:57.320
+Jitendra K: And, this is the equation of MSE.
+
+181
+00:21:57.680 --> 00:22:01.130
+Jitendra K: Now, when we are using MSC, we are calculating
+
+182
+00:22:01.440 --> 00:22:06.570
+Jitendra K: two important considerations. Now, when we say MSE, We will say that
+
+183
+00:22:06.670 --> 00:22:10.359
+Jitendra K: An MSC of 0 means the model predicts the actual value perfectly.
+
+184
+00:22:10.670 --> 00:22:13.670
+Jitendra K: As the MSC increases, the model performance decreases.
+
+185
+00:22:14.310 --> 00:22:19.090
+Jitendra K: Right, so MSC of 0 means the model predicts the actual value perfectly.
+
+186
+00:22:19.580 --> 00:22:22.170
+Jitendra K: As the MSC increased, the model performance decreased.
+
+187
+00:22:22.660 --> 00:22:29.359
+Jitendra K: So the MSE, we can… Express in a form of a square of the unit of a target variable.
+
+188
+00:22:29.980 --> 00:22:35.479
+Jitendra K: Right? For example, if you're predicting house price in dollar, the MSE will be in dollar square.
+
+189
+00:22:35.770 --> 00:22:44.949
+Jitendra K: And this is something we make it hard to interpret intuitively, compared to the metrics that we are going to learn now, which is called root-mean-square error, or mean absolute error.
+
+190
+00:22:45.300 --> 00:22:51.530
+Jitendra K: Now, it is taking a square magnitude of the error, so if you are creating a regression model to predict the house price.
+
+191
+00:22:51.820 --> 00:22:59.009
+Jitendra K: Your coefficient of errors will be double the… or I would say not double, it's actually…
+
+192
+00:22:59.790 --> 00:23:02.610
+Jitendra K: Square of the actual value.
+
+193
+00:23:03.000 --> 00:23:06.410
+Jitendra K: That means it become more sensitive.
+
+194
+00:23:06.700 --> 00:23:08.679
+Jitendra K: In terms of outliers.
+
+195
+00:23:09.060 --> 00:23:17.609
+Jitendra K: Because the errors are squared, so MSE penalizes large error more significantly than the smaller one, and this makes it sensitive to outliers in the data.
+
+196
+00:23:17.860 --> 00:23:23.929
+Jitendra K: And if your data set are extreme outlier, MSC might give a misleading higher error values.
+
+197
+00:23:25.890 --> 00:23:34.159
+Jitendra K: Now, when we talk about any cost function, as you can see that I'm talking about a cost function in this form. I'm not talking about linear forms.
+
+198
+00:23:34.540 --> 00:23:35.580
+Jitendra K: Like this.
+
+199
+00:23:36.030 --> 00:23:41.679
+Jitendra K: I'm talking about the… nonlinear forms or a three-dimensional spec, I would say.
+
+200
+00:23:42.200 --> 00:23:43.230
+Jitendra K: close.
+
+201
+00:23:43.710 --> 00:23:50.459
+Jitendra K: Now… Now, how to explain this curve, first of all? What are the equations? So, forget about the equation.
+
+202
+00:23:50.810 --> 00:23:55.730
+Jitendra K: Let's think of this curve as a… your search space.
+
+203
+00:23:57.110 --> 00:23:59.859
+Jitendra K: You're searching a solution in this space.
+
+204
+00:24:00.710 --> 00:24:06.200
+Jitendra K: And when you're representing your solution, the effective solution, you have to find a global minima.
+
+205
+00:24:09.290 --> 00:24:10.120
+Jitendra K: Right?
+
+206
+00:24:10.410 --> 00:24:15.470
+Jitendra K: So, to find this global minima, you have to make the cost function differentiable.
+
+207
+00:24:16.250 --> 00:24:26.239
+Jitendra K: So, why we use MSE? Because it is a differentiable function. So, square terms make the MSE a perfect candidate for differentiable everywhere.
+
+208
+00:24:26.500 --> 00:24:32.039
+Jitendra K: Which is very crucial for optimization algorithms like gradient descent, which we are going to learn in deep learning.
+
+209
+00:24:33.680 --> 00:24:39.270
+Jitendra K: Second thing is, is penalize the large errors. In many applications, large errors are…
+
+210
+00:24:39.610 --> 00:24:50.719
+Jitendra K: even worse than the small error, so squaring the difference reflects this by assigning a higher cost to large deviation. So imagine that you have a model, which predicts the house price.
+
+211
+00:24:51.160 --> 00:24:55.450
+Jitendra K: Actual price of the house… Is somewhere close to 2 million.
+
+212
+00:24:55.570 --> 00:24:59.920
+Jitendra K: Which is… 200,000.
+
+213
+00:25:03.810 --> 00:25:08.730
+Jitendra K: The predicted price, let's say my models predict to be $180,000.
+
+214
+00:25:09.630 --> 00:25:11.709
+Jitendra K: So the error that I'm committing
+
+215
+00:25:12.050 --> 00:25:15.249
+Jitendra K: is close to 20,000 US dollars.
+
+216
+00:25:17.530 --> 00:25:26.300
+Jitendra K: And if I'm taking a square of it, it will become 400… Carlson calls him.
+
+217
+00:25:27.540 --> 00:25:28.320
+Jitendra K: Right?
+
+218
+00:25:28.600 --> 00:25:33.830
+Jitendra K: If another prediction is off by, let's say, $10,000,
+
+219
+00:25:34.450 --> 00:25:36.320
+Jitendra K: That I'm making an error of.
+
+220
+00:25:37.530 --> 00:25:39.730
+Jitendra K: 1 million. Close to 1 million.
+
+221
+00:25:40.020 --> 00:25:43.109
+Jitendra K: So you can imagine, this is what the errors are.
+
+222
+00:25:44.360 --> 00:25:47.230
+Jitendra K: Right? So this is very… this is where the…
+
+223
+00:25:47.730 --> 00:25:54.750
+Jitendra K: MSE will have a nonlinear scale in which your error will be proportionate to these numbers.
+
+224
+00:25:55.690 --> 00:26:02.260
+Jitendra K: If you have a quadratic ficketing, then even taking absolute value error will not allow differentiation, right?
+
+225
+00:26:03.780 --> 00:26:08.120
+Jitendra K: No, absolute value, we are taking the absolute value. I'm not taking the absolute value here.
+
+226
+00:26:08.510 --> 00:26:11.130
+Jitendra K: So that will be your root mean square errors.
+
+227
+00:26:11.720 --> 00:26:20.310
+Jitendra K: So I'm not taking any absolute value, so that is your mean absolute error that you're talking about. Here, I'm not taking any absolute, it's just the magnitude of the errors, I'm taking a square.
+
+228
+00:26:24.890 --> 00:26:29.130
+Jitendra K: Alright, so this is what the equation for MSE…
+
+229
+00:26:29.480 --> 00:26:36.409
+Jitendra K: Now, let me move on to the second type of cause function, which is called mean absolute error.
+
+230
+00:26:36.700 --> 00:26:38.190
+Jitendra K: Right? Or MAE.
+
+231
+00:26:38.950 --> 00:26:41.689
+Jitendra K: Now, when we talk about mean absolute error.
+
+232
+00:26:42.870 --> 00:26:51.299
+Jitendra K: First, let me talk about RMSE, not even MAE, but let me talk about RMSE, right? So, let's try to cover RMSE.
+
+233
+00:26:51.560 --> 00:26:58.609
+Jitendra K: So, root means square error is a root… of your MSC.
+
+234
+00:27:00.710 --> 00:27:01.779
+Jitendra K: Nothing else.
+
+235
+00:27:03.560 --> 00:27:07.069
+Jitendra K: So when you're taking a root value of MSC, it becomes root-mean-square error.
+
+236
+00:27:07.390 --> 00:27:19.559
+Jitendra K: So a root square mean of the difference between actual and predicted value, our MSE can be used in a situation where we would like to penalize high error, but not as much as MSE, thus.
+
+237
+00:27:19.680 --> 00:27:27.999
+Jitendra K: So, RMSE is also highly sensitive to outliers as well, but when you're taking a square magnitude in RMSE,
+
+238
+00:27:28.570 --> 00:27:33.349
+Jitendra K: you make sure that the error terms is penalized, but not as much as MSC.
+
+239
+00:27:35.630 --> 00:27:39.759
+Jitendra K: That's the only difference between RMSE and… I'm gonna see.
+
+240
+00:27:40.170 --> 00:27:44.750
+Jitendra K: Right? So RMSE… It's just applying.
+
+241
+00:27:45.410 --> 00:27:50.070
+Jitendra K: The scale of square magnitude to your errors.
+
+242
+00:27:50.560 --> 00:27:56.990
+Jitendra K: Now, if I have to differentiate what's RMSE versus MSC, so you can see that they are not very different.
+
+243
+00:27:57.200 --> 00:28:04.510
+Jitendra K: This is the square magnitude of the errors. Make it… Slightly lower in terms of the error proportion.
+
+244
+00:28:05.680 --> 00:28:11.349
+Jitendra K: Now, the second difference, which is very critical, when you're looking for RMSE,
+
+245
+00:28:15.270 --> 00:28:22.150
+Jitendra K: What do you mean by penalizing the error heavily? Penalizing the error heavily… okay, what is error, first of all?
+
+246
+00:28:24.550 --> 00:28:27.180
+Jitendra K: So, errors are your differences.
+
+247
+00:28:27.810 --> 00:28:31.160
+Jitendra K: Right? When you're making a difference between Pose…
+
+248
+00:28:38.470 --> 00:28:40.909
+Jitendra K: Did somebody hack my system, or what?
+
+249
+00:28:51.600 --> 00:28:52.570
+Jitendra K: One second.
+
+250
+00:29:05.880 --> 00:29:08.830
+Jitendra K: Okay, I don't know how the participant had got the right to…
+
+251
+00:29:11.450 --> 00:29:15.360
+Jitendra K: Okay, you have got the rights to annotate as well, during the class?
+
+252
+00:29:20.050 --> 00:29:23.619
+Jitendra K: Okay, but anyway, I didn't mind it, so it should be okay.
+
+253
+00:29:26.200 --> 00:29:27.510
+Jitendra K: Okay, okay.
+
+254
+00:29:34.660 --> 00:29:37.730
+Jitendra K: Okay, so when we talk about penalizing the errors.
+
+255
+00:29:38.800 --> 00:29:43.200
+Jitendra K: So, penalizing the errors depends upon your error magnitude, right?
+
+256
+00:29:43.560 --> 00:29:46.189
+Jitendra K: So when I'm saying that, I would like to predict
+
+257
+00:29:46.820 --> 00:29:49.420
+Jitendra K: the difference between Y and Y hat.
+
+258
+00:29:50.410 --> 00:29:55.859
+Jitendra K: And I'm taking a square magnitude of it, right? So when I'm taking a square magnitude of the errors.
+
+259
+00:29:56.240 --> 00:30:07.449
+Jitendra K: I'm making this error resonate to the square magnitude. So I've given you an example here, right? So when I'm talking about such error, which is a very large error.
+
+260
+00:30:07.910 --> 00:30:10.380
+Jitendra K: So, can I say that my model is doing…
+
+261
+00:30:10.510 --> 00:30:16.440
+Jitendra K: the error in predicting the house price in this scale? Is it a good or a bad error?
+
+262
+00:30:17.140 --> 00:30:20.310
+Jitendra K: This much error you're making in your model.
+
+263
+00:30:20.850 --> 00:30:25.219
+Jitendra K: And you're claiming that this model is ready for productionization.
+
+264
+00:30:26.090 --> 00:30:30.789
+Jitendra K: Is it a good model or a bad model, first of all? Even this model does look worse to me.
+
+265
+00:30:32.810 --> 00:30:36.690
+Jitendra K: Right? This is… even… Very poor model.
+
+266
+00:30:37.920 --> 00:30:43.540
+Jitendra K: So this is where your errors will be penalized by the coefficient of finality.
+
+267
+00:30:44.760 --> 00:30:45.590
+Jitendra K: Right?
+
+268
+00:30:45.710 --> 00:30:51.979
+Jitendra K: So, we'll talk about something called Gradient Descent in the upcoming tutorials. So, Gradient Descent does this analysis for you.
+
+269
+00:30:52.260 --> 00:30:56.149
+Jitendra K: So it penalized the model heavily by seeing the error proportion.
+
+270
+00:30:57.010 --> 00:30:59.670
+Jitendra K: Right? So when you're trying to reduce this error.
+
+271
+00:31:00.320 --> 00:31:04.470
+Jitendra K: You're taking a magnitude of it via square magnitude.
+
+272
+00:31:04.590 --> 00:31:12.200
+Jitendra K: Now, your scale Of error is going to become same as the unit of a target variable.
+
+273
+00:31:13.990 --> 00:31:17.600
+Jitendra K: Right? Here we are talking about the square unit of the target variable.
+
+274
+00:31:18.130 --> 00:31:22.539
+Jitendra K: So it is very hard to interpret intuitively, because the values are squared.
+
+275
+00:31:23.130 --> 00:31:30.350
+Jitendra K: But RMSE is easy to interpret because it is on the same scale as the data. We tell you the average error in real terms.
+
+276
+00:31:32.740 --> 00:31:37.729
+Jitendra K: That's why, when you're committing such sort of errors, the model will try to
+
+277
+00:31:37.890 --> 00:31:41.800
+Jitendra K: Penalize large error, because they are square root.
+
+278
+00:31:42.320 --> 00:31:47.550
+Jitendra K: Here, also, you are penalizing the larger error, but not at a scale of… MSC.
+
+279
+00:31:48.890 --> 00:31:52.900
+Jitendra K: So this is where you're going to use RMSE.
+
+280
+00:31:53.290 --> 00:31:58.200
+Jitendra K: for better, scalability perspective.
+
+281
+00:32:14.640 --> 00:32:18.490
+Jitendra K: So, is this clear to everyone? What is the difference between MSC and RMSE?
+
+282
+00:33:21.550 --> 00:33:23.489
+Jitendra K: Alright, so this is,
+
+283
+00:33:24.740 --> 00:33:30.799
+Jitendra K: So I'm going to write down a program to explain the difference again, with some simplistic demo.
+
+284
+00:33:30.940 --> 00:33:33.190
+Jitendra K: So what we are going to do is, we will take,
+
+285
+00:33:33.440 --> 00:33:39.449
+Jitendra K: two sort of value proportions. One is actual price, and it could be anything. It can be…
+
+286
+00:33:39.740 --> 00:33:44.730
+Jitendra K: You can assume it like, I'm predicting the house price in 1000 US dollar.
+
+287
+00:33:45.010 --> 00:33:50.800
+Jitendra K: And then I will also generate some hypothetical data for error rate as well.
+
+288
+00:33:51.130 --> 00:33:54.680
+Jitendra K: So, I will just try to show you the demo.
+
+289
+00:33:54.830 --> 00:33:56.120
+Jitendra K: on the error.
+
+290
+00:34:02.600 --> 00:34:08.399
+Jitendra K: So, let me explain the data points. So, this is the data points, so I'm having 1, 2, 3, 4, 5 data points.
+
+291
+00:34:08.830 --> 00:34:20.790
+Jitendra K: And I'm having actual values and predicted values. All this is in several thousand scale. So I'm using a thousand US dollar, 200,000, 250,000, $300,000, $250,000, $400,000.
+
+292
+00:34:21.159 --> 00:34:25.450
+Jitendra K: So, this is what the actual price looks like, and this is the predicted price.
+
+293
+00:34:25.870 --> 00:34:32.759
+Jitendra K: Now, I would like to check the square magnitude of the error for both RMSE and MSE.
+
+294
+00:34:33.070 --> 00:34:40.429
+Jitendra K: And for MSE, I will simply calculate the mean, and for RMSE, I will calculate the square root of the mean.
+
+295
+00:34:41.010 --> 00:34:45.359
+Jitendra K: And then perform this analysis. Let's see how this looks like.
+
+296
+00:34:46.080 --> 00:34:52.039
+Jitendra K: Now, when I try to look and interpret this output, you can see the differences between the average and this.
+
+297
+00:34:52.650 --> 00:34:53.960
+Jitendra K: Actual values.
+
+298
+00:34:54.639 --> 00:35:01.279
+Jitendra K: Right? So, how to read this? So this, this is a blue circle, which talks about actual, and this is the predicted value.
+
+299
+00:35:01.650 --> 00:35:10.760
+Jitendra K: And I'm just indexing at a scale of, 1 to 4, because I've got only 4 values. This is what my differences are.
+
+300
+00:35:11.660 --> 00:35:18.329
+Jitendra K: Now, when I'm trying to calculate the same thing, or RMSE on the same scale, you can see that errors are more readable.
+
+301
+00:35:18.500 --> 00:35:21.019
+Jitendra K: Right? Here, I cannot be able to explain the errors.
+
+302
+00:35:21.220 --> 00:35:27.170
+Jitendra K: But here, I can be able to explain the errors in a form of… This length of this line.
+
+303
+00:35:28.060 --> 00:35:35.080
+Jitendra K: Right? So that's the difference between RMSE and MSC. Now, I can say that The basic calculation
+
+304
+00:35:35.630 --> 00:35:40.290
+Jitendra K: If I'm taking the error differences and the square differences, looks like this.
+
+305
+00:35:41.020 --> 00:35:48.819
+Jitendra K: Right, so if I'm making an actual prediction as 200, but my predicted value is 210, so our difference is minus 10, actual minus predicted.
+
+306
+00:35:49.360 --> 00:35:55.299
+Jitendra K: So, the square errors will be 100. So, sum of a square error would be taking all the summation.
+
+307
+00:35:55.790 --> 00:36:02.199
+Jitendra K: And, taking, square magnitude of the errors, divided by number of terms. So I'm getting…
+
+308
+00:36:02.390 --> 00:36:06.500
+Jitendra K: Mean square to be 320, which is a square magnitude.
+
+309
+00:36:06.720 --> 00:36:14.690
+Jitendra K: And the root-mean-square error is 17.89. That means I'm making a… rough… Error.
+
+310
+00:36:15.360 --> 00:36:25.799
+Jitendra K: on each… Data points, or so-called each house data point, By a scale of 17.89.
+
+311
+00:36:26.030 --> 00:36:27.800
+Jitendra K: thousand US dollar.
+
+312
+00:36:31.560 --> 00:36:33.740
+Jitendra K: So you can see that with the outliers.
+
+313
+00:36:34.030 --> 00:36:40.510
+Jitendra K: If I'm having outliers, it increase the… if amplify the errors by… Almost 48%.
+
+314
+00:36:41.500 --> 00:36:48.389
+Jitendra K: And with outliers, the amplifications of my error in case of RMSE is just 6.9.
+
+315
+00:36:49.310 --> 00:36:52.060
+Jitendra K: So that is what these errors are.
+
+316
+00:36:52.430 --> 00:36:58.930
+Jitendra K: readable and non-readable, right? So your errors, when you're solving any regression equation or any…
+
+317
+00:36:59.390 --> 00:37:03.929
+Jitendra K: form of, linear, nonlinear equation. You have to think through
+
+318
+00:37:04.190 --> 00:37:08.020
+Jitendra K: the scale, right? How will… how will you narrate
+
+319
+00:37:08.390 --> 00:37:12.850
+Jitendra K: That the values that you're getting in predicted part.
+
+320
+00:37:13.430 --> 00:37:19.820
+Jitendra K: is making a business sense, right? That is where the interpretability of the model has to be very, very useful.
+
+321
+00:37:23.110 --> 00:37:26.900
+Jitendra K: And, you can see that.
+
+322
+00:37:27.480 --> 00:37:31.590
+Jitendra K: MSE amplify your errors by a huge margin.
+
+323
+00:37:37.300 --> 00:37:39.609
+Jitendra K: Alright, now we'll talk about a third…
+
+324
+00:37:40.590 --> 00:37:44.860
+Jitendra K: Function, the cost function, which is called mean absolute error.
+
+325
+00:37:45.460 --> 00:37:46.949
+Jitendra K: or MA value.
+
+326
+00:37:53.620 --> 00:37:55.330
+Jitendra K: Now, when you say MAE,
+
+327
+00:37:56.050 --> 00:38:02.640
+Jitendra K: Your MAE values are nothing but it looks like this. Now, here we are talking about the magnitude, the mod values.
+
+328
+00:38:02.990 --> 00:38:08.189
+Jitendra K: So, mean absolute error means we are just summing the absolute values of the cost function.
+
+329
+00:38:08.930 --> 00:38:15.610
+Jitendra K: Right? And, now, the question is, when to use MAE versus MSE?
+
+330
+00:38:17.330 --> 00:38:28.900
+Jitendra K: So, why we use MA instead of MSE? Because we are subtracting the actual value from the predicted one, and we do not do a square, which means that we are not penalizing the error term.
+
+331
+00:38:29.490 --> 00:38:31.860
+Jitendra K: Or we are not changing the unit of the error.
+
+332
+00:38:32.800 --> 00:38:36.199
+Jitendra K: Right? Also, MAE is robust to outliers.
+
+333
+00:38:36.370 --> 00:38:38.650
+Jitendra K: Which is one of the severe…
+
+334
+00:38:39.090 --> 00:38:45.679
+Jitendra K: consequence that we are going to face when we are using, MSC and RMSC values, which is…
+
+335
+00:38:46.930 --> 00:38:48.869
+Jitendra K: Sensitive to outliers.
+
+336
+00:38:48.990 --> 00:38:52.409
+Jitendra K: That means, using MAE, it is more robust.
+
+337
+00:38:52.970 --> 00:38:55.320
+Jitendra K: But there's only one drawback of MAE.
+
+338
+00:38:55.750 --> 00:38:58.970
+Jitendra K: Which is… It's a very time-consuming.
+
+339
+00:38:59.880 --> 00:39:03.129
+Jitendra K: It takes more time to converge to a global minima.
+
+340
+00:39:03.380 --> 00:39:09.939
+Jitendra K: Because when you're using ME, a cost function in a linear regression is going to work, instead of gradient descent.
+
+341
+00:39:11.350 --> 00:39:12.170
+Jitendra K: Right?
+
+342
+00:39:12.340 --> 00:39:26.719
+Jitendra K: Now, let me explain how gradient descent works in a very simple terms. I will… I do not want to cover that, but since you will hear, like, a lot of times, like, gradient descent, I'm using the concept of gradient descent.
+
+343
+00:39:27.000 --> 00:39:30.290
+Jitendra K: So, I just want to explain this equation.
+
+344
+00:39:30.770 --> 00:39:36.649
+Jitendra K: Or maybe this particular mathematical function is called gradient descent. Now, what is gradient?
+
+345
+00:39:36.990 --> 00:39:38.590
+Jitendra K: Gradient means…
+
+346
+00:39:38.960 --> 00:39:46.880
+Jitendra K: We are talking about the rate of change. Gradient is nothing but the rate of change. So gradient descent is an optimization algorithm.
+
+347
+00:39:47.280 --> 00:39:52.100
+Jitendra K: Which has been used to minimize the MSC cost function in linear regression.
+
+348
+00:39:53.080 --> 00:39:55.420
+Jitendra K: Now, think of MSE.
+
+349
+00:39:56.970 --> 00:40:00.980
+Jitendra K: as a… Let me show you the graph.
+
+350
+00:40:04.800 --> 00:40:09.450
+Jitendra K: Now, think of MSE… Represented by this function.
+
+351
+00:40:09.890 --> 00:40:11.769
+Jitendra K: Now, this is my function for MSC.
+
+352
+00:40:14.300 --> 00:40:17.580
+Jitendra K: Now, you will… you will feel that this looks like a…
+
+353
+00:40:18.260 --> 00:40:21.029
+Jitendra K: Some electric appliances, but it's not…
+
+354
+00:40:21.280 --> 00:40:25.949
+Jitendra K: This is just a ball-shaped valley. The bottom of the valley represents the lowest possible errors.
+
+355
+00:40:26.390 --> 00:40:30.570
+Jitendra K: And the gradient distance is like walking down this hill blindfold.
+
+356
+00:40:30.910 --> 00:40:40.589
+Jitendra K: So when you're walking down the hill blindfold, you're taking a small step in the steepest direction until you reach the bottom. So basically, a goal of MSE
+
+357
+00:40:40.950 --> 00:40:43.890
+Jitendra K: Or mean square error, is to find
+
+358
+00:40:49.390 --> 00:40:50.900
+Jitendra K: These two parameters.
+
+359
+00:40:51.470 --> 00:40:56.500
+Jitendra K: Which is a slope and an intercept. And that is how… We are going to take…
+
+360
+00:40:57.770 --> 00:41:01.769
+Jitendra K: The summation of errors in terms of model explainability.
+
+361
+00:41:14.340 --> 00:41:18.529
+Jitendra K: And what you are going to do is, you are going to take us gradient of the slope.
+
+362
+00:41:19.120 --> 00:41:20.789
+Jitendra K: So if I'm taking a gradient.
+
+363
+00:41:25.310 --> 00:41:26.880
+Jitendra K: Partial derivative.
+
+364
+00:41:27.690 --> 00:41:28.819
+Jitendra K: I will get…
+
+365
+00:41:42.160 --> 00:41:48.160
+Jitendra K: Right? And when I'm taking a derivative, with respect to B,
+
+366
+00:41:55.400 --> 00:41:56.740
+Jitendra K: I will get this.
+
+367
+00:42:02.080 --> 00:42:05.810
+Jitendra K: Right? So this will tell you the direction of the steepest essence.
+
+368
+00:42:06.490 --> 00:42:09.899
+Jitendra K: Right? So this is where the model will chase the errors.
+
+369
+00:42:10.470 --> 00:42:14.370
+Jitendra K: It'll change the errors, like, I have a higher error at this point.
+
+370
+00:42:14.870 --> 00:42:19.899
+Jitendra K: I have to reduce the errors. During this… Traversal.
+
+371
+00:42:20.100 --> 00:42:23.439
+Jitendra K: And the way that I'm going to traverse depends upon your error.
+
+372
+00:42:23.860 --> 00:42:32.860
+Jitendra K: So basically, you are trying to find out a direction of travel to reduce the errors, and that is called gradient descent algorithm. So this algorithm will help you to…
+
+373
+00:42:33.150 --> 00:42:34.739
+Jitendra K: perform this analysis.
+
+374
+00:42:35.090 --> 00:42:42.690
+Jitendra K: In a nutshell. So you can see that this algorithm will take a derivative of the cost function with respect to your parameters.
+
+375
+00:42:42.900 --> 00:42:51.789
+Jitendra K: And then determine how the errors are reducing. If it is not reducing, it will change the approach to find a better route.
+
+376
+00:42:52.100 --> 00:42:54.480
+Jitendra K: So it's like, imagine that you are…
+
+377
+00:42:54.680 --> 00:42:58.620
+Jitendra K: climbing a hill, and you're at the top. Now you have to…
+
+378
+00:42:58.980 --> 00:43:01.980
+Jitendra K: Walk down from that hill, the top point.
+
+379
+00:43:02.650 --> 00:43:05.110
+Jitendra K: So, how will you take… you're not going to dive.
+
+380
+00:43:05.280 --> 00:43:14.699
+Jitendra K: Right? You're not going to die from the top point, and then all of a sudden you say, I will jump from the top point, and then I will reach the bottom. You will reach the bottom, but with a different state.
+
+381
+00:43:15.310 --> 00:43:21.999
+Jitendra K: Right? So if you have to go, if you have to step down alive, then you have to take
+
+382
+00:43:22.350 --> 00:43:26.369
+Jitendra K: an approach… to decide how should I take.
+
+383
+00:43:27.050 --> 00:43:30.080
+Jitendra K: The steepest point, and then try to…
+
+384
+00:43:31.010 --> 00:43:40.820
+Jitendra K: make sure that I will reduce the errors in… Making this whole… Analysis of the slope.
+
+385
+00:43:40.970 --> 00:43:43.180
+Jitendra K: As much as efficient as possible.
+
+386
+00:43:45.280 --> 00:43:49.220
+Jitendra K: But that is your objective. So, similarly, the objective of this algorithm
+
+387
+00:43:49.580 --> 00:43:51.699
+Jitendra K: can we solve with the help of MSE?
+
+388
+00:43:52.010 --> 00:43:54.719
+Jitendra K: So that is by MSC and gradient descent.
+
+389
+00:43:55.500 --> 00:43:58.340
+Jitendra K: Our gradient descent is the backbone of MSC.
+
+390
+00:43:59.250 --> 00:44:01.040
+Jitendra K: Right? So…
+
+391
+00:44:07.200 --> 00:44:07.900
+Jitendra K: Right?
+
+392
+00:44:08.870 --> 00:44:19.669
+Jitendra K: So now the question is, when we're talking about the nonlinear scales, like MAE, right? So, the MA values, or mean absolute errors, or so-called
+
+393
+00:44:19.930 --> 00:44:25.020
+Jitendra K: The mean absolute errors are nothing but they are having
+
+394
+00:44:26.170 --> 00:44:28.570
+Jitendra K: A linear tendency of the model.
+
+395
+00:44:28.740 --> 00:44:30.909
+Jitendra K: Alright, so mean is… mean absolute error.
+
+396
+00:44:31.600 --> 00:44:38.579
+Jitendra K: is very… Time-consuming, because it does not use an ingredient descent algorithm internally.
+
+397
+00:44:38.750 --> 00:44:40.219
+Jitendra K: It takes time more.
+
+398
+00:44:40.360 --> 00:44:45.390
+Jitendra K: it takes time to converge to a global minima, because when we are using MAE,
+
+399
+00:44:45.540 --> 00:44:52.319
+Jitendra K: We are using a cost function linear regression instead of a gradient descent. So we use sub-gradient descent to converge over a global minimal.
+
+400
+00:44:53.160 --> 00:44:56.359
+Jitendra K: Right? So that is the whole idea of MAE.
+
+401
+00:44:59.070 --> 00:45:03.519
+Jitendra K: Okay, now let me talk about the… The third, or the fourth?
+
+402
+00:45:04.160 --> 00:45:06.779
+Jitendra K: Control, or so-called cost function.
+
+403
+00:45:07.540 --> 00:45:13.840
+Jitendra K: Which is called as R-square errors. Now, this is very important, R-square.
+
+404
+00:45:14.450 --> 00:45:22.000
+Jitendra K: So, R-square is a measure of a performance of a regression model that we have created. In other words, R-square tells
+
+405
+00:45:22.600 --> 00:45:26.410
+Jitendra K: Us, how well our model fits the data, or the goodness of it.
+
+406
+00:45:27.430 --> 00:45:35.840
+Jitendra K: So, R-square values are always between minus infinity, 2… 1…
+
+407
+00:45:40.280 --> 00:45:45.569
+Jitendra K: But they can be negative. When we have sum of square errors, greater than 1.
+
+408
+00:45:45.760 --> 00:45:55.309
+Jitendra K: So R-square is nothing but… You're going to perform… We are going to take… this form.
+
+409
+00:45:56.800 --> 00:46:01.360
+Jitendra K: So R squared will be sum of square regression divided by sum of square total.
+
+410
+00:46:01.550 --> 00:46:06.799
+Jitendra K: So… solve for square regression, I can represent this equation as…
+
+411
+00:46:12.290 --> 00:46:18.630
+Jitendra K: So you can see that I'm taking some of all data points and squaring the results.
+
+412
+00:46:18.770 --> 00:46:19.840
+Jitendra K: Right here.
+
+413
+00:46:20.300 --> 00:46:28.069
+Jitendra K: So, sum of square regression is a sum of square error due to our model. So, we calculate our sum of square regression by using this formula.
+
+414
+00:46:28.220 --> 00:46:34.120
+Jitendra K: So the total sum of square measures the variation in the observed data by a mean.
+
+415
+00:46:34.610 --> 00:46:37.270
+Jitendra K: So I can say that it's sum of squared total.
+
+416
+00:46:39.140 --> 00:46:44.440
+Jitendra K: Will be equal to… This value?
+
+417
+00:46:45.160 --> 00:46:51.209
+Jitendra K: Now, here you can see the difference here. I'm talking about Y regression, and here I'm talking about a mean value. This is important.
+
+418
+00:46:51.320 --> 00:46:56.120
+Jitendra K: So now I'm trying to calculate the sum of squared total, so this is my denominator.
+
+419
+00:46:56.640 --> 00:46:59.439
+Jitendra K: Right? This is my denominator that I'm using.
+
+420
+00:47:01.100 --> 00:47:03.610
+Jitendra K: Using this equation, the second equation.
+
+421
+00:47:03.770 --> 00:47:08.690
+Jitendra K: And in this equation, I have got a Difference between each data point.
+
+422
+00:47:09.120 --> 00:47:13.740
+Jitendra K: Away from the mean value. And here I'm talking about distance of each data point.
+
+423
+00:47:14.160 --> 00:47:16.219
+Jitendra K: Away from that regression value.
+
+424
+00:47:19.060 --> 00:47:26.470
+Jitendra K: Right? So basically, a higher value of R squared We'll balance this… equation…
+
+425
+00:47:26.940 --> 00:47:32.980
+Jitendra K: And that is where I'm going to say that it will give me the factor called, G or F.
+
+426
+00:47:34.850 --> 00:47:37.259
+Jitendra K: Goodness of fit of the model.
+
+427
+00:47:37.510 --> 00:47:40.229
+Jitendra K: So, how well the model fit? To what data points?
+
+428
+00:47:42.710 --> 00:47:55.460
+Jitendra K: Right? So R-square values, or R-square values, or so-called R-square as a cost function, will help us to identify the goodness of fit of the model. Right? So…
+
+429
+00:47:57.060 --> 00:48:02.199
+Jitendra K: Right? So, basically, what R-square does is, it will be able to interpret your model efficacy.
+
+430
+00:48:03.040 --> 00:48:06.900
+Jitendra K: Now here, if you see the range here, minus infinity to 1,
+
+431
+00:48:08.160 --> 00:48:17.029
+Jitendra K: So, R-square become a kind of a coefficient of determination. So, it will measure and evaluate how well a regression model fits the data.
+
+432
+00:48:18.040 --> 00:48:26.730
+Jitendra K: Or, in a simple term, it will say how much the variance, or a variation in the dependent variable, can be explained by independent variable.
+
+433
+00:48:29.050 --> 00:48:35.680
+Jitendra K: And the value ranges from minus infinity to 1, but I can change this minus infinity to 0 instead of 1.
+
+434
+00:48:35.880 --> 00:48:39.259
+Jitendra K: I can see… It should be 0 to 1.
+
+435
+00:48:40.700 --> 00:48:46.830
+Jitendra K: That means it will become a perfect probabilistical Scale.
+
+436
+00:48:47.230 --> 00:48:50.350
+Jitendra K: Because in probability, I'm thinking about 0 to 1.
+
+437
+00:48:50.940 --> 00:48:56.380
+Jitendra K: So R square of 1 means… My model is 100%.
+
+438
+00:48:57.070 --> 00:48:58.050
+Jitendra K: Efficient.
+
+439
+00:48:59.370 --> 00:49:02.870
+Jitendra K: R squared of 1 means my model is…
+
+440
+00:49:03.070 --> 00:49:06.730
+Jitendra K: Able to explain all the variability of the response variable.
+
+441
+00:49:07.060 --> 00:49:11.609
+Jitendra K: Or response data points around its mean, and fit the data perfectly.
+
+442
+00:49:12.520 --> 00:49:15.859
+Jitendra K: Without any errors. Not even a single marginal error.
+
+443
+00:49:16.900 --> 00:49:17.650
+Jitendra K: Right?
+
+444
+00:49:17.850 --> 00:49:28.300
+Jitendra K: Now, when we talk about When we talk about R-square, to be zero.
+
+445
+00:49:28.870 --> 00:49:31.899
+Jitendra K: We'll say model externality to be 0 as well.
+
+446
+00:49:32.090 --> 00:49:37.160
+Jitendra K: The model explained none of the variability of the response around this mean. It performed
+
+447
+00:49:38.340 --> 00:49:40.630
+Jitendra K: Not even average, but the worst.
+
+448
+00:49:41.940 --> 00:49:50.779
+Jitendra K: So the formula breakdown is R-square is… the difference of… The highest probability?
+
+449
+00:49:51.230 --> 00:49:52.870
+Jitendra K: Which your model can attend.
+
+450
+00:49:52.990 --> 00:49:55.539
+Jitendra K: This is the highest probability a model can attend.
+
+451
+00:49:56.080 --> 00:49:59.230
+Jitendra K: minus… How much?
+
+452
+00:49:59.730 --> 00:50:00.880
+Jitendra K: Errors…
+
+453
+00:50:05.290 --> 00:50:07.690
+Jitendra K: The model cannot able to explain.
+
+454
+00:50:08.880 --> 00:50:12.220
+Jitendra K: And here I'm taking… a ratio of…
+
+455
+00:50:13.270 --> 00:50:15.510
+Jitendra K: Regression values to a mean value.
+
+456
+00:50:17.960 --> 00:50:32.710
+Jitendra K: So the sum of square difference between the actual value and the mean value total variation in the data, and the numerator term, the sum of square difference between the actual and the predicted value, which represent the unexplainable variance.
+
+457
+00:50:33.140 --> 00:50:38.909
+Jitendra K: So basically, what you're trying to do is, you're trying to create a baseline based upon this.
+
+458
+00:50:39.910 --> 00:50:41.260
+Jitendra K: whole analysis.
+
+459
+00:50:42.280 --> 00:50:47.049
+Jitendra K: Right? So this is what R-square does for you. R-square is a very important
+
+460
+00:50:47.410 --> 00:50:54.020
+Jitendra K: function, which will help you to find out the goodness of fit of your model. Like, how well the model
+
+461
+00:50:54.450 --> 00:50:57.160
+Jitendra K: Behave or fit to your data points.
+
+462
+00:51:00.750 --> 00:51:09.749
+Jitendra K: And what is your target now? To reduce the… to increase the R-square? Here, your target is to reduce the MAE, MSC, RMSE.
+
+463
+00:51:10.010 --> 00:51:12.780
+Jitendra K: But here you're trying to increase the R-square.
+
+464
+00:51:13.330 --> 00:51:17.069
+Jitendra K: Right? So that means… Higher the R-square, better the model.
+
+465
+00:51:17.340 --> 00:51:19.699
+Jitendra K: Better the variance explainability of the model.
+
+466
+00:51:25.510 --> 00:51:32.409
+Jitendra K: Alright, so let's move on to the Fifth part… So we understand the R-square.
+
+467
+00:51:32.970 --> 00:51:39.510
+Jitendra K: Now, the fifth type of function that we are going to talk about is called adjusted R-square.
+
+468
+00:51:50.270 --> 00:51:52.590
+Jitendra K: Now, when we talk about adjusted R-square.
+
+469
+00:51:53.230 --> 00:51:55.489
+Jitendra K: It is a modified version of the R-square.
+
+470
+00:51:56.410 --> 00:52:02.559
+Jitendra K: So, the difference between R squared and register R squared is this.
+
+471
+00:52:03.030 --> 00:52:08.010
+Jitendra K: So here, what I'm trying to do is… Is,
+
+472
+00:52:08.350 --> 00:52:14.070
+Jitendra K: Okay, in sum of square regression, what is Y regression value? Y bar is regression value.
+
+473
+00:52:14.830 --> 00:52:16.659
+Jitendra K: Y of I is actual value.
+
+474
+00:52:18.720 --> 00:52:20.320
+Jitendra K: This is, again, actual value.
+
+475
+00:52:21.620 --> 00:52:25.120
+Jitendra K: And this is the mean value difference from each data point.
+
+476
+00:52:27.610 --> 00:52:32.900
+Jitendra K: Alright, so adjusted R-square, as you can see that, this is the form of adjusted R-square.
+
+477
+00:52:33.340 --> 00:52:37.089
+Jitendra K: Now, I just said R-square is nothing but some modified version of R-square.
+
+478
+00:52:37.710 --> 00:52:42.350
+Jitendra K: So what we are trying to do here is, we are adding More features to the model.
+
+479
+00:52:43.490 --> 00:52:45.709
+Jitendra K: Or so-called more terms to the model.
+
+480
+00:52:47.150 --> 00:52:52.540
+Jitendra K: Right? So, adjusted R-square will always be a less than R-square score.
+
+481
+00:52:53.320 --> 00:52:55.099
+Jitendra K: Because it has been adjusted.
+
+482
+00:52:56.080 --> 00:53:02.959
+Jitendra K: So, registered R-square can be negative, or zero, only in two cases. First, when your R-square is zero.
+
+483
+00:53:03.110 --> 00:53:05.730
+Jitendra K: or nearer to zero. And the second case in which
+
+484
+00:53:05.930 --> 00:53:09.450
+Jitendra K: your number of data points is less than or equal to P.
+
+485
+00:53:14.880 --> 00:53:17.850
+Jitendra K: Right? So, now, how to read this formula?
+
+486
+00:53:19.620 --> 00:53:23.050
+Jitendra K: Okay, so let me explain this, formula.
+
+487
+00:53:23.200 --> 00:53:25.160
+Jitendra K: With the help of an example.
+
+488
+00:53:34.910 --> 00:53:43.359
+Jitendra K: Okay, so let's take an example to understand this. So, as you know that R-square and adjusted R-square are both metrics. To evaluate the goodness of fit of a regression model.
+
+489
+00:53:43.640 --> 00:53:49.360
+Jitendra K: But they differ in terms of how handle… how they handle the model complexity, number of predictors.
+
+490
+00:53:49.870 --> 00:53:58.330
+Jitendra K: Now, we know that R-square represents a proportion of variance, In which the dependent variable
+
+491
+00:53:58.760 --> 00:54:03.479
+Jitendra K: What we are trying to achieve with the help of dependent variable, we are trying to make them more predictable.
+
+492
+00:54:07.910 --> 00:54:14.179
+Jitendra K: And the problem with R-square is it never decreased. When you add more variables to your model, even if you add more
+
+493
+00:54:15.220 --> 00:54:17.400
+Jitendra K: or less variables.
+
+494
+00:54:18.200 --> 00:54:20.379
+Jitendra K: your R-score will not change.
+
+495
+00:54:21.330 --> 00:54:23.669
+Jitendra K: So that means it encourages overfitting.
+
+496
+00:54:25.830 --> 00:54:27.960
+Jitendra K: But in case of adjusted R-square.
+
+497
+00:54:28.800 --> 00:54:34.680
+Jitendra K: which is a modified version of R-square. We are going to penalize the model for adding the predictors.
+
+498
+00:54:35.750 --> 00:54:43.129
+Jitendra K: So, when you're using a solution, it increase, or it improves the model, That would be more.
+
+499
+00:54:44.050 --> 00:54:48.130
+Jitendra K: You know, rely on expected by chance, but here you are making it more.
+
+500
+00:54:48.490 --> 00:54:49.570
+Jitendra K: Align.
+
+501
+00:54:49.790 --> 00:54:51.339
+Jitendra K: To the business objective.
+
+502
+00:54:51.460 --> 00:54:53.790
+Jitendra K: Now, here, you can see there are two terms.
+
+503
+00:54:54.110 --> 00:54:56.490
+Jitendra K: N minus 1, N minus P minus 1.
+
+504
+00:54:56.840 --> 00:55:03.299
+Jitendra K: Now here, N is nothing but your data points, sample size, and P is the number of independent variables, or predictors.
+
+505
+00:55:04.830 --> 00:55:05.580
+Jitendra K: Right?
+
+506
+00:55:05.790 --> 00:55:10.750
+Jitendra K: Now, the question is, when to use what? Shall I use R-square or registered R-square?
+
+507
+00:55:11.660 --> 00:55:16.060
+Jitendra K: So, the golden thumb rule is, you can go with R-square.
+
+508
+00:55:16.470 --> 00:55:19.710
+Jitendra K: When you have simple linear regression with one variable.
+
+509
+00:55:21.470 --> 00:55:28.000
+Jitendra K: Right? So when you're using a simple linear regression with one variable, that is good enough to find out R-square.
+
+510
+00:55:28.560 --> 00:55:31.449
+Jitendra K: But when you're using a multiple linear regression.
+
+511
+00:55:32.270 --> 00:55:36.970
+Jitendra K: of two or more than two variables, then you have to use adjusted R-square.
+
+512
+00:55:40.320 --> 00:55:45.439
+Jitendra K: Right? To explain the overfitting of the model. We'll see some examples in a while.
+
+513
+00:55:45.630 --> 00:55:48.980
+Jitendra K: But this is the difference between adjusted R-square and R-square.
+
+514
+00:55:49.690 --> 00:55:56.609
+Jitendra K: Now… We have seen 5 or 6 different types of functions. Now, let's try to understand
+
+515
+00:55:57.410 --> 00:56:03.159
+Jitendra K: We have seen that there are different scale and different proportions of the functions.
+
+516
+00:56:03.450 --> 00:56:09.879
+Jitendra K: We understand, the basic mathematical behind the scene, like how these functions have been derived.
+
+517
+00:56:10.150 --> 00:56:13.659
+Jitendra K: What are the different uses of these functions?
+
+518
+00:56:14.280 --> 00:56:18.730
+Jitendra K: Now, let's try to understand… One more important term.
+
+519
+00:56:19.620 --> 00:56:22.419
+Jitendra K: If I have to compile all regression methods.
+
+520
+00:56:25.390 --> 00:56:29.400
+Jitendra K: Right? Or compile all regression cost functions.
+
+521
+00:56:29.700 --> 00:56:33.260
+Jitendra K: Then, should I use all, or should I go with only?
+
+522
+00:56:33.740 --> 00:56:34.540
+Jitendra K: Phew.
+
+523
+00:56:36.370 --> 00:56:45.309
+Jitendra K: Does variable means features? Yes. Your variable means columns, or you can say that it's not raw data, I would say it's not raw feature.
+
+524
+00:56:45.490 --> 00:56:46.870
+Jitendra K: No, sorry, Anne.
+
+525
+00:56:47.580 --> 00:56:50.919
+Jitendra K: it derived feature also I'm talking about. Let's say…
+
+526
+00:56:52.530 --> 00:56:55.479
+Jitendra K: You change, you find some more features.
+
+527
+00:56:55.920 --> 00:56:59.890
+Jitendra K: By performing some analysis on your business problem statement.
+
+528
+00:57:00.050 --> 00:57:04.820
+Jitendra K: So I'm talking about both dry features, as well as the raw features.
+
+529
+00:57:05.220 --> 00:57:06.589
+Jitendra K: Which is your number of?
+
+530
+00:57:08.420 --> 00:57:09.630
+Jitendra K: features itself.
+
+531
+00:57:21.380 --> 00:57:24.500
+Jitendra K: Okay, so I have, let me show you…
+
+532
+00:57:28.770 --> 00:57:31.690
+Jitendra K: So I'll share this with you all.
+
+533
+00:57:32.250 --> 00:57:35.170
+Jitendra K: I have just compiled all the…
+
+534
+00:57:41.700 --> 00:57:44.840
+Jitendra K: important… cost functions…
+
+535
+00:58:08.010 --> 00:58:17.460
+Jitendra K: Okay, so we have talked about MSE, we started with MSE, we talked about your equation, we talked about ME, the pros and cons, RMSE,
+
+536
+00:58:17.620 --> 00:58:27.730
+Jitendra K: There's something called Huber loss and, log loss as well. And there's something called quantile loss. So let me talk about the three important, functions.
+
+537
+00:58:27.990 --> 00:58:32.610
+Jitendra K: So, Hobo loss… Log loss, and the quantile loss.
+
+538
+00:58:32.890 --> 00:58:37.389
+Jitendra K: Right, so let me explain this, in depth.
+
+539
+00:58:37.700 --> 00:58:40.559
+Jitendra K: So basically, the Huber function, or…
+
+540
+00:58:41.080 --> 00:58:47.890
+Jitendra K: the Hubert loss in regression analysis is nothing but… it's very similar to the…
+
+541
+00:58:49.600 --> 00:58:53.089
+Jitendra K: It is simply using the property of mean square error itself.
+
+542
+00:58:53.820 --> 00:59:00.030
+Jitendra K: Right? So Huber laws combine the best property of MSC and mean absolute error.
+
+543
+00:59:01.630 --> 00:59:04.819
+Jitendra K: So what it does is… it combined…
+
+544
+00:59:06.100 --> 00:59:10.720
+Jitendra K: And it represented, like, a L function, loss function.
+
+545
+00:59:11.440 --> 00:59:15.249
+Jitendra K: And it says, I would like to predict the difference between Y and Y hat.
+
+546
+00:59:16.280 --> 00:59:19.139
+Jitendra K: And how does it will combine?
+
+547
+00:59:19.800 --> 00:59:23.750
+Jitendra K: the error… Like this.
+
+548
+00:59:53.020 --> 01:00:00.960
+Jitendra K: Otherwise. So where Y is my actual value, Y of prime is the predicted value, and this is the absolute value. The residual errors.
+
+549
+01:00:01.180 --> 01:00:08.390
+Jitendra K: And the data is a hyperparameter that you are going to use to make this Whole analysis, more robust.
+
+550
+01:00:08.520 --> 01:00:12.280
+Jitendra K: So, larger the error, larger the…
+
+551
+01:00:12.520 --> 01:00:21.019
+Jitendra K: loss, right? So this is called Huber loss function, and this function combines the property of MSE and MAE.
+
+552
+01:00:21.380 --> 01:00:29.380
+Jitendra K: mean absolute error and mean square error, both, into the same equation. So you can see that I'm using the two form.
+
+553
+01:00:29.700 --> 01:00:33.090
+Jitendra K: One is the MSC form, and the second one is the mean absolute error.
+
+554
+01:00:33.880 --> 01:00:42.050
+Jitendra K: Right, so what it does is, it will tell me… That, using this… coefficient calls delta.
+
+555
+01:00:42.830 --> 01:00:45.999
+Jitendra K: Right? I can able to create a hyperparameter.
+
+556
+01:00:46.800 --> 01:00:47.620
+Jitendra K: Right?
+
+557
+01:00:47.940 --> 01:00:54.230
+Jitendra K: So, if a value of this delta, which is having a hybrid nature, if I'm having a small error.
+
+558
+01:00:54.790 --> 01:01:00.960
+Jitendra K: So when the errors are small, less than or equal to delta, Hobel laws behave exactly like MSC.
+
+559
+01:01:03.730 --> 01:01:11.460
+Jitendra K: But if I'm having a large error, when the errors are large, Hobart laws behave like a MAE, linear function.
+
+560
+01:01:13.700 --> 01:01:14.470
+Jitendra K: Right?
+
+561
+01:01:14.770 --> 01:01:18.319
+Jitendra K: So that is where the two important things
+
+562
+01:01:18.750 --> 01:01:26.690
+Jitendra K: MSC… sorry, Hobo's offer to me is… It is… robust.
+
+563
+01:01:27.730 --> 01:01:29.140
+Jitendra K: to outliers.
+
+564
+01:01:30.820 --> 01:01:32.760
+Jitendra K: And it is differentiable.
+
+565
+01:01:41.490 --> 01:01:47.770
+Jitendra K: Right, so this is where you're going to have the two important property, both Align.
+
+566
+01:01:48.530 --> 01:01:50.959
+Jitendra K: With an objective of cost function.
+
+567
+01:01:51.420 --> 01:01:53.850
+Jitendra K: And that's why Hubel Laws is another
+
+568
+01:01:54.600 --> 01:01:58.119
+Jitendra K: Important function that you can use to combine both.
+
+569
+01:02:01.230 --> 01:02:05.900
+Jitendra K: We'll talk about two more functions. We talked about Hubel loss.
+
+570
+01:02:06.240 --> 01:02:09.770
+Jitendra K: Now, let me talk about… Quantile and lock.
+
+571
+01:02:14.630 --> 01:02:28.099
+Jitendra K: So when we talk about quantile, looking first between log cosh, cos X, So… log off… or such.
+
+572
+01:02:29.110 --> 01:02:31.030
+Jitendra K: So it's a regression method.
+
+573
+01:02:31.560 --> 01:02:37.579
+Jitendra K: That we are going to use to smooth the mean absolute error, which are more robust to outlier than mean square error.
+
+574
+01:02:38.100 --> 01:02:45.860
+Jitendra K: So instead of saying, taking… Why and why premium?
+
+575
+01:02:45.970 --> 01:02:46.910
+Jitendra K: Prime.
+
+576
+01:02:48.220 --> 01:02:50.249
+Jitendra K: As a function of linear.
+
+577
+01:02:50.780 --> 01:03:00.410
+Jitendra K: I'm going to introduce a nonlinearity By taking a log, of cos hypertangent function.
+
+578
+01:03:00.950 --> 01:03:03.860
+Jitendra K: And then, differentiating.
+
+579
+01:03:04.330 --> 01:03:05.370
+Jitendra K: That's it.
+
+580
+01:03:06.380 --> 01:03:11.710
+Jitendra K: This… So it's a hyperbolic cosine function.
+
+581
+01:03:12.270 --> 01:03:21.430
+Jitendra K: which has been represented, like, E of… X plus… E of… minus X… Divide by 2.
+
+582
+01:03:25.520 --> 01:03:30.960
+Jitendra K: Again, this log of cost hypertension function behaves like a hybrid MSC and ME.
+
+583
+01:03:31.790 --> 01:03:38.490
+Jitendra K: For small value of X, log of cos of X will be… X squared by 2.
+
+584
+01:03:39.690 --> 01:03:43.409
+Jitendra K: And for large error, It will become log of 2.
+
+585
+01:03:44.330 --> 01:03:49.629
+Jitendra K: So it behave like a… trade-off between MAE and MSE, but at a different scale.
+
+586
+01:03:50.370 --> 01:03:52.150
+Jitendra K: So here we are using a delta.
+
+587
+01:03:52.730 --> 01:03:55.840
+Jitendra K: But here we are using, fixed values.
+
+588
+01:03:56.620 --> 01:03:59.530
+Jitendra K: So that means your seeding parameter is not a defined.
+
+589
+01:04:00.210 --> 01:04:04.050
+Jitendra K: There's always a confusion, like, how should I define my seeding parameter?
+
+590
+01:04:04.270 --> 01:04:06.759
+Jitendra K: And here, you do not refine any seeding parameter.
+
+591
+01:04:08.530 --> 01:04:12.229
+Jitendra K: So what I did is, I just compiled this, fact sheet for you.
+
+592
+01:04:12.470 --> 01:04:15.670
+Jitendra K: So that, you can able to…
+
+593
+01:04:16.540 --> 01:04:19.580
+Jitendra K: Run this… sorry, read this whenever.
+
+594
+01:04:20.270 --> 01:04:26.220
+Jitendra K: you have time, right? So please read this, I will share this file with everyone. So this is a compiled version of…
+
+595
+01:04:26.570 --> 01:04:28.960
+Jitendra K: All cost function that we have discussed so far.
+
+596
+01:04:29.230 --> 01:04:34.229
+Jitendra K: Now, let's try to look into the practical implications, and we'll perform some analysis.
+
+597
+01:04:35.250 --> 01:04:40.080
+Jitendra K: With the help of this cost function, and let me show you this sheet first.
+
+598
+01:05:35.830 --> 01:05:43.210
+Jitendra K: Okay, now what I'm going to do next is, I would like to take an example and, to sum up all what we have learned so far.
+
+599
+01:05:43.400 --> 01:05:48.859
+Jitendra K: And, we already know that we are going to use this for regression purpose, right?
+
+600
+01:05:49.100 --> 01:05:56.789
+Jitendra K: So, let's use, the real-world data California housing data set to create a realistic regression scenario.
+
+601
+01:05:57.020 --> 01:06:05.160
+Jitendra K: So in California housing data set, you already have, I think we already have worked on the California housing data set, but let me rephrase.
+
+602
+01:06:05.610 --> 01:06:12.410
+Jitendra K: what this data set talks about. So, this dataset, California Housing Dataset, comprises of several parameters.
+
+603
+01:06:21.610 --> 01:06:25.130
+Jitendra K: So, we have several parameters that we are going to utilize.
+
+604
+01:06:31.130 --> 01:06:32.860
+Jitendra K: And these are the parameters.
+
+605
+01:06:43.870 --> 01:06:45.370
+Jitendra K: So this is my dataset.
+
+606
+01:06:47.280 --> 01:06:48.869
+Jitendra K: And these are my features.
+
+607
+01:06:49.800 --> 01:06:52.500
+Jitendra K: And this data pertains to the house found in…
+
+608
+01:06:52.840 --> 01:07:00.289
+Jitendra K: California District, and some summary stats about their… About their prizes.
+
+609
+01:07:00.780 --> 01:07:02.730
+Jitendra K: From the year 1990.
+
+610
+01:07:03.160 --> 01:07:06.399
+Jitendra K: So, it's old data, 1990 census data.
+
+611
+01:07:06.670 --> 01:07:13.520
+Jitendra K: We want our data RN cleaned, and there are some processing steps required. This is already given in a disclaimer.
+
+612
+01:07:13.940 --> 01:07:15.999
+Jitendra K: And the columns are as follow.
+
+613
+01:07:19.120 --> 01:07:27.039
+Jitendra K: So, you have got longitude, latitude, the geographical parameters, The house median age.
+
+614
+01:07:27.900 --> 01:07:32.179
+Jitendra K: Total rooms inside the house, the total bedroom, population index of the…
+
+615
+01:07:32.780 --> 01:07:40.109
+Jitendra K: Locality, household income, median income, median house value, and the ocean proximity.
+
+616
+01:07:40.500 --> 01:07:48.089
+Jitendra K: So we have these data points, which I think we have already discussed, like, this data set earlier. And what we are going to do next is…
+
+617
+01:07:48.200 --> 01:07:55.590
+Jitendra K: We are going to use this data to create the… To create the analysis.
+
+618
+01:08:00.700 --> 01:08:03.530
+Jitendra K: So let me quickly open my cool app.
+
+619
+01:09:13.910 --> 01:09:18.480
+Jitendra K: Okay, so what I'm going to do is, I would like to go step by step for the solution.
+
+620
+01:09:19.010 --> 01:09:21.979
+Jitendra K: So, let me quickly go back to my collab.
+
+621
+01:09:23.040 --> 01:09:27.940
+Jitendra K: So, first and foremost thing, I would like to load my modules. I will load all the…
+
+622
+01:09:28.910 --> 01:09:35.030
+Jitendra K: data handling modules, as well as visualization packages. And finally, I would like to use the cost functions
+
+623
+01:09:36.140 --> 01:09:40.310
+Jitendra K: which include linear regression, Huber regressor, and the quantile regressor.
+
+624
+01:09:40.720 --> 01:09:45.360
+Jitendra K: And all the functions uploaded to these libraries, I will import in my namespace.
+
+625
+01:09:46.210 --> 01:09:48.199
+Jitendra K: Now, I would like to load my data.
+
+626
+01:09:52.399 --> 01:09:55.170
+Jitendra K: So, loading data from scikit-learn package.
+
+627
+01:09:57.050 --> 01:09:58.890
+Jitendra K: Okay, this has been done.
+
+628
+01:09:59.540 --> 01:10:06.680
+Jitendra K: Now, we will separate X and Y, so you know that Y value is medium… Prices of the house.
+
+629
+01:10:08.860 --> 01:10:13.230
+Jitendra K: Which is… Y itself…
+
+630
+01:10:17.180 --> 01:10:21.980
+Jitendra K: Now, what I'm going to do is, I will… try to…
+
+631
+01:10:22.150 --> 01:10:25.210
+Jitendra K: Add some outliers deliberately on this data.
+
+632
+01:10:25.990 --> 01:10:30.129
+Jitendra K: So, so that I can be able to show you the performance of each regression model.
+
+633
+01:10:31.280 --> 01:10:33.300
+Jitendra K: Now, I would like to split my data.
+
+634
+01:10:35.730 --> 01:10:37.489
+Jitendra K: I will split my data.
+
+635
+01:10:42.490 --> 01:10:44.390
+Jitendra K: I will train the model.
+
+636
+01:10:47.870 --> 01:10:51.860
+Jitendra K: And then… Predict the outcome.
+
+637
+01:10:55.730 --> 01:11:00.019
+Jitendra K: So, I will show you the outcome, and then we'll read the output.
+
+638
+01:11:00.870 --> 01:11:03.800
+Jitendra K: And see which one is making more sense.
+
+639
+01:11:04.440 --> 01:11:05.320
+Jitendra K: Okay.
+
+640
+01:11:07.110 --> 01:11:12.009
+Jitendra K: Okay, so let me… Go into the screen, full screen mode.
+
+641
+01:11:24.020 --> 01:11:26.369
+Jitendra K: Okay, so what we are seeing here is…
+
+642
+01:11:27.340 --> 01:11:38.049
+Jitendra K: Your model has been trained on linear regression, right? So we have trained the model on linear regression only. There's no other model that we have used. We have just used a linear regression model, using a linear regression class.
+
+643
+01:11:38.650 --> 01:11:40.380
+Jitendra K: And from this model, I'm…
+
+644
+01:11:40.880 --> 01:11:46.900
+Jitendra K: Explaining all the errors, including the errors that we have just now discussed, right? So I'm explaining…
+
+645
+01:11:47.240 --> 01:11:53.559
+Jitendra K: What are the MSE, mini-square errors, so this is a very standard approach. Also, I'm explaining what is MAE.
+
+646
+01:11:53.830 --> 01:11:59.359
+Jitendra K: Which is a model coefficient, mean absolute error, and then also, I'm using a hybrid approach.
+
+647
+01:11:59.960 --> 01:12:02.699
+Jitendra K: So, a mean square error of 0.80.
+
+648
+01:12:04.160 --> 01:12:09.879
+Jitendra K: That means… you're having a lot of outliers in your data. You can see from this line.
+
+649
+01:12:10.410 --> 01:12:18.240
+Jitendra K: So you have got a lot of outliers, right? And I have generated some artificial outliers, huge values, that has been pulled to the regression lines.
+
+650
+01:12:18.780 --> 01:12:20.250
+Jitendra K: Right? So…
+
+651
+01:12:20.660 --> 01:12:27.610
+Jitendra K: But our model is trying to minimize the square distance between those outliers. So it creates a kind of a skewness between the entire line.
+
+652
+01:12:28.160 --> 01:12:31.519
+Jitendra K: And resulting in a less accurate slope of the main cluster.
+
+653
+01:12:32.120 --> 01:12:37.510
+Jitendra K: Similarly, the MAE and the Huber loss have a value of 0.83 and 0.83.
+
+654
+01:12:37.630 --> 01:12:45.160
+Jitendra K: So these models successfully ignored the impact of outliers, and they found a true relationship between the slope and the data points.
+
+655
+01:12:46.760 --> 01:12:50.040
+Jitendra K: Now, why MSE test is lower?
+
+656
+01:12:50.470 --> 01:12:53.120
+Jitendra K: Here, which is 1.46.
+
+657
+01:12:54.030 --> 01:12:55.830
+Jitendra K: Versus 1.52.
+
+658
+01:12:56.870 --> 01:13:04.090
+Jitendra K: Right? So this might… seems to be counterintuitive, because you expect the robust model to be better everywhere, right?
+
+659
+01:13:04.430 --> 01:13:12.100
+Jitendra K: So the reason here you're getting MAE on the higher side, Right?
+
+660
+01:13:13.580 --> 01:13:18.900
+Jitendra K: So, the standard linear regression model is mathematically guaranteed to minimize MSC.
+
+661
+01:13:19.270 --> 01:13:25.130
+Jitendra K: on the training data. Since the test data set Likely has a similar distribution.
+
+662
+01:13:26.230 --> 01:13:34.490
+Jitendra K: I'm repeating, the standard linear regression model is mathematically guaranteed to minimize MSC on the training data.
+
+663
+01:13:34.960 --> 01:13:41.279
+Jitendra K: And since the test dataset likely has similar distribution, including some natural noise.
+
+664
+01:13:41.410 --> 01:13:48.839
+Jitendra K: The MSC model is still optimal for MSC metrics, and it fit the average mean of the data, and MSC is minimized by the mean.
+
+665
+01:13:49.360 --> 01:13:53.639
+Jitendra K: That means, minimizing MSE does not always means better fit.
+
+666
+01:13:54.430 --> 01:13:58.800
+Jitendra K: And that is what I would like to explain. So, you have to look from all perspective.
+
+667
+01:13:59.470 --> 01:14:06.680
+Jitendra K: So you have to get R-square as well for this model to understand how the generalization of the model has been performed.
+
+668
+01:14:08.440 --> 01:14:11.509
+Jitendra K: Now, if you look into this line, the blue line.
+
+669
+01:14:11.850 --> 01:14:15.919
+Jitendra K: You like to see that the lines dilate or shift towards the outlier.
+
+670
+01:14:16.510 --> 01:14:20.260
+Jitendra K: So it sacrifices the accuracy of the main cluster of the data point.
+
+671
+01:14:21.070 --> 01:14:25.309
+Jitendra K: And then what it does is try to reach those distanced outlier points.
+
+672
+01:14:26.100 --> 01:14:30.999
+Jitendra K: But the green and the red lines, which is a… ME and the Huber Laws.
+
+673
+01:14:31.280 --> 01:14:35.439
+Jitendra K: Right? These lines likely… to run straight.
+
+674
+01:14:38.650 --> 01:14:43.789
+Jitendra K: Right? And through these dense middle lines of the data cloud, they are essentially saying that
+
+675
+01:14:43.940 --> 01:14:48.290
+Jitendra K: Those outlier points are garbage, and I'm going to ignore them and fit the real data.
+
+676
+01:14:49.240 --> 01:14:50.650
+Jitendra K: So that is what?
+
+677
+01:14:51.170 --> 01:14:58.209
+Jitendra K: this model… needs all sort of cost functions to evaluate. It's like a test
+
+678
+01:14:58.720 --> 01:15:06.330
+Jitendra K: Your doctor… your doctor is trying to predict some disease. He's running you… he's asking you to undergo several tests.
+
+679
+01:15:07.240 --> 01:15:12.580
+Jitendra K: And then, based upon the test report, it will… Generalize the outcome.
+
+680
+01:15:17.100 --> 01:15:20.420
+Jitendra K: So, is it clear to everyone what this…
+
+681
+01:15:21.030 --> 01:15:23.770
+Jitendra K: Whole test does, the cost functions does.
+
+682
+01:15:24.300 --> 01:15:27.010
+Jitendra K: In a nutshell, any, any question?
+
+683
+01:15:29.160 --> 01:15:31.780
+Jitendra K: Let me share this code with you guys.
+
+684
+01:15:32.600 --> 01:15:36.409
+Jitendra K: And, you can run it.
+
+685
+01:15:37.820 --> 01:15:38.760
+Jitendra K: Like me.
+
+686
+01:15:39.270 --> 01:15:41.170
+Jitendra K: Let me rename this first.
+
+687
+01:16:17.260 --> 01:16:20.230
+Jitendra K: Okay, so I'm making a regression cost function.
+
+688
+01:16:21.320 --> 01:16:23.010
+Jitendra K: So you need to use this.
+
+689
+01:16:42.620 --> 01:16:47.240
+Jitendra K: Yeah, we'll see some more examples to see, and compare the R-square value as well.
+
+690
+01:16:56.190 --> 01:16:58.760
+Jitendra K: Okay, so, please run through it.
+
+691
+01:16:58.950 --> 01:17:01.750
+Jitendra K: And let me know your thoughts once you complete, let me know.
+
+692
+01:17:02.180 --> 01:17:05.520
+Jitendra K: Let's run through this example, and try to understand.
+
+693
+01:17:06.520 --> 01:17:09.430
+Jitendra K: This example in a layman term, and then…
+
+694
+01:17:09.640 --> 01:17:13.090
+Jitendra K: I think, we'll take another example to understand more.
+
+695
+01:18:57.800 --> 01:19:01.529
+Jitendra K: Yeah, guys, let's take a quick, 20 minutes break, and then…
+
+696
+01:19:01.690 --> 01:19:08.299
+Jitendra K: Once you come back, then we'll continue with the another, demonstration of some more code, and then…
+
+697
+01:19:10.690 --> 01:19:14.329
+Jitendra K: We'll try to understand how to interpret R-square versus RMSE again.
+
+698
+01:19:14.560 --> 01:19:16.870
+Jitendra K: So let's take a 20-minute break, and then we'll come back.
+
+699
+01:45:55.760 --> 01:45:59.969
+Jitendra K: Hey guys, I hope we are back. Can we have a quick confirmation?
+
+700
+01:46:07.160 --> 01:46:10.520
+Jitendra K: Alright, thank you for the confirmation.
+
+701
+01:46:10.940 --> 01:46:18.759
+Jitendra K: So, let's begin with another example, and here we are going to compare different other cost functions, including R-square.
+
+702
+01:46:19.400 --> 01:46:22.030
+Jitendra K: RMSE, MAE, etc.
+
+703
+01:46:22.270 --> 01:46:30.210
+Jitendra K: So, there's a dataset called AutoMPG. I'm not sure if you guys have heard about this data, but let me show you the data first.
+
+704
+01:46:30.920 --> 01:46:33.120
+Jitendra K: The automobile dataset.
+
+705
+01:46:40.630 --> 01:46:44.070
+Jitendra K: So, this is the dataset that we are going to use from UCI.
+
+706
+01:46:44.390 --> 01:46:54.740
+Jitendra K: And this dataset comprises of, about different cities, cycle, fuel consumption in miles per gallon for various types of car.
+
+707
+01:46:55.330 --> 01:47:01.390
+Jitendra K: So, you can see here, this is the… Parameters that we are having.
+
+708
+01:47:04.080 --> 01:47:12.420
+Jitendra K: So, this is the miles per gallon dataset, which comprise of several city… Several types of cars.
+
+709
+01:47:12.670 --> 01:47:18.459
+Jitendra K: And it is having predominantly 398, records, and 8 features.
+
+710
+01:47:18.860 --> 01:47:26.940
+Jitendra K: And it's a classical dataset from the year 1970 to 1980, originally used in 1983 American Statistical Association
+
+711
+01:47:27.320 --> 01:47:29.250
+Jitendra K: Based upon that.
+
+712
+01:47:29.630 --> 01:47:36.920
+Jitendra K: Now, the problem statement that we are trying to solve is, we would like to find it out, can we be able to predict how fuel efficiency
+
+713
+01:47:38.740 --> 01:47:43.900
+Jitendra K: Or how fuel-efficient a car will be based upon the physical characteristics.
+
+714
+01:47:44.150 --> 01:47:48.890
+Jitendra K: Let's say if I'm giving you several parameters, like car manufacturer, consumer.
+
+715
+01:47:49.060 --> 01:47:55.859
+Jitendra K: Policy maker, insurance company, etc, for giving these sort of data set, so that they can be able to take a decision based upon that.
+
+716
+01:47:56.400 --> 01:48:00.309
+Jitendra K: So, the list of parameters that I'm having is cylinder.
+
+717
+01:48:00.470 --> 01:48:04.720
+Jitendra K: Which is number of cylinders, more cylinder, lower MPG.
+
+718
+01:48:05.060 --> 01:48:12.820
+Jitendra K: That means the horsepower of the car will be high, and as you know, for higher horsepower, the fuel efficiency will be low.
+
+719
+01:48:13.570 --> 01:48:20.300
+Jitendra K: The engine size, which is in cubicle inch, which is called displacement of the engine, larger the engine, lower the ampg.
+
+720
+01:48:20.750 --> 01:48:23.320
+Jitendra K: That is also the fact.
+
+721
+01:48:23.880 --> 01:48:34.010
+Jitendra K: The horsepower, more power, lower mpg again, because your car will be more towards Speed rather than efficiency.
+
+722
+01:48:34.240 --> 01:48:40.180
+Jitendra K: The weight of the car, heavier the car is, lower the mpg, because the car, if it is carrying more weight.
+
+723
+01:48:41.370 --> 01:48:45.740
+Jitendra K: It will consume more… Fuel.
+
+724
+01:48:46.040 --> 01:48:49.879
+Jitendra K: The acceleration, between 0 to 60 miles per hour.
+
+725
+01:48:50.180 --> 01:48:57.739
+Jitendra K: fast accelerating car will have a lower MPG. That's why it is recommended to drive a car in a safe.
+
+726
+01:48:58.560 --> 01:49:02.490
+Jitendra K: Speed, so that your fuel efficiency will also be maintained.
+
+727
+01:49:03.100 --> 01:49:10.359
+Jitendra K: Model year, you have a model from 1970 to 1982. That means you will have a manufacturing year.
+
+728
+01:49:10.480 --> 01:49:15.150
+Jitendra K: Newer car will have higher MPG, and because it has been…
+
+729
+01:49:15.890 --> 01:49:20.190
+Jitendra K: Newly constructed with a new set of technology, much improved version.
+
+730
+01:49:20.430 --> 01:49:26.460
+Jitendra K: Older car, May have, some issue with the average.
+
+731
+01:49:27.280 --> 01:49:32.189
+Jitendra K: Origin, that means American, European, Japanese car.
+
+732
+01:49:32.420 --> 01:49:40.560
+Jitendra K: Have different types of… Manufacturing parts. Japanese cars are typically good.
+
+733
+01:49:40.930 --> 01:49:44.230
+Jitendra K: Right? In terms of mileage. American and European cars.
+
+734
+01:49:44.570 --> 01:49:51.419
+Jitendra K: might have… lower MPG, but Japanese cars are efficient, because they had been engineered
+
+735
+01:49:51.610 --> 01:50:01.160
+Jitendra K: pretty good, and that's why… that's the reason Japan economy is also high during 1980s to 2000, because they're manufacturing a lot of four-wheelers.
+
+736
+01:50:03.010 --> 01:50:06.509
+Jitendra K: So how many miles the car can travel on 1 gallon of gas?
+
+737
+01:50:06.730 --> 01:50:13.310
+Jitendra K: So that is our target variable. We would like to find it out How many miles per gallon?
+
+738
+01:50:13.910 --> 01:50:17.370
+Jitendra K: A car can travel on 1 gallon of gas.
+
+739
+01:50:17.620 --> 01:50:18.720
+Jitendra K: Or a petrol.
+
+740
+01:50:19.920 --> 01:50:20.720
+Jitendra K: Right?
+
+741
+01:50:20.900 --> 01:50:33.850
+Jitendra K: So, the potential outliers for this dataset could be, you will have higher MPG outliers, lower MPG outliers, you will have different scales, horsepower is in different scales, lender number is in different scale.
+
+742
+01:50:34.160 --> 01:50:37.040
+Jitendra K: So, we would like to find it out, all possible
+
+743
+01:50:37.280 --> 01:50:40.430
+Jitendra K: Opportunity to clean the data and perform the analysis.
+
+744
+01:50:40.550 --> 01:50:42.509
+Jitendra K: the ED analysis, right?
+
+745
+01:50:42.820 --> 01:50:46.850
+Jitendra K: So let's… Let me go move back to my…
+
+746
+01:50:47.150 --> 01:50:50.090
+Jitendra K: notebook, and I'm going to import this data.
+
+747
+01:50:50.750 --> 01:50:56.340
+Jitendra K: So I hope the problem statement is clear to everyone. What are we trying to solve? So let me write down again.
+
+748
+01:50:56.660 --> 01:50:58.469
+Jitendra K: What are we trying to solve?
+
+749
+01:51:01.320 --> 01:51:04.650
+Jitendra K: We are trying to use the target variable
+
+750
+01:51:05.190 --> 01:51:10.540
+Jitendra K: Miles per gallon, and how many miles the car can travel on 1 gallon of gas.
+
+751
+01:51:13.780 --> 01:51:16.190
+Jitendra K: Right, so what does the data comprise of?
+
+752
+01:51:22.370 --> 01:51:25.550
+Jitendra K: Let me write down the columns.
+
+753
+01:51:27.690 --> 01:51:30.359
+Jitendra K: So we've got these data points.
+
+754
+01:51:35.650 --> 01:51:37.969
+Jitendra K: If you can read through it, I will share this.
+
+755
+01:51:38.940 --> 01:51:41.029
+Jitendra K: So this is a description of the features.
+
+756
+01:51:45.580 --> 01:51:47.589
+Jitendra K: And what are we trying to solve?
+
+757
+01:51:48.910 --> 01:51:50.440
+Jitendra K: We are trying to predict this.
+
+758
+01:51:53.150 --> 01:51:53.970
+Jitendra K: Right?
+
+759
+01:51:54.330 --> 01:51:56.240
+Jitendra K: So let me load this data.
+
+760
+01:51:56.520 --> 01:51:57.730
+Jitendra K: In memory.
+
+761
+01:52:07.410 --> 01:52:09.820
+Jitendra K: And for doing so, I'm creating a function.
+
+762
+01:52:10.330 --> 01:52:17.150
+Jitendra K: which is hitting this URL, And this URL here will have a data. So if I click this URL,
+
+763
+01:52:17.260 --> 01:52:19.389
+Jitendra K: You will see a nice CSV file.
+
+764
+01:52:20.260 --> 01:52:24.449
+Jitendra K: Which will have these data points, and exactly 358 data points will be there.
+
+765
+01:52:25.270 --> 01:52:28.149
+Jitendra K: I can see that from these data points, you have got…
+
+766
+01:52:29.220 --> 01:52:34.899
+Jitendra K: The first various factors, the first factor, as we know, is gonna be number of slander.
+
+767
+01:52:35.960 --> 01:52:40.710
+Jitendra K: Displacement ratio… oh, this is the slender, this is a displacement ratio.
+
+768
+01:52:40.940 --> 01:52:45.640
+Jitendra K: the horsepower… The weight of the car in kilograms.
+
+769
+01:52:46.960 --> 01:52:51.799
+Jitendra K: the… acceleration ratio.
+
+770
+01:52:52.140 --> 01:52:57.869
+Jitendra K: The model year, 1970 to 76, 78, I think?
+
+771
+01:52:58.480 --> 01:53:01.360
+Jitendra K: So, 1970 to 78.
+
+772
+01:53:01.940 --> 01:53:04.860
+Jitendra K: The manufacturer of the car.
+
+773
+01:53:05.160 --> 01:53:08.769
+Jitendra K: And then you have American… Which is 1.
+
+774
+01:53:08.980 --> 01:53:12.160
+Jitendra K: European 2, and the Japanese, which is 3.
+
+775
+01:53:13.240 --> 01:53:18.549
+Jitendra K: Right? So is the problem statement clear to everyone? What are we trying to solve, and what are we trying to predict?
+
+776
+01:53:21.280 --> 01:53:22.610
+Jitendra K: Yes or no, guys?
+
+777
+01:53:27.880 --> 01:53:28.750
+Jitendra K: Alright.
+
+778
+01:53:29.540 --> 01:53:30.370
+Jitendra K: Okay?
+
+779
+01:53:30.700 --> 01:53:35.390
+Jitendra K: So let's move on to the… Notebook.
+
+780
+01:53:35.720 --> 01:53:40.879
+Jitendra K: So I've written a function loadAutoMilesPerGallon data, and this function takes…
+
+781
+01:53:41.550 --> 01:53:44.839
+Jitendra K: no parameter, so I'm passing URL.
+
+782
+01:53:45.330 --> 01:53:50.109
+Jitendra K: And the columns… And storing these data into DataFrame.
+
+783
+01:53:50.660 --> 01:53:54.660
+Jitendra K: And then, I would like to drop car name.
+
+784
+01:53:55.290 --> 01:53:59.230
+Jitendra K: That is important, because I do not want to do any analysis on the car name.
+
+785
+01:54:00.010 --> 01:54:02.529
+Jitendra K: So that's the reason I would like to drop this variable.
+
+786
+01:54:03.310 --> 01:54:06.810
+Jitendra K: So, the car name is a kind of redundant information.
+
+787
+01:54:07.750 --> 01:54:09.250
+Jitendra K: It will be helpful.
+
+788
+01:54:09.610 --> 01:54:16.629
+Jitendra K: If I'm trying to differentiate Maybe one more analyst is on the top of it, by saying that.
+
+789
+01:54:16.990 --> 01:54:21.100
+Jitendra K: I have a Chevrolet car versus Hyundai, versus that Sun.
+
+790
+01:54:21.470 --> 01:54:28.490
+Jitendra K: And their type of car, like the Model P1510, versus Chevrolet 2300.
+
+791
+01:54:29.050 --> 01:54:31.529
+Jitendra K: If they are from same configuration.
+
+792
+01:54:32.000 --> 01:54:40.400
+Jitendra K: In terms of engine design, in terms of cylinder size, in terms of acceleration weights, Displacement, horsepower.
+
+793
+01:54:40.970 --> 01:54:44.370
+Jitendra K: Manufacturing year, then which car is efficient?
+
+794
+01:54:44.500 --> 01:54:46.410
+Jitendra K: That I can do with this.
+
+795
+01:54:46.660 --> 01:54:52.689
+Jitendra K: But right now, I'm doing a generic analysis, to identify…
+
+796
+01:54:53.530 --> 01:54:58.639
+Jitendra K: The miles per gallon, how many miles a car can travel on a gas…
+
+797
+01:54:59.120 --> 01:55:01.690
+Jitendra K: Gasol, gallon of a gas.
+
+798
+01:55:02.160 --> 01:55:03.930
+Jitendra K: Which is a one unit of a gas.
+
+799
+01:55:04.440 --> 01:55:07.599
+Jitendra K: Right? One unit of a gas, how much my car can drive.
+
+800
+01:55:08.590 --> 01:55:17.050
+Jitendra K: And it is irrespective of the type of a car, so I need not to consider type of the car or car name for this analysis.
+
+801
+01:55:17.380 --> 01:55:26.880
+Jitendra K: But I can use… Websites like cardecodact.com. I hope you have seen RightCarDeco.com.
+
+802
+01:55:30.890 --> 01:55:35.320
+Jitendra K: Which is one of the famous… used car merchandise in India.
+
+803
+01:55:35.620 --> 01:55:38.870
+Jitendra K: And you can see by brand. When I select a brand.
+
+804
+01:55:39.640 --> 01:55:45.929
+Jitendra K: I can select the model, search for the model, And it will show me…
+
+805
+01:55:46.730 --> 01:55:51.590
+Jitendra K: Different types of model available, and you can see the price difference, right, for the same car.
+
+806
+01:55:52.210 --> 01:55:59.169
+Jitendra K: There's a huge difference. Smart Diesels, Pure Plus, Creative. So these are different versions of the same
+
+807
+01:55:59.430 --> 01:56:03.640
+Jitendra K: type of a car. But even the price differentiate.
+
+808
+01:56:04.830 --> 01:56:09.220
+Jitendra K: Right, so the price differentiate here. It is saying a range of the car.
+
+809
+01:56:09.410 --> 01:56:14.010
+Jitendra K: Which depends upon the type, manufacturer, the…
+
+810
+01:56:14.630 --> 01:56:19.060
+Jitendra K: Any issues with the design? How old a car is?
+
+811
+01:56:19.560 --> 01:56:22.769
+Jitendra K: And so on and so forth. So depending upon that, the car…
+
+812
+01:56:23.420 --> 01:56:29.539
+Jitendra K: Range will decide, and typically the range that they're offering in the website Looks like…
+
+813
+01:56:29.980 --> 01:56:37.699
+Jitendra K: 9.6 to 18.85, 19 lakh ex-showroom price in Delhi. And this is also going to be changed.
+
+814
+01:56:38.130 --> 01:56:41.850
+Jitendra K: when I type different cities, right? So, that is where…
+
+815
+01:56:42.050 --> 01:56:48.490
+Jitendra K: You will have a dynamic pricing depending upon different commercial of the car.
+
+816
+01:56:52.400 --> 01:56:55.930
+Jitendra K: So we'll download this data in a similar format.
+
+817
+01:56:56.220 --> 01:56:59.090
+Jitendra K: I'm going to download this data, and then store.
+
+818
+01:57:01.130 --> 01:57:04.699
+Jitendra K: I would like to create one more function.
+
+819
+01:57:05.000 --> 01:57:07.250
+Jitendra K: For calculating the outliers.
+
+820
+01:57:08.170 --> 01:57:12.100
+Jitendra K: So, I will use this function to calculate the outliers.
+
+821
+01:57:14.390 --> 01:57:23.100
+Jitendra K: Now, I would like to use the cost function that we discussed, and I would like to create a graph around those cost-cost functions. So, graph…
+
+822
+01:57:23.460 --> 01:57:26.610
+Jitendra K: I would like to check the difference between actual and predicted.
+
+823
+01:57:27.350 --> 01:57:31.230
+Jitendra K: By looking into all the loss function that we discussed.
+
+824
+01:57:36.710 --> 01:57:41.180
+Jitendra K: And then I would like to visualize… and plot.
+
+825
+01:57:42.160 --> 01:57:47.140
+Jitendra K: And then I will compare the functions, so let me… Analyze this…
+
+826
+01:57:48.550 --> 01:57:52.780
+Jitendra K: And I will compare the functions, and then finally evaluate the model.
+
+827
+01:57:54.880 --> 01:57:58.270
+Jitendra K: Let me add R-square as well,
+
+828
+01:57:59.030 --> 01:58:00.999
+Jitendra K: So R squared is also added.
+
+829
+01:58:01.110 --> 01:58:02.480
+Jitendra K: So I'm going to run this.
+
+830
+01:58:02.990 --> 01:58:11.940
+Jitendra K: So, okay, so… Before jumping onto the results, let me give you the… Overview of the code.
+
+831
+01:58:13.440 --> 01:58:20.359
+Jitendra K: Now, this code comprises of several functions, right? So this is the way that you should write a code in
+
+832
+01:58:20.570 --> 01:58:24.040
+Jitendra K: Real-world, or when you're solving any real-world problem.
+
+833
+01:58:24.410 --> 01:58:26.470
+Jitendra K: It should make your code more modular.
+
+834
+01:58:26.610 --> 01:58:31.770
+Jitendra K: So, modularity using best object-oriented principles of design, OOLD,
+
+835
+01:58:32.160 --> 01:58:34.680
+Jitendra K: And try to make your code loosely coupled.
+
+836
+01:58:35.270 --> 01:58:38.780
+Jitendra K: The reason being is, I'm creating this code loosely coupled as…
+
+837
+01:58:39.150 --> 01:58:43.320
+Jitendra K: Because let's say if I have to share this code with someone who's going to work on
+
+838
+01:58:43.480 --> 01:58:46.679
+Jitendra K: More code augmentation in my team, right?
+
+839
+01:58:47.080 --> 01:58:50.339
+Jitendra K: So let's say I'm a vendor, I'm from TCS.
+
+840
+01:58:50.560 --> 01:58:54.479
+Jitendra K: And TCS hand over the project to the client, right? Let's say some bank.
+
+841
+01:58:55.680 --> 01:59:01.279
+Jitendra K: So when they are hand-overing the code to the client, they have an agreement that this code should be customizable.
+
+842
+01:59:02.110 --> 01:59:08.490
+Jitendra K: And the code quality should maintain. So when you're maintaining a code quality based upon the standards of,
+
+843
+01:59:08.770 --> 01:59:13.879
+Jitendra K: industry, you have to write code into modularity. So I'm using a modularity principle.
+
+844
+01:59:14.350 --> 01:59:19.419
+Jitendra K: To make sure that my code will have functions, readable functions, format.
+
+845
+01:59:19.550 --> 01:59:27.610
+Jitendra K: And then from that function, everything that I'm making inside these functions Based upon the parameter.
+
+846
+01:59:27.720 --> 01:59:37.050
+Jitendra K: It should be well written, right? So I'm using MSC laws, so I'm saying I would like to compare Y true and Y predicted, and taking a magnitude of the square.
+
+847
+01:59:37.310 --> 01:59:39.800
+Jitendra K: Mean absolute error, I'm taking absolute value.
+
+848
+01:59:40.300 --> 01:59:46.170
+Jitendra K: Overall laws, I'm taking a hybrid approach to identify the…
+
+849
+01:59:46.800 --> 01:59:51.309
+Jitendra K: MSE on a nonlinear scale, and MAE on a linear scale.
+
+850
+01:59:51.960 --> 01:59:57.860
+Jitendra K: Then the log… This is something which we have discussed, where we have a dependency on delta.
+
+851
+01:59:58.200 --> 02:00:03.749
+Jitendra K: But here, I'm not making any residual dependency on evaluating this function.
+
+852
+02:00:05.480 --> 02:00:07.420
+Jitendra K: Then I'm going to visualize this…
+
+853
+02:00:07.710 --> 02:00:13.980
+Jitendra K: MSE by using these factors, and then I would like to predict how my models work.
+
+854
+02:00:14.180 --> 02:00:15.900
+Jitendra K: Remember, we are trying to predict
+
+855
+02:00:17.080 --> 02:00:22.330
+Jitendra K: How much car, how much, distance the car will travel.
+
+856
+02:00:22.630 --> 02:00:27.739
+Jitendra K: Based upon… The 1 gallon.
+
+857
+02:00:27.890 --> 02:00:30.449
+Jitendra K: Gasoline inside the car.
+
+858
+02:00:31.780 --> 02:00:33.509
+Jitendra K: Right? So that is what we are going to do.
+
+859
+02:00:33.950 --> 02:00:42.640
+Jitendra K: Now, let me explain this outcome. So, let's try to deep dive into the outcome. Now, as you can see that the data comprises several outliers.
+
+860
+02:00:43.390 --> 02:00:46.129
+Jitendra K: So, I've got several outliers.
+
+861
+02:00:46.320 --> 02:00:49.400
+Jitendra K: Some outliers in mileage per gallon.
+
+862
+02:00:50.050 --> 02:00:52.560
+Jitendra K: Which is a part of my data points.
+
+863
+02:00:52.840 --> 02:01:00.009
+Jitendra K: Now, this drastically… impact MSC. You can see clearly, the model is overfit.
+
+864
+02:01:00.690 --> 02:01:03.600
+Jitendra K: So, data starts with 392 clean car.
+
+865
+02:01:04.280 --> 02:01:10.110
+Jitendra K: And I've added some outliers, changing miles per gallon from realistic to impossible.
+
+866
+02:01:10.380 --> 02:01:21.569
+Jitendra K: And I'm also reducing the miles per gallon, and considering to be a poor maintained car. And adding the outliers, adding a noise, I would like to see how the model captures this noise.
+
+867
+02:01:22.340 --> 02:01:30.400
+Jitendra K: So, let's try to deep dive into the analytics. So, the first and the foremost model that we have used is MSC L2. That means mean square error with L2.
+
+868
+02:01:30.530 --> 02:01:32.010
+Jitendra K: Normalization.
+
+869
+02:01:33.820 --> 02:01:40.599
+Jitendra K: So you can see that R-squared of 0.82, that means 82.6% of the variance has been explained by the model.
+
+870
+02:01:41.200 --> 02:01:45.739
+Jitendra K: And, so, your model is able to explain.
+
+871
+02:01:45.940 --> 02:01:47.919
+Jitendra K: 82% of the variance.
+
+872
+02:01:48.580 --> 02:01:49.370
+Jitendra K: Right?
+
+873
+02:01:50.010 --> 02:01:53.790
+Jitendra K: However, R-square dropped terribly.
+
+874
+02:01:54.310 --> 02:01:58.230
+Jitendra K: From training to test, only 32% has been explained.
+
+875
+02:01:58.990 --> 02:02:03.449
+Jitendra K: So, test MOCs… I would say…
+
+876
+02:02:05.000 --> 02:02:08.669
+Jitendra K: is less… much, much lesser than train embassy.
+
+877
+02:02:09.530 --> 02:02:12.220
+Jitendra K: Now, I would like to check the MAE.
+
+878
+02:02:12.500 --> 02:02:17.590
+Jitendra K: MA also looks, like, terrible. There's a huge increase in the MAE.
+
+879
+02:02:19.070 --> 02:02:26.980
+Jitendra K: R-square increase, the model background increased, but if MA is increased, the model is getting drastically bad.
+
+880
+02:02:27.780 --> 02:02:32.169
+Jitendra K: So MSE is a square, so Y true minus Y predicted.
+
+881
+02:02:33.580 --> 02:02:36.559
+Jitendra K: So that's the reason you will see a difference here.
+
+882
+02:02:37.140 --> 02:02:39.419
+Jitendra K: Now, the values are…
+
+883
+02:02:39.590 --> 02:02:44.890
+Jitendra K: pretty on a different scale, but R-square give me a good estimator that the model is poor.
+
+884
+02:02:47.040 --> 02:02:52.340
+Jitendra K: Similarly, if I look into the MAE, Right? So…
+
+885
+02:02:54.200 --> 02:02:58.739
+Jitendra K: That means I can clearly see that there's a obvious
+
+886
+02:03:01.350 --> 02:03:03.909
+Jitendra K: change in the IMA as well.
+
+887
+02:03:04.730 --> 02:03:09.030
+Jitendra K: right, for L1 models, I've changed the penalty coefficient to L1.
+
+888
+02:03:09.380 --> 02:03:10.899
+Jitendra K: And this is what I'm getting.
+
+889
+02:03:11.860 --> 02:03:17.890
+Jitendra K: Now, if I look into the… Other scenarios…
+
+890
+02:03:18.130 --> 02:03:21.489
+Jitendra K: Right? Including Hubble loss, including quantile.
+
+891
+02:03:22.310 --> 02:03:25.359
+Jitendra K: So you can see that I'm getting different values.
+
+892
+02:03:27.250 --> 02:03:31.930
+Jitendra K: Right? So, let's try to first understand, the…
+
+893
+02:03:32.830 --> 02:03:35.850
+Jitendra K: Overloss, what are we trying to solve?
+
+894
+02:03:36.750 --> 02:03:42.720
+Jitendra K: So, humor loss, by default, It's a safe choice.
+
+895
+02:03:43.390 --> 02:03:48.820
+Jitendra K: Right? So imagine that you're a data scientist and your boss says, build a model to predict delivery times.
+
+896
+02:03:49.040 --> 02:03:52.580
+Jitendra K: I don't know if our data is clean or not, just make it work.
+
+897
+02:03:52.990 --> 02:03:55.500
+Jitendra K: Same thing, your boss may come and say.
+
+898
+02:03:55.690 --> 02:03:59.969
+Jitendra K: This is the data that we have, and then you have to predict the car prices.
+
+899
+02:04:00.610 --> 02:04:06.079
+Jitendra K: I don't know if the data is good or bad. So in this dilemma, you're going to use MSC or ME?
+
+900
+02:04:07.290 --> 02:04:10.409
+Jitendra K: So, the Huber loss will be a safe default choice.
+
+901
+02:04:10.530 --> 02:04:12.270
+Jitendra K: There's an outlier impact.
+
+902
+02:04:13.210 --> 02:04:18.330
+Jitendra K: So your model will obviously… Impacted.
+
+903
+02:04:18.760 --> 02:04:25.829
+Jitendra K: And if your data is clean, you will preserve… you will have a lower precision, and make bigger errors on normal delivery.
+
+904
+02:04:26.020 --> 02:04:31.679
+Jitendra K: So basically, this is where you have to understand the art of solving the problem with the help of…
+
+905
+02:04:32.390 --> 02:04:37.450
+Jitendra K: Hypothesis. So here, a hypothesis will say that… you will assume that your data will be bad.
+
+906
+02:04:37.710 --> 02:04:39.720
+Jitendra K: Don't assume that your data will be good.
+
+907
+02:04:40.150 --> 02:04:41.880
+Jitendra K: Right? If your boss is coming…
+
+908
+02:04:42.240 --> 02:04:45.290
+Jitendra K: And asking you to create a model, assume that your data is bad.
+
+909
+02:04:46.130 --> 02:04:51.230
+Jitendra K: If you commit that your data is good, Then…
+
+910
+02:04:51.990 --> 02:04:54.809
+Jitendra K: Then you will be in serious trouble.
+
+911
+02:04:55.850 --> 02:04:57.880
+Jitendra K: The expectation will be high.
+
+912
+02:04:58.620 --> 02:05:02.370
+Jitendra K: You will have less time to perform experimentation.
+
+913
+02:05:02.940 --> 02:05:04.589
+Jitendra K: And you will get into…
+
+914
+02:05:05.060 --> 02:05:12.529
+Jitendra K: Delivery pressure. So just try to analyze the data first before committing anything. You cannot say the data is good or bad.
+
+915
+02:05:13.530 --> 02:05:18.849
+Jitendra K: And that's the reason he required a team of data engineers to help and analyze this data, but…
+
+916
+02:05:19.180 --> 02:05:22.840
+Jitendra K: Right now, the data science positions are becoming full start.
+
+917
+02:05:23.100 --> 02:05:25.300
+Jitendra K: So you might have to work on data as well.
+
+918
+02:05:26.530 --> 02:05:33.429
+Jitendra K: Right, so when you're trying to understand the quality of the data, it's always a tricky question, and your manager will definitely going to ask this question.
+
+919
+02:05:34.320 --> 02:05:37.090
+Jitendra K: And if you say to… Just because of…
+
+920
+02:05:37.570 --> 02:05:40.099
+Jitendra K: Peer pressure, you're saying that data is good.
+
+921
+02:05:40.420 --> 02:05:43.179
+Jitendra K: Then you're opening the gate for disaster.
+
+922
+02:05:43.300 --> 02:05:45.769
+Jitendra K: So make sure that you study your data well.
+
+923
+02:05:46.200 --> 02:05:48.300
+Jitendra K: Do not say data is good.
+
+924
+02:05:49.420 --> 02:05:51.939
+Jitendra K: Until or unless you're very sure about it.
+
+925
+02:05:52.860 --> 02:05:53.640
+Jitendra K: Right?
+
+926
+02:05:53.830 --> 02:06:05.239
+Jitendra K: So, here I'm saying the data is bad, that is my hypothesis, right? So, data is bad, having a lot of issue, a lot of impact of my outliers, a lot of noise in my data, and that is also…
+
+927
+02:06:05.340 --> 02:06:07.869
+Jitendra K: Coming along with the help of these functions.
+
+928
+02:06:08.230 --> 02:06:11.880
+Jitendra K: Now, when I'm saying that I would like to use Huber loss versus quantile loss.
+
+929
+02:06:12.370 --> 02:06:22.069
+Jitendra K: So, when I was in dilemma that my data may or may not be good, may or may not be bad, in that case, I'm using hybrid functions to come up with this approach.
+
+930
+02:06:23.890 --> 02:06:26.869
+Jitendra K: Now… If I have to explain.
+
+931
+02:06:27.520 --> 02:06:31.079
+Jitendra K: In a nutshell, that how my model performed.
+
+932
+02:06:31.620 --> 02:06:32.470
+Jitendra K: Right?
+
+933
+02:06:33.520 --> 02:06:35.310
+Jitendra K: So, how to read D?
+
+934
+02:06:36.300 --> 02:06:39.820
+Jitendra K: R squared, Versus MAE.
+
+935
+02:06:39.940 --> 02:06:43.410
+Jitendra K: Versus MSE, versus Hubel Laws.
+
+936
+02:06:43.720 --> 02:06:49.499
+Jitendra K: Versus quantile loss, right? So all these things we are going to… Read from this outcome.
+
+937
+02:06:49.890 --> 02:06:57.750
+Jitendra K: Now, if I have to read… So, your model, R-square value, says that…
+
+938
+02:06:58.890 --> 02:07:02.650
+Jitendra K: Your model is able to explain 82% of the variance during training.
+
+939
+02:07:04.370 --> 02:07:10.100
+Jitendra K: And only 32% variance in testing. That means your model is having serious overfitting.
+
+940
+02:07:11.940 --> 02:07:21.060
+Jitendra K: So R-square means percentage of variance in miles per gallon explained by your model. So your model only explained 32% of the variance, of which
+
+941
+02:07:21.260 --> 02:07:23.940
+Jitendra K: Why the car have different miles per gallon?
+
+942
+02:07:24.580 --> 02:07:28.639
+Jitendra K: And the other 67.78% is unexplained.
+
+943
+02:07:29.020 --> 02:07:33.770
+Jitendra K: It could be due to noise, outliers, or you're not using right features.
+
+944
+02:07:37.110 --> 02:07:42.550
+Jitendra K: So your model just captured 32% Of the variance explainability.
+
+945
+02:07:42.670 --> 02:07:45.040
+Jitendra K: And 32% is very poor.
+
+946
+02:07:49.520 --> 02:07:53.570
+Jitendra K: Similarly, if I look into MSE.
+
+947
+02:07:54.770 --> 02:07:58.670
+Jitendra K: Which is 130… 133.61.
+
+948
+02:07:59.320 --> 02:08:04.180
+Jitendra K: So your model predict… are off by 11.6.
+
+949
+02:08:05.390 --> 02:08:09.960
+Jitendra K: Miles per gallon, on average, and your car gets 30 mileage per gallon.
+
+950
+02:08:10.640 --> 02:08:14.230
+Jitendra K: Your model predicts 18 or 42 miles per gallon.
+
+951
+02:08:15.320 --> 02:08:18.880
+Jitendra K: So that means your model heavily punish big mistake.
+
+952
+02:08:24.170 --> 02:08:29.059
+Jitendra K: So, MSE, if it is close to zero, which means it's the perfect prediction.
+
+953
+02:08:29.300 --> 02:08:34.350
+Jitendra K: When MSC is increasing, you can see that my model's error rate is also increasing.
+
+954
+02:08:35.000 --> 02:08:41.590
+Jitendra K: 100 plus MSE, only general, general speaking, 10 to 50 is acceptable.
+
+955
+02:08:42.780 --> 02:08:46.160
+Jitendra K: 100 plus MSE is bad.
+
+956
+02:08:46.610 --> 02:08:48.630
+Jitendra K: That means it is a very large error.
+
+957
+02:08:50.530 --> 02:08:55.399
+Jitendra K: Mean absolute error, you can see 6.47 and 2.55.
+
+958
+02:08:55.730 --> 02:09:00.000
+Jitendra K: So your model is off by 6.47 miles per gallon, on an average.
+
+959
+02:09:00.250 --> 02:09:09.239
+Jitendra K: A car that gets 30 miles per gallon, you're predicting it to be 23.5 or 36.5. Maybe on higher side or lower side.
+
+960
+02:09:11.160 --> 02:09:16.040
+Jitendra K: And you can see that the values are not very… changed…
+
+961
+02:09:16.240 --> 02:09:22.719
+Jitendra K: as compared to MSE, where you have exponential growth, but here you're seeing a linear growth. That means
+
+962
+02:09:22.960 --> 02:09:27.490
+Jitendra K: the square magnitude… Works pretty well for this cost function.
+
+963
+02:09:31.680 --> 02:09:34.859
+Jitendra K: So, why this model is overfit?
+
+964
+02:09:36.240 --> 02:09:39.939
+Jitendra K: For several reasons, your model is learning from the noise.
+
+965
+02:09:40.580 --> 02:09:43.679
+Jitendra K: And it memorized the training data, including outliers.
+
+966
+02:09:44.520 --> 02:09:49.180
+Jitendra K: And when it comes to generalization, it cannot generalize to a new car.
+
+967
+02:09:53.100 --> 02:09:57.289
+Jitendra K: That you… that means your model works like a…
+
+968
+02:09:57.890 --> 02:10:02.809
+Jitendra K: Student who know what paper, what are the questions which is going to appear in the paper.
+
+969
+02:10:03.480 --> 02:10:10.230
+Jitendra K: But, during the final exam, There's a trait played by the authority that they have changed the questions.
+
+970
+02:10:13.330 --> 02:10:16.340
+Jitendra K: It's very similar to this. That is called overfitting.
+
+971
+02:10:19.460 --> 02:10:28.340
+Jitendra K: Huber is not R-square. Hoover is, basically a mix of MSE and MAE. It's not R-square.
+
+972
+02:10:36.500 --> 02:10:42.190
+Jitendra K: Okay, so… So, basically, let's revisit the functions that we have used.
+
+973
+02:10:42.930 --> 02:10:44.939
+Jitendra K: Now, let me show you the plots.
+
+974
+02:10:47.790 --> 02:10:53.260
+Jitendra K: So, I'm a C, IL2, Versus M-A-E-L-1.
+
+975
+02:10:53.680 --> 02:10:56.720
+Jitendra K: and the Huber loss, where I'm using a hybrid function.
+
+976
+02:10:57.240 --> 02:11:00.529
+Jitendra K: Right, so look at the symmetry and the asymmetric curves.
+
+977
+02:11:05.790 --> 02:11:06.640
+Jitendra K: Right?
+
+978
+02:11:06.880 --> 02:11:10.949
+Jitendra K: So if I have to explain which particular function is able to explain the errors?
+
+979
+02:11:13.580 --> 02:11:21.390
+Jitendra K: No, I have just added by my own. I can remove the outliers as well, and rerun, and this way.
+
+980
+02:11:21.720 --> 02:11:26.170
+Jitendra K: Yeah, the model will be more… Efficient.
+
+981
+02:11:26.490 --> 02:11:27.719
+Jitendra K: And we'll see that.
+
+982
+02:11:38.770 --> 02:11:43.169
+Jitendra K: Yeah, we can see that, how the impact of outliers
+
+983
+02:11:43.450 --> 02:11:45.899
+Jitendra K: It's drastically impacting the model outcome.
+
+984
+02:11:51.440 --> 02:11:53.800
+Jitendra K: But with Outlier, this is what we are getting.
+
+985
+02:11:54.700 --> 02:12:03.309
+Jitendra K: Now, let me run without outliers. So, the winner for this… Use case is MAC function.
+
+986
+02:12:04.020 --> 02:12:09.460
+Jitendra K: Because we are getting… Lowest MSC with L2 penalty coefficient.
+
+987
+02:12:09.850 --> 02:12:15.180
+Jitendra K: But let me try to run this with the help of… original data.
+
+988
+02:12:18.270 --> 02:12:19.120
+Jitendra K: Yes.
+
+989
+02:12:19.410 --> 02:12:26.410
+Jitendra K: I would like to show you the fundamental of outliers, like which particular cost function is sensitive to outliers.
+
+990
+02:12:27.350 --> 02:12:34.770
+Jitendra K: Right, so you can see that this model is highly sensitive to outliers because of… We deliberately added them.
+
+991
+02:12:43.320 --> 02:12:46.790
+Jitendra K: Now I'm going to run without outliers and see…
+
+992
+02:12:46.960 --> 02:12:51.210
+Jitendra K: How the model generalized, and it… you will see the improvement in the model as well.
+
+993
+02:12:51.330 --> 02:12:55.020
+Jitendra K: A better ME, better MSE, and better R-square.
+
+994
+02:12:55.150 --> 02:13:00.029
+Jitendra K: And of course, the overfitting of the model will also reduce. Let me run this.
+
+995
+02:13:01.320 --> 02:13:03.419
+Jitendra K: I will share both the code with you.
+
+996
+02:13:09.320 --> 02:13:16.230
+Jitendra K: Now my… R-square has been increased, and you can see it's not overfit now, anymore.
+
+997
+02:13:17.190 --> 02:13:19.869
+Jitendra K: Right? So I will share both the quotes with you guys.
+
+998
+02:13:20.460 --> 02:13:22.900
+Jitendra K: So that you can try and let me know.
+
+999
+02:13:24.230 --> 02:13:25.840
+Jitendra K: What are the…
+
+1000
+02:13:26.720 --> 02:13:32.450
+Jitendra K: things that you're getting, so you can see I'm getting a better result as compared to the previous version.
+
+1001
+02:13:32.750 --> 02:13:34.889
+Jitendra K: So let me share this code with everyone.
+
+1002
+02:13:35.190 --> 02:13:37.899
+Jitendra K: And, I would like you to go
+
+1003
+02:13:38.500 --> 02:13:43.410
+Jitendra K: Each line by code, each line, one by one, and let me know any thought.
+
+1004
+02:13:44.150 --> 02:13:46.849
+Jitendra K: If you feel any doubt, please do ask.
+
+1005
+02:13:47.500 --> 02:13:50.800
+Jitendra K: I'm… I will be here to help you to understand this.
+
+1006
+02:13:51.680 --> 02:13:54.209
+Jitendra K: So, let me share this quote file.
+
+1007
+02:13:57.750 --> 02:14:04.599
+Jitendra K: Yeah, share the code file, it will be soon appear in your LMS, sorry, not LMS, in your chat.
+
+1008
+02:14:05.720 --> 02:14:08.470
+Jitendra K: So please refer to this file and let me know your thought.
+
+1009
+02:20:55.460 --> 02:21:00.430
+Jitendra K: Okay, why are the training MSC, MAE values, and test MAC and MSC values are different?
+
+1010
+02:21:00.580 --> 02:21:02.630
+Jitendra K: That's the whole idea of,
+
+1011
+02:21:03.770 --> 02:21:07.219
+Jitendra K: overfitting, right? Your models have tendency to overfit.
+
+1012
+02:21:07.570 --> 02:21:11.319
+Jitendra K: Because when you're training your data, you're using… let's say this is the…
+
+1013
+02:21:12.260 --> 02:21:14.750
+Jitendra K: dataset that I'm using to train my model.
+
+1014
+02:21:15.190 --> 02:21:18.369
+Jitendra K: So I'm using the 70% of my data to train.
+
+1015
+02:21:19.470 --> 02:21:22.229
+Jitendra K: Right? So my model run… learns really well.
+
+1016
+02:21:22.710 --> 02:21:27.699
+Jitendra K: I understand how to calculate MAE, or sorry, miles per gallon.
+
+1017
+02:21:28.050 --> 02:21:32.270
+Jitendra K: But when it generalized on unseen data, it failed to generalize.
+
+1018
+02:21:33.710 --> 02:21:38.280
+Jitendra K: Because during training, my model learns from additional noise.
+
+1019
+02:21:38.760 --> 02:21:42.450
+Jitendra K: And this noise factor will change in the test dataset.
+
+1020
+02:21:43.480 --> 02:21:49.270
+Jitendra K: The impact of outliers would be high in train, and it can be less, or maybe even high.
+
+1021
+02:21:50.000 --> 02:21:53.480
+Jitendra K: Right? So that's the reason your model was not able to understand.
+
+1022
+02:21:54.130 --> 02:21:59.120
+Jitendra K: The difference of distribution between the actual and the predicted data sets.
+
+1023
+02:22:00.830 --> 02:22:04.590
+Jitendra K: And that's the reason it is not able to explain the maximum variance.
+
+1024
+02:22:06.240 --> 02:22:08.170
+Jitendra K: On two different data samples.
+
+1025
+02:22:16.080 --> 02:22:24.020
+Jitendra K: Yes, so model coefficient… Okay, so, like, so Huber coefficient that you're using here, right?
+
+1026
+02:22:27.470 --> 02:22:29.689
+Jitendra K: So I'm explaining the gap as well.
+
+1027
+02:22:30.720 --> 02:22:34.559
+Jitendra K: So… So basically, what we are trying to do is…
+
+1028
+02:22:35.050 --> 02:22:39.849
+Jitendra K: When we are saying that Hubel Laws is a combination of both MSC and MAE,
+
+1029
+02:22:40.670 --> 02:22:42.560
+Jitendra K: Right? So this is what we are getting.
+
+1030
+02:22:42.850 --> 02:22:49.330
+Jitendra K: Now… Here you can see that the MSC values, which is nothing but the…
+
+1031
+02:22:49.630 --> 02:22:58.259
+Jitendra K: 1 over an actual MPG minus predicted MPG square magnitude. So on training, the average square address is 11.27.
+
+1032
+02:22:59.000 --> 02:23:02.289
+Jitendra K: And the square root value is 2.3.36.
+
+1033
+02:23:03.740 --> 02:23:05.089
+Jitendra K: Right, which I'm getting.
+
+1034
+02:23:05.900 --> 02:23:13.480
+Jitendra K: Which is the RMSE value, so your model typically having a prediction error during training, which is plus-minus 3.36 gallons.
+
+1035
+02:23:13.670 --> 02:23:17.029
+Jitendra K: miles per gallon. So, actual mpg could be 25.
+
+1036
+02:23:17.310 --> 02:23:22.219
+Jitendra K: Predicted could be 21.64 or 28.36.
+
+1037
+02:23:22.840 --> 02:23:23.990
+Jitendra K: Is it good?
+
+1038
+02:23:24.680 --> 02:23:27.900
+Jitendra K: Miles per gallon range from 9 to 46.
+
+1039
+02:23:28.570 --> 02:23:33.369
+Jitendra K: So, error of 3.36, only 9% of the range is okay.
+
+1040
+02:23:35.090 --> 02:23:35.980
+Jitendra K: Right?
+
+1041
+02:23:36.480 --> 02:23:38.220
+Jitendra K: If I look into MAE,
+
+1042
+02:23:38.440 --> 02:23:46.180
+Jitendra K: which is 1 over n actual mileage per gallon minus prediction miles per gallon. I can say on an average the predictions are off by 2.50.
+
+1043
+02:23:46.490 --> 02:23:47.940
+Jitendra K: without squaring.
+
+1044
+02:23:48.170 --> 02:23:50.239
+Jitendra K: This is a typical absolute error.
+
+1045
+02:23:50.400 --> 02:23:55.389
+Jitendra K: So… Now you can see and debate why MA is smaller than RMSE.
+
+1046
+02:23:55.630 --> 02:23:57.929
+Jitendra K: 2.5 versus 3.36.
+
+1047
+02:23:58.130 --> 02:24:03.410
+Jitendra K: Because MSC squares error give more weight to large mistakes.
+
+1048
+02:24:07.100 --> 02:24:10.639
+Jitendra K: So I can say that MA is good for small errors.
+
+1049
+02:24:11.340 --> 02:24:13.829
+Jitendra K: But MSC is good for large errors.
+
+1050
+02:24:14.010 --> 02:24:16.110
+Jitendra K: Now, in Huberloss, I'm using both.
+
+1051
+02:24:19.700 --> 02:24:23.900
+Jitendra K: Right, so that means this R squared, is also improved.
+
+1052
+02:24:32.410 --> 02:24:34.880
+Jitendra K: Alright, any other question apart from this?
+
+1053
+02:24:42.540 --> 02:24:49.809
+Jitendra K: In order… For my model to perform best on unseen data, the data should be good, means less outlier.
+
+1054
+02:24:50.230 --> 02:24:52.420
+Jitendra K: In order to best…
+
+1055
+02:24:54.630 --> 02:24:59.360
+Jitendra K: Yes, so you have to perform a treatment on full dataset, not on train and test.
+
+1056
+02:24:59.750 --> 02:25:02.229
+Jitendra K: You have to use the same approach on train and test.
+
+1057
+02:25:02.860 --> 02:25:05.580
+Jitendra K: So you have to understand your data, that's a very important thing.
+
+1058
+02:25:06.460 --> 02:25:11.510
+Jitendra K: Once you have a good understanding that your data is… Clean, you have…
+
+1059
+02:25:12.690 --> 02:25:19.059
+Jitendra K: Maybe features can come later, features may be additive in nature. You can keep on adding features, new features.
+
+1060
+02:25:19.330 --> 02:25:21.449
+Jitendra K: But you have to keep refining
+
+1061
+02:25:21.760 --> 02:25:25.479
+Jitendra K: your approach by saying that if I'm adding feature, what is the impact of?
+
+1062
+02:25:25.600 --> 02:25:27.100
+Jitendra K: adding the features.
+
+1063
+02:25:27.430 --> 02:25:31.390
+Jitendra K: How my model is deterministic in terms of the behavior.
+
+1064
+02:25:32.240 --> 02:25:36.470
+Jitendra K: How my model is sensitive to local outliers, and stuff like that?
+
+1065
+02:25:47.470 --> 02:25:49.170
+Jitendra K: Is it clear to everyone?
+
+1066
+02:25:53.910 --> 02:25:56.129
+Jitendra K: Any question on the code?
+
+1067
+02:25:57.120 --> 02:25:58.330
+Jitendra K: concept.
+
+1068
+02:25:59.590 --> 02:26:02.410
+Jitendra K: Cost function, anything that you would like to ask?
+
+1069
+02:26:17.160 --> 02:26:23.059
+Jitendra K: outliers… file planning data differently. If we…
+
+1070
+02:26:23.870 --> 02:26:36.609
+Jitendra K: remove outlier, then it may learn from same pattern of data. Outlier is like, extreme data points, where a model will start learning from extreme cases. Let's say…
+
+1071
+02:26:36.790 --> 02:26:39.379
+Jitendra K: Some cars may have good miles per gallon.
+
+1072
+02:26:40.190 --> 02:26:43.599
+Jitendra K: But on an average, how many cars have good miles per gallon?
+
+1073
+02:26:43.850 --> 02:26:47.860
+Jitendra K: Some cars may have even worse miles per gallon.
+
+1074
+02:26:48.440 --> 02:26:51.490
+Jitendra K: Right? So that is where you have to generalize.
+
+1075
+02:26:52.960 --> 02:27:01.840
+Jitendra K: And if your model is not able to generalize properly, it learns from outliers, that means the model loses differentiable part.
+
+1076
+02:27:03.430 --> 02:27:05.600
+Jitendra K: Because it's learning from the noise.
+
+1077
+02:27:09.560 --> 02:27:10.830
+Jitendra K: Right?
+
+1078
+02:27:13.190 --> 02:27:18.099
+Jitendra K: What is Huber loss value? I mean, is it a model or generic cost function? It's a cost function.
+
+1079
+02:27:20.280 --> 02:27:22.069
+Jitendra K: Where we are going to unwrap.
+
+1080
+02:27:22.390 --> 02:27:23.330
+Jitendra K: both.
+
+1081
+02:27:26.060 --> 02:27:27.789
+Jitendra K: I'm a CNM, I'm a…
+
+1082
+02:27:37.220 --> 02:27:40.249
+Jitendra K: Yeah, Hobo loss, we are calculating it for…
+
+1083
+02:27:51.790 --> 02:27:53.220
+Jitendra K: Okay, so…
+
+1084
+02:27:53.510 --> 02:27:58.840
+Jitendra K: Okay, so, okay, now the question is why we are using individual and why we are using group pi.
+
+1085
+02:27:59.530 --> 02:28:03.619
+Jitendra K: Which is a good question, but how will you generalize which one is better?
+
+1086
+02:28:04.530 --> 02:28:06.989
+Jitendra K: If I'm… until and unless I'm not running it.
+
+1087
+02:28:07.440 --> 02:28:14.899
+Jitendra K: how can I generalize, right? So that is the whole idea that I'm generalizing, that instead of relying on one, let's use both.
+
+1088
+02:28:15.500 --> 02:28:16.800
+Jitendra K: And see the result.
+
+1089
+02:28:18.690 --> 02:28:22.420
+Jitendra K: And here, remember, I'm using an L1 and an L2 form, which is different.
+
+1090
+02:28:22.780 --> 02:28:28.160
+Jitendra K: This is the penalty coefficient that I'm adding, which is different. That's the reason the results are also different here.
+
+1091
+02:28:31.630 --> 02:28:34.180
+Jitendra K: Right? Now you can say that Y…
+
+1092
+02:28:35.100 --> 02:28:39.949
+Jitendra K: We are running 3 different experimentations to calculate the same variables.
+
+1093
+02:28:40.290 --> 02:28:44.000
+Jitendra K: Right, so why Hubert loss? Now, the question could be, why Hubert loss?
+
+1094
+02:28:45.480 --> 02:28:46.310
+Jitendra K: Right?
+
+1095
+02:28:46.660 --> 02:28:51.980
+Jitendra K: So right, the answer is, when you are trying to generalize a model at the beginning.
+
+1096
+02:28:53.630 --> 02:28:57.349
+Jitendra K: you're not sure where I'm going to have the impact.
+
+1097
+02:28:57.610 --> 02:29:02.809
+Jitendra K: Is it due to the outlier? My model is good quality, bad quality data handling?
+
+1098
+02:29:03.030 --> 02:29:08.470
+Jitendra K: So that is where you're going to have both into consideration.
+
+1099
+02:29:08.580 --> 02:29:11.829
+Jitendra K: And to remove the paradox, like…
+
+1100
+02:29:12.470 --> 02:29:19.260
+Jitendra K: worse MSC than MAE, the better generalization, so I'm going to use Hubel Laws.
+
+1101
+02:29:26.100 --> 02:29:30.559
+Jitendra K: For MSC, why didn't we calculate the Hubel loss? We are calculating the Hubel loss, right?
+
+1102
+02:29:30.940 --> 02:29:32.680
+Jitendra K: Here we are calculating both.
+
+1103
+02:29:33.680 --> 02:29:35.810
+Jitendra K: For individual cost function, we should not.
+
+1104
+02:29:44.740 --> 02:29:47.510
+Jitendra K: Quantile, 50% I'm keeping.
+
+1105
+02:29:48.890 --> 02:29:54.669
+Jitendra K: Because of the median value. So the quantile range of 0.5 means a median, yeah, it's a percentile.
+
+1106
+02:29:56.310 --> 02:29:58.539
+Jitendra K: So I'm kind of keeping it as a median range.
+
+1107
+02:29:58.900 --> 02:30:05.600
+Jitendra K: Maybe you can increase and decrease and try to see. This will be an experimentation design. You can see with change in…
+
+1108
+02:30:06.010 --> 02:30:08.639
+Jitendra K: The value of quantile, you will see a different result.
+
+1109
+02:30:10.590 --> 02:30:13.819
+Jitendra K: But generally speaking, I'm looking for a median range.
+
+1110
+02:30:14.300 --> 02:30:18.210
+Jitendra K: to… put forth.
+
+1111
+02:30:18.720 --> 02:30:23.350
+Jitendra K: my distribution… On a median scale.
+
+1112
+02:30:23.640 --> 02:30:24.739
+Jitendra K: this point.
+
+1113
+02:30:25.140 --> 02:30:26.739
+Jitendra K: That's why it is 50%.
+
+1114
+02:30:40.950 --> 02:30:43.959
+Jitendra K: How do you differentiate between a model and a performance metrics?
+
+1115
+02:30:44.450 --> 02:30:51.770
+Jitendra K: So, model means, it's like… let's say…
+
+1116
+02:30:51.970 --> 02:30:55.470
+Jitendra K: You went to see a RAM fork, right, of different models.
+
+1117
+02:30:56.300 --> 02:31:02.669
+Jitendra K: And, you are a judge. You're judging the outfit that she's wearing, the models.
+
+1118
+02:31:03.340 --> 02:31:06.399
+Jitendra K: Right, and then you're ranking them. So how will you rank them?
+
+1119
+02:31:06.950 --> 02:31:12.129
+Jitendra K: You will rank them by their attires, how they are walking, how she's walking.
+
+1120
+02:31:12.450 --> 02:31:21.439
+Jitendra K: In the floor, and then you decide to give the marks, but they are not just doing one time, they are walking multiple times with different outfits.
+
+1121
+02:31:22.250 --> 02:31:27.699
+Jitendra K: Right? So, when you're… when you're a judge, or a jury, and you're deciding
+
+1122
+02:31:28.010 --> 02:31:32.289
+Jitendra K: Which particular outfit is best and worst.
+
+1123
+02:31:32.850 --> 02:31:37.420
+Jitendra K: That depends upon the model which is performing on the floor.
+
+1124
+02:31:39.850 --> 02:31:44.259
+Jitendra K: Because as a judge, you cannot be able to understand the quality of the attire.
+
+1125
+02:31:45.070 --> 02:31:51.160
+Jitendra K: Right, so that is where… The performance will depend upon the model.
+
+1126
+02:31:51.280 --> 02:31:56.269
+Jitendra K: And what are you gauging as a judge? You're gauging as a judge the cost functions.
+
+1127
+02:31:57.090 --> 02:32:00.999
+Jitendra K: Right? We are gauging the cost functions, like how the model performs.
+
+1128
+02:32:13.150 --> 02:32:21.989
+Jitendra K: better the R-square, you can say the model fits. If you change the parameter and your R-square decrease further, then you will say that it will have
+
+1129
+02:32:22.370 --> 02:32:24.139
+Jitendra K: Adverse impact on the model.
+
+1130
+02:32:24.690 --> 02:32:29.830
+Jitendra K: So, that is where you have to do a cross-validation. We'll talk about cross-validation.
+
+1131
+02:32:31.080 --> 02:32:40.029
+Jitendra K: That is where we are going to also talk about hyperparameter tuning using cross-validation. So when you're performing a cross-validation, you will come to know that which parameter
+
+1132
+02:32:40.420 --> 02:32:46.430
+Jitendra K: Is optimal to operate on a model, implicit design.
+
+1133
+02:32:46.730 --> 02:32:53.940
+Jitendra K: And when you change the parameter, what is the impact? It can be adverse, it can be favorable as well. It can improve the model, it can…
+
+1134
+02:32:54.140 --> 02:32:56.930
+Jitendra K: Decrease the model efficacy as well.
+
+1135
+02:32:57.580 --> 02:33:02.659
+Jitendra K: So both things will be considered, and then we'll see that sweet spot fine-tuning.
+
+1136
+02:33:02.790 --> 02:33:08.089
+Jitendra K: The perfect fine-tuning and how to find that sweet spot is something
+
+1137
+02:33:08.400 --> 02:33:12.090
+Jitendra K: Which we'll do, with hyperparameter fine-tuning.
+
+1138
+02:33:15.590 --> 02:33:21.419
+Jitendra K: So there is no performance metrics, Huber loss like MSE, we always say MSE and… yes.
+
+1139
+02:33:21.820 --> 02:33:26.020
+Jitendra K: So, Huberloss is just like, hybrid function.
+
+1140
+02:33:26.960 --> 02:33:32.810
+Jitendra K: right, comprised of both MSC and ME. So, in general speaking, we have 5 cost functions.
+
+1141
+02:33:33.100 --> 02:33:44.830
+Jitendra K: MSE, MA, R-square, RMSE… And, you can say… Mean Absolute Percentage Error, map.
+
+1142
+02:33:45.210 --> 02:33:46.570
+Jitendra K: These 5 are there.
+
+1143
+02:33:46.710 --> 02:33:47.760
+Jitendra K: Nothing else.
+
+1144
+02:33:55.160 --> 02:33:57.849
+Jitendra K: And the remaining thing I drive from it, so…
+
+1145
+02:33:58.090 --> 02:34:03.529
+Jitendra K: It's like a hybrid, so, again, as I've mentioned, so, you have to start with a project.
+
+1146
+02:34:03.860 --> 02:34:11.300
+Jitendra K: And, let's say… You're not familiar with the data.
+
+1147
+02:34:12.540 --> 02:34:18.790
+Jitendra K: you're not familiar with the problem statement, right? And you start… you just joined the company, and then…
+
+1148
+02:34:19.420 --> 02:34:24.490
+Jitendra K: All of a sudden, the problem statement has been assigned, and then you're starting with the project.
+
+1149
+02:34:26.110 --> 02:34:30.109
+Jitendra K: Right? So, you cannot make an educated guess that data is code bad.
+
+1150
+02:34:30.420 --> 02:34:33.040
+Jitendra K: You have to start somewhere, and that is what…
+
+1151
+02:34:33.620 --> 02:34:35.989
+Jitendra K: the Hobel loss will give you, as a…
+
+1152
+02:34:36.980 --> 02:34:42.090
+Jitendra K: Quick fix, or quick, turnaround to implement a cost function.
+
+1153
+02:34:51.320 --> 02:34:54.950
+Jitendra K: Alright, so any further question, guys, on this? Anything?
+
+1154
+02:35:14.020 --> 02:35:19.619
+Jitendra K: Once we have… Model, coefficient, and then new sample value come in.
+
+1155
+02:35:19.740 --> 02:35:26.350
+Jitendra K: Yes, it can, and this is where, let's say you tested a model, you deploy the model.
+
+1156
+02:35:26.490 --> 02:35:29.880
+Jitendra K: But in production, your model failed. That also can happen.
+
+1157
+02:35:30.450 --> 02:35:33.430
+Jitendra K: But it depends upon how did you test the model.
+
+1158
+02:35:34.120 --> 02:35:36.849
+Jitendra K: Right? Before rolling it out in production.
+
+1159
+02:35:38.750 --> 02:35:44.259
+Jitendra K: So you have to test your model thoroughly before rolling it out into production. It has go through several cycles.
+
+1160
+02:35:44.680 --> 02:35:47.830
+Jitendra K: Before you can say that I'm ready for production.
+
+1161
+02:35:47.930 --> 02:35:55.000
+Jitendra K: There isn't, again, Something which is important, and,
+
+1162
+02:35:55.830 --> 02:36:02.500
+Jitendra K: It is part of a governance as well, so governance and maybe ethical consideration of the model is very important.
+
+1163
+02:36:02.930 --> 02:36:11.310
+Jitendra K: And, if you are not generalizing your model for all use cases, then, of course, your governance team will not allow you to deploy the model as well.
+
+1164
+02:37:06.890 --> 02:37:11.400
+Jitendra K: Okay, now what we are going to do is, we have 10 more minutes, so we'll conclude with a quiz.
+
+1165
+02:37:11.980 --> 02:37:17.460
+Jitendra K: And, let me show you the quiz, and then I would like everybody to participate in this quiz.
+
+1166
+02:37:18.000 --> 02:37:23.320
+Jitendra K: And then we will have a poll, so… So let's summarize the class.
+
+1167
+02:37:23.860 --> 02:37:25.600
+Jitendra K: With the quiz, and then…
+
+1168
+02:37:26.100 --> 02:37:31.609
+Jitendra K: we'll move on to the poll. So the quiz have 10 questions. Again, it is gonna be,
+
+1169
+02:37:33.120 --> 02:37:38.910
+Jitendra K: a single, I would say, what do you call, objective, right? One answer will be correct.
+
+1170
+02:37:39.180 --> 02:37:44.149
+Jitendra K: And then, you have to… Just answer in the chat.
+
+1171
+02:37:44.400 --> 02:37:50.370
+Jitendra K: Which… which you feel… The correct answer is… And then…
+
+1172
+02:37:51.130 --> 02:37:53.439
+Jitendra K: I will explain why this answer is correct.
+
+1173
+02:37:54.010 --> 02:37:54.710
+Jitendra K: Alright?
+
+1174
+02:37:55.090 --> 02:37:57.279
+Jitendra K: So, the first question is,
+
+1175
+02:37:58.570 --> 02:38:04.390
+Jitendra K: What does MSC stands for, and how does it penalize the error? Simple question, straightforward.
+
+1176
+02:38:04.970 --> 02:38:06.270
+Jitendra K: What is MSC?
+
+1177
+02:38:18.270 --> 02:38:21.369
+Jitendra K: One second, guys, I think I just lost your chat.
+
+1178
+02:38:52.170 --> 02:38:57.859
+Jitendra K: Yeah, the answer is… is 2, the mean square errors, so we understand the mean square errors.
+
+1179
+02:38:58.260 --> 02:39:03.310
+Jitendra K: Is nothing but… It will penalize the model heavily.
+
+1180
+02:39:03.640 --> 02:39:08.850
+Jitendra K: on… Large errors, specifically when we have an all-linear relationship.
+
+1181
+02:39:09.190 --> 02:39:11.419
+Jitendra K: That is where the second option is good.
+
+1182
+02:39:12.750 --> 02:39:17.890
+Jitendra K: So it is not… Maximum square error, but it's a mean square error.
+
+1183
+02:39:25.280 --> 02:39:29.070
+Jitendra K: Okay, now the second question is… If your dataset
+
+1184
+02:39:33.010 --> 02:39:34.350
+Jitendra K: If your dataset
+
+1185
+02:39:44.230 --> 02:39:45.260
+Jitendra K: Okay.
+
+1186
+02:39:46.140 --> 02:39:48.150
+Jitendra K: I can see a lot of answers.
+
+1187
+02:40:00.070 --> 02:40:02.029
+Jitendra K: B, okay?
+
+1188
+02:40:08.140 --> 02:40:11.090
+Jitendra K: Yeah, the correct answer is B, mean absolute error.
+
+1189
+02:40:11.420 --> 02:40:17.799
+Jitendra K: talks about linear penality, right? So unlike MSC, which is a square error, mean absolute error treats
+
+1190
+02:40:18.120 --> 02:40:24.710
+Jitendra K: Unit exactly, to the… Over… sorry, to the,
+
+1191
+02:40:26.350 --> 02:40:33.340
+Jitendra K: problem statement, let's say if I would like to predict miles per gallon, it is not going to convert miles per gallon into miles per gallon squared.
+
+1192
+02:40:33.710 --> 02:40:41.600
+Jitendra K: So treat all errors equally, and ignore outliers. Reverse to outliers, it will not ignore outliers, but robust to outliers.
+
+1193
+02:40:42.330 --> 02:40:47.650
+Jitendra K: So, I will use MAE, but it is heavily computationally extensive.
+
+1194
+02:40:49.850 --> 02:40:51.659
+Jitendra K: So, MA is the correct answer.
+
+1195
+02:40:53.100 --> 02:40:55.229
+Jitendra K: What does Hubel Laws do?
+
+1196
+02:40:56.270 --> 02:40:59.030
+Jitendra K: That makes it… A hybrid approach.
+
+1197
+02:41:06.660 --> 02:41:11.199
+Jitendra K: Yes, straightforward, sigma is the parameter, delta, sorry, not sigma.
+
+1198
+02:41:11.560 --> 02:41:17.200
+Jitendra K: That means the Hubel loss… switch between… both parameters.
+
+1199
+02:41:17.690 --> 02:41:22.360
+Jitendra K: And, in… The first contacts… contacts…
+
+1200
+02:41:22.610 --> 02:41:29.339
+Jitendra K: It is trying to work on heavy errors, large errors, and the second context, it is trying to work on small errors.
+
+1201
+02:41:29.690 --> 02:41:35.149
+Jitendra K: So if your model is able to generalize both small errors and heavy errors simultaneously.
+
+1202
+02:41:35.850 --> 02:41:38.899
+Jitendra K: So, your model will be perfect, right?
+
+1203
+02:41:39.690 --> 02:41:42.220
+Jitendra K: So that is the whole idea of football loss.
+
+1204
+02:41:42.920 --> 02:41:45.380
+Jitendra K: What does the R-square score measure?
+
+1205
+02:42:02.410 --> 02:42:06.599
+Jitendra K: Yes, the proportion of variance explained in the target predictor.
+
+1206
+02:42:07.690 --> 02:42:09.470
+Jitendra K: C is the correct answer.
+
+1207
+02:42:10.000 --> 02:42:17.530
+Jitendra K: Which is very… Important, so when you talk about R-square, it's a probabilitable range, 0 to 1.
+
+1208
+02:42:18.050 --> 02:42:22.520
+Jitendra K: So when you say model generalize well, so what is the generalization percentage?
+
+1209
+02:42:22.800 --> 02:42:39.280
+Jitendra K: That will be determined by R-squared. So, when we say generalized better, generalized well, so when we're saying it is generalized well, so what is the criteria? So, I can say 80% and above is a good, 80 to 90, and 90 and above is an excellent model.
+
+1210
+02:42:39.790 --> 02:42:51.419
+Jitendra K: Anything below 70, I will consider to be average model. Or even 50, lesser than 50, I will consider to be poor model, right? That is how, as a business, I've been using these models, and
+
+1211
+02:42:51.910 --> 02:42:57.160
+Jitendra K: The business will have different things to say, and they will say that, I need 90% and above.
+
+1212
+02:42:57.360 --> 02:43:03.069
+Jitendra K: Right? Why they need it, they will not explain it to you. But they need 90% and above.
+
+1213
+02:43:03.430 --> 02:43:10.680
+Jitendra K: They will say that I need a best model, right? So, the business implication for best model… would be…
+
+1214
+02:43:10.810 --> 02:43:15.040
+Jitendra K: More in terms of… use case fitments.
+
+1215
+02:43:15.390 --> 02:43:21.119
+Jitendra K: In… okay, I think we haven't discussed about this part, quantile regression, so I will skip this question.
+
+1216
+02:43:25.370 --> 02:43:30.510
+Jitendra K: Your model has a train MSC of 10 and test MSC of 120.
+
+1217
+02:43:30.650 --> 02:43:34.760
+Jitendra K: Mean square now, right? So what does this indicate?
+
+1218
+02:43:42.270 --> 02:43:45.260
+Jitendra K: Yes, it is a reverse case of overfitting.
+
+1219
+02:43:45.710 --> 02:43:47.110
+Jitendra K: It is underfitting.
+
+1220
+02:43:50.030 --> 02:43:51.909
+Jitendra K: The second answer, oohs.
+
+1221
+02:43:52.050 --> 02:43:53.880
+Jitendra K: Why it is showing overfitting?
+
+1222
+02:43:55.300 --> 02:44:01.799
+Jitendra K: Train is 10, and MSc of test is 120.
+
+1223
+02:44:02.030 --> 02:44:04.920
+Jitendra K: I think it's an incorrect answer, it's an underfit model.
+
+1224
+02:44:05.620 --> 02:44:07.730
+Jitendra K: The correct answer is underfit, I would say.
+
+1225
+02:44:10.140 --> 02:44:15.000
+Jitendra K: Okay, which loss function predicts the median instead of the mean?
+
+1226
+02:44:32.580 --> 02:44:36.759
+Jitendra K: Which loss function predict median instead of the mean?
+
+1227
+02:44:41.510 --> 02:44:43.799
+Jitendra K: The answer is A… sorry, B?
+
+1228
+02:44:43.960 --> 02:44:45.450
+Jitendra K: Mean absolute error.
+
+1229
+02:44:46.010 --> 02:44:47.210
+Jitendra K: Which is?
+
+1230
+02:44:47.530 --> 02:44:51.060
+Jitendra K: Predicting the median instead of the mean. Absolute.
+
+1231
+02:44:51.720 --> 02:44:53.050
+Jitendra K: Mean, right?
+
+1232
+02:44:53.610 --> 02:45:00.700
+Jitendra K: Mean… When your data is perfectly… let's say…
+
+1233
+02:45:01.830 --> 02:45:07.000
+Jitendra K: Skewed by outliers, and robust to outliers, these are two different scenarios.
+
+1234
+02:45:10.660 --> 02:45:15.180
+Jitendra K: Okay, what is the parameter over loss to be listed to?
+
+1235
+02:45:16.160 --> 02:45:24.130
+Jitendra K: So… just reading to… I think I'll share the code as well for that.
+
+1236
+02:45:30.390 --> 02:45:35.769
+Jitendra K: Now, the question is, why 1.35? 1.35 is the right answer, but why?
+
+1237
+02:45:36.310 --> 02:45:42.890
+Jitendra K: The reason being is… If I'm setting this parameter to be 1.5, your model…
+
+1238
+02:45:43.500 --> 02:45:49.710
+Jitendra K: will be 95% statically efficient compared to MSC on Gaussian data. Now, when I say Gaussian data.
+
+1239
+02:45:49.890 --> 02:45:55.409
+Jitendra K: I'm comparing 1.35 times of my data from both the sites.
+
+1240
+02:45:56.110 --> 02:46:01.350
+Jitendra K: So let me show you the 1.35 times of the Gaussian data. How does it look like?
+
+1241
+02:46:01.630 --> 02:46:04.780
+Jitendra K: 1.35 abortion data.
+
+1242
+02:46:05.540 --> 02:46:06.869
+Jitendra K: Looks like this.
+
+1243
+02:46:19.260 --> 02:46:23.800
+Jitendra K: So this is 1.5 times of… 1.35 times of your Gaussian data.
+
+1244
+02:46:24.440 --> 02:46:31.070
+Jitendra K: Okay, this is not the right answer… Yep.
+
+1245
+02:46:31.540 --> 02:46:32.620
+Jitendra K: this part.
+
+1246
+02:46:36.290 --> 02:46:42.460
+Jitendra K: So, basically, what I'm trying to say is… So it will be computational…
+
+1247
+02:46:44.030 --> 02:46:49.819
+Jitendra K: Not computational, statistically efficient, right? When you're covering the broader range of data.
+
+1248
+02:46:52.050 --> 02:46:55.590
+Jitendra K: Okay, last two questions. The first question, the second last question is…
+
+1249
+02:46:55.890 --> 02:47:02.409
+Jitendra K: You need to predict delivery times with an SLA guarantee of 95% arrival within X days.
+
+1250
+02:47:02.650 --> 02:47:06.240
+Jitendra K: Which approach you will prefer to create a cost function?
+
+1251
+02:47:08.480 --> 02:47:11.620
+Jitendra K: This is slightly tricky, so just think and answer.
+
+1252
+02:47:22.890 --> 02:47:39.209
+Jitendra K: Yeah, the right answer is 3. Now, if I have… if I have to explain this… So, a tau value of 0.95, that means you're directly predicting 95 percentile. So, predicting 5 days means 95% of a delivery arrive in less than 5 days.
+
+1253
+02:47:39.660 --> 02:47:43.680
+Jitendra K: And only 5% will be late, acceptable limit for SLA.
+
+1254
+02:47:44.060 --> 02:47:46.910
+Jitendra K: So if I'm selecting a variable.
+
+1255
+02:47:47.580 --> 02:47:54.639
+Jitendra K: Which is a quantile regression. So in that scenario, I'm considering the 5%
+
+1256
+02:47:55.750 --> 02:47:58.369
+Jitendra K: to be a late delivery. Acceptable.
+
+1257
+02:47:58.500 --> 02:48:05.270
+Jitendra K: Because of some reason, right? It could be a data warehouse delay, it can be a manufacturing
+
+1258
+02:48:05.630 --> 02:48:09.670
+Jitendra K: processing time, etc, right? It can lead to several delays.
+
+1259
+02:48:10.670 --> 02:48:15.100
+Jitendra K: Last question, when do you choose MSE over Huber Laws in production?
+
+1260
+02:48:36.420 --> 02:48:39.179
+Jitendra K: I think this is the B answers right.
+
+1261
+02:48:39.320 --> 02:48:44.010
+Jitendra K: And we have skipped one question, so I think we completed 9 out of 10.
+
+1262
+02:48:44.470 --> 02:48:55.650
+Jitendra K: So, yeah, that's good. I think you guys are listening well, and then understanding concept as well. When do we don't want outliers? So, I will explain. Outliers…
+
+1263
+02:48:56.880 --> 02:48:58.100
+Jitendra K: is like…
+
+1264
+02:49:00.430 --> 02:49:11.299
+Jitendra K: your bacteria in your body. You cannot remove bacteria from your body, viruses from your body. So it's like, your data will have an outlier. It's a definition of outlier.
+
+1265
+02:49:11.930 --> 02:49:13.459
+Jitendra K: That you are going to make.
+
+1266
+02:49:14.380 --> 02:49:17.990
+Jitendra K: Right? And based upon that assumption, we are going to remove the outliers.
+
+1267
+02:49:19.490 --> 02:49:21.659
+Jitendra K: Oh, the last question you want to say.
+
+1268
+02:49:24.450 --> 02:49:26.529
+Jitendra K: Okay, what is the last question?
+
+1269
+02:49:29.530 --> 02:49:35.040
+Jitendra K: Let me just… Do, reach the last question.
+
+1270
+02:49:47.580 --> 02:49:53.559
+Jitendra K: Okay, why did you choose, when, when, when did we choose MSC over Hubel Laws in production?
+
+1271
+02:49:53.840 --> 02:49:57.690
+Jitendra K: Okay, that is what I'm trying to say. So, when you know that, you have a clean data.
+
+1272
+02:49:58.270 --> 02:50:03.129
+Jitendra K: Right? So when you are sure that you have a clean data, that means the data free from outliers.
+
+1273
+02:50:03.480 --> 02:50:04.290
+Jitendra K: Yes.
+
+1274
+02:50:08.080 --> 02:50:14.059
+Jitendra K: But outliers will be a part of your data. I have shown you a way to create an outlier, but…
+
+1275
+02:50:14.320 --> 02:50:16.929
+Jitendra K: This is not what we are going to do in production.
+
+1276
+02:50:17.450 --> 02:50:23.459
+Jitendra K: This is learning purpose, but production data, you will have an outlet by natural choice.
+
+1277
+02:50:24.350 --> 02:50:26.400
+Jitendra K: The data will have an outliers.
+
+1278
+02:50:35.250 --> 02:50:36.870
+Jitendra K: Question number 4.
+
+1279
+02:50:38.970 --> 02:50:40.720
+Jitendra K: What is question number 4?
+
+1280
+02:50:49.310 --> 02:50:51.460
+Jitendra K: What does R-square score measure?
+
+1281
+02:50:52.660 --> 02:50:55.960
+Jitendra K: So, R-square measures the proportion of variance in the target.
+
+1282
+02:50:56.090 --> 02:50:56.860
+Jitendra K: Right?
+

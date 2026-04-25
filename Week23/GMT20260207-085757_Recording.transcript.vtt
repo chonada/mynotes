@@ -1,0 +1,4174 @@
+WEBVTT
+
+1
+00:00:07.820 --> 00:00:10.470
+Tech Cert 008: Hi, Dendra. We are good to go now.
+
+2
+00:00:12.980 --> 00:00:14.229
+Jitendra K: Okay, thank you.
+
+3
+00:03:01.410 --> 00:03:05.860
+Jitendra K: Alright, so hey guys, good evening, good afternoon. So let's start with the session.
+
+4
+00:03:06.420 --> 00:03:13.430
+Jitendra K: So, today we are going to start with a clustering technique, which is coming under supervised… unsupervised learning technique, essentially.
+
+5
+00:03:13.820 --> 00:03:15.450
+Jitendra K: So we'll take,
+
+6
+00:03:15.650 --> 00:03:21.260
+Jitendra K: A deeper look into the types of clustering method, with different sort of mathematical models.
+
+7
+00:03:21.930 --> 00:03:29.629
+Jitendra K: And, then I will try to open up Q&A questions after that. So we'll take some practical examples on each types of clustering.
+
+8
+00:03:29.750 --> 00:03:37.380
+Jitendra K: So, first and the foremost thing, what is clustering is all about? So, when we say clustering technique, it's essentially a technique to group data.
+
+9
+00:03:38.020 --> 00:03:45.869
+Jitendra K: Right? So when we are using any EDA, exploratory data analysis, you get to know the intuition about the structure of the data.
+
+10
+00:03:46.350 --> 00:03:52.129
+Jitendra K: You have different tasks to identify subgroups in the data. Maybe you would like to create a same group.
+
+11
+00:03:52.430 --> 00:03:59.410
+Jitendra K: of customers Cohorts, or similar sort of Distribution across data points.
+
+12
+00:03:59.650 --> 00:04:06.669
+Jitendra K: So, essentially, you are doing clustering. That means you are changing your data points into groups, rather than
+
+13
+00:04:06.930 --> 00:04:12.489
+Jitendra K: Sorry, my throat is, not well, so I will be sounding a bit…
+
+14
+00:04:12.890 --> 00:04:15.839
+Jitendra K: Unwell, but yeah, just let me know if the voice is not clear.
+
+15
+00:04:17.310 --> 00:04:24.239
+Jitendra K: So, the clustering technique that we are going to utilize is just have one opinion, or one objective, is to group data together.
+
+16
+00:04:24.730 --> 00:04:30.230
+Jitendra K: Now, how it is going to group data together, what are the techniques, that is something which you would like to learn, right?
+
+17
+00:04:30.850 --> 00:04:44.069
+Jitendra K: Now, one more important point, if you group data together, how will you say that this data that you group together is making sense? And that is the objective, or cost function associated with clustering that we are going to talk about.
+
+18
+00:04:44.670 --> 00:04:48.340
+Jitendra K: So, predominantly, we are going to talk about two important clustering techniques.
+
+19
+00:04:56.920 --> 00:05:02.000
+Jitendra K: I will be sipping water in between as well. So, we are going to talk about two important clustering techniques.
+
+20
+00:05:04.870 --> 00:05:14.200
+Jitendra K: Which is k-mean and hierarchical clustering, right? So we'll see what is the difference between the two, what are the steps of k-mean when implementing a k-mean algorithm.
+
+21
+00:05:15.500 --> 00:05:22.219
+Jitendra K: What are the different criterias of evaluating K-Mail? So all this thing we will talk about. Then we move on to second technical, hierarchical clustering.
+
+22
+00:05:22.400 --> 00:05:26.609
+Jitendra K: So both the technique are serving a similar objective, to cluster your data
+
+23
+00:05:27.070 --> 00:05:30.190
+Jitendra K: Together. The objective of both techniques is the same.
+
+24
+00:05:30.670 --> 00:05:32.960
+Jitendra K: But the way that is implemented is different.
+
+25
+00:05:33.400 --> 00:05:42.909
+Jitendra K: So, k-mean, we will start with K-mean, what exactly the k-mean algorithm does, how it is utilizing different mathematical model to come up with this data point.
+
+26
+00:05:43.350 --> 00:05:48.539
+Jitendra K: So the idea is, when you talk about clustering, you're trying to find homogeneous subgroups.
+
+27
+00:05:49.730 --> 00:05:51.200
+Jitendra K: Within the data point.
+
+28
+00:05:51.520 --> 00:05:58.040
+Jitendra K: And data points in each cluster are similar… as similar as possible. So basically, you're creating some sort of similarity measure.
+
+29
+00:05:58.570 --> 00:06:04.460
+Jitendra K: Based upon distance, like Equilidian distance, correlation-based distance, or similarity-based search.
+
+30
+00:06:04.830 --> 00:06:13.199
+Jitendra K: So clustering can be done on a basis of features, where we are trying to find a subgroup of samples. So when I say features, like, let's say if I have to group a student.
+
+31
+00:06:13.470 --> 00:06:16.930
+Jitendra K: group of students into one cluster, then what are the criteria I should use?
+
+32
+00:06:17.410 --> 00:06:24.889
+Jitendra K: I could use criterias including their common interest, Right, their,
+
+33
+00:06:25.600 --> 00:06:28.219
+Jitendra K: Common vision, what they like to learn.
+
+34
+00:06:28.890 --> 00:06:33.039
+Jitendra K: And then, their, understanding on different subjects.
+
+35
+00:06:33.490 --> 00:06:34.330
+Jitendra K: Right?
+
+36
+00:06:34.590 --> 00:06:39.640
+Jitendra K: And then, based upon that, I will say these are common ways. So I'm using some sort of features to grow.
+
+37
+00:06:40.710 --> 00:06:47.729
+Jitendra K: If I'm creating a cluster of customers from my e-commerce or some databases that I'm using from sales.
+
+38
+00:06:48.120 --> 00:06:53.599
+Jitendra K: I would like to find out who's a top spending customer, so I will say anything between $100 to…
+
+39
+00:06:54.070 --> 00:06:57.149
+Jitendra K: $150. I will consider high-spend customers.
+
+40
+00:06:57.790 --> 00:07:08.170
+Jitendra K: Anything between $80 to $100, or I would say mid-segment customers. Anything below $80, I would say small-segment customers. So I have some criterias on which I would like to create our clusters.
+
+41
+00:07:08.540 --> 00:07:10.549
+Jitendra K: But these criterias are rule-based.
+
+42
+00:07:11.290 --> 00:07:15.019
+Jitendra K: Sorry. These criteria are rule-based, that means I'm using
+
+43
+00:07:15.620 --> 00:07:18.500
+Jitendra K: Some sort of intuition to generate this idea.
+
+44
+00:07:18.880 --> 00:07:23.579
+Jitendra K: But what if the algorithm is going to analyze all the features and then give me…
+
+45
+00:07:23.900 --> 00:07:26.500
+Jitendra K: the patterns, or I'm so-called,
+
+46
+00:07:26.920 --> 00:07:34.350
+Jitendra K: group together criterias, on which I can able to get and minimize the sum of squared distances from the centroid.
+
+47
+00:07:35.100 --> 00:07:45.810
+Jitendra K: So the key idea that we are going to utilize is to find a subgroup of sample based on the features, or on the basis of sample. We are trying to find subgroups of features based upon that criteria.
+
+48
+00:07:47.680 --> 00:07:50.379
+Jitendra K: So the first algorithm that we're learning here is k-mean.
+
+49
+00:07:50.640 --> 00:07:53.280
+Jitendra K: So, as the name suggests, K is a factor.
+
+50
+00:07:53.820 --> 00:07:59.030
+Jitendra K: mean is the mean values, right? So, we are trying to utilize some sort of distance.
+
+51
+00:07:59.390 --> 00:08:02.260
+Jitendra K: Criterias to analyze this technique.
+
+52
+00:08:04.770 --> 00:08:07.679
+Jitendra K: Let me go back to my board.
+
+53
+00:08:27.300 --> 00:08:32.820
+Jitendra K: So, we are talking about k-mean clustering. So, first and foremost thing, we would try to understand what exactly k-mean does.
+
+54
+00:08:34.510 --> 00:08:36.349
+Jitendra K: What is the objective of email?
+
+55
+00:08:36.950 --> 00:08:39.920
+Jitendra K: So, first and foremost thing is, your k-meen technique.
+
+56
+00:08:40.799 --> 00:08:42.309
+Jitendra K: Isn's unsupervised.
+
+57
+00:08:44.790 --> 00:08:45.900
+Jitendra K: algorithm.
+
+58
+00:08:46.130 --> 00:08:48.059
+Jitendra K: That means you do not require labels.
+
+59
+00:08:49.140 --> 00:08:50.470
+Jitendra K: Train this model.
+
+60
+00:08:53.160 --> 00:09:01.900
+Jitendra K: So K-mean is an iterative algorithm that tries to partition the dataset into K predefined, distinct, non-overlipping clusters.
+
+61
+00:09:02.460 --> 00:09:07.380
+Jitendra K: There's a state value called K that you are going to use to split your clusters.
+
+62
+00:09:08.720 --> 00:09:12.240
+Jitendra K: So let's say I'm staking, making 3, so it will try to…
+
+63
+00:09:12.760 --> 00:09:16.920
+Jitendra K: create 3 cohorts. If I'm making 5, it'll try to create 5 cohorts.
+
+64
+00:09:17.180 --> 00:09:21.069
+Jitendra K: That means it will use some features, let's say if I'm saying group of student.
+
+65
+00:09:21.870 --> 00:09:24.089
+Jitendra K: These are the threads in the class.
+
+66
+00:09:26.350 --> 00:09:28.300
+Jitendra K: I'm saying K is equals to 3.
+
+67
+00:09:30.020 --> 00:09:31.899
+Jitendra K: So it'll generate 3 clusters.
+
+68
+00:09:35.930 --> 00:09:39.140
+Jitendra K: It will say these students are common in terms of their likes.
+
+69
+00:09:40.110 --> 00:09:43.510
+Jitendra K: So this object they like, the topics they like.
+
+70
+00:09:44.110 --> 00:09:51.709
+Jitendra K: Maybe if I'm saying 5, then it will start using some more… Criterias, including their height, weight.
+
+71
+00:09:52.150 --> 00:09:57.670
+Jitendra K: gender, etc, right? So I'm trying to create a cohorts based upon different features.
+
+72
+00:09:58.300 --> 00:10:01.890
+Jitendra K: So, this 3 and 5 are the seat values of k-men clustering.
+
+73
+00:10:02.150 --> 00:10:10.640
+Jitendra K: Now, try to make intra-cluster data points as similar as possible, without keeping the cluster Far.
+
+74
+00:10:11.360 --> 00:10:16.249
+Jitendra K: So the idea is, if you have to use k-mean algorithm, first and foremost thing is.
+
+75
+00:10:16.650 --> 00:10:18.320
+Jitendra K: You have to specify…
+
+76
+00:10:25.220 --> 00:10:27.240
+Jitendra K: Maybe I can use a notepad.
+
+77
+00:10:29.340 --> 00:10:30.520
+Jitendra K: One second…
+
+78
+00:10:34.540 --> 00:10:37.020
+Jitendra K: So, first and foremost thing you have to specify.
+
+79
+00:10:37.490 --> 00:10:40.660
+Jitendra K: the value of K. So if I'm saying the value of K,
+
+80
+00:10:41.050 --> 00:10:46.279
+Jitendra K: has to be specified. So if I'm creating a clustering technique, the first and foremost thing I will do is…
+
+81
+00:10:46.950 --> 00:10:48.679
+Jitendra K: to create a…
+
+82
+00:10:51.720 --> 00:10:52.820
+Jitendra K: technique.
+
+83
+00:10:53.490 --> 00:10:56.470
+Jitendra K: That will help me to specify the value of K.
+
+84
+00:10:59.880 --> 00:11:02.030
+Jitendra K: So we have to specify the number of cluster K.
+
+85
+00:11:03.110 --> 00:11:11.959
+Jitendra K: The second step, you are going to initialize the centroid by first shuffling the data and then randomly selecting the K data point from the centroid without replacement. What is centroid?
+
+86
+00:11:12.270 --> 00:11:19.320
+Jitendra K: So, Cytroid is nothing but… When you're creating… A pool of data points.
+
+87
+00:11:20.330 --> 00:11:22.320
+Jitendra K: You created a circle around it.
+
+88
+00:11:22.750 --> 00:11:26.810
+Jitendra K: So there's a centroid, which represent the center of this cluster.
+
+89
+00:11:27.340 --> 00:11:34.250
+Jitendra K: So we'll use this centroid by first shuffling the data and then randomly selecting key data points on a centroid without replacement.
+
+90
+00:11:34.510 --> 00:11:39.760
+Jitendra K: And then we keep iterating until there's no changes to a centroid. That means we will start shifting the centroid.
+
+91
+00:11:40.760 --> 00:11:46.880
+Jitendra K: minimum data points, let's say I've got a second cluster here, The third cluster here.
+
+92
+00:11:49.700 --> 00:11:55.219
+Jitendra K: So I have 3 centroids, so I will try to shift this centroid. Centroid shift means I'm merging
+
+93
+00:11:55.850 --> 00:12:00.219
+Jitendra K: And, removing some data from each cluster by hit and trial.
+
+94
+00:12:00.400 --> 00:12:03.649
+Jitendra K: Until the centroids is no longer required to change.
+
+95
+00:12:04.440 --> 00:12:07.110
+Jitendra K: So, keep iterating until there's no change to a centroid.
+
+96
+00:12:07.960 --> 00:12:09.980
+Jitendra K: So once you've got a fixed Android.
+
+97
+00:12:10.200 --> 00:12:16.299
+Jitendra K: The maximum distance of proximity between these two data points are fixed, then you say that you've got an optimal cluster.
+
+98
+00:12:17.230 --> 00:12:22.260
+Jitendra K: So how you're calculating this? You're finding the sum of square distance between data point to all centroid.
+
+99
+00:12:23.060 --> 00:12:24.959
+Jitendra K: So this is the sum of square distance.
+
+100
+00:12:25.280 --> 00:12:27.239
+Jitendra K: Between each data point to the center.
+
+101
+00:12:27.600 --> 00:12:30.700
+Jitendra K: And then you're taking a magnitude of references.
+
+102
+00:12:36.000 --> 00:12:42.819
+Jitendra K: And then assign each data point to the closest cluster, and compare a centroid of the cluster by taking average of all data points belongs to each cluster.
+
+103
+00:12:48.040 --> 00:12:50.630
+Jitendra K: So this is the approach of k-mean algorithm.
+
+104
+00:12:50.990 --> 00:12:59.570
+Jitendra K: Now, when we say k-mean, that means you should have an objective function to represent this k-mean. So the objective function, or k-mean
+
+105
+00:13:00.220 --> 00:13:03.340
+Jitendra K: Follow an expectation minimization algorithm.
+
+106
+00:13:03.830 --> 00:13:05.250
+Jitendra K: And this is called EM.
+
+107
+00:13:05.470 --> 00:13:07.440
+Jitendra K: Expectation minimization.
+
+108
+00:13:10.040 --> 00:13:14.049
+Jitendra K: So, each step is assigned the data point to the closed cluster.
+
+109
+00:13:14.970 --> 00:13:17.750
+Jitendra K: And we are trying to compute the centroid for each cluster.
+
+110
+00:13:17.870 --> 00:13:23.790
+Jitendra K: So I have to represent this mathematically what K-min clustering is doing. I can say the objective of k-min clustering
+
+111
+00:13:24.130 --> 00:13:28.350
+Jitendra K: is to reduce this distance. So I can represent this as intra-distance.
+
+112
+00:13:28.840 --> 00:13:30.640
+Jitendra K: Between all data points.
+
+113
+00:13:31.960 --> 00:13:33.389
+Jitendra K: from 1 to M.
+
+114
+00:13:33.490 --> 00:13:35.220
+Jitendra K: an interdistance.
+
+115
+00:13:36.040 --> 00:13:38.490
+Jitendra K: Of all data points from K is equals to 1.
+
+116
+00:13:38.780 --> 00:13:39.800
+Jitendra K: to K.
+
+117
+00:13:40.740 --> 00:13:44.610
+Jitendra K: And I can represent this as weights of each data point.
+
+118
+00:13:50.560 --> 00:13:52.349
+Jitendra K: And their mean deviation.
+
+119
+00:13:54.470 --> 00:13:57.279
+Jitendra K: So this is your objective function of k-mean.
+
+120
+00:13:57.990 --> 00:13:59.860
+Jitendra K: So, W of i of J,
+
+121
+00:14:01.010 --> 00:14:05.050
+Jitendra K: belongs to the cluster K, otherwise it will belongs to other cluster.
+
+122
+00:14:06.680 --> 00:14:09.160
+Jitendra K: So basically, what is… you're trying to do is…
+
+123
+00:14:09.550 --> 00:14:11.869
+Jitendra K: You're trying to calculate this data point.
+
+124
+00:14:12.840 --> 00:14:16.129
+Jitendra K: Yeah, we'll start with random, and then we'll optimize this.
+
+125
+00:14:16.480 --> 00:14:18.219
+Jitendra K: First, we have to start randomly.
+
+126
+00:14:20.870 --> 00:14:21.850
+Jitendra K: Okay.
+
+127
+00:14:22.450 --> 00:14:29.850
+Jitendra K: Though… The most important criteria that we are going to use to create clustering technique analysis.
+
+128
+00:14:30.480 --> 00:14:37.290
+Jitendra K: There are two criteria that we're going to use to analyze the clustering technique, efficacy.
+
+129
+00:14:37.630 --> 00:14:40.540
+Jitendra K: One is called elbow method, or a knee graft.
+
+130
+00:14:43.790 --> 00:14:45.850
+Jitendra K: Which is based upon the inertia.
+
+131
+00:14:48.250 --> 00:14:49.260
+Jitendra K: concept.
+
+132
+00:14:50.930 --> 00:14:54.079
+Jitendra K: And the second method that we're going to use is called fill-out score.
+
+133
+00:15:06.650 --> 00:15:08.520
+Jitendra K: Shield-out analysis or shell-out score?
+
+134
+00:15:09.390 --> 00:15:11.149
+Jitendra K: So, what is ALMO method?
+
+135
+00:15:11.960 --> 00:15:14.250
+Jitendra K: So, elbow method will give us…
+
+136
+00:15:15.480 --> 00:15:22.010
+Jitendra K: The graph between sum of square errors, which is in your by access.
+
+137
+00:15:22.150 --> 00:15:25.110
+Jitendra K: And number of optimal cluster, which is in your x-axis.
+
+138
+00:15:25.330 --> 00:15:30.949
+Jitendra K: And after a point of inflection, Which is 3 here.
+
+139
+00:15:31.540 --> 00:15:36.049
+Jitendra K: I'm not getting any changes in my error, or I'm getting very few changes in my error.
+
+140
+00:15:36.460 --> 00:15:42.069
+Jitendra K: So, I would say the point of inflection for this is 3, optimal distance. So it's a kind of a knee graph.
+
+141
+00:15:42.410 --> 00:15:44.660
+Jitendra K: Looks like your elbow, right?
+
+142
+00:15:46.100 --> 00:15:51.180
+Jitendra K: So basically, you can say that I can go with 2 as well, because it's my point of inflection.
+
+143
+00:15:52.240 --> 00:16:00.340
+Jitendra K: So that is where you have to make some sort of educated guess that should be my cluster optimal value of K.
+
+144
+00:16:00.630 --> 00:16:04.840
+Jitendra K: So there are ways in which we can find the optimal value of K, but we'll start somewhere.
+
+145
+00:16:05.100 --> 00:16:09.919
+Jitendra K: So you'll start with a root value of K, right? Let's say you start with 6.
+
+146
+00:16:10.930 --> 00:16:15.530
+Jitendra K: But our data and algorithm will give you that instead of 6, you should choose 2.
+
+147
+00:16:20.060 --> 00:16:24.240
+Jitendra K: And this is the ALBO method that we're going to use to determine.
+
+148
+00:16:24.750 --> 00:16:27.530
+Jitendra K: Similarly, there's something called fill-out analysis.
+
+149
+00:16:28.000 --> 00:16:32.809
+Jitendra K: So, shilhout analysis can be used to determine a degree of separation between the cluster.
+
+150
+00:16:33.300 --> 00:16:40.660
+Jitendra K: So, in Sheilaud, what are you going to do is, you're going to compute We're going to compute…
+
+151
+00:16:43.530 --> 00:16:48.119
+Jitendra K: the average distance… or mean distance.
+
+152
+00:16:49.570 --> 00:16:53.309
+Jitendra K: From all data points, In the same cluster.
+
+153
+00:16:54.030 --> 00:16:55.609
+Jitendra K: For all data points.
+
+154
+00:16:56.280 --> 00:16:58.800
+Jitendra K: In same cluster, Nico called it as AFI.
+
+155
+00:16:59.390 --> 00:17:01.109
+Jitendra K: Then you're going to compute D.
+
+156
+00:17:03.270 --> 00:17:04.810
+Jitendra K: Average distance…
+
+157
+00:17:10.609 --> 00:17:12.330
+Jitendra K: From all data points.
+
+158
+00:17:13.190 --> 00:17:14.839
+Jitendra K: To the closest cluster.
+
+159
+00:17:15.460 --> 00:17:18.189
+Jitendra K: To the closest cluster, that means nearest neighbor.
+
+160
+00:17:20.900 --> 00:17:24.949
+Jitendra K: And then, you're going to say that I've got A of I from first step.
+
+161
+00:17:27.230 --> 00:17:29.120
+Jitendra K: B of I from second step.
+
+162
+00:17:30.590 --> 00:17:32.389
+Jitendra K: So, I will use the formula.
+
+163
+00:17:32.590 --> 00:17:35.299
+Jitendra K: For optimal cluster to be.
+
+164
+00:17:35.550 --> 00:17:40.519
+Jitendra K: B of I minus E of i divided by… Maximum value among the two.
+
+165
+00:17:44.530 --> 00:17:46.570
+Jitendra K: To whichever is maximum, I will choose that.
+
+166
+00:17:47.200 --> 00:17:50.340
+Jitendra K: So, basically, what you're trying to do is, you're trying to create
+
+167
+00:17:50.870 --> 00:17:54.259
+Jitendra K: The coefficient in a range of minus 1 to plus 1.
+
+168
+00:17:54.990 --> 00:17:58.079
+Jitendra K: Using this formula. It will become a probabilistical formula.
+
+169
+00:17:58.550 --> 00:18:01.529
+Jitendra K: If it is getting zero, the samples are very close to the neighbor.
+
+170
+00:18:01.820 --> 00:18:03.129
+Jitendra K: Let me click on Merge.
+
+171
+00:18:03.420 --> 00:18:08.420
+Jitendra K: two samples. If they're close enough, then why are you considering two samples differently?
+
+172
+00:18:08.940 --> 00:18:11.089
+Jitendra K: If a sample is far, you will get 1.
+
+173
+00:18:11.410 --> 00:18:14.480
+Jitendra K: If you're getting minus 1, you will end up in the wrong cluster.
+
+174
+00:18:15.160 --> 00:18:20.590
+Jitendra K: Right? So these are the techniques that we are going to use to analyze Hello?
+
+175
+00:18:21.940 --> 00:18:24.020
+Jitendra K: Clusters permission.
+
+176
+00:18:24.970 --> 00:18:29.389
+Jitendra K: Right, so these are the techniques that we are going to talk about in today's tutorial. So first is…
+
+177
+00:18:29.850 --> 00:18:31.150
+Jitendra K: She'll outscore.
+
+178
+00:18:31.800 --> 00:18:34.970
+Jitendra K: Second is, we'll also calculate the…
+
+179
+00:18:35.380 --> 00:18:40.070
+Jitendra K: Knee graph, and try to understand from the implementation point of view.
+
+180
+00:18:40.760 --> 00:18:42.250
+Jitendra K: So, any question on this?
+
+181
+00:19:19.660 --> 00:19:26.219
+Jitendra K: Yeah, let's take an example to understand both, so I think that will be clear. Let's take an example to understand both.
+
+182
+00:20:27.070 --> 00:20:28.360
+Jitendra K: One second…
+
+183
+00:20:33.420 --> 00:20:36.039
+Jitendra K: Okay, so we'll start with, came in the string.
+
+184
+00:20:51.700 --> 00:20:56.940
+Jitendra K: Okay, so we will start with the import. I will import all the packages, NumPy, Pandas.
+
+185
+00:20:57.490 --> 00:21:00.719
+Jitendra K: matplot, scikit-learn clusters came in.
+
+186
+00:21:01.210 --> 00:21:05.059
+Jitendra K: And some sort of normalization technique, including standard scaler, and shell outscore.
+
+187
+00:21:05.380 --> 00:21:07.600
+Jitendra K: And for plotting purpose, I'm using Seabourn.
+
+188
+00:21:09.330 --> 00:21:17.459
+Jitendra K: So I'm going to use Iris dataset. I know that Iris dataset comprise of three clusters, but let's see if the algorithm is able to predict the same or not.
+
+189
+00:21:18.120 --> 00:21:23.529
+Jitendra K: If I'm feeding the data to the algorithm, will it be able to predict that I'm talking about 3 flowers or not, right?
+
+190
+00:21:23.960 --> 00:21:26.940
+Jitendra K: So I will use… this data set.
+
+191
+00:21:27.600 --> 00:21:31.849
+Jitendra K: Now, I will create a data frame for better visualization, so I will say I have a data points.
+
+192
+00:21:32.470 --> 00:21:34.259
+Jitendra K: Which is having 4 features.
+
+193
+00:21:35.370 --> 00:21:36.919
+Jitendra K: These are the four features.
+
+194
+00:21:37.670 --> 00:21:43.840
+Jitendra K: Now, before you assign the data to the cluster, cluster is sensitive technique, so I'm going to perform a standard scaler.
+
+195
+00:21:44.320 --> 00:21:48.000
+Jitendra K: So, clustering is a sensitive technique, so I'm going to perform a standard scaler.
+
+196
+00:21:49.660 --> 00:21:54.390
+Jitendra K: Now, I would like to check… the clusters… Wong.
+
+197
+00:21:55.130 --> 00:21:56.660
+Jitendra K: Using elbow method.
+
+198
+00:21:57.370 --> 00:22:06.170
+Jitendra K: So elbow method, as I mentioned, is gonna be useful to find the optimal number of cluster in a range of 2 to 11. I'm saying let's try to look for range.
+
+199
+00:22:06.590 --> 00:22:08.160
+Jitendra K: Rather than a fixed number.
+
+200
+00:22:08.490 --> 00:22:10.410
+Jitendra K: We'll try to fit in.
+
+201
+00:22:11.170 --> 00:22:13.129
+Jitendra K: Within the cluster sum of square.
+
+202
+00:22:14.000 --> 00:22:16.729
+Jitendra K: And the number of clusters that are required.
+
+203
+00:22:16.950 --> 00:22:18.390
+Jitendra K: To test this.
+
+204
+00:22:19.030 --> 00:22:21.090
+Jitendra K: So I'm getting almost 3.
+
+205
+00:22:21.360 --> 00:22:27.299
+Jitendra K: as a final cluster, right? Because after 3, there's a severe… Changes in the data point.
+
+206
+00:22:27.930 --> 00:22:31.050
+Jitendra K: Right, so I would say that, or maybe 4, I would say.
+
+207
+00:22:32.920 --> 00:22:34.559
+Jitendra K: poor cluster I'm getting.
+
+208
+00:22:34.850 --> 00:22:36.829
+Jitendra K: But maybe 3 is the better.
+
+209
+00:22:37.300 --> 00:22:44.959
+Jitendra K: But I will write to reconfirm with the help of ShilaoDistance. So, ShilaoDistance will be able to find inter-cluster and inter-cluster both.
+
+210
+00:22:45.340 --> 00:22:47.040
+Jitendra K: And take a ratio of the two.
+
+211
+00:22:47.890 --> 00:22:51.770
+Jitendra K: So if I'm taking a ratio of the two, I will be able to get the output.
+
+212
+00:22:58.190 --> 00:23:00.589
+Jitendra K: Okay, this is one graph that I'm getting.
+
+213
+00:23:00.910 --> 00:23:03.789
+Jitendra K: And I would like to use Final Cluster.
+
+214
+00:23:05.630 --> 00:23:07.180
+Jitendra K: That will show this.
+
+215
+00:23:17.430 --> 00:23:24.890
+Jitendra K: Yeah, so I'm getting 3 clusters, which is… Ultimately, I'm going to get… So here, I'm getting 2.
+
+216
+00:23:25.690 --> 00:23:31.770
+Jitendra K: Two clusters… With two features.
+
+217
+00:23:31.890 --> 00:23:33.629
+Jitendra K: Which is… fine.
+
+218
+00:23:34.650 --> 00:23:52.340
+Jitendra K: And yeah, which is fine. Actually, you can see some overlap between the third type of flower, which is fine. But actually, I'm getting an optimal cluster to be 2, right? So the key idea that we are using here in these formulas is, when we talk about chill-out distance, we are calculating the two important
+
+219
+00:23:52.560 --> 00:23:53.620
+Jitendra K: averages.
+
+220
+00:23:53.860 --> 00:23:56.460
+Jitendra K: One is computing the average distance.
+
+221
+00:23:56.900 --> 00:24:00.489
+Jitendra K: in… within the intra-cluster, and I represent it as AFI.
+
+222
+00:24:00.760 --> 00:24:07.570
+Jitendra K: And compute the average distance with the nearest cluster, which I call as an intracluster. And then I will represent this as B .
+
+223
+00:24:07.880 --> 00:24:09.830
+Jitendra K: If I'm taking a…
+
+224
+00:24:10.030 --> 00:24:15.519
+Jitendra K: let's say a ratio of B of I minus A of i. If they are similar, they will consider 0.
+
+225
+00:24:15.800 --> 00:24:17.489
+Jitendra K: They will yield zero, right?
+
+226
+00:24:17.620 --> 00:24:19.730
+Jitendra K: If they are dissimilar, they will eat minus 1.
+
+227
+00:24:21.640 --> 00:24:23.650
+Jitendra K: If they are very far, it'll yield one.
+
+228
+00:24:24.680 --> 00:24:32.470
+Jitendra K: Right? So, depending upon this, I will take a ratio with the help of maximum values from either of the two distance criteria.
+
+229
+00:24:32.610 --> 00:24:36.640
+Jitendra K: And that will generate a score. And that is what we are doing here in Shillout School.
+
+230
+00:24:42.110 --> 00:24:48.019
+Jitendra K: Second thing is… if I'm using the…
+
+231
+00:24:49.260 --> 00:24:52.079
+Jitendra K: B of I is at every distance within the
+
+232
+00:24:52.440 --> 00:24:56.480
+Jitendra K: Center of Other Cluster. No, no, it's intra. Intra means…
+
+233
+00:24:56.940 --> 00:24:58.879
+Jitendra K: You're talking about only one cluster.
+
+234
+00:25:01.070 --> 00:25:02.669
+Jitendra K: Inter means what?
+
+235
+00:25:02.970 --> 00:25:05.890
+Jitendra K: Sum of all data points in the same cluster.
+
+236
+00:25:06.490 --> 00:25:12.809
+Jitendra K: So we are using this… This is intra, some of our data points within the cluster.
+
+237
+00:25:13.090 --> 00:25:14.620
+Jitendra K: An intra means…
+
+238
+00:25:15.470 --> 00:25:22.269
+Jitendra K: This is inter, right? Intra means you're checking the distance approximation from other cluster, if they're the same or not.
+
+239
+00:25:22.730 --> 00:25:27.229
+Jitendra K: If they're same, then why do… why are you considering two different clusters, right? That is what…
+
+240
+00:25:27.510 --> 00:25:28.860
+Jitendra K: We are trying to answer.
+
+241
+00:25:31.840 --> 00:25:33.209
+Jitendra K: Is it making sense?
+
+242
+00:25:40.710 --> 00:25:45.739
+Jitendra K: Okay, now somebody's talking about inertia, property of inertia. What is inertia? Can you explain me?
+
+243
+00:25:46.160 --> 00:25:48.229
+Jitendra K: When we say Narsha, what is Narsha?
+
+244
+00:25:53.730 --> 00:25:57.950
+Jitendra K: When you say nurse here, then there should be some definition you must have read.
+
+245
+00:25:58.270 --> 00:26:01.369
+Jitendra K: What is in our shared definition in mechanics, or somewhere?
+
+246
+00:26:02.840 --> 00:26:04.389
+Jitendra K: Moment of moment.
+
+247
+00:26:04.720 --> 00:26:07.040
+Jitendra K: Okay, moment of moment is inertia.
+
+248
+00:26:20.880 --> 00:26:22.650
+Jitendra K: No, it's the wrong definition.
+
+249
+00:26:28.910 --> 00:26:30.740
+Jitendra K: Inertia is a tendency, right?
+
+250
+00:26:31.190 --> 00:26:37.530
+Jitendra K: When you say inertia, we are talking about a tendency of your body to remain at rest and continue in motion. That is called inertia.
+
+251
+00:26:38.290 --> 00:26:41.890
+Jitendra K: Generation physics, the same concept we are applying in clusters.
+
+252
+00:26:42.970 --> 00:26:52.550
+Jitendra K: So, here we're talking about what causes an object to resistance, change the state of motion, including change of speed and direction. So, here we are talking about clusters change.
+
+253
+00:26:53.440 --> 00:26:59.079
+Jitendra K: So we are capturing, inertia, With the help of rate of change of clusters.
+
+254
+00:27:02.250 --> 00:27:05.080
+Jitendra K: Right, so when you say inertia of k-means.
+
+255
+00:27:05.800 --> 00:27:12.209
+Jitendra K: Inertia of k-means will measure the compactness by calculating a soft spot distance of sample to the nearest centroid.
+
+256
+00:27:12.850 --> 00:27:15.040
+Jitendra K: So it acts like an evaluation matrix.
+
+257
+00:27:17.310 --> 00:27:21.300
+Jitendra K: Right, so if I say that I have a… Output like this.
+
+258
+00:27:29.070 --> 00:27:30.469
+Jitendra K: So this is my output.
+
+259
+00:27:30.750 --> 00:27:32.140
+Jitendra K: Output against what?
+
+260
+00:27:32.580 --> 00:27:38.249
+Jitendra K: output against evaluation criteria of the algorithm, which is WCSS, within the sum of square distance.
+
+261
+00:27:39.070 --> 00:27:47.899
+Jitendra K: So I'm using this evaluation criteria. A lower value of inertia means… I'm getting more coherent cluster.
+
+262
+00:27:49.500 --> 00:27:55.039
+Jitendra K: Right? Where the rate of decrease is inertia, It's low after this.
+
+263
+00:27:56.570 --> 00:27:59.269
+Jitendra K: Right? So I will call this as inertia of rest.
+
+264
+00:28:01.850 --> 00:28:05.470
+Jitendra K: So basically, I'm using a formula of inertia like this.
+
+265
+00:28:06.420 --> 00:28:08.809
+Jitendra K: Inertia is nothing but…
+
+266
+00:28:14.160 --> 00:28:18.399
+Jitendra K: Submission of… i is equal to 0, your data points.
+
+267
+00:28:18.860 --> 00:28:19.830
+Jitendra K: to earn.
+
+268
+00:28:20.890 --> 00:28:25.669
+Jitendra K: Minimum value of… Solve square distances.
+
+269
+00:28:26.650 --> 00:28:28.219
+Jitendra K: From its mean value.
+
+270
+00:28:34.580 --> 00:28:37.679
+Jitendra K: Where mu of j belongs to continuous number C.
+
+271
+00:28:38.660 --> 00:28:42.039
+Jitendra K: This is your inertia, similar to sum of square distance criteria.
+
+272
+00:28:47.230 --> 00:28:51.619
+Jitendra K: Right? So this is inertia that we are talking about, within the Thor distance.
+
+273
+00:28:52.260 --> 00:28:54.910
+Jitendra K: Alright, so I think this is clear to everyone.
+
+274
+00:28:55.980 --> 00:28:57.830
+Jitendra K: Any caution on this?
+
+275
+00:28:59.600 --> 00:29:02.399
+Jitendra K: I think ocean understanding in RSEA still outscore.
+
+276
+00:29:02.510 --> 00:29:04.119
+Jitendra K: Is this terminology clear?
+
+277
+00:29:10.780 --> 00:29:13.900
+Jitendra K: Alright, so let's take one more advanced example.
+
+278
+00:29:24.480 --> 00:29:29.240
+Jitendra K: So, we'll write… Some more advanced example.
+
+279
+00:30:03.570 --> 00:30:08.930
+Jitendra K: No, inertia is a simple WSS, I told you, right? It's not a slope. Slope is a tangent.
+
+280
+00:30:09.860 --> 00:30:11.830
+Jitendra K: We're talking about magnitude here.
+
+281
+00:30:13.210 --> 00:30:14.279
+Jitendra K: Fixed number.
+
+282
+00:30:28.550 --> 00:30:33.169
+Jitendra K: Okay, I would like to talk about two more methods that has been used to calculate,
+
+283
+00:30:34.210 --> 00:30:41.299
+Jitendra K: the efficacy of cluster. The first method is called… Davis-Baldin Method.
+
+284
+00:30:42.780 --> 00:30:46.079
+Jitendra K: So, we're talking about Davies-Balden scores.
+
+285
+00:30:46.420 --> 00:30:53.840
+Jitendra K: And the second one is that we are going to use is called Clanson Key, our boss, scores.
+
+286
+00:30:54.850 --> 00:30:58.679
+Jitendra K: So, these are the two important methods that we're going to talk about.
+
+287
+00:30:59.080 --> 00:31:09.960
+Jitendra K: So, apart from… Apart from shell-out and, what do you call? Inertia or WSS, WCSS, you have?
+
+288
+00:31:10.180 --> 00:31:11.639
+Jitendra K: These two methods as well.
+
+289
+00:31:13.180 --> 00:31:16.450
+Jitendra K: We'll see how these two methods are useful.
+
+290
+00:31:16.610 --> 00:31:17.640
+Jitendra K: In a while.
+
+291
+00:31:19.920 --> 00:31:23.060
+Jitendra K: First, let me show you the… output.
+
+292
+00:32:47.660 --> 00:32:49.950
+Jitendra K: Okay, first let me run this, and then I will explain.
+
+293
+00:33:19.970 --> 00:33:22.520
+Jitendra K: One second, let me explain what I'm trying to do.
+
+294
+00:33:43.220 --> 00:33:48.879
+Jitendra K: So, again, we are using an advanced KMIN algorithm, and this time we have some customer data.
+
+295
+00:33:49.190 --> 00:33:53.219
+Jitendra K: So, what we did is, we have from 1,000 customer information.
+
+296
+00:33:53.580 --> 00:34:03.520
+Jitendra K: And we would like to group them together. So, the key idea is, we would like to create a target marketing campaign. So, in e-commerce world, you will heard about this term, targeting marketing campaign.
+
+297
+00:34:03.990 --> 00:34:09.700
+Jitendra K: So, how this targeting marketing campaign has been… consider using K-mean.
+
+298
+00:34:10.170 --> 00:34:17.599
+Jitendra K: So let's assume that you have got 1,000 customers. I need to understand the different types of customer, create a target market campaign, allocate
+
+299
+00:34:18.030 --> 00:34:22.420
+Jitendra K: Personalized recommendation in your websites, and all these things.
+
+300
+00:34:22.860 --> 00:34:27.100
+Jitendra K: The challenge that we're trying to solve is, we have to analyze 1,000 customers.
+
+301
+00:34:27.360 --> 00:34:31.009
+Jitendra K: We need an automated way to group similar customers together.
+
+302
+00:34:31.420 --> 00:34:38.170
+Jitendra K: And I'm going to use a k-mean supervised… unsupervised learning method to automatically find an actual group in customer data.
+
+303
+00:34:38.780 --> 00:34:44.049
+Jitendra K: So I've got several factors, including demographics, like age, financial, income.
+
+304
+00:34:44.500 --> 00:34:50.080
+Jitendra K: Spending scores, behavior patterns, including purchase frequency, online activity, email engagement.
+
+305
+00:34:50.480 --> 00:34:53.139
+Jitendra K: Loyalties across the years.
+
+306
+00:34:53.350 --> 00:34:57.700
+Jitendra K: So, I have a CRM data, which have a total attribute into it.
+
+307
+00:35:00.670 --> 00:35:04.279
+Jitendra K: Then I'm creating some more data points using feature engineering.
+
+308
+00:35:04.790 --> 00:35:09.570
+Jitendra K: So I'm creating some more data points, including Customer lifetime value.
+
+309
+00:35:10.130 --> 00:35:12.529
+Jitendra K: So I will say the lifetime value of the customer
+
+310
+00:35:13.090 --> 00:35:17.409
+Jitendra K: I'm creating as a new feature. So when I'm creating a lifetime value LTV,
+
+311
+00:35:17.920 --> 00:35:20.809
+Jitendra K: I'm using this formula, let me write down this formula.
+
+312
+00:35:31.100 --> 00:35:32.559
+Jitendra K: This is my LTV.
+
+313
+00:35:33.190 --> 00:35:38.319
+Jitendra K: Average transaction to purchase frequency, and year of customers onboarded.
+
+314
+00:35:39.350 --> 00:35:44.619
+Jitendra K: So it'll tell me… What is the total lifetime value that customer have?
+
+315
+00:35:45.260 --> 00:35:50.069
+Jitendra K: Income-spending ratio, I will use annual income divided by spending scores.
+
+316
+00:35:50.610 --> 00:35:52.520
+Jitendra K: To find income spending ratio.
+
+317
+00:35:53.110 --> 00:35:59.230
+Jitendra K: Engagement score, also, I would like to find it out. Engagement score means… Based upon click-through rate.
+
+318
+00:36:00.220 --> 00:36:04.689
+Jitendra K: And, purchase ratio and purchase frequency, I will say engagement score.
+
+319
+00:36:05.890 --> 00:36:09.520
+Jitendra K: And once I have all the scores, Than I would like to.
+
+320
+00:36:10.970 --> 00:36:11.840
+Jitendra K: do.
+
+321
+00:36:12.450 --> 00:36:19.029
+Jitendra K: the clustering on the top of these features. So I started with The basic input features…
+
+322
+00:36:24.790 --> 00:36:27.309
+Jitendra K: And then I had created dry features out of it.
+
+323
+00:36:27.990 --> 00:36:31.229
+Jitendra K: Now… Once I have the dry features.
+
+324
+00:36:31.990 --> 00:36:34.349
+Jitendra K: So I'm using 15 features to cluster.
+
+325
+00:36:37.300 --> 00:36:38.100
+Jitendra K: Right?
+
+326
+00:36:38.350 --> 00:36:42.940
+Jitendra K: So before moving on to the clustering, I'm doing some dimension reduction. So original dimension…
+
+327
+00:36:54.090 --> 00:37:00.269
+Jitendra K: I'm just feeding, so I'm saying let's go with… 33% reduction of data.
+
+328
+00:37:00.790 --> 00:37:03.850
+Jitendra K: Which reduced my variance by 10, which is fine.
+
+329
+00:37:04.310 --> 00:37:06.139
+Jitendra K: Right? So I will use this approach.
+
+330
+00:37:06.660 --> 00:37:14.880
+Jitendra K: Now, once I've run the k-mean, it is giving me different, factors, including inertia and distortion, which is the sum of square distances.
+
+331
+00:37:15.540 --> 00:37:22.090
+Jitendra K: And after I plot this, I will came to know that, how this…
+
+332
+00:37:23.280 --> 00:37:28.820
+Jitendra K: clusters are optimal. So it is saying to me that 5 clusters are optimal, based upon the two criterias.
+
+333
+00:37:29.610 --> 00:37:34.629
+Jitendra K: Similarly, I would like to find it out by using shellout score, so I'm running this by shillout score.
+
+334
+00:37:34.980 --> 00:37:37.300
+Jitendra K: Initial outscore is also giving me 5.
+
+335
+00:37:38.090 --> 00:37:43.770
+Jitendra K: Now, this is important, what is this… Klaninsky, Halbar's method is doing.
+
+336
+00:37:43.960 --> 00:37:47.490
+Jitendra K: So if you look into the equation of this technique.
+
+337
+00:38:07.710 --> 00:38:09.910
+Jitendra K: So, if you look into this equation.
+
+338
+00:38:22.070 --> 00:38:24.070
+Jitendra K: So, this is the formula.
+
+339
+00:38:25.100 --> 00:38:26.370
+Jitendra K: Which we are using.
+
+340
+00:38:26.800 --> 00:38:34.109
+Jitendra K: So this formula says that it's a ratio between your BCCS, between the separation, and within the cluster separation.
+
+341
+00:38:35.490 --> 00:38:42.000
+Jitendra K: Right? And that means it is using some sort of centroid and Euclidean distance to find these two numbers.
+
+342
+00:38:43.150 --> 00:38:47.930
+Jitendra K: Right? So this is what we are exactly using here, and with the help of this technique.
+
+343
+00:38:48.590 --> 00:38:51.080
+Jitendra K: We are getting some scores.
+
+344
+00:38:52.330 --> 00:38:55.599
+Jitendra K: So again, it is showing me 5 combined score.
+
+345
+00:38:56.070 --> 00:38:58.680
+Jitendra K: So most of the algorithm is pointing it to be 5.
+
+346
+00:38:58.960 --> 00:39:04.190
+Jitendra K: Now, this is inertia. So, as you can see, that the spreadness of these clusters increases.
+
+347
+00:39:07.420 --> 00:39:09.780
+Jitendra K: Your distortion also increased.
+
+348
+00:39:10.270 --> 00:39:12.020
+Jitendra K: So, I would like to look for average…
+
+349
+00:39:12.180 --> 00:39:14.470
+Jitendra K: Cluster, which is having a least distortion.
+
+350
+00:39:14.840 --> 00:39:16.859
+Jitendra K: So right now, I'm getting 4.
+
+351
+00:39:17.240 --> 00:39:19.670
+Jitendra K: On this distortion criteria.
+
+352
+00:39:20.200 --> 00:39:26.859
+Jitendra K: And remaining thing is just a spider graph, where you are going to get a feature importance, which feature has been used by which algorithm.
+
+353
+00:39:27.110 --> 00:39:30.480
+Jitendra K: To figure it out, the segmentation of the customer.
+
+354
+00:39:30.610 --> 00:39:32.490
+Jitendra K: Right? So this is just at a scale.
+
+355
+00:39:32.920 --> 00:39:37.019
+Jitendra K: And then this is a correlation that you're getting based upon the heat map.
+
+356
+00:39:37.600 --> 00:39:49.950
+Jitendra K: If I look into the correlation, I can say that, customer… transaction, It's heavily… Driven by premier customers.
+
+357
+00:39:52.910 --> 00:39:55.090
+Jitendra K: Similarly, if I look into spending score.
+
+358
+00:39:55.700 --> 00:39:58.650
+Jitendra K: Digital names, status have higher spending score.
+
+359
+00:39:58.780 --> 00:40:02.990
+Jitendra K: Even higher at a premium customer level, then second highest is this.
+
+360
+00:40:03.140 --> 00:40:04.409
+Jitendra K: So on and so forth.
+
+361
+00:40:04.640 --> 00:40:08.609
+Jitendra K: Loyal customers, They are a frequent purchaser.
+
+362
+00:40:08.990 --> 00:40:12.300
+Jitendra K: the loyalty point is high, right? So this is what we are getting.
+
+363
+00:40:12.580 --> 00:40:17.479
+Jitendra K: So, with this approach, what you can do is, you can segment your customers, and you can write your own.
+
+364
+00:40:18.420 --> 00:40:20.160
+Jitendra K: Cohorts.
+
+365
+00:40:20.480 --> 00:40:23.559
+Jitendra K: And you will say that I would like to target these cohorts of client.
+
+366
+00:40:23.920 --> 00:40:32.099
+Jitendra K: To give 15% discount, 20% discount, whatever you feel, you are going to utilize from that point of view.
+
+367
+00:40:32.630 --> 00:40:36.080
+Jitendra K: So, any question on this? Share the code you would like to run this?
+
+368
+00:40:44.800 --> 00:40:50.579
+Jitendra K: Is this code is clear to everyone, we just incorporated two more scores. Let me explain the last…
+
+369
+00:40:51.440 --> 00:40:53.150
+Jitendra K: One as well, which is…
+
+370
+00:41:11.630 --> 00:41:13.589
+Jitendra K: Yeah, David's balding score.
+
+371
+00:41:14.250 --> 00:41:16.400
+Jitendra K: First of all, have you heard about all this thing?
+
+372
+00:41:17.560 --> 00:41:19.929
+Jitendra K: Have you heard about discourse in the LMS?
+
+373
+00:41:20.970 --> 00:41:22.740
+Jitendra K: Did Professor teach you all this?
+
+374
+00:41:23.230 --> 00:41:24.750
+Jitendra K: Only k-means.
+
+375
+00:41:25.750 --> 00:41:27.670
+Jitendra K: Throughout scores and all.
+
+376
+00:41:32.530 --> 00:41:33.420
+Jitendra K: Okay.
+
+377
+00:41:35.500 --> 00:41:38.589
+Jitendra K: no shortage score. So what did they teach, then?
+
+378
+00:41:45.820 --> 00:41:48.009
+Jitendra K: If they're not teaching, she'll outscore…
+
+379
+00:41:48.430 --> 00:41:50.929
+Jitendra K: Rendograms, Nature, and what they are teaching.
+
+380
+00:41:52.300 --> 00:41:54.879
+Jitendra K: How did you know that the house itself came in then?
+
+381
+00:41:56.640 --> 00:42:01.019
+Jitendra K: came in basics. Basics is… It's not,
+
+382
+00:42:01.230 --> 00:42:04.340
+Jitendra K: objective here, right? We're not running basics. Basics…
+
+383
+00:42:04.730 --> 00:42:08.079
+Jitendra K: You can learn it from Wikipedia as well. Basics means what?
+
+384
+00:42:09.410 --> 00:42:11.100
+Jitendra K: Elbow method, okay?
+
+385
+00:42:12.310 --> 00:42:17.450
+Jitendra K: But that is bad, actually. You should… Raise a voice against this.
+
+386
+00:42:18.090 --> 00:42:21.850
+Jitendra K: You should tell them that I need an advanced concept in the LMS.
+
+387
+00:42:23.910 --> 00:42:27.270
+Jitendra K: Because it will be difficult for me now to explain all this concept.
+
+388
+00:42:34.410 --> 00:42:38.439
+Jitendra K: Only basics they have, teach you, elbow method, not even shell-out score.
+
+389
+00:42:42.510 --> 00:42:44.869
+Jitendra K: That's bad, actually. Very bad.
+
+390
+00:42:47.570 --> 00:42:48.590
+Jitendra K: Very poor.
+
+391
+00:42:50.400 --> 00:42:51.660
+Jitendra K: We should teach it.
+
+392
+00:43:05.080 --> 00:43:10.260
+Jitendra K: No, that is fine, I'm not scared, anybody. I'm just teaching… I'm just telling the truth.
+
+393
+00:43:11.970 --> 00:43:13.780
+Jitendra K: You should know all this thing, guys.
+
+394
+00:43:17.080 --> 00:43:22.830
+Jitendra K: If you don't know what is shell-out score and how should I teach you, I can also wrap up with a few basics.
+
+395
+00:43:27.850 --> 00:43:30.329
+Jitendra K: That is an issue, right? Okay, anyway.
+
+396
+00:43:30.590 --> 00:43:33.180
+Jitendra K: So, are you getting comfortable with this point?
+
+397
+00:43:33.870 --> 00:43:39.590
+Jitendra K: k-means… distance criterias.
+
+398
+00:43:46.400 --> 00:43:54.050
+Jitendra K: Hierarchical clustering will come later. First, understand what we are talking about. Let's focus on K-mean. Hierarchical clustering is the second technique.
+
+399
+00:43:54.440 --> 00:43:56.429
+Jitendra K: Anyway, we are going to cover that as well.
+
+400
+00:43:57.130 --> 00:44:02.419
+Jitendra K: No more concept on hierarchical clustering in LMS, okay. But what did you learn about hierarchical clustering in LMS?
+
+401
+00:44:10.930 --> 00:44:15.509
+Jitendra K: algorithmetic and decisive. What if I say hierarchical clustering is not useful?
+
+402
+00:44:16.310 --> 00:44:18.760
+Jitendra K: 99% of time, we are going to use k-mean.
+
+403
+00:44:21.560 --> 00:44:23.370
+Jitendra K: IQL clustering is not useful.
+
+404
+00:44:24.380 --> 00:44:26.939
+Jitendra K: 99% of the time, we are going to use k-mean.
+
+405
+00:44:27.510 --> 00:44:30.219
+Jitendra K: That is, I'm talking about from industrial experience.
+
+406
+00:44:31.700 --> 00:44:37.470
+Jitendra K: But anyway, please make sure that if you do some bit of research.
+
+407
+00:44:37.800 --> 00:44:44.120
+Jitendra K: and the topic has not been covered in the LMS, just ask them to add. Otherwise, these classes can go like anything.
+
+408
+00:44:45.780 --> 00:44:53.300
+Jitendra K: I'm not trying to, you know, encourage you to do anything against, but I'm just talking about for your own sake of.
+
+409
+00:44:53.800 --> 00:44:55.210
+Jitendra K: learning purposes.
+
+410
+00:44:58.560 --> 00:45:02.469
+Jitendra K: Alright, so you should do some bit of googling,
+
+411
+00:45:03.960 --> 00:45:08.469
+Jitendra K: Okay, possibly, but if the topic has been covered, I don't think so it will cover it again.
+
+412
+00:45:10.180 --> 00:45:12.620
+Jitendra K: HITO testing is of no use.
+
+413
+00:45:12.760 --> 00:45:16.029
+Jitendra K: I2 clustering is a bad technique. It is a…
+
+414
+00:45:16.370 --> 00:45:20.670
+Jitendra K: overfitting technique, I mean, you will get a weird cluster so you're using high cluster clustering.
+
+415
+00:45:28.610 --> 00:45:31.310
+Jitendra K: So you have to use k-mean clustering all the time.
+
+416
+00:45:31.730 --> 00:45:34.140
+Jitendra K: In your coding, in your practice.
+
+417
+00:45:34.500 --> 00:45:38.630
+Jitendra K: In your actual projects, 99% time, you are going to use scheming.
+
+418
+00:45:40.460 --> 00:45:46.200
+Jitendra K: Only a few cases where you're confident about your hierarchy of clusters, then you can use hierarchy clustering.
+
+419
+00:45:46.460 --> 00:45:51.820
+Jitendra K: But 99% of the time, we are going to use k-mean, because of its simplicity and the way that
+
+420
+00:45:52.240 --> 00:45:54.280
+Jitendra K: It generates the scores.
+
+421
+00:45:56.040 --> 00:46:00.850
+Jitendra K: Okay, so maybe we'll cover this part, Davis-Maldine Index.
+
+422
+00:46:01.120 --> 00:46:05.359
+Jitendra K: Right? So when I say Davis Baldin Index, It's a game…
+
+423
+00:46:05.860 --> 00:46:13.060
+Jitendra K: One of the important, techniques that will help you to internally evaluate the metrics for clustering algorithm.
+
+424
+00:46:13.580 --> 00:46:16.820
+Jitendra K: So, what it does is, it will able to create
+
+425
+00:46:17.010 --> 00:46:20.209
+Jitendra K: The average similarity between each cluster, and it's a more similar one.
+
+426
+00:46:21.140 --> 00:46:29.619
+Jitendra K: Again, the same fundamental, maybe I can show it graphically. So when what I mean by inter and intra, so I think this is slightly confusing for many people.
+
+427
+00:46:29.830 --> 00:46:31.620
+Jitendra K: So if I have to just draw this…
+
+428
+00:46:39.170 --> 00:46:48.809
+Jitendra K: So this is what we are talking about, right? So you can see that A of i is the average distance between I, which is my centroid, and all the other points in its own cluster.
+
+429
+00:46:49.670 --> 00:46:54.639
+Jitendra K: However, B of I is the distance between I and its nearest cluster, which is this cluster.
+
+430
+00:46:56.170 --> 00:47:00.960
+Jitendra K: So if you're getting this score, let's say I'm assuming that you're getting B of IE,
+
+431
+00:47:01.160 --> 00:47:03.010
+Jitendra K: Minus A of A is negative.
+
+432
+00:47:03.910 --> 00:47:06.950
+Jitendra K: That means this distance is less than this distance.
+
+433
+00:47:07.640 --> 00:47:13.539
+Jitendra K: Sorry, this distance is greater, less than this distance, yeah. B of I is less than this distance, E of i.
+
+434
+00:47:13.820 --> 00:47:16.840
+Jitendra K: That means you're forming a wrong cluster, because they're negative.
+
+435
+00:47:19.170 --> 00:47:22.830
+Jitendra K: You understand what I'm trying to say? So, when you have such side of clusters.
+
+436
+00:47:23.070 --> 00:47:25.799
+Jitendra K: Your intra-distance is lesser than inter-distance.
+
+437
+00:47:26.790 --> 00:47:28.580
+Jitendra K: So this algorithm will shift.
+
+438
+00:47:29.600 --> 00:47:33.790
+Jitendra K: the help of this estimated point, and it will say that I would like to use
+
+439
+00:47:35.330 --> 00:47:37.279
+Jitendra K: The positive range to operate.
+
+440
+00:47:37.560 --> 00:47:39.019
+Jitendra K: So it'll change your cluster.
+
+441
+00:47:39.650 --> 00:47:42.820
+Jitendra K: Creating this as I, I will shift I here.
+
+442
+00:47:45.460 --> 00:47:48.729
+Jitendra K: Right? And it'll do, in a loop.
+
+443
+00:47:49.140 --> 00:47:51.369
+Jitendra K: So that within a second, you will get an answer.
+
+444
+00:47:56.990 --> 00:47:58.819
+Jitendra K: So the formula that we're using is…
+
+445
+00:47:59.190 --> 00:48:02.519
+Jitendra K: B of I minus A of i divided by max of A of i and b of I.
+
+446
+00:48:02.660 --> 00:48:06.210
+Jitendra K: Every distance between… inside the cluster and average distance.
+
+447
+00:48:06.450 --> 00:48:10.249
+Jitendra K: Outside the cluster. And the range of fill-out score will be between.
+
+448
+00:48:10.810 --> 00:48:14.790
+Jitendra K: plus 1 to minus 1, which is a probabilical error. So if I say plus 1,
+
+449
+00:48:15.690 --> 00:48:17.620
+Jitendra K: That means perfect clustering.
+
+450
+00:48:18.160 --> 00:48:19.819
+Jitendra K: Zero means borderline.
+
+451
+00:48:20.680 --> 00:48:22.660
+Jitendra K: Minus 1 means poor clustering.
+
+452
+00:48:22.970 --> 00:48:27.419
+Jitendra K: So plus 1 means perfect clustering. The point is far from other cluster as well as…
+
+453
+00:48:28.020 --> 00:48:33.700
+Jitendra K: well-matched to its own cluster. Zero mean borderline. That means the point is a key distance within the two clusters.
+
+454
+00:48:34.060 --> 00:48:37.789
+Jitendra K: Minus 1 means the point is closer to the other cluster than so.
+
+455
+00:48:39.200 --> 00:48:46.350
+Jitendra K: So, a higher score indicates well-defined and compact cluster. A lower score suggests overlapping or poorly separated cluster.
+
+456
+00:48:47.800 --> 00:48:49.840
+Jitendra K: Now, when I talk about shillout score.
+
+457
+00:48:50.380 --> 00:48:57.799
+Jitendra K: One of the important considerations of Shroud Score is You will get…
+
+458
+00:48:59.080 --> 00:49:01.990
+Jitendra K: the range in this form. This is the…
+
+459
+00:49:02.160 --> 00:49:06.139
+Jitendra K: Best way that you can be able to estimate the cluster importance.
+
+460
+00:49:07.050 --> 00:49:10.319
+Jitendra K: Second is… With the help of these numbers.
+
+461
+00:49:11.510 --> 00:49:13.619
+Jitendra K: You will be able to utilize…
+
+462
+00:49:14.400 --> 00:49:18.829
+Jitendra K: the proximity distance between the clusters. So what are the real-life applications of this?
+
+463
+00:49:19.190 --> 00:49:22.799
+Jitendra K: methods. On the real lab application, as we have seen, customer segmentation.
+
+464
+00:49:23.190 --> 00:49:28.460
+Jitendra K: So you can group customer for target, marketing campaign. You can use image segmentation.
+
+465
+00:49:28.950 --> 00:49:32.619
+Jitendra K: Imagine you're working for a deep learning model, pixels of data.
+
+466
+00:49:33.260 --> 00:49:39.049
+Jitendra K: Sorry. So you can use image segmentation, clustering pixel for object reduction in images.
+
+467
+00:49:39.610 --> 00:49:45.550
+Jitendra K: Genomic signs, identify similar genes, expressions, and all this with the help of… This technique.
+
+468
+00:49:46.140 --> 00:49:51.400
+Jitendra K: Now… So, you can see that we are using all three.
+
+469
+00:49:51.900 --> 00:49:54.090
+Jitendra K: Right? Or considering this.
+
+470
+00:49:54.340 --> 00:50:01.249
+Jitendra K: Now, I think I have to explain to you the David Baldin Index, or called DBI Index, DBI Index, right?
+
+471
+00:50:01.630 --> 00:50:07.160
+Jitendra K: So, when we talk about DBI, David's Baldin Index, or DBI Index.
+
+472
+00:50:07.900 --> 00:50:14.279
+Jitendra K: The DBA index is, again, an internal evaluation metrics for clustering. So what it does is, it measures the average similarity.
+
+473
+00:50:14.550 --> 00:50:15.999
+Jitendra K: Between each cluster.
+
+474
+00:50:16.110 --> 00:50:17.699
+Jitendra K: And it's more similar one.
+
+475
+00:50:18.520 --> 00:50:27.410
+Jitendra K: So, a low DBI value indicate better clustering performance, and represent a higher intra-cluster Tightness and better inter-cluster separation.
+
+476
+00:50:28.620 --> 00:50:32.380
+Jitendra K: So, if I have to just show you the formula, the DBI formula.
+
+477
+00:50:33.330 --> 00:50:40.730
+Jitendra K: Can be written as… DBI… Z equals to…
+
+478
+00:50:42.260 --> 00:50:48.139
+Jitendra K: 1 over number of data points, and… summation of…
+
+479
+00:50:50.570 --> 00:50:56.600
+Jitendra K: S of I, I will tell you what is S and S, what is S of I and what is S of J. So, I will say S of I,
+
+480
+00:50:57.010 --> 00:51:08.050
+Jitendra K: plus S of J, divided by… distance… I and G.
+
+481
+00:51:09.230 --> 00:51:16.449
+Jitendra K: And this will be… from i is equals to 1, with all data points.
+
+482
+00:51:17.250 --> 00:51:19.019
+Jitendra K: And this will be a maximum value.
+
+483
+00:51:19.640 --> 00:51:25.090
+Jitendra K: So basically, the formula that we are using is to choose a number of cluster, where SOFI is average distance.
+
+484
+00:51:25.490 --> 00:51:29.239
+Jitendra K: Of data points in the cluster, and we call this as dispersion now.
+
+485
+00:51:30.120 --> 00:51:33.820
+Jitendra K: This is the average distance between the cluster, inside the cluster.
+
+486
+00:51:35.110 --> 00:51:36.499
+Jitendra K: from its Android.
+
+487
+00:51:36.860 --> 00:51:38.720
+Jitendra K: So I'll call this a dispersion.
+
+488
+00:51:40.070 --> 00:51:41.499
+Jitendra K: S of J.
+
+489
+00:51:44.540 --> 00:51:46.270
+Jitendra K: Is the interdistance.
+
+490
+00:51:47.130 --> 00:51:50.770
+Jitendra K: And D of I of j is the distance between centroid I and G.
+
+491
+00:51:52.620 --> 00:51:56.609
+Jitendra K: So, it calculates 3 important parameters.
+
+492
+00:51:59.730 --> 00:52:02.759
+Jitendra K: And all three parameters are fit into this algorithm.
+
+493
+00:52:03.360 --> 00:52:04.040
+Jitendra K: Hmm.
+
+494
+00:52:05.710 --> 00:52:12.660
+Jitendra K: So the advantage of using this algorithm is, you will get… computation efficient, approach.
+
+495
+00:52:13.540 --> 00:52:16.350
+Jitendra K: And you do not need to know the ground truth levels.
+
+496
+00:52:16.920 --> 00:52:24.190
+Jitendra K: Limitation of this approach is the index can be sensitive to outliers, so you have too many outliers, then your algorithm will perform very poorly.
+
+497
+00:52:29.030 --> 00:52:29.850
+Jitendra K: Right?
+
+498
+00:52:30.070 --> 00:52:32.360
+Jitendra K: So that is the difference between the two.
+
+499
+00:52:32.900 --> 00:52:39.010
+Jitendra K: Now, let me share the code, for K-Meen, and I think this is a great quote code that you can take as a reference.
+
+500
+00:52:39.690 --> 00:52:43.660
+Jitendra K: Even in your real-world projects, so I will share this code with you guys.
+
+501
+00:52:54.380 --> 00:52:57.079
+Jitendra K: Can you guys please run this and let me know your thoughts?
+
+502
+00:52:58.070 --> 00:53:09.640
+Jitendra K: So we talked about four criterias. Chill-out score, Sorry. Shout out score… DBI…
+
+503
+00:53:12.150 --> 00:53:15.129
+Jitendra K: And then, we have, two more.
+
+504
+00:53:26.600 --> 00:53:30.660
+Jitendra K: What's the name of that algorithm, one second. Klansky or something.
+
+505
+00:53:31.190 --> 00:53:35.110
+Jitendra K: Yeah, clients care about scores, CH score, DBI scores.
+
+506
+00:53:35.700 --> 00:53:38.599
+Jitendra K: She'll out scores, and, needs…
+
+507
+00:53:38.720 --> 00:53:43.030
+Jitendra K: Or elbow method. Four method we have, use and compare.
+
+508
+00:53:43.970 --> 00:53:47.419
+Jitendra K: Now, this part you might be struggling to understand.
+
+509
+00:53:48.320 --> 00:53:49.719
+Jitendra K: How to read this graph.
+
+510
+00:53:58.780 --> 00:53:59.890
+Jitendra K: disc graphs.
+
+511
+00:54:00.590 --> 00:54:02.000
+Jitendra K: I will talk about that part.
+
+512
+00:54:03.500 --> 00:54:08.330
+Jitendra K: So how to read this, I will talk about in a while. So just try to run this and let me know once you're ready.
+
+513
+00:54:17.690 --> 00:54:22.750
+Jitendra K: Just try to run this, and let me know if there's any doubt or anything that you would like to understand.
+
+514
+00:54:23.130 --> 00:54:30.020
+Jitendra K: Because k-mean, if you understand thoroughly, then your clustering is done predominantly. You need not to learn any other techniques.
+
+515
+00:54:30.650 --> 00:54:35.760
+Jitendra K: There's so many techniques, but they're just a waste of time to investigate on those techniques.
+
+516
+00:57:45.340 --> 00:57:50.089
+Jitendra K: Please let me know once you're done, guys, so that we can… Proceed from here.
+
+517
+00:58:55.270 --> 00:58:58.380
+Jitendra K: In the shroud score, value of 6 is low.
+
+518
+00:58:59.410 --> 00:59:01.420
+Jitendra K: Value of 6 is low.
+
+519
+00:59:03.050 --> 00:59:05.090
+Jitendra K: So why is, value of 6?
+
+520
+00:59:07.330 --> 00:59:09.069
+Jitendra K: You're selecting 5, right?
+
+521
+00:59:34.610 --> 00:59:38.280
+Jitendra K: Oh, that's an inverse graph, yes. The value of 6 is low.
+
+522
+00:59:38.660 --> 00:59:39.830
+Jitendra K: Yes.
+
+523
+00:59:40.460 --> 00:59:44.349
+Jitendra K: So this is the inverse graph, so we are plotting it differently here.
+
+524
+00:59:49.500 --> 00:59:51.209
+Jitendra K: We are plotting differently.
+
+525
+00:59:57.530 --> 00:59:58.980
+Jitendra K: Change the access, right?
+
+526
+01:00:08.160 --> 01:00:13.220
+Jitendra K: Higher, the better, because the higher value will have better separation, in terms of clusters.
+
+527
+01:00:17.920 --> 01:00:19.130
+Jitendra K: Okay.
+
+528
+01:00:19.450 --> 01:00:22.189
+Jitendra K: Now, last but not least, let me explain this part.
+
+529
+01:00:22.780 --> 01:00:28.009
+Jitendra K: So here you can see Shillout is also giving you some sort of distribution and dispersion criterias.
+
+530
+01:00:28.800 --> 01:00:34.659
+Jitendra K: Now, if you look carefully in this graph, The x-axis talks about…
+
+531
+01:00:36.140 --> 01:00:41.600
+Jitendra K: the value between minus 1, 2, plus 1, which is a range of Schillout's coefficient. 0 means good fit.
+
+532
+01:00:43.080 --> 01:00:46.320
+Jitendra K: 1 means… sorry, 0 to 1 means good fit.
+
+533
+01:00:46.490 --> 01:00:48.980
+Jitendra K: Zero means borderline, and negative means bad fit.
+
+534
+01:00:49.750 --> 01:00:53.480
+Jitendra K: And here you have number of customers, 1,000 customers.
+
+535
+01:00:54.700 --> 01:00:57.490
+Jitendra K: So if you look into this cluster 0,
+
+536
+01:00:58.880 --> 01:01:04.720
+Jitendra K: So, it is using a maroon color or some… A typical shape as triangle.
+
+537
+01:01:04.970 --> 01:01:08.909
+Jitendra K: So, most values are between 0 to 2.5, 0.25.
+
+538
+01:01:09.470 --> 01:01:13.559
+Jitendra K: That means I obtain a moderate cluster, most customers fit reasonably well.
+
+539
+01:01:14.290 --> 01:01:15.300
+Jitendra K: Within this.
+
+540
+01:01:16.310 --> 01:01:23.140
+Jitendra K: So, cluster 1 formed by 200 customers. Cluster 1… 226 customers.
+
+541
+01:01:24.720 --> 01:01:28.150
+Jitendra K: And the range I'm using is to fit to this cluster is 02.
+
+542
+01:01:28.570 --> 01:01:30.230
+Jitendra K: 0.30.
+
+543
+01:01:31.690 --> 01:01:34.750
+Jitendra K: And they are digital native segment.
+
+544
+01:01:35.390 --> 01:01:39.709
+Jitendra K: Which I… I think I have… Given at the last.
+
+545
+01:01:40.130 --> 01:01:41.670
+Jitendra K: Oh, yeah, digital natives.
+
+546
+01:01:42.510 --> 01:01:47.370
+Jitendra K: Cluster number 2… Which is third cluster.
+
+547
+01:01:47.820 --> 01:01:50.860
+Jitendra K: I have 160 customer, 160 customers.
+
+548
+01:01:51.430 --> 01:01:55.039
+Jitendra K: This is our smallest customer, which is having a narrow range of 0.
+
+549
+01:01:56.030 --> 01:01:58.400
+Jitendra K: 005 to 0.20.
+
+550
+01:01:59.470 --> 01:02:00.580
+Jitendra K: Somewhere here.
+
+551
+01:02:02.880 --> 01:02:04.780
+Jitendra K: And then the purple customers?
+
+552
+01:02:05.080 --> 01:02:06.940
+Jitendra K: Sorry, there's green customers.
+
+553
+01:02:07.390 --> 01:02:08.760
+Jitendra K: And the purple at the top.
+
+554
+01:02:09.110 --> 01:02:12.399
+Jitendra K: So I've got… Five clusters together.
+
+555
+01:02:12.790 --> 01:02:16.440
+Jitendra K: And this talks about average distance overall.
+
+556
+01:02:17.210 --> 01:02:18.619
+Jitendra K: Between the clusters.
+
+557
+01:02:19.010 --> 01:02:24.470
+Jitendra K: And out of these 1,000 customers, how many customers are falling to each cluster? That is also what I'm getting.
+
+558
+01:02:25.460 --> 01:02:28.729
+Jitendra K: Right, so let's say if you have to use this cluster, I'm going to target
+
+559
+01:02:28.840 --> 01:02:31.920
+Jitendra K: The campaign for high-spending customers.
+
+560
+01:02:34.080 --> 01:02:35.660
+Jitendra K: Premier customer segment.
+
+561
+01:02:36.240 --> 01:02:38.239
+Jitendra K: that I will use this cohort score.
+
+562
+01:02:39.360 --> 01:02:44.329
+Jitendra K: If I'm targeting a budget-conscious customer, then I will target this quote score. If I'm looking for…
+
+563
+01:02:44.720 --> 01:02:47.449
+Jitendra K: Maybe, segment number 2.
+
+564
+01:02:48.870 --> 01:02:50.720
+Jitendra K: Where the engagement score is high.
+
+565
+01:02:51.020 --> 01:02:56.540
+Jitendra K: I will go with the third. If I'm looking for a loyal customer, I will go with fourth. Budget conscious, I will go with five.
+
+566
+01:02:57.260 --> 01:03:02.640
+Jitendra K: That means for each customer, I will design the campaign, differently.
+
+567
+01:03:03.670 --> 01:03:06.820
+Jitendra K: And that is the important aspect of e-commerce.
+
+568
+01:03:07.350 --> 01:03:09.000
+Jitendra K: recommendation models.
+
+569
+01:03:11.520 --> 01:03:14.919
+Jitendra K: So, when you start solving a real-world problem, you will heard about
+
+570
+01:03:15.970 --> 01:03:19.399
+Jitendra K: all these things, right? Even your click of the button.
+
+571
+01:03:20.280 --> 01:03:21.739
+Jitendra K: In your mobile apps.
+
+572
+01:03:22.110 --> 01:03:23.540
+Jitendra K: Will it be tracked by?
+
+573
+01:03:24.210 --> 01:03:28.370
+Jitendra K: These, big… e-commerce company like Amazon.
+
+574
+01:03:28.600 --> 01:03:30.499
+Jitendra K: Clipkart, Walmart, etc.
+
+575
+01:03:31.520 --> 01:03:36.390
+Jitendra K: Totally capture your old data footprint, and not sell your data to them.
+
+576
+01:03:38.260 --> 01:03:40.160
+Jitendra K: Google. Business is that only.
+
+577
+01:03:40.980 --> 01:03:46.980
+Jitendra K: Right? So they share the data from cookie sessions and all the consensus that you made.
+
+578
+01:03:51.470 --> 01:03:53.759
+Jitendra K: Okay, so k-min clustering is done.
+
+579
+01:03:54.440 --> 01:04:01.019
+Jitendra K: So, we will move on to the second type of clustering technique. Any question on K-Meen? Anything that you would like to ask?
+
+580
+01:04:01.670 --> 01:04:03.870
+Jitendra K: Is it clear K-mean clustering?
+
+581
+01:04:06.360 --> 01:04:09.050
+Jitendra K: You will be able to predict the scores and all?
+
+582
+01:04:13.220 --> 01:04:14.929
+Jitendra K: Shall we move on to Haikul?
+
+583
+01:04:24.040 --> 01:04:25.370
+Jitendra K: Yes or no, guys?
+
+584
+01:04:27.760 --> 01:04:29.920
+Jitendra K: Okay, I can see some thumbs up, okay.
+
+585
+01:04:37.660 --> 01:04:40.930
+Jitendra K: Yeah, we'll revisit Xi Boost in upcoming tutorial.
+
+586
+01:04:41.500 --> 01:04:45.549
+Jitendra K: There's one more tutorial about, the sample that we are going to cover.
+
+587
+01:04:48.290 --> 01:04:54.119
+Jitendra K: Okay, so let's try to understand hierarchical clustering. When we say hierarchical clustering, right, or edge clustering.
+
+588
+01:04:54.750 --> 01:04:56.830
+Jitendra K: Or a hierarchy of groups.
+
+589
+01:04:57.950 --> 01:04:58.780
+Jitendra K: Right?
+
+590
+01:04:59.870 --> 01:05:03.790
+Jitendra K: Sorry. That means we are talking about some sort of systematic division.
+
+591
+01:05:07.640 --> 01:05:10.959
+Jitendra K: between the data points in the form of an RID.
+
+592
+01:05:11.400 --> 01:05:16.400
+Jitendra K: So when I say hierarchical clustering, hierarchical clustering is nothing but… it's a technique that we'll use
+
+593
+01:05:16.810 --> 01:05:22.190
+Jitendra K: A data hierarchy, or it will use some sort of… technique.
+
+594
+01:05:22.630 --> 01:05:24.889
+Jitendra K: Which is called bottom-up and Top.
+
+595
+01:05:25.010 --> 01:05:26.889
+Jitendra K: To bottom. Bottom up, or…
+
+596
+01:05:28.120 --> 01:05:29.369
+Jitendra K: Top to bottom.
+
+597
+01:05:29.500 --> 01:05:33.720
+Jitendra K: As a two-common approach to perform aglometric and divisive clustering.
+
+598
+01:05:35.730 --> 01:05:43.649
+Jitendra K: So, hierarchical clustering, on the other hand, We'll have… This shape of data structures.
+
+599
+01:05:43.920 --> 01:05:47.550
+Jitendra K: That means your groups… Connected to a node.
+
+600
+01:05:47.840 --> 01:05:50.680
+Jitendra K: Each node will have a parent and a child relationship.
+
+601
+01:05:51.230 --> 01:05:54.990
+Jitendra K: And then you are going to use this to take a decision.
+
+602
+01:05:57.090 --> 01:06:02.910
+Jitendra K: So, one of the important drawbacks of using high-call clustering is it is sensitive to outliers.
+
+603
+01:06:03.860 --> 01:06:09.499
+Jitendra K: very highly sensitive to outliers, and your real-time data is always having outliers, noise.
+
+604
+01:06:09.670 --> 01:06:15.590
+Jitendra K: That's the reason I told you earlier, high-clip clustering is use-and-through algorithm. You're not going to use it anywhere.
+
+605
+01:06:16.100 --> 01:06:18.820
+Jitendra K: So even if you do not know hierarchical clustering, it's fine.
+
+606
+01:06:21.670 --> 01:06:31.410
+Jitendra K: So heretical clustering is coming under unsupervised learning algorithm. It is sensitive to outliers, required feature scaling. And it is of two types, aglometric and divisive. That means…
+
+607
+01:06:32.170 --> 01:06:34.390
+Jitendra K: Bottom up, top to bottom.
+
+608
+01:06:35.540 --> 01:06:42.790
+Jitendra K: So, bottom-up, Aglometric, This is the most common approach. We start with each data points in its own cluster.
+
+609
+01:06:42.920 --> 01:06:48.189
+Jitendra K: And iteratively merge the most similar cluster until all data points belongs to a single cluster.
+
+610
+01:06:49.930 --> 01:06:55.990
+Jitendra K: So basically, how it works… So, you have to write down the steps again for aluminetry Clustering.
+
+611
+01:06:56.580 --> 01:06:58.329
+Jitendra K: So if I have to write down the steps…
+
+612
+01:07:02.470 --> 01:07:06.739
+Jitendra K: So these are the steps. The first step is you have to initialize each data point.
+
+613
+01:07:07.300 --> 01:07:09.870
+Jitendra K: That you're going to consider as a cluster on so on.
+
+614
+01:07:11.250 --> 01:07:16.340
+Jitendra K: Then you calculate a distance or similarity between all data points, identify the closest clusters.
+
+615
+01:07:16.790 --> 01:07:23.569
+Jitendra K: Merge those closest clusters into new clusters, and repeat the steps 2 and 3. 2, 3, and 4.
+
+616
+01:07:24.250 --> 01:07:26.500
+Jitendra K: Until you find a stopping criteria.
+
+617
+01:07:27.220 --> 01:07:30.989
+Jitendra K: That means you don't need to merge any further clusters.
+
+618
+01:07:31.600 --> 01:07:36.089
+Jitendra K: So you start with… each individual clusters.
+
+619
+01:07:37.170 --> 01:07:40.090
+Jitendra K: Then you create a relationship between those two clusters.
+
+620
+01:07:40.930 --> 01:07:42.869
+Jitendra K: And then you will move on to this point.
+
+621
+01:07:46.980 --> 01:07:52.390
+Jitendra K: Divisive clustering, high-co clustering, in this approach, we are going to start with all data points.
+
+622
+01:07:53.470 --> 01:07:59.170
+Jitendra K: In a single cluster, and recursively split them into smaller Cluster based on dissimilarity.
+
+623
+01:08:00.140 --> 01:08:03.430
+Jitendra K: So, divisive clustering is very, very computational extensive.
+
+624
+01:08:03.670 --> 01:08:05.239
+Jitendra K: It's a very expensive technique.
+
+625
+01:08:06.370 --> 01:08:11.540
+Jitendra K: That means… When you're using this technique, it'll try to find too many solutions.
+
+626
+01:08:12.490 --> 01:08:14.869
+Jitendra K: It'll look from all possible scenarios.
+
+627
+01:08:15.960 --> 01:08:22.019
+Jitendra K: 2… split the data into multiple clusters. So, imagine when you have features which is high.
+
+628
+01:08:22.569 --> 01:08:26.729
+Jitendra K: And if you use divisive clustering, it may run for a day, 24 hours.
+
+629
+01:08:27.050 --> 01:08:28.290
+Jitendra K: Without completion.
+
+630
+01:08:29.850 --> 01:08:33.059
+Jitendra K: The time-space complexity of this algorithm is very, very high.
+
+631
+01:08:35.279 --> 01:08:37.640
+Jitendra K: That's the reason nobody's using this.
+
+632
+01:08:40.689 --> 01:08:44.089
+Jitendra K: You know, this technique is fine, but up to an extent.
+
+633
+01:08:44.510 --> 01:08:49.030
+Jitendra K: Because you are talking about finding the greater amount of…
+
+634
+01:08:49.850 --> 01:08:54.070
+Jitendra K: dispersion, I mean, you're saying that I already know what has my clusters.
+
+635
+01:08:54.859 --> 01:08:57.750
+Jitendra K: But that is also not possible to start with.
+
+636
+01:08:59.170 --> 01:09:03.890
+Jitendra K: So, both techniques are, like, Not very useful for real-time projects.
+
+637
+01:09:04.779 --> 01:09:07.439
+Jitendra K: So, in agglomerative clustering, what are you going to do?
+
+638
+01:09:07.540 --> 01:09:09.829
+Jitendra K: Or in device and clustering, what are you going to do?
+
+639
+01:09:10.500 --> 01:09:12.030
+Jitendra K: We are going to go reverse.
+
+640
+01:09:13.180 --> 01:09:17.529
+Jitendra K: You will see I will start with… broad clusters…
+
+641
+01:09:18.800 --> 01:09:23.649
+Jitendra K: Calculate a disturb between all data points, identify the most disabled data point within a single cluster.
+
+642
+01:09:23.950 --> 01:09:28.569
+Jitendra K: And I split the cluster into separate cluster containing those data points, and repeat.
+
+643
+01:09:29.010 --> 01:09:36.209
+Jitendra K: The step number 2, 3, and 4, until each cluster contain only one data point, or similar data points.
+
+644
+01:09:40.500 --> 01:09:45.910
+Jitendra K: Right? Now, how to identify that these techniques are useful? Sorry, this…
+
+645
+01:09:48.430 --> 01:09:51.000
+Jitendra K: Output from these techniques are useful.
+
+646
+01:09:51.870 --> 01:10:01.049
+Jitendra K: So there's something called dendograms, which is a cluster, or a diagram, a dandelram… Is there, like, a tree?
+
+647
+01:10:01.590 --> 01:10:03.850
+Jitendra K: Which will show you all the connections.
+
+648
+01:10:06.130 --> 01:10:08.450
+Jitendra K: I will tell you how to read that Tendogram.
+
+649
+01:10:09.120 --> 01:10:13.780
+Jitendra K: And then we'll talk about how to use that endogram to infer the number of optimal clusters.
+
+650
+01:10:14.790 --> 01:10:20.190
+Jitendra K: So basically, the dinogram will use two criterias. One is your cluster distance.
+
+651
+01:10:21.690 --> 01:10:24.270
+Jitendra K: And the similar data… sorry, dissimilar data points.
+
+652
+01:10:24.930 --> 01:10:29.710
+Jitendra K: This whole concept of hydro testing just lies in this construction and list of dendogram.
+
+653
+01:10:30.350 --> 01:10:33.980
+Jitendra K: And this diagram is like a T-structure, tree-like structure.
+
+654
+01:10:34.140 --> 01:10:37.410
+Jitendra K: That explains the relationship between all data points in the system.
+
+655
+01:10:39.520 --> 01:10:46.180
+Jitendra K: So when I say dendogram, if I'm moving from left, sorry, right, Not right.
+
+656
+01:10:47.210 --> 01:10:51.610
+Jitendra K: Bottom to the top, my granularity decreases.
+
+657
+01:10:52.190 --> 01:10:53.690
+Jitendra K: Because here I'm merging.
+
+658
+01:10:54.370 --> 01:10:57.830
+Jitendra K: And when I'm moving from top to bottom, it is increasing.
+
+659
+01:11:00.560 --> 01:11:03.780
+Jitendra K: Similarly, the cluster size is inversely proportional.
+
+660
+01:11:04.310 --> 01:11:07.490
+Jitendra K: So it will increase with granularity, and decrease with.
+
+661
+01:11:08.760 --> 01:11:10.379
+Jitendra K: Increase in the granularity.
+
+662
+01:11:13.770 --> 01:11:17.580
+Jitendra K: So, basically, what are you going to do is, you're trying to create
+
+663
+01:11:19.970 --> 01:11:21.839
+Jitendra K: You're trying to create a method.
+
+664
+01:11:22.310 --> 01:11:25.009
+Jitendra K: That will find the optimal number of clusters.
+
+665
+01:11:26.080 --> 01:11:30.190
+Jitendra K: By splitting the dendograms.
+
+666
+01:11:31.100 --> 01:11:36.579
+Jitendra K: So here, if I'm taking this dendogram, I will say I've got 1, 2, 3, and 4 clusters.
+
+667
+01:11:37.350 --> 01:11:42.999
+Jitendra K: And the cluster that I formulated have… These data points together.
+
+668
+01:11:43.590 --> 01:11:47.330
+Jitendra K: So if I have to say that I've got 4 clusters, these are my data points.
+
+669
+01:11:51.490 --> 01:11:54.340
+Jitendra K: Right, so this is one way that we are going to utilize.
+
+670
+01:11:55.940 --> 01:11:58.569
+Jitendra K: Now we'll see how to decide this point.
+
+671
+01:11:59.460 --> 01:12:01.749
+Jitendra K: How to find this optimal line?
+
+672
+01:12:06.020 --> 01:12:08.170
+Jitendra K: That is something which we would like to talk about.
+
+673
+01:12:09.830 --> 01:12:10.780
+Jitendra K: as well.
+
+674
+01:12:12.270 --> 01:12:18.350
+Jitendra K: But hierarchical clustering… It's a very simple technique. It is using a distance criteria internally.
+
+675
+01:12:18.810 --> 01:12:22.570
+Jitendra K: To separate the data points using a set of
+
+676
+01:12:23.340 --> 01:12:25.960
+Jitendra K: hierarchy, or I would say set of,
+
+677
+01:12:26.440 --> 01:12:30.910
+Jitendra K: Similarities, and then use this for predicting the outcome.
+
+678
+01:12:47.670 --> 01:12:48.610
+Jitendra K: Okay.
+
+679
+01:12:49.510 --> 01:12:57.049
+Jitendra K: Now let's start to decode dendograms. Like, what is dendograms is all about, because everything that we are going to learn in hierarchical clustering depends upon this dendogram.
+
+680
+01:12:59.000 --> 01:13:01.250
+Jitendra K: So, as I mentioned, dendogram is like a tree.
+
+681
+01:13:01.770 --> 01:13:04.569
+Jitendra K: Which is using the visual representation.
+
+682
+01:13:06.080 --> 01:13:09.440
+Jitendra K: Of similar data points based upon their characteristics.
+
+683
+01:13:10.520 --> 01:13:16.130
+Jitendra K: So, as you know, that clustering divides data into groups. Standogram provides a visual roadmap of how these groups are formed.
+
+684
+01:13:16.740 --> 01:13:20.749
+Jitendra K: It offers you insight not only into which data point belongs to other.
+
+685
+01:13:21.480 --> 01:13:23.329
+Jitendra K: But how far they are as well.
+
+686
+01:13:23.480 --> 01:13:26.920
+Jitendra K: So if I say Ian… And is there any relationship?
+
+687
+01:13:27.920 --> 01:13:30.239
+Jitendra K: So I was able to find it out, there's no relationship.
+
+688
+01:13:30.700 --> 01:13:34.280
+Jitendra K: If I say A and C, they look from same family.
+
+689
+01:13:37.910 --> 01:13:44.059
+Jitendra K: So the core idea is that height of each combination indicate a distance or disability between the merged group.
+
+690
+01:13:45.420 --> 01:13:48.639
+Jitendra K: So as you increase the… as you decrease the height of the dendrogram.
+
+691
+01:13:50.080 --> 01:13:52.470
+Jitendra K: It tends to get a dissimilar compute.
+
+692
+01:13:58.200 --> 01:14:01.689
+Jitendra K: So basically, the formula that the Ennogram used
+
+693
+01:14:02.580 --> 01:14:08.759
+Jitendra K: is nothing but dissimilarity or distance between the data points, using Caribbean distance or Maniton distance.
+
+694
+01:14:12.500 --> 01:14:13.310
+Jitendra K: Right?
+
+695
+01:14:16.010 --> 01:14:19.870
+Jitendra K: And now… You need to understand how to cut an diagram.
+
+696
+01:14:20.420 --> 01:14:30.130
+Jitendra K: Right? To decide on the number of cluster, I am going to draw a horizontal line across the diagram, and the number of vertical lines that the horizontal line crosses indicate the number of cluster.
+
+697
+01:14:30.660 --> 01:14:38.199
+Jitendra K: So you're going to consider two important parameters when you're doing so. A line draw at a low height will result in many small clusters.
+
+698
+01:14:39.010 --> 01:14:42.390
+Jitendra K: A line draw at a higher point will produce fewer larger clusters.
+
+699
+01:14:44.370 --> 01:14:50.549
+Jitendra K: Right? So you have to use some criteria called Kofenic… Correlation coefficient.
+
+700
+01:14:51.010 --> 01:14:58.630
+Jitendra K: That will determine or measure how well the endogram preserves original distances, or you can even use shell-out scores for clustering quality.
+
+701
+01:15:04.870 --> 01:15:06.920
+Jitendra K: Right? So we will use this technique.
+
+702
+01:15:07.420 --> 01:15:09.769
+Jitendra K: To infer the outcome.
+
+703
+01:15:10.240 --> 01:15:12.409
+Jitendra K: From the tool technique.
+
+704
+01:15:12.800 --> 01:15:14.819
+Jitendra K: So, I will talk about hierarchical clustering.
+
+705
+01:15:19.530 --> 01:15:20.890
+Jitendra K: I'll grow my trip.
+
+706
+01:15:21.790 --> 01:15:23.130
+Jitendra K: Algum narrative.
+
+707
+01:15:23.330 --> 01:15:24.540
+Jitendra K: divisive.
+
+708
+01:15:29.260 --> 01:15:31.169
+Jitendra K: I will show you 10ograms.
+
+709
+01:15:43.540 --> 01:15:45.980
+Jitendra K: Okay, so we'll use the same packages.
+
+710
+01:15:46.410 --> 01:15:48.529
+Jitendra K: That we are using from Scikit-learn.
+
+711
+01:15:48.870 --> 01:15:52.229
+Jitendra K: The package that we are going to use is scikit-learn clustering.
+
+712
+01:15:52.570 --> 01:15:59.610
+Jitendra K: And this time, we are going to use, sci-PyCluster IQL and SciPy spatial distance.
+
+713
+01:15:59.790 --> 01:16:01.720
+Jitendra K: For calculating this scores.
+
+714
+01:16:02.420 --> 01:16:06.640
+Jitendra K: So let me go back to my notebook. Let me open a new notebook.
+
+715
+01:16:21.900 --> 01:16:24.400
+Jitendra K: Let me call this as hydrochlor strain.
+
+716
+01:16:37.110 --> 01:16:39.439
+Jitendra K: So, we will use the same set of packages.
+
+717
+01:17:01.130 --> 01:17:07.319
+Jitendra K: I'm going to use a wine dataset, which is… having more features.
+
+718
+01:17:09.530 --> 01:17:11.659
+Jitendra K: To determine the quality of the wine.
+
+719
+01:17:19.060 --> 01:17:21.719
+Jitendra K: Let me first fit in the model, and then I will explain.
+
+720
+01:18:07.250 --> 01:18:10.120
+Jitendra K: Okay, this is the clusters that I'm getting.
+
+721
+01:18:14.040 --> 01:18:15.226
+Jitendra K: Line number…
+
+722
+01:18:50.480 --> 01:18:56.309
+Jitendra K: Okay, so this is my output. So, as you know, that bind data comprise of, certain samples, 178.
+
+723
+01:18:56.840 --> 01:19:04.070
+Jitendra K: Total number features in wine data is 13, and the wine categories is good, poor, and… Average.
+
+724
+01:19:04.620 --> 01:19:06.100
+Jitendra K: Which is 1, 2, and 3.
+
+725
+01:19:07.290 --> 01:19:10.269
+Jitendra K: So, we are using these data points
+
+726
+01:19:10.910 --> 01:19:13.220
+Jitendra K: And try to use high-qual clustering.
+
+727
+01:19:14.110 --> 01:19:17.330
+Jitendra K: Basically, two approaches, aglometrative and divisive.
+
+728
+01:19:17.770 --> 01:19:19.280
+Jitendra K: Top down, bottom-down.
+
+729
+01:19:19.810 --> 01:19:24.819
+Jitendra K: And, we start with the first technique called single linkage and complete linkage.
+
+730
+01:19:25.370 --> 01:19:28.910
+Jitendra K: The single linkage, as you can see, it's very complex.
+
+731
+01:19:30.040 --> 01:19:36.169
+Jitendra K: So each linkage has to be explained, and then create a cluster one-on-one. But if I'm looking into complete linkage.
+
+732
+01:19:36.570 --> 01:19:40.550
+Jitendra K: I'm getting… If I draw the line here.
+
+733
+01:19:40.910 --> 01:19:42.950
+Jitendra K: I'll get C cluster 1, 2, and 3.
+
+734
+01:19:43.810 --> 01:19:44.590
+Jitendra K: Right?
+
+735
+01:19:45.570 --> 01:19:53.809
+Jitendra K: Similarly, if I take into average linkage, this is what looks complex, and the word linkage, which is, again, the equilibrium distance criteria, I'm getting this output.
+
+736
+01:19:54.060 --> 01:20:00.959
+Jitendra K: So the key proportion that I'm using for high-qual clustering is very simple. You're representing the data point
+
+737
+01:20:01.550 --> 01:20:07.239
+Jitendra K: By merging or removing them from the each cluster category.
+
+738
+01:20:08.300 --> 01:20:11.540
+Jitendra K: So if you're merging them, You're going.
+
+739
+01:20:12.250 --> 01:20:15.679
+Jitendra K: Towards the bottom. If you are splitting, now we are going towards the top.
+
+740
+01:20:16.750 --> 01:20:20.690
+Jitendra K: Right? So the key focus of this clustering is to ensure
+
+741
+01:20:21.090 --> 01:20:24.200
+Jitendra K: That you will be able to find the optimal number of
+
+742
+01:20:24.810 --> 01:20:30.750
+Jitendra K: parameters that will separate the two clusters… sorry, that will separate the cluster with maximum separation.
+
+743
+01:20:33.180 --> 01:20:34.050
+Jitendra K: Right?
+
+744
+01:20:34.800 --> 01:20:39.060
+Jitendra K: So… If I have to just give you this depiction.
+
+745
+01:20:39.970 --> 01:20:42.140
+Jitendra K: from the dendogram that I'm getting.
+
+746
+01:20:43.010 --> 01:20:45.249
+Jitendra K: So, let's go into the code now.
+
+747
+01:20:46.900 --> 01:20:48.490
+Jitendra K: So what this code is doing.
+
+748
+01:20:49.310 --> 01:20:51.129
+Jitendra K: So the code starts with…
+
+749
+01:20:58.890 --> 01:21:01.430
+Jitendra K: The course starts with importation of the libraries.
+
+750
+01:21:01.720 --> 01:21:09.180
+Jitendra K: So we have about 178 wine samples, 3 different wine cultivators. Each wine has 13 chemical measurements.
+
+751
+01:21:09.520 --> 01:21:12.580
+Jitendra K: Alcohol content, acidity, color, order, etc.
+
+752
+01:21:13.540 --> 01:21:18.610
+Jitendra K: The challenge is, can we automate group similarities while knowing the true labels?
+
+753
+01:21:18.870 --> 01:21:20.289
+Jitendra K: That is called clustering.
+
+754
+01:21:20.720 --> 01:21:27.339
+Jitendra K: And the method that we're using is hierarchical clustering. That means we are going to create a pre-like structure showing the relationship between all samples.
+
+755
+01:21:28.100 --> 01:21:32.049
+Jitendra K: First and foremost thing, I'm using a set of mathematical libraries, NumPy.
+
+756
+01:21:32.450 --> 01:21:38.620
+Jitendra K: For Array, Pandas for storage, Basic plotting library, including Matplot, Seabon.
+
+757
+01:21:39.070 --> 01:21:40.879
+Jitendra K: And then I'm using a linkage.
+
+758
+01:21:41.000 --> 01:21:42.320
+Jitendra K: 10ograms.
+
+759
+01:21:42.720 --> 01:21:44.429
+Jitendra K: For plotting the outcomes.
+
+760
+01:21:45.070 --> 01:21:46.400
+Jitendra K: F clusters.
+
+761
+01:21:46.690 --> 01:21:50.510
+Jitendra K: Which is a clust… cut the tree at a specific height to generate the final clusters.
+
+762
+01:21:51.010 --> 01:21:53.680
+Jitendra K: Cut 3 method, which will be able to use a cut.
+
+763
+01:21:56.050 --> 01:21:58.829
+Jitendra K: Now I'm using a pair Y distance, P distance.
+
+764
+01:21:59.660 --> 01:22:02.859
+Jitendra K: And, also square formed its stance.
+
+765
+01:22:03.690 --> 01:22:05.280
+Jitendra K: I'm loading the data.
+
+766
+01:22:05.520 --> 01:22:07.280
+Jitendra K: Into the memory, load vine.
+
+767
+01:22:09.140 --> 01:22:10.040
+Jitendra K: Care.
+
+768
+01:22:11.060 --> 01:22:14.550
+Jitendra K: And then, I'm also using standard skillet to normalize my data.
+
+769
+01:22:15.560 --> 01:22:20.769
+Jitendra K: So once I load the data, I would like to split them into input and output features.
+
+770
+01:22:21.450 --> 01:22:23.790
+Jitendra K: I've got, 13 chemical features.
+
+771
+01:22:23.950 --> 01:22:25.700
+Jitendra K: that I'm gonna use to cluster.
+
+772
+01:22:26.320 --> 01:22:31.800
+Jitendra K: So I'm going to fit in the input features to the k-mean algorithm without passing any labels to the model.
+
+773
+01:22:33.930 --> 01:22:38.739
+Jitendra K: So basically, the hierarchical clustering, algorithmetic riff, you start from bottom up.
+
+774
+01:22:39.620 --> 01:22:43.780
+Jitendra K: So start with a few clusters, and then merge.
+
+775
+01:22:44.300 --> 01:22:48.500
+Jitendra K: And what it does is calculate the distance, Between…
+
+776
+01:22:48.720 --> 01:22:51.989
+Jitendra K: Each data points to all pairs of clusters.
+
+777
+01:22:52.370 --> 01:22:54.280
+Jitendra K: And updated distance metrics.
+
+778
+01:22:55.440 --> 01:23:01.910
+Jitendra K: And then try to minimize the distance between data points, which is a form of a similar sort of clusters.
+
+779
+01:23:02.830 --> 01:23:07.930
+Jitendra K: Similarly, I'm using a word linkage, most popular for hierarchical clustering.
+
+780
+01:23:08.260 --> 01:23:14.769
+Jitendra K: So, what linkage method is most popular because of two reasons. One is, it will minimize the variance within the cluster formation.
+
+781
+01:23:15.370 --> 01:23:20.349
+Jitendra K: So here, you're not talking about distance, average, but you're talking about variance within the clusters.
+
+782
+01:23:21.130 --> 01:23:25.239
+Jitendra K: That's why award linkage analysis is one of the most important considerations.
+
+783
+01:23:27.070 --> 01:23:34.030
+Jitendra K: Similarly, I'm going to use… So what linkage formula is given like this? So let's say I've got…
+
+784
+01:23:34.620 --> 01:23:36.919
+Jitendra K: So if I have to explain to you what is waddling cage…
+
+785
+01:23:48.850 --> 01:23:51.720
+Jitendra K: So basically, your world linkage formula will look like this.
+
+786
+01:23:58.560 --> 01:23:59.380
+Jitendra K: Oops.
+
+787
+01:23:59.600 --> 01:24:00.460
+Jitendra K: It's okay.
+
+788
+01:24:10.950 --> 01:24:13.569
+Jitendra K: Yeah, so if I have to write down the word linkage formula.
+
+789
+01:24:22.710 --> 01:24:25.239
+Jitendra K: So it'll look like this. So let's say…
+
+790
+01:24:26.010 --> 01:24:31.740
+Jitendra K: So what linkage… what I'm trying to do is… Let me use image.
+
+791
+01:24:40.030 --> 01:24:42.250
+Jitendra K: So this is what I'm doing in world linkage.
+
+792
+01:24:42.490 --> 01:24:43.260
+Jitendra K: Right?
+
+793
+01:24:43.440 --> 01:24:49.220
+Jitendra K: So what is… this method does is, it will use… the clustering.
+
+794
+01:24:49.420 --> 01:24:56.220
+Jitendra K: That minimize the total… Distance within the intercluster, or a variance of above square distances.
+
+795
+01:24:56.870 --> 01:25:02.250
+Jitendra K: So it calculated distance between two clusters as the increase in the error of sum of square, and it merged
+
+796
+01:25:02.940 --> 01:25:05.390
+Jitendra K: Prioritizing the small increase in the variance.
+
+797
+01:25:07.390 --> 01:25:09.659
+Jitendra K: Right? Based upon a distance proximity.
+
+798
+01:25:09.890 --> 01:25:13.770
+Jitendra K: So, in very simple terms, it works as a divide and conquer.
+
+799
+01:25:14.620 --> 01:25:17.780
+Jitendra K: So first, it used, split criteria.
+
+800
+01:25:18.200 --> 01:25:19.990
+Jitendra K: Understand each cluster better.
+
+801
+01:25:20.140 --> 01:25:28.870
+Jitendra K: And then find an opportunity to reduce the sum of square distances between the cluster. And it is internally working on explaining the variance of these data points.
+
+802
+01:25:29.070 --> 01:25:37.810
+Jitendra K: And that's why this is very important for solving the, high-tool clustering Problem.
+
+803
+01:25:38.030 --> 01:25:40.009
+Jitendra K: That you're trying to utilize.
+
+804
+01:25:43.370 --> 01:25:47.190
+Jitendra K: Okay, so… Let me share this code with you guys.
+
+805
+01:25:47.910 --> 01:25:49.570
+Jitendra K: We'll just clean it a bit.
+
+806
+01:25:51.200 --> 01:25:58.239
+Jitendra K: So, I want you guys to run this code, and let me know if there's any issue with that, understanding of this code.
+
+807
+01:25:58.600 --> 01:26:05.190
+Jitendra K: Second is, let's try to look into the cost objective of this code. How did we determine the…
+
+808
+01:26:05.300 --> 01:26:07.280
+Jitendra K: What distance criterias, etc.
+
+809
+01:26:07.740 --> 01:26:11.620
+Jitendra K: And if there's anything that you would like to ask, please go ahead and ask questions.
+
+810
+01:30:55.120 --> 01:31:00.310
+Jitendra K: Okay, guys, so I think you're running this code, so let's take a quick 20 minutes break, and once we come back.
+
+811
+01:31:00.630 --> 01:31:05.469
+Jitendra K: Then we continue with other topics, for clustering, and I think we are…
+
+812
+01:31:06.110 --> 01:31:09.739
+Jitendra K: nearly done with clustering, but DBScan and,
+
+813
+01:31:09.990 --> 01:31:13.550
+Jitendra K: some more case study I have to provide. So I think,
+
+814
+01:31:13.870 --> 01:31:17.950
+Jitendra K: So once we complete this DB scan and one more clustering technique.
+
+815
+01:31:18.310 --> 01:31:25.349
+Jitendra K: Then we are done with the clustering. But as I mentioned, you are going to focus only on k-means, so make sure that you have a good understanding on k-means.
+
+816
+01:31:25.750 --> 01:31:30.530
+Jitendra K: And k-men is, very much what you're going to do in real-world projects.
+
+817
+01:31:31.100 --> 01:31:34.910
+Jitendra K: Alright, so let's take a break of 20 minutes, and then we'll start the session again. Thank you.
+
+818
+02:03:34.350 --> 02:03:37.219
+Jitendra K: Okay, I think you guys are back.
+
+819
+02:03:38.790 --> 02:03:42.149
+Jitendra K: So, we'll start with the last topic for today, which is called…
+
+820
+02:03:43.480 --> 02:03:50.410
+Jitendra K: DB scan, or density-based clustering, right? So DB scan, or density-based clustering.
+
+821
+02:03:50.670 --> 02:03:54.669
+Jitendra K: We'll talk, as a part of the last algorithm for today.
+
+822
+02:03:54.920 --> 02:04:00.700
+Jitendra K: So, as the name said it, dbscan. That means you're looking for a density-based scenarios.
+
+823
+02:04:01.040 --> 02:04:04.490
+Jitendra K: The DBs can use density-based spatial clustering.
+
+824
+02:04:05.100 --> 02:04:06.910
+Jitendra K: All the application with noise.
+
+825
+02:04:08.130 --> 02:04:12.959
+Jitendra K: So, this makes this algorithm with very powerful and robust non-parameter.
+
+826
+02:04:13.210 --> 02:04:18.900
+Jitendra K: that it used are density-based features, like k-means, which assume that
+
+827
+02:04:19.790 --> 02:04:24.340
+Jitendra K: that I required a number of clusters to be optimized, but it used a density scan.
+
+828
+02:04:26.110 --> 02:04:28.939
+Jitendra K: So what are the concepts used by this algorithm?
+
+829
+02:04:29.160 --> 02:04:32.580
+Jitendra K: So, in a very simple term, it uses…
+
+830
+02:04:32.800 --> 02:04:36.339
+Jitendra K: Radius of the neighbor around this point.
+
+831
+02:04:36.850 --> 02:04:42.729
+Jitendra K: And then the minimum sample, which the each radius knee point need to be considered as a core point.
+
+832
+02:04:44.410 --> 02:04:49.949
+Jitendra K: Right? So, we will use these two concepts to run DBScan. So, dbscan advantage would be…
+
+833
+02:04:50.460 --> 02:04:56.419
+Jitendra K: no predefined criteria that you required for, similar to K-min, you can say that I need to skip.
+
+834
+02:04:58.100 --> 02:05:04.799
+Jitendra K: In K-min, you are going to fix number of parameters, but in DVScan, you will say, I need not to fix any parameter.
+
+835
+02:05:04.950 --> 02:05:09.749
+Jitendra K: Second is, it is more robust to outliers and noise.
+
+836
+02:05:10.090 --> 02:05:13.759
+Jitendra K: Because it is using a noise to create an optimal cluster.
+
+837
+02:05:14.660 --> 02:05:15.770
+Jitendra K: Third is…
+
+838
+02:05:15.980 --> 02:05:26.670
+Jitendra K: It will also handle density variation. That means it will be able to excel separation between a high-density cluster from a low-density noise to create an optimal cluster all the time.
+
+839
+02:05:27.430 --> 02:05:33.889
+Jitendra K: So we will use this algorithm to run, and then try to see what are the various ways to run this algorithm.
+
+840
+02:05:34.340 --> 02:05:39.060
+Jitendra K: So, DB scan, or density-based scan, Clustering.
+
+841
+02:05:39.220 --> 02:05:46.680
+Jitendra K: just use… The density of data points or clusters in a varied form.
+
+842
+02:05:47.800 --> 02:05:48.540
+Jitendra K: Right?
+
+843
+02:05:48.670 --> 02:05:51.820
+Jitendra K: to predict the… Right, yes.
+
+844
+02:05:52.300 --> 02:05:56.620
+Jitendra K: So, basically, Let me show you the data.
+
+845
+02:06:08.970 --> 02:06:12.020
+Jitendra K: So this is how the internal mechanism of DBScan works.
+
+846
+02:06:13.270 --> 02:06:20.770
+Jitendra K: So the point… So basically, what are you trying to do is, you're trying to create the right points.
+
+847
+02:06:20.900 --> 02:06:26.020
+Jitendra K: Which are the core points, because these are the four points, which is surrounding the area within the
+
+848
+02:06:26.260 --> 02:06:27.440
+Jitendra K: each radius.
+
+849
+02:06:28.020 --> 02:06:34.040
+Jitendra K: And the area which has been shown in the circle, the yellow points, Other border areas.
+
+850
+02:06:35.790 --> 02:06:42.290
+Jitendra K: Right? So basically what it does is, it learns the differentiation, or definition of parameter.
+
+851
+02:06:44.820 --> 02:06:48.370
+Jitendra K: Based upon two important factors called min points.
+
+852
+02:06:52.640 --> 02:06:53.770
+Jitendra K: And…
+
+853
+02:06:59.040 --> 02:07:02.409
+Jitendra K: The maximum intra-distance separation.
+
+854
+02:07:10.020 --> 02:07:14.800
+Jitendra K: And basically, these two factors will help us to create algorithm.
+
+855
+02:07:15.550 --> 02:07:17.919
+Jitendra K: Alright, so what are the pros and cons of this approach?
+
+856
+02:07:18.420 --> 02:07:26.069
+Jitendra K: The process, you do not require any number of cluster to be formed beforehand. You can perform well with arbitrary shapes cluster.
+
+857
+02:07:26.380 --> 02:07:30.390
+Jitendra K: That is robust to detecting outliers and… etc.
+
+858
+02:07:31.300 --> 02:07:34.059
+Jitendra K: Some of the consequences of using this algorithm is…
+
+859
+02:07:34.640 --> 02:07:42.719
+Jitendra K: It is not… it requires a domain knowledge before you create a cluster. If you don't know the domain, what are you trying to solve? You cannot be able to form.
+
+860
+02:07:43.180 --> 02:07:44.240
+Jitendra K: the cluster.
+
+861
+02:07:44.750 --> 02:07:48.300
+Jitendra K: Because, at every step, you have to validate.
+
+862
+02:07:48.930 --> 02:07:50.770
+Jitendra K: The combination that you're passing.
+
+863
+02:07:51.010 --> 02:07:56.950
+Jitendra K: Right? So you'll see, with an example, how to create a DBScan algorithm from the scratch.
+
+864
+02:08:19.080 --> 02:08:21.990
+Jitendra K: And we also talk about how to evaluate the method.
+
+865
+02:08:23.890 --> 02:08:27.390
+Jitendra K: So, both the things we'll do simultaneously, so let's go back.
+
+866
+02:08:46.570 --> 02:08:50.480
+Jitendra K: So I would like to import all the… Let's say libraries…
+
+867
+02:08:51.080 --> 02:08:55.619
+Jitendra K: Including density-based scans, and the methods that are required to
+
+868
+02:08:56.480 --> 02:08:59.320
+Jitendra K: optimized, I'm using dbscan from SciitLearn Cluster.
+
+869
+02:09:03.200 --> 02:09:08.069
+Jitendra K: Now, let me show you the two parameters, which is your epsilon and minimal samples.
+
+870
+02:09:08.410 --> 02:09:14.230
+Jitendra K: So that we can be able to find the border lines, and… Within the distance criteria.
+
+871
+02:09:15.050 --> 02:09:17.159
+Jitendra K: So, let me quickly do that.
+
+872
+02:09:27.440 --> 02:09:31.860
+Jitendra K: So, basically, I'm using two functions.
+
+873
+02:09:32.360 --> 02:09:35.169
+Jitendra K: So I'm going to load some random data.
+
+874
+02:09:35.810 --> 02:09:39.910
+Jitendra K: And, so, random data will be generated on the fly.
+
+875
+02:09:40.500 --> 02:09:46.389
+Jitendra K: And then I'm labeling that data with the help of… Certain symbols, literals.
+
+876
+02:09:48.100 --> 02:09:50.030
+Jitendra K: But this is the shape of the data.
+
+877
+02:09:50.790 --> 02:09:54.840
+Jitendra K: And I would like to employ DB Sky to predict the number of clusters.
+
+878
+02:10:21.260 --> 02:10:24.810
+Jitendra K: Yeah, so at each step, you will see the minimum sample and a total combination.
+
+879
+02:10:25.810 --> 02:10:28.920
+Jitendra K: So this will be the two parameters that we're going to use.
+
+880
+02:10:29.430 --> 02:10:32.839
+Jitendra K: Okay, let me delete these files, which is creating a lot of issues.
+
+881
+02:10:36.110 --> 02:10:39.360
+Jitendra K: Let me use… Connected.
+
+882
+02:11:05.800 --> 02:11:08.250
+Jitendra K: Okay, let me delete this as well…
+
+883
+02:11:37.240 --> 02:11:40.610
+Jitendra K: Yeah, so let's start to look into the details of this algorithm again.
+
+884
+02:11:41.050 --> 02:11:44.870
+Jitendra K: So, you can see that it works like, forming these clusters.
+
+885
+02:11:45.960 --> 02:11:50.630
+Jitendra K: So if I have to explain you again… Or explain this algorithm.
+
+886
+02:11:52.210 --> 02:11:53.710
+Jitendra K: In a more layman term.
+
+887
+02:11:59.240 --> 02:12:01.770
+Jitendra K: So basically, the first and foremost thing, what it does is…
+
+888
+02:12:06.890 --> 02:12:11.519
+Jitendra K: So, let me show you with, some example. Let's say, imagine that you walk into a huge room.
+
+889
+02:12:12.290 --> 02:12:13.910
+Jitendra K: So this is the room that you walked.
+
+890
+02:12:15.230 --> 02:12:16.290
+Jitendra K: There's a gate.
+
+891
+02:12:16.490 --> 02:12:19.289
+Jitendra K: You enter this gate, and then you move inside this room.
+
+892
+02:12:19.730 --> 02:12:22.149
+Jitendra K: So there are some 200 people inside the room.
+
+893
+02:12:22.840 --> 02:12:26.650
+Jitendra K: So, 200 people, which is… Inside the room.
+
+894
+02:12:27.410 --> 02:12:29.850
+Jitendra K: Some people are standing in the…
+
+895
+02:12:30.020 --> 02:12:37.810
+Jitendra K: tight groups chatting each other. Some are along the edges, outlier, and some are correcting different groups.
+
+896
+02:12:38.150 --> 02:12:42.840
+Jitendra K: So, DEP is kind of just like a social network. So, you would like to find a friend of friend.
+
+897
+02:12:43.260 --> 02:12:47.090
+Jitendra K: Similar to Facebook profiling, you will say that I have a friend of Fred.
+
+898
+02:12:47.250 --> 02:12:54.259
+Jitendra K: And they are forming a single linkage. So, you will find people who are… Linked with that method.
+
+899
+02:12:55.020 --> 02:12:58.070
+Jitendra K: So, unlike other material that came in, you do not need to tell.
+
+900
+02:12:58.510 --> 02:13:02.050
+Jitendra K: That what is the starting point? How many groups should I form?
+
+901
+02:13:02.560 --> 02:13:08.189
+Jitendra K: So it will do the analysis based upon the… Variation of the data itself.
+
+902
+02:13:09.180 --> 02:13:12.620
+Jitendra K: Right, so it used a variation of the data itself to predict the epsilon.
+
+903
+02:13:14.530 --> 02:13:20.129
+Jitendra K: Right? So basically, the idea is, it will use a number of samples, which is minimum samples.
+
+904
+02:13:22.140 --> 02:13:26.389
+Jitendra K: Which is one parameter that we are using for DB scan, minimum sample.
+
+905
+02:13:26.520 --> 02:13:28.479
+Jitendra K: How many data points make a group?
+
+906
+02:13:32.420 --> 02:13:39.820
+Jitendra K: Right? And then… On the top of it, We are using Absalon EPS,
+
+907
+02:13:45.650 --> 02:13:49.979
+Jitendra K: How close… Is this data point, in terms of radius.
+
+908
+02:13:51.160 --> 02:13:57.900
+Jitendra K: Right? So basically, you're using these two trade-offs to generalize the data points, and try to separate them with the help of
+
+909
+02:13:58.370 --> 02:14:01.759
+Jitendra K: The factors that you consider to create clusters.
+
+910
+02:14:05.200 --> 02:14:12.450
+Jitendra K: So basically, this algorithm May require some domain expertise, because if you have to understand.
+
+911
+02:14:12.780 --> 02:14:16.190
+Jitendra K: How the cluster has been formed, whether it is right, wrong.
+
+912
+02:14:16.650 --> 02:14:22.210
+Jitendra K: Now, of course, first and foremost, I think you need to understand what is the similarity of the group considered by this algorithm.
+
+913
+02:14:22.630 --> 02:14:27.709
+Jitendra K: If you don't know that part, this algorithm will be impacted.
+
+914
+02:14:30.030 --> 02:14:33.560
+Jitendra K: Right? So you need to understand from your domain experiences.
+
+915
+02:14:34.010 --> 02:14:39.100
+Jitendra K: Let's move on to the code again, what exactly we are trying to do. So we have several functions.
+
+916
+02:14:40.970 --> 02:14:45.200
+Jitendra K: So we start with all the modules, incorporation, dbscan.
+
+917
+02:14:45.800 --> 02:14:50.380
+Jitendra K: and epsilon and minimum samples. Then we created two data points.
+
+918
+02:14:50.870 --> 02:14:56.890
+Jitendra K: That means I'm creating some shape in the form of a moon and binary large objects.
+
+919
+02:14:57.310 --> 02:15:02.619
+Jitendra K: And then using the noise to represent that data. So this is just a data preparation.
+
+920
+02:15:03.140 --> 02:15:10.210
+Jitendra K: Now I'm finding the maximum optimal clusters based upon distance criterias from this algorithm.
+
+921
+02:15:10.480 --> 02:15:18.270
+Jitendra K: So let's say my algorithm needs to know that these distance, which is forming a circle, these distance…
+
+922
+02:15:19.080 --> 02:15:20.460
+Jitendra K: are close enough.
+
+923
+02:15:20.900 --> 02:15:23.109
+Jitendra K: In a form of a radius from the centroid.
+
+924
+02:15:23.420 --> 02:15:26.569
+Jitendra K: So I would like to project each data point perpendicularly.
+
+925
+02:15:26.740 --> 02:15:27.650
+Jitendra K: From this?
+
+926
+02:15:27.950 --> 02:15:34.130
+Jitendra K: And then also try to calculate this inter instance. Whatever the minimum I'm getting, I will use that as a…
+
+927
+02:15:34.640 --> 02:15:36.079
+Jitendra K: Zone or upset?
+
+928
+02:15:36.250 --> 02:15:38.589
+Jitendra K: Similarly, I'm going to create a centroid here.
+
+929
+02:15:39.820 --> 02:15:43.460
+Jitendra K: And I will find the proximate distance from each data point to the centroid.
+
+930
+02:15:44.370 --> 02:15:47.190
+Jitendra K: Similarly, I will find a proximity from here as well.
+
+931
+02:15:47.580 --> 02:15:50.729
+Jitendra K: So there would be some sort of distortion that I would have.
+
+932
+02:15:51.430 --> 02:15:56.839
+Jitendra K: Remember, With this approach, I can be able to create more complex trade-offs.
+
+933
+02:15:59.320 --> 02:16:03.380
+Jitendra K: So let me share this code with you guys, and you guys just need to run this.
+
+934
+02:16:03.980 --> 02:16:07.669
+Jitendra K: Now, where are we going to use this technique? Nowhere.
+
+935
+02:16:08.660 --> 02:16:12.660
+Jitendra K: I don't think so we are going to use this technique anywhere in the real-world project.
+
+936
+02:16:13.060 --> 02:16:17.090
+Jitendra K: Apart from few satellite images, or…
+
+937
+02:16:17.290 --> 02:16:20.760
+Jitendra K: If you're using image analytics problem from satellite data.
+
+938
+02:16:20.880 --> 02:16:26.909
+Jitendra K: then this algorithm will be useful. Otherwise, I don't think so it is using anywhere in the real-world scenarios.
+
+939
+02:16:27.330 --> 02:16:32.369
+Jitendra K: So I've shared the code, please run it, and let me know if you have any doubt.
+
+940
+02:16:32.700 --> 02:16:34.150
+Jitendra K: Understanding the code.
+
+941
+02:16:54.340 --> 02:17:02.779
+Jitendra K: Yes, geospatial data use cases, when you have buildings and trees and other stuff in the satellite image.
+
+942
+02:21:23.070 --> 02:21:26.020
+Jitendra K: I hope you're able to run this. Any question?
+
+943
+02:21:32.490 --> 02:21:36.470
+Jitendra K: So, just a quick recap, what we've learned so far in today's tutorial is…
+
+944
+02:21:36.770 --> 02:21:39.490
+Jitendra K: We talk about clustering as an unsupervised…
+
+945
+02:21:39.830 --> 02:21:42.699
+Jitendra K: learning algorithms. When you talk about unsupervised.
+
+946
+02:21:46.570 --> 02:21:49.100
+Jitendra K: We are not using labels to train the model.
+
+947
+02:21:50.150 --> 02:21:52.780
+Jitendra K: Right, so in clustering, we are not using any labels.
+
+948
+02:21:53.950 --> 02:21:55.660
+Jitendra K: We'll keep that information.
+
+949
+02:21:56.020 --> 02:21:59.939
+Jitendra K: to SMA inputs only. We'll not say that I'm going to
+
+950
+02:22:00.390 --> 02:22:03.250
+Jitendra K: use 4 or 5 pluses, right?
+
+951
+02:22:03.500 --> 02:22:08.689
+Jitendra K: So I will create a label, I will not… I will not incorporate a label while creating the model. That is unsupervised.
+
+952
+02:22:08.940 --> 02:22:11.349
+Jitendra K: The first technique that we talked about is clustering.
+
+953
+02:22:15.670 --> 02:22:17.889
+Jitendra K: Similarly, we'll talk about PCA.
+
+954
+02:22:19.280 --> 02:22:22.559
+Jitendra K: In the next tutorial, we'll talk about support vector.
+
+955
+02:22:23.540 --> 02:22:26.870
+Jitendra K: Sorry, singular vector decomposition, SVD.
+
+956
+02:22:28.480 --> 02:22:31.779
+Jitendra K: These 3 or 4 algorithms we'll consider in the next tutorial.
+
+957
+02:22:32.480 --> 02:22:35.339
+Jitendra K: So I think PCA and SVD has not been covered yet, right?
+
+958
+02:22:36.100 --> 02:22:39.350
+Jitendra K: If I'm not mistaken, PCA and SBD has not been covered yet.
+
+959
+02:22:40.940 --> 02:22:44.180
+Jitendra K: Okay, so we'll talk about PCA as we do.
+
+960
+02:22:44.330 --> 02:22:50.929
+Jitendra K: and LDA, the three important algorithms. We'll all talk about LDA as well. So these techniques will be used for…
+
+961
+02:22:52.010 --> 02:22:53.340
+Jitendra K: Text analytics.
+
+962
+02:22:57.800 --> 02:23:01.449
+Jitendra K: So PCA is very important for numerical analysis.
+
+963
+02:23:02.320 --> 02:23:04.380
+Jitendra K: So, PCA, we will try to create
+
+964
+02:23:04.490 --> 02:23:07.400
+Jitendra K: The variance explanation by the principal component.
+
+965
+02:23:07.590 --> 02:23:13.479
+Jitendra K: And then try to use orthonal projection on the data, and then predicting the direction of variance using PCA.
+
+966
+02:23:13.770 --> 02:23:23.129
+Jitendra K: So the core idea is you're reducing the data. Reducing the data means you're presenting the sample of data which can explain variance better than the whole population.
+
+967
+02:23:24.260 --> 02:23:26.410
+Jitendra K: And that is PCA algorithm.
+
+968
+02:23:26.740 --> 02:23:30.000
+Jitendra K: Right? So we'll talk about all those things in dimension reduction.
+
+969
+02:23:30.710 --> 02:23:33.219
+Jitendra K: Yes, it's a dimension reduction technique, yes.
+
+970
+02:23:39.340 --> 02:23:44.070
+Jitendra K: So I think this is pretty much what we have. It is more of transformation, right?
+
+971
+02:23:44.480 --> 02:23:52.560
+Jitendra K: Data transformation, you can say yes, it is a data transformation technique, but it's not a data transformation, this is a data dimension reduction technique.
+
+972
+02:23:53.080 --> 02:23:58.260
+Jitendra K: We are transforming the data using standard scalar, normalization, these are transformation techniques.
+
+973
+02:23:58.770 --> 02:24:01.240
+Jitendra K: PC is a technique of reducing the dimension.
+
+974
+02:24:04.580 --> 02:24:09.870
+Jitendra K: Alright, so I think I have pretty much what we have for today, guys, so we are… I'm giving you back half an hour.
+
+975
+02:24:10.290 --> 02:24:13.089
+Jitendra K: So that you can go and revise these concepts.
+
+976
+02:24:13.200 --> 02:24:17.070
+Jitendra K: As I mentioned again, we need not to worry too much about hierarchical
+
+977
+02:24:17.480 --> 02:24:20.020
+Jitendra K: and DB scans, just focus on k-means.
+
+978
+02:24:20.280 --> 02:24:22.159
+Jitendra K: And all the methods that we have discussed today.
+
+979
+02:24:22.600 --> 02:24:30.030
+Jitendra K: go to the slides and try to revise, and then create a notes. Even if you do not understand hierarchical clustering, dbscan, that is perfectly fine.
+
+980
+02:24:30.430 --> 02:24:32.820
+Jitendra K: Your focus should be only on learning kmines.
+
+981
+02:24:33.500 --> 02:24:40.009
+Jitendra K: So, with that, I think it is pretty much what we have for today, guys. So, any question or any final comments before we close the call for today?
+
+982
+02:24:40.970 --> 02:24:42.790
+Jitendra K: Anything that you would like to ask?
+
+983
+02:24:48.990 --> 02:24:56.590
+Jitendra K: So there's a survey form, so please work on the survey and try to rate as much as high as you can, if you feel that this is a value proposition for you.
+
+984
+02:24:57.220 --> 02:25:06.090
+Jitendra K: Yeah, we'll talk about XZBoost in the upcoming tutorial. Yes, I will upload this slide as well. XZBoost, we will… anyway, we are going to discuss, revisit XZBoost.
+
+985
+02:25:06.670 --> 02:25:14.470
+Jitendra K: once we complete unsupervised. So, we'll revisit Exiboost, so don't worry about Exiboost. I know Exiboost is a very important algorithm for two reasons.
+
+986
+02:25:14.890 --> 02:25:18.429
+Jitendra K: One is, it provides you a more robust way of solving.
+
+987
+02:25:19.560 --> 02:25:23.919
+Jitendra K: classification problem, so we'll focus on LGBoos for sure. Don't worry about it.
+
+988
+02:25:25.610 --> 02:25:27.199
+Jitendra K: Let me share the slide.
+
+989
+02:25:30.650 --> 02:25:32.580
+Jitendra K: So, please use the slide.
+
+990
+02:25:33.260 --> 02:25:35.460
+Jitendra K: Which is a week 23 clustering.
+
+991
+02:25:35.990 --> 02:25:40.349
+Jitendra K: Although slide is slightly basic, let me share this slide then.
+
+992
+02:25:41.890 --> 02:25:44.560
+Jitendra K: So, there you will see the formulas and stuff.
+
+993
+02:25:45.870 --> 02:25:51.160
+Jitendra K: Let me share you on a Stanford lecture as well, which will help you to understand these basics.
+
+994
+02:25:51.840 --> 02:25:53.809
+Jitendra K: So let me quickly share that.
+
+995
+02:25:56.330 --> 02:25:57.320
+Jitendra K: First…
+
+996
+02:26:07.790 --> 02:26:11.279
+Jitendra K: Yeah, so these presentations are very basic, so you can ignore
+
+997
+02:26:11.800 --> 02:26:15.310
+Jitendra K: these slides. I do not feel this is quality enough.
+
+998
+02:26:15.750 --> 02:26:21.309
+Jitendra K: Even for revision purpose, make sure that you create your own notes. And examples is also very small.
+
+999
+02:26:21.640 --> 02:26:27.390
+Jitendra K: So don't go with these slides. Use my notepads, my boats.
+
+1000
+02:26:28.300 --> 02:26:34.810
+Jitendra K: And, I will give you some supplementary books as well, so that will help you. So these examples are very basics.
+
+1001
+02:26:36.800 --> 02:26:41.839
+Jitendra K: Right? So, you have to work on real-world projects, which may be very… slightly complex than this.
+
+1002
+02:26:42.090 --> 02:26:46.789
+Jitendra K: So I'd want you guys to follow the standards of writing the code, and that is what…
+
+1003
+02:26:47.110 --> 02:26:49.769
+Jitendra K: We are learning from this whole class.
+
+1004
+02:26:50.190 --> 02:26:53.440
+Jitendra K: Let me show you the k-means done for lecture.
+
+1005
+02:26:58.420 --> 02:27:00.200
+Jitendra K: Sorry, Stanford Slides.
+
+1006
+02:27:06.080 --> 02:27:09.509
+Jitendra K: No the mathematics, because we already…
+
+1007
+02:27:09.840 --> 02:27:13.710
+Jitendra K: Discuss whatever we need, so don't get into too much details.
+
+1008
+02:27:14.140 --> 02:27:16.359
+Jitendra K: On the mathematical aspects of these slides.
+
+1009
+02:27:16.900 --> 02:27:20.680
+Jitendra K: Which is fine, until less…
+
+1010
+02:27:20.810 --> 02:27:23.280
+Jitendra K: You're doing some rigorous case studies, right?
+
+1011
+02:27:23.840 --> 02:27:29.570
+Jitendra K: So… You can use this slide, which is hosted in this link.
+
+1012
+02:27:30.360 --> 02:27:32.919
+Jitendra K: And I personally find this slide to be very, very useful.
+
+1013
+02:27:36.540 --> 02:27:39.079
+Jitendra K: Another slide you can use is this.
+
+1014
+02:27:41.930 --> 02:27:45.189
+Jitendra K: So these two slides will be sufficient to explain
+
+1015
+02:27:45.450 --> 02:27:50.340
+Jitendra K: you the k-means and the working principle of k-mean. So, as I mentioned, if you understand the k-means.
+
+1016
+02:27:51.080 --> 02:27:52.949
+Jitendra K: That's the only thing that you need to know.
+
+1017
+02:27:53.620 --> 02:27:56.710
+Jitendra K: Remaining things are… not useful.
+
+1018
+02:27:58.400 --> 02:28:01.380
+Jitendra K: Whatever we have learned so far, hierarchical.
+
+1019
+02:28:01.880 --> 02:28:04.510
+Jitendra K: DB scans, it is not going to use anywhere.
+
+1020
+02:28:07.210 --> 02:28:07.990
+Jitendra K: Right?
+
+1021
+02:28:08.130 --> 02:28:15.690
+Jitendra K: So make sure… you can see that, in Sanford slide number 2nd that I put forth, they are using k-means for solving this problem.
+
+1022
+02:28:16.100 --> 02:28:21.529
+Jitendra K: So use k-means as much as you can, and then the formulas which I mentioned.
+
+1023
+02:28:21.870 --> 02:28:26.089
+Jitendra K: We'll have self-explanations on the feature space of image.
+
+1024
+02:28:26.190 --> 02:28:28.849
+Jitendra K: Let's say an image, you are going to work on RGB array.
+
+1025
+02:28:29.390 --> 02:28:31.719
+Jitendra K: So this will give you the…
+
+1026
+02:28:33.000 --> 02:28:40.979
+Jitendra K: analysis on an RGB array. RGB array means any colored image. So, colored… any image that you're going to consider.
+
+1027
+02:28:41.430 --> 02:28:44.299
+Jitendra K: I'm talking about this image, grayscale.
+
+1028
+02:28:44.400 --> 02:28:52.349
+Jitendra K: Right? So this is called black and white grayscale image. So you are comparing and grouping the pixel symmetry together in the form of a cluster.
+
+1029
+02:28:52.900 --> 02:28:57.379
+Jitendra K: And then try to identify that whether this is a panda, or a bird, or anything else.
+
+1030
+02:28:58.620 --> 02:29:04.160
+Jitendra K: So this is how the image model works internally, and this is the pre-transformer era.
+
+1031
+02:29:05.140 --> 02:29:13.049
+Jitendra K: With the advent of attention, with the advent of, other advanced techniques, These techniques are becoming obsolete.
+
+1032
+02:29:13.730 --> 02:29:16.780
+Jitendra K: Earlier, clustering has been used for image projection as well.
+
+1033
+02:29:17.430 --> 02:29:23.549
+Jitendra K: Right? But now, with the advent of, more number of advanced techniques.
+
+1034
+02:29:24.020 --> 02:29:27.680
+Jitendra K: We are no longer using this technique to classify the image.
+
+1035
+02:29:28.420 --> 02:29:31.660
+Jitendra K: Right? But this is a good example by which you can be able to learn.
+
+1036
+02:29:31.990 --> 02:29:39.869
+Jitendra K: how… image search or classification, sorry, can be performed with the help of k-means clustering.
+
+1037
+02:29:40.380 --> 02:29:45.900
+Jitendra K: So, use this slide to understand and depict, and you will get a lot of examples in this slide.
+
+1038
+02:29:46.650 --> 02:29:51.139
+Jitendra K: And you can use this example along with equation to explain the…
+
+1039
+02:29:52.190 --> 02:29:59.680
+Jitendra K: interviewer or whatever, you're using, so this will be a great slide for your purpose. So please use this slide, and then…
+
+1040
+02:29:59.910 --> 02:30:04.730
+Jitendra K: It will help you to understand how k-means work with a more advanced set of data.
+
+1041
+02:30:05.960 --> 02:30:09.390
+Jitendra K: So I think a poll is done, so thank you for submitting the polls.
+
+1042
+02:30:10.010 --> 02:30:17.229
+Jitendra K: And I think this is it for today, and in the next tutorial, we'll talk about PCA and LDA as the two important algorithms.
+
+1043
+02:30:17.680 --> 02:30:23.089
+Jitendra K: So stay tuned, and thank you for attending this session. It was a pleasure to have an interaction. We'll meet next week. Thank you.
+

@@ -1,0 +1,6370 @@
+WEBVTT
+
+1
+00:00:04.480 --> 00:00:12.109
+Tech Cert 008: Ari, I think today, for the remaining participants, she can try. If she can, she'll be able to…
+
+2
+00:00:16.740 --> 00:00:22.250
+Tech Cert 008: Oh, how do you… 13th, not a personal email.
+
+3
+00:01:24.960 --> 00:01:25.990
+Jitendra U: Bye, guys.
+
+4
+00:01:26.350 --> 00:01:27.340
+Jitendra U: Good afternoon.
+
+5
+00:01:27.660 --> 00:01:38.920
+Jitendra U: And warm welcome to the module number 11, week 11, of machine learning. So before we start a session, can we have a quick audio check, if my voice is audible to everyone? And I'm going to share my screen as well.
+
+6
+00:01:50.220 --> 00:01:57.320
+Jitendra U: Yeah, can we get a quick confirmation, guys? If my voice is audible and my screen is visible as well, I can see likes as well. Okay, great.
+
+7
+00:01:58.700 --> 00:02:16.330
+Jitendra U: All right, thank you, thanks for the confirmation. So, before we start the session, if I have to ask you, are you getting the files that we are sharing on a weekly basis? Do you have access to all the files and all the lab tutorials that we have shared last week?
+
+8
+00:02:17.140 --> 00:02:20.130
+Jitendra U: Are you getting slides on time as well?
+
+9
+00:02:21.260 --> 00:02:24.219
+Jitendra U: Are you revising those slides as well? I believe yes.
+
+10
+00:02:25.310 --> 00:02:33.740
+Jitendra U: All right, so the first thing that we are going to do in the start of MD session is, we will ask… I will… I will ask you, if any…
+
+11
+00:02:33.930 --> 00:02:36.970
+Jitendra U: If you need any further clarification from the last week.
+
+12
+00:02:37.500 --> 00:02:40.439
+Jitendra U: So this will be a slightly 10-minute…
+
+13
+00:02:40.980 --> 00:02:46.929
+Jitendra U: Kind of a doubt cleaning session, and where we are going to talk about any pending impairments, or…
+
+14
+00:02:47.060 --> 00:02:54.240
+Jitendra U: Any blockers that you're facing in… while running anything, or you would like to discuss on any aspects of
+
+15
+00:02:54.870 --> 00:03:01.600
+Jitendra U: The last tutorials, or any topic that you would like me to revisit, that would be awesome.
+
+16
+00:03:02.040 --> 00:03:05.049
+Jitendra U: So, any, any issue, guys, that you're facing?
+
+17
+00:03:05.380 --> 00:03:07.910
+Jitendra U: Before we start with today's session.
+
+18
+00:03:10.100 --> 00:03:11.960
+Jitendra U: Anything you would like to discuss?
+
+19
+00:03:16.900 --> 00:03:24.149
+Jitendra U: Could you show you… show us how to upload a CSV and access it in Voquarium? A lot of us, I think, facing…
+
+20
+00:03:24.280 --> 00:03:30.130
+Jitendra U: issue with that, okay? My SQL exercise in Ocarium was challenging, alright?
+
+21
+00:03:30.440 --> 00:03:33.579
+Jitendra U: So, what are the challenges that you're facing with that environment?
+
+22
+00:03:47.630 --> 00:03:52.389
+Jitendra U: If I have to know, what are the challenges, can you please illustrate, guys?
+
+23
+00:03:58.390 --> 00:04:00.580
+Jitendra U: Okay, I will talk about that part.
+
+24
+00:04:01.840 --> 00:04:05.840
+Jitendra U: Not able to upload CSV file in practical assignments, okay?
+
+25
+00:04:06.110 --> 00:04:13.109
+Jitendra U: refer next to local folder. I use a local instance instead, a small demo can help, even for Python access. Definitely, we'll cover that.
+
+26
+00:04:15.270 --> 00:04:21.310
+Jitendra U: So, apart from these lab commercial, any other issue in the tout or any concept that we discussed?
+
+27
+00:04:24.500 --> 00:04:26.980
+Jitendra U: I will take a demo on the bookarium.
+
+28
+00:04:28.220 --> 00:04:32.560
+Jitendra U: Alright, so I believe, we don't have anything…
+
+29
+00:04:33.060 --> 00:04:37.990
+Jitendra U: Apart from the Vocarium lab, right? That we need to discuss.
+
+30
+00:04:46.150 --> 00:04:47.940
+Jitendra U: Alright, great. Okay.
+
+31
+00:04:49.950 --> 00:04:50.780
+Jitendra U: Sure.
+
+32
+00:04:50.990 --> 00:05:08.209
+Jitendra U: So, I will… I will talk about that lab, don't worry about it. I will share you the… how to access the contents and folders from there. So, yeah, so let's start with today's tutorial, and the agenda for today's tutorial. So, I just want to understand,
+
+33
+00:05:08.540 --> 00:05:11.989
+Jitendra U: from week 11, content in the LMS,
+
+34
+00:05:12.160 --> 00:05:18.579
+Jitendra U: I hope you might have been practicing some live sessions as well, which has been posted in the LMS.
+
+35
+00:05:19.000 --> 00:05:23.470
+Jitendra U: So, can somebody describe me what are the topics for today, before we begin?
+
+36
+00:05:24.760 --> 00:05:29.149
+Jitendra U: What are the faculty lectures that you have attended?
+
+37
+00:05:29.400 --> 00:05:31.570
+Jitendra U: And what are the gist of those lectures?
+
+38
+00:05:37.390 --> 00:05:39.339
+Jitendra U: Python Basics, okay.
+
+39
+00:05:44.900 --> 00:05:46.770
+Jitendra U: Sorry, week 6, yeah.
+
+40
+00:05:47.530 --> 00:05:52.820
+Jitendra U: Okay, so list, tuple, dictionary, sets… Anything else?
+
+41
+00:05:59.370 --> 00:06:03.970
+Jitendra U: So basically, okay, so you understand about the data structures.
+
+42
+00:06:04.410 --> 00:06:11.520
+Jitendra U: But what about, the, other concept that you have learned in that tutorial.
+
+43
+00:06:25.040 --> 00:06:27.820
+Jitendra U: Okay, Python functions, alright.
+
+44
+00:06:32.590 --> 00:06:33.540
+Jitendra U: Alright.
+
+45
+00:06:34.230 --> 00:06:35.419
+Jitendra U: Yeah, that's awesome.
+
+46
+00:06:44.810 --> 00:06:46.810
+Jitendra U: Alright, so…
+
+47
+00:06:48.650 --> 00:06:55.289
+Jitendra U: So how many of you are convinced that Python is the de facto for machine learning now, after attending those sessions?
+
+48
+00:06:55.740 --> 00:07:00.189
+Jitendra U: Are you… are you comfortable understanding the… the syntax of Python?
+
+49
+00:07:00.850 --> 00:07:03.329
+Jitendra U: Are you comfortable with writing functions?
+
+50
+00:07:03.570 --> 00:07:06.810
+Jitendra U: loops… keyword arguments.
+
+51
+00:07:11.110 --> 00:07:16.669
+Jitendra U: Alright, so I think you are getting the basics of Python, right? So at least you are clear with the basics of Python.
+
+52
+00:07:16.800 --> 00:07:29.109
+Jitendra U: So what we are going to do in this tutorial is, we will take more examples, right? So our purpose is to get more hands-on, so we'll take more examples. And in today's tutorial, I will talk about, the…
+
+53
+00:07:29.200 --> 00:07:40.469
+Jitendra U: the best examples from industry, and then where we are going to utilize these, so-called Python wrappers functions for solving different tasks, right?
+
+54
+00:07:40.580 --> 00:07:43.970
+Jitendra U: So let me talk about… those aspects.
+
+55
+00:07:44.230 --> 00:07:48.020
+Jitendra U: Let me open my… slide…
+
+56
+00:07:57.410 --> 00:08:05.870
+Jitendra U: Alright, so we are going to talk about some of the learning objectives for today is we will try to understand how the Python libraries, including NumPy, Pandas.
+
+57
+00:08:06.020 --> 00:08:11.010
+Jitendra U: Matplot is, needed for solving data science problem.
+
+58
+00:08:11.160 --> 00:08:29.359
+Jitendra U: We'll also talk about some of the core Python structures, data structures, control structures that we are using for decision-making process, including looping conditions, using file handling basics, using some of the condition with statement for opening and closing the file.
+
+59
+00:08:29.590 --> 00:08:45.259
+Jitendra U: We will also talk about the important concept called list comprehension, right? So, we will talk about how list comprehension can be able to write more elegant program for your purpose, right? So this is something which we are going to focus upon. Then we'll move on to some advanced topics.
+
+60
+00:08:45.520 --> 00:09:01.939
+Jitendra U: Yeah, I will talk about matplot in a while. So we'll talk about some more advanced concepts, like dictionary comprehensions, right? So there's list comprehension and dictionary comprehension. So, we'll talk about how the dictionary been utilized for the purpose of creating another
+
+61
+00:09:02.550 --> 00:09:06.209
+Jitendra U: use a hierarchical data structure in Python.
+
+62
+00:09:06.410 --> 00:09:12.060
+Jitendra U: Then we'll move on to the most important aspect of Python called object-oriented programming.
+
+63
+00:09:13.090 --> 00:09:22.179
+Jitendra U: So Python is a procedural as well as object-oriented programming language, right? It's a functional programming as well. It's a mix of three paradigms.
+
+64
+00:09:22.520 --> 00:09:34.860
+Jitendra U: So when you talk about object-oriented programming functions, or object-oriented programming, to deal with the, let's say, any sort of analysis, you are representing everything as an object.
+
+65
+00:09:34.980 --> 00:09:39.140
+Jitendra U: Right? Beta class, beta function, everything is an object in Python now.
+
+66
+00:09:39.600 --> 00:09:50.680
+Jitendra U: And then we'll talk about the four important object-oriented design principles, which I'll call inheritance, Polymorphism, abstraction, and encapsulation.
+
+67
+00:09:50.960 --> 00:09:59.560
+Jitendra U: So these four concepts we are going to learn today, and then I will try to talk about how we can able to utilize classes
+
+68
+00:09:59.980 --> 00:10:05.259
+Jitendra U: to write a pretty… modular code in Python.
+
+69
+00:10:05.680 --> 00:10:13.720
+Jitendra U: And finally, we'll move on to the libraries, where we are going to… I'm going to introduce you to NumPy, Pandas, Matplot.
+
+70
+00:10:13.920 --> 00:10:32.210
+Jitendra U: And this is where you're going to start with data science, where pandas will eventually be your favorite data structures, or data types, I would say, to store the variables or any values that you're going to perform analysis on. So let's assume that
+
+71
+00:10:32.220 --> 00:10:35.200
+Jitendra U: In future, you are going to take some…
+
+72
+00:10:36.190 --> 00:10:43.450
+Jitendra U: some data from real world, including CSV file, TXT files, XLS file, from your databases.
+
+73
+00:10:43.580 --> 00:10:46.570
+Jitendra U: From your lakes, from your environment.
+
+74
+00:10:46.780 --> 00:10:52.790
+Jitendra U: from your event data trails, right, from your messaging queue, Kafka, and all.
+
+75
+00:10:52.930 --> 00:10:57.410
+Jitendra U: And even from web services. So where are you going to store that data?
+
+76
+00:10:57.630 --> 00:11:00.119
+Jitendra U: First, you're going to store that data into…
+
+77
+00:11:00.260 --> 00:11:04.519
+Jitendra U: some secondary databases, the one that I just named it out.
+
+78
+00:11:04.820 --> 00:11:12.510
+Jitendra U: On the other hand, you're going to utilize in-memory processing of this data into your Python functions.
+
+79
+00:11:12.610 --> 00:11:18.610
+Jitendra U: And that is where you required a very powerful tools to handle those manipulation.
+
+80
+00:11:18.770 --> 00:11:21.040
+Jitendra U: Manipulation including joins.
+
+81
+00:11:21.280 --> 00:11:27.440
+Jitendra U: Manipulation including performing data wrangling. That means you would like to understand the dimension of the data.
+
+82
+00:11:27.610 --> 00:11:41.100
+Jitendra U: You would like to perform a split on the data, you would like to perform, let's say, cleaning on the data, you would like to extract certain attribute of the data. So all these things you can able to perform on Pandas.
+
+83
+00:11:41.320 --> 00:11:44.990
+Jitendra U: Right, so we'll talk about that particular powerful package called Pandas.
+
+84
+00:11:45.920 --> 00:11:58.779
+Jitendra U: Then we'll move on to something called the Matplot Visual Libraries. Now, when you're working on any ED exercise, EDH stands for Exploratory Data Analytics in Machine Learning.
+
+85
+00:11:59.330 --> 00:12:04.040
+Jitendra U: terminologies. So when you're dealing with any machine learning project.
+
+86
+00:12:04.490 --> 00:12:10.450
+Jitendra U: Your first task is to gather the data. So let's say you gather the data from different sources.
+
+87
+00:12:10.690 --> 00:12:17.009
+Jitendra U: And then, you're ready to work on your problem statement that has been assigned by your
+
+88
+00:12:17.780 --> 00:12:33.359
+Jitendra U: peer counterparts, or maybe your immediately boss, right? Or maybe supervisor. They might have assigned you some task, and then he's asking you, or he's… he or she is asking you that we have a project, and the deadline of this project is 6 months.
+
+89
+00:12:33.880 --> 00:12:36.749
+Jitendra U: So you have to deliver this project 6 months from now.
+
+90
+00:12:37.150 --> 00:12:45.619
+Jitendra U: And, there are the agreements from the SMEs. Like, these are the… their ask, so you have a clear problem statement.
+
+91
+00:12:45.830 --> 00:12:49.760
+Jitendra U: You know the data fundamentals, like, the sources of data?
+
+92
+00:12:50.370 --> 00:12:57.189
+Jitendra U: So the first thing and the foremost thing that you are going to perform after you gather the data is to perform ADA.
+
+93
+00:12:57.410 --> 00:13:02.949
+Jitendra U: And believe me, EDA is not an easy task in any machine learning project. It's the most challenging part.
+
+94
+00:13:03.670 --> 00:13:07.940
+Jitendra U: Because that will determine your direction of… Travel.
+
+95
+00:13:08.800 --> 00:13:15.030
+Jitendra U: Right? If you're performing a good EDA, you will be a good data scientist. If you're performing a bad EDA,
+
+96
+00:13:15.550 --> 00:13:20.659
+Jitendra U: you will be a bad data scientist. But what will define a bad EDA versus good EDA?
+
+97
+00:13:21.180 --> 00:13:22.500
+Jitendra U: the visuals.
+
+98
+00:13:23.650 --> 00:13:25.639
+Jitendra U: Right answer is visuals.
+
+99
+00:13:26.070 --> 00:13:36.630
+Jitendra U: If you're able to visualize your data, if you're able to perform exploratory data analytics, you're able to break down your EDA into three parts.
+
+100
+00:13:36.980 --> 00:13:40.410
+Jitendra U: Univariate, Multi-multivariate.
+
+101
+00:13:40.930 --> 00:13:45.369
+Jitendra U: Or bivariate analysis. Then you will be able to get
+
+102
+00:13:45.500 --> 00:13:48.460
+Jitendra U: The hold of your problem statement.
+
+103
+00:13:49.220 --> 00:13:50.720
+Jitendra U: Let's take an example.
+
+104
+00:13:51.160 --> 00:13:57.489
+Jitendra U: Let's assume that you had joined some financial company, And that bank…
+
+105
+00:13:58.010 --> 00:14:03.129
+Jitendra U: As a, as a, as a bank, maybe, executive director.
+
+106
+00:14:03.340 --> 00:14:08.609
+Jitendra U: who's your boss, or your director? You are… you are reporting to him.
+
+107
+00:14:08.970 --> 00:14:14.339
+Jitendra U: He's asking you to create a financial fraud surveillance system using machine learning.
+
+108
+00:14:15.120 --> 00:14:23.919
+Jitendra U: So, he might have introduced you to certain other team members, including data engineers, CICD, QAs within his team.
+
+109
+00:14:24.090 --> 00:14:31.769
+Jitendra U: And you have been appointed as a main data scientist on those projects, right? Now, your job is to work with
+
+110
+00:14:31.960 --> 00:14:33.850
+Jitendra U: these data engineers…
+
+111
+00:14:34.130 --> 00:14:45.090
+Jitendra U: and the CICD or QA engineers, which is a part of their team, your boss team, and then after that, what you're going to do is, you're going to produce a solution for that.
+
+112
+00:14:45.380 --> 00:14:54.219
+Jitendra U: So your job is to produce a solution around it, right? So once and the first and the foremost thing is, you have to think how to break down the solution.
+
+113
+00:14:54.770 --> 00:14:57.790
+Jitendra U: Or how to break down the problem, not the solution.
+
+114
+00:14:58.460 --> 00:15:02.860
+Jitendra U: You should have a very clear approach to break down your problem.
+
+115
+00:15:04.310 --> 00:15:07.480
+Jitendra U: Right? You cannot directly jump to our algorithms.
+
+116
+00:15:07.720 --> 00:15:11.159
+Jitendra U: You cannot directly jump to any coding exercise.
+
+117
+00:15:11.560 --> 00:15:23.520
+Jitendra U: You cannot jump to any conclusion, either, that, hey, this is what I feel that it should be. It should be very… sounds like very logical way of working.
+
+118
+00:15:23.920 --> 00:15:30.949
+Jitendra U: You should attempt a problem from all broader perspective, and then reach to a conclusion that this is what I'm trying to solve.
+
+119
+00:15:31.520 --> 00:15:42.449
+Jitendra U: All right, so this is where I'm going to talk about, so I've created some more slide, interactive slides. So we are going to talk about all this fundamental in today's tutorial. We start with the control structures.
+
+120
+00:15:42.750 --> 00:15:53.050
+Jitendra U: We start with the file handling, we start with the list comprehension, then we move on to object-oriented programming. But before that, I'm talking about the EDA. So EDA is the heart of data science. Make sure that
+
+121
+00:15:53.280 --> 00:15:57.330
+Jitendra U: you use EDA with all the powerful packages.
+
+122
+00:15:57.450 --> 00:16:07.290
+Jitendra U: Including Matplotlib, Seaborn, which are the two important libraries for you to perform the data Visualization on here.
+
+123
+00:16:07.470 --> 00:16:11.000
+Jitendra U: aspect, and EDA can be breakdown into three parts.
+
+124
+00:16:11.400 --> 00:16:19.399
+Jitendra U: There's something called… Univariate analysis, there's something called bivariate analysis, and the third one is called multivariate analysis.
+
+125
+00:16:21.250 --> 00:16:22.659
+Jitendra U: Alright, now…
+
+126
+00:16:23.390 --> 00:16:39.759
+Jitendra U: If I have to ask you, what makes Python particularly suitable for AI and data science? What should be your answer? I have four options. It is fast programming language, simple syntax, and rich ecosystem of a specialized library. It only works for data science application, it does not require any learning.
+
+127
+00:16:39.900 --> 00:16:41.710
+Jitendra U: So what should be your answer, guys?
+
+128
+00:16:45.320 --> 00:16:54.419
+Jitendra U: Second option? Yeah, that's the right answer. Because there's other programming languages who is faster than Python. There are other programming languages like Go.
+
+129
+00:16:55.910 --> 00:17:02.229
+Jitendra U: Go programming, Golang, right? That is much, much faster than… Ruby is also faster than Python.
+
+130
+00:17:02.980 --> 00:17:07.670
+Jitendra U: But we are using Python for this purpose. It is very simple.
+
+131
+00:17:07.810 --> 00:17:14.280
+Jitendra U: elegant, and having a rich ecosystem of spatialized libraries. And that makes this programming language
+
+132
+00:17:14.400 --> 00:17:17.100
+Jitendra U: Very, very powerful for that purpose.
+
+133
+00:17:18.619 --> 00:17:19.569
+Jitendra U: Alright.
+
+134
+00:17:19.849 --> 00:17:30.719
+Jitendra U: Now, if I have to talk about the control structure, that means, let's assume that I'm creating a looping structure, that means a condition statement on my projects.
+
+135
+00:17:30.990 --> 00:17:44.829
+Jitendra U: So what a conditional statement? That means I would like to create a function which will be able to have some conditions based upon which it is going to execute. So what are the examples of it? Let's say I would like to give
+
+136
+00:17:45.090 --> 00:17:54.859
+Jitendra U: certain discount, to my customer, Who has been onboarded, or who is working, in my…
+
+137
+00:17:55.640 --> 00:18:01.399
+Jitendra U: Retail ecosystem segment, or retail infrastructure, for the last 5 years.
+
+138
+00:18:03.030 --> 00:18:07.149
+Jitendra U: Right? So that is where I'm going to utilize the conditional statement.
+
+139
+00:18:07.550 --> 00:18:13.629
+Jitendra U: It could be as simple as, I would like to create a grading system. Grading system could be as simple as, I would like to predict
+
+140
+00:18:14.010 --> 00:18:19.459
+Jitendra U: The, or depict the grade of the student in four categories.
+
+141
+00:18:19.660 --> 00:18:26.050
+Jitendra U: If they are securing a marks above 90, That should return A grade.
+
+142
+00:18:26.170 --> 00:18:28.959
+Jitendra U: If it is 80 and below.
+
+143
+00:18:29.290 --> 00:18:39.289
+Jitendra U: That should return B, otherwise it should return C, and so on and so forth. So I'm going to have these grades published, and I can see the output, right?
+
+144
+00:18:39.830 --> 00:18:42.390
+Jitendra U: So… So that is where…
+
+145
+00:18:43.090 --> 00:18:57.420
+Jitendra U: That is where I would like to find it out, the grading system, from these conditions, right? So basically, the real-world example could be, imagine you're dealing with some monthly report generation based upon different
+
+146
+00:18:57.600 --> 00:19:02.000
+Jitendra U: affiliation. So let's say some of the affiliation could be based upon country.
+
+147
+00:19:02.230 --> 00:19:08.909
+Jitendra U: Some of the affiliation could be based upon market risk, right? So you're going to create a condition
+
+148
+00:19:09.090 --> 00:19:12.249
+Jitendra U: On which you are going to do some action.
+
+149
+00:19:12.620 --> 00:19:18.980
+Jitendra U: Right? In real-world programming language. It could be as simple as, you would like to
+
+150
+00:19:20.950 --> 00:19:27.950
+Jitendra U: Let's say you would like to give… a particular
+
+151
+00:19:28.530 --> 00:19:45.019
+Jitendra U: add on coupon to a customer if they have purchased more than 5,000 Indian rupees worth of products, then you are going to offer them 20% discount on their next sale, right? So that is where you are going to create an app which will give these kind of rules.
+
+152
+00:19:46.170 --> 00:19:52.790
+Jitendra U: Okay, I can see some questions. Is R is not better than Python? R is more for statisticians, those who are
+
+153
+00:19:53.050 --> 00:19:55.070
+Jitendra U: Close to maths, right?
+
+154
+00:19:55.490 --> 00:19:57.899
+Jitendra U: So, if you are good in maths.
+
+155
+00:19:58.030 --> 00:19:59.649
+Jitendra U: you can still go with R.
+
+156
+00:20:00.670 --> 00:20:06.580
+Jitendra U: So, but Python is more… Preferred way of writing the codes in machine learning.
+
+157
+00:20:07.280 --> 00:20:13.890
+Jitendra U: There is any programming language that comes next. Yes, there are a lot of other programming languages, like Julia is also emerging.
+
+158
+00:20:14.710 --> 00:20:19.830
+Jitendra U: Julia programming is one of the… emerging,
+
+159
+00:20:20.020 --> 00:20:26.109
+Jitendra U: language, which can also replace Python in future, but Python is ever-evolving.
+
+160
+00:20:26.480 --> 00:20:29.279
+Jitendra U: So, I don't think so it is easy to replace.
+
+161
+00:20:32.030 --> 00:20:39.630
+Jitendra U: All right, so I hope you have learned about the looping structures. So, how many types of loop you have at study, guys? Can you please
+
+162
+00:20:40.760 --> 00:20:44.689
+Jitendra U: Ping in the chat how many types of loops that we have studied so far.
+
+163
+00:20:46.870 --> 00:20:49.719
+Jitendra U: For loop, while loop, for each loop. Oh, great.
+
+164
+00:20:51.390 --> 00:20:55.430
+Jitendra U: That's a condition. If and else is a condition. I'm talking about the loops.
+
+165
+00:21:03.180 --> 00:21:06.959
+Jitendra U: Alright, so yeah, I think everybody knows that there are 3 types of loo.
+
+166
+00:21:07.380 --> 00:21:19.010
+Jitendra U: Now, let me talk about some programmatical fundamental by which we can be able to understand how these looping statements works in the real world, right? So let's take an example to understand this.
+
+167
+00:21:19.360 --> 00:21:23.770
+Jitendra U: So, when we talk about a conditional loop, let me open my cool app.
+
+168
+00:22:03.150 --> 00:22:06.040
+Jitendra U: Alright, so let me explain what is looping structure.
+
+169
+00:22:08.310 --> 00:22:13.799
+Jitendra U: So, when you talk about looping structure in any programming language or Python.
+
+170
+00:22:14.550 --> 00:22:16.479
+Jitendra U: Then we are talking about this part.
+
+171
+00:22:17.580 --> 00:22:21.260
+Jitendra U: That means you have a condition. So your program
+
+172
+00:22:22.030 --> 00:22:26.600
+Jitendra U: control will start from validation of this condition, right? You're going to start from here.
+
+173
+00:22:27.090 --> 00:22:29.130
+Jitendra U: Because if the condition is true.
+
+174
+00:22:30.480 --> 00:22:34.290
+Jitendra U: Then this block will execute, which is the inner block.
+
+175
+00:22:34.590 --> 00:22:39.790
+Jitendra U: If the condition is false, that means if false, if zero, if
+
+176
+00:22:40.820 --> 00:22:52.779
+Jitendra U: know, right, all our negation condition, then it will pass the control to this outer block. That's the simplest way to explain if-and-else condition in any programming language. So similarly in Python.
+
+177
+00:22:53.060 --> 00:23:00.020
+Jitendra U: If and else statement allow you to execute a specific block of code, depending upon this condition.
+
+178
+00:23:00.730 --> 00:23:06.139
+Jitendra U: Right? I can take a simple example that I would like to compare two numbers.
+
+179
+00:23:06.520 --> 00:23:09.960
+Jitendra U: Maybe I'm just… creating a program.
+
+180
+00:23:14.490 --> 00:23:19.070
+Jitendra U: And I'm saying… The age of the student is 25…
+
+181
+00:23:19.820 --> 00:23:23.570
+Jitendra U: The experience of the student is 10 years.
+
+182
+00:23:24.150 --> 00:23:27.749
+Jitendra U: If H is greater than 23,
+
+183
+00:23:28.360 --> 00:23:32.069
+Jitendra U: And experience is greater than 8 years.
+
+184
+00:23:32.760 --> 00:23:34.350
+Jitendra U: then print.
+
+185
+00:23:35.790 --> 00:23:44.140
+Jitendra U: the… Candidate is… Is eligible for interview.
+
+186
+00:23:44.440 --> 00:23:48.460
+Jitendra U: For the job, else I will print, candidate is not eligible for the job.
+
+187
+00:23:49.090 --> 00:23:53.850
+Jitendra U: Alright, so this is as simple as that. I can able to pass on, I can check this condition.
+
+188
+00:23:54.520 --> 00:23:57.009
+Jitendra U: By running multiple iterations.
+
+189
+00:23:57.640 --> 00:23:59.350
+Jitendra U: Right? So…
+
+190
+00:24:06.520 --> 00:24:10.060
+Jitendra U: Alright, so I can be able to check the condition based upon the if and else condition.
+
+191
+00:24:10.190 --> 00:24:15.160
+Jitendra U: Now, there are subtle variations between the loop, so it can be as complex as this.
+
+192
+00:24:16.610 --> 00:24:22.360
+Jitendra U: When you talk about a nested loop, it can be as complex as this. So basically, you are going to have…
+
+193
+00:24:22.530 --> 00:24:24.250
+Jitendra U: If and else ladder.
+
+194
+00:24:25.270 --> 00:24:30.139
+Jitendra U: That means you're saying, you can see on my screen, that I'm using a ladder there.
+
+195
+00:24:30.320 --> 00:24:33.690
+Jitendra U: So I have condition, which is still 1.
+
+196
+00:24:34.060 --> 00:24:36.789
+Jitendra U: But inside this condition, I have another condition.
+
+197
+00:24:39.660 --> 00:24:45.390
+Jitendra U: Right, and then the loop for this condition will be… Feasible until this point.
+
+198
+00:24:46.390 --> 00:24:53.089
+Jitendra U: And the… The control for this particular condition will be feasible until this execution.
+
+199
+00:24:55.570 --> 00:24:57.809
+Jitendra U: Alright, so this will become a kind of a law.
+
+200
+00:24:58.320 --> 00:24:59.879
+Jitendra U: for this condition.
+
+201
+00:25:00.530 --> 00:25:06.449
+Jitendra U: Right? And this will become another sub-block of this condition. And combinedly, if I have to say…
+
+202
+00:25:06.570 --> 00:25:08.600
+Jitendra U: This is just validating one condition.
+
+203
+00:25:09.050 --> 00:25:11.700
+Jitendra U: Right? So let's take an example to write such
+
+204
+00:25:12.070 --> 00:25:16.220
+Jitendra U: if and else condition. So let's say I'm… I'm using…
+
+205
+00:25:16.820 --> 00:25:19.310
+Jitendra U: some number, i is equal to 10.
+
+206
+00:25:20.560 --> 00:25:25.800
+Jitendra U: And I'm checking if i is equals 2 is equals to 10.
+
+207
+00:25:27.040 --> 00:25:30.609
+Jitendra U: then… I'm writing the first expression.
+
+208
+00:25:32.130 --> 00:25:37.310
+Jitendra U: And checking if… I is less than 15.
+
+209
+00:25:38.560 --> 00:25:45.860
+Jitendra U: Then print… I… is smaller.
+
+210
+00:25:46.520 --> 00:25:48.080
+Jitendra U: Then, 15.
+
+211
+00:25:51.070 --> 00:25:53.930
+Jitendra U: I would like to use another condition, if…
+
+212
+00:25:54.850 --> 00:26:02.279
+Jitendra U: 12, then i is smaller than 12, and else this. Now I have to close the previous condition by saying…
+
+213
+00:26:02.740 --> 00:26:09.790
+Jitendra U: Else… print… I…
+
+214
+00:26:12.810 --> 00:26:18.380
+Jitendra U: not… equal to… Ben.
+
+215
+00:26:28.280 --> 00:26:31.320
+Jitendra U: Right, so you can see that I'm getting this condition.
+
+216
+00:26:31.640 --> 00:26:37.899
+Jitendra U: and then I can be able to execute this loop with the help of this program, right? Now, if I have to
+
+217
+00:26:38.380 --> 00:26:44.559
+Jitendra U: Think of, let's say… Creating the optimal way of writing this code.
+
+218
+00:26:44.850 --> 00:26:53.240
+Jitendra U: then I can be able to utilize, best way to test this by using, main functions, right? So I can start writing
+
+219
+00:26:53.410 --> 00:26:54.530
+Jitendra U: something…
+
+220
+00:26:55.240 --> 00:27:01.320
+Jitendra U: From the main, and then start calling as a function. But, since we are learning basics, so let's try to understand this.
+
+221
+00:27:01.440 --> 00:27:11.289
+Jitendra U: So, let me show you how we can able to write all these things with the help of main function, right? So, the first and foremost thing is…
+
+222
+00:27:11.430 --> 00:27:13.769
+Jitendra U: Yeah, I will increase the font size.
+
+223
+00:27:18.940 --> 00:27:20.110
+Jitendra U: Alright.
+
+224
+00:27:20.540 --> 00:27:21.890
+Jitendra U: So, the…
+
+225
+00:27:22.020 --> 00:27:33.430
+Jitendra U: I will start using the basic syntax to right now, using a main function. The first and foremost thing, I would like to import the libraries. So I'm going to import JSON.
+
+226
+00:27:33.620 --> 00:27:37.290
+Jitendra U: Just for beautification purpose, operating system library.
+
+227
+00:27:37.580 --> 00:27:45.239
+Jitendra U: For OS internals, let's say I would like to execute clear screen command, or os.
+
+228
+00:27:45.740 --> 00:27:53.519
+Jitendra U: set variable command. So I will use this particular operating system package in Python to perform all the
+
+229
+00:27:53.900 --> 00:27:58.959
+Jitendra U: such, manipulations. I would like to import a date time.
+
+230
+00:27:59.410 --> 00:28:08.699
+Jitendra U: The reason being is I would like to find out the elapsed time of my execution. So it is very important when you're working in Python, you should also start importing datetime.
+
+231
+00:28:09.390 --> 00:28:13.850
+Jitendra U: Because, let's say if you have to check and debug your program latency.
+
+232
+00:28:14.950 --> 00:28:21.280
+Jitendra U: So when you're trying to check the latency of the program, that means how much time it takes to execute a program.
+
+233
+00:28:22.700 --> 00:28:25.289
+Jitendra U: So you should start with this package.
+
+234
+00:28:25.520 --> 00:28:27.169
+Jitendra U: Which will allow you to…
+
+235
+00:28:27.540 --> 00:28:33.379
+Jitendra U: Find the start time and the end time of the program, and he can take a difference between the two.
+
+236
+00:28:33.830 --> 00:28:37.430
+Jitendra U: To infer how much time your program took to run.
+
+237
+00:28:38.810 --> 00:28:44.810
+Jitendra U: Right? Now, I would like to perform the first exercise, which is controlling a structure.
+
+238
+00:28:46.860 --> 00:28:48.170
+Jitendra U: So let me…
+
+239
+00:28:57.210 --> 00:29:01.280
+Jitendra U: Alright, so here also I'm doing the same thing. I have a function now.
+
+240
+00:29:01.460 --> 00:29:06.110
+Jitendra U: So previously, I'm using just a basic syntax, but now I'm saying I have a function.
+
+241
+00:29:06.240 --> 00:29:12.140
+Jitendra U: And in this function, what I did is, this function takes a list of score and returns the grade statistics.
+
+242
+00:29:12.910 --> 00:29:14.769
+Jitendra U: So what are the list of scores?
+
+243
+00:29:14.940 --> 00:29:19.589
+Jitendra U: If the score is greater than or equal to 90, it will be considered to be A.
+
+244
+00:29:20.040 --> 00:29:22.469
+Jitendra U: If it is greater than or equal to 80,
+
+245
+00:29:25.560 --> 00:29:29.339
+Jitendra U: Between 90 to 80, then it will become B.
+
+246
+00:29:29.720 --> 00:29:34.320
+Jitendra U: If it is less than 70, or equal to 70, it is C.
+
+247
+00:29:35.420 --> 00:29:42.479
+Jitendra U: then we have these conditions, right? So how many… so we need to kind of count how many students got each grade.
+
+248
+00:29:42.960 --> 00:29:52.860
+Jitendra U: And then we have to calculate the average of the class. So let's say I've got 5 students, and they have different grades, so I would like to calculate their total grade divided by 5.
+
+249
+00:29:53.410 --> 00:29:56.989
+Jitendra U: And then I would like to return a dictionary with results.
+
+250
+00:29:58.030 --> 00:29:58.840
+Jitendra U: Right?
+
+251
+00:29:59.300 --> 00:30:02.259
+Jitendra U: So, I'm going to use this program.
+
+252
+00:30:02.420 --> 00:30:05.159
+Jitendra U: For performing this analysis.
+
+253
+00:30:05.690 --> 00:30:09.820
+Jitendra U: Let me run this, and I will show you how I'm going to call this program.
+
+254
+00:30:09.920 --> 00:30:15.350
+Jitendra U: Right? I will show you in a while how I'm calling this program. Using,
+
+255
+00:30:16.060 --> 00:30:19.549
+Jitendra U: Using main functions, right? So let me show you.
+
+256
+00:30:19.700 --> 00:30:21.860
+Jitendra U: So, if I have to run this program.
+
+257
+00:30:22.390 --> 00:30:28.879
+Jitendra U: So I'm going to call the main function. So in this main function, I'm using the first exercise
+
+258
+00:30:29.450 --> 00:30:31.599
+Jitendra U: Which is set 1.
+
+259
+00:30:32.740 --> 00:30:38.100
+Jitendra U: And here, I'm passing… The name of the function to get called.
+
+260
+00:30:38.490 --> 00:30:44.390
+Jitendra U: So I'm saying that I have a function 1. Let me… Hide this for time being.
+
+261
+00:30:46.320 --> 00:30:47.100
+Jitendra U: Okay.
+
+262
+00:30:47.980 --> 00:30:51.919
+Jitendra U: Yeah, let me quickly hide this, so that it should not confuse you guys.
+
+263
+00:30:56.760 --> 00:31:01.470
+Jitendra U: Okay, so let's focus only on this part, right? So this is the first function that we wrote.
+
+264
+00:31:01.790 --> 00:31:04.239
+Jitendra U: Okay, let me hide this as well.
+
+265
+00:31:14.380 --> 00:31:32.290
+Jitendra U: Okay, so this is the first function that we just wrote. So in this first function, we are… we are checking… we have already coded the conditions, on which condition the grade should be A, on which basis the grade should be B, and so on and so forth. And then we are returning the average score, and the way that we are returning the score is…
+
+266
+00:31:32.690 --> 00:31:34.719
+Jitendra U: In the form of a dictionary object.
+
+267
+00:31:35.010 --> 00:31:43.770
+Jitendra U: So you're returning the grade, grade count, plus average, and the total student who has attended that particular exam.
+
+268
+00:31:43.990 --> 00:31:47.789
+Jitendra U: And then I'm creating a list of scores.
+
+269
+00:31:48.000 --> 00:31:49.279
+Jitendra U: by myself.
+
+270
+00:31:49.610 --> 00:31:51.189
+Jitendra U: To calculate discrete.
+
+271
+00:31:51.770 --> 00:31:54.810
+Jitendra U: Right? So, if I run this and execute this program.
+
+272
+00:31:58.330 --> 00:32:00.280
+Jitendra U: You can see I'm getting this output.
+
+273
+00:32:01.130 --> 00:32:08.380
+Jitendra U: The first… thing that it is returning here is… let me open this…
+
+274
+00:32:16.140 --> 00:32:20.979
+Jitendra U: Yeah, the first output it is returning is… the class average.
+
+275
+00:32:22.120 --> 00:32:25.429
+Jitendra U: And then, it is showing me the individual
+
+276
+00:32:26.290 --> 00:32:32.209
+Jitendra U: count of students for each grade. So it is saying to me, I have a list of
+
+277
+00:32:32.520 --> 00:32:37.780
+Jitendra U: 10 students who has attended that exam, Out of those 10 students.
+
+278
+00:32:38.000 --> 00:32:41.190
+Jitendra U: 3 students have achieved Grade A,
+
+279
+00:32:41.430 --> 00:32:46.699
+Jitendra U: 3 students have achieved Grade B, 3 have achieved Grade C, and 1 has achieved grade B.
+
+280
+00:32:47.100 --> 00:32:55.059
+Jitendra U: So that is where I'm going to utilize this particular, format or written style from a dictionary context.
+
+281
+00:32:55.270 --> 00:33:02.819
+Jitendra U: So that I can able to read my output more readable. Sorry, read my return statement more readable, right? So I'm re… I'm returning…
+
+282
+00:33:03.010 --> 00:33:22.310
+Jitendra U: the grade, the count of student who achieved that grade, the average of the class, and the total student who secured that particular grade. And I'm passing some 10 student arbitrarily, and then asking this function to give me the count of each grade obtained by the student, which are 10 in number.
+
+283
+00:33:22.420 --> 00:33:25.560
+Jitendra U: And what is the average of this particular exam?
+
+284
+00:33:26.250 --> 00:33:27.060
+Jitendra U: Right?
+
+285
+00:33:28.050 --> 00:33:34.389
+Jitendra U: Now, I will show you how to utilize a Fibniko series to write using Python.
+
+286
+00:33:34.500 --> 00:33:46.659
+Jitendra U: Now, Fibniko series is a classical example when you have a number patterns like this. So you have to start with the seed value. The seed value will be 0 and 1. So that is called seed value in Fibniko series.
+
+287
+00:33:47.240 --> 00:33:53.249
+Jitendra U: Now, Fiblico series is a very special series where you're going to obtain the next number.
+
+288
+00:33:53.630 --> 00:33:55.579
+Jitendra U: By adding the previous two.
+
+289
+00:33:56.930 --> 00:34:00.610
+Jitendra U: So if I'm going to generate an X sequence from the previous two, it will be 1.
+
+290
+00:34:00.800 --> 00:34:02.679
+Jitendra U: Because 0 plus 1 is 1.
+
+291
+00:34:03.340 --> 00:34:06.900
+Jitendra U: Now, if I have to generate another sequence, it will be 1 plus 1, which is 2.
+
+292
+00:34:07.120 --> 00:34:15.920
+Jitendra U: And so on and so forth, right? So I can able to generate up… anything up to infinite using Femniko series. So I can able to generate up to infinite
+
+293
+00:34:16.030 --> 00:34:21.850
+Jitendra U: on this Fiveniko series. But let's say my task… is to return…
+
+294
+00:34:22.210 --> 00:34:24.610
+Jitendra U: The Fibniko series is based upon the range.
+
+295
+00:34:26.340 --> 00:34:30.029
+Jitendra U: Right? So I'm saying that I'm passing the value of n.
+
+296
+00:34:30.489 --> 00:34:38.799
+Jitendra U: And asking the compile, or sorry, program, or UDF, user-defined function, to generate that sequence on my behalf.
+
+297
+00:34:39.270 --> 00:34:46.260
+Jitendra U: So here, you can see that I'm generating Second…
+
+298
+00:34:50.330 --> 00:34:54.100
+Jitendra U: Yeah, so I'm generating the first 10-15KU numbers.
+
+299
+00:34:54.770 --> 00:35:03.930
+Jitendra U: And this is what the program generates for me. So it is showing me, because I'm passing this 10 from main. So you can see, I will show you the function that I'm calling.
+
+300
+00:35:04.560 --> 00:35:18.320
+Jitendra U: So, I'm calling… this function, control structure1, exercise site 1, and this exercise site 1 will have…
+
+301
+00:35:18.980 --> 00:35:22.440
+Jitendra U: A function defined, which will be able to give me
+
+302
+00:35:22.660 --> 00:35:27.839
+Jitendra U: the first 10 sequence of this Filipino series. So this is what I'm gonna call my test function.
+
+303
+00:35:28.410 --> 00:35:38.270
+Jitendra U: Right, so my test function will be able to utilize this number n is equal to 10, and fit in this value of n here in my program.
+
+304
+00:35:38.410 --> 00:35:48.039
+Jitendra U: And this loop will be able to run up to 10, the first 10 sequence of the FIMEGO series, and then it will terminate that particular program.
+
+305
+00:35:48.540 --> 00:35:55.389
+Jitendra U: Similarly, I'm calling something called prime number generation. So in prime number generation, also, I'm creating a limit.
+
+306
+00:35:55.800 --> 00:36:02.150
+Jitendra U: By saying that, I should be able to generate… if…
+
+307
+00:36:02.440 --> 00:36:06.790
+Jitendra U: The limit is greater than… less than 2, should not return anything.
+
+308
+00:36:06.950 --> 00:36:13.280
+Jitendra U: That means I'm asking… the compiler to return the one prime number, but I'm looking for at least two.
+
+309
+00:36:13.530 --> 00:36:19.369
+Jitendra U: Right? And then, what is prime number, by the way? So, can somebody quickly explain me what is prime numbers?
+
+310
+00:36:23.910 --> 00:36:25.379
+Jitendra U: What a prime number, guys?
+
+311
+00:36:31.210 --> 00:36:34.529
+Jitendra U: Can I say that, the number which is divisible by itself?
+
+312
+00:36:34.730 --> 00:36:35.560
+Jitendra U: Yep.
+
+313
+00:36:35.710 --> 00:36:37.030
+Jitendra U: And returning 1?
+
+314
+00:36:37.200 --> 00:36:40.340
+Jitendra U: That's correct. So, what are the examples?
+
+315
+00:36:43.480 --> 00:36:47.230
+Jitendra U: One, 3, 5, 7, 9,
+
+316
+00:36:47.440 --> 00:36:56.829
+Jitendra U: Can 9 be a prime number? No, right? 7th, 11th, 13th? Yeah, so on and so forth. That is called prime number. So in this sequence.
+
+317
+00:36:57.080 --> 00:37:03.500
+Jitendra U: What I'm trying to do is, I'm trying to create… 8, a list prime number.
+
+318
+00:37:03.890 --> 00:37:07.250
+Jitendra U: And I'm trying to generate 30… the first 30 prime numbers.
+
+319
+00:37:07.630 --> 00:37:15.140
+Jitendra U: In the list of… Numbers… And then, it should follow this pattern.
+
+320
+00:37:15.290 --> 00:37:21.630
+Jitendra U: And what it does is, it will start initializing And creating a Boolean array.
+
+321
+00:37:22.140 --> 00:37:30.270
+Jitendra U: Right? To store the variables into a list form, and then it is checking If…
+
+322
+00:37:30.420 --> 00:37:33.379
+Jitendra U: The division by the number by itself is 1.
+
+323
+00:37:33.990 --> 00:37:36.720
+Jitendra U: That should be a prime, otherwise it should not be.
+
+324
+00:37:36.860 --> 00:37:39.430
+Jitendra U: Right? A number can be divisible by itself only.
+
+325
+00:37:40.290 --> 00:37:44.659
+Jitendra U: And return 1, right? So that is where the prime number will come into play.
+
+326
+00:37:44.770 --> 00:37:46.749
+Jitendra U: Now, when I'm running this program.
+
+327
+00:37:47.880 --> 00:37:56.509
+Jitendra U: I'm getting the list output in this format. So what I'm trying to emphasize is, when you're trying to create a Python program, always think of a return type.
+
+328
+00:37:57.100 --> 00:37:58.799
+Jitendra U: How the return type will be.
+
+329
+00:37:58.930 --> 00:38:02.969
+Jitendra U: And that is where you have to think… start thinking from a data structure perspective.
+
+330
+00:38:03.810 --> 00:38:08.670
+Jitendra U: Right? So you can see that I have one program who's returning a dictionary.
+
+331
+00:38:10.450 --> 00:38:13.219
+Jitendra U: I have another program who's simply returning a list.
+
+332
+00:38:15.860 --> 00:38:18.669
+Jitendra U: I can return this in the form of a list as well.
+
+333
+00:38:19.260 --> 00:38:24.270
+Jitendra U: But imagine a scenario when you have… 10,000 students.
+
+334
+00:38:26.440 --> 00:38:28.759
+Jitendra U: Right, so you always have to think through.
+
+335
+00:38:29.200 --> 00:38:31.819
+Jitendra U: A bigger use case to write a program.
+
+336
+00:38:32.010 --> 00:38:33.750
+Jitendra U: Your program cannot be generic.
+
+337
+00:38:34.960 --> 00:38:42.409
+Jitendra U: Right? So that's the whole idea of Python programming. So you have to think of data structures, you have to think of how to make
+
+338
+00:38:42.670 --> 00:38:49.150
+Jitendra U: Your code optimized all the time, and then how to make it more readable and easy to debug.
+
+339
+00:38:50.500 --> 00:39:02.379
+Jitendra U: That's the whole idea of coding, right? So, same thing we apply here. We are using a written type as a dictionary to make it more readable and more manageable. On the other hand, we are using a list.
+
+340
+00:39:03.420 --> 00:39:05.050
+Jitendra U: Which looks fine to me.
+
+341
+00:39:06.180 --> 00:39:09.609
+Jitendra U: Right? So I can able to utilize these two things.
+
+342
+00:39:11.660 --> 00:39:13.599
+Jitendra U: Now, let's take another example.
+
+343
+00:39:15.700 --> 00:39:28.529
+Jitendra U: Let's say I would like to create a movie recommendation system. Now, what is movie recommendation system? Like, Netflix or Amazon Prime, right? So these are the systems. So let's say I would like to create a movie recommendation system.
+
+344
+00:39:28.750 --> 00:39:31.650
+Jitendra U: Where I would like to take
+
+345
+00:39:32.950 --> 00:39:34.860
+Jitendra U: Okay, so let me go back…
+
+346
+00:39:37.610 --> 00:39:42.630
+Jitendra U: Yeah, so in the movie recommendation system, I have… certain choice…
+
+347
+00:39:43.600 --> 00:39:47.360
+Jitendra U: So I'm looking for a particular age specification of the user.
+
+348
+00:39:47.840 --> 00:39:53.600
+Jitendra U: So, if a user is… belongs to a certain age group, He will follow certain genres.
+
+349
+00:39:54.260 --> 00:40:00.630
+Jitendra U: And the genre preferences I have in my list are action, comedy, drama, horror, and sci-fi.
+
+350
+00:40:05.910 --> 00:40:08.060
+Jitendra U: Then I'm also looking for the movie length.
+
+351
+00:40:09.820 --> 00:40:12.229
+Jitendra U: That means, what is the duration of the movie?
+
+352
+00:40:13.640 --> 00:40:17.460
+Jitendra U: Right? And then I can be able to take a… decision…
+
+353
+00:40:17.920 --> 00:40:21.280
+Jitendra U: Where to recommend an action, comedy, or drama to a user.
+
+354
+00:40:22.080 --> 00:40:26.700
+Jitendra U: Right? But let's say that these are my… Movie list.
+
+355
+00:40:28.760 --> 00:40:33.010
+Jitendra U: Right? So in this program, what I'm trying to do is, I'm trying to use a condition.
+
+356
+00:40:34.150 --> 00:40:41.310
+Jitendra U: By which, I will use certain category of the user. If the user category is, he would like to watch short films.
+
+357
+00:40:41.950 --> 00:40:43.810
+Jitendra U: Less than 110 minutes.
+
+358
+00:40:44.070 --> 00:40:46.489
+Jitendra U: then I will recommend something from this.
+
+359
+00:40:46.900 --> 00:40:56.819
+Jitendra U: If he's wanting to watch a medium, list movies, greater than 130 minutes, 2 hour, 10 minutes, then he can take something from here.
+
+360
+00:40:57.100 --> 00:41:04.449
+Jitendra U: Then if he's having, more than, he can spare more than 2 hours, then he can go for a long…
+
+361
+00:41:04.800 --> 00:41:11.240
+Jitendra U: And then I would like to check the age restriction, that if the age is less than 13,
+
+362
+00:41:11.470 --> 00:41:20.310
+Jitendra U: I will restrict horror and action movie for that genre. If the age is greater than 17, then I will allow horror movies to be a part of it.
+
+363
+00:41:20.930 --> 00:41:26.150
+Jitendra U: If the genre is in restricted genres, then I will like to create
+
+364
+00:41:27.040 --> 00:41:30.169
+Jitendra U: Output, which says, age appropriateness.
+
+365
+00:41:30.840 --> 00:41:34.180
+Jitendra U: For agent appropriate to watch this, right?
+
+366
+00:41:34.310 --> 00:41:40.359
+Jitendra U: And the reason for flag is that Jan Corner is not suitable for this, age group.
+
+367
+00:41:41.550 --> 00:41:47.940
+Jitendra U: And if the genre preferences is in recommendation, that means I'm creating a kind of a data now, data structure.
+
+368
+00:41:48.170 --> 00:41:50.180
+Jitendra U: Right? So how am I going to test this?
+
+369
+00:41:50.380 --> 00:41:57.789
+Jitendra U: I'm passing 3 conditions… sorry, 3 test cases. The first test case says, Age is 25.
+
+370
+00:41:58.730 --> 00:42:01.500
+Jitendra U: Preference of the user is to watch action.
+
+371
+00:42:02.320 --> 00:42:04.430
+Jitendra U: He's okay to watch 120.
+
+372
+00:42:04.600 --> 00:42:06.870
+Jitendra U: minute, medium-sized movies.
+
+373
+00:42:08.550 --> 00:42:10.859
+Jitendra U: Right? So, we will see the output.
+
+374
+00:42:11.230 --> 00:42:16.360
+Jitendra U: what is the output given by the model? Similarly, we have Another preference from the user.
+
+375
+00:42:16.630 --> 00:42:22.820
+Jitendra U: The user is 12 years. He would like to watch a horror movie, duration of…
+
+376
+00:42:23.570 --> 00:42:25.980
+Jitendra U: Reference is 90, short duration.
+
+377
+00:42:26.830 --> 00:42:35.880
+Jitendra U: The third user is 30 years. He would like to watch comedy movie. Again, the genre… sorry, genre is comedy, but the duration is short.
+
+378
+00:42:36.730 --> 00:42:42.969
+Jitendra U: So let's see, how the output generates. So here I'm creating this function.
+
+379
+00:42:43.660 --> 00:42:52.139
+Jitendra U: sorry, this particular loop, which will loop through each attribute of my tuple. So this is a tuple, we cannot change this anymore.
+
+380
+00:42:52.510 --> 00:42:54.809
+Jitendra U: Tuples are immutable.
+
+381
+00:42:55.560 --> 00:42:59.520
+Jitendra U: I cannot be able to mutate the tuples. It's a list of tuples now.
+
+382
+00:43:01.850 --> 00:43:03.729
+Jitendra U: Right? So when we say tuple, or…
+
+383
+00:43:04.740 --> 00:43:08.410
+Jitendra U: is another data structure in Python, which I cannot able to mutate.
+
+384
+00:43:09.000 --> 00:43:15.059
+Jitendra U: After construction. So I cannot be able to add the fourth parameter here, or I cannot be able to change this parameter.
+
+385
+00:43:15.440 --> 00:43:18.040
+Jitendra U: All I can do is, I can be able to delete this.
+
+386
+00:43:18.360 --> 00:43:23.900
+Jitendra U: From a list, because list is immutable, so list will allow me to mutate.
+
+387
+00:43:24.670 --> 00:43:28.720
+Jitendra U: And the best I can do is to get rid of the first index of the list.
+
+388
+00:43:28.910 --> 00:43:31.619
+Jitendra U: But I cannot be able to mutate a tuple
+
+389
+00:43:32.010 --> 00:43:34.739
+Jitendra U: Because this is immutable object in Python.
+
+390
+00:43:35.640 --> 00:43:40.910
+Jitendra U: And the purpose of this is… You're going to store…
+
+391
+00:43:41.300 --> 00:43:45.630
+Jitendra U: These values somewhere in your memory, which cannot be changed.
+
+392
+00:43:47.640 --> 00:43:57.400
+Jitendra U: Right? So let's see the output. So here I'm running the output by calling this function MovieRecommendation. So I'm calling this function here, movierecommender.
+
+393
+00:43:57.750 --> 00:44:00.040
+Jitendra U: And what are the parameters I'm passing? Age.
+
+394
+00:44:00.770 --> 00:44:04.510
+Jitendra U: Jonre preferences, and time preference.
+
+395
+00:44:04.800 --> 00:44:06.880
+Jitendra U: How much time he would like to invest.
+
+396
+00:44:07.060 --> 00:44:12.869
+Jitendra U: So Jonner, age is 25, Jonner prefers his action movie, and then he would like to watch.
+
+397
+00:44:13.360 --> 00:44:16.159
+Jitendra U: Medium and above movie.
+
+398
+00:44:16.750 --> 00:44:18.219
+Jitendra U: So let's see the output.
+
+399
+00:44:18.740 --> 00:44:21.900
+Jitendra U: So, for the first… output.
+
+400
+00:44:22.850 --> 00:44:31.220
+Jitendra U: We are getting age 25 action movie preference and 120 minutes appetite. That means he can able to invest 120 minutes to watch that movie.
+
+401
+00:44:31.750 --> 00:44:37.899
+Jitendra U: So, as from the recommendation model, we are getting, from the list of movies we are getting.
+
+402
+00:44:38.340 --> 00:44:40.770
+Jitendra U: Matt Furry,
+
+403
+00:44:41.330 --> 00:44:51.320
+Jitendra U: Mad Max Furry Road. I don't know if it is a movie or not, but assume that it's a movie. This is what we are getting as a recommendation. So, preferred action movie for 120 minutes.
+
+404
+00:44:51.460 --> 00:45:01.790
+Jitendra U: So this is recommended to the user, based upon all the conditions. Now, second user is asking for a horror movie. Some child wants to watch horror movie.
+
+405
+00:45:01.900 --> 00:45:09.110
+Jitendra U: So it is saying, age appropriately, alternative recommendations, like John are not suitable for 12 years of age group.
+
+406
+00:45:11.760 --> 00:45:17.969
+Jitendra U: Yeah, I haven't watched that, but yeah, maybe it's a good, yeah, so this is what…
+
+407
+00:45:18.180 --> 00:45:23.680
+Jitendra U: You can see it's start recommending to the user that you're not suitable to watch this movie.
+
+408
+00:45:25.100 --> 00:45:27.859
+Jitendra U: The third user, 30 years of age.
+
+409
+00:45:28.320 --> 00:45:32.940
+Jitendra U: Is having preference towards comedy, 95 minutes he can spend.
+
+410
+00:45:33.310 --> 00:45:38.360
+Jitendra U: And it is giving me the output as super bad, perfect comedy movie for 95 minutes.
+
+411
+00:45:38.590 --> 00:45:43.620
+Jitendra U: That means it is looking for overlapping criteria. We haven't created any criteria between.
+
+412
+00:45:44.640 --> 00:45:46.690
+Jitendra U: Right? So I'm not saying,
+
+413
+00:45:47.560 --> 00:45:51.800
+Jitendra U: Should not be less than 95, but can be greater than 95.
+
+414
+00:45:52.060 --> 00:45:54.169
+Jitendra U: Please, again, watch the first half.
+
+415
+00:45:54.800 --> 00:45:56.870
+Jitendra U: And the second half, you can watch it later.
+
+416
+00:45:57.340 --> 00:46:05.470
+Jitendra U: Right? Remaining whatever time duration is there, 18 minutes or soever. So basically, that's the whole idea of recommendation, right? But
+
+417
+00:46:05.640 --> 00:46:09.919
+Jitendra U: This is just to show you an example of a conditional statement.
+
+418
+00:46:10.110 --> 00:46:14.159
+Jitendra U: Like, how recommendation model will work using a conditional loop.
+
+419
+00:46:14.280 --> 00:46:24.139
+Jitendra U: So these conditional loops, or conditional statement, will always be a part of your databases. So this is called database, your recommendation database.
+
+420
+00:46:24.460 --> 00:46:28.389
+Jitendra U: So, from this database, You're checking the condition.
+
+421
+00:46:29.220 --> 00:46:34.120
+Jitendra U: And then try to fit the recommendation appropriately.
+
+422
+00:46:35.750 --> 00:46:41.909
+Jitendra U: Right? So that is where… Python, It's very, very useful.
+
+423
+00:46:42.070 --> 00:46:43.900
+Jitendra U: To write such syntax.
+
+424
+00:46:44.630 --> 00:46:48.530
+Jitendra U: So what we have learned so far is, we have understood how to write a function.
+
+425
+00:46:48.680 --> 00:46:50.649
+Jitendra U: The function will start with a def.
+
+426
+00:46:51.130 --> 00:46:53.649
+Jitendra U: Define statement. Define a function.
+
+427
+00:46:54.780 --> 00:46:58.530
+Jitendra U: And this is called signature of the function, attribute of your function.
+
+428
+00:46:59.310 --> 00:47:06.970
+Jitendra U: Which talks about how many variable it is going to accommodate as a keyword.
+
+429
+00:47:07.660 --> 00:47:12.310
+Jitendra U: We'll talk about KW and ARGS as well, but…
+
+430
+00:47:12.550 --> 00:47:17.299
+Jitendra U: Let's try to understand the simple signature of the function.
+
+431
+00:47:17.770 --> 00:47:21.740
+Jitendra U: So your function have… 3 attributes.
+
+432
+00:47:23.580 --> 00:47:26.599
+Jitendra U: to… Bind at a runtime.
+
+433
+00:47:29.060 --> 00:47:32.570
+Jitendra U: Right? So basically, when you're running this program.
+
+434
+00:47:33.570 --> 00:47:36.799
+Jitendra U: the function will expect that I'm going to work on 3 variables.
+
+435
+00:47:38.520 --> 00:47:44.470
+Jitendra U: And then it will check From the input that you pass from the test cases.
+
+436
+00:47:46.770 --> 00:47:53.770
+Jitendra U: That means you are going to check if all the three variables are declared as a part of program or not.
+
+437
+00:47:54.610 --> 00:47:58.530
+Jitendra U: And then, you're going to fit in the condition on the top of it.
+
+438
+00:48:01.440 --> 00:48:12.129
+Jitendra U: Okay, I can see these red lines are all just send it to our word. This red line is variable, strings here. So, here you can see strings, mostly strings.
+
+439
+00:48:12.710 --> 00:48:17.810
+Jitendra U: They're not, red lines. Green one, you can see, is the comment… comments.
+
+440
+00:48:18.780 --> 00:48:27.129
+Jitendra U: And then you have predefined functions, or predefined keyword. Reserve keyword in Python, which is coming in purple. So these are reserved keywords in Python.
+
+441
+00:48:27.690 --> 00:48:29.600
+Jitendra U: Return is a reserve keyboard.
+
+442
+00:48:33.240 --> 00:48:35.659
+Jitendra U: Right? So this is, this is where…
+
+443
+00:48:35.780 --> 00:48:40.019
+Jitendra U: You are going to create a simple program, but
+
+444
+00:48:40.580 --> 00:48:46.540
+Jitendra U: in a more concise and readable way. So let's say if I make a commit and error here.
+
+445
+00:48:47.130 --> 00:48:51.359
+Jitendra U: I commit an error, I missed this.
+
+446
+00:48:52.860 --> 00:48:54.970
+Jitendra U: Right? So I can be able to use…
+
+447
+00:48:56.030 --> 00:49:01.670
+Jitendra U: The error to debug my program more easily.
+
+448
+00:49:02.100 --> 00:49:07.050
+Jitendra U: Right, so I can be able to find it out if… This is doing…
+
+449
+00:49:07.330 --> 00:49:10.859
+Jitendra U: some error here, on this particular line, I can really debug it.
+
+450
+00:49:12.180 --> 00:49:13.740
+Jitendra U: Alright, so…
+
+451
+00:49:14.040 --> 00:49:19.109
+Jitendra U: Let's move on to exercise number two. Any question on exercise number 1, guys? Are you following so far?
+
+452
+00:49:21.340 --> 00:49:24.060
+Jitendra U: Recommendation, I didn't get your question mark.
+
+453
+00:49:25.200 --> 00:49:31.299
+Jitendra U: Can we make this faster by making tuple as a key for dictionary? Is it a good approach? No.
+
+454
+00:49:33.040 --> 00:49:39.820
+Jitendra U: If you're creating a tuple as a key for dictionary, but how many… what key will be 1, right?
+
+455
+00:49:40.140 --> 00:49:42.660
+Jitendra U: Why need tuple as an input?
+
+456
+00:49:44.300 --> 00:49:47.259
+Jitendra U: It should be a unique key always in dictionary itself.
+
+457
+00:49:55.000 --> 00:49:58.930
+Jitendra U: Recommendation areas, base recommendation, which line are you talking about?
+
+458
+00:50:13.150 --> 00:50:15.269
+Jitendra U: Below function definition.
+
+459
+00:50:18.760 --> 00:50:20.109
+Jitendra U: You mentioned this?
+
+460
+00:50:21.750 --> 00:50:26.140
+Jitendra U: These are the line number, can you read this line number and tell me which line are you talking about?
+
+461
+00:50:40.210 --> 00:50:43.429
+Jitendra U: 138. Recommendation is a dictionary.
+
+462
+00:50:44.580 --> 00:50:45.920
+Jitendra U: It's a dictionary.
+
+463
+00:50:47.830 --> 00:50:52.379
+Jitendra U: So, here we are creating a dictionary of recommendation, which is your database.
+
+464
+00:50:57.950 --> 00:50:59.620
+Jitendra U: This is your database.
+
+465
+00:51:03.020 --> 00:51:09.920
+Jitendra U: Alright, any other question before we move on to the second… Or file handling mechanism.
+
+466
+00:51:10.030 --> 00:51:11.210
+Jitendra U: Any question?
+
+467
+00:51:12.200 --> 00:51:15.389
+Jitendra U: Naster Dictionary, so this is Nasty Dictionary, yes.
+
+468
+00:51:18.830 --> 00:51:23.239
+Jitendra U: This is a nested dictionary. You have action, comedy, and drama nested in one dictionary.
+
+469
+00:51:26.250 --> 00:51:34.539
+Jitendra U: Order of execution starts from main. This is where your boilerplate expression will start. This is the first line, which will execute of this program.
+
+470
+00:51:35.110 --> 00:51:39.340
+Jitendra U: And then, once you hit this main function, it will go… your control will go here.
+
+471
+00:51:40.720 --> 00:51:43.700
+Jitendra U: And then from this, it will go into the try block.
+
+472
+00:51:43.840 --> 00:51:47.579
+Jitendra U: The first function it takes is exercise site 1.
+
+473
+00:51:47.860 --> 00:51:56.130
+Jitendra U: So it will go to the signature of this function, exercise1. Then it will read what it needs to do, so it will print all these things.
+
+474
+00:51:56.360 --> 00:52:00.769
+Jitendra U: Then… The control will look for…
+
+475
+00:52:01.050 --> 00:52:06.759
+Jitendra U: If within exercise set 1, I'm calling some other functions, and that is where you're calling
+
+476
+00:52:07.340 --> 00:52:11.500
+Jitendra U: the other function as well, so let's start calling these functions.
+
+477
+00:52:15.840 --> 00:52:18.160
+Jitendra U: So this is the order of execution in Python.
+
+478
+00:52:18.590 --> 00:52:19.660
+Jitendra U: Are you clear?
+
+479
+00:52:25.010 --> 00:52:31.309
+Jitendra U: What's the option for dynamic changing the recommendation instead of predefined? Yeah, so you have to reuse databases.
+
+480
+00:52:31.600 --> 00:52:36.540
+Jitendra U: You have to create a database for that. You have to use Table to store this.
+
+481
+00:52:42.730 --> 00:52:50.969
+Jitendra U: Yeah, so his main function is similar to C programming's main function, yes. Or Java program, Java also have,
+
+482
+00:52:51.100 --> 00:52:54.279
+Jitendra U: the starting point, right? So, there also you are going to use it.
+
+483
+00:52:54.830 --> 00:52:59.339
+Jitendra U: Yeah, let me share this code, so you would like to try this, and then let me know?
+
+484
+00:53:00.430 --> 00:53:04.500
+Jitendra U: Let me share my code, so… I will do one thing.
+
+485
+00:53:05.770 --> 00:53:10.669
+Jitendra U: I don't want you to run all. Maybe I will comment this out.
+
+486
+00:53:12.880 --> 00:53:15.819
+Jitendra U: Maybe it should be okay, just try this and let me know.
+
+487
+00:53:49.110 --> 00:53:56.819
+Jitendra U: Yeah, I've shared the workbook with you, everyone, so can… can everybody try this first program and let me know if there's any confusion?
+
+488
+00:53:57.240 --> 00:53:59.550
+Jitendra U: Let's try to get familiar with the syntax.
+
+489
+00:54:00.510 --> 00:54:10.449
+Jitendra U: Data structure, we will revisit again. Which data structure to use when, we'll revisit. But at least, from conditional statement, looping structure.
+
+490
+00:54:12.010 --> 00:54:16.429
+Jitendra U: Functions, execution, main functions, you should be familiar.
+
+491
+00:54:16.740 --> 00:54:20.420
+Jitendra U: So I'm just waiting for your confirmation, guys. Execute and let me know, please.
+
+492
+00:56:52.420 --> 00:56:56.860
+Jitendra U: Yeah, okay, I think everybody is able to execute. There's a question about…
+
+493
+00:56:57.810 --> 00:57:03.619
+Jitendra U: boilerplate expression. So this is called boilerplate expression, so this is the starting point of your program.
+
+494
+00:57:04.350 --> 00:57:06.560
+Jitendra U: So this is where your program starts.
+
+495
+00:57:06.850 --> 00:57:09.269
+Jitendra U: So you can see I'm calling a main function.
+
+496
+00:57:11.440 --> 00:57:13.450
+Jitendra U: Alright, I'm calling a main function.
+
+497
+00:57:13.710 --> 00:57:17.920
+Jitendra U: That's the start of your program. So this combined expression is called boilerplate.
+
+498
+00:57:20.790 --> 00:57:27.420
+Jitendra U: Alright, so let's move on to the second part of the exercise, where we're going to talk about
+
+499
+00:57:29.920 --> 00:57:31.200
+Jitendra U: Let me open…
+
+500
+00:57:43.440 --> 00:57:46.260
+Jitendra U: Yeah, we are going to talk about a file handling mechanism.
+
+501
+00:57:46.520 --> 00:57:50.490
+Jitendra U: So, you, as you know that, when we talk about files in Python.
+
+502
+00:57:50.750 --> 00:57:54.329
+Jitendra U: Or any programming language, what are the types of files that you're going to have?
+
+503
+00:57:55.020 --> 00:58:01.509
+Jitendra U: They're going to have… Two or three different types of files, which are called flat files.
+
+504
+00:58:02.150 --> 00:58:06.490
+Jitendra U: which can have structured or unstructured data, like Excel, CSV,
+
+505
+00:58:07.620 --> 00:58:14.150
+Jitendra U: And, things like, even a text.txt file is also a flat file, right?
+
+506
+00:58:14.640 --> 00:58:19.549
+Jitendra U: Now, when you talk about the flat files, you can able to handle them with the help of…
+
+507
+00:58:20.090 --> 00:58:23.440
+Jitendra U: the file opening functions.
+
+508
+00:58:23.910 --> 00:58:26.609
+Jitendra U: Now, there are two sort of operations that you're going to perform.
+
+509
+00:58:26.890 --> 00:58:32.100
+Jitendra U: The first is read, the second is write, and the third is you can delete or manage the file.
+
+510
+00:58:33.080 --> 00:58:39.780
+Jitendra U: Right? So basically, that is where you have to use some statement that can perform a safety check
+
+511
+00:58:40.070 --> 00:58:42.209
+Jitendra U: On the file pointers.
+
+512
+00:58:43.140 --> 00:58:47.350
+Jitendra U: To avoid any sort of data leaks, resource leak, and data corruption.
+
+513
+00:58:47.920 --> 00:58:52.289
+Jitendra U: And for that, Python is provided a statement called width.
+
+514
+00:58:54.450 --> 00:59:00.450
+Jitendra U: So you're going to say, with, open the file, In read-write mode.
+
+515
+00:59:01.370 --> 00:59:04.770
+Jitendra U: And then you would like to perform some activity on the top of it.
+
+516
+00:59:06.830 --> 00:59:13.470
+Jitendra U: Now, that's where the question occurs. What will happen if you don't properly close files in Python?
+
+517
+00:59:15.370 --> 00:59:19.470
+Jitendra U: So what option do you guys think is right, and why?
+
+518
+00:59:21.480 --> 00:59:27.880
+Jitendra U: The first option says, nothing, file, Python handle it automatically, resource leak and potential data corruption.
+
+519
+00:59:28.110 --> 00:59:33.180
+Jitendra U: The program will crash, terminate immediately, file become permanent locked.
+
+520
+00:59:36.200 --> 00:59:38.280
+Jitendra U: But what if I say nothing?
+
+521
+00:59:41.670 --> 00:59:43.580
+Jitendra U: The answer is nothing, actually.
+
+522
+00:59:44.600 --> 00:59:47.489
+Jitendra U: Python has something called garbage collection.
+
+523
+00:59:49.550 --> 00:59:50.540
+Jitendra U: GC.
+
+524
+00:59:51.320 --> 00:59:53.690
+Jitendra U: Which will be able to do it for you.
+
+525
+00:59:54.290 --> 01:00:00.309
+Jitendra U: The second most, closest answer is resource leak and potential data corruption, which can happen.
+
+526
+01:00:03.560 --> 01:00:09.490
+Jitendra U: Right? But there's something called garbage collection in Python, which will help you to remove
+
+527
+01:00:09.720 --> 01:00:14.889
+Jitendra U: Any dangling pointers, or any file pointer, which remain open.
+
+528
+01:00:15.150 --> 01:00:18.260
+Jitendra U: So Python works on a concept of heap.
+
+529
+01:00:18.450 --> 01:00:23.019
+Jitendra U: EAP memory. Everything that you're running in Python is a RAM-based memory.
+
+530
+01:00:23.700 --> 01:00:30.050
+Jitendra U: So all the calculation that you're performing in Python goes towards something called namespace.
+
+531
+01:00:30.620 --> 01:00:32.570
+Jitendra U: Namespace allocation.
+
+532
+01:00:33.090 --> 01:00:36.130
+Jitendra U: The namespace is nothing but your heap memory.
+
+533
+01:00:36.330 --> 01:00:37.410
+Jitendra U: on RAM.
+
+534
+01:00:38.570 --> 01:00:48.870
+Jitendra U: Now, as you know that, RAM is one of the sophisticated devices in your operating system, or in your machine, or in your system, or in your PC.
+
+535
+01:00:50.620 --> 01:00:57.609
+Jitendra U: RAM… Is exhaustive with all these garbage values.
+
+536
+01:00:58.390 --> 01:01:03.069
+Jitendra U: That means your system performance will be tremendously decreased.
+
+537
+01:01:04.500 --> 01:01:10.949
+Jitendra U: Right? So that is where the file management is one of the core responsibilities of a Python compiler.
+
+538
+01:01:12.740 --> 01:01:18.230
+Jitendra U: And for that purpose, Python Compiler, or Python,
+
+539
+01:01:18.900 --> 01:01:22.819
+Jitendra U: programming interface, I've created something called GC.
+
+540
+01:01:23.410 --> 01:01:25.320
+Jitendra U: Garbage collection module.
+
+541
+01:01:27.040 --> 01:01:33.259
+Jitendra U: Right? And that will help you to get rid of any open file pointers automatically.
+
+542
+01:01:37.720 --> 01:01:40.389
+Jitendra U: Right? That is the whole idea of GC.
+
+543
+01:01:40.890 --> 01:01:46.889
+Jitendra U: Alright, so we will see how to open and close a file using a program. Let's move on to the program.
+
+544
+01:01:56.790 --> 01:01:59.650
+Jitendra U: So, in the second program, we are going to talk about
+
+545
+01:02:00.680 --> 01:02:05.140
+Jitendra U: Some file handling mechanism. So, what I did is, I created a log.
+
+546
+01:02:06.070 --> 01:02:08.169
+Jitendra U: So this is how the log will look like.
+
+547
+01:02:08.430 --> 01:02:10.279
+Jitendra U: So let's say you have a system log.
+
+548
+01:02:10.550 --> 01:02:16.219
+Jitendra U: The system lock talk about The several set of events which have been performed.
+
+549
+01:02:16.500 --> 01:02:19.180
+Jitendra U: on a particular… resources.
+
+550
+01:02:22.790 --> 01:02:26.410
+Jitendra U: Let's say, the resources could be a simple file.
+
+551
+01:02:27.540 --> 01:02:33.130
+Jitendra U: Somebody have uploaded a file, Some other users will open the file to read it.
+
+552
+01:02:33.270 --> 01:02:38.829
+Jitendra U: Third user is adding some values, fifth user deleting some values, and then so on and so forth.
+
+553
+01:02:39.650 --> 01:02:46.509
+Jitendra U: So these are the log entries that I'm having, and this log entry is nothing but… it's an event database.
+
+554
+01:02:48.820 --> 01:02:59.749
+Jitendra U: So I created a simple log entry for analysis purpose, and then I'm passing with… using… an open function.
+
+555
+01:02:59.870 --> 01:03:01.990
+Jitendra U: This is my function, open function.
+
+556
+01:03:02.270 --> 01:03:05.430
+Jitendra U: So, open function is a stream
+
+557
+01:03:07.820 --> 01:03:12.780
+Jitendra U: Open file and return the stream. So that's the whole purpose of this open function.
+
+558
+01:03:13.000 --> 01:03:18.069
+Jitendra U: The first and the foremost attribute of this function is a file pointer itself.
+
+559
+01:03:18.490 --> 01:03:24.019
+Jitendra U: So you can see, I'm using a file pointer, right? So I'm using a file pointer, which says.
+
+560
+01:03:24.310 --> 01:03:29.930
+Jitendra U: My file pointer… Should be my input to this function.
+
+561
+01:03:30.530 --> 01:03:34.920
+Jitendra U: That means you're passing some resource to this function to get… to perform some tasks.
+
+562
+01:03:35.150 --> 01:03:38.269
+Jitendra U: And what is the task? You're opening a file in a read mode.
+
+563
+01:03:40.050 --> 01:03:41.290
+Jitendra U: by default.
+
+564
+01:03:41.420 --> 01:03:44.069
+Jitendra U: If you change it to W, it will become right.
+
+565
+01:03:45.200 --> 01:03:52.519
+Jitendra U: I'm allowing the buffering Sorry, I'm disabling the buffering of my file. I will talk about this buffering concept.
+
+566
+01:03:53.770 --> 01:03:57.330
+Jitendra U: And so on and so forth, other… other,
+
+567
+01:03:58.620 --> 01:04:03.970
+Jitendra U: Errors, new line character, if it is Chosen to be…
+
+568
+01:04:05.140 --> 01:04:10.699
+Jitendra U: forward slash AN, it will be default. If you're choosing that, my new line should start from, comma.
+
+569
+01:04:10.930 --> 01:04:17.859
+Jitendra U: Then it will start, assuming that your new lines start with a comma. Close file, file database, etc.
+
+570
+01:04:18.130 --> 01:04:22.170
+Jitendra U: So here, what I'm trying to show is, you have several types of
+
+571
+01:04:22.660 --> 01:04:24.979
+Jitendra U: Mode in which you can open the file.
+
+572
+01:04:25.120 --> 01:04:26.569
+Jitendra U: The first mode is read.
+
+573
+01:04:27.000 --> 01:04:29.380
+Jitendra U: You can read a file, but cannot write.
+
+574
+01:04:30.410 --> 01:04:32.439
+Jitendra U: You can read the file, but cannot write.
+
+575
+01:04:32.610 --> 01:04:37.500
+Jitendra U: Right means you can open the file and truncate the lines as well.
+
+576
+01:04:37.950 --> 01:04:44.110
+Jitendra U: X means you can create a new file and open it with… for writing as well. A means you can open a file.
+
+577
+01:04:44.240 --> 01:04:46.779
+Jitendra U: And start appending the new lines.
+
+578
+01:04:46.940 --> 01:04:48.100
+Jitendra U: in the file.
+
+579
+01:04:48.750 --> 01:04:56.410
+Jitendra U: You can open a file in a binary mode, you can use the file in a text mode. Both mode is applicable. Binary mode means,
+
+580
+01:04:56.620 --> 01:05:00.580
+Jitendra U: You might have already seen the image. If you open the file of an image.
+
+581
+01:05:00.780 --> 01:05:04.290
+Jitendra U: You will need some special characters in that. That's the binary mode.
+
+582
+01:05:04.420 --> 01:05:08.429
+Jitendra U: Similarly, text mode, as simple as you're opening a notepad.
+
+583
+01:05:08.830 --> 01:05:11.420
+Jitendra U: In your operating system. That's a text mode.
+
+584
+01:05:11.660 --> 01:05:17.330
+Jitendra U: The plus means you open a disk file for updating reading and writing operation you can be able to perform.
+
+585
+01:05:17.750 --> 01:05:21.229
+Jitendra U: So that is where I'm opening this file in the write mode.
+
+586
+01:05:23.020 --> 01:05:25.559
+Jitendra U: Right? So I'm opening a file in a write mode.
+
+587
+01:05:26.500 --> 01:05:29.760
+Jitendra U: Right? So I'm saying that I would like to open a file in a write mode.
+
+588
+01:05:30.250 --> 01:05:37.890
+Jitendra U: And then, I would like to assert this data… To this simplesystem.log.
+
+589
+01:05:38.630 --> 01:05:41.750
+Jitendra U: How can we get a document on built-in function?
+
+590
+01:05:43.520 --> 01:05:47.879
+Jitendra U: Yeah, you have to use help function for that, or you can simply…
+
+591
+01:05:48.360 --> 01:05:55.530
+Jitendra U: If you're using Google Collab, you simply place your cursor on that function, it will start automatically giving you the recommendation.
+
+592
+01:05:59.840 --> 01:06:07.890
+Jitendra U: Alright, so what I'm trying to do is, I'm opening a file, empty file, so right now the file is empty, there's nothing inside this.
+
+593
+01:06:08.590 --> 01:06:11.629
+Jitendra U: But I'm saying I would like to write to this empty file.
+
+594
+01:06:12.250 --> 01:06:15.600
+Jitendra U: Not append, not read, nothing else.
+
+595
+01:06:17.060 --> 01:06:21.170
+Jitendra U: So, I would like to write… This data to my file.
+
+596
+01:06:21.930 --> 01:06:23.890
+Jitendra U: So what did this file become now?
+
+597
+01:06:24.890 --> 01:06:27.070
+Jitendra U: The file is becoming Leica.
+
+598
+01:06:29.120 --> 01:06:32.330
+Jitendra U: allocator, For all these events.
+
+599
+01:06:34.840 --> 01:06:40.099
+Jitendra U: Open is a system function in Python. Open does not need any library.
+
+600
+01:06:40.610 --> 01:06:42.259
+Jitendra U: It's a system-defined function.
+
+601
+01:06:44.740 --> 01:06:49.100
+Jitendra U: If not from any class, there's a system-defined library in Python.
+
+602
+01:06:49.300 --> 01:06:51.099
+Jitendra U: So we are using it as it is.
+
+603
+01:06:52.680 --> 01:06:58.060
+Jitendra U: Now, here, I'm saying for entry in the log entry, which is my list.
+
+604
+01:07:00.400 --> 01:07:03.489
+Jitendra U: And I would like to rewrite each
+
+605
+01:07:03.790 --> 01:07:07.899
+Jitendra U: Row separated by a new line character.
+
+606
+01:07:10.830 --> 01:07:17.149
+Jitendra U: And once it enters all these lines, it will say, It has been created.
+
+607
+01:07:20.200 --> 01:07:24.709
+Jitendra U: Right? Now, the second program, I can start analyzing the log.
+
+608
+01:07:27.250 --> 01:07:28.950
+Jitendra U: So I would like to find it out.
+
+609
+01:07:29.700 --> 01:07:32.730
+Jitendra U: What is the most common error message?
+
+610
+01:07:33.450 --> 01:07:37.129
+Jitendra U: I would like to track how many messages have been generated per hour.
+
+611
+01:07:39.710 --> 01:07:43.170
+Jitendra U: What about the location of the file created? Location will be this.
+
+612
+01:07:46.070 --> 01:07:47.979
+Jitendra U: The same location that you're working.
+
+613
+01:07:48.500 --> 01:07:50.229
+Jitendra U: Your current working directory.
+
+614
+01:07:53.060 --> 01:07:56.300
+Jitendra U: Is it clear to everyone, this program? Any doubt?
+
+615
+01:08:00.200 --> 01:08:02.929
+Jitendra U: I need a doubt, guys, to understand this program.
+
+616
+01:08:03.320 --> 01:08:05.010
+Jitendra U: Too difficult, too easy.
+
+617
+01:08:13.810 --> 01:08:15.510
+Jitendra U: Normal, okay.
+
+618
+01:08:21.760 --> 01:08:27.890
+Jitendra U: Now, my question is… If I have to replace this file with a database.
+
+619
+01:08:28.649 --> 01:08:30.650
+Jitendra U: Can I be able to do so?
+
+620
+01:08:33.819 --> 01:08:35.619
+Jitendra U: In your real-world projects.
+
+621
+01:08:39.580 --> 01:08:40.439
+Jitendra U: Right?
+
+622
+01:08:41.050 --> 01:08:43.270
+Jitendra U: And that is where you need a buffering.
+
+623
+01:08:44.029 --> 01:08:51.839
+Jitendra U: Alright, so what does it mean by buffering? Buffering means… let's say… Your database is getting refreshed.
+
+624
+01:08:53.290 --> 01:08:57.349
+Jitendra U: And you're reading that data as well, in your file pointer, or in your file.
+
+625
+01:08:58.069 --> 01:09:00.599
+Jitendra U: So, basically, there's a phenomena called buffering.
+
+626
+01:09:00.870 --> 01:09:06.930
+Jitendra U: You required that data which is keep on increasing to store in some temporary memory.
+
+627
+01:09:07.370 --> 01:09:09.449
+Jitendra U: Before passing it to a file.
+
+628
+01:09:10.380 --> 01:09:14.499
+Jitendra U: And that is where you required a buffering or a streaming memory to deal with it.
+
+629
+01:09:15.300 --> 01:09:20.889
+Jitendra U: Right? So that is where, right now we are doing a very simple task. I have a static file.
+
+630
+01:09:21.340 --> 01:09:26.640
+Jitendra U: And I'm rewriting the data from this event, to my lock.
+
+631
+01:09:28.109 --> 01:09:32.399
+Jitendra U: But what if, if I'm going to read a database, and the database is…
+
+632
+01:09:32.740 --> 01:09:37.059
+Jitendra U: incremental. The changes are incremental in the database.
+
+633
+01:09:40.670 --> 01:09:43.400
+Jitendra U: Right? So in that scenario, I have to require buffering.
+
+634
+01:09:44.000 --> 01:09:49.420
+Jitendra U: Now, let's try to understand this function, where I'm creating a log analyzer function.
+
+635
+01:09:49.710 --> 01:09:54.870
+Jitendra U: Now, the purpose of Log Analyzer is to read the file, which we have passed here.
+
+636
+01:09:55.160 --> 01:10:00.790
+Jitendra U: And from this file, I would like to find it out, the log levels.
+
+637
+01:10:02.640 --> 01:10:09.200
+Jitendra U: The type of level is info, information, warning, and the error.
+
+638
+01:10:10.320 --> 01:10:15.370
+Jitendra U: So I'm initializing all the three types into a dictionary object.
+
+639
+01:10:15.830 --> 01:10:23.169
+Jitendra U: And then, the first and the foremost thing, I'd start initializing each category of my log.
+
+640
+01:10:23.740 --> 01:10:29.779
+Jitendra U: as 0. And then I will start creating a count of each category.
+
+641
+01:10:30.040 --> 01:10:35.210
+Jitendra U: To find out the length of lines, which is having these three categories into it.
+
+642
+01:10:37.500 --> 01:10:40.649
+Jitendra U: And finally, I will return that, and see the output.
+
+643
+01:10:43.020 --> 01:10:45.619
+Jitendra U: Right? So let's see what is the output.
+
+644
+01:10:52.630 --> 01:10:57.960
+Jitendra U: So you can see that I have got the same file log and log file, which I have stored.
+
+645
+01:10:58.610 --> 01:11:04.850
+Jitendra U: And it is having 10 entries, and this is the bifurcation of my… output.
+
+646
+01:11:05.680 --> 01:11:08.490
+Jitendra U: The first and the foremost thing is how many info
+
+647
+01:11:09.270 --> 01:11:13.340
+Jitendra U: Are there 5? Warnings 2. Error 3?
+
+648
+01:11:14.180 --> 01:11:21.769
+Jitendra U: So that is the whole idea of creating a simple but clean program that I can able to utilize for the purpose of
+
+649
+01:11:22.120 --> 01:11:24.399
+Jitendra U: Just reading this log.
+
+650
+01:11:30.870 --> 01:11:35.319
+Jitendra U: Now, let's think of… Some more advanced use cases on log.
+
+651
+01:11:35.430 --> 01:11:37.479
+Jitendra U: Or maybe a simple file operation.
+
+652
+01:11:39.180 --> 01:11:45.260
+Jitendra U: So, when you're working… start working on data science projects, you often have to deal with flagged files.
+
+653
+01:11:45.560 --> 01:11:51.700
+Jitendra U: CSV file, you can deal with image files as well, zip format files as well.
+
+654
+01:11:51.910 --> 01:11:57.430
+Jitendra U: You can deal with Hive metadata, you have to deal with Parquet format file, Parquet.
+
+655
+01:11:57.790 --> 01:12:01.950
+Jitendra U: You have to deal with Avro format files, AVRO,
+
+656
+01:12:02.340 --> 01:12:10.780
+Jitendra U: you have to deal with something called GNZIP format of files, right? So there are a number of file extension type available.
+
+657
+01:12:11.300 --> 01:12:16.779
+Jitendra U: in Windows operating system, or any other operating system that you're going to use to run the program.
+
+658
+01:12:18.140 --> 01:12:20.420
+Jitendra U: Now, do we need a connector?
+
+659
+01:12:21.010 --> 01:12:25.310
+Jitendra U: to deal with… Reading those files? The answer is no.
+
+660
+01:12:26.040 --> 01:12:30.399
+Jitendra U: There's no connector needed. All you need is an open function.
+
+661
+01:12:31.060 --> 01:12:33.470
+Jitendra U: And a width safe pointer.
+
+662
+01:12:33.740 --> 01:12:38.299
+Jitendra U: That you can able to utilize for the purpose of reading that particular type of a file.
+
+663
+01:12:41.970 --> 01:12:47.020
+Jitendra U: Right? And that is the first and the foremost thing that you're going to do.
+
+664
+01:12:47.340 --> 01:12:50.590
+Jitendra U: before doing any analysis in Python.
+
+665
+01:12:53.780 --> 01:12:57.560
+Jitendra U: So, let's try to do some analysis in Python. So, I have…
+
+666
+01:12:58.440 --> 01:13:00.119
+Jitendra U: Let's assume that I have a…
+
+667
+01:13:01.820 --> 01:13:03.940
+Jitendra U: file in the form of a CSV now.
+
+668
+01:13:04.930 --> 01:13:08.180
+Jitendra U: And I would like to generate some insight from the file.
+
+669
+01:13:09.500 --> 01:13:11.760
+Jitendra U: So let me take this example.
+
+670
+01:13:20.470 --> 01:13:26.090
+Jitendra U: and generate some CSV file first, and then we can… Work on this example.
+
+671
+01:13:52.880 --> 01:13:55.100
+Jitendra U: Let me just generate a data first.
+
+672
+01:14:06.200 --> 01:14:08.190
+Jitendra U: Okay, so let me generate this data.
+
+673
+01:14:09.300 --> 01:14:12.610
+Jitendra U: And, I would like to define the product catalog.
+
+674
+01:14:12.800 --> 01:14:16.210
+Jitendra U: Region in which the customers are operating.
+
+675
+01:14:18.310 --> 01:14:20.849
+Jitendra U: So, first, let me show you the data structures.
+
+676
+01:14:21.370 --> 01:14:26.649
+Jitendra U: So, I'm going to use this data. So, I have a product defined in my…
+
+677
+01:14:27.310 --> 01:14:30.649
+Jitendra U: website, so let's assume that I'm selling these products.
+
+678
+01:14:31.120 --> 01:14:39.050
+Jitendra U: Which include, accessories, Electronics, Switches, cable, router, etc.
+
+679
+01:14:39.780 --> 01:14:49.449
+Jitendra U: webcam hadn't had phones, and these are all SREs, right? So, basically, I have smartphones, Accessories, network equipments.
+
+680
+01:14:49.670 --> 01:14:53.100
+Jitendra U: And some personal laptops and desktops.
+
+681
+01:14:54.270 --> 01:15:00.179
+Jitendra U: Alright, so I'm going to use a salesperson representative, which performs different characteristics.
+
+682
+01:15:00.370 --> 01:15:05.609
+Jitendra U: So I have a salesperson, Mr. Alice, who is having 90% efficient skills.
+
+683
+01:15:06.000 --> 01:15:08.349
+Jitendra U: And he's operating from North Region.
+
+684
+01:15:08.740 --> 01:15:20.550
+Jitendra U: I've got Dinah, she's working from West Reason, and she's 85% accurate in terms of… there's some rank I'm giving to my salesperson, based upon which
+
+685
+01:15:20.670 --> 01:15:23.799
+Jitendra U: I can say the efficiency of each employee.
+
+686
+01:15:24.650 --> 01:15:30.159
+Jitendra U: The region that I'm having, the characteristics of the region is, I'm having the market strength.
+
+687
+01:15:30.990 --> 01:15:37.030
+Jitendra U: The competitor sense, like, how many shops and how many other active vendors are there.
+
+688
+01:15:37.240 --> 01:15:41.850
+Jitendra U: Who is dealing with similar sort of… Thanks?
+
+689
+01:15:42.190 --> 01:15:44.939
+Jitendra U: Right? And finally, I have customer type.
+
+690
+01:15:47.200 --> 01:15:49.320
+Jitendra U: Right, so let's use this data.
+
+691
+01:15:50.460 --> 01:15:54.780
+Jitendra U: And I would like to create a program to perform some analysis on this.
+
+692
+01:15:55.290 --> 01:16:01.680
+Jitendra U: So, what I'm trying to do here is, I'm creating some analysis. First, let me show you the analysis.
+
+693
+01:16:02.180 --> 01:16:03.909
+Jitendra U: Then we move on to the function.
+
+694
+01:16:04.450 --> 01:16:11.919
+Jitendra U: So I'm creating some analysis on the top of the data. So I will talk about the graphs and all in a while, but let's… let me open this.
+
+695
+01:16:13.360 --> 01:16:21.140
+Jitendra U: Yeah, so the first and the foremost thing is, I would like to find it out, the sales data, to understand from the sales data.
+
+696
+01:16:21.760 --> 01:16:24.570
+Jitendra U: So, as you can see, that the data that we have passed.
+
+697
+01:16:25.210 --> 01:16:31.130
+Jitendra U: To a function, or sorry, as a dictionary object, Comprises of sales records.
+
+698
+01:16:31.970 --> 01:16:36.529
+Jitendra U: So, I have some thousand sales record within the range of…
+
+699
+01:16:37.380 --> 01:16:43.269
+Jitendra U: This, that means 31… one-year official data, one full financial year data.
+
+700
+01:16:43.730 --> 01:16:49.050
+Jitendra U: The total revenue generated, in all four regions is this, 1 million.
+
+701
+01:16:49.450 --> 01:16:56.750
+Jitendra U: Total profit is $526,000 that I have obtained. The profit margin is 46%.
+
+702
+01:16:56.940 --> 01:17:01.889
+Jitendra U: I'm dealing with 13 products, I have 8 salesperson representatives.
+
+703
+01:17:02.150 --> 01:17:06.380
+Jitendra U: And I'm operating in four regions. So that is what the crux of my data looks like.
+
+704
+01:17:07.030 --> 01:17:08.920
+Jitendra U: Then I would like to look for…
+
+705
+01:17:09.940 --> 01:17:14.859
+Jitendra U: more comprehensive sales report, the overall performance in terms of total revenue.
+
+706
+01:17:15.080 --> 01:17:21.010
+Jitendra U: Total profit, margin, total transaction, total order value.
+
+707
+01:17:21.150 --> 01:17:22.740
+Jitendra U: And the unit sold.
+
+708
+01:17:22.960 --> 01:17:24.660
+Jitendra U: From my shop.
+
+709
+01:17:24.940 --> 01:17:26.530
+Jitendra U: Which are in full regions.
+
+710
+01:17:27.020 --> 01:17:31.320
+Jitendra U: The top performer product category are desktop, followed by
+
+711
+01:17:31.710 --> 01:17:36.829
+Jitendra U: Okay, so this is the salesperson name, which is generating more revenue.
+
+712
+01:17:38.250 --> 01:17:42.070
+Jitendra U: And then I have a region where it is operating.
+
+713
+01:17:43.470 --> 01:17:44.310
+Jitendra U: Right?
+
+714
+01:17:45.550 --> 01:17:52.020
+Jitendra U: And then, finally, I'm going to analyze the top 5 products by revenue, and the profit margin.
+
+715
+01:17:52.330 --> 01:17:56.650
+Jitendra U: Now, we'll come to the formula, how did we calculate margin, how we define the profit.
+
+716
+01:17:57.140 --> 01:18:02.960
+Jitendra U: But these are the revenues from the top category of the products, and the units sold for each.
+
+717
+01:18:04.110 --> 01:18:11.290
+Jitendra U: If I have to analyze the performance of the salesperson, so this is what the profit they have generated, this is what average sales they have increased.
+
+718
+01:18:11.760 --> 01:18:13.030
+Jitendra U: So on and so forth.
+
+719
+01:18:13.650 --> 01:18:21.819
+Jitendra U: In terms of region, if I have to find it out, which region is more beneficial in terms of profit margin?
+
+720
+01:18:22.260 --> 01:18:24.290
+Jitendra U: So I'm getting more profit from West.
+
+721
+01:18:25.420 --> 01:18:27.159
+Jitendra U: Second highest from east.
+
+722
+01:18:27.450 --> 01:18:29.930
+Jitendra U: Third from north, 4th from south.
+
+723
+01:18:31.450 --> 01:18:33.909
+Jitendra U: The type of customers that I'm dealing with.
+
+724
+01:18:34.340 --> 01:18:41.310
+Jitendra U: are basically enterprise. They might need network cables, laptops, more often.
+
+725
+01:18:41.970 --> 01:18:46.280
+Jitendra U: That's why they are enterprise-based, like your organization purchased from Dell.
+
+726
+01:18:47.480 --> 01:18:50.609
+Jitendra U: Right? Your organization purchased Lenovo laptops.
+
+727
+01:18:51.090 --> 01:18:58.710
+Jitendra U: your organization purchased some other HP laptops or Apple laptops, right? So this becomes a vendor relationship with your organization.
+
+728
+01:18:59.060 --> 01:19:08.049
+Jitendra U: So, similarly, I'm getting more, orders from enterprise level, companies, Followed by service manufacturing-based company.
+
+729
+01:19:08.340 --> 01:19:10.980
+Jitendra U: The individuals who's performing.
+
+730
+01:19:11.250 --> 01:19:12.449
+Jitendra U: Or their own.
+
+731
+01:19:12.940 --> 01:19:14.939
+Jitendra U: purpose. That means I'm a retail…
+
+732
+01:19:15.800 --> 01:19:21.389
+Jitendra U: I'm a retail… I'm holding a retail shop, a big shop. Four region means it's a big shop.
+
+733
+01:19:22.700 --> 01:19:25.610
+Jitendra U: So, I have a tie-up with organization enterprise level.
+
+734
+01:19:25.710 --> 01:19:27.110
+Jitendra U: Procurement part?
+
+735
+01:19:27.320 --> 01:19:32.620
+Jitendra U: And I'm also dealing with… Online or retail bank, retail business?
+
+736
+01:19:33.610 --> 01:19:35.739
+Jitendra U: Then I have a category in which
+
+737
+01:19:35.910 --> 01:19:40.090
+Jitendra U: The profit margin is high, so I've got electronic, SREs, and networking.
+
+738
+01:19:40.640 --> 01:19:44.110
+Jitendra U: And the quarterly performance, I can see, start…
+
+739
+01:19:45.530 --> 01:19:50.909
+Jitendra U: stabilized, it decreased in Q3, but in Q4, it has been increased.
+
+740
+01:19:56.080 --> 01:20:03.070
+Jitendra U: Alright, now, if I have to represent this data in the form of a… visuals… I can see that
+
+741
+01:20:03.300 --> 01:20:06.469
+Jitendra U: I've got a category for the product in the form of a histogram.
+
+742
+01:20:07.540 --> 01:20:14.100
+Jitendra U: The length of the histogram, the height of the histogram, decide which are my top product category per revenue.
+
+743
+01:20:15.800 --> 01:20:21.340
+Jitendra U: Now, I just flipped this visual from vertical to horizontal.
+
+744
+01:20:22.500 --> 01:20:25.860
+Jitendra U: So here you can see that I'm comparing a salesperson.
+
+745
+01:20:26.860 --> 01:20:31.780
+Jitendra U: And Dinah Ross is the… key person…
+
+746
+01:20:31.940 --> 01:20:35.280
+Jitendra U: Where she have able to generate this much revenue.
+
+747
+01:20:37.510 --> 01:20:40.170
+Jitendra U: Distribution by region, I'm using a pie chart.
+
+748
+01:20:40.980 --> 01:20:44.520
+Jitendra U: So, each pie… is an angle.
+
+749
+01:20:44.760 --> 01:20:45.969
+Jitendra U: of 360.
+
+750
+01:20:46.180 --> 01:20:50.480
+Jitendra U: But this proportion which I'm shown on my screen.
+
+751
+01:20:51.430 --> 01:20:56.140
+Jitendra U: talks about… Which region is more?
+
+752
+01:20:57.550 --> 01:20:58.940
+Jitendra U: beneficial.
+
+753
+01:20:59.040 --> 01:21:02.070
+Jitendra U: for the pre-revenue purposes. The vast…
+
+754
+01:21:02.530 --> 01:21:06.590
+Jitendra U: Followed by East, followed by North, and then South.
+
+755
+01:21:08.180 --> 01:21:15.429
+Jitendra U: Revenue by customer type, so I've got more enterprise followed by service manufacturing-based companies than the individuals.
+
+756
+01:21:15.920 --> 01:21:20.620
+Jitendra U: And this is what my trend analysis shows, that I'm having a dip in Q3,
+
+757
+01:21:22.450 --> 01:21:26.150
+Jitendra U: And then it increased. Yeah, you can run this in Vocarium as well.
+
+758
+01:21:28.290 --> 01:21:29.859
+Jitendra U: That should not be a problem.
+
+759
+01:21:30.950 --> 01:21:38.100
+Jitendra U: And then the revenue by product category, so I'm getting electronic appliances, followed by series, and then followed by networking.
+
+760
+01:21:39.840 --> 01:21:47.139
+Jitendra U: Alright, so… so this is what we are generating, sorry, this is what we are trying to solve with the help of…
+
+761
+01:21:47.380 --> 01:21:49.920
+Jitendra U: Python. Now, let me go back to the…
+
+762
+01:21:51.830 --> 01:21:59.510
+Jitendra U: plots that we have used. So we are… we are using… let me… show you in the Notepad++.
+
+763
+01:22:12.850 --> 01:22:15.479
+Jitendra U: Alright, so we'll look into the code now.
+
+764
+01:22:15.710 --> 01:22:18.020
+Jitendra U: And we'll do a deep dive in the code.
+
+765
+01:22:18.460 --> 01:22:20.640
+Jitendra U: So what are the packages that we imported?
+
+766
+01:22:21.540 --> 01:22:26.760
+Jitendra U: Now, since I'm generating some random values, Right?
+
+767
+01:22:28.460 --> 01:22:34.840
+Jitendra U: So, I'm giving two options to my program, that either you use random value to generate from here, or
+
+768
+01:22:35.100 --> 01:22:36.590
+Jitendra U: Use this data.
+
+769
+01:22:37.680 --> 01:22:41.279
+Jitendra U: Right, I will show you the data as well. Like, I have a CSV file.
+
+770
+01:22:41.490 --> 01:22:43.420
+Jitendra U: I will show it to you in Rita, as well.
+
+771
+01:22:44.170 --> 01:22:44.960
+Jitendra U: Right?
+
+772
+01:22:50.840 --> 01:22:58.299
+Jitendra U: So let's assume that you have this data now, right? So what we are trying to do is, we are using a function.
+
+773
+01:22:58.680 --> 01:23:04.299
+Jitendra U: generate comprehensive sales data. So I'm generating something on the top of it.
+
+774
+01:23:04.660 --> 01:23:07.720
+Jitendra U: Then I'm saying that I would like to generate within the range.
+
+775
+01:23:10.660 --> 01:23:13.909
+Jitendra U: Right, so when we say we are generating this in a range.
+
+776
+01:23:14.480 --> 01:23:19.160
+Jitendra U: That means I would like to generate in a range of… years.
+
+777
+01:23:22.020 --> 01:23:26.139
+Jitendra U: Right? So that means I would like to generate, data in the form of an ear.
+
+778
+01:23:26.270 --> 01:23:28.100
+Jitendra U: 2024, full-fledged.
+
+779
+01:23:29.120 --> 01:23:33.839
+Jitendra U: And then, I'm selecting some of the product quantities.
+
+780
+01:23:34.400 --> 01:23:35.760
+Jitendra U: In a foreign affair?
+
+781
+01:23:37.760 --> 01:23:39.210
+Jitendra U: The quantity sold.
+
+782
+01:23:40.060 --> 01:23:43.819
+Jitendra U: And the quantity sold is nothing but…
+
+783
+01:23:44.710 --> 01:23:48.270
+Jitendra U: Is the total product sold at a particular outlet?
+
+784
+01:23:50.170 --> 01:23:59.840
+Jitendra U: Right? And then, what I did is, I keep an op… Keep a function called process sales data, where I'm… if I'm reading from the CSV file.
+
+785
+01:24:00.980 --> 01:24:07.469
+Jitendra U: Then I would like to check for all these items that I'm going to construct.
+
+786
+01:24:08.220 --> 01:24:12.230
+Jitendra U: And my data will have… these columns.
+
+787
+01:24:13.950 --> 01:24:18.099
+Jitendra U: So I'm saying… I would like to aggregate my total revenue.
+
+788
+01:24:18.440 --> 01:24:23.390
+Jitendra U: Day by day, for each sales, Total profit.
+
+789
+01:24:23.500 --> 01:24:28.520
+Jitendra U: will be incremental day by day. Total quantities will be incremental day by day.
+
+790
+01:24:28.690 --> 01:24:34.030
+Jitendra U: Then I'm creating a product review, Based upon the quantity sold.
+
+791
+01:24:35.530 --> 01:24:37.300
+Jitendra U: Multiply by the margin.
+
+792
+01:24:38.470 --> 01:24:42.180
+Jitendra U: And I'm creating a different variables.
+
+793
+01:24:42.580 --> 01:24:44.129
+Jitendra U: for salesperson.
+
+794
+01:24:44.840 --> 01:24:48.559
+Jitendra U: Region, time period, and other metrics.
+
+795
+01:24:48.920 --> 01:24:53.230
+Jitendra U: And finally, I would like to find it out who's a top performer, so on and so forth.
+
+796
+01:24:54.800 --> 01:24:55.570
+Jitendra U: Right?
+
+797
+01:24:56.340 --> 01:25:03.649
+Jitendra U: So, is this… is this program clear to everyone? Can I share this program, and you would like to run in Voquarium and show me the output?
+
+798
+01:25:09.160 --> 01:25:11.240
+Jitendra U: Can I share this program with you guys?
+
+799
+01:25:12.110 --> 01:25:15.720
+Jitendra U: Can you run in VoCarium Lab and then show me the output?
+
+800
+01:25:40.350 --> 01:25:46.630
+Jitendra U: Yeah, I'll share you the program. So, can you guys quickly run this, and let me know? I'm waiting for your inputs.
+
+801
+01:26:42.380 --> 01:26:49.240
+Jitendra U: Yeah, please install those packages. I don't know why the packages are missing from Vukarium, but it should be there, so use this command.
+
+802
+01:26:49.620 --> 01:26:50.840
+Jitendra U: to install.
+
+803
+01:27:09.970 --> 01:27:14.150
+Jitendra U: How many of you are able to launch Vocarium? I'm not able to launch it.
+
+804
+01:27:21.830 --> 01:27:25.660
+Jitendra U: Are you guys able to launch Vocarium Lab? I cannot even be able to launch it.
+
+805
+01:27:26.680 --> 01:27:28.139
+Jitendra U: Showing me some error.
+
+806
+01:27:30.310 --> 01:27:34.419
+Tech Cert 008: Jitindra, can you please click on that load item there?
+
+807
+01:27:35.150 --> 01:27:36.600
+Jitendra U: Story of here?
+
+808
+01:27:36.600 --> 01:27:46.170
+Tech Cert 008: Here, under the same load, IATM Private, under the same tab. This tool needs to be loaded in the new browser window below half, yes. It will load now for you.
+
+809
+01:27:47.300 --> 01:27:51.800
+Jitendra U: Okay, yeah, and there should be Anaconda prepackages, right? Everything should be there.
+
+810
+01:27:52.920 --> 01:28:02.089
+Tech Cert 008: Yes, Panda sent out, I think, a few packages which are required for that particular week. If you go to the week 6, there you can run all the things, I think, for Pandas and all.
+
+811
+01:28:02.670 --> 01:28:06.880
+Tech Cert 008: Oh, okay, okay, understood. Okay, just go to the student view, from there you can do it.
+
+812
+01:28:07.620 --> 01:28:13.360
+Tech Cert 008: Here, part 1 is there, right? Below actions for you, it'll be like, no, not there. Here, student view, yes.
+
+813
+01:28:13.360 --> 01:28:13.880
+Jitendra U: Hmm.
+
+814
+01:28:19.300 --> 01:28:29.659
+Jitendra U: So, one of the questions the student is asking is, can they be able to upload the flight files? So, these are the folders that has been used for uploading these files, right?
+
+815
+01:28:31.870 --> 01:28:38.479
+Tech Cert 008: Just if you just go to the student view, I can help them where they can load the files under our Jupyter Notebook.
+
+816
+01:28:38.770 --> 01:28:39.819
+Jitendra U: Sure, sure, yeah.
+
+817
+01:28:39.820 --> 01:28:40.430
+Tech Cert 008: Yeah.
+
+818
+01:28:47.490 --> 01:28:50.230
+Jitendra U: And there should be file and terminal, both is there.
+
+819
+01:28:52.210 --> 01:28:55.630
+Tech Cert 008: Okay, now go to the files, go to the files, yes.
+
+820
+01:28:56.040 --> 01:29:04.930
+Jitendra U: Okay, under the work folder, if they right-click there, they can upload, right-click on the work folder, they can upload the files here, data sets, yes.
+
+821
+01:29:05.610 --> 01:29:08.149
+Jitendra U: Okay, sure, yeah, thanks, I think this, this is helpful.
+
+822
+01:29:08.730 --> 01:29:09.890
+Tech Cert 008: Yeah, thank you.
+
+823
+01:29:11.040 --> 01:29:15.839
+Jitendra U: So, guys, I hope you are able to see it, right? So this is how you're going to…
+
+824
+01:29:16.430 --> 01:29:24.829
+Jitendra U: upload any file, and you can see it is generating the file, and then once you generate this file, or upload the file, then you can just need to
+
+825
+01:29:25.570 --> 01:29:28.970
+Jitendra U: Copy the… file path.
+
+826
+01:29:29.280 --> 01:29:32.669
+Jitendra U: Let's say if I have to copy the file path, I can just say copy.
+
+827
+01:29:34.420 --> 01:29:36.970
+Jitendra U: Right? Now I can go to a terminal.
+
+828
+01:29:41.340 --> 01:29:42.840
+Jitendra U: This is my terminal.
+
+829
+01:29:44.080 --> 01:29:46.389
+Jitendra U: There should be a notepad as well.
+
+830
+01:29:48.840 --> 01:29:52.569
+Tech Cert 008: Jiteindra, under the work folder only, they'll get the notepad as well.
+
+831
+01:29:52.800 --> 01:29:58.689
+Tech Cert 008: Yes, terminal is not required. If you right-click on the workbook, right-click on the workbook.
+
+832
+01:29:59.030 --> 01:30:03.530
+Tech Cert 008: On the work folder, if you just right-click, you can create the new notebook.
+
+833
+01:30:05.170 --> 01:30:12.609
+Tech Cert 008: work hard. Right-click, new notebook, yes. Here, they can give you the names, and if they just click on enter, it'll…
+
+834
+01:30:13.240 --> 01:30:16.089
+Tech Cert 008: Create a new notebook where they can work everything.
+
+835
+01:30:18.290 --> 01:30:21.970
+Tech Cert 008: Just click on the enter. Just double-click on it now.
+
+836
+01:30:22.940 --> 01:30:28.289
+Tech Cert 008: Yes, they have to select the Python 3 as a code. Oh, okay, understood, yeah, thanks. Yeah, yeah, thank you.
+
+837
+01:30:28.290 --> 01:30:33.009
+Jitendra U: So, guys, you want me to revisit on this? Are you clear what I'm trying to do?
+
+838
+01:30:33.930 --> 01:30:36.770
+Jitendra U: You would like me to re-show this? Revisit, okay.
+
+839
+01:30:36.970 --> 01:30:41.130
+Jitendra U: Okay, so first go to Vocarium Lab from your browser.
+
+840
+01:30:42.170 --> 01:30:46.439
+Jitendra U: So you link… this link, you have access. I hope everybody on the same page.
+
+841
+01:30:46.660 --> 01:30:48.630
+Jitendra U: So, as we go to the Vocarium lab.
+
+842
+01:30:50.680 --> 01:30:57.560
+Jitendra U: then it will show you this load, option, which will navigate to the Canvas LMS.
+
+843
+01:31:00.270 --> 01:31:04.629
+Jitendra U: Yes, everything you have to do in the same way. So you can see there are folders.
+
+844
+01:31:05.860 --> 01:31:13.939
+Jitendra U: pre-designated folders. So, week 6, content, week 7 content, everything is there. So, from week 6, we are in week 6 right now.
+
+845
+01:31:14.250 --> 01:31:21.369
+Jitendra U: So from next class, you have to use week 7, and so on and so forth. So let's say if you go to the week 6, I just need to click on that.
+
+846
+01:31:21.490 --> 01:31:24.919
+Jitendra U: Now, here, here you can see I have a few options.
+
+847
+01:31:25.260 --> 01:31:29.779
+Jitendra U: Including, which type of configuration I would like to launch.
+
+848
+01:31:30.430 --> 01:31:39.540
+Jitendra U: Right, so I get a student view, I need a configure workspace. But, you should not touch configure workspace. Why? Because it's pre-configured environment.
+
+849
+01:31:39.720 --> 01:31:42.009
+Jitendra U: So Anaconda packages are already there.
+
+850
+01:31:42.310 --> 01:31:47.880
+Jitendra U: So, in order to worry too much about installation of new packages, it's pre-install, right?
+
+851
+01:31:48.290 --> 01:31:54.400
+Jitendra U: And you can see that we are using all the containers to hold, in the cloud.
+
+852
+01:31:54.500 --> 01:31:58.270
+Jitendra U: platform. So this is hosted in some… Azure Cloud.
+
+853
+01:31:58.540 --> 01:32:04.099
+Jitendra U: And all the… all the containers been auto-managed. You don't have to worry too much about this.
+
+854
+01:32:04.220 --> 01:32:07.730
+Jitendra U: Right? So all you need to do is to know to go to the files.
+
+855
+01:32:08.160 --> 01:32:11.600
+Jitendra U: Go to Pyth… sorry, maybe I can go back.
+
+856
+01:32:17.490 --> 01:32:19.850
+Jitendra U: Yeah, so you need to go to week 6.
+
+857
+01:32:20.020 --> 01:32:21.740
+Jitendra U: And click on Student View.
+
+858
+01:32:30.110 --> 01:32:32.180
+Jitendra U: Let me close this, close this.
+
+859
+01:32:34.960 --> 01:32:40.740
+Jitendra U: Make sure your pop-up blocker Should be… Disable as well.
+
+860
+01:32:41.720 --> 01:32:43.689
+Jitendra U: If you're using a particular browser.
+
+861
+01:32:45.670 --> 01:32:47.299
+Jitendra U: So, I'm in the strain view.
+
+862
+01:32:48.380 --> 01:32:56.590
+Jitendra U: Yeah, we'll come into one by one, guys. PY file, sometimes you're asking how to run Iron Python, now you're asking PY, so PY we can run from terminal.
+
+863
+01:32:57.140 --> 01:32:59.169
+Jitendra U: Just wait and watch.
+
+864
+01:33:00.220 --> 01:33:04.739
+Jitendra U: So… First and the foremost thing is, we have to go to Files.
+
+865
+01:33:04.840 --> 01:33:09.249
+Jitendra U: And then, I can create a new file here, right? I can say new file.
+
+866
+01:33:09.440 --> 01:33:23.010
+Jitendra U: I can create a new Iron Python notebook as well, and then I can just double-click on that, and then create a workbook. So if I'm creating a new notebook, you can see that automatically the extension is there, IPYNB, which is called Iron Python Notebook.
+
+867
+01:33:23.370 --> 01:33:27.430
+Jitendra U: So I can say test… Iron Python notebook.
+
+868
+01:33:27.910 --> 01:33:33.400
+Jitendra U: And it'll create… The file for me, with a success message.
+
+869
+01:33:33.500 --> 01:33:37.699
+Jitendra U: Now I have to go here, work, and then just double-click on it.
+
+870
+01:33:37.850 --> 01:33:41.460
+Jitendra U: Now, this workbook will ask me which kernel I should use.
+
+871
+01:33:43.350 --> 01:33:46.279
+Jitendra U: Right, so if I'm using which kernel should I use?
+
+872
+01:33:47.070 --> 01:33:48.510
+Jitendra U: Sorry.
+
+873
+01:33:48.840 --> 01:33:53.429
+Jitendra U: So I have got 1, 2, 3, 4, 5, 6… 6 options.
+
+874
+01:33:54.230 --> 01:33:57.199
+Jitendra U: But I will prefer to work in Python, so I will say Python.
+
+875
+01:33:57.340 --> 01:34:00.439
+Jitendra U: And then from here, I can run all my programs.
+
+876
+01:34:02.810 --> 01:34:09.539
+Jitendra U: Now, somebody's asking, can I upload to upload a data? So, you can upload a data as well. All you need to do is just need to right-click.
+
+877
+01:34:10.130 --> 01:34:14.429
+Jitendra U: Or maybe they start cut… Dragging and pasting here.
+
+878
+01:34:16.080 --> 01:34:18.870
+Jitendra U: Alright, so is this clear to everyone now?
+
+879
+01:34:22.380 --> 01:34:25.479
+Jitendra U: So let's try to run… solve this first.
+
+880
+01:34:27.170 --> 01:34:28.780
+Jitendra U: Are you clear with this?
+
+881
+01:34:44.920 --> 01:34:49.869
+Jitendra U: Yeah, those who are running VS Code, Google Collab, here we are talking about VoCarium.
+
+882
+01:34:50.520 --> 01:34:53.919
+Jitendra U: So, here we're not talking about which interpreter we should use.
+
+883
+01:34:54.610 --> 01:35:00.070
+Jitendra U: So don't… So if you continue to use VS Code and you're comfortable, I don't have an issue.
+
+884
+01:35:00.720 --> 01:35:05.399
+Jitendra U: Continue to use IDE, whatever you are convenient with. That should not be an issue.
+
+885
+01:35:14.480 --> 01:35:22.710
+Jitendra U: Yeah, so there's a file which has been shared in the chat. Please refer to this file, please download this, and you will be able to get all the options.
+
+886
+01:35:25.370 --> 01:35:30.939
+Jitendra U: Okay, how to load data in Vocarium? Okay, again, I think you've missed out.
+
+887
+01:35:55.750 --> 01:36:00.670
+Jitendra U: Files, data, There's an option of upload.
+
+888
+01:36:04.700 --> 01:36:07.819
+Tech Cert 008: Under work folder, they have an option to upload, yes.
+
+889
+01:36:08.170 --> 01:36:08.810
+Jitendra U: Okay.
+
+890
+01:36:08.930 --> 01:36:10.020
+Jitendra U: Okay, upload.
+
+891
+01:36:10.020 --> 01:36:23.480
+Tech Cert 008: Data folder, they cannot access, no one will be able to access. Data folder is logged, so whatever the data is required, for that particular week activities, all the data will be updated under the data folder.
+
+892
+01:36:23.480 --> 01:36:34.549
+Tech Cert 008: If you wanted to work on those activities, you can download the datasets which are given under the data folder, and you can upload under the work folder, and you can start working on it by creating a new notebook.
+
+893
+01:36:36.170 --> 01:36:42.070
+Jitendra U: Okay, so is it clear to everyone how to upload the data? So you have to access only work folder for that.
+
+894
+01:36:42.420 --> 01:36:55.830
+Jitendra U: You cannot directly access the data folder, so this has been managed by, the team, the ILTM team, so this you will not have access, but you will be able to get all the solution and the problem statement in this.
+
+895
+01:36:58.220 --> 01:37:01.159
+Jitendra U: Right, so this is kind of pre-designated folders for you.
+
+896
+01:37:01.510 --> 01:37:06.940
+Jitendra U: for your learning purposes. So you need to access on work folder, as a student.
+
+897
+01:37:07.430 --> 01:37:11.070
+Jitendra U: But as a faculty, I can able to manage this, but as a student.
+
+898
+01:37:11.420 --> 01:37:19.780
+Jitendra U: This view will be privated for you guys. And the reason being is, if you would like to see the arrangements, it's very clear.
+
+899
+01:37:20.210 --> 01:37:22.570
+Jitendra U: That, what are the folders that you need?
+
+900
+01:37:22.950 --> 01:37:25.130
+Jitendra U: Yeah, you can upload any 4 file type.
+
+901
+01:37:25.600 --> 01:37:28.170
+Jitendra U: CSV, text, whatever you feel.
+
+902
+01:37:33.000 --> 01:37:40.130
+Jitendra U: Is it clear to everyone? When I run Python file in terminal, storing the PNG file for our visualization, I could not look…
+
+903
+01:37:41.120 --> 01:37:47.380
+Jitendra U: Where are you storing in terminal? In terminal, I don't think so you can be able to store anything.
+
+904
+01:37:47.750 --> 01:37:52.390
+Jitendra U: All you can do is you can run the program in a CLI mode.
+
+905
+01:37:54.440 --> 01:37:57.380
+Jitendra U: I can run the program in a CLI mode, like this.
+
+906
+01:38:04.660 --> 01:38:06.690
+Jitendra U: So you can debug line by line.
+
+907
+01:38:08.990 --> 01:38:12.170
+Jitendra U: But your folders will be still accessible from this.
+
+908
+01:38:20.710 --> 01:38:25.970
+Jitendra U: Okay, so you have uploaded that file as a PY file, but why did you upload it as a PY file?
+
+909
+01:38:27.530 --> 01:38:30.830
+Jitendra U: Okay, I have shared you the PY file, that's why I'm able to un…
+
+910
+01:38:36.800 --> 01:38:38.110
+Jitendra U: Yeah, that's great.
+
+911
+01:38:39.680 --> 01:38:44.040
+Jitendra U: Yeah, so that is where you have to change the settings there.
+
+912
+01:38:44.670 --> 01:38:49.310
+Jitendra U: So you have to change the setting of displaying the matte plot in the shell.
+
+913
+01:38:49.570 --> 01:38:55.220
+Jitendra U: But I think if you would like to perform, Execution of the program, preferred
+
+914
+01:38:55.950 --> 01:38:58.670
+Jitendra U: Iron Python way of writing the code.
+
+915
+01:38:58.910 --> 01:39:02.839
+Jitendra U: If you're debugging the code line by line, then terminal would be useful.
+
+916
+01:39:04.220 --> 01:39:07.140
+Jitendra U: You can run the program from terminal, I don't have any issue.
+
+917
+01:39:08.970 --> 01:39:11.470
+Jitendra U: Yes, so that's why I'm saying matplot.
+
+918
+01:39:11.630 --> 01:39:14.679
+Jitendra U: It's been disabled as a view.
+
+919
+01:39:15.010 --> 01:39:16.990
+Jitendra U: So you have to change the setting of that.
+
+920
+01:39:20.620 --> 01:39:23.570
+Jitendra U: So you have to change the rendering mechanism of the graphs.
+
+921
+01:39:23.750 --> 01:39:26.140
+Jitendra U: It'll show you the output in the form of a graph.
+
+922
+01:39:26.490 --> 01:39:28.750
+Jitendra U: Which are not rendered in the terminal.
+
+923
+01:39:33.180 --> 01:39:40.690
+Jitendra U: Yeah, so when you're debugging the program, this is… please use terminal. When you're running the program, please use Iron Python Interpreter.
+
+924
+01:39:41.230 --> 01:39:43.560
+Jitendra U: A notebook style of working.
+
+925
+01:39:46.460 --> 01:39:48.750
+Jitendra U: Is it clear to everyone? I hope…
+
+926
+01:39:49.620 --> 01:39:52.899
+Jitendra U: Now you're clear with Vocarium, there's no issue with it?
+
+927
+01:40:05.770 --> 01:40:10.999
+Jitendra U: Alright, so what we are going to do next is, we'll take a quick, 20 minutes break.
+
+928
+01:40:11.240 --> 01:40:13.720
+Jitendra U: And then, once we come back from the break.
+
+929
+01:40:14.080 --> 01:40:20.229
+Jitendra U: We'll take some more examples. So, we have some more, grounds to cover. In fact.
+
+930
+01:40:20.620 --> 01:40:23.279
+Jitendra U: Some 2 or 3 programs to cover for today.
+
+931
+01:40:23.480 --> 01:40:30.240
+Jitendra U: And, I think we're done with the conditional statement, we're done with the loop structure.
+
+932
+01:40:30.410 --> 01:40:33.660
+Jitendra U: But once you come back, then we are going to discuss something about…
+
+933
+01:40:38.210 --> 01:40:44.050
+Jitendra U: the object-oriented programming. So, object-oriented programming is the core of the next part
+
+934
+01:40:44.520 --> 01:40:52.069
+Jitendra U: So, basically, we are going to talk about the four types of paradigms of object-oriented programming, four categories of it.
+
+935
+01:40:52.410 --> 01:40:56.500
+Jitendra U: Which include initance, polymorphism, abstraction, and encapsulation.
+
+936
+01:40:56.760 --> 01:41:03.310
+Jitendra U: And then we'll talk about a try and cache block. How to write a right niche code in using try and cache.
+
+937
+01:41:03.600 --> 01:41:12.010
+Jitendra U: And then we'll visit the best practices and what Python libraries, including NumPy, Matplot, and Pandas.
+
+938
+01:41:12.230 --> 01:41:18.219
+Jitendra U: That you require to understand from the data science prerequisite perspective.
+
+939
+01:41:18.360 --> 01:41:23.450
+Jitendra U: Right? So, because sooner or later, you're going to use this, all these things for data science problem statement.
+
+940
+01:41:23.870 --> 01:41:29.829
+Jitendra U: So, we will give you the gist of that, and then we'll talk about, if time permit, debugging as well.
+
+941
+01:41:30.770 --> 01:41:34.719
+Jitendra U: Alright, let's take a quick break, and then we'll come back. Thank you, guys.
+
+942
+02:00:43.920 --> 02:00:46.280
+Jitendra U: Hi guys, I hope you're back.
+
+943
+02:00:47.390 --> 02:00:49.140
+Jitendra U: Can we have a quick confirmation?
+
+944
+02:01:01.100 --> 02:01:02.690
+Jitendra U: Alright, thanks.
+
+945
+02:01:07.570 --> 02:01:14.420
+Jitendra U: Alright, so let's begin with the most important concept in Python called object-oriented Python, right?
+
+946
+02:01:14.580 --> 02:01:21.449
+Jitendra U: So, our object-oriented programming. Now, when we say, what is the best, thing that I like about Python?
+
+947
+02:01:23.070 --> 02:01:24.160
+Jitendra U: So…
+
+948
+02:01:24.560 --> 02:01:35.129
+Jitendra U: The best thing about Python 8 is it's purely an object-oriented programming. It does support functional style, procedural style, but object-oriented style of writing the code in Python.
+
+949
+02:01:35.600 --> 02:01:36.839
+Jitendra U: It's one of the…
+
+950
+02:01:37.530 --> 02:01:49.330
+Jitendra U: best benchmark, which you can able to utilize to compare Python with other programming languages. And Python is a super fit for object-oriented programming. I will tell you why.
+
+951
+02:01:51.510 --> 02:01:52.410
+Jitendra U: Right?
+
+952
+02:01:52.520 --> 02:02:00.310
+Jitendra U: So… Basically, Python promotes code reusability and easy to debug.
+
+953
+02:02:01.470 --> 02:02:06.279
+Jitendra U: Right? So when you're trying to debug a code in Python, it has to be used some design principles.
+
+954
+02:02:06.970 --> 02:02:15.490
+Jitendra U: So, some of the design principles that we are going to discuss in today's tutorial talks about inheritance, polymorphism, abstraction, and encapsulation.
+
+955
+02:02:16.120 --> 02:02:21.609
+Jitendra U: So these are the four pillars of… Object-Rented Programming Design, or AD,
+
+956
+02:02:21.890 --> 02:02:30.420
+Jitendra U: And then, we are going to debug, or kind of a debrief about all four paradigms of system design.
+
+957
+02:02:30.530 --> 02:02:33.579
+Jitendra U: And try to get an idea, a clear idea, what are these.
+
+958
+02:02:33.820 --> 02:02:36.720
+Jitendra U: So let's try to understand from inheritance.
+
+959
+02:02:38.170 --> 02:02:46.080
+Jitendra U: Now, imagine, inheritance is nothing but, as the name suggests, you are inheriting some property from your ancestors.
+
+960
+02:02:46.220 --> 02:02:52.419
+Jitendra U: Similarly, as a human, we united some property from our ancestor, Our forefather, our parents.
+
+961
+02:02:52.880 --> 02:02:58.819
+Jitendra U: our biological parents, right? So, we are getting some property from them.
+
+962
+02:03:00.320 --> 02:03:03.499
+Jitendra U: So, inheritance will allow the class
+
+963
+02:03:03.750 --> 02:03:07.460
+Jitendra U: To inherited attributes and method from the parent class.
+
+964
+02:03:08.620 --> 02:03:11.809
+Jitendra U: So let's take an example. Let's say I'm running…
+
+965
+02:03:12.170 --> 02:03:18.330
+Jitendra U: an inventory, right? I'm creating a factory off.
+
+966
+02:03:18.580 --> 02:03:20.639
+Jitendra U: Manufacturing the cars.
+
+967
+02:03:21.070 --> 02:03:26.700
+Jitendra U: Tata Motors, right? So, let's say I'm owning a factory of Tata Motors.
+
+968
+02:03:27.350 --> 02:03:31.240
+Jitendra U: And in Tata Motors, I'm producing different sort of cars.
+
+969
+02:03:31.570 --> 02:03:32.910
+Jitendra U: The sedans?
+
+970
+02:03:40.290 --> 02:03:44.529
+Jitendra U: I can have, the luxury cars.
+
+971
+02:03:48.780 --> 02:03:57.140
+Jitendra U: The hatchback options, And so on and so forth. So basically, I'm creating primarily different types of car.
+
+972
+02:03:57.490 --> 02:04:05.399
+Jitendra U: Right? So when I'm talking about, Tata Motors' list of car, I have different types of car, right?
+
+973
+02:04:05.820 --> 02:04:10.020
+Jitendra U: So, Tata Motors' list of car, if I have to talk about.
+
+974
+02:04:10.410 --> 02:04:15.139
+Jitendra U: with type… Then, I have different types of
+
+975
+02:04:16.060 --> 02:04:19.629
+Jitendra U: cars associated with the Tata Motor as a company.
+
+976
+02:04:20.050 --> 02:04:23.060
+Jitendra U: Right? So basically, what I'm trying to say is, I can…
+
+977
+02:04:23.790 --> 02:04:26.550
+Jitendra U: Utilize one factory to manufacture all.
+
+978
+02:04:26.890 --> 02:04:33.160
+Jitendra U: I need not to create another factory for all. Let's say if I'm… manufacturing a Tiago.
+
+979
+02:04:33.450 --> 02:04:35.279
+Jitendra U: from Tata Motors.
+
+980
+02:04:36.820 --> 02:04:39.889
+Jitendra U: I don't need to create separate factory for T-Core.
+
+981
+02:04:42.640 --> 02:04:44.420
+Jitendra U: or Maruti Wagner.
+
+982
+02:04:45.440 --> 02:04:48.640
+Jitendra U: Sorry, it's Tata. Nexus. Nexon.
+
+983
+02:04:49.340 --> 02:04:50.180
+Jitendra U: Right?
+
+984
+02:04:51.110 --> 02:04:55.440
+Jitendra U: So I don't… I really do not need multiple factories
+
+985
+02:04:55.730 --> 02:04:59.389
+Jitendra U: To create different types of car, right?
+
+986
+02:04:59.870 --> 02:05:04.480
+Jitendra U: So basically, the idea is, I'm going to use a method
+
+987
+02:05:06.160 --> 02:05:12.480
+Jitendra U: by virtue of which, I can able to generate the parts in one factory?
+
+988
+02:05:12.840 --> 02:05:16.139
+Jitendra U: And I can use the part depending upon my need.
+
+989
+02:05:20.750 --> 02:05:28.019
+Jitendra U: And some parts, some cars, are following Very basic criterias.
+
+990
+02:05:28.430 --> 02:05:31.060
+Jitendra U: Which allow me to inherit it
+
+991
+02:05:31.390 --> 02:05:37.099
+Jitendra U: from the previous version of the car. Let's say this is the version Two of the car.
+
+992
+02:05:37.320 --> 02:05:39.920
+Jitendra U: And it has been launched in 2025.
+
+993
+02:05:40.940 --> 02:05:47.070
+Jitendra U: And there are previous versions, 2021, or 2023, which is also available.
+
+994
+02:05:47.680 --> 02:05:54.539
+Jitendra U: That means I have some property which has been inherited from the car, but if you have to understand the inheritance concept.
+
+995
+02:05:55.360 --> 02:05:58.499
+Jitendra U: Here, we are talking about the type of vehicle as a car.
+
+996
+02:06:00.810 --> 02:06:01.630
+Jitendra U: Right?
+
+997
+02:06:01.760 --> 02:06:06.169
+Jitendra U: Now, the same Tata Motor can manufacture trucks as well?
+
+998
+02:06:10.390 --> 02:06:13.400
+Jitendra U: The same Tata Motor can manufacture bike.
+
+999
+02:06:17.370 --> 02:06:18.200
+Jitendra U: Right?
+
+1000
+02:06:18.300 --> 02:06:23.060
+Jitendra U: So that is where I'm having… certain…
+
+1001
+02:06:23.930 --> 02:06:27.560
+Jitendra U: Typed pertaining to the method called manufacturing.
+
+1002
+02:06:28.630 --> 02:06:31.680
+Jitendra U: But they are all inherited from Tata Motors.
+
+1003
+02:06:32.770 --> 02:06:36.929
+Jitendra U: So that means inheritance will allow me to create a class.
+
+1004
+02:06:38.880 --> 02:06:47.070
+Jitendra U: to have some parental properties. For example, a single inheritance can be.
+
+1005
+02:06:47.210 --> 02:06:52.499
+Jitendra U: The manufacturing company inherited both car Motorcycles and truck.
+
+1006
+02:06:53.890 --> 02:06:58.770
+Jitendra U: So, what are the key features that… if I have to use this concept, the key feature is…
+
+1007
+02:06:58.970 --> 02:07:02.420
+Jitendra U: I can promote reusability of my components.
+
+1008
+02:07:03.450 --> 02:07:07.889
+Jitendra U: The inventory design, I have to lay down my factory only once.
+
+1009
+02:07:08.310 --> 02:07:12.909
+Jitendra U: But I can able to create multiple prototypes from the same factory.
+
+1010
+02:07:14.880 --> 02:07:16.800
+Jitendra U: That is the whole idea of class.
+
+1011
+02:07:17.530 --> 02:07:20.950
+Jitendra U: Right? In Python. So let's say you're working for some project.
+
+1012
+02:07:21.870 --> 02:07:26.349
+Jitendra U: And here, develop some module, some 1,000, 10,000 lines of code.
+
+1013
+02:07:29.010 --> 02:07:33.330
+Jitendra U: Right? Of .py file that you have implemented.
+
+1014
+02:07:34.220 --> 02:07:36.600
+Jitendra U: But the requirement has been changed now.
+
+1015
+02:07:37.050 --> 02:07:40.909
+Jitendra U: So, previously, there was a… previous requirement was R1,
+
+1016
+02:07:41.340 --> 02:07:45.230
+Jitendra U: Now, there are some add-on requirements that has been added, too.
+
+1017
+02:07:45.600 --> 02:07:47.020
+Jitendra U: your project.
+
+1018
+02:07:48.380 --> 02:07:51.290
+Jitendra U: So, are you going to… escape this code?
+
+1019
+02:07:51.510 --> 02:07:55.500
+Jitendra U: and then write all the code from the scratch? The answer is no.
+
+1020
+02:07:55.710 --> 02:08:01.110
+Jitendra U: We are going to do some inheritance from the base classes, which is a part of this package.
+
+1021
+02:08:01.730 --> 02:08:10.360
+Jitendra U: And from there, you're going to write some 1000 lines more, and then add this into the pre-existing package, and ship it.
+
+1022
+02:08:10.850 --> 02:08:12.569
+Jitendra U: or deploy it.
+
+1023
+02:08:14.140 --> 02:08:18.110
+Jitendra U: So that is where inheritance allow code reusability.
+
+1024
+02:08:20.270 --> 02:08:25.559
+Jitendra U: Encapsulation, as the name suggests, is a bundle of data and method.
+
+1025
+02:08:26.070 --> 02:08:29.669
+Jitendra U: So when you're bundling a method and a data together.
+
+1026
+02:08:30.240 --> 02:08:34.070
+Jitendra U: While restricting the diet access to internal details.
+
+1027
+02:08:34.310 --> 02:08:40.750
+Jitendra U: you can consider it to be encapsulation. The good example will be a bank account plus
+
+1028
+02:08:41.240 --> 02:08:45.190
+Jitendra U: With a private attribute like balance, account type.
+
+1029
+02:08:45.420 --> 02:08:47.990
+Jitendra U: Okay, so let's say as a phone banker.
+
+1030
+02:08:48.230 --> 02:08:51.789
+Jitendra U: I've got different types of department in bank.
+
+1031
+02:08:53.080 --> 02:08:59.190
+Jitendra U: So, in a banking scenario, I would like to create a method which will be able to encapsulate
+
+1032
+02:08:59.580 --> 02:09:04.080
+Jitendra U: The confidential information to be shown to a first line of defense team.
+
+1033
+02:09:04.380 --> 02:09:07.070
+Jitendra U: That means those who are attending your calls.
+
+1034
+02:09:07.600 --> 02:09:11.259
+Jitendra U: Against your branch manager, RM resource manager.
+
+1035
+02:09:11.790 --> 02:09:13.190
+Jitendra U: against your…
+
+1036
+02:09:18.220 --> 02:09:21.010
+Jitendra U: account… Cashier.
+
+1037
+02:09:24.040 --> 02:09:31.699
+Jitendra U: So you visit an ATM or maybe a bank over the counter, and then you submit a check, and then you're trying to withdraw an amount.
+
+1038
+02:09:32.130 --> 02:09:39.070
+Jitendra U: So the first line of defense, I really do not need to know the balance. Maybe it should be automatically generated.
+
+1039
+02:09:39.500 --> 02:09:44.090
+Jitendra U: From IVR, so first line of team does not need to know your balance.
+
+1040
+02:09:44.390 --> 02:09:46.879
+Jitendra U: It can have access to your account type.
+
+1041
+02:09:47.430 --> 02:09:49.120
+Jitendra U: What is a type of account?
+
+1042
+02:09:49.720 --> 02:09:52.510
+Jitendra U: The last transaction detail it can have
+
+1043
+02:09:57.750 --> 02:09:59.920
+Jitendra U: But I will not show your address.
+
+1044
+02:10:01.600 --> 02:10:05.999
+Jitendra U: Phone numbers… Etc. to them.
+
+1045
+02:10:07.370 --> 02:10:10.060
+Jitendra U: Right? I will not allow them to see your balance.
+
+1046
+02:10:10.220 --> 02:10:18.280
+Jitendra U: That is where I'm trying to encapsulate a data and method together, while restricting the direct access to your internal details. But your RM can have access to all.
+
+1047
+02:10:19.010 --> 02:10:20.950
+Jitendra U: Because he's a resource manager.
+
+1048
+02:10:21.380 --> 02:10:24.290
+Jitendra U: Account cashier can have access to your balance.
+
+1049
+02:10:24.450 --> 02:10:30.129
+Jitendra U: Account type, last transaction detail, but he will not see your address and phone number.
+
+1050
+02:10:30.770 --> 02:10:35.889
+Jitendra U: So I would like to create a design in such a manner that my bank data will be managed
+
+1051
+02:10:36.240 --> 02:10:38.080
+Jitendra U: Across roles.
+
+1052
+02:10:39.250 --> 02:10:42.250
+Jitendra U: And that concept, if I have to design such class.
+
+1053
+02:10:42.620 --> 02:10:48.940
+Jitendra U: is nothing but I'm encapsulating my data and method together while restricting direct access to
+
+1054
+02:10:49.270 --> 02:10:52.259
+Jitendra U: The internal and the confidential details.
+
+1055
+02:10:52.520 --> 02:10:57.399
+Jitendra U: Using private method, public method, and protected methods.
+
+1056
+02:10:59.950 --> 02:11:09.130
+Jitendra U: Polymorphism, on the other hand, is nothing but a same interface, but different implementation. So let's say…
+
+1057
+02:11:09.910 --> 02:11:14.560
+Jitendra U: I'm… I'm working for General Motors, GM Manufacturing.
+
+1058
+02:11:15.620 --> 02:11:17.960
+Jitendra U: And they are manufacturing the car engines.
+
+1059
+02:11:18.660 --> 02:11:22.480
+Jitendra U: airplane engines as well. Let's say I'm talking about car engines.
+
+1060
+02:11:24.850 --> 02:11:33.619
+Jitendra U: Right? So when they're producing a car engine, they are producing several types of commercial to that engine. First is the gearbox.
+
+1061
+02:11:36.540 --> 02:11:41.810
+Jitendra U: The second one is your trust levers, or so-called accelerators.
+
+1062
+02:11:43.880 --> 02:11:48.060
+Jitendra U: The third is, the capsidity of the engine. So these are all…
+
+1063
+02:11:48.430 --> 02:11:52.120
+Jitendra U: designed by some company called General Motors.
+
+1064
+02:11:52.560 --> 02:11:54.519
+Jitendra U: Now, when they are designing the gearbox.
+
+1065
+02:11:54.670 --> 02:11:57.270
+Jitendra U: The same gearbox should be used for…
+
+1066
+02:11:58.240 --> 02:12:01.439
+Jitendra U: Forward movement of your car, and the reverse movement of your car.
+
+1067
+02:12:01.790 --> 02:12:07.469
+Jitendra U: But depending upon the type of gear shifted by the user, it will behave differently.
+
+1068
+02:12:09.970 --> 02:12:11.710
+Jitendra U: So that is a polymorphism.
+
+1069
+02:12:12.840 --> 02:12:18.349
+Jitendra U: Right, so polymorphism means… The same interface, but different implementation.
+
+1070
+02:12:18.820 --> 02:12:22.559
+Jitendra U: So, objects of different types can be treated uniformly.
+
+1071
+02:12:22.680 --> 02:12:25.300
+Jitendra U: By design, but they are…
+
+1072
+02:12:25.660 --> 02:12:31.770
+Jitendra U: behaving differently. So one action leads to forward, second action leads to reverse of the car.
+
+1073
+02:12:32.650 --> 02:12:38.100
+Jitendra U: Abstraction, on the other hand, A classical example is your TV remote.
+
+1074
+02:12:39.530 --> 02:12:47.269
+Jitendra U: So when you're abstracting the unnecessary detail from the users, like in TV remote, You need not to know
+
+1075
+02:12:47.960 --> 02:12:56.469
+Jitendra U: what are the chip manufacturing company? What signal frequency I'm operating? What sort of power it operate.
+
+1076
+02:12:56.640 --> 02:12:58.979
+Jitendra U: You just need to press button, that's it.
+
+1077
+02:13:00.860 --> 02:13:03.900
+Jitendra U: So, abstraction, on the other hand, you're tidying.
+
+1078
+02:13:04.390 --> 02:13:07.299
+Jitendra U: The implementation detail from the users.
+
+1079
+02:13:07.820 --> 02:13:10.860
+Jitendra U: And that is the whole idea of abstraction layers.
+
+1080
+02:13:12.830 --> 02:13:21.659
+Jitendra U: Now, with these four design principles, or so-called operating, sorry, object-oriented design patterns.
+
+1081
+02:13:24.800 --> 02:13:31.410
+Jitendra U: Right? We are going to utilize these design patterns to write two things.
+
+1082
+02:13:32.370 --> 02:13:35.720
+Jitendra U: One is… Code reusability.
+
+1083
+02:13:42.290 --> 02:13:49.790
+Jitendra U: The second and the most important aspect is… Single… Principal Designs.
+
+1084
+02:13:51.480 --> 02:13:53.170
+Jitendra U: A single instance.
+
+1085
+02:14:00.390 --> 02:14:01.810
+Jitendra U: The third is…
+
+1086
+02:14:05.480 --> 02:14:09.340
+Jitendra U: We are going to perform protection on data.
+
+1087
+02:14:11.970 --> 02:14:13.540
+Jitendra U: from accidentally…
+
+1088
+02:14:17.040 --> 02:14:18.040
+Jitendra U: exposed.
+
+1089
+02:14:18.210 --> 02:14:19.170
+Jitendra U: or leaked.
+
+1090
+02:14:20.510 --> 02:14:27.009
+Jitendra U: The fourth one is… We are going to use this whole principle for debugging.
+
+1091
+02:14:27.420 --> 02:14:29.700
+Jitendra U: Easy to debug and maintenance part.
+
+1092
+02:14:29.930 --> 02:14:31.999
+Jitendra U: So your code maintenance will be low.
+
+1093
+02:14:33.060 --> 02:14:36.340
+Jitendra U: And if your code maintenance is low, your cost will also be low.
+
+1094
+02:14:37.490 --> 02:14:41.139
+Jitendra U: Otherwise, you are going to just create a document forever.
+
+1095
+02:14:43.510 --> 02:14:48.129
+Jitendra U: The code maintenance is low, that's the whole principle of object-oriented design principles.
+
+1096
+02:14:48.740 --> 02:14:56.209
+Jitendra U: So, the same design principles we are going to utilize for writing Python code. And this concept, yes, it remains same everywhere.
+
+1097
+02:14:56.780 --> 02:15:00.520
+Jitendra U: Be it Java, be it C Sharp, C++.
+
+1098
+02:15:01.530 --> 02:15:07.740
+Jitendra U: Or any other programming languages, which follow object-oriented designs. Object-oriented programming languages, basically.
+
+1099
+02:15:09.580 --> 02:15:16.509
+Jitendra U: So you will see some examples of four principles that we just now discussed, and I will show you the,
+
+1100
+02:15:16.790 --> 02:15:17.870
+Jitendra U: program.
+
+1101
+02:15:18.380 --> 02:15:20.150
+Jitendra U: How we are going to develop this?
+
+1102
+02:15:24.170 --> 02:15:26.000
+Jitendra U: So I'm going to use this program.
+
+1103
+02:15:27.200 --> 02:15:30.900
+Jitendra U: Let's start with the first… Class…
+
+1104
+02:15:31.260 --> 02:15:35.179
+Jitendra U: So I'm going to create a class now, right? I'm going to talk about the classes now.
+
+1105
+02:15:35.640 --> 02:15:38.989
+Jitendra U: So, we have talked about functions, now we are talking about the classes.
+
+1106
+02:15:39.210 --> 02:15:42.920
+Jitendra U: Now, here, I'm going to explain you the first fundamental.
+
+1107
+02:15:43.590 --> 02:15:44.530
+Jitendra U: off…
+
+1108
+02:15:45.170 --> 02:15:59.139
+Jitendra U: encapsulation. Encapsulation, as I mentioned, it bundles data and method together while restricting direct access to the internal detail. The one just now we have discussed, the example that we have discussed is bank account.
+
+1109
+02:15:59.750 --> 02:16:02.300
+Jitendra U: So let's say I'm creating a bank account class.
+
+1110
+02:16:04.100 --> 02:16:05.400
+Jitendra U: This is my class.
+
+1111
+02:16:05.750 --> 02:16:07.059
+Jitendra U: Not a function.
+
+1112
+02:16:07.290 --> 02:16:08.909
+Jitendra U: Now it's becoming a class.
+
+1113
+02:16:09.820 --> 02:16:16.489
+Jitendra U: So I'm trying to demonstrate how can I be able to hide internal data and provide control access through methods.
+
+1114
+02:16:17.260 --> 02:16:22.160
+Jitendra U: So, in a class, the first and the foremost method is called constructor.
+
+1115
+02:16:23.300 --> 02:16:28.880
+Jitendra U: So what is constructor? Can somebody define what is constructor in other programming language?
+
+1116
+02:16:31.470 --> 02:16:33.539
+Jitendra U: What is the role of constructor, guys?
+
+1117
+02:16:37.080 --> 02:16:41.630
+Jitendra U: Help to create an instance of a class. Any flies the object, yes.
+
+1118
+02:16:42.250 --> 02:16:43.899
+Jitendra U: Initialize the class.
+
+1119
+02:16:44.180 --> 02:16:45.840
+Jitendra U: So what is an object now?
+
+1120
+02:16:48.070 --> 02:16:51.110
+Jitendra U: So why I need object to be get initialized?
+
+1121
+02:16:57.129 --> 02:17:01.049
+Jitendra U: If I have to initialize an object, what does that mean?
+
+1122
+02:17:03.940 --> 02:17:06.739
+Jitendra U: to call methods, right? It's like your room key.
+
+1123
+02:17:07.000 --> 02:17:10.219
+Jitendra U: If you don't have a room key, you cannot enter inside the room.
+
+1124
+02:17:10.830 --> 02:17:20.559
+Jitendra U: She required some… Prototype, or some blueprint, or so-called, some way to access the methods of the class.
+
+1125
+02:17:23.110 --> 02:17:28.279
+Jitendra U: Right? So that's the whole idea of constructor will initialize the object of a class.
+
+1126
+02:17:29.580 --> 02:17:33.139
+Jitendra U: So this is the signature of the default constructor.
+
+1127
+02:17:33.379 --> 02:17:37.449
+Jitendra U: underscore, underscore init. How many of you know about this?
+
+1128
+02:17:38.670 --> 02:17:40.629
+Jitendra U: And what is self-reference to it?
+
+1129
+02:17:42.940 --> 02:17:44.819
+Jitendra U: What is self-reference, guys?
+
+1130
+02:17:49.420 --> 02:17:51.399
+Jitendra U: Do you guys know about it, or no?
+
+1131
+02:17:55.540 --> 02:18:00.219
+Jitendra U: Don't know current object, reference of the object created. Yes. Object reference.
+
+1132
+02:18:00.790 --> 02:18:05.410
+Jitendra U: Yeah, so init is a constructor, and self is a reference.
+
+1133
+02:18:07.330 --> 02:18:09.870
+Jitendra U: like in C++, it is this pointer.
+
+1134
+02:18:11.540 --> 02:18:15.490
+Jitendra U: So C++ use this pointer, but here we are using self-reference.
+
+1135
+02:18:17.129 --> 02:18:19.840
+Jitendra U: Alright, so I'm using a constructor.
+
+1136
+02:18:20.270 --> 02:18:24.849
+Jitendra U: And initializing… With the help of two variables.
+
+1137
+02:18:25.639 --> 02:18:28.419
+Jitendra U: Now, why these two variables have been passed?
+
+1138
+02:18:29.139 --> 02:18:36.010
+Jitendra U: Because these are the two mandatory things that are required To operate on this class.
+
+1139
+02:18:37.240 --> 02:18:43.160
+Jitendra U: So, I will say… If account details, account number has been passed.
+
+1140
+02:18:43.260 --> 02:18:45.930
+Jitendra U: Use that account detail, or account number.
+
+1141
+02:18:46.290 --> 02:18:49.320
+Jitendra U: The account type will be saving by default.
+
+1142
+02:18:49.680 --> 02:18:51.930
+Jitendra U: And then I will check the initial balance.
+
+1143
+02:18:52.950 --> 02:19:02.049
+Jitendra U: Then I'm adding some methods, which are private, public… And…
+
+1144
+02:19:02.240 --> 02:19:05.470
+Jitendra U: They are public method, there's no protected method I'm using.
+
+1145
+02:19:05.750 --> 02:19:10.560
+Jitendra U: But I'm using two methods, private and public. So when I say private methods.
+
+1146
+02:19:12.100 --> 02:19:19.369
+Jitendra U: It is using underscore underscore. You can see the difference between public and protected method, or private method.
+
+1147
+02:19:19.500 --> 02:19:22.469
+Jitendra U: I'm using double underscore before the function.
+
+1148
+02:19:22.709 --> 02:19:29.320
+Jitendra U: So that will explain to my compiler that I'm going to use a private method in my class.
+
+1149
+02:19:30.290 --> 02:19:35.160
+Jitendra U: Now, what is the purpose of private method? Private method cannot be accessed from the
+
+1150
+02:19:35.469 --> 02:19:37.450
+Jitendra U: Outside my… of my class.
+
+1151
+02:19:39.330 --> 02:19:40.740
+Jitendra U: That's the whole idea.
+
+1152
+02:19:42.850 --> 02:19:49.950
+Jitendra U: Then, I'm going to use a public method, where I'm saying I would like to utilize a deposit, which is a generic function.
+
+1153
+02:19:50.130 --> 02:19:56.659
+Jitendra U: Which will use my, variables, including balance, and the amount that I'm going to deposit.
+
+1154
+02:19:56.870 --> 02:19:59.549
+Jitendra U: And then it will add the deposit.
+
+1155
+02:19:59.910 --> 02:20:06.650
+Jitendra U: To my balance, and then talk about a total new amount balance after deposit.
+
+1156
+02:20:07.400 --> 02:20:11.499
+Jitendra U: For withdrawal, it has to do a subtraction rather than addition.
+
+1157
+02:20:13.350 --> 02:20:20.829
+Jitendra U: Then I'm using… I will not talk about decorator in this class, because it will confuse many people. So let's assume that decorator is a property function.
+
+1158
+02:20:21.610 --> 02:20:26.560
+Jitendra U: So I'm using a decorator, which will be able to return the balance?
+
+1159
+02:20:26.830 --> 02:20:28.830
+Jitendra U: And the history of the copy.
+
+1160
+02:20:29.800 --> 02:20:39.160
+Jitendra U: And for protected method, I'm calculating the interest rate. Now, what is the difference between private, protected, and public? Let me explain this very clearly.
+
+1161
+02:20:39.340 --> 02:20:46.259
+Jitendra U: When I say private versus… Sorry, private versus protected.
+
+1162
+02:20:47.910 --> 02:20:48.840
+Jitendra U: Right?
+
+1163
+02:20:49.150 --> 02:20:53.390
+Jitendra U: Versus… public.
+
+1164
+02:20:54.310 --> 02:20:56.109
+Jitendra U: What is the difference it makes?
+
+1165
+02:20:56.360 --> 02:21:03.100
+Jitendra U: So when I say that the difference, as you know, public means you can able to access that particular variable or method.
+
+1166
+02:21:03.520 --> 02:21:05.020
+Jitendra U: Outside the class.
+
+1167
+02:21:05.290 --> 02:21:10.170
+Jitendra U: Right, so basically what I'm trying to say is, I can be able to access the public method.
+
+1
+00:00:00.000 --> 00:00:01.670
+Jitendra U: And the multiple add.
+
+2
+00:00:03.620 --> 00:00:11.840
+Jitendra U: So there are two types of inheritance that we are going to have, which is called single inheritance and the multiple inheritance. So we'll try to see both types.
+
+3
+00:00:12.440 --> 00:00:18.399
+Jitendra U: Using an example, and the example we are going to use is a vehicle, the Tata Motors example.
+
+4
+00:00:18.650 --> 00:00:26.350
+Jitendra U: So, in the single inheritance class, I'm going to create a car and a motorcycle, subclasses…
+
+5
+00:00:26.860 --> 00:00:34.259
+Jitendra U: which are going to be inherited from vehicle class. And in the multiple inheritance class, I would like to use electric car.
+
+6
+00:00:34.470 --> 00:00:38.799
+Jitendra U: Inherited from both car and the electric motors.
+
+7
+00:00:40.760 --> 00:00:47.689
+Jitendra U: So, in the vehicle class, which is my base class, I have a constructor, which talks about the make, model.
+
+8
+00:00:48.220 --> 00:00:55.260
+Jitendra U: ear… Fuel type, whether it is diesel or petrol, or… Any other thing.
+
+9
+00:00:55.810 --> 00:00:57.979
+Jitendra U: so these…
+
+10
+00:00:58.410 --> 00:01:06.069
+Jitendra U: types will be defined when I'm using my constructor to initialize my class, because the vehicle type will be decided based upon these three categories.
+
+11
+00:01:06.600 --> 00:01:14.069
+Jitendra U: Then I'm going to say my engine make model. That means what is my year of manufacturing for that particular engine.
+
+12
+00:01:14.520 --> 00:01:16.520
+Jitendra U: So, I would like to start my engine.
+
+13
+00:01:16.820 --> 00:01:22.089
+Jitendra U: and stock my engine. Based upon two conditions, right?
+
+14
+00:01:22.280 --> 00:01:32.279
+Jitendra U: So, my engine can also accelerate. That means these are a property of my vehicle. I can start engine, I can stop engine, I can accelerate my engine, I can apply a brake.
+
+15
+00:01:32.590 --> 00:01:36.100
+Jitendra U: Or maybe I can just get some information on the fuel types.
+
+16
+00:01:36.890 --> 00:01:42.820
+Jitendra U: Now, my derived classes, which is from vehicle parent class, I'm driving.
+
+17
+00:01:43.520 --> 00:01:47.199
+Jitendra U: The motorcycle… sorry, the car type.
+
+18
+00:01:47.720 --> 00:01:53.150
+Jitendra U: So this is called single inheritance, because you can see, I'm using a keyword
+
+19
+00:01:53.340 --> 00:01:57.609
+Jitendra U: Which has belonged to a class, Which is a vehicle type.
+
+20
+00:01:58.330 --> 00:02:00.180
+Jitendra U: And I'm passing that here.
+
+21
+00:02:01.390 --> 00:02:06.630
+Jitendra U: That means there's a relationship between this class and the previous class that I have created. Otherwise.
+
+22
+00:02:06.740 --> 00:02:12.510
+Jitendra U: In the previous example, you can see I haven't passed anything while creating a class. This is blank.
+
+23
+00:02:13.210 --> 00:02:14.519
+Jitendra U: Nothing I have passed.
+
+24
+00:02:16.910 --> 00:02:19.400
+Jitendra U: Even in this class, I haven't passed anything.
+
+25
+00:02:20.070 --> 00:02:23.570
+Jitendra U: But in this class, I'm passing one attribute
+
+26
+00:02:25.260 --> 00:02:27.670
+Jitendra U: Which is the name of the class itself.
+
+27
+00:02:28.210 --> 00:02:30.989
+Jitendra U: Which automatically become a base class now.
+
+28
+00:02:31.160 --> 00:02:32.340
+Jitendra U: For this class.
+
+29
+00:02:34.470 --> 00:02:35.970
+Jitendra U: It's like your surname.
+
+30
+00:02:38.300 --> 00:02:41.449
+Jitendra U: Right? So, signature of your surname. So, U means…
+
+31
+00:02:41.740 --> 00:02:47.340
+Jitendra U: You become a… automatically a part of your… family group.
+
+32
+00:02:47.900 --> 00:02:51.109
+Jitendra U: With a surname. So, similarly, I'm putting a signature here.
+
+33
+00:02:51.560 --> 00:02:55.639
+Jitendra U: And then in this class, also, I'm defining several methods.
+
+34
+00:02:57.210 --> 00:02:59.809
+Jitendra U: And these methods are specific to this class.
+
+35
+00:03:00.490 --> 00:03:08.180
+Jitendra U: Now, the special part about this class is… This class car…
+
+36
+00:03:08.390 --> 00:03:15.720
+Jitendra U: will still have access to all the attribute that I wrote in my previous version of the base class.
+
+37
+00:03:16.620 --> 00:03:18.820
+Jitendra U: So it can be able to access all.
+
+38
+00:03:19.950 --> 00:03:24.240
+Jitendra U: On the top of it, it can have access to its own methods as well.
+
+39
+00:03:24.640 --> 00:03:28.390
+Jitendra U: So remember I talked about 10,000 lines of code you have written?
+
+40
+00:03:28.710 --> 00:03:33.400
+Jitendra U: And then you're writing 1,000 lines more, so this is how you're going to adjust
+
+41
+00:03:33.630 --> 00:03:36.730
+Jitendra U: The two modules, and combine them together.
+
+42
+00:03:37.360 --> 00:03:43.489
+Jitendra U: So how you're going to adjust the module? You are going to derive the module, new module, from the previous version.
+
+43
+00:03:44.850 --> 00:03:50.250
+Jitendra U: So this module does not care about your new functionality. It does not need
+
+44
+00:03:51.320 --> 00:03:53.700
+Jitendra U: Right? This model does not need
+
+45
+00:03:54.080 --> 00:03:58.129
+Jitendra U: what you are writing in the new module. It's already written and thoroughly checked.
+
+46
+00:03:58.720 --> 00:04:07.359
+Jitendra U: But this module required to modify the existing module by implementing a new functionality on the top of the existing one.
+
+47
+00:04:07.640 --> 00:04:10.250
+Jitendra U: It's like you're changing your seat cover.
+
+48
+00:04:10.560 --> 00:04:13.679
+Jitendra U: But did the car ask you to change the covers? No, right?
+
+49
+00:04:15.630 --> 00:04:17.480
+Jitendra U: So that's the whole idea here.
+
+50
+00:04:18.260 --> 00:04:22.059
+Jitendra U: You're just using seat covers to protect your car.
+
+51
+00:04:22.290 --> 00:04:23.250
+Jitendra U: Seats.
+
+52
+00:04:24.040 --> 00:04:29.270
+Jitendra U: So you're adding something on the top of the existing property of the car.
+
+53
+00:04:30.790 --> 00:04:35.900
+Jitendra U: Right? Similarly, I'm driving another class, so I can drive multiple classes.
+
+54
+00:04:37.640 --> 00:04:41.809
+Jitendra U: So if I'm driving another class from the same vehicle type.
+
+55
+00:04:42.720 --> 00:04:45.170
+Jitendra U: So you can see I have their own functions.
+
+56
+00:04:47.130 --> 00:04:53.789
+Jitendra U: So here, I'm using his own functions, but these functions will not be accessible from this class.
+
+57
+00:04:54.270 --> 00:04:55.539
+Jitendra U: car class.
+
+58
+00:04:56.070 --> 00:05:00.980
+Jitendra U: But it will be accessible from… Motorcycle class itself.
+
+59
+00:05:01.390 --> 00:05:04.949
+Jitendra U: And all the functions which are returned in the vehicle class
+
+60
+00:05:05.310 --> 00:05:08.349
+Jitendra U: Will it still be accessible via motorcycle class as well?
+
+61
+00:05:09.070 --> 00:05:12.290
+Jitendra U: Now, this is the principle of single inheritance.
+
+62
+00:05:13.390 --> 00:05:16.020
+Jitendra U: Now, when we talk about multiple inheritance.
+
+63
+00:05:16.120 --> 00:05:22.620
+Jitendra U: That means you are trying to utilize… Inheritance from two classes.
+
+64
+00:05:26.860 --> 00:05:27.700
+Jitendra U: Right?
+
+65
+00:05:28.160 --> 00:05:36.780
+Jitendra U: So inheritance from two classes, and then both the classes… Different properties associated with.
+
+66
+00:05:37.410 --> 00:05:38.690
+Jitendra U: Right, right?
+
+67
+00:05:38.830 --> 00:05:43.230
+Jitendra U: So it's like, you're taking two opinions from two different persons.
+
+68
+00:05:44.390 --> 00:05:49.769
+Jitendra U: Select a car Have some property of a car and some property of electric car.
+
+69
+00:05:50.610 --> 00:05:56.879
+Jitendra U: Right? So their manufacturing of brakes are different, their batteries are different.
+
+70
+00:05:57.200 --> 00:06:03.370
+Jitendra U: So you're adding a battery rather than a fuel. Because fuel, there's no concept of fuel in electric cars.
+
+71
+00:06:03.570 --> 00:06:06.899
+Jitendra U: I cannot say it's electric car, diesel type.
+
+72
+00:06:07.110 --> 00:06:09.279
+Jitendra U: Electric car operates on battery.
+
+73
+00:06:09.560 --> 00:06:18.930
+Jitendra U: So I need to create another instance on the top of it, but remaining parts… Including… body, including…
+
+74
+00:06:19.120 --> 00:06:22.259
+Jitendra U: Tires, including steering, including brake.
+
+75
+00:06:22.490 --> 00:06:24.059
+Jitendra U: Will it still remain the same.
+
+76
+00:06:27.850 --> 00:06:32.040
+Jitendra U: Right? So that's the whole idea of creating the…
+
+77
+00:06:32.540 --> 00:06:38.410
+Jitendra U: multiple inheritance scenario. When you have two classes
+
+78
+00:06:38.960 --> 00:06:42.900
+Jitendra U: Which can be utilized to drive the third class.
+
+79
+00:06:44.270 --> 00:06:47.680
+Jitendra U: And that is where you're going to use an inheritance mechanism.
+
+80
+00:06:51.150 --> 00:06:52.120
+Jitendra U: Right?
+
+81
+00:06:52.640 --> 00:06:58.660
+Jitendra U: Any question on this? What if the same method is present in both classes? Which one is taking the child class?
+
+82
+00:06:59.740 --> 00:07:02.930
+Jitendra U: Okay, so it will be override by the first class.
+
+83
+00:07:03.670 --> 00:07:06.259
+Jitendra U: Sorry, second class. Automatically.
+
+84
+00:07:06.990 --> 00:07:09.189
+Jitendra U: There is a method overriding, which will happen.
+
+85
+00:07:16.880 --> 00:07:23.299
+Jitendra U: Alright, so is it clear to everyone, like, what are we trying to solve before we move on to the execution part of it?
+
+86
+00:07:27.260 --> 00:07:39.399
+Jitendra U: Base class, if you have a same method, so the local variable will be VIN, right? So, the method that you write in the derived class will be the one that is going to be used, if you have a same method.
+
+87
+00:07:39.680 --> 00:07:41.660
+Jitendra U: But that's not the right way to do…
+
+88
+00:07:48.520 --> 00:07:50.020
+Jitendra U: No, there's no concept.
+
+89
+00:07:56.420 --> 00:07:58.170
+Jitendra U: Alright, let's move on.
+
+90
+00:07:59.170 --> 00:08:04.830
+Jitendra U: Okay, so let me execute this program, and I think I've already executed. Let me see the output.
+
+91
+00:08:09.040 --> 00:08:16.850
+Jitendra U: So, inheritant class allow a class to inherit directly attribute from the method of the class. So, here you can see that it's kind of an easier relationship.
+
+92
+00:08:17.160 --> 00:08:22.490
+Jitendra U: So here you can see that when I'm running this program, So let's take a output.
+
+93
+00:08:22.990 --> 00:08:26.149
+Jitendra U: into consideration. So when you're running this program.
+
+94
+00:08:34.870 --> 00:08:37.420
+Jitendra U: So the first and the foremost thing what you did is…
+
+95
+00:08:37.770 --> 00:08:41.200
+Jitendra U: You are creating an object called genericVycle.
+
+96
+00:08:42.510 --> 00:08:50.310
+Jitendra U: From the top class vehicle, and the vehicle type is generic, Year of manufacture is 220.
+
+97
+00:08:50.420 --> 00:08:52.810
+Jitendra U: And I operate on a fuel called gasoline.
+
+98
+00:08:53.660 --> 00:08:57.939
+Jitendra U: Similarly, I'm creating another car. This is a car object.
+
+99
+00:08:58.450 --> 00:09:00.660
+Jitendra U: Which is of type Toyota.
+
+100
+00:09:00.790 --> 00:09:09.660
+Jitendra U: CarMe is the name of the car, manufacturing year 2023, hybrid, including automatic gears, four-seater car.
+
+101
+00:09:10.610 --> 00:09:20.939
+Jitendra U: I'm creating other single inheritance scenario, where I'm manufacturing Harley-Davison, Sports Eater, Gasoline, 1200 horsepower.
+
+102
+00:09:21.870 --> 00:09:27.410
+Jitendra U: Electric car Tesla Motors, Model 3, 2023, 4-seater automatic.
+
+103
+00:09:28.470 --> 00:09:32.010
+Jitendra U: So let's see which class are they calling, and why.
+
+104
+00:09:33.950 --> 00:09:38.800
+Jitendra U: So, it will be interesting to see which car… which class they are operating from.
+
+105
+00:09:40.600 --> 00:09:45.430
+Jitendra U: So the first output that we are getting Here is…
+
+106
+00:09:45.700 --> 00:09:49.800
+Jitendra U: I'm getting a generic vehicle, 2020 manufactured gasoline.
+
+107
+00:09:50.170 --> 00:09:55.850
+Jitendra U: And it is calling the car… plus… To run this calculation.
+
+108
+00:09:56.850 --> 00:10:04.240
+Jitendra U: motorcycle, which has been, inherited coming under single inheritance scenario. So, as you can see, that I'm using
+
+109
+00:10:04.450 --> 00:10:14.250
+Jitendra U: The type of the vehicle from the original vehicle class, but acceleration and the gasoline configuration will come from motorcycle class.
+
+110
+00:10:16.060 --> 00:10:20.530
+Jitendra U: The third is a classical example of… multiple inheritance.
+
+111
+00:10:21.400 --> 00:10:34.289
+Jitendra U: So, I'm using the first… Property, which is battery, From the electric car, Plus… And remaining thing, like acceleration.
+
+112
+00:10:35.190 --> 00:10:41.699
+Jitendra U: generation of year of manufacturing I'm using from vehicle class.
+
+113
+00:10:42.890 --> 00:10:51.510
+Jitendra U: And also, there's a motorcycle class, which includes brake and… Battery will be from electric.
+
+114
+00:10:51.810 --> 00:10:56.579
+Jitendra U: Okay, yeah. So here you're using… you can see that I'm using 4 classes.
+
+115
+00:10:56.990 --> 00:10:58.730
+Jitendra U: Sorry, 3 classes.
+
+116
+00:11:01.130 --> 00:11:09.490
+Jitendra U: Right? So that's the whole idea of creating inheritance. So, inheritance promote code reusability.
+
+117
+00:11:09.950 --> 00:11:14.139
+Jitendra U: So you can see that if I have to change my plan or design.
+
+118
+00:11:14.630 --> 00:11:17.130
+Jitendra U: I need not to worry too much about
+
+119
+00:11:17.790 --> 00:11:20.069
+Jitendra U: Creating the code from the scratch.
+
+120
+00:11:21.020 --> 00:11:24.389
+Jitendra U: I can still use the classes, which has been returned.
+
+121
+00:11:25.630 --> 00:11:26.660
+Jitendra U: earlier.
+
+122
+00:11:26.760 --> 00:11:29.409
+Jitendra U: And then just modify my requirement.
+
+123
+00:11:29.750 --> 00:11:32.810
+Jitendra U: to accommodate a new class.
+
+124
+00:11:33.030 --> 00:11:38.270
+Jitendra U: By creating a relationship between the previous class in a form of an inheritance mechanism.
+
+125
+00:11:39.140 --> 00:11:40.620
+Jitendra U: Is it clear to everyone?
+
+126
+00:11:47.280 --> 00:11:53.040
+Jitendra U: Okay, there's a question, does class… Does child class automatically?
+
+127
+00:11:53.380 --> 00:11:56.380
+Jitendra U: inherited… protected members.
+
+128
+00:11:57.160 --> 00:11:58.340
+Jitendra U: What do you think?
+
+129
+00:12:00.230 --> 00:12:02.010
+Jitendra U: Will it, or will not?
+
+130
+00:12:03.230 --> 00:12:04.989
+Jitendra U: The answer is yes, it will.
+
+131
+00:12:05.200 --> 00:12:09.059
+Jitendra U: So, child class donated protector member from the parent classes.
+
+132
+00:12:09.170 --> 00:12:10.360
+Jitendra U: In Python.
+
+133
+00:12:10.800 --> 00:12:18.040
+Jitendra U: The one, or I would say the key difference between protected and private members is That only.
+
+134
+00:12:20.880 --> 00:12:24.300
+Jitendra U: The private member variable cannot be, but protected, yes.
+
+135
+00:12:30.660 --> 00:12:37.750
+Jitendra U: Is it clear to everyone, what are we trying to solve here? Do you want to run this? I've shared the code already.
+
+136
+00:12:38.080 --> 00:12:43.660
+Jitendra U: You would like to go through this quote quickly, and then show me your… Comes up.
+
+137
+00:12:45.640 --> 00:12:47.429
+Jitendra U: Once it has been generated.
+
+138
+00:12:48.960 --> 00:12:51.889
+Jitendra U: Then we move on to polymorphism, and then abstraction.
+
+139
+00:12:52.190 --> 00:12:54.000
+Jitendra U: And, abstraction, yeah.
+
+140
+00:12:59.940 --> 00:13:00.850
+Jitendra U: Yes.
+
+141
+00:13:01.010 --> 00:13:03.750
+Jitendra U: Protected the class itself and the entered class, yes.
+
+142
+00:13:07.870 --> 00:13:10.269
+Jitendra U: I think the code is already shared, right?
+
+143
+00:13:11.910 --> 00:13:13.569
+Jitendra U: This code not being shared?
+
+144
+00:13:16.910 --> 00:13:19.040
+Jitendra U: Okay, let me quickly share this.
+
+145
+00:13:48.600 --> 00:13:51.299
+Jitendra U: Yeah, please use this code and let me know quickly.
+
+146
+00:13:51.780 --> 00:13:55.769
+Jitendra U: Then we will move on to the other two concepts, which is remaining.
+
+147
+00:14:09.060 --> 00:14:12.460
+Jitendra U: Yeah, it will be uploaded after the class, yeah, don't worry about it.
+
+148
+00:14:33.640 --> 00:14:36.600
+Jitendra U: For the previous classes, not been shared? Okay.
+
+149
+00:14:51.390 --> 00:14:56.860
+Jitendra U: Okay, so, hi Kaleni, are you there? Can you please, assist, which…
+
+150
+00:14:57.130 --> 00:15:02.409
+Jitendra U: How they can be able to use the external materials from Trainer, which placeholder they should go.
+
+151
+00:15:15.170 --> 00:15:19.199
+Jitendra U: Yeah, recording is something which they will provide, the Amaria's team, so…
+
+152
+00:15:19.200 --> 00:15:27.999
+Tech Cert 008: No, even the resources materials will be there, under the recording itself. Under the resources tab, they can find the materials, or you will be shared.
+
+153
+00:15:28.110 --> 00:15:39.570
+Tech Cert 008: Then one more request, if you can attach all the files which you have used in the session at the end, again in the chat, I can get it from there, and I will, we will ask the team to upload under the resource section.
+
+154
+00:15:40.730 --> 00:15:42.730
+Jitendra U: Okay, okay, sure, yeah.
+
+155
+00:15:50.240 --> 00:15:55.199
+Jitendra U: Yeah, I've shared you the ops file, so can you please use that? Let me reshare.
+
+156
+00:15:56.790 --> 00:16:07.789
+Tech Cert 008: Sure, sure. You just, whatever the files you have shared, in today's session, if you can share in the chat, I will just download and share with the respective team to upload under the resources tab.
+
+157
+00:16:08.110 --> 00:16:09.800
+Jitendra U: Alright, alright, sure, yeah.
+
+158
+00:16:35.510 --> 00:16:40.330
+Jitendra U: Oh, I'm just… sorry, just let me… Send it to everyone.
+
+159
+00:16:43.960 --> 00:16:46.430
+Jitendra U: Okay, now I think you will get it.
+
+160
+00:17:03.550 --> 00:17:07.740
+Tech Cert 008: Sitin, if this… both files are different, or it's the same?
+
+161
+00:17:08.770 --> 00:17:12.960
+Jitendra U: No, they are the same. So, the one that I shared with you, they are the same, yeah.
+
+162
+00:17:12.960 --> 00:17:20.719
+Tech Cert 008: Okay. No, both the names are the same names, right? Is that it's two different files, or only one single one?
+
+163
+00:17:22.650 --> 00:17:29.739
+Jitendra U: No, they are same, actually. So, oops, object-generated programming, same file, and I'm sharing one more file.
+
+164
+00:17:29.900 --> 00:17:35.220
+Jitendra U: lookariumlab.py, so please upload these two, and I will share one HTML as well.
+
+165
+00:17:35.470 --> 00:17:36.429
+Tech Cert 008: Okay, sure, fine.
+
+166
+00:17:36.740 --> 00:17:39.660
+Jitendra U: Which user is also asking, so…
+
+167
+00:17:39.970 --> 00:17:42.640
+Jitendra U: We can… we can upload all three.
+
+168
+00:17:43.360 --> 00:17:44.230
+Tech Cert 008: Got it.
+
+169
+00:18:02.770 --> 00:18:07.650
+Jitendra U: Yes, I've shared the three files, HTML2.py files as well.
+
+170
+00:18:17.880 --> 00:18:26.569
+Jitendra U: Alright, so, yeah, so if it is executing fine, you're not facing any issue, that's… that's good. So let's move on to the remaining two concepts.
+
+171
+00:18:27.070 --> 00:18:30.600
+Jitendra U: So, the remaining two concept talks about the…
+
+172
+00:18:30.790 --> 00:18:34.820
+Jitendra U: Polymorphism, which is the most important out of the three.
+
+173
+00:18:34.990 --> 00:18:35.930
+Jitendra U: Or 4.
+
+174
+00:18:36.310 --> 00:18:43.559
+Jitendra U: So, polymorphism means same inheritance, same implementation, but objects of different types complete uniformly.
+
+175
+00:18:44.640 --> 00:18:46.470
+Jitendra U: So let's take an example.
+
+176
+00:18:46.620 --> 00:18:49.319
+Jitendra U: Of polymorphism from the nature.
+
+177
+00:18:49.950 --> 00:18:52.250
+Jitendra U: Biological evaluation of animals.
+
+178
+00:18:52.880 --> 00:18:54.719
+Jitendra U: So, where's that?
+
+179
+00:18:56.420 --> 00:18:57.180
+Jitendra U: Yeah.
+
+180
+00:19:00.830 --> 00:19:07.039
+Jitendra U: So, polymorphism allows you to Allow objects of different types to be trained uniformly.
+
+181
+00:19:07.140 --> 00:19:08.959
+Jitendra U: Through a common interface.
+
+182
+00:19:09.120 --> 00:19:15.450
+Jitendra U: With each type providing its own implementation. So what does that mean, first of all? Like a gearbox.
+
+183
+00:19:16.120 --> 00:19:23.380
+Jitendra U: The gearbox are same in your car, but when you're performing 5th gear versus 1st to 4th.
+
+184
+00:19:23.700 --> 00:19:27.729
+Jitendra U: it behaves differently. So, 1st to 4th gear will allow you to
+
+185
+00:19:28.070 --> 00:19:32.079
+Jitendra U: Move forward, but 5th gear will allow you to go reverse.
+
+186
+00:19:33.190 --> 00:19:40.009
+Jitendra U: Right? So that's polymorphism. You're not changing the interface, you're not changing anything from the function, from the
+
+187
+00:19:40.120 --> 00:19:45.750
+Jitendra U: Design part, but you're changing the functionality To behave differently.
+
+188
+00:19:45.950 --> 00:19:49.060
+Jitendra U: Based upon the type of action.
+
+189
+00:19:50.050 --> 00:19:53.950
+Jitendra U: That is where, if I have to create a class, animal.
+
+190
+00:19:55.060 --> 00:20:00.100
+Jitendra U: In this class, I have different types of species, dog.
+
+191
+00:20:00.390 --> 00:20:02.839
+Jitendra U: Which has been narrated from animal class.
+
+192
+00:20:03.380 --> 00:20:04.360
+Jitendra U: cat.
+
+193
+00:20:04.840 --> 00:20:13.870
+Jitendra U: Which has been elated from animal class. Bird, I can say it's a biological animal. Fish is also a biological animal.
+
+194
+00:20:14.250 --> 00:20:21.299
+Jitendra U: Now, when I'm trying to use this class, you can see that I have different property associated with each animal.
+
+195
+00:20:22.220 --> 00:20:26.169
+Jitendra U: So animal can make sounds, animal can move, animal can eat.
+
+196
+00:20:26.730 --> 00:20:33.419
+Jitendra U: So, what are the types of each species here? So, they are making a specific sound.
+
+197
+00:20:34.030 --> 00:20:38.349
+Jitendra U: They can move on 4 legs, if it is the dog pad.
+
+198
+00:20:39.600 --> 00:20:43.730
+Jitendra U: I can able to, fetch the type of the class.
+
+199
+00:20:44.170 --> 00:20:48.969
+Jitendra U: Similarly, the cat may sound differently than dog.
+
+200
+00:20:49.210 --> 00:20:53.409
+Jitendra U: She will, move, but more gracefully.
+
+201
+00:20:53.740 --> 00:20:57.170
+Jitendra U: And, she will have their own specifications.
+
+202
+00:20:57.530 --> 00:21:04.320
+Jitendra U: Bird, on the other hand, will have different sound, different movement in the air, different types of…
+
+203
+00:21:05.180 --> 00:21:07.759
+Jitendra U: Dynamics to fly.
+
+204
+00:21:08.210 --> 00:21:12.279
+Jitendra U: Fish can swim, they can make sound inside the water.
+
+205
+00:21:12.540 --> 00:21:20.949
+Jitendra U: Right? Now, when I'm creating a function that will start interacting with these classes, so I'm checking the instance of the class.
+
+206
+00:21:21.110 --> 00:21:26.820
+Jitendra U: So, I'm checking is instance now. That means what is the type of an… class…
+
+207
+00:21:28.250 --> 00:21:30.590
+Jitendra U: Right? Which I'm operating upon.
+
+208
+00:21:30.750 --> 00:21:34.969
+Jitendra U: So I'm saying… Is instance, is animal is a part of a dog?
+
+209
+00:21:35.220 --> 00:21:37.500
+Jitendra U: Class, so let's see what is the output.
+
+210
+00:21:37.800 --> 00:21:42.329
+Jitendra U: I'm checking, is animal is a part of a cat… is cat is a part of an animal class?
+
+211
+00:21:44.000 --> 00:21:49.939
+Jitendra U: Is cat can produce this sound? Can able to access this method? Let's see what is the output.
+
+212
+00:21:50.500 --> 00:21:53.539
+Jitendra U: I'm checking if bird is a part of an animal class.
+
+213
+00:21:53.870 --> 00:21:55.449
+Jitendra U: Can it fly?
+
+214
+00:21:56.700 --> 00:22:01.950
+Jitendra U: And then I'm checking if fish is a part of animal class, can it swim? So let's see the answer.
+
+215
+00:22:07.640 --> 00:22:15.670
+Jitendra U: So here you are getting the answers. So let me explain these answers to you, right? So what are these answers? So, as the name suggests.
+
+216
+00:22:17.000 --> 00:22:25.810
+Jitendra U: The polymorphism means… Oli means many, and morphism means functions, many forms.
+
+217
+00:22:26.480 --> 00:22:35.029
+Jitendra U: So here we are demonstrating how different animal classes can be treated uniformly through a shared interface, with each providing its own
+
+218
+00:22:35.170 --> 00:22:37.190
+Jitendra U: specific implementation.
+
+219
+00:22:37.930 --> 00:22:41.179
+Jitendra U: That means each species will have their own implementation.
+
+220
+00:22:41.780 --> 00:22:48.980
+Jitendra U: So, the core polymorphism concept that we are applying here is a behavior. Same interface, different behavior.
+
+221
+00:22:49.310 --> 00:22:55.750
+Jitendra U: So, all animal objects respond to the same method, like sound, movement, eat…
+
+222
+00:22:56.480 --> 00:23:00.289
+Jitendra U: But each animal type implements their method differently.
+
+223
+00:23:01.570 --> 00:23:08.500
+Jitendra U: So, polymorphism is nothing but it used… The same method name.
+
+224
+00:23:08.760 --> 00:23:15.680
+Jitendra U: But all animals respond to its specific method name, and that is called method overriding.
+
+225
+00:23:17.030 --> 00:23:19.989
+Jitendra U: So we are overriding the method using polymorphism.
+
+226
+00:23:20.370 --> 00:23:22.589
+Jitendra U: Or function overriding, you can say.
+
+227
+00:23:23.590 --> 00:23:28.759
+Jitendra U: Right? So here, what we are trying to do is, we are trying to determine the type of the object.
+
+228
+00:23:28.920 --> 00:23:33.159
+Jitendra U: And based upon the type of the object, I will select the functions.
+
+229
+00:23:33.310 --> 00:23:34.780
+Jitendra U: appropriately.
+
+230
+00:23:35.420 --> 00:23:39.760
+Jitendra U: Since my type of the object is dog, So I'm getting…
+
+231
+00:23:40.150 --> 00:23:43.240
+Jitendra U: those functions, which is specific to a DAW.
+
+232
+00:23:44.210 --> 00:23:45.959
+Jitendra U: The sound produced by dog.
+
+233
+00:23:46.380 --> 00:23:47.579
+Jitendra U: How many lags?
+
+234
+00:23:47.730 --> 00:23:48.900
+Jitendra U: he's having.
+
+235
+00:23:49.450 --> 00:23:53.699
+Jitendra U: what he… What is the special thing about the pad?
+
+236
+00:23:54.970 --> 00:23:58.619
+Jitendra U: Similarly, the cat, I'm calling the same function.
+
+237
+00:23:59.240 --> 00:24:00.860
+Jitendra U: Same set of functions.
+
+238
+00:24:02.460 --> 00:24:09.200
+Jitendra U: Make sound, move, speciality. I mean, what is special characteristic of that pet?
+
+239
+00:24:09.880 --> 00:24:13.730
+Jitendra U: So, this is what I'm getting, but it is specific to a cat.
+
+240
+00:24:14.050 --> 00:24:16.030
+Jitendra U: The type of the object is cat.
+
+241
+00:24:16.570 --> 00:24:21.139
+Jitendra U: Similarly, the type of the object is a bird. It is giving me this different answer.
+
+242
+00:24:22.580 --> 00:24:25.530
+Jitendra U: For a fish category, I'm getting different answer.
+
+243
+00:24:25.740 --> 00:24:30.269
+Jitendra U: That means the polymorphic function. So what makes this polymorphism?
+
+244
+00:24:31.000 --> 00:24:34.949
+Jitendra U: Same method, all animals respond to make sound, move, and eat.
+
+245
+00:24:35.240 --> 00:24:37.079
+Jitendra U: But different implementation.
+
+246
+00:24:37.760 --> 00:24:39.490
+Jitendra U: So it's a runtime decision.
+
+247
+00:24:39.890 --> 00:24:46.939
+Jitendra U: Runtime decisioning is happening. So Python determines which method to be called based upon the actual object type at runtime.
+
+248
+00:24:47.090 --> 00:24:50.290
+Jitendra U: And that is the concept of late binding.
+
+249
+00:24:51.280 --> 00:24:52.770
+Jitendra U: Late binding.
+
+250
+00:24:54.210 --> 00:25:00.939
+Jitendra U: Right? So that means it is performing a uniform treatment to handle the… all the animal types without
+
+251
+00:25:01.210 --> 00:25:04.059
+Jitendra U: Knowing their specific class's implementation.
+
+252
+00:25:04.530 --> 00:25:08.419
+Jitendra U: So, as a user, you do not need to know what is there inside your gearbox.
+
+253
+00:25:08.900 --> 00:25:12.690
+Jitendra U: All you need to do is you just need to know how to operate, how to…
+
+254
+00:25:13.160 --> 00:25:16.000
+Jitendra U: Create how to latch 5th gear.
+
+255
+00:25:16.160 --> 00:25:17.469
+Jitendra U: To reverse the car.
+
+256
+00:25:19.540 --> 00:25:23.400
+Jitendra U: Right? Until somebody discovers a sixth gear.
+
+257
+00:25:24.860 --> 00:25:29.329
+Jitendra U: Right? So… That's the whole idea, right? So what is the benefit of this approach?
+
+258
+00:25:29.730 --> 00:25:32.390
+Jitendra U: The benefit of this approach is extensibility.
+
+259
+00:25:32.590 --> 00:25:39.000
+Jitendra U: You can be able to add new animal type or new functionality without changing the existing code. Again, the code reusability.
+
+260
+00:25:39.450 --> 00:25:44.019
+Jitendra U: First principle design. Second is the maintainability… maintainability, or cost.
+
+261
+00:25:44.710 --> 00:25:59.000
+Jitendra U: So, interface is consistent across all implementation, because, remember, development plus QA There's a very… Costly affair.
+
+262
+00:25:59.290 --> 00:26:04.310
+Jitendra U: So if somebody have developed a code and then perform a QA on the top of it, it's very costly for a company.
+
+263
+00:26:05.310 --> 00:26:07.290
+Jitendra U: So, company do not want to invest.
+
+264
+00:26:07.690 --> 00:26:08.480
+Jitendra U: Much.
+
+265
+00:26:09.350 --> 00:26:15.709
+Jitendra U: on maintainability part. So that is where you have to create a consistency in terms of implementation strategy.
+
+266
+00:26:16.130 --> 00:26:23.179
+Jitendra U: The code can be used, one function works for many different object types, and the flexibility of each class implementation
+
+267
+00:26:23.640 --> 00:26:26.109
+Jitendra U: Should we happen in a more appropriate manner?
+
+268
+00:26:29.000 --> 00:26:29.830
+Jitendra U: Right?
+
+269
+00:26:30.060 --> 00:26:38.909
+Jitendra U: So think of this example as a remote control. Again, every TV responds to the power on, volume up button, changing the channel.
+
+270
+00:26:39.230 --> 00:26:45.390
+Jitendra U: But Samsung TV implement these commands on one way, Sony TV implement these differently.
+
+271
+00:26:45.830 --> 00:26:48.429
+Jitendra U: LTTV have their own implementation.
+
+272
+00:26:50.440 --> 00:26:51.290
+Jitendra U: Right?
+
+273
+00:26:51.680 --> 00:26:54.839
+Jitendra U: That's the whole idea of it, that you're going to use.
+
+274
+00:26:58.110 --> 00:27:01.180
+Jitendra U: No, there's no compile-time polymorphism in Python.
+
+275
+00:27:02.620 --> 00:27:04.620
+Jitendra U: This is runtime polymorphism only.
+
+276
+00:27:07.920 --> 00:27:13.189
+Jitendra U: Alright, so is it clear to everyone what we are talking? Is it too much to understand?
+
+277
+00:27:14.550 --> 00:27:16.260
+Jitendra U: Are you guys falling so far?
+
+278
+00:27:16.940 --> 00:27:20.459
+Jitendra U: Those who does not have coding background, I would like to hear from them.
+
+279
+00:27:20.640 --> 00:27:23.140
+Jitendra U: Is it too much horror show for you?
+
+280
+00:27:32.270 --> 00:27:35.289
+Jitendra U: Are you following, guys, at least the gist of it?
+
+281
+00:27:50.120 --> 00:27:54.500
+Jitendra U: need some more additional reading from coding background, not from coding work, yes.
+
+282
+00:27:54.790 --> 00:28:01.339
+Jitendra U: So basically, I will help you in the book side as well, so I will recommend one good book for Python Object 20 Programming.
+
+283
+00:28:02.290 --> 00:28:06.050
+Jitendra U: So… Basically, what you can do is,
+
+284
+00:28:06.820 --> 00:28:08.639
+Jitendra U: You can read that book as well.
+
+285
+00:28:08.780 --> 00:28:09.770
+Jitendra U: But…
+
+286
+00:28:10.080 --> 00:28:15.980
+Jitendra U: If you read the book, until unless you correlate with the real-world example, you will not get much out of it.
+
+287
+00:28:16.220 --> 00:28:22.139
+Jitendra U: to try to correlate with the real-world example, and that's the reason I've created a code in such a manner that you can be able to correlate.
+
+288
+00:28:24.000 --> 00:28:37.309
+Jitendra U: Okay, somebody's asking, we do not understand method overriding, overloading in Python and only overriding between the class. Yeah, it's absolutely correct. Python does not have traditional method of overriding, overloading like Java or C-sharp.
+
+289
+00:28:37.520 --> 00:28:40.530
+Jitendra U: Python has only method overriding between classes.
+
+290
+00:28:42.050 --> 00:28:47.700
+Jitendra U: So there is no compile-time polymorphism, I already told you, right? Runtime polymorphism is still there.
+
+291
+00:28:52.330 --> 00:28:59.910
+Jitendra U: Now, why Python does not have matter overloading, then you can talk to… I will give you the Python writer name, you can talk to him.
+
+292
+00:29:08.060 --> 00:29:09.690
+Jitendra U: Is it clear to everyone?
+
+293
+00:29:11.330 --> 00:29:16.449
+Jitendra U: Is this concept as clear to everyone? Are you able to execute? Shall we move on to the last example, abstraction?
+
+294
+00:29:19.660 --> 00:29:20.630
+Jitendra U: Alright.
+
+295
+00:29:24.180 --> 00:29:26.460
+Jitendra U: So, when we talk about abstraction.
+
+296
+00:29:27.690 --> 00:29:30.670
+Jitendra U: Abstraction means you are not allowing
+
+297
+00:29:31.080 --> 00:29:34.730
+Jitendra U: Unnecessary details to be a part of your implementation.
+
+298
+00:29:35.070 --> 00:29:39.450
+Jitendra U: So, abstraction is another key feature, where you are refraining the users
+
+299
+00:29:39.750 --> 00:29:44.310
+Jitendra U: to expose the designs, right? So when we talk about abstractions.
+
+300
+00:29:44.480 --> 00:29:49.699
+Jitendra U: It's like, your TV remote. You're not giving internal details to…
+
+301
+00:29:49.860 --> 00:29:53.079
+Jitendra U: And hiding the complexity of your chip designs.
+
+302
+00:29:53.310 --> 00:29:57.560
+Jitendra U: But you're just providing simple interfaces to operate on a TV remote.
+
+303
+00:29:57.670 --> 00:30:00.080
+Jitendra U: And that's the example of abstractions.
+
+304
+00:30:00.530 --> 00:30:09.159
+Jitendra U: So when we talk about abstraction, it's nothing but hiding the member functions and variables from the class.
+
+305
+00:30:10.920 --> 00:30:11.760
+Jitendra U: Right?
+
+306
+00:30:11.880 --> 00:30:15.230
+Jitendra U: So, let's look into the example that I've created.
+
+307
+00:30:15.870 --> 00:30:22.150
+Jitendra U: Now, here, I'm creating a… glass.
+
+308
+00:30:23.070 --> 00:30:24.790
+Jitendra U: Which is of type shape.
+
+309
+00:30:25.320 --> 00:30:31.429
+Jitendra U: Now, shape can be anything. It can… we can be able to calculate an area, we can be able to calculate a parameter of the shape.
+
+310
+00:30:31.820 --> 00:30:33.160
+Jitendra U: We can able to paint
+
+311
+00:30:33.900 --> 00:30:41.699
+Jitendra U: Inside the shape, right? Now, shape can be of different types, rectangle, circle is also a shape, triangle is also a shape.
+
+312
+00:30:42.480 --> 00:30:50.420
+Jitendra U: There are different types of hexagons, which is also a shape, right? And then, what I did is I created an abstract base class.
+
+313
+00:30:51.300 --> 00:30:53.829
+Jitendra U: So the purpose of abstract-based class…
+
+314
+00:30:54.340 --> 00:30:58.780
+Jitendra U: Abstract shape class is to make a concrete implementation.
+
+315
+00:30:59.510 --> 00:31:04.859
+Jitendra U: So I'm using a key feature called abstract Base Class, which is a decorator pattern.
+
+316
+00:31:05.300 --> 00:31:11.360
+Jitendra U: And then from there, what I'm trying to do is, I'm trying to define common interfaces.
+
+317
+00:31:12.480 --> 00:31:16.199
+Jitendra U: So, each class will have a common interface.
+
+318
+00:31:17.410 --> 00:31:21.730
+Jitendra U: Right, so similar to what we have done in polymorphism, but here we are doing it differently.
+
+319
+00:31:21.910 --> 00:31:25.010
+Jitendra U: We are creating a single point of entry.
+
+320
+00:31:27.200 --> 00:31:30.619
+Jitendra U: or abstract-based class will not even have singleton pattern.
+
+321
+00:31:30.860 --> 00:31:35.430
+Jitendra U: Abstract-based class means… You need not to initialize an object.
+
+322
+00:31:35.750 --> 00:31:37.140
+Jitendra U: Obstruction.
+
+323
+00:31:38.290 --> 00:31:39.130
+Jitendra U: Right?
+
+324
+00:31:39.800 --> 00:31:45.509
+Jitendra U: So… The idea of abstraction, let me show you with the output.
+
+325
+00:31:46.330 --> 00:31:51.419
+Jitendra U: If you look into this output, Alright, as you can see.
+
+326
+00:31:51.670 --> 00:31:57.719
+Jitendra U: I'm trying to calculate the two or three different things. The first thing is I would like to calculate
+
+327
+00:31:57.910 --> 00:31:59.759
+Jitendra U: The area of that shape.
+
+328
+00:32:01.000 --> 00:32:08.319
+Jitendra U: Second thing is, I would like to find it out, how many, what is the parameter of that circle? 2 pi r.
+
+329
+00:32:09.070 --> 00:32:13.769
+Jitendra U: Right? And then, similarly, I would like to find out so many other things. Substruction…
+
+330
+00:32:14.270 --> 00:32:20.409
+Jitendra U: means I'm defining what method must be implemented while hiding the implementation complexity.
+
+331
+00:32:20.930 --> 00:32:26.240
+Jitendra U: So I've created a method using… this package.
+
+332
+00:32:28.330 --> 00:32:30.069
+Jitendra U: Where's that package?
+
+333
+00:32:30.280 --> 00:32:31.670
+Jitendra U: Let me show you.
+
+334
+00:32:45.550 --> 00:32:46.380
+Jitendra U: Yeah.
+
+335
+00:32:46.530 --> 00:32:51.040
+Jitendra U: So, from abstract-based class, I'm importing ABC, abstract method.
+
+336
+00:32:51.310 --> 00:32:55.940
+Jitendra U: And with that package, or that module, I'm implementing my classes.
+
+337
+00:32:57.570 --> 00:33:00.419
+Jitendra U: So this is where I'm using a function decorator.
+
+338
+00:33:01.020 --> 00:33:05.829
+Jitendra U: to implement these subclasses. Now, we'll talk about Decorator in the next module.
+
+339
+00:33:06.520 --> 00:33:12.160
+Jitendra U: But, just to keep it simple, consider it like a property of a class.
+
+340
+00:33:13.030 --> 00:33:15.630
+Jitendra U: Right? And then I have a shape function.
+
+341
+00:33:16.010 --> 00:33:23.499
+Jitendra U: So, basically, what I'm trying to do is I'm trying to create a uniform interface. All shapes respond to the same method. Area, parameter.
+
+342
+00:33:23.990 --> 00:33:28.840
+Jitendra U: The rectangle will have… Different formula for parameter.
+
+343
+00:33:28.940 --> 00:33:30.890
+Jitendra U: Circle will have different formula.
+
+344
+00:33:31.370 --> 00:33:34.139
+Jitendra U: But implementation will remain the same.
+
+345
+00:33:35.470 --> 00:33:38.519
+Jitendra U: Right? So, what are we trying to achieve with this implementation?
+
+346
+00:33:39.030 --> 00:33:49.469
+Jitendra U: So, the first and the foremost thing is, we are going to enforce the interface, single point of interface. Python guaranteed that all shapes will have area and parameter method.
+
+347
+00:33:51.970 --> 00:33:54.630
+Jitendra U: Right? The code reusability is another thing.
+
+348
+00:33:56.830 --> 00:33:57.630
+Jitendra U: Right?
+
+349
+00:33:58.110 --> 00:34:04.949
+Jitendra U: So that is how these things have been designed. So real-world analogy for abstraction, if I have to take another, apart from a TV remote.
+
+350
+00:34:05.460 --> 00:34:09.679
+Jitendra U: You can think of, your abstractions like your car dashboard.
+
+351
+00:34:10.070 --> 00:34:11.260
+Jitendra U: Dashcam.
+
+352
+00:34:11.949 --> 00:34:18.120
+Jitendra U: So you have a speedometer, you have a fuel gauge, you have a signal about your batteries, and
+
+353
+00:34:18.460 --> 00:34:23.029
+Jitendra U: The… the push… push-on buttons for taking left and right.
+
+354
+00:34:23.429 --> 00:34:33.960
+Jitendra U: But you're hiding the complexity of engine management, like fuel injection, brake system, etc. So every car have these controls, but implementation varies by manufacturer.
+
+355
+00:34:34.610 --> 00:34:37.540
+Jitendra U: So you will get different dash cams, different dashboards.
+
+356
+00:34:37.940 --> 00:34:39.560
+Jitendra U: For different types of cars.
+
+357
+00:34:39.690 --> 00:34:46.020
+Jitendra U: So, abstraction provides a simple, consistent interface while hiding the complex engineering underneath it.
+
+358
+00:34:46.290 --> 00:34:47.730
+Jitendra U: And these extract
+
+359
+00:34:48.460 --> 00:34:56.479
+Jitendra U: These… this is exactly what the shape class does. So define what shape must be used to do work calculation on area and parameter.
+
+360
+00:34:56.760 --> 00:35:03.289
+Jitendra U: Without specifying the formulas, how to do so. So the formulas will be a part of your derived classes.
+
+361
+00:35:05.250 --> 00:35:07.760
+Jitendra U: So it is saying that I would like to return
+
+362
+00:35:08.130 --> 00:35:12.200
+Jitendra U: the area and the parameter, but how I'm going to do that?
+
+363
+00:35:12.350 --> 00:35:14.870
+Jitendra U: is something which I defined for a specific shape.
+
+364
+00:35:17.580 --> 00:35:27.290
+Jitendra U: So I'm… abstraction means I'm creating a… layer of… Responsibilities between the two classes.
+
+365
+00:35:31.240 --> 00:35:37.780
+Jitendra U: Okay, now let me look into the last questions. Yeah, so you need, real-world cases.
+
+366
+00:35:41.940 --> 00:35:49.370
+Jitendra U: how often we are going to use this in real-world cases. In data science, We will use class.
+
+367
+00:35:50.080 --> 00:35:54.100
+Jitendra U: And, this concept, as well, to design some modules.
+
+368
+00:35:54.770 --> 00:36:02.849
+Jitendra U: These are the basic building blocks of programming. If you have programming, use them daily, okay? Okay, this is the answers. I understand this and that, Mr.
+
+369
+00:36:03.670 --> 00:36:08.409
+Jitendra U: Yeah, that's correct. You will not see that, but you have to understand this concept.
+
+370
+00:36:09.580 --> 00:36:13.930
+Jitendra U: Otherwise, what is the purpose of… taking these classes on Python.
+
+371
+00:36:14.190 --> 00:36:18.179
+Jitendra U: I find it a bit restrictive coming from C++, C-sharp background.
+
+372
+00:36:18.780 --> 00:36:23.109
+Jitendra U: Yeah, so C++ and C Sharp background should have this understanding.
+
+373
+00:36:24.100 --> 00:36:25.240
+Jitendra U: So…
+
+374
+00:36:25.630 --> 00:36:35.470
+Jitendra U: if you have work on C++11 until 14 or 11, not 17 necessarily, these concepts are from the C++98.
+
+375
+00:36:35.880 --> 00:36:37.720
+Jitendra U: The first version of C++.
+
+376
+00:36:38.120 --> 00:36:44.459
+Jitendra U: C-sharp also, C-sharp 2001, 2, 3, all are having these concepts.
+
+377
+00:36:45.560 --> 00:36:53.489
+Jitendra U: Alright, so, I hope this is clear to everyone. I have shared the code as well. So your homework, guys, would be to make sure that,
+
+378
+00:36:54.730 --> 00:36:56.450
+Jitendra U: You can run this program.
+
+379
+00:36:56.920 --> 00:36:58.630
+Jitendra U: One or two more times.
+
+380
+00:36:59.060 --> 00:37:04.860
+Jitendra U: And then, you have to… Try this…
+
+381
+00:37:05.280 --> 00:37:07.419
+Jitendra U: book, which I'm going to refer.
+
+382
+00:37:08.620 --> 00:37:11.569
+Jitendra U: And I do not want you to go to every chapter.
+
+383
+00:37:16.780 --> 00:37:19.089
+Jitendra U: But let me show you the book.
+
+384
+00:37:22.080 --> 00:37:24.789
+Jitendra U: This is the book, which you can…
+
+385
+00:37:25.320 --> 00:37:29.369
+Jitendra U: If you have a packed subscription, You can go for it.
+
+386
+00:37:29.960 --> 00:37:33.090
+Jitendra U: If you don't have packed subscription, then download it.
+
+387
+00:37:36.140 --> 00:37:38.120
+Jitendra U: Either thing should be fine with me.
+
+388
+00:37:39.100 --> 00:37:41.180
+Jitendra U: But this is a book that I'm talking about.
+
+389
+00:37:43.600 --> 00:37:45.780
+Jitendra U: By Stephen and Dusty Phillips.
+
+390
+00:37:46.850 --> 00:37:50.749
+Jitendra U: So this book will have few chapters, which you can able to.
+
+391
+00:37:51.020 --> 00:37:52.650
+Jitendra U: Understand again.
+
+392
+00:37:54.130 --> 00:38:03.790
+Jitendra U: So… So your homework would be, you can go through it, Otherwise, there are… some other…
+
+393
+00:38:04.810 --> 00:38:10.180
+Jitendra U: materials which is available in this website, we can be able to use it as well, this website as well.
+
+394
+00:38:10.380 --> 00:38:13.309
+Jitendra U: We can just understand the implementation.
+
+395
+00:38:13.840 --> 00:38:17.259
+Jitendra U: And some more examples, similar to what we are trying to solve.
+
+396
+00:38:22.160 --> 00:38:23.869
+Jitendra U: So I will share you this link.
+
+397
+00:38:29.950 --> 00:38:35.090
+Jitendra U: In the age of no-code, low-code environment, I wonder how much hands-on coding is required.
+
+398
+00:38:35.400 --> 00:38:41.900
+Jitendra U: It's like, in the age of printer, how much handwriting you need?
+
+399
+00:38:43.200 --> 00:38:45.040
+Jitendra U: When the printer has been launched.
+
+400
+00:38:45.500 --> 00:38:50.729
+Jitendra U: You might feel that we should stop Writing something on the paper.
+
+401
+00:38:51.000 --> 00:38:56.119
+Jitendra U: But do you think that if you're not writing anything on the paper, will… printer will do everything for you?
+
+402
+00:38:57.360 --> 00:39:02.989
+Jitendra U: Same concept applies here. If you're not familiar with the code and syntax, you will struggle at some point of time.
+
+403
+00:39:08.420 --> 00:39:13.160
+Jitendra U: Until unless you're using no-code platforms, that's fine, if you're using it.
+
+404
+00:39:13.790 --> 00:39:19.099
+Jitendra U: But with coding platform, This is needed.
+
+405
+00:39:19.690 --> 00:39:22.159
+Jitendra U: And this code is for, yeah, Python.
+
+406
+00:39:38.660 --> 00:39:42.390
+Jitendra U: Alright, so this is much, pretty much what we have for today, guys.
+
+407
+00:39:43.020 --> 00:39:51.680
+Jitendra U: And, okay, I can see some questions, from automation testing using JavaScript, yeah…
+
+408
+00:39:56.580 --> 00:40:04.239
+Jitendra U: Yes, yes, yeah. So if you have some coding experience, that should be plus. I'm not asking for too much. I know that these concepts are hard.
+
+409
+00:40:04.510 --> 00:40:09.470
+Jitendra U: Specifically, object-oriented programming. But, some of you have already understand that
+
+410
+00:40:09.800 --> 00:40:13.829
+Jitendra U: These concepts will be at surface level, right? So it's like…
+
+411
+00:40:14.480 --> 00:40:20.890
+Jitendra U: A doctor needs to know everything, right? So you want to become a specialist, so you need to know at least what is object-oriented programming.
+
+412
+00:40:21.600 --> 00:40:25.970
+Jitendra U: Otherwise, there's really no need to understand these concepts, to be very honest.
+
+413
+00:40:26.270 --> 00:40:28.950
+Jitendra U: You can live without these concepts as well.
+
+414
+00:40:29.480 --> 00:40:35.010
+Jitendra U: Then why we are learning? That's the second question. So, again, coming to the second question, you want to become a specialist.
+
+415
+00:40:36.010 --> 00:40:36.920
+Jitendra U: Not a me…
+
+416
+00:40:41.520 --> 00:40:42.500
+Jitendra U: mechanic.
+
+417
+00:40:43.760 --> 00:40:48.779
+Jitendra U: No-code wipe code is supposed to be very buggy and only meant for basic code typing? Yeah, that's correct.
+
+418
+00:40:50.120 --> 00:40:54.010
+Jitendra U: That's correct, you have to still debug program. VIP coding and all.
+
+419
+00:40:54.390 --> 00:41:01.479
+Jitendra U: We'll give you the syntax, next word, predictability, and everything, and there are a lot of good interpreters as well.
+
+420
+00:41:04.240 --> 00:41:05.030
+Jitendra U: Yeah.
+
+421
+00:41:05.600 --> 00:41:09.060
+Jitendra U: So thanks, guys. I think… I hope you have enjoyed this session.
+
+422
+00:41:09.310 --> 00:41:16.750
+Jitendra U: And, just try to get references, but don't feel too much overwhelmed with object-oriented Python.
+
+423
+00:41:16.950 --> 00:41:24.910
+Jitendra U: It's just about, you understand the basics of Python, that should be good. And then the focus should be on pandas and NumPy from next class.
+
+424
+00:41:25.530 --> 00:41:31.019
+Jitendra U: So, with that, thank you guys for attending the session, and it was a pleasure to have interaction, and we will…
+
+425
+00:41:31.170 --> 00:41:33.359
+Jitendra U: discuss in the next tutorial. Thank you.
+
