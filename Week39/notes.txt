@@ -1,0 +1,3 @@
+python -m mlflow ui --backend-store-uri sqlite:///mlflow_advanced/mlflow.db --port 5000
+
+https://cloud.google.com/discover/what-is-kubeflow
